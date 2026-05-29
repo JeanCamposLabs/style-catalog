@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image Zoom &amp; Caption Reveal</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "image-zoom-reveal",
+    "title": "Image Zoom & Caption Reveal",
+    "summary": "On hover the image zooms within its frame while a caption slides up from below.",
+    "description": "An overflow-hidden frame clips an image that scales on hover; a caption bar translates up into view simultaneously — the staple gallery/portfolio thumbnail interaction.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "image", "reveal"],
+    "tags": ["image", "zoom", "caption", "overlay", "gallery", "portfolio"],
+    "tech": ["css"],
+    "era": "timeless",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Animates transform on the image and caption — GPU-friendly. Uses a CSS gradient as a stand-in image so the specimen needs no asset.",
+    "accessibility_notes": "Caption content should also be available without hover (e.g. visible on focus); transitions reduce under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--zoom", "description": "Hover scale factor", "default": "1.12" }
+    ],
+    "variations": ["Caption fade instead of slide", "Grayscale-to-color on hover", "Reveal a 'View' button"],
+    "related": ["card-lift", "duotone-image"],
+    "ai_usage": "Portfolio/gallery thumbnails. Structure: a position:relative, overflow:hidden frame containing the <img> (object-fit:cover) and an absolutely-positioned caption translated 100% down. On frame hover, scale the image and translate the caption to 0. Make the caption keyboard-focusable/visible-on-focus for a11y. Replace the gradient placeholder with a real <img>."
+  }
+  </script>
+  <style>
+    :root { --zoom: 1.12; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .thumb { position: relative; width: 300px; height: 220px; border-radius: 14px; overflow: hidden; cursor: pointer; }
+    .thumb__img {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #7c5cff, #2dd4bf 60%, #f0abfc);
+      transition: transform .5s ease;
+    }
+    .thumb__cap {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,.8));
+      color: #fff; transform: translateY(100%); transition: transform .4s ease;
+    }
+    .thumb:hover .thumb__img { transform: scale(var(--zoom)); }
+    .thumb:hover .thumb__cap { transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .thumb__img, .thumb__cap { transition: none; } .thumb__cap { transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <figure class="thumb" style="margin:0">
+    <div class="thumb__img"></div>
+    <figcaption class="thumb__cap"><strong>Aurora No. 4</strong><br><small>Mixed media, 2026</small></figcaption>
+  </figure>
+</body>
+</html>

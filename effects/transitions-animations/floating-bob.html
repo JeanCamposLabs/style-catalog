@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Floating Bob</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "floating-bob",
+    "title": "Floating Bob",
+    "summary": "A gentle up-and-down hover float that makes hero illustrations feel alive.",
+    "description": "An infinite ease-in-out translateY loop (optionally with a soft shadow that breathes) gives an object a weightless, floating quality.",
+    "theme": "transitions-animations",
+    "categories": ["animation", "ambient", "loop"],
+    "tags": ["float", "bob", "hover", "idle", "loop", "weightless"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Transform-only loop — GPU-friendly and cheap.",
+    "accessibility_notes": "Ambient motion; disable under prefers-reduced-motion. Avoid on text the user must read precisely.",
+    "customization": [
+      { "name": "--amp", "description": "Float height", "default": "12px" },
+      { "name": "--dur", "description": "Cycle duration", "default": "3s" }
+    ],
+    "variations": ["Add a synced shadow that grows as it rises", "Slight rotation for a drifting feel", "Different delays for a group of floats"],
+    "related": ["floating-particles"],
+    "ai_usage": "Use on hero illustrations, mascots, icons, and badges to add life. Apply .float; the keyframe eases translateY between 0 and -var(--amp). Give grouped elements different --dur and animation-delay so they don't move in lockstep. Mandatory reduced-motion guard."
+  }
+  </script>
+  <style>
+    :root { --amp: 12px; --dur: 3s; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 30%, #1a1040, #06060c); }
+    .float {
+      width: 110px; height: 110px; border-radius: 26px;
+      background: linear-gradient(145deg, #7c5cff, #2dd4bf);
+      box-shadow: 0 30px 40px rgba(0,0,0,.5);
+      animation: bob var(--dur) ease-in-out infinite;
+    }
+    @keyframes bob { 50% { transform: translateY(calc(-1 * var(--amp))); } }
+    @media (prefers-reduced-motion: reduce) { .float { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="float"></div>
+</body>
+</html>

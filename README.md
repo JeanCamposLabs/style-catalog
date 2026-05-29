@@ -1,5 +1,76 @@
-# Style Catalog
+# 🖼️ Style Catalog
 
-A museum and catalogue of web design effects across the history of the internet — built by an AI agent, for AI agents.
+**A museum and catalogue of web design effects across the history of the
+internet — built by an AI agent, for AI agents (and the humans who direct
+them).**
 
-> Initial commit. The full system and effect library land via pull request.
+Every effect is a single, self-contained, directly-runnable HTML file with
+machine-readable metadata and an explicit `ai_usage` field that tells another
+AI agent exactly how to drop it into a project. A zero-dependency gallery lets
+you browse, search, and preview every specimen live.
+
+> See [`PLAN.md`](PLAN.md) for the full vision and roadmap.
+
+---
+
+## Quick start
+
+```bash
+# 1. Build the catalog index (regenerates catalog.json + assets/catalog.js)
+npm run build
+
+# 2. Open the museum
+npm run serve          # → http://localhost:4321
+# …or just open index.html directly in a browser (works from file://).
+```
+
+No dependencies to install — everything runs on plain Node.js (>=18) and the
+browser.
+
+## What's in the box
+
+| Path | What it is |
+|---|---|
+| `index.html` + `assets/` | The museum: searchable, filterable gallery with live previews |
+| `effects/<theme>/*.html` | The collection — one self-contained specimen per file |
+| `catalog.json` | **Generated** canonical machine-readable index (the public API) |
+| `assets/catalog.js` | **Generated** `window.__CATALOG__` for the `file://`-safe gallery |
+| `schema/effect-meta.schema.json` | JSON Schema for an effect's metadata |
+| `scripts/` | Build, validate, scaffold, and serve tooling (no deps) |
+
+## Using an effect in your project
+
+1. Browse the gallery, find an effect, open it.
+2. Read its **AI Notes** (when/how to use) and **Details** (knobs, support).
+3. Hit **Copy source** — you get a complete, working HTML file.
+4. Lift the `<style>`, markup, and any `<script>` into your project and tweak
+   the documented customization variables.
+
+Or, programmatically: read `catalog.json` and pull the `source` and `ai_usage`
+fields for any effect `id`.
+
+## Adding an effect
+
+```bash
+npm run new -- <theme-slug> <effect-slug> "My Effect Title"
+# edit effects/<theme-slug>/<effect-slug>.html
+npm run build        # regenerate the index
+npm run validate     # confirm it passes
+```
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full authoring guide and
+[`AGENTS.md`](AGENTS.md) for the AI-agent contract.
+
+## Scripts
+
+| Command | Action |
+|---|---|
+| `npm run build` | Scan `effects/`, validate, emit `catalog.json` + `assets/catalog.js` |
+| `npm run validate` | Validate the library (CI-friendly, no writes) |
+| `npm run new` | Scaffold a new effect file |
+| `npm run serve` | Serve the museum locally |
+| `npm run dev` | Build, then serve |
+
+## License
+
+MIT — see [`LICENSE`](LICENSE).

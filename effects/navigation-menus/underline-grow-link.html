@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animated Underline Links</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "underline-grow-link",
+    "title": "Animated Underline Links",
+    "summary": "Nav links whose underline grows from the center (or slides in) on hover/focus.",
+    "description": "Uses a scaleX-animated pseudo-element underline with transform-origin so it grows from center, plus a left-to-right slide variant — the cleanest way to animate underlines.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "link", "hover"],
+    "tags": ["underline", "link", "hover", "nav", "scaleX", "focus"],
+    "tech": ["css"],
+    "era": "timeless",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Transform-only on a pseudo-element — GPU-friendly.",
+    "accessibility_notes": "Apply the same effect on :focus-visible, not just :hover, so keyboard users see it. Keep an accessible color/contrast for the link text itself.",
+    "customization": [
+      { "name": "--line", "description": "Underline color", "default": "#7c5cff" },
+      { "name": "transform-origin", "description": "center | left for grow direction", "default": "center" }
+    ],
+    "variations": ["Slide-in from left", "Thicker highlight bar behind text", "Two-line draw on hover"],
+    "related": ["fill-sweep-button"],
+    "ai_usage": "Standard nav/link hover. Link is position:relative; a ::after is an absolutely-positioned 2px bar at the bottom, scaleX(0) with transform-origin:center, transitioning to scaleX(1) on hover AND focus-visible. Change transform-origin to left for a directional slide. Always include :focus-visible for keyboard accessibility."
+  }
+  </script>
+  <style>
+    :root { --line: #7c5cff; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    nav { display: flex; gap: 2rem; }
+    .nav-link {
+      position: relative; color: #e7ebf3; text-decoration: none; font-size: 1.1rem; padding: .2rem 0;
+    }
+    .nav-link::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--line);
+      transform: scaleX(0); transform-origin: center; transition: transform .3s ease;
+    }
+    .nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); }
+    .nav-link.slide::after { transform-origin: left; }
+    @media (prefers-reduced-motion: reduce) { .nav-link::after { transition: none; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-link" href="#">Home</a>
+    <a class="nav-link" href="#">Work</a>
+    <a class="nav-link slide" href="#">About</a>
+    <a class="nav-link" href="#">Contact</a>
+  </nav>
+</body>
+</html>

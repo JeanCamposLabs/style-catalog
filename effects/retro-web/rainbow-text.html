@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rainbow Cycling Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "rainbow-text",
+    "title": "Rainbow Cycling Text",
+    "summary": "Text that cycles through the rainbow via an animated hue rotation — peak GeoCities energy.",
+    "description": "Fills text with a rainbow gradient (background-clip) and animates the hue with a filter or moving gradient, recreating the animated rainbow text of the early personal web.",
+    "theme": "retro-web",
+    "categories": ["retro", "text", "color"],
+    "tags": ["rainbow", "hue", "90s", "geocities", "colorful", "nostalgia"],
+    "tech": ["css"],
+    "era": "1990s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers; needs -webkit-background-clip: text.",
+    "performance_notes": "Animating hue-rotate filter or background-position; cheap for a heading.",
+    "accessibility_notes": "Rainbow text can be low-contrast and hard to read; keep it to large display headings, not body copy. Animation stops under prefers-reduced-motion (static rainbow remains).",
+    "customization": [
+      { "name": "--rate", "description": "Hue cycle duration", "default": "4s" }
+    ],
+    "variations": ["Per-letter rainbow with staggered hue", "Static rainbow (no animation)", "Pair with a comic-sans retro vibe"],
+    "related": ["gradient-text", "blink-text"],
+    "ai_usage": "Retro/playful headings and easter eggs. Apply a rainbow linear-gradient clipped to text, then animate filter: hue-rotate(0 → 360deg) for the cycling. Keep to large text for readability and disable animation under reduced motion. For a per-letter wave, wrap letters in spans and stagger animation-delay."
+  }
+  </script>
+  <style>
+    :root { --rate: 4s; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #1a0033; font-family: "Comic Sans MS", "Trebuchet MS", sans-serif; }
+    .rainbow {
+      font-size: 3rem; font-weight: 900;
+      background: linear-gradient(90deg, #ff0000, #ff8800, #ffee00, #00cc00, #0088ff, #8800ff, #ff0000);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: hue var(--rate) linear infinite;
+    }
+    @keyframes hue { to { filter: hue-rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .rainbow { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="rainbow">~ Welcome ~</div>
+</body>
+</html>

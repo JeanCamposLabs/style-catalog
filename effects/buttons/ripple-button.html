@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Material Ripple Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "ripple-button",
+    "title": "Material Ripple Button",
+    "summary": "A circular ripple expands from the click point, the classic Material Design touch feedback.",
+    "description": "On pointer down, a span is positioned at the cursor and scaled up while fading out, creating the ink-ripple. Vanilla JS, no framework.",
+    "theme": "buttons",
+    "categories": ["button", "feedback", "interaction"],
+    "tags": ["ripple", "material", "click", "feedback", "wave"],
+    "tech": ["css", "js"],
+    "era": "2010s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Each click spawns one short-lived element that is removed on animationend — no leaks.",
+    "accessibility_notes": "Purely additive visual feedback over a real <button>; keyboard activation still works. Honors prefers-reduced-motion by skipping the ripple.",
+    "customization": [
+      { "name": "--ripple", "description": "Ripple ink color", "default": "rgba(255,255,255,.6)" },
+      { "name": "background", "description": "Button base color", "default": "#7c5cff" }
+    ],
+    "variations": ["Centered ripple for icon buttons", "Dark ripple on light buttons", "Slower ripple for a softer feel"],
+    "related": ["gradient-border-button", "press-3d-button"],
+    "ai_usage": "Attach to any real <button>. The JS computes click coordinates relative to the button, sizes the ripple to cover it (diameter = max(width,height)), and removes the node on animationend. Requires position:relative + overflow:hidden on the button. Reuse the addRipple() function for multiple buttons by delegating or looping over a selector."
+  }
+  </script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .ripple-btn {
+      --ripple: rgba(255,255,255,.6);
+      position: relative; overflow: hidden;
+      border: none; cursor: pointer;
+      padding: 0.95rem 2.4rem; border-radius: 12px;
+      font-size: 1rem; font-weight: 600; color: #fff;
+      background: #7c5cff; box-shadow: 0 8px 24px rgba(124,92,255,.4);
+    }
+    .ripple-btn span.ink {
+      position: absolute; border-radius: 50%; transform: scale(0);
+      background: var(--ripple); pointer-events: none;
+      animation: ripple 0.6s linear;
+    }
+    @keyframes ripple { to { transform: scale(2.5); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .ripple-btn span.ink { display: none; } }
+  </style>
+</head>
+<body>
+  <button class="ripple-btn" id="btn">Click me</button>
+  <script>
+    function addRipple(e) {
+      var btn = e.currentTarget;
+      var rect = btn.getBoundingClientRect();
+      var size = Math.max(rect.width, rect.height);
+      var ink = document.createElement("span");
+      ink.className = "ink";
+      ink.style.width = ink.style.height = size + "px";
+      ink.style.left = (e.clientX - rect.left - size / 2) + "px";
+      ink.style.top = (e.clientY - rect.top - size / 2) + "px";
+      btn.appendChild(ink);
+      ink.addEventListener("animationend", function () { ink.remove(); });
+    }
+    document.getElementById("btn").addEventListener("click", addRipple);
+  </script>
+</body>
+</html>

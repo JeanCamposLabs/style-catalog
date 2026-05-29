@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ring Spinner</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "ring-spinner",
+    "title": "Ring Spinner",
+    "summary": "The classic spinning ring with a single colored arc, drawn with one element.",
+    "description": "A circular element with a transparent border on three sides and a colored top border spins continuously — the most recognizable loading indicator.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "spinner"],
+    "tags": ["spinner", "ring", "loading", "border", "rotate", "classic"],
+    "tech": ["css"],
+    "era": "timeless",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Animating rotation via transform is GPU-friendly. One DOM node.",
+    "accessibility_notes": "Add role=\"status\" and an aria-label/visually-hidden 'Loading' for screen readers. The spin itself is essential feedback, but pair with a text label.",
+    "customization": [
+      { "name": "--size", "description": "Diameter", "default": "48px" },
+      { "name": "--thick", "description": "Ring thickness", "default": "5px" },
+      { "name": "--color", "description": "Arc color", "default": "#7c5cff" }
+    ],
+    "variations": ["Two arcs (top+bottom) for a denser look", "Dashed border for a tick ring", "Slow spin for a calmer feel"],
+    "related": ["dual-ring-spinner", "dots-bounce"],
+    "ai_usage": "Default spinner for async actions and page/section loads. Apply .spinner; the colored border-top-color + transparent other sides creates the arc, animation:spin 1s linear infinite rotates it. Always wrap with role=status and a visually-hidden 'Loading…' label. Size via --size; match --color to brand."
+  }
+  </script>
+  <style>
+    :root { --size: 48px; --thick: 5px; --color: #7c5cff; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; }
+    .spinner {
+      width: var(--size); height: var(--size); border-radius: 50%;
+      border: var(--thick) solid rgba(255,255,255,.12);
+      border-top-color: var(--color);
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 2.5s; } }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; clip: rect(0 0 0 0); overflow: hidden; }
+  </style>
+</head>
+<body>
+  <div class="spinner" role="status"><span class="visually-hidden">Loading…</span></div>
+</body>
+</html>

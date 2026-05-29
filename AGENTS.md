@@ -1,0 +1,110 @@
+# AGENTS.md — The AI Agent Contract
+
+This repository is designed to be consumed by AI agents. This document is the
+contract: how to read the catalog, how to use an effect in a downstream
+project, and how to add new effects correctly.
+
+## TL;DR for a consuming agent
+
+1. Read `catalog.json`. It is the single source of truth.
+2. Each entry in `catalog.effects[]` has everything you need:
+   - `source` — a complete, runnable HTML file (the effect).
+   - `ai_usage` — natural-language instructions written **for you**: when to
+     reach for this effect, how to integrate it, what to change, and pitfalls.
+   - `customization` — the specific knobs (CSS variables / params) to turn.
+   - `tech`, `dependencies`, `browser_support`, `performance_notes`,
+     `accessibility_notes` — constraints to respect.
+3. To use an effect: extract the `<style>`, body markup, and any `<script>`
+   from `source`, adapt the documented customization knobs, and integrate.
+
+## The data model
+
+`catalog.json`:
+
+```jsonc
+{
+  "version": "0.1.0",
+  "generatedAt": "ISO timestamp",
+  "counts": { "themes": N, "effects": M },
+  "themes":  [ { "slug", "title", "description", "count" } ],
+  "facets":  { "themes":[], "tech":[], "difficulty":[], "era":[], "tags":[], "categories":[] },
+  "effects": [ { /* see below */ } ]
+}
+```
+
+Each effect:
+
+```jsonc
+{
+  "id": "neon-glow-text",          // stable, unique, kebab-case
+  "title": "Neon Glow Text",
+  "summary": "one line",
+  "description": "longer prose",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": ["typography", "glow"],
+  "tags": ["neon", "text-shadow"],
+  "tech": ["css"],                 // css | js | html | svg | canvas | webgl
+  "era": "2010s",                  // 1990s|2000s|2010s|2020s|timeless
+  "difficulty": "beginner",        // beginner|intermediate|advanced
+  "dependencies": [],              // external libs; prefer empty
+  "browser_support": "…",
+  "performance_notes": "…",
+  "accessibility_notes": "…",
+  "customization": [ { "name": "--neon", "description": "…", "default": "#0ff" } ],
+  "variations": ["…"],
+  "related": ["other-effect-id"],
+  "ai_usage": "Instructions written for an AI agent…",
+  "path": "effects/text-effects/neon-glow-text.html",
+  "source": "<!DOCTYPE html>… the full file …"
+}
+```
+
+## How to USE an effect in a downstream project
+
+1. **Pick** by querying `catalog.json` — filter on `theme`, `tags`, `tech`,
+   `difficulty`, or full-text over `summary`/`description`.
+2. **Read `ai_usage` first.** It encodes intent and gotchas that aren't obvious
+   from the CSS alone.
+3. **Extract the pieces** from `source`:
+   - CSS from the `<style>` block (or `<link>`-ed file content).
+   - The demonstrating markup from `<body>` (strip the demo scaffolding —
+     centering wrappers, demo copy — keep the effect's own elements/classes).
+   - Any `<script>` for JS-driven effects.
+4. **Respect constraints:** honor `dependencies` (ideally none),
+   `browser_support`, and especially `accessibility_notes` — most animated
+   effects must be wrapped in `@media (prefers-reduced-motion: reduce)` guards,
+   which the specimens already demonstrate.
+5. **Tune the knobs** listed in `customization` rather than rewriting from
+   scratch.
+
+## How to ADD an effect (authoring contract)
+
+Create `effects/<theme-slug>/<effect-slug>.html`. The file MUST:
+
+- Be a complete, valid, **self-contained** HTML document that renders the
+  effect with no external resources (no CDN links; `dependencies` should be
+  `[]` unless truly unavoidable).
+- Contain exactly one metadata block:
+  ```html
+  <script type="application/json" id="effect-meta"> { … } </script>
+  ```
+  conforming to `schema/effect-meta.schema.json`.
+- Set `id` equal to the file name (without `.html`) and `theme` equal to the
+  parent folder name.
+- Be visually self-demonstrating inside a 16:10 / 16:9 iframe (it is shown as a
+  miniature). Center or frame the effect so it reads at a glance.
+- Include a `@media (prefers-reduced-motion: reduce)` guard for any motion.
+- Provide a genuinely useful `ai_usage` string. This is the most important
+  field — write it as if instructing a teammate agent.
+
+Then run `npm run build` and `npm run validate`. Validation enforces: required
+fields, kebab-case ids, id/filename agreement, theme/folder agreement, unique
+ids, valid enums, and a present `_theme.json` per theme.
+
+## Invariants you can rely on
+
+- `id` is unique and stable across the catalog.
+- `source` is the byte-for-byte content of the specimen file.
+- The specimen at `path` is independently runnable in a browser.
+- `catalog.json` is regenerated from the files; never edit it by hand.

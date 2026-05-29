@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marching Ants Border</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "marching-ants-border",
+    "title": "Marching Ants Border",
+    "summary": "An animated dashed outline that crawls around the element, like a selection marquee.",
+    "description": "Draws a dashed border using a repeating-linear-gradient background on each edge and animates background-position so the dashes appear to march — the classic selection/'cut here' marquee.",
+    "theme": "borders-shadows",
+    "categories": ["border", "animation"],
+    "tags": ["marching-ants", "dashed", "marquee", "selection", "animated-border", "dotted"],
+    "tech": ["css"],
+    "era": "timeless",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Animates background-position on 4 gradients; cheap. (Animating border-style dashes is not smooth, hence the gradient approach.)",
+    "accessibility_notes": "Decorative selection cue; pause under prefers-reduced-motion. Don't rely on motion alone to indicate selection — pair with a label/state.",
+    "customization": [
+      { "name": "--ant", "description": "Dash color", "default": "#fff" },
+      { "name": "--dash", "description": "Dash + gap length", "default": "10px" }
+    ],
+    "variations": ["Two-color barber-pole", "Reverse direction on the opposite edges", "Use as a focus indicator for drop zones"],
+    "related": ["gradient-border"],
+    "ai_usage": "Use for selected items, crop/cut UI, and active drop zones. Build four edge gradients (top/right/bottom/left) with repeating-linear-gradient of dash+gap, sized 1px thick on their axis, and animate background-position to march. Pause under reduced motion. Combine with a real state class so selection isn't conveyed by motion alone."
+  }
+  </script>
+  <style>
+    :root { --ant: #ffffff; --dash: 10px; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .ants {
+      width: 220px; height: 140px; border-radius: 6px; display: grid; place-items: center; color: #e7ebf3;
+      background-image:
+        repeating-linear-gradient(90deg, var(--ant) 0 var(--dash), transparent var(--dash) calc(2 * var(--dash))),
+        repeating-linear-gradient(90deg, var(--ant) 0 var(--dash), transparent var(--dash) calc(2 * var(--dash))),
+        repeating-linear-gradient(0deg, var(--ant) 0 var(--dash), transparent var(--dash) calc(2 * var(--dash))),
+        repeating-linear-gradient(0deg, var(--ant) 0 var(--dash), transparent var(--dash) calc(2 * var(--dash)));
+      background-size: 100% 2px, 100% 2px, 2px 100%, 2px 100%;
+      background-position: 0 0, 0 100%, 0 0, 100% 0;
+      background-repeat: no-repeat;
+      animation: march 0.6s linear infinite;
+    }
+    @keyframes march {
+      to {
+        background-position: calc(2 * var(--dash)) 0, calc(-2 * var(--dash)) 100%,
+                             0 calc(-2 * var(--dash)), 100% calc(2 * var(--dash));
+      }
+    }
+    @media (prefers-reduced-motion: reduce) { .ants { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="ants">Selected</div>
+</body>
+</html>

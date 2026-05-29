@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Typewriter Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "typewriter-text",
+    "title": "Typewriter Text",
+    "summary": "Text types itself out with a blinking caret using the steps() timing function.",
+    "description": "Animates max-width / width from 0 with steps() so characters appear one glyph at a time, plus a border-right caret that blinks.",
+    "theme": "text-effects",
+    "categories": ["typography", "animation"],
+    "tags": ["typewriter", "typing", "steps", "caret", "monospace"],
+    "tech": ["css"],
+    "era": "2010s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers. The pure-CSS version needs a known character count and a monospace font.",
+    "performance_notes": "Animating width triggers layout but on a single short line it is negligible.",
+    "accessibility_notes": "Full text is present in the DOM immediately (just visually clipped), so screen readers get it. Animation is skipped under prefers-reduced-motion (text shown instantly).",
+    "customization": [
+      { "name": "--chars", "description": "Number of characters (set to your text length)", "default": "11" },
+      { "name": "--speed", "description": "Typing duration", "default": "3s" }
+    ],
+    "variations": ["Loop with multiple phrases via JS", "Solid block caret instead of bar", "Remove caret after typing with a forwards fill"],
+    "related": ["text-reveal-mask"],
+    "ai_usage": "Great for hero taglines and terminal/CLI aesthetics. Pure-CSS version requires: a monospace font, the text wrapped in an inline-block element, ch-based width animation, and --chars set to the exact character count. For dynamic/looping text, prefer a tiny JS loop that swaps textContent. Keep white-space:nowrap and overflow:hidden."
+  }
+  </script>
+  <style>
+    :root { --chars: 11; --speed: 3s; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: ui-monospace, "Courier New", monospace; }
+    .typewriter {
+      font-size: 2.2rem; color: #34d399; white-space: nowrap; overflow: hidden;
+      border-right: 0.12em solid #34d399;
+      width: 0;
+      animation: typing var(--speed) steps(var(--chars)) forwards, caret 0.8s step-end infinite;
+    }
+    @keyframes typing { to { width: calc(var(--chars) * 1ch); } }
+    @keyframes caret { 50% { border-color: transparent; } }
+    @media (prefers-reduced-motion: reduce) {
+      .typewriter { width: calc(var(--chars) * 1ch); animation: caret 0.8s step-end infinite; }
+    }
+  </style>
+</head>
+<body>
+  <div class="typewriter">Hello world</div>
+</body>
+</html>

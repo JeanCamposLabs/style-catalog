@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cursor Spotlight Reveal</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "spotlight-cursor",
+    "title": "Cursor Spotlight Reveal",
+    "summary": "The cursor carries a spotlight that reveals hidden content through a dark mask.",
+    "description": "A full-screen overlay uses a radial-gradient mask centered on the cursor, so only a circle around the pointer is illuminated — a flashlight/torch reveal over otherwise dimmed content.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "reveal", "mask"],
+    "tags": ["spotlight", "flashlight", "torch", "mask", "reveal", "cursor"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (radial-gradient mask). Prefix mask for older Safari.",
+    "performance_notes": "Updates two CSS variables on pointermove; the mask is GPU-composited. Cheap.",
+    "accessibility_notes": "Hiding content behind a cursor mask is bad for keyboard/screen-reader users and anyone who can't aim precisely — only use for playful, non-essential reveals and provide an accessible alternative.",
+    "customization": [
+      { "name": "--r", "description": "Spotlight radius", "default": "120px" },
+      { "name": "--dim", "description": "How dark the masked area is", "default": "rgba(0,0,0,.92)" }
+    ],
+    "variations": ["Reveal an image layer instead of text", "Soft vs hard spotlight edge", "Multiple lights for collaborative cursors"],
+    "related": ["follow-dot-cursor", "spotlight-card"],
+    "ai_usage": "Playful 'reveal in the dark' microsites and easter eggs — NOT for essential content. A fixed overlay sits above content with background var(--dim) and a radial-gradient mask: mask: radial-gradient(circle var(--r) at var(--x) var(--y), transparent 99%, #000). Update --x/--y on pointermove. Always provide an accessible, non-masked path to the same content."
+  }
+  </script>
+  <style>
+    :root { --x: 50%; --y: 50%; --r: 120px; --dim: rgba(0,0,0,.92); }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #2dd4bf; font-family: system-ui, sans-serif; }
+    .hidden-text { font-size: 2rem; font-weight: 800; text-align: center; padding: 1rem; }
+    .torch {
+      position: fixed; inset: 0; pointer-events: none; background: var(--dim);
+      -webkit-mask: radial-gradient(circle var(--r) at var(--x) var(--y), transparent 98%, #000 100%);
+      mask: radial-gradient(circle var(--r) at var(--x) var(--y), transparent 98%, #000 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="hidden-text">Move the light<br>to find me ✨</div>
+  <div class="torch" id="torch"></div>
+  <script>
+    var t = document.getElementById("torch");
+    addEventListener("pointermove", function (e) {
+      t.style.setProperty("--x", e.clientX + "px");
+      t.style.setProperty("--y", e.clientY + "px");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magnetic Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "magnetic-button",
+    "title": "Magnetic Button",
+    "summary": "A button that is gently pulled toward the cursor as it approaches, snapping back on exit.",
+    "description": "Listens for pointer movement within a hit area and translates the button a fraction of the cursor offset, giving a magnetic, springy feel common in award-winning agency sites.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "button", "micro-interaction"],
+    "tags": ["magnetic", "cursor", "spring", "agency", "playful", "translate"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers with a pointer; on touch it simply does nothing special.",
+    "performance_notes": "Transform-only updates on pointermove; smooth via a CSS transition for snap-back.",
+    "accessibility_notes": "Pure enhancement; button works normally. Disabled under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--strength", "description": "Pull factor (0-1)", "default": "0.4" }
+    ],
+    "variations": ["Magnetize the label separately from the button for layered pull", "Stronger pull for big hero CTAs", "Add scale on hover"],
+    "related": ["tilt-card", "spotlight-card"],
+    "ai_usage": "Use for hero CTAs and nav items on expressive, agency-style sites. Compute the cursor offset from the button center and translate the button by offset * strength on pointermove; reset transform to 0 on pointerleave (a CSS transition makes the snap-back springy). Keep strength ~0.2-0.4. Skip on touch and under reduced-motion."
+  }
+  </script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .magnetic {
+      border: none; cursor: pointer; color: #fff; font-weight: 700; font-size: 1.05rem;
+      padding: 1.1rem 2.6rem; border-radius: 999px; background: #7c5cff;
+      transition: transform .3s cubic-bezier(.2,.8,.2,1);
+    }
+    @media (prefers-reduced-motion: reduce) { .magnetic { transition: none; } }
+  </style>
+</head>
+<body>
+  <button class="magnetic" id="btn">Magnetic</button>
+  <script>
+    var btn = document.getElementById("btn");
+    var STRENGTH = 0.4;
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduce) {
+      btn.addEventListener("pointermove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = e.clientX - (r.left + r.width / 2);
+        var y = e.clientY - (r.top + r.height / 2);
+        btn.style.transform = "translate(" + x * STRENGTH + "px," + y * STRENGTH + "px)";
+      });
+      btn.addEventListener("pointerleave", function () { btn.style.transform = "translate(0,0)"; });
+    }
+  </script>
+</body>
+</html>

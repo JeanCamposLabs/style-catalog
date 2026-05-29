@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shimmer / Shine Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shimmer-text",
+    "title": "Shimmer / Shine Text",
+    "summary": "A bright highlight sweeps across muted text like light catching metal — the classic skeleton/shine loop.",
+    "description": "Uses a gradient that is mostly the base color with a narrow bright band, clipped to the text, and slides the band across with background-position.",
+    "theme": "text-effects",
+    "categories": ["typography", "gradient", "loading"],
+    "tags": ["shimmer", "shine", "skeleton", "loading", "background-clip", "metallic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers; needs -webkit-background-clip: text.",
+    "performance_notes": "Single element, animates background-position — very cheap.",
+    "accessibility_notes": "Decorative; animation pauses under prefers-reduced-motion leaving readable text. Keep the base color readable on its own.",
+    "customization": [
+      { "name": "--base", "description": "Resting text color", "default": "#52607a" },
+      { "name": "--shine", "description": "Highlight color", "default": "#ffffff" }
+    ],
+    "variations": ["Use for skeleton loading placeholders", "Gold/silver palette for a metallic plaque", "Slow it down for a luxury feel"],
+    "related": ["gradient-text", "skeleton-loader"],
+    "ai_usage": "Two uses: (1) decorative shiny headings, (2) loading-state text placeholders. Apply .shimmer to text. The trick is a 3-stop gradient (base, shine, base) sized larger than the element so the shine band can travel. For loading skeletons, apply the same technique to a gray block instead of text."
+  }
+  </script>
+  <style>
+    :root { --base: #52607a; --shine: #ffffff; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .shimmer {
+      font-size: 3rem; font-weight: 800;
+      background: linear-gradient(100deg, var(--base) 40%, var(--shine) 50%, var(--base) 60%);
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 2.6s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: -220% center; } }
+    @media (prefers-reduced-motion: reduce) { .shimmer { animation: none; color: var(--base); } }
+  </style>
+</head>
+<body>
+  <div class="shimmer">Loading…</div>
+</body>
+</html>

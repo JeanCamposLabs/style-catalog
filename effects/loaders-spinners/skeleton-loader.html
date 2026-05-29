@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skeleton Loader</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "skeleton-loader",
+    "title": "Skeleton Loader",
+    "summary": "Gray placeholder blocks with a sweeping shimmer that mimic content while it loads.",
+    "description": "Content-shaped gray boxes get a moving highlight gradient (the same trick as shimmer text) to signal that real content is on its way — reducing perceived load time.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "skeleton", "placeholder"],
+    "tags": ["skeleton", "shimmer", "placeholder", "loading", "ghost", "content"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Animates background-position only; cheap even for many blocks.",
+    "accessibility_notes": "Mark the region aria-busy=\"true\" and/or role=status so assistive tech announces loading. Shimmer stops under prefers-reduced-motion (static gray).",
+    "customization": [
+      { "name": "--base", "description": "Block color", "default": "#1b2030" },
+      { "name": "--sheen", "description": "Shimmer highlight", "default": "#2a3142" }
+    ],
+    "variations": ["Circle skeleton for avatars", "Card skeleton (image + lines)", "Pulse opacity instead of shimmer sweep"],
+    "related": ["shimmer-text"],
+    "ai_usage": "Show in place of content during data fetches; match block shapes/sizes to the real layout to avoid reflow jank. Apply .skeleton to each placeholder; it tiles a 3-stop gradient (base, sheen, base) at background-size:200% and animates background-position. Set aria-busy on the container, then swap in real content when loaded."
+  }
+  </script>
+  <style>
+    :root { --base: #1b2030; --sheen: #2a3142; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .card { width: 300px; padding: 1.2rem; border-radius: 14px; background: #11141c; border: 1px solid #262c3d; }
+    .skeleton {
+      background: linear-gradient(100deg, var(--base) 30%, var(--sheen) 50%, var(--base) 70%);
+      background-size: 200% 100%; border-radius: 8px; animation: shine 1.4s linear infinite;
+    }
+    .s-avatar { width: 52px; height: 52px; border-radius: 50%; margin-bottom: 1rem; }
+    .s-line { height: 12px; margin-bottom: .7rem; }
+    .s-line.w80 { width: 80%; } .s-line.w60 { width: 60%; } .s-line.w100 { width: 100%; }
+    @keyframes shine { to { background-position: -200% 0; } }
+    @media (prefers-reduced-motion: reduce) { .skeleton { animation: none; background: var(--base); } }
+  </style>
+</head>
+<body>
+  <div class="card" role="status" aria-busy="true" aria-label="Loading content">
+    <div class="skeleton s-avatar"></div>
+    <div class="skeleton s-line w80"></div>
+    <div class="skeleton s-line w100"></div>
+    <div class="skeleton s-line w60"></div>
+  </div>
+</body>
+</html>

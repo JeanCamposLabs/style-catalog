@@ -1,0 +1,29 @@
+{
+  "name": "style-catalog",
+  "version": "0.1.0",
+  "description": "A museum and catalogue of web design effects across the history of the internet — built by an AI agent, for AI agents.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "new": "node scripts/new-effect.mjs",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "prepublishOnly": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "css",
+    "effects",
+    "catalog",
+    "gallery",
+    "design-system",
+    "ai-agents",
+    "ui",
+    "animations"
+  ]
+}

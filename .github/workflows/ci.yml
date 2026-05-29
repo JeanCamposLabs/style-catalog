@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate catalog
+        run: npm run validate
+      - name: Build catalog
+        run: npm run build
+      - name: Check generated files are committed and up to date
+        run: |
+          if [ -n "$(git status --porcelain catalog.json assets/catalog.js)" ]; then
+            echo "::error::catalog.json / assets/catalog.js are stale. Run 'npm run build' and commit the result."
+            git --no-pager diff --stat catalog.json assets/catalog.js
+            exit 1
+          fi
+          echo "Generated files are up to date."

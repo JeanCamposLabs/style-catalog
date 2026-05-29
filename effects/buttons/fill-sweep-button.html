@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fill Sweep Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "fill-sweep-button",
+    "title": "Fill Sweep Button",
+    "summary": "An outline button whose color sweeps in from one side on hover.",
+    "description": "A ::before pseudo-element scales/slides in from the left on hover, filling the ghost button with color while the label flips to a contrasting shade.",
+    "theme": "buttons",
+    "categories": ["button", "hover", "outline"],
+    "tags": ["hover", "fill", "sweep", "ghost", "outline", "transition"],
+    "tech": ["css"],
+    "era": "2010s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Animates transform on a pseudo-element — GPU-friendly.",
+    "accessibility_notes": "Real <button>; color contrast valid in both states. Transition removed under prefers-reduced-motion (instant fill).",
+    "customization": [
+      { "name": "--fill", "description": "Sweep color", "default": "#7c5cff" },
+      { "name": "--direction", "description": "transform-origin for the sweep", "default": "left" }
+    ],
+    "variations": ["Sweep from bottom (origin: bottom, scaleY)", "Diagonal sweep with skew", "Two-color split sweep"],
+    "related": ["gradient-border-button", "underline-grow-link"],
+    "ai_usage": "Classic ghost-to-solid CTA. Button has transparent bg + colored border + label. A ::before is absolutely positioned, scaleX(0) with transform-origin:left, and animates to scaleX(1) on hover; put label text above it with position:relative;z-index:1 and switch its color. Change transform-origin and the scale axis to control sweep direction."
+  }
+  </script>
+  <style>
+    :root { --fill: #7c5cff; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .sweep-btn {
+      position: relative; overflow: hidden; cursor: pointer; isolation: isolate;
+      background: transparent; border: 2px solid var(--fill); color: var(--fill);
+      padding: 0.8rem 2.2rem; border-radius: 10px; font-size: 1rem; font-weight: 600;
+      transition: color .35s ease;
+    }
+    .sweep-btn::before {
+      content: ""; position: absolute; inset: 0; background: var(--fill); z-index: -1;
+      transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+    }
+    .sweep-btn:hover { color: #fff; }
+    .sweep-btn:hover::before { transform: scaleX(1); }
+    @media (prefers-reduced-motion: reduce) { .sweep-btn, .sweep-btn::before { transition: none; } }
+  </style>
+</head>
+<body>
+  <button class="sweep-btn">Explore</button>
+</body>
+</html>

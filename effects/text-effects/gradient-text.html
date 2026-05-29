@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animated Gradient Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gradient-text",
+    "title": "Animated Gradient Text",
+    "summary": "Letters filled with a moving multi-stop gradient via background-clip: text.",
+    "description": "Paints a wide linear-gradient as the element background, clips it to the glyph shapes, and animates background-position to make the colors flow through the text.",
+    "theme": "text-effects",
+    "categories": ["typography", "gradient"],
+    "tags": ["gradient", "background-clip", "animation", "colorful", "heading"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers. Needs -webkit-background-clip: text (still required even in Chromium).",
+    "performance_notes": "Animating background-position is GPU-friendly and cheap.",
+    "accessibility_notes": "The text remains real, selectable text. Animation pauses under prefers-reduced-motion. Verify the lightest gradient stop has enough contrast.",
+    "customization": [
+      { "name": "--grad", "description": "The gradient stops", "default": "linear-gradient(90deg,#f0f,#0ff,#ff0,#f0f)" },
+      { "name": "--speed", "description": "Flow duration", "default": "6s" }
+    ],
+    "variations": ["Static gradient (drop the animation)", "Conic gradient for a rainbow sweep", "Pair with a transparent text-stroke outline"],
+    "related": ["neon-glow-text", "shimmer-text"],
+    "ai_usage": "Ideal for headings, brand names, and marketing hero text. Apply .grad-text to an inline-block heading. Set --grad to your palette and keep the gradient at least 2x wider than the text (background-size:200%) so the animation has room to travel. Works on any background. Remove the animation property for a static gradient fill."
+  }
+  </script>
+  <style>
+    :root { --grad: linear-gradient(90deg,#ff2d95,#22d3ee,#facc15,#ff2d95); --speed: 6s; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .grad-text {
+      font-size: 4.2rem; font-weight: 800; letter-spacing: -0.02em;
+      background: var(--grad);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: flow var(--speed) linear infinite;
+    }
+    @keyframes flow { to { background-position: 250% center; } }
+    @media (prefers-reduced-motion: reduce) { .grad-text { animation: none; } }
+  </style>
+</head>
+<body>
+  <h1 class="grad-text">Gradient</h1>
+</body>
+</html>

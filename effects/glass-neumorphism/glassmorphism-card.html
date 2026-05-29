@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glassmorphism Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glassmorphism-card",
+    "title": "Glassmorphism Card",
+    "summary": "A frosted-glass panel that blurs whatever sits behind it, with a subtle light border.",
+    "description": "Combines a translucent background, backdrop-filter: blur(), a 1px light border, and a soft shadow to create the frosted-glass surface popularized by iOS/macOS and Windows Acrylic.",
+    "theme": "glass-neumorphism",
+    "categories": ["surface", "glass", "card"],
+    "tags": ["glassmorphism", "frosted", "backdrop-filter", "blur", "translucent", "ios"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers; backdrop-filter needs the -webkit- prefix for Safari.",
+    "performance_notes": "backdrop-filter blur is GPU-intensive; limit the blurred area and avoid stacking many glass layers.",
+    "accessibility_notes": "Translucency can wreck text contrast — keep the tint dark/opaque enough and test contrast over busy backgrounds. Provide a solid fallback where backdrop-filter is unsupported.",
+    "customization": [
+      { "name": "--glass", "description": "Tint color/opacity", "default": "rgba(255,255,255,.08)" },
+      { "name": "--blur", "description": "Backdrop blur radius", "default": "12px" }
+    ],
+    "variations": ["Dark glass (low-opacity black tint)", "Colored glass tint", "Glass navbar pinned over content"],
+    "related": ["neumorphism-card", "glass-neumorphism"],
+    "ai_usage": "Use over a colorful/photographic background (it has nothing to blur over a flat color). Apply .glass: semi-transparent background + backdrop-filter:blur(var(--blur)) + a light 1px border + soft shadow. Always include -webkit-backdrop-filter. Verify text contrast; if backdrop-filter is unsupported, fall back to a higher-opacity solid background."
+  }
+  </script>
+  <style>
+    :root { --glass: rgba(255,255,255,.08); --blur: 12px; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      display: grid; place-items: center; font-family: system-ui, sans-serif;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='30%25'%3E%3Cstop offset='0%25' stop-color='%23ff6ec4'/%3E%3Cstop offset='50%25' stop-color='%237c5cff'/%3E%3Cstop offset='100%25' stop-color='%232dd4bf'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23g)'/%3E%3C/svg%3E") center/cover;
+    }
+    .glass {
+      width: 280px; padding: 1.8rem; border-radius: 20px; color: #fff;
+      background: var(--glass);
+      -webkit-backdrop-filter: blur(var(--blur)); backdrop-filter: blur(var(--blur));
+      border: 1px solid rgba(255,255,255,.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,.25);
+    }
+    .glass h3 { margin: 0 0 .4rem; } .glass p { margin: 0; opacity: .9; }
+  </style>
+</head>
+<body>
+  <div class="glass">
+    <h3>Frosted Glass</h3>
+    <p>Translucent surface with a blurred backdrop.</p>
+  </div>
+</body>
+</html>

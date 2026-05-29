@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layered Depth Hover</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "layered-depth-hover",
+    "title": "Layered Depth Hover",
+    "summary": "Card layers separate along the Z-axis on hover for a pop-out parallax depth.",
+    "description": "Children are placed at different translateZ depths inside a preserve-3d card; tilting the card on hover makes the layers parallax apart, creating tangible depth.",
+    "theme": "3d-transforms",
+    "categories": ["3d", "card", "parallax"],
+    "tags": ["depth", "parallax", "translateZ", "layers", "3d", "popout"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Transform updates on pointermove; throttle with rAF for grids.",
+    "accessibility_notes": "Enhancement only; flatten under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--max-tilt", "description": "Tilt range in degrees", "default": "14" },
+      { "name": "data-depth", "description": "Per-layer translateZ (px)", "default": "set on each child" }
+    ],
+    "variations": ["Add a parallax background image layer", "Auto-idle tilt loop", "Combine with the spotlight-card glare"],
+    "related": ["tilt-card", "cube-rotate"],
+    "ai_usage": "Premium product cards / posters with real depth. Card uses perspective + preserve-3d; each child sets translateZ via a data-depth attribute applied in CSS or JS. On pointermove, rotate the whole card (like tilt-card); the differing Z depths make layers shift relative to each other. Keep the closest layer (title/CTA) at the highest Z. Flatten when reduced-motion is set."
+  }
+  </script>
+  <style>
+    :root { --max-tilt: 14; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #06060c; font-family: system-ui, sans-serif; }
+    .scene { perspective: 900px; }
+    .depth-card {
+      position: relative; width: 260px; height: 340px; border-radius: 20px; overflow: hidden;
+      transform-style: preserve-3d; transition: transform .2s ease;
+      background: linear-gradient(160deg, #241b4d, #0f0c22);
+    }
+    .layer { position: absolute; inset: 0; display: grid; place-items: center; }
+    .l-bg { background: radial-gradient(circle at 50% 30%, #7c5cff66, transparent 60%); transform: translateZ(10px); }
+    .l-shape { transform: translateZ(45px); }
+    .l-shape div { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(145deg,#7c5cff,#2dd4bf); box-shadow: 0 20px 40px rgba(0,0,0,.5); }
+    .l-title { transform: translateZ(85px); color: #fff; font-weight: 800; font-size: 1.4rem; align-items: end; padding-bottom: 1.4rem; }
+    @media (prefers-reduced-motion: reduce) { .depth-card { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="depth-card" id="card">
+      <div class="layer l-bg"></div>
+      <div class="layer l-shape"><div></div></div>
+      <div class="layer l-title">DEPTH</div>
+    </div>
+  </div>
+  <script>
+    var card = document.getElementById("card");
+    var max = 14, reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduce) {
+      card.parentElement.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = "rotateY(" + (x * max) + "deg) rotateX(" + (-y * max) + "deg)";
+      });
+      card.parentElement.addEventListener("pointerleave", function () { card.style.transform = "rotateX(0) rotateY(0)"; });
+    }
+  </script>
+</body>
+</html>

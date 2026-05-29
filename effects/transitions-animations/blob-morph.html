@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morphing Blob</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "blob-morph",
+    "title": "Morphing Blob",
+    "summary": "An organic shape slowly morphs by animating border-radius — no SVG needed.",
+    "description": "Animating the eight-value border-radius syntax between several lopsided states makes a single div ooze between organic blob shapes, popular as decorative hero accents.",
+    "theme": "transitions-animations",
+    "categories": ["animation", "shape", "ambient"],
+    "tags": ["blob", "morph", "border-radius", "organic", "ambient", "decorative"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Animating border-radius repaints but on a single element it's fine. Add a slow rotation for extra life.",
+    "accessibility_notes": "Decorative; disable under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--blob", "description": "Fill (gradient/color)", "default": "linear-gradient(135deg,#7c5cff,#2dd4bf)" },
+      { "name": "--dur", "description": "Morph duration", "default": "8s" }
+    ],
+    "variations": ["Use as an image mask (clip an <img> to the blob)", "Multiple overlapping blobs", "Add a slow rotate for more motion"],
+    "related": ["floating-bob", "aurora-background"],
+    "ai_usage": "Decorative hero accents, avatar frames, or image masks. Apply .blob; the keyframes interpolate the long-form border-radius (h-radii / v-radii) between asymmetric values. Combine a slow rotate to avoid the morph looking like simple pulsing. To mask an image, give the <img> the same border-radius animation or use it as a clip shape."
+  }
+  </script>
+  <style>
+    :root { --blob: linear-gradient(135deg,#7c5cff,#2dd4bf); --dur: 8s; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #06060c; }
+    .blob {
+      width: 180px; height: 180px; background: var(--blob);
+      border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+      animation: morph var(--dur) ease-in-out infinite, spin 18s linear infinite;
+      box-shadow: 0 20px 60px rgba(124,92,255,.4);
+    }
+    @keyframes morph {
+      0%, 100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+      33% { border-radius: 67% 33% 41% 59% / 64% 51% 49% 36%; }
+      66% { border-radius: 38% 62% 56% 44% / 35% 63% 37% 65%; }
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="blob"></div>
+</body>
+</html>

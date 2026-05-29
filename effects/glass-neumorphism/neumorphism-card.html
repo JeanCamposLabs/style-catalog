@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neumorphism Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neumorphism-card",
+    "title": "Neumorphism Card",
+    "summary": "A soft, extruded 'soft UI' surface made from twin light and dark shadows.",
+    "description": "Uses two box-shadows — a light one top-left and a dark one bottom-right, both the same hue as the background — so elements look pressed out of (or into) the surface. Includes a pressed (inset) variant.",
+    "theme": "glass-neumorphism",
+    "categories": ["surface", "neumorphism", "card"],
+    "tags": ["neumorphism", "soft-ui", "shadow", "extruded", "skeuomorphic", "monochrome"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Static dual shadows; trivial. The :active inset swap is cheap.",
+    "accessibility_notes": "Notorious for poor contrast — the trend's biggest weakness. Ensure text and interactive states have sufficient contrast; don't rely on shadow alone to convey affordance.",
+    "customization": [
+      { "name": "--bg", "description": "Surface color (everything derives from this)", "default": "#e0e5ec" },
+      { "name": "--dist", "description": "Shadow offset", "default": "10px" }
+    ],
+    "variations": ["Inset/pressed state for inputs & toggles", "Dark-mode neumorphism", "Circular neumorphic buttons"],
+    "related": ["glassmorphism-card", "press-3d-button"],
+    "ai_usage": "Use for calm, tactile dashboards/players — but audit contrast carefully (this is the trend's main risk). The element and its container MUST share the same --bg. Raised: box-shadow: dist dist blur darkShade, -dist -dist blur lightShade. Pressed/input: same offsets but inset. Derive light/dark shades from --bg. Keep distances modest."
+  }
+  </script>
+  <style>
+    :root { --bg: #e0e5ec; --dist: 10px; --light: #ffffff; --dark: #a3b1c6; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; gap: 1.4rem; grid-auto-flow: column; background: var(--bg); font-family: system-ui, sans-serif; color: #4a5568; }
+    .neu {
+      width: 150px; height: 150px; border-radius: 28px; background: var(--bg);
+      display: grid; place-items: center; font-weight: 700;
+      box-shadow: var(--dist) var(--dist) calc(var(--dist) * 2) var(--dark),
+                  calc(-1 * var(--dist)) calc(-1 * var(--dist)) calc(var(--dist) * 2) var(--light);
+    }
+    .neu--pressed {
+      box-shadow: inset var(--dist) var(--dist) calc(var(--dist) * 2) var(--dark),
+                  inset calc(-1 * var(--dist)) calc(-1 * var(--dist)) calc(var(--dist) * 2) var(--light);
+    }
+  </style>
+</head>
+<body>
+  <div class="neu">Raised</div>
+  <div class="neu neu--pressed">Pressed</div>
+</body>
+</html>

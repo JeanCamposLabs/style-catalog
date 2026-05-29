@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scroll Progress Bar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scroll-progress-bar",
+    "title": "Scroll Progress Bar",
+    "summary": "A top bar that fills as the reader scrolls, using pure-CSS scroll-driven animation.",
+    "description": "Uses the modern animation-timeline: scroll() to scale a fixed bar from 0 to 1 across the page scroll — no JS. Includes a JS fallback note for older browsers.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "progress", "indicator"],
+    "tags": ["scroll", "progress", "reading", "scroll-timeline", "indicator", "topbar"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "Chromium 115+ and modern browsers support scroll-driven animations; older browsers ignore the timeline (bar stays empty) — provide a tiny JS fallback in production.",
+    "performance_notes": "Scroll-driven animations run off the main thread — smoother and cheaper than scroll-event JS.",
+    "accessibility_notes": "Decorative reading indicator; safe under reduced-motion (it tracks position, not autonomous motion). Don't convey essential info with it alone.",
+    "customization": [
+      { "name": "--bar", "description": "Fill color/gradient", "default": "linear-gradient(90deg,#7c5cff,#2dd4bf)" },
+      { "name": "--h", "description": "Bar height", "default": "5px" }
+    ],
+    "variations": ["Vertical side progress", "Circular progress via stroke-dashoffset", "JS fallback using scrollY/scrollHeight"],
+    "related": ["progress-bar-indeterminate", "scroll-reveal-fade"],
+    "ai_usage": "Reading progress for articles/long pages. Preferred: a fixed bar with transform-origin:left, animation: grow linear, animation-timeline: scroll(root block) — pure CSS, no JS. For browser support, add a JS fallback that sets scaleX = scrollTop / (scrollHeight - innerHeight) on scroll. The demo scrolls its own inner container so it animates in the catalog frame."
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; }
+    .wrap { height: 100vh; overflow-y: auto; scroll-timeline: --page block; }
+    .bar {
+      position: sticky; top: 0; left: 0; height: 5px; transform-origin: left; transform: scaleX(0);
+      background: linear-gradient(90deg,#7c5cff,#2dd4bf); z-index: 10;
+      animation: grow linear; animation-timeline: --page;
+    }
+    @keyframes grow { to { transform: scaleX(1); } }
+    .content { padding: 1.2rem; }
+    .content p { max-width: 320px; }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="wrap">
+    <div class="bar" id="bar"></div>
+    <div class="content">
+      <h2>Scroll me</h2>
+      <p>The bar at the top fills as you scroll this article.</p>
+      <p style="height:200px">Lorem ipsum dolor sit amet…</p>
+      <p style="height:200px">…consectetur adipiscing elit…</p>
+      <p style="height:200px">…sed do eiusmod tempor.</p>
+      <p>The end.</p>
+    </div>
+  </div>
+  <script>
+    // Fallback for browsers without scroll-driven animations.
+    var wrap = document.getElementById("wrap"), bar = document.getElementById("bar");
+    if (!CSS.supports("animation-timeline: scroll()")) {
+      wrap.addEventListener("scroll", function () {
+        var p = wrap.scrollTop / (wrap.scrollHeight - wrap.clientHeight || 1);
+        bar.style.transform = "scaleX(" + p + ")";
+      });
+    }
+    // Auto-demo scroll so it animates inside the catalog frame.
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      var dir = 1;
+      setInterval(function () {
+        wrap.scrollTop += dir * 2;
+        if (wrap.scrollTop + wrap.clientHeight >= wrap.scrollHeight - 2) dir = -1;
+        if (wrap.scrollTop <= 0) dir = 1;
+      }, 16);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aurora Background</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "aurora-background",
+    "title": "Aurora Background",
+    "summary": "Soft, blurred color blobs drift like northern lights behind your content.",
+    "description": "Several large radial-gradient blobs are blurred heavily and animated on independent paths over a dark base, creating a calm aurora/northern-lights ambience popular in modern landing pages.",
+    "theme": "backgrounds",
+    "categories": ["background", "gradient", "ambient"],
+    "tags": ["aurora", "blur", "blobs", "northern-lights", "ambient", "dark"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (filter: blur widely supported).",
+    "performance_notes": "Large blur radii are GPU-intensive; limit to 2-3 blobs and avoid animating blur itself (animate transform instead).",
+    "accessibility_notes": "Decorative; keep content on a contrasted surface. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c1 / --c2 / --c3", "description": "Aurora blob colors", "default": "#7c5cff / #2dd4bf / #f0abfc" },
+      { "name": "blur amount", "description": "Softness of the blobs", "default": "70px" }
+    ],
+    "variations": ["Tighter, brighter blobs for a nebula", "Light-mode pastel version", "Add grain overlay for film texture"],
+    "related": ["mesh-gradient", "animated-gradient"],
+    "ai_usage": "Use as a calm, premium hero/section background on dark UIs. Place the .aurora container behind content (position relative, content with higher z-index). Each blob is an absolutely-positioned blurred radial-gradient; animate their transform (translate) on long, offset loops. Keep blob count low for performance and pick 2-3 analogous-but-distinct colors."
+  }
+  </script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    .aurora { position: relative; height: 100vh; overflow: hidden; background: #06060c; }
+    .aurora__blob { position: absolute; width: 50vmax; height: 50vmax; border-radius: 50%; filter: blur(70px); opacity: .55; mix-blend-mode: screen; }
+    .b1 { background: radial-gradient(circle, #7c5cff, transparent 60%); top: -10%; left: -5%; animation: drift1 14s ease-in-out infinite; }
+    .b2 { background: radial-gradient(circle, #2dd4bf, transparent 60%); bottom: -15%; right: -5%; animation: drift2 18s ease-in-out infinite; }
+    .b3 { background: radial-gradient(circle, #f0abfc, transparent 60%); top: 30%; left: 40%; animation: drift3 22s ease-in-out infinite; }
+    @keyframes drift1 { 50% { transform: translate(20vw, 15vh) scale(1.2); } }
+    @keyframes drift2 { 50% { transform: translate(-15vw, -10vh) scale(1.1); } }
+    @keyframes drift3 { 50% { transform: translate(-20vw, 12vh) scale(1.3); } }
+    @media (prefers-reduced-motion: reduce) { .aurora__blob { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="aurora">
+    <div class="aurora__blob b1"></div>
+    <div class="aurora__blob b2"></div>
+    <div class="aurora__blob b3"></div>
+  </div>
+</body>
+</html>

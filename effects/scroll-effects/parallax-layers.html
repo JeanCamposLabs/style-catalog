@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parallax Layers</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "parallax-layers",
+    "title": "Parallax Layers",
+    "summary": "Background layers scroll slower than foreground content for a depth illusion — pure CSS.",
+    "description": "Uses CSS 3D transforms (perspective + translateZ + scale) on a scroll container so deeper layers move slower, achieving parallax without JS scroll listeners.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "parallax", "3d"],
+    "tags": ["parallax", "depth", "scroll", "perspective", "layers", "translateZ"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (the perspective-scroll technique). transform-style support required.",
+    "performance_notes": "Compositor-driven; far smoother than JS scroll parallax. Watch out for interfering with position:fixed children.",
+    "accessibility_notes": "Parallax can cause motion discomfort — collapse to a flat scroll under prefers-reduced-motion.",
+    "customization": [
+      { "name": "translateZ depth", "description": "Negative Z + scale per layer controls parallax strength", "default": "see source" }
+    ],
+    "variations": ["Multiple depth tiers", "Horizontal parallax", "JS variant with rAF for fine control"],
+    "related": ["layered-depth-hover", "scroll-reveal-fade"],
+    "ai_usage": "Hero/storytelling sections with depth. The container gets perspective + overflow scroll; layers are positioned and pushed back with translateZ(negative) then scaled up to refill the viewport — deeper (more negative Z) = slower scroll. Keep the readable content at Z:0. Always provide a reduced-motion flat fallback (remove transforms). The demo auto-scrolls so parallax shows in the frame."
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #06060c; }
+    .px { height: 100vh; overflow-x: hidden; overflow-y: auto; perspective: 2px; perspective-origin: 0 0; }
+    .group { position: relative; height: 100vh; transform-style: preserve-3d; }
+    .layer { position: absolute; inset: 0; display: grid; place-items: center; }
+    .back { transform: translateZ(-2px) scale(2); background: radial-gradient(circle at 50% 30%, #7c5cff, #1a1040); }
+    .mid { transform: translateZ(-1px) scale(1.5); }
+    .mid div { width: 160px; height: 160px; border-radius: 50%; background: #2dd4bf88; filter: blur(2px); }
+    .fore { transform: translateZ(0); color: #fff; font-family: system-ui, sans-serif; font-size: 2rem; font-weight: 800; }
+    .spacer { height: 100vh; background: #0b0d12; display: grid; place-items: center; color: #8b93a7; font-family: system-ui; }
+    @media (prefers-reduced-motion: reduce) {
+      .px { perspective: none; } .back, .mid, .fore { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="px" id="px">
+    <div class="group">
+      <div class="layer back"></div>
+      <div class="layer mid"><div></div></div>
+      <div class="layer fore">Parallax</div>
+    </div>
+    <div class="spacer">Keep scrolling…</div>
+  </div>
+  <script>
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      var px = document.getElementById("px"), dir = 1;
+      setInterval(function () {
+        px.scrollTop += dir * 2;
+        if (px.scrollTop + px.clientHeight >= px.scrollHeight - 2) dir = -1;
+        if (px.scrollTop <= 0) dir = 1;
+      }, 16);
+    }
+  </script>
+</body>
+</html>
