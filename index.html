@@ -102,7 +102,32 @@
     <p>Style Catalog · MIT · The catalogue lives in <code>catalog.json</code>. Add effects under <code>effects/&lt;theme&gt;/</code> and run <code>npm run build</code>.</p>
   </footer>
 
+  <a id="version-badge" class="version-badge" target="_blank" rel="noopener" title="Deploy build">v0.5.0</a>
+
   <script src="assets/catalog.js"></script>
+  <!-- Optional deploy stamp (generated at build time; absent in raw checkouts). -->
+  <script src="assets/build.js"></script>
+  <script>
+    (function () {
+      var b = window.__BUILD__ || {};
+      var cat = window.__CATALOG__ || {};
+      var el = document.getElementById("version-badge");
+      if (!el) return;
+      var version = b.version || cat.version || "dev";
+      el.textContent = "v" + version;
+      if (b.build != null) {
+        el.title =
+          "build " + b.build +
+          (b.sha ? " · " + b.sha : "") +
+          (b.builtAt ? " · " + b.builtAt : "");
+      }
+      if (b.repo && b.sha && b.sha !== "dev") {
+        el.href = "https://github.com/" + b.repo + "/commit/" + b.sha;
+      } else {
+        el.removeAttribute("href");
+      }
+    })();
+  </script>
   <script src="assets/app.js"></script>
 </body>
 </html>

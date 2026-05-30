@@ -193,6 +193,33 @@ a { color: var(--accent-2); }
 .colophon { text-align: center; color: var(--muted); font-size: 0.8rem; padding: 2rem; border-top: 1px solid var(--line); margin-top: 2rem; }
 .colophon code { background: var(--panel); padding: 0.1rem 0.35rem; border-radius: 5px; }
 
+/* ---------- Version badge (bottom-right corner) ---------- */
+.version-badge {
+  position: fixed;
+  right: 0.7rem;
+  bottom: 0.7rem;
+  z-index: 50;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  text-decoration: none;
+  background: rgba(21, 25, 37, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.38rem 0.62rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  opacity: 0.55;
+  transition: opacity 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.version-badge:hover {
+  opacity: 1;
+  color: var(--text);
+  border-color: var(--accent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }

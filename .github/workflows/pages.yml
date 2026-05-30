@@ -1,6 +1,8 @@
-# Optional: deploy the museum to GitHub Pages.
-# Enable by setting Settings → Pages → Source: "GitHub Actions".
-# The site is fully static; we just build the catalog and publish the repo.
+# Deploy the museum to GitHub Pages.
+# Source: Settings → Pages → "GitHub Actions".
+# Single job, no dependency install (the project has zero runtime deps), and we
+# publish only the static site (not .git / CI config) so the artifact is small
+# and the deploy is fast.
 name: Deploy museum to Pages
 
 on:
@@ -13,31 +15,41 @@ permissions:
   pages: write
   id-token: write
 
+# Only one deploy at a time; newer pushes supersede in-flight ones.
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm run build
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - uses: actions/checkout@v4
+        with:
+          # Full history so the build stamp's commit-count build number is real.
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build catalog + deploy stamp
+        run: node scripts/build.mjs
+      - name: Assemble static site
+        run: |
+          mkdir -p _site
+          rsync -a --delete \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='node_modules/' \
+            --exclude='_site/' \
+            ./ _site/
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
