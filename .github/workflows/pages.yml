@@ -15,10 +15,13 @@ permissions:
   pages: write
   id-token: write
 
-# Only one deploy at a time; newer pushes supersede in-flight ones.
+# One deploy at a time. Do NOT cancel an in-flight deploy when a new one is
+# queued — cancelled deploys look like failures and invite needless re-runs.
+# Queued runs simply wait their turn and each completes in order (this matches
+# GitHub's official Pages workflow).
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
