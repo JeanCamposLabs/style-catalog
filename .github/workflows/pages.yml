@@ -1,8 +1,8 @@
 # Deploy the museum to GitHub Pages.
 # Source: Settings → Pages → "GitHub Actions".
-# Single job, no dependency install (the project has zero runtime deps), and we
-# publish only the static site (not .git / CI config) so the artifact is small
-# and the deploy is fast.
+# This is GitHub's official two-job Pages template (proven/reliable), with two
+# deliberate tweaks: full history (for the build-number stamp) and
+# cancel-in-progress: false (so deploys never cancel each other → no re-run loop).
 name: Deploy museum to Pages
 
 on:
@@ -15,44 +15,39 @@ permissions:
   pages: write
   id-token: write
 
-# One deploy at a time. Do NOT cancel an in-flight deploy when a new one is
-# queued — cancelled deploys look like failures and invite needless re-runs.
-# Queued runs simply wait their turn and each completes in order (this matches
-# GitHub's official Pages workflow).
+# One deploy at a time, and NEVER cancel an in-flight deploy: a cancelled run
+# looks like a failure and invites needless re-runs. Queued runs wait their turn.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
-          # Full history so the build stamp's commit-count build number is real.
+          # Full history so the deploy stamp's commit-count build number is real.
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Build catalog + deploy stamp
-        run: node scripts/build.mjs
-      - name: Assemble static site
-        run: |
-          mkdir -p _site
-          rsync -a --delete \
-            --exclude='.git/' \
-            --exclude='.github/' \
-            --exclude='node_modules/' \
-            --exclude='_site/' \
-            ./ _site/
-          touch _site/.nojekyll
+        run: npm run build
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
