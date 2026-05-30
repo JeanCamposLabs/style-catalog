@@ -3,6 +3,24 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.5.0] — 2026-05-30
+
+### Added — Website Templates theme (now 111 effects across 22 themes)
+- New **`website-templates`** theme: complete, self-contained, agent-friendly
+  page scaffolds spanning genres and eras:
+  - `saas-landing` — modern SaaS marketing page (hero, bento, pricing).
+  - `portfolio-minimal` — editorial creative portfolio.
+  - `blog-article` — readable long-form article layout.
+  - `admin-dashboard` — app shell with KPIs, CSS chart, and data table.
+  - `ecommerce-product` — product detail page (gallery + buy box).
+  - `coming-soon` — pre-launch page with live countdown + email capture.
+  - `web2-glossy` — mid-2000s Web 2.0 homage (glossy buttons, BETA badge).
+  - `retro-90s-homepage` — 90s GeoCities homage (starfield, marquee, counter,
+    webring) using accessible, non-deprecated techniques.
+  - `neubrutalist-landing` — 2020s neubrutalism (hard shadows, clashing brights).
+- Each template documents how an agent should reskin it (tokens + content
+  regions) and keeps semantic landmarks, focus styles, and reduced-motion guards.
+
 ## [0.4.0] — 2026-05-30
 
 ### Added — SVG Effects theme (now 102 effects across 21 themes)

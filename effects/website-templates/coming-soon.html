@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coming Soon / Waitlist</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "coming-soon",
+    "title": "Coming Soon / Waitlist",
+    "summary": "A centered pre-launch page with a live countdown and an email capture form over an animated gradient.",
+    "description": "A single-screen 'launching soon' scaffold: animated gradient backdrop, logo, headline, a JS countdown to a target date, and an accessible email signup form. Ideal as a placeholder while the real site is built.",
+    "theme": "website-templates",
+    "categories": ["template", "landing", "pre-launch"],
+    "tags": ["coming-soon", "waitlist", "countdown", "launch", "email-capture", "full-page"],
+    "tech": ["css", "js", "html"],
+    "era": "timeless",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "One gradient animation + a 1s countdown interval; trivial.",
+    "accessibility_notes": "Real <form> with a labeled email <input> and submit button, focus-visible rings, countdown has a text label. Background animation stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "TARGET_DATE", "description": "Launch date the countdown ticks to", "default": "set in script" },
+      { "name": "--g1/--g2/--g3", "description": "Gradient colors", "default": "brand palette" }
+    ],
+    "variations": ["Static date (no countdown)", "Add social links row", "Split layout with a product mockup"],
+    "related": ["animated-gradient", "floating-label-input"],
+    "ai_usage": "Use as a pre-launch placeholder. Copy the document, set TARGET_DATE to the real launch datetime, edit the headline/sub, and wire the form's submit to your email provider (it currently just shows a thank-you). Recolor via the gradient tokens. Keep the form labeled and the reduced-motion guard. Drop-in and deploy in minutes."
+  }
+  </script>
+  <style>
+    :root{--g1:#7c5cff;--g2:#2dd4bf;--g3:#f0abfc;}
+    *{box-sizing:border-box;} html,body{margin:0;height:100%;}
+    body{min-height:100vh;display:grid;place-items:center;color:#fff;text-align:center;font-family:system-ui,sans-serif;padding:1.5rem;
+      background:linear-gradient(-45deg,var(--g1),var(--g2),var(--g3),var(--g1));background-size:400% 400%;animation:bg 18s ease infinite;}
+    @keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+    .card{max-width:560px;}
+    .logo{font-weight:900;font-size:1.3rem;letter-spacing:.1em;margin-bottom:1.2rem;}
+    h1{font-size:clamp(2.2rem,7vw,3.6rem);margin:.2rem 0;}
+    p.sub{font-size:1.1rem;opacity:.9;margin:0 auto 1.6rem;max-width:40ch;}
+    .count{display:flex;gap:1rem;justify-content:center;margin:1.4rem 0 1.8rem;}
+    .count div{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:.7rem 1rem;min-width:64px;}
+    .count b{display:block;font-size:1.8rem;} .count span{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;opacity:.85;}
+    form{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;}
+    label{position:absolute;left:-9999px;}
+    input{flex:1;min-width:200px;max-width:280px;padding:.85rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.15);color:#fff;font-size:1rem;}
+    input::placeholder{color:rgba(255,255,255,.7);}
+    button{background:#fff;color:#222;border:none;border-radius:999px;padding:.85rem 1.6rem;font-weight:700;cursor:pointer;}
+    button:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:2px;}
+    .thanks{margin-top:1rem;font-weight:600;min-height:1.2em;}
+    @media(prefers-reduced-motion:reduce){body{animation:none;}}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">◆ NIMBUS</div>
+    <h1>Something great is coming.</h1>
+    <p class="sub">We’re putting the finishing touches on it. Join the waitlist to get early access.</p>
+    <div class="count" id="count" aria-label="Time until launch">
+      <div><b id="d">00</b><span>days</span></div><div><b id="h">00</b><span>hrs</span></div>
+      <div><b id="m">00</b><span>min</span></div><div><b id="s">00</b><span>sec</span></div>
+    </div>
+    <form id="form">
+      <label for="email">Email address</label>
+      <input id="email" type="email" placeholder="you@example.com" required />
+      <button type="submit">Notify me</button>
+    </form>
+    <p class="thanks" id="thanks" role="status"></p>
+  </div>
+  <script>
+    var TARGET_DATE = new Date("2026-09-01T09:00:00Z").getTime();
+    function pad(n){return String(n).padStart(2,"0");}
+    function tick(){
+      var diff=Math.max(0,TARGET_DATE-Date.now()),s=Math.floor(diff/1000);
+      document.getElementById("d").textContent=pad(Math.floor(s/86400));
+      document.getElementById("h").textContent=pad(Math.floor(s%86400/3600));
+      document.getElementById("m").textContent=pad(Math.floor(s%3600/60));
+      document.getElementById("s").textContent=pad(s%60);
+    }
+    tick(); setInterval(tick,1000);
+    document.getElementById("form").addEventListener("submit",function(e){
+      e.preventDefault();
+      document.getElementById("thanks").textContent="🎉 You're on the list!";
+      this.reset();
+    });
+  </script>
+</body>
+</html>

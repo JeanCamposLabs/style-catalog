@@ -1,0 +1,56 @@
+{
+  "id": "blog-article",
+  "title": "Blog Article",
+  "summary": "A readable long-form article layout: title, byline, cover, prose with a constrained measure, and a footer.",
+  "description": "An editorial blog-post scaffold tuned for reading: a centered column at a ~68ch measure, comfortable line-height, styled headings/quotes/code, a byline with reading time, and a simple footer. The template version of good typography.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "blog",
+    "editorial"
+  ],
+  "tags": [
+    "blog",
+    "article",
+    "long-form",
+    "reading",
+    "typography",
+    "full-page"
+  ],
+  "tech": [
+    "css",
+    "html"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Text-only; instant.",
+  "accessibility_notes": "Single main heading, logical heading order, ~68ch measure and 1.7 line-height for readability, high contrast, real <article>/<time> semantics.",
+  "customization": [
+    {
+      "name": "--measure",
+      "description": "Reading column width",
+      "default": "68ch"
+    },
+    {
+      "name": "--accent",
+      "description": "Links / accents",
+      "default": "#5b3ee0"
+    }
+  ],
+  "variations": [
+    "Dark reading theme",
+    "Add a sticky reading-progress bar (see scroll-progress-bar)",
+    "Two-column with a sidebar TOC"
+  ],
+  "related": [
+    "readable-measure",
+    "type-scale",
+    "scroll-progress-bar"
+  ],
+  "ai_usage": "Use for blog posts, docs prose, and articles. Copy the document and replace the title, byline, cover, and body. The key is the --measure (keep 60–75ch) and line-height for readability — don't widen the column. Headings, blockquote, and inline code are pre-styled. Pair with the scroll-progress-bar effect for a reading indicator. Set a real <time datetime>.",
+  "path": "effects/website-templates/blog-article.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Blog Article</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"blog-article\",\n    \"title\": \"Blog Article\",\n    \"summary\": \"A readable long-form article layout: title, byline, cover, prose with a constrained measure, and a footer.\",\n    \"description\": \"An editorial blog-post scaffold tuned for reading: a centered column at a ~68ch measure, comfortable line-height, styled headings/quotes/code, a byline with reading time, and a simple footer. The template version of good typography.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"blog\", \"editorial\"],\n    \"tags\": [\"blog\", \"article\", \"long-form\", \"reading\", \"typography\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Text-only; instant.\",\n    \"accessibility_notes\": \"Single main heading, logical heading order, ~68ch measure and 1.7 line-height for readability, high contrast, real <article>/<time> semantics.\",\n    \"customization\": [\n      { \"name\": \"--measure\", \"description\": \"Reading column width\", \"default\": \"68ch\" },\n      { \"name\": \"--accent\", \"description\": \"Links / accents\", \"default\": \"#5b3ee0\" }\n    ],\n    \"variations\": [\"Dark reading theme\", \"Add a sticky reading-progress bar (see scroll-progress-bar)\", \"Two-column with a sidebar TOC\"],\n    \"related\": [\"readable-measure\", \"type-scale\", \"scroll-progress-bar\"],\n    \"ai_usage\": \"Use for blog posts, docs prose, and articles. Copy the document and replace the title, byline, cover, and body. The key is the --measure (keep 60–75ch) and line-height for readability — don't widen the column. Headings, blockquote, and inline code are pre-styled. Pair with the scroll-progress-bar effect for a reading indicator. Set a real <time datetime>.\"\n  }\n  </script>\n  <style>\n    :root{--measure:68ch;--ink:#1a1d23;--muted:#6b7280;--paper:#ffffff;--accent:#5b3ee0;--line:#ececf0;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{background:var(--paper);color:var(--ink);font-family:Georgia,\"Iowan Old Style\",serif;line-height:1.7;}\n    .bar{height:4px;background:linear-gradient(90deg,var(--accent),#22d3ee);}\n    .col{max-width:var(--measure);margin:0 auto;padding:0 1.3rem;}\n    header.top{font-family:system-ui,sans-serif;border-bottom:1px solid var(--line);}\n    header.top .col{display:flex;justify-content:space-between;align-items:center;height:56px;font-size:.9rem;}\n    header.top .b{font-weight:800;} header.top a{color:var(--muted);text-decoration:none;margin-left:1rem;}\n    article{padding:2.5rem 0 3rem;}\n    .kicker{font-family:system-ui,sans-serif;color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;}\n    h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:.4rem 0 .6rem;}\n    .byline{font-family:system-ui,sans-serif;color:var(--muted);font-size:.92rem;margin-bottom:1.6rem;}\n    .cover{aspect-ratio:16/7;border-radius:14px;background:linear-gradient(135deg,#5b3ee0,#22d3ee);margin-bottom:1.8rem;}\n    article p{margin:0 0 1.2rem;} article h2{font-family:system-ui,sans-serif;margin:2rem 0 .6rem;font-size:1.5rem;}\n    blockquote{margin:1.6rem 0;padding:.4rem 0 .4rem 1.2rem;border-left:3px solid var(--accent);color:var(--muted);font-style:italic;}\n    code{background:#f3f3f7;padding:.1rem .35rem;border-radius:5px;font-family:ui-monospace,monospace;font-size:.9em;}\n    a{color:var(--accent);}\n    footer{font-family:system-ui,sans-serif;border-top:1px solid var(--line);color:var(--muted);}\n    footer .col{padding:1.4rem 1.3rem 3rem;font-size:.9rem;}\n  </style>\n</head>\n<body>\n  <div class=\"bar\"></div>\n  <header class=\"top\"><div class=\"col\"><span class=\"b\">The Margin</span><nav><a href=\"#\">Latest</a><a href=\"#\">Topics</a><a href=\"#\">About</a></nav></div></header>\n  <article class=\"col\">\n    <p class=\"kicker\">Engineering</p>\n    <h1>Designing for the agent era</h1>\n    <p class=\"byline\">By Jordan Lee · <time datetime=\"2026-05-30\">May 30, 2026</time> · 6 min read</p>\n    <div class=\"cover\"></div>\n    <p>The interfaces we build are increasingly read by machines as often as people. That shift rewards structure: predictable markup, explicit metadata, and content that means the same thing whether it’s rendered or parsed.</p>\n    <h2>Structure is the feature</h2>\n    <p>When a document is well-structured, both a screen reader and a language model can navigate it. Headings become an outline; landmarks become a map. The same discipline that aids accessibility aids automation.</p>\n    <blockquote>Write for the parser you wish you had, and the human you actually have.</blockquote>\n    <p>Prefer semantic elements, keep a sensible measure like <code>max-width: 68ch</code>, and let typography do the work. The result reads well and machines love it.</p>\n    <h2>Where to start</h2>\n    <p>Pick one template, ship it, and iterate. Momentum beats perfection — especially when redeploys are a single merge away.</p>\n  </article>\n  <footer><div class=\"col\">© 2026 The Margin · Written by humans, indexed by machines.</div></footer>\n</body>\n</html>\n"
+}

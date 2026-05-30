@@ -1,6 +1,14 @@
 {
   "themes": [
     {
+      "slug": "website-templates",
+      "title": "Website Templates",
+      "description": "Complete, self-contained page scaffolds across eras and genres — modern SaaS, portfolio, blog, dashboard, e-commerce, plus Web 2.0 and 90s retro. Copy a whole page and reskin it.",
+      "icon": "🌐",
+      "order": 1,
+      "count": 9
+    },
+    {
       "slug": "combos-recipes",
       "title": "Combination Recipes",
       "description": "Full UI blocks that compose multiple effects together — heroes, pricing cards, navbars, CTAs, and forms. Copy a whole section, not just one trick.",
@@ -172,6 +180,11 @@
   "facets": {
     "themes": [
       {
+        "slug": "website-templates",
+        "title": "Website Templates",
+        "count": 9
+      },
+      {
         "slug": "combos-recipes",
         "title": "Combination Recipes",
         "count": 4
@@ -280,15 +293,19 @@
     "tech": [
       {
         "value": "css",
-        "count": 98
+        "count": 107
       },
       {
         "value": "js",
-        "count": 23
+        "count": 24
       },
       {
         "value": "svg",
         "count": 11
+      },
+      {
+        "value": "html",
+        "count": 9
       },
       {
         "value": "canvas",
@@ -298,11 +315,11 @@
     "difficulty": [
       {
         "value": "beginner",
-        "count": 51
+        "count": 56
       },
       {
         "value": "intermediate",
-        "count": 42
+        "count": 46
       },
       {
         "value": "advanced",
@@ -312,11 +329,11 @@
     "era": [
       {
         "value": "2020s",
-        "count": 60
+        "count": 65
       },
       {
         "value": "timeless",
-        "count": 20
+        "count": 22
       },
       {
         "value": "2010s",
@@ -324,11 +341,11 @@
       },
       {
         "value": "1990s",
-        "count": 3
+        "count": 4
       },
       {
         "value": "2000s",
-        "count": 1
+        "count": 2
       }
     ],
     "categories": [
@@ -361,6 +378,10 @@
         "count": 9
       },
       {
+        "value": "template",
+        "count": 9
+      },
+      {
         "value": "background",
         "count": 8
       },
@@ -379,6 +400,10 @@
       {
         "value": "loader",
         "count": 7
+      },
+      {
+        "value": "retro",
+        "count": 6
       },
       {
         "value": "scroll",
@@ -402,6 +427,10 @@
       },
       {
         "value": "form",
+        "count": 5
+      },
+      {
+        "value": "landing",
         "count": 5
       },
       {
@@ -430,10 +459,6 @@
       },
       {
         "value": "recipe",
-        "count": 4
-      },
-      {
-        "value": "retro",
         "count": 4
       },
       {
@@ -517,6 +542,10 @@
         "count": 2
       },
       {
+        "value": "personal",
+        "count": 2
+      },
+      {
         "value": "pointer",
         "count": 2
       },
@@ -549,11 +578,23 @@
         "count": 1
       },
       {
+        "value": "app",
+        "count": 1
+      },
+      {
         "value": "app-shell",
         "count": 1
       },
       {
         "value": "auth",
+        "count": 1
+      },
+      {
+        "value": "blog",
+        "count": 1
+      },
+      {
+        "value": "brutalist",
         "count": 1
       },
       {
@@ -589,6 +630,10 @@
         "count": 1
       },
       {
+        "value": "dashboard",
+        "count": 1
+      },
+      {
         "value": "dialog",
         "count": 1
       },
@@ -618,6 +663,14 @@
       },
       {
         "value": "easing",
+        "count": 1
+      },
+      {
+        "value": "ecommerce",
+        "count": 1
+      },
+      {
+        "value": "editorial",
         "count": 1
       },
       {
@@ -665,11 +718,11 @@
         "count": 1
       },
       {
-        "value": "landing",
+        "value": "link",
         "count": 1
       },
       {
-        "value": "link",
+        "value": "marketing",
         "count": 1
       },
       {
@@ -697,7 +750,19 @@
         "count": 1
       },
       {
+        "value": "portfolio",
+        "count": 1
+      },
+      {
+        "value": "pre-launch",
+        "count": 1
+      },
+      {
         "value": "pricing",
+        "count": 1
+      },
+      {
+        "value": "product",
         "count": 1
       },
       {
@@ -755,6 +820,10 @@
         "count": 11
       },
       {
+        "value": "full-page",
+        "count": 9
+      },
+      {
         "value": "3d",
         "count": 7
       },
@@ -791,8 +860,16 @@
         "count": 5
       },
       {
+        "value": "grid",
+        "count": 5
+      },
+      {
         "value": "tokens",
         "count": 5
+      },
+      {
+        "value": "90s",
+        "count": 4
       },
       {
         "value": "ambient",
@@ -815,7 +892,7 @@
         "count": 4
       },
       {
-        "value": "grid",
+        "value": "hero",
         "count": 4
       },
       {
@@ -841,10 +918,6 @@
       {
         "value": "toggle",
         "count": 4
-      },
-      {
-        "value": "90s",
-        "count": 3
       },
       {
         "value": "animation",
@@ -883,7 +956,7 @@
         "count": 3
       },
       {
-        "value": "hero",
+        "value": "marquee",
         "count": 3
       },
       {
@@ -907,11 +980,23 @@
         "count": 3
       },
       {
+        "value": "retro",
+        "count": 3
+      },
+      {
         "value": "ring",
         "count": 3
       },
       {
         "value": "rotate",
+        "count": 3
+      },
+      {
+        "value": "saas",
+        "count": 3
+      },
+      {
+        "value": "skeuomorphic",
         "count": 3
       },
       {
@@ -931,6 +1016,10 @@
         "count": 2
       },
       {
+        "value": "app-shell",
+        "count": 2
+      },
+      {
         "value": "attention",
         "count": 2
       },
@@ -944,6 +1033,10 @@
       },
       {
         "value": "background-clip",
+        "count": 2
+      },
+      {
+        "value": "bento",
         "count": 2
       },
       {
@@ -987,6 +1080,10 @@
         "count": 2
       },
       {
+        "value": "dashboard",
+        "count": 2
+      },
+      {
         "value": "deprecated-tag",
         "count": 2
       },
@@ -1023,6 +1120,10 @@
         "count": 2
       },
       {
+        "value": "flat",
+        "count": 2
+      },
+      {
         "value": "float",
         "count": 2
       },
@@ -1036,6 +1137,10 @@
       },
       {
         "value": "frosted",
+        "count": 2
+      },
+      {
+        "value": "geocities",
         "count": 2
       },
       {
@@ -1099,15 +1204,15 @@
         "count": 2
       },
       {
-        "value": "marquee",
-        "count": 2
-      },
-      {
         "value": "mask",
         "count": 2
       },
       {
         "value": "menu",
+        "count": 2
+      },
+      {
+        "value": "minimal",
         "count": 2
       },
       {
@@ -1151,6 +1256,10 @@
         "count": 2
       },
       {
+        "value": "portfolio",
+        "count": 2
+      },
+      {
         "value": "preserve-3d",
         "count": 2
       },
@@ -1159,7 +1268,15 @@
         "count": 2
       },
       {
+        "value": "pricing",
+        "count": 2
+      },
+      {
         "value": "range",
+        "count": 2
+      },
+      {
+        "value": "reading",
         "count": 2
       },
       {
@@ -1167,15 +1284,7 @@
         "count": 2
       },
       {
-        "value": "retro",
-        "count": 2
-      },
-      {
         "value": "ripple",
-        "count": 2
-      },
-      {
-        "value": "saas",
         "count": 2
       },
       {
@@ -1183,11 +1292,11 @@
         "count": 2
       },
       {
-        "value": "skeleton",
+        "value": "sidebar",
         "count": 2
       },
       {
-        "value": "skeuomorphic",
+        "value": "skeleton",
         "count": 2
       },
       {
@@ -1251,6 +1360,10 @@
         "count": 2
       },
       {
+        "value": "2000s",
+        "count": 1
+      },
+      {
         "value": "80s",
         "count": 1
       },
@@ -1263,11 +1376,11 @@
         "count": 1
       },
       {
-        "value": "animated",
+        "value": "admin",
         "count": 1
       },
       {
-        "value": "app-shell",
+        "value": "animated",
         "count": 1
       },
       {
@@ -1280,6 +1393,10 @@
       },
       {
         "value": "arrow",
+        "count": 1
+      },
+      {
+        "value": "article",
         "count": 1
       },
       {
@@ -1319,7 +1436,7 @@
         "count": 1
       },
       {
-        "value": "bento",
+        "value": "beta-badge",
         "count": 1
       },
       {
@@ -1339,6 +1456,10 @@
         "count": 1
       },
       {
+        "value": "blog",
+        "count": 1
+      },
+      {
         "value": "blueprint",
         "count": 1
       },
@@ -1348,6 +1469,10 @@
       },
       {
         "value": "bokeh",
+        "count": 1
+      },
+      {
+        "value": "bold",
         "count": 1
       },
       {
@@ -1371,11 +1496,19 @@
         "count": 1
       },
       {
+        "value": "brutalist",
+        "count": 1
+      },
+      {
         "value": "caption",
         "count": 1
       },
       {
         "value": "caret",
+        "count": 1
+      },
+      {
+        "value": "cart",
         "count": 1
       },
       {
@@ -1431,6 +1564,10 @@
         "count": 1
       },
       {
+        "value": "coming-soon",
+        "count": 1
+      },
+      {
         "value": "comparison",
         "count": 1
       },
@@ -1443,11 +1580,19 @@
         "count": 1
       },
       {
+        "value": "countdown",
+        "count": 1
+      },
+      {
         "value": "counter-rotate",
         "count": 1
       },
       {
         "value": "coverflow",
+        "count": 1
+      },
+      {
+        "value": "creative",
         "count": 1
       },
       {
@@ -1492,10 +1637,6 @@
       },
       {
         "value": "dash",
-        "count": 1
-      },
-      {
-        "value": "dashboard",
         "count": 1
       },
       {
@@ -1579,7 +1720,15 @@
         "count": 1
       },
       {
+        "value": "ecommerce",
+        "count": 1
+      },
+      {
         "value": "elevation",
+        "count": 1
+      },
+      {
+        "value": "email-capture",
         "count": 1
       },
       {
@@ -1623,10 +1772,6 @@
         "count": 1
       },
       {
-        "value": "flat",
-        "count": 1
-      },
-      {
         "value": "flat-2.0",
         "count": 1
       },
@@ -1651,15 +1796,15 @@
         "count": 1
       },
       {
-        "value": "geocities",
-        "count": 1
-      },
-      {
         "value": "glare",
         "count": 1
       },
       {
         "value": "glitch",
+        "count": 1
+      },
+      {
+        "value": "glossy",
         "count": 1
       },
       {
@@ -1692,6 +1837,10 @@
       },
       {
         "value": "hamburger",
+        "count": 1
+      },
+      {
+        "value": "hard-shadow",
         "count": 1
       },
       {
@@ -1755,7 +1904,19 @@
         "count": 1
       },
       {
+        "value": "kpi",
+        "count": 1
+      },
+      {
         "value": "landing",
+        "count": 1
+      },
+      {
+        "value": "landing-page",
+        "count": 1
+      },
+      {
+        "value": "launch",
         "count": 1
       },
       {
@@ -1815,6 +1976,10 @@
         "count": 1
       },
       {
+        "value": "long-form",
+        "count": 1
+      },
+      {
         "value": "long-shadow",
         "count": 1
       },
@@ -1828,6 +1993,10 @@
       },
       {
         "value": "marching-ants",
+        "count": 1
+      },
+      {
+        "value": "marketing",
         "count": 1
       },
       {
@@ -1855,10 +2024,6 @@
         "count": 1
       },
       {
-        "value": "minimal",
-        "count": 1
-      },
-      {
         "value": "minmax",
         "count": 1
       },
@@ -1880,6 +2045,10 @@
       },
       {
         "value": "neon",
+        "count": 1
+      },
+      {
+        "value": "neubrutalism",
         "count": 1
       },
       {
@@ -1919,7 +2088,15 @@
         "count": 1
       },
       {
+        "value": "pdp",
+        "count": 1
+      },
+      {
         "value": "percentage",
+        "count": 1
+      },
+      {
+        "value": "personal",
         "count": 1
       },
       {
@@ -1963,10 +2140,6 @@
         "count": 1
       },
       {
-        "value": "portfolio",
-        "count": 1
-      },
-      {
         "value": "poster",
         "count": 1
       },
@@ -1979,7 +2152,7 @@
         "count": 1
       },
       {
-        "value": "pricing",
+        "value": "product",
         "count": 1
       },
       {
@@ -1999,15 +2172,15 @@
         "count": 1
       },
       {
-        "value": "reading",
-        "count": 1
-      },
-      {
         "value": "recolor",
         "count": 1
       },
       {
         "value": "reference",
+        "count": 1
+      },
+      {
+        "value": "reflective",
         "count": 1
       },
       {
@@ -2099,11 +2272,11 @@
         "count": 1
       },
       {
-        "value": "showcase",
+        "value": "shop",
         "count": 1
       },
       {
-        "value": "sidebar",
+        "value": "showcase",
         "count": 1
       },
       {
@@ -2199,6 +2372,10 @@
         "count": 1
       },
       {
+        "value": "table",
+        "count": 1
+      },
+      {
         "value": "tabs",
         "count": 1
       },
@@ -2279,6 +2456,10 @@
         "count": 1
       },
       {
+        "value": "typography",
+        "count": 1
+      },
+      {
         "value": "validation",
         "count": 1
       },
@@ -2287,7 +2468,15 @@
         "count": 1
       },
       {
+        "value": "visitor-counter",
+        "count": 1
+      },
+      {
         "value": "vw",
+        "count": 1
+      },
+      {
+        "value": "waitlist",
         "count": 1
       },
       {
@@ -2296,6 +2485,14 @@
       },
       {
         "value": "wash",
+        "count": 1
+      },
+      {
+        "value": "web2.0",
+        "count": 1
+      },
+      {
+        "value": "webring",
         "count": 1
       },
       {

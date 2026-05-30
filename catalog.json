@@ -1,11 +1,19 @@
 {
   "name": "style-catalog",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "counts": {
-    "themes": 21,
-    "effects": 102
+    "themes": 22,
+    "effects": 111
   },
   "themes": [
+    {
+      "slug": "website-templates",
+      "title": "Website Templates",
+      "description": "Complete, self-contained page scaffolds across eras and genres — modern SaaS, portfolio, blog, dashboard, e-commerce, plus Web 2.0 and 90s retro. Copy a whole page and reskin it.",
+      "icon": "🌐",
+      "order": 1,
+      "count": 9
+    },
     {
       "slug": "combos-recipes",
       "title": "Combination Recipes",
@@ -178,6 +186,11 @@
   "facets": {
     "themes": [
       {
+        "slug": "website-templates",
+        "title": "Website Templates",
+        "count": 9
+      },
+      {
         "slug": "combos-recipes",
         "title": "Combination Recipes",
         "count": 4
@@ -286,15 +299,19 @@
     "tech": [
       {
         "value": "css",
-        "count": 98
+        "count": 107
       },
       {
         "value": "js",
-        "count": 23
+        "count": 24
       },
       {
         "value": "svg",
         "count": 11
+      },
+      {
+        "value": "html",
+        "count": 9
       },
       {
         "value": "canvas",
@@ -304,11 +321,11 @@
     "difficulty": [
       {
         "value": "beginner",
-        "count": 51
+        "count": 56
       },
       {
         "value": "intermediate",
-        "count": 42
+        "count": 46
       },
       {
         "value": "advanced",
@@ -318,11 +335,11 @@
     "era": [
       {
         "value": "2020s",
-        "count": 60
+        "count": 65
       },
       {
         "value": "timeless",
-        "count": 20
+        "count": 22
       },
       {
         "value": "2010s",
@@ -330,11 +347,11 @@
       },
       {
         "value": "1990s",
-        "count": 3
+        "count": 4
       },
       {
         "value": "2000s",
-        "count": 1
+        "count": 2
       }
     ],
     "categories": [
@@ -367,6 +384,10 @@
         "count": 9
       },
       {
+        "value": "template",
+        "count": 9
+      },
+      {
         "value": "background",
         "count": 8
       },
@@ -385,6 +406,10 @@
       {
         "value": "loader",
         "count": 7
+      },
+      {
+        "value": "retro",
+        "count": 6
       },
       {
         "value": "scroll",
@@ -408,6 +433,10 @@
       },
       {
         "value": "form",
+        "count": 5
+      },
+      {
+        "value": "landing",
         "count": 5
       },
       {
@@ -436,10 +465,6 @@
       },
       {
         "value": "recipe",
-        "count": 4
-      },
-      {
-        "value": "retro",
         "count": 4
       },
       {
@@ -523,6 +548,10 @@
         "count": 2
       },
       {
+        "value": "personal",
+        "count": 2
+      },
+      {
         "value": "pointer",
         "count": 2
       },
@@ -555,11 +584,23 @@
         "count": 1
       },
       {
+        "value": "app",
+        "count": 1
+      },
+      {
         "value": "app-shell",
         "count": 1
       },
       {
         "value": "auth",
+        "count": 1
+      },
+      {
+        "value": "blog",
+        "count": 1
+      },
+      {
+        "value": "brutalist",
         "count": 1
       },
       {
@@ -595,6 +636,10 @@
         "count": 1
       },
       {
+        "value": "dashboard",
+        "count": 1
+      },
+      {
         "value": "dialog",
         "count": 1
       },
@@ -624,6 +669,14 @@
       },
       {
         "value": "easing",
+        "count": 1
+      },
+      {
+        "value": "ecommerce",
+        "count": 1
+      },
+      {
+        "value": "editorial",
         "count": 1
       },
       {
@@ -671,11 +724,11 @@
         "count": 1
       },
       {
-        "value": "landing",
+        "value": "link",
         "count": 1
       },
       {
-        "value": "link",
+        "value": "marketing",
         "count": 1
       },
       {
@@ -703,7 +756,19 @@
         "count": 1
       },
       {
+        "value": "portfolio",
+        "count": 1
+      },
+      {
+        "value": "pre-launch",
+        "count": 1
+      },
+      {
         "value": "pricing",
+        "count": 1
+      },
+      {
+        "value": "product",
         "count": 1
       },
       {
@@ -761,6 +826,10 @@
         "count": 11
       },
       {
+        "value": "full-page",
+        "count": 9
+      },
+      {
         "value": "3d",
         "count": 7
       },
@@ -797,8 +866,16 @@
         "count": 5
       },
       {
+        "value": "grid",
+        "count": 5
+      },
+      {
         "value": "tokens",
         "count": 5
+      },
+      {
+        "value": "90s",
+        "count": 4
       },
       {
         "value": "ambient",
@@ -821,7 +898,7 @@
         "count": 4
       },
       {
-        "value": "grid",
+        "value": "hero",
         "count": 4
       },
       {
@@ -847,10 +924,6 @@
       {
         "value": "toggle",
         "count": 4
-      },
-      {
-        "value": "90s",
-        "count": 3
       },
       {
         "value": "animation",
@@ -889,7 +962,7 @@
         "count": 3
       },
       {
-        "value": "hero",
+        "value": "marquee",
         "count": 3
       },
       {
@@ -913,11 +986,23 @@
         "count": 3
       },
       {
+        "value": "retro",
+        "count": 3
+      },
+      {
         "value": "ring",
         "count": 3
       },
       {
         "value": "rotate",
+        "count": 3
+      },
+      {
+        "value": "saas",
+        "count": 3
+      },
+      {
+        "value": "skeuomorphic",
         "count": 3
       },
       {
@@ -937,6 +1022,10 @@
         "count": 2
       },
       {
+        "value": "app-shell",
+        "count": 2
+      },
+      {
         "value": "attention",
         "count": 2
       },
@@ -950,6 +1039,10 @@
       },
       {
         "value": "background-clip",
+        "count": 2
+      },
+      {
+        "value": "bento",
         "count": 2
       },
       {
@@ -993,6 +1086,10 @@
         "count": 2
       },
       {
+        "value": "dashboard",
+        "count": 2
+      },
+      {
         "value": "deprecated-tag",
         "count": 2
       },
@@ -1029,6 +1126,10 @@
         "count": 2
       },
       {
+        "value": "flat",
+        "count": 2
+      },
+      {
         "value": "float",
         "count": 2
       },
@@ -1042,6 +1143,10 @@
       },
       {
         "value": "frosted",
+        "count": 2
+      },
+      {
+        "value": "geocities",
         "count": 2
       },
       {
@@ -1105,15 +1210,15 @@
         "count": 2
       },
       {
-        "value": "marquee",
-        "count": 2
-      },
-      {
         "value": "mask",
         "count": 2
       },
       {
         "value": "menu",
+        "count": 2
+      },
+      {
+        "value": "minimal",
         "count": 2
       },
       {
@@ -1157,6 +1262,10 @@
         "count": 2
       },
       {
+        "value": "portfolio",
+        "count": 2
+      },
+      {
         "value": "preserve-3d",
         "count": 2
       },
@@ -1165,7 +1274,15 @@
         "count": 2
       },
       {
+        "value": "pricing",
+        "count": 2
+      },
+      {
         "value": "range",
+        "count": 2
+      },
+      {
+        "value": "reading",
         "count": 2
       },
       {
@@ -1173,15 +1290,7 @@
         "count": 2
       },
       {
-        "value": "retro",
-        "count": 2
-      },
-      {
         "value": "ripple",
-        "count": 2
-      },
-      {
-        "value": "saas",
         "count": 2
       },
       {
@@ -1189,11 +1298,11 @@
         "count": 2
       },
       {
-        "value": "skeleton",
+        "value": "sidebar",
         "count": 2
       },
       {
-        "value": "skeuomorphic",
+        "value": "skeleton",
         "count": 2
       },
       {
@@ -1257,6 +1366,10 @@
         "count": 2
       },
       {
+        "value": "2000s",
+        "count": 1
+      },
+      {
         "value": "80s",
         "count": 1
       },
@@ -1269,11 +1382,11 @@
         "count": 1
       },
       {
-        "value": "animated",
+        "value": "admin",
         "count": 1
       },
       {
-        "value": "app-shell",
+        "value": "animated",
         "count": 1
       },
       {
@@ -1286,6 +1399,10 @@
       },
       {
         "value": "arrow",
+        "count": 1
+      },
+      {
+        "value": "article",
         "count": 1
       },
       {
@@ -1325,7 +1442,7 @@
         "count": 1
       },
       {
-        "value": "bento",
+        "value": "beta-badge",
         "count": 1
       },
       {
@@ -1345,6 +1462,10 @@
         "count": 1
       },
       {
+        "value": "blog",
+        "count": 1
+      },
+      {
         "value": "blueprint",
         "count": 1
       },
@@ -1354,6 +1475,10 @@
       },
       {
         "value": "bokeh",
+        "count": 1
+      },
+      {
+        "value": "bold",
         "count": 1
       },
       {
@@ -1377,11 +1502,19 @@
         "count": 1
       },
       {
+        "value": "brutalist",
+        "count": 1
+      },
+      {
         "value": "caption",
         "count": 1
       },
       {
         "value": "caret",
+        "count": 1
+      },
+      {
+        "value": "cart",
         "count": 1
       },
       {
@@ -1437,6 +1570,10 @@
         "count": 1
       },
       {
+        "value": "coming-soon",
+        "count": 1
+      },
+      {
         "value": "comparison",
         "count": 1
       },
@@ -1449,11 +1586,19 @@
         "count": 1
       },
       {
+        "value": "countdown",
+        "count": 1
+      },
+      {
         "value": "counter-rotate",
         "count": 1
       },
       {
         "value": "coverflow",
+        "count": 1
+      },
+      {
+        "value": "creative",
         "count": 1
       },
       {
@@ -1498,10 +1643,6 @@
       },
       {
         "value": "dash",
-        "count": 1
-      },
-      {
-        "value": "dashboard",
         "count": 1
       },
       {
@@ -1585,7 +1726,15 @@
         "count": 1
       },
       {
+        "value": "ecommerce",
+        "count": 1
+      },
+      {
         "value": "elevation",
+        "count": 1
+      },
+      {
+        "value": "email-capture",
         "count": 1
       },
       {
@@ -1629,10 +1778,6 @@
         "count": 1
       },
       {
-        "value": "flat",
-        "count": 1
-      },
-      {
         "value": "flat-2.0",
         "count": 1
       },
@@ -1657,15 +1802,15 @@
         "count": 1
       },
       {
-        "value": "geocities",
-        "count": 1
-      },
-      {
         "value": "glare",
         "count": 1
       },
       {
         "value": "glitch",
+        "count": 1
+      },
+      {
+        "value": "glossy",
         "count": 1
       },
       {
@@ -1698,6 +1843,10 @@
       },
       {
         "value": "hamburger",
+        "count": 1
+      },
+      {
+        "value": "hard-shadow",
         "count": 1
       },
       {
@@ -1761,7 +1910,19 @@
         "count": 1
       },
       {
+        "value": "kpi",
+        "count": 1
+      },
+      {
         "value": "landing",
+        "count": 1
+      },
+      {
+        "value": "landing-page",
+        "count": 1
+      },
+      {
+        "value": "launch",
         "count": 1
       },
       {
@@ -1821,6 +1982,10 @@
         "count": 1
       },
       {
+        "value": "long-form",
+        "count": 1
+      },
+      {
         "value": "long-shadow",
         "count": 1
       },
@@ -1834,6 +1999,10 @@
       },
       {
         "value": "marching-ants",
+        "count": 1
+      },
+      {
+        "value": "marketing",
         "count": 1
       },
       {
@@ -1861,10 +2030,6 @@
         "count": 1
       },
       {
-        "value": "minimal",
-        "count": 1
-      },
-      {
         "value": "minmax",
         "count": 1
       },
@@ -1886,6 +2051,10 @@
       },
       {
         "value": "neon",
+        "count": 1
+      },
+      {
+        "value": "neubrutalism",
         "count": 1
       },
       {
@@ -1925,7 +2094,15 @@
         "count": 1
       },
       {
+        "value": "pdp",
+        "count": 1
+      },
+      {
         "value": "percentage",
+        "count": 1
+      },
+      {
+        "value": "personal",
         "count": 1
       },
       {
@@ -1969,10 +2146,6 @@
         "count": 1
       },
       {
-        "value": "portfolio",
-        "count": 1
-      },
-      {
         "value": "poster",
         "count": 1
       },
@@ -1985,7 +2158,7 @@
         "count": 1
       },
       {
-        "value": "pricing",
+        "value": "product",
         "count": 1
       },
       {
@@ -2005,15 +2178,15 @@
         "count": 1
       },
       {
-        "value": "reading",
-        "count": 1
-      },
-      {
         "value": "recolor",
         "count": 1
       },
       {
         "value": "reference",
+        "count": 1
+      },
+      {
+        "value": "reflective",
         "count": 1
       },
       {
@@ -2105,11 +2278,11 @@
         "count": 1
       },
       {
-        "value": "showcase",
+        "value": "shop",
         "count": 1
       },
       {
-        "value": "sidebar",
+        "value": "showcase",
         "count": 1
       },
       {
@@ -2205,6 +2378,10 @@
         "count": 1
       },
       {
+        "value": "table",
+        "count": 1
+      },
+      {
         "value": "tabs",
         "count": 1
       },
@@ -2285,6 +2462,10 @@
         "count": 1
       },
       {
+        "value": "typography",
+        "count": 1
+      },
+      {
         "value": "validation",
         "count": 1
       },
@@ -2293,7 +2474,15 @@
         "count": 1
       },
       {
+        "value": "visitor-counter",
+        "count": 1
+      },
+      {
         "value": "vw",
+        "count": 1
+      },
+      {
+        "value": "waitlist",
         "count": 1
       },
       {
@@ -2302,6 +2491,14 @@
       },
       {
         "value": "wash",
+        "count": 1
+      },
+      {
+        "value": "web2.0",
+        "count": 1
+      },
+      {
+        "value": "webring",
         "count": 1
       },
       {
@@ -7742,6 +7939,511 @@
       "ai_usage": "Apply these readability defaults to all body copy: set the text container max-width to ~60-75ch (the 'measure'); use line-height ~1.5-1.65 for body; for card excerpts, clamp with display:-webkit-box; -webkit-line-clamp:N; -webkit-box-orient:vertical; overflow:hidden. Never let body text run the full width of a wide viewport. Don't clamp content that has no 'read more' path.",
       "path": "effects/typography-systems/readable-measure.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Readable Measure &amp; Rhythm</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"readable-measure\",\n    \"title\": \"Readable Measure & Rhythm\",\n    \"summary\": \"Reference for line length (measure), line-height, and line-clamp — the rules that make body text readable.\",\n    \"description\": \"A specimen demonstrating the readability fundamentals: a 60-75 character measure via max-width: Nch, a comfortable line-height, and multi-line truncation with -webkit-line-clamp.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"readability\", \"reference\"],\n    \"tags\": [\"measure\", \"line-length\", \"line-height\", \"line-clamp\", \"ch\", \"readability\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; line-clamp uses -webkit-line-clamp (cross-browser despite the prefix).\",\n    \"performance_notes\": \"Static; free.\",\n    \"accessibility_notes\": \"A 60-75ch measure and ~1.5 line-height materially improve readability for everyone, especially users with dyslexia/low vision. Don't clamp essential content without a way to read the rest.\",\n    \"customization\": [\n      { \"name\": \"max-width\", \"description\": \"Measure in ch units\", \"default\": \"66ch\" },\n      { \"name\": \"line-height\", \"description\": \"Body leading\", \"default\": \"1.6\" },\n      { \"name\": \"-webkit-line-clamp\", \"description\": \"Max visible lines before ellipsis\", \"default\": \"3\" }\n    ],\n    \"variations\": [\"Single-line ellipsis (text-overflow: ellipsis)\", \"Wider measure for large type\", \"Tighter line-height for headings\"],\n    \"related\": [\"type-scale\", \"fluid-typography\"],\n    \"ai_usage\": \"Apply these readability defaults to all body copy: set the text container max-width to ~60-75ch (the 'measure'); use line-height ~1.5-1.65 for body; for card excerpts, clamp with display:-webkit-box; -webkit-line-clamp:N; -webkit-box-orient:vertical; overflow:hidden. Never let body text run the full width of a wide viewport. Don't clamp content that has no 'read more' path.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: Georgia, serif; padding: 1.4rem; overflow: auto; }\n    .prose { max-width: 60ch; line-height: 1.6; }\n    .prose h3 { font-family: system-ui, sans-serif; }\n    .label { font-family: ui-monospace, monospace; font-size: .7rem; color: #2dd4bf; }\n    .clamp { max-width: 40ch; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: #b7bdcc; }\n  </style>\n</head>\n<body>\n  <div class=\"prose\">\n    <p class=\"label\">max-width: 60ch · line-height: 1.6</p>\n    <h3>A comfortable measure</h3>\n    <p>Lines of 60 to 75 characters are easiest to read: the eye tracks from the end of one line to the start of the next without losing its place. Constrain body text with a ch-based max-width instead of letting it span the whole viewport.</p>\n    <p class=\"label\">-webkit-line-clamp: 2</p>\n    <p class=\"clamp\">This excerpt is clamped to two lines and ends with an ellipsis, which is perfect for card summaries and list previews where space is limited and the full text lives elsewhere.</p>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "retro-90s-homepage",
+      "title": "90s GeoCities Homepage",
+      "summary": "A loving 1990s personal homepage: starry tiled background, marquee, visitor counter, webring, and 'under construction'.",
+      "description": "A nostalgic mid-90s 'personal homepage' — centered table-style column on a tiled starfield, neon headings, a scrolling marquee, a faux hit counter, an 'under construction' banner, a webring nav, and 'best viewed in Netscape'. Modernized to be accessible and dependency-free.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "retro",
+        "personal"
+      ],
+      "tags": [
+        "90s",
+        "geocities",
+        "retro",
+        "marquee",
+        "visitor-counter",
+        "webring",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "1990s",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All modern browsers — recreated without deprecated <marquee>/<blink> tags.",
+      "performance_notes": "CSS marquee animation only; tiled SVG-data-URI background. No images or JS.",
+      "accessibility_notes": "Homage to a chaotic era but kept usable: real headings/links, the marquee pauses on hover/focus and stops under prefers-reduced-motion, contrast is legible. Use ironically — most of these patterns are anti-patterns today.",
+      "customization": [
+        {
+          "name": "colors",
+          "description": "Neon text + link colors",
+          "default": "lime/cyan/magenta on navy"
+        },
+        {
+          "name": "content",
+          "description": "Name, bio, hit count, webring",
+          "default": "edit markup"
+        }
+      ],
+      "variations": [
+        "Add a guestbook form",
+        "88x31 button wall",
+        "Auto-playing MIDI note (don't — but you could)"
+      ],
+      "related": [
+        "marquee-scroll",
+        "rainbow-text",
+        "starfield",
+        "blink-text"
+      ],
+      "ai_usage": "Use for nostalgia projects, 404 easter eggs, or retro-themed events. Copy the document and edit the name/bio/counter. It deliberately evokes GeoCities but avoids deprecated tags and seizure risks: the marquee is CSS (pauses on hover, stops under reduced-motion). Treat the patterns as a costume, not best practice.",
+      "path": "effects/website-templates/retro-90s-homepage.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>90s GeoCities Homepage</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"retro-90s-homepage\",\n    \"title\": \"90s GeoCities Homepage\",\n    \"summary\": \"A loving 1990s personal homepage: starry tiled background, marquee, visitor counter, webring, and 'under construction'.\",\n    \"description\": \"A nostalgic mid-90s 'personal homepage' — centered table-style column on a tiled starfield, neon headings, a scrolling marquee, a faux hit counter, an 'under construction' banner, a webring nav, and 'best viewed in Netscape'. Modernized to be accessible and dependency-free.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"retro\", \"personal\"],\n    \"tags\": [\"90s\", \"geocities\", \"retro\", \"marquee\", \"visitor-counter\", \"webring\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers — recreated without deprecated <marquee>/<blink> tags.\",\n    \"performance_notes\": \"CSS marquee animation only; tiled SVG-data-URI background. No images or JS.\",\n    \"accessibility_notes\": \"Homage to a chaotic era but kept usable: real headings/links, the marquee pauses on hover/focus and stops under prefers-reduced-motion, contrast is legible. Use ironically — most of these patterns are anti-patterns today.\",\n    \"customization\": [\n      { \"name\": \"colors\", \"description\": \"Neon text + link colors\", \"default\": \"lime/cyan/magenta on navy\" },\n      { \"name\": \"content\", \"description\": \"Name, bio, hit count, webring\", \"default\": \"edit markup\" }\n    ],\n    \"variations\": [\"Add a guestbook form\", \"88x31 button wall\", \"Auto-playing MIDI note (don't — but you could)\"],\n    \"related\": [\"marquee-scroll\", \"rainbow-text\", \"starfield\", \"blink-text\"],\n    \"ai_usage\": \"Use for nostalgia projects, 404 easter eggs, or retro-themed events. Copy the document and edit the name/bio/counter. It deliberately evokes GeoCities but avoids deprecated tags and seizure risks: the marquee is CSS (pauses on hover, stops under reduced-motion). Treat the patterns as a costume, not best practice.\"\n  }\n  </script>\n  <style>\n    :root{--neon:#39ff14;--cyan:#00e5ff;--mag:#ff00de;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{font-family:\"Comic Sans MS\",\"Trebuchet MS\",cursive,sans-serif;color:#fff;text-align:center;\n      background:#000022 url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23000022'/%3E%3Ccircle cx='6' cy='8' r='1' fill='%23fff'/%3E%3Ccircle cx='28' cy='18' r='1.2' fill='%23bbf'/%3E%3Ccircle cx='16' cy='32' r='1' fill='%23fff'/%3E%3Ccircle cx='34' cy='4' r='.8' fill='%23ff9'/%3E%3C/svg%3E\");}\n    .page{max-width:620px;margin:1rem auto;background:#101040;border:4px ridge var(--cyan);padding:1rem;}\n    h1{font-size:2.4rem;margin:.3rem 0;color:var(--neon);text-shadow:2px 2px var(--mag);}\n    .marquee{overflow:hidden;white-space:nowrap;border:2px inset var(--cyan);background:#000;margin:.6rem 0;}\n    .marquee span{display:inline-block;padding-left:100%;color:var(--neon);font-weight:bold;animation:scroll 12s linear infinite;}\n    .marquee:hover span,.marquee:focus-within span{animation-play-state:paused;}\n    @keyframes scroll{to{transform:translateX(-100%);}}\n    hr{border:none;border-top:2px groove var(--mag);}\n    .construction{background:#ffcc00;color:#000;font-weight:bold;border:3px dashed #000;padding:.4rem;margin:.6rem auto;max-width:80%;}\n    .bio{background:#000;border:2px inset var(--neon);padding:.8rem;text-align:left;color:#cfc;font-family:\"Courier New\",monospace;}\n    a{color:var(--cyan);} a:visited{color:var(--mag);}\n    .counter{display:inline-block;background:#000;border:2px solid var(--neon);color:var(--neon);font-family:\"Courier New\",monospace;padding:.2rem .5rem;letter-spacing:3px;}\n    .ring{margin:.8rem 0;font-size:.9rem;} .ring a{margin:0 .3rem;}\n    .badges span{display:inline-block;border:1px solid #888;background:#222;color:#9cf;font-size:.6rem;padding:.15rem .3rem;margin:.1rem;font-family:monospace;}\n    .foot{font-size:.75rem;color:#88a;margin-top:.6rem;}\n    @keyframes blink{50%{opacity:0;}}\n    .blink{animation:blink 1.2s step-end infinite;color:var(--mag);font-weight:bold;}\n    @media(prefers-reduced-motion:reduce){.marquee span{animation:none;padding-left:1rem;}.blink{animation:none;}}\n  </style>\n</head>\n<body>\n  <div class=\"page\">\n    <h1>~*~ Dave’s Homepage ~*~</h1>\n    <div class=\"marquee\" tabindex=\"0\"><span>★ Welcome to my corner of the World Wide Web! ★ Sign my guestbook! ★ Best viewed in Netscape Navigator at 800×600 ★&nbsp;&nbsp;&nbsp;</span></div>\n    <div class=\"construction\">🚧 UNDER CONSTRUCTION 🚧</div>\n    <p><span class=\"blink\">NEW!</span> I updated my page on 11/14/1998!</p>\n    <hr />\n    <div class=\"bio\">\n      &gt; Hi, I'm Dave.<br/>\n      &gt; I like computers, skateboarding, and X-Files.<br/>\n      &gt; This page is dedicated to my dog, Rex. 🐕<br/>\n      &gt; Email me: dave@geocities.com\n    </div>\n    <hr />\n    <p>You are visitor number:<br/><span class=\"counter\">0024817</span></p>\n    <div class=\"ring\">\n      ‹‹ <a href=\"#\">Prev</a> | <a href=\"#\">Random</a> | <a href=\"#\">Next</a> ›› <br/>\n      <small>Part of the <a href=\"#\">Cool Sites Webring</a></small>\n    </div>\n    <div class=\"badges\"><span>HTML 3.2</span><span>Netscape NOW!</span><span>Y2K READY</span><span>NO FRAMES</span><span>★ RealAudio ★</span></div>\n    <p class=\"foot\">© 1998 Dave · Made with Notepad · ✉ Sign my guestbook!</p>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "admin-dashboard",
+      "title": "Admin Dashboard",
+      "summary": "An app shell: fixed sidebar nav, topbar, KPI stat cards, a pure-CSS bar chart, and a data table.",
+      "description": "A static dashboard scaffold using the holy-grail grid (sidebar + topbar + content). Includes KPI cards, a CSS-only bar chart placeholder, and a responsive table — the skeleton for an internal tool or SaaS app.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "dashboard",
+        "app"
+      ],
+      "tags": [
+        "dashboard",
+        "admin",
+        "app-shell",
+        "sidebar",
+        "table",
+        "kpi",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers (CSS Grid).",
+      "performance_notes": "No JS or chart library; the bar chart is CSS heights. Swap in a real chart lib when wiring live data.",
+      "accessibility_notes": "Landmarks (aside/nav/header/main), a real <table> with <th scope>, focus-visible on nav items. Charts need text alternatives when populated with real data.",
+      "customization": [
+        {
+          "name": "--accent / surfaces",
+          "description": "Brand + panel colors",
+          "default": "#7c5cff / dark"
+        },
+        {
+          "name": "grid-template-columns",
+          "description": "Sidebar width",
+          "default": "230px 1fr"
+        }
+      ],
+      "variations": [
+        "Collapsible sidebar (toggle a class)",
+        "Light theme",
+        "Replace the CSS chart with a real charting lib"
+      ],
+      "related": [
+        "holy-grail",
+        "card-lift",
+        "skeleton-loader"
+      ],
+      "ai_usage": "Use as the shell for internal tools / SaaS apps. Copy the document; the layout is a CSS grid (sidebar + topbar + main). Replace nav items, KPI numbers, the bar-chart values (set each bar's height), and the table rows. Wire real data by swapping the static table/chart for components, keeping the grid and tokens. Keep the <table> semantics and add aria labels to charts when populated.",
+      "path": "effects/website-templates/admin-dashboard.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Admin Dashboard</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"admin-dashboard\",\n    \"title\": \"Admin Dashboard\",\n    \"summary\": \"An app shell: fixed sidebar nav, topbar, KPI stat cards, a pure-CSS bar chart, and a data table.\",\n    \"description\": \"A static dashboard scaffold using the holy-grail grid (sidebar + topbar + content). Includes KPI cards, a CSS-only bar chart placeholder, and a responsive table — the skeleton for an internal tool or SaaS app.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"dashboard\", \"app\"],\n    \"tags\": [\"dashboard\", \"admin\", \"app-shell\", \"sidebar\", \"table\", \"kpi\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (CSS Grid).\",\n    \"performance_notes\": \"No JS or chart library; the bar chart is CSS heights. Swap in a real chart lib when wiring live data.\",\n    \"accessibility_notes\": \"Landmarks (aside/nav/header/main), a real <table> with <th scope>, focus-visible on nav items. Charts need text alternatives when populated with real data.\",\n    \"customization\": [\n      { \"name\": \"--accent / surfaces\", \"description\": \"Brand + panel colors\", \"default\": \"#7c5cff / dark\" },\n      { \"name\": \"grid-template-columns\", \"description\": \"Sidebar width\", \"default\": \"230px 1fr\" }\n    ],\n    \"variations\": [\"Collapsible sidebar (toggle a class)\", \"Light theme\", \"Replace the CSS chart with a real charting lib\"],\n    \"related\": [\"holy-grail\", \"card-lift\", \"skeleton-loader\"],\n    \"ai_usage\": \"Use as the shell for internal tools / SaaS apps. Copy the document; the layout is a CSS grid (sidebar + topbar + main). Replace nav items, KPI numbers, the bar-chart values (set each bar's height), and the table rows. Wire real data by swapping the static table/chart for components, keeping the grid and tokens. Keep the <table> semantics and add aria labels to charts when populated.\"\n  }\n  </script>\n  <style>\n    :root{--bg:#0b0d12;--panel:#11141c;--panel2:#151925;--line:#222838;--text:#e7ebf3;--muted:#8b93a7;--accent:#7c5cff;--accent2:#2dd4bf;}\n    *{box-sizing:border-box;} html,body{margin:0;height:100%;}\n    body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;}\n    .app{display:grid;grid-template-columns:220px 1fr;grid-template-rows:56px 1fr;grid-template-areas:\"side top\" \"side main\";height:100vh;}\n    aside{grid-area:side;background:var(--panel);border-right:1px solid var(--line);padding:1rem;}\n    .logo{font-weight:800;margin-bottom:1.4rem;} .logo span{color:var(--accent2);}\n    nav a{display:block;padding:.55rem .7rem;border-radius:8px;color:var(--muted);text-decoration:none;margin-bottom:.2rem;font-size:.92rem;}\n    nav a.active,nav a:hover{background:var(--panel2);color:var(--text);}\n    header{grid-area:top;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem;border-bottom:1px solid var(--line);background:var(--panel);}\n    header .search{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:.4rem .8rem;color:var(--muted);font-size:.85rem;width:220px;}\n    .avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));}\n    main{grid-area:main;overflow:auto;padding:1.4rem;}\n    .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:1.4rem;}\n    .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;}\n    .kpi .label{color:var(--muted);font-size:.8rem;} .kpi .num{font-size:1.8rem;font-weight:800;margin:.2rem 0;}\n    .kpi .delta{color:var(--accent2);font-size:.8rem;}\n    .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.2rem;margin-bottom:1.4rem;}\n    .panel h3{margin:0 0 1rem;font-size:1rem;}\n    .chart{display:flex;align-items:flex-end;gap:10px;height:140px;}\n    .chart .bar{flex:1;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:6px 6px 0 0;}\n    table{width:100%;border-collapse:collapse;font-size:.9rem;}\n    th,td{text-align:left;padding:.6rem .5rem;border-bottom:1px solid var(--line);}\n    th{color:var(--muted);font-weight:600;font-size:.8rem;}\n    .pill{padding:.15rem .55rem;border-radius:999px;font-size:.75rem;}\n    .ok{background:rgba(34,197,94,.15);color:#4ade80;} .pend{background:rgba(245,158,11,.15);color:#fbbf24;}\n    @media(max-width:680px){.app{grid-template-columns:1fr;grid-template-areas:\"top\" \"main\";}aside{display:none;}}\n  </style>\n</head>\n<body>\n  <div class=\"app\">\n    <aside>\n      <div class=\"logo\">◆ <span>Console</span></div>\n      <nav><a class=\"active\" href=\"#\">Overview</a><a href=\"#\">Customers</a><a href=\"#\">Revenue</a><a href=\"#\">Reports</a><a href=\"#\">Settings</a></nav>\n    </aside>\n    <header><input class=\"search\" placeholder=\"Search…\" /><div class=\"avatar\"></div></header>\n    <main>\n      <div class=\"kpis\">\n        <div class=\"kpi\"><div class=\"label\">MRR</div><div class=\"num\">$48.2k</div><div class=\"delta\">▲ 12.4%</div></div>\n        <div class=\"kpi\"><div class=\"label\">Active users</div><div class=\"num\">9,341</div><div class=\"delta\">▲ 4.1%</div></div>\n        <div class=\"kpi\"><div class=\"label\">Churn</div><div class=\"num\">1.8%</div><div class=\"delta\">▼ 0.3%</div></div>\n        <div class=\"kpi\"><div class=\"label\">NPS</div><div class=\"num\">62</div><div class=\"delta\">▲ 5</div></div>\n      </div>\n      <div class=\"panel\"><h3>Revenue (last 12 weeks)</h3>\n        <div class=\"chart\">\n          <div class=\"bar\" style=\"height:40%\"></div><div class=\"bar\" style=\"height:55%\"></div><div class=\"bar\" style=\"height:48%\"></div>\n          <div class=\"bar\" style=\"height:70%\"></div><div class=\"bar\" style=\"height:62%\"></div><div class=\"bar\" style=\"height:80%\"></div>\n          <div class=\"bar\" style=\"height:75%\"></div><div class=\"bar\" style=\"height:90%\"></div><div class=\"bar\" style=\"height:84%\"></div>\n          <div class=\"bar\" style=\"height:96%\"></div><div class=\"bar\" style=\"height:88%\"></div><div class=\"bar\" style=\"height:100%\"></div>\n        </div>\n      </div>\n      <div class=\"panel\"><h3>Recent orders</h3>\n        <table>\n          <thead><tr><th scope=\"col\">Order</th><th scope=\"col\">Customer</th><th scope=\"col\">Amount</th><th scope=\"col\">Status</th></tr></thead>\n          <tbody>\n            <tr><td>#10241</td><td>Acme Co.</td><td>$1,200</td><td><span class=\"pill ok\">Paid</span></td></tr>\n            <tr><td>#10240</td><td>Globex</td><td>$840</td><td><span class=\"pill pend\">Pending</span></td></tr>\n            <tr><td>#10239</td><td>Initech</td><td>$2,310</td><td><span class=\"pill ok\">Paid</span></td></tr>\n            <tr><td>#10238</td><td>Hooli</td><td>$560</td><td><span class=\"pill ok\">Paid</span></td></tr>\n          </tbody>\n        </table>\n      </div>\n    </main>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "blog-article",
+      "title": "Blog Article",
+      "summary": "A readable long-form article layout: title, byline, cover, prose with a constrained measure, and a footer.",
+      "description": "An editorial blog-post scaffold tuned for reading: a centered column at a ~68ch measure, comfortable line-height, styled headings/quotes/code, a byline with reading time, and a simple footer. The template version of good typography.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "blog",
+        "editorial"
+      ],
+      "tags": [
+        "blog",
+        "article",
+        "long-form",
+        "reading",
+        "typography",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All browsers.",
+      "performance_notes": "Text-only; instant.",
+      "accessibility_notes": "Single main heading, logical heading order, ~68ch measure and 1.7 line-height for readability, high contrast, real <article>/<time> semantics.",
+      "customization": [
+        {
+          "name": "--measure",
+          "description": "Reading column width",
+          "default": "68ch"
+        },
+        {
+          "name": "--accent",
+          "description": "Links / accents",
+          "default": "#5b3ee0"
+        }
+      ],
+      "variations": [
+        "Dark reading theme",
+        "Add a sticky reading-progress bar (see scroll-progress-bar)",
+        "Two-column with a sidebar TOC"
+      ],
+      "related": [
+        "readable-measure",
+        "type-scale",
+        "scroll-progress-bar"
+      ],
+      "ai_usage": "Use for blog posts, docs prose, and articles. Copy the document and replace the title, byline, cover, and body. The key is the --measure (keep 60–75ch) and line-height for readability — don't widen the column. Headings, blockquote, and inline code are pre-styled. Pair with the scroll-progress-bar effect for a reading indicator. Set a real <time datetime>.",
+      "path": "effects/website-templates/blog-article.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Blog Article</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"blog-article\",\n    \"title\": \"Blog Article\",\n    \"summary\": \"A readable long-form article layout: title, byline, cover, prose with a constrained measure, and a footer.\",\n    \"description\": \"An editorial blog-post scaffold tuned for reading: a centered column at a ~68ch measure, comfortable line-height, styled headings/quotes/code, a byline with reading time, and a simple footer. The template version of good typography.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"blog\", \"editorial\"],\n    \"tags\": [\"blog\", \"article\", \"long-form\", \"reading\", \"typography\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Text-only; instant.\",\n    \"accessibility_notes\": \"Single main heading, logical heading order, ~68ch measure and 1.7 line-height for readability, high contrast, real <article>/<time> semantics.\",\n    \"customization\": [\n      { \"name\": \"--measure\", \"description\": \"Reading column width\", \"default\": \"68ch\" },\n      { \"name\": \"--accent\", \"description\": \"Links / accents\", \"default\": \"#5b3ee0\" }\n    ],\n    \"variations\": [\"Dark reading theme\", \"Add a sticky reading-progress bar (see scroll-progress-bar)\", \"Two-column with a sidebar TOC\"],\n    \"related\": [\"readable-measure\", \"type-scale\", \"scroll-progress-bar\"],\n    \"ai_usage\": \"Use for blog posts, docs prose, and articles. Copy the document and replace the title, byline, cover, and body. The key is the --measure (keep 60–75ch) and line-height for readability — don't widen the column. Headings, blockquote, and inline code are pre-styled. Pair with the scroll-progress-bar effect for a reading indicator. Set a real <time datetime>.\"\n  }\n  </script>\n  <style>\n    :root{--measure:68ch;--ink:#1a1d23;--muted:#6b7280;--paper:#ffffff;--accent:#5b3ee0;--line:#ececf0;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{background:var(--paper);color:var(--ink);font-family:Georgia,\"Iowan Old Style\",serif;line-height:1.7;}\n    .bar{height:4px;background:linear-gradient(90deg,var(--accent),#22d3ee);}\n    .col{max-width:var(--measure);margin:0 auto;padding:0 1.3rem;}\n    header.top{font-family:system-ui,sans-serif;border-bottom:1px solid var(--line);}\n    header.top .col{display:flex;justify-content:space-between;align-items:center;height:56px;font-size:.9rem;}\n    header.top .b{font-weight:800;} header.top a{color:var(--muted);text-decoration:none;margin-left:1rem;}\n    article{padding:2.5rem 0 3rem;}\n    .kicker{font-family:system-ui,sans-serif;color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;}\n    h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:.4rem 0 .6rem;}\n    .byline{font-family:system-ui,sans-serif;color:var(--muted);font-size:.92rem;margin-bottom:1.6rem;}\n    .cover{aspect-ratio:16/7;border-radius:14px;background:linear-gradient(135deg,#5b3ee0,#22d3ee);margin-bottom:1.8rem;}\n    article p{margin:0 0 1.2rem;} article h2{font-family:system-ui,sans-serif;margin:2rem 0 .6rem;font-size:1.5rem;}\n    blockquote{margin:1.6rem 0;padding:.4rem 0 .4rem 1.2rem;border-left:3px solid var(--accent);color:var(--muted);font-style:italic;}\n    code{background:#f3f3f7;padding:.1rem .35rem;border-radius:5px;font-family:ui-monospace,monospace;font-size:.9em;}\n    a{color:var(--accent);}\n    footer{font-family:system-ui,sans-serif;border-top:1px solid var(--line);color:var(--muted);}\n    footer .col{padding:1.4rem 1.3rem 3rem;font-size:.9rem;}\n  </style>\n</head>\n<body>\n  <div class=\"bar\"></div>\n  <header class=\"top\"><div class=\"col\"><span class=\"b\">The Margin</span><nav><a href=\"#\">Latest</a><a href=\"#\">Topics</a><a href=\"#\">About</a></nav></div></header>\n  <article class=\"col\">\n    <p class=\"kicker\">Engineering</p>\n    <h1>Designing for the agent era</h1>\n    <p class=\"byline\">By Jordan Lee · <time datetime=\"2026-05-30\">May 30, 2026</time> · 6 min read</p>\n    <div class=\"cover\"></div>\n    <p>The interfaces we build are increasingly read by machines as often as people. That shift rewards structure: predictable markup, explicit metadata, and content that means the same thing whether it’s rendered or parsed.</p>\n    <h2>Structure is the feature</h2>\n    <p>When a document is well-structured, both a screen reader and a language model can navigate it. Headings become an outline; landmarks become a map. The same discipline that aids accessibility aids automation.</p>\n    <blockquote>Write for the parser you wish you had, and the human you actually have.</blockquote>\n    <p>Prefer semantic elements, keep a sensible measure like <code>max-width: 68ch</code>, and let typography do the work. The result reads well and machines love it.</p>\n    <h2>Where to start</h2>\n    <p>Pick one template, ship it, and iterate. Momentum beats perfection — especially when redeploys are a single merge away.</p>\n  </article>\n  <footer><div class=\"col\">© 2026 The Margin · Written by humans, indexed by machines.</div></footer>\n</body>\n</html>\n"
+    },
+    {
+      "id": "coming-soon",
+      "title": "Coming Soon / Waitlist",
+      "summary": "A centered pre-launch page with a live countdown and an email capture form over an animated gradient.",
+      "description": "A single-screen 'launching soon' scaffold: animated gradient backdrop, logo, headline, a JS countdown to a target date, and an accessible email signup form. Ideal as a placeholder while the real site is built.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "landing",
+        "pre-launch"
+      ],
+      "tags": [
+        "coming-soon",
+        "waitlist",
+        "countdown",
+        "launch",
+        "email-capture",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "js",
+        "html"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All modern browsers.",
+      "performance_notes": "One gradient animation + a 1s countdown interval; trivial.",
+      "accessibility_notes": "Real <form> with a labeled email <input> and submit button, focus-visible rings, countdown has a text label. Background animation stops under prefers-reduced-motion.",
+      "customization": [
+        {
+          "name": "TARGET_DATE",
+          "description": "Launch date the countdown ticks to",
+          "default": "set in script"
+        },
+        {
+          "name": "--g1/--g2/--g3",
+          "description": "Gradient colors",
+          "default": "brand palette"
+        }
+      ],
+      "variations": [
+        "Static date (no countdown)",
+        "Add social links row",
+        "Split layout with a product mockup"
+      ],
+      "related": [
+        "animated-gradient",
+        "floating-label-input"
+      ],
+      "ai_usage": "Use as a pre-launch placeholder. Copy the document, set TARGET_DATE to the real launch datetime, edit the headline/sub, and wire the form's submit to your email provider (it currently just shows a thank-you). Recolor via the gradient tokens. Keep the form labeled and the reduced-motion guard. Drop-in and deploy in minutes.",
+      "path": "effects/website-templates/coming-soon.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Coming Soon / Waitlist</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"coming-soon\",\n    \"title\": \"Coming Soon / Waitlist\",\n    \"summary\": \"A centered pre-launch page with a live countdown and an email capture form over an animated gradient.\",\n    \"description\": \"A single-screen 'launching soon' scaffold: animated gradient backdrop, logo, headline, a JS countdown to a target date, and an accessible email signup form. Ideal as a placeholder while the real site is built.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"landing\", \"pre-launch\"],\n    \"tags\": [\"coming-soon\", \"waitlist\", \"countdown\", \"launch\", \"email-capture\", \"full-page\"],\n    \"tech\": [\"css\", \"js\", \"html\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"One gradient animation + a 1s countdown interval; trivial.\",\n    \"accessibility_notes\": \"Real <form> with a labeled email <input> and submit button, focus-visible rings, countdown has a text label. Background animation stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"TARGET_DATE\", \"description\": \"Launch date the countdown ticks to\", \"default\": \"set in script\" },\n      { \"name\": \"--g1/--g2/--g3\", \"description\": \"Gradient colors\", \"default\": \"brand palette\" }\n    ],\n    \"variations\": [\"Static date (no countdown)\", \"Add social links row\", \"Split layout with a product mockup\"],\n    \"related\": [\"animated-gradient\", \"floating-label-input\"],\n    \"ai_usage\": \"Use as a pre-launch placeholder. Copy the document, set TARGET_DATE to the real launch datetime, edit the headline/sub, and wire the form's submit to your email provider (it currently just shows a thank-you). Recolor via the gradient tokens. Keep the form labeled and the reduced-motion guard. Drop-in and deploy in minutes.\"\n  }\n  </script>\n  <style>\n    :root{--g1:#7c5cff;--g2:#2dd4bf;--g3:#f0abfc;}\n    *{box-sizing:border-box;} html,body{margin:0;height:100%;}\n    body{min-height:100vh;display:grid;place-items:center;color:#fff;text-align:center;font-family:system-ui,sans-serif;padding:1.5rem;\n      background:linear-gradient(-45deg,var(--g1),var(--g2),var(--g3),var(--g1));background-size:400% 400%;animation:bg 18s ease infinite;}\n    @keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}\n    .card{max-width:560px;}\n    .logo{font-weight:900;font-size:1.3rem;letter-spacing:.1em;margin-bottom:1.2rem;}\n    h1{font-size:clamp(2.2rem,7vw,3.6rem);margin:.2rem 0;}\n    p.sub{font-size:1.1rem;opacity:.9;margin:0 auto 1.6rem;max-width:40ch;}\n    .count{display:flex;gap:1rem;justify-content:center;margin:1.4rem 0 1.8rem;}\n    .count div{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:.7rem 1rem;min-width:64px;}\n    .count b{display:block;font-size:1.8rem;} .count span{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;opacity:.85;}\n    form{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;}\n    label{position:absolute;left:-9999px;}\n    input{flex:1;min-width:200px;max-width:280px;padding:.85rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.15);color:#fff;font-size:1rem;}\n    input::placeholder{color:rgba(255,255,255,.7);}\n    button{background:#fff;color:#222;border:none;border-radius:999px;padding:.85rem 1.6rem;font-weight:700;cursor:pointer;}\n    button:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:2px;}\n    .thanks{margin-top:1rem;font-weight:600;min-height:1.2em;}\n    @media(prefers-reduced-motion:reduce){body{animation:none;}}\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <div class=\"logo\">◆ NIMBUS</div>\n    <h1>Something great is coming.</h1>\n    <p class=\"sub\">We’re putting the finishing touches on it. Join the waitlist to get early access.</p>\n    <div class=\"count\" id=\"count\" aria-label=\"Time until launch\">\n      <div><b id=\"d\">00</b><span>days</span></div><div><b id=\"h\">00</b><span>hrs</span></div>\n      <div><b id=\"m\">00</b><span>min</span></div><div><b id=\"s\">00</b><span>sec</span></div>\n    </div>\n    <form id=\"form\">\n      <label for=\"email\">Email address</label>\n      <input id=\"email\" type=\"email\" placeholder=\"you@example.com\" required />\n      <button type=\"submit\">Notify me</button>\n    </form>\n    <p class=\"thanks\" id=\"thanks\" role=\"status\"></p>\n  </div>\n  <script>\n    var TARGET_DATE = new Date(\"2026-09-01T09:00:00Z\").getTime();\n    function pad(n){return String(n).padStart(2,\"0\");}\n    function tick(){\n      var diff=Math.max(0,TARGET_DATE-Date.now()),s=Math.floor(diff/1000);\n      document.getElementById(\"d\").textContent=pad(Math.floor(s/86400));\n      document.getElementById(\"h\").textContent=pad(Math.floor(s%86400/3600));\n      document.getElementById(\"m\").textContent=pad(Math.floor(s%3600/60));\n      document.getElementById(\"s\").textContent=pad(s%60);\n    }\n    tick(); setInterval(tick,1000);\n    document.getElementById(\"form\").addEventListener(\"submit\",function(e){\n      e.preventDefault();\n      document.getElementById(\"thanks\").textContent=\"🎉 You're on the list!\";\n      this.reset();\n    });\n  </script>\n</body>\n</html>\n"
+    },
+    {
+      "id": "ecommerce-product",
+      "title": "E-commerce Product Page",
+      "summary": "A product detail page: gallery, title/price, variant swatches, quantity, add-to-cart, and details.",
+      "description": "A clean two-column product page — image gallery with thumbnails on the left, buy box on the right (price, rating, color/size selectors, quantity stepper, add-to-cart), plus a details list. The core PDP layout.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "ecommerce",
+        "product"
+      ],
+      "tags": [
+        "ecommerce",
+        "product",
+        "pdp",
+        "shop",
+        "cart",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers (CSS Grid).",
+      "performance_notes": "Gradient placeholders for imagery; no JS. Wire variant selection / cart with your framework.",
+      "accessibility_notes": "Real <button>s and form controls, swatches are labeled radio-style buttons, price/rating in text, focus-visible rings. Add aria-pressed to selected swatches when made interactive.",
+      "customization": [
+        {
+          "name": "--accent",
+          "description": "Buy button / accents",
+          "default": "#111827 (or brand)"
+        },
+        {
+          "name": "content",
+          "description": "Product name, price, variants, copy, gallery images",
+          "default": "edit markup"
+        }
+      ],
+      "variations": [
+        "Sticky buy box on scroll",
+        "Add reviews + related products sections",
+        "Dark theme"
+      ],
+      "related": [
+        "image-zoom-reveal",
+        "card-lift"
+      ],
+      "ai_usage": "Use as a product detail page (PDP). Copy the document; replace the gallery images, title, price, rating, variant swatches/sizes, and details. The grid collapses to one column on mobile. Make swatches/quantity interactive in your framework and reflect selection with aria-pressed + the cart state; keep the buy box as real form controls. Replace gradient placeholders with real product <img>.",
+      "path": "effects/website-templates/ecommerce-product.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>E-commerce Product Page</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"ecommerce-product\",\n    \"title\": \"E-commerce Product Page\",\n    \"summary\": \"A product detail page: gallery, title/price, variant swatches, quantity, add-to-cart, and details.\",\n    \"description\": \"A clean two-column product page — image gallery with thumbnails on the left, buy box on the right (price, rating, color/size selectors, quantity stepper, add-to-cart), plus a details list. The core PDP layout.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"ecommerce\", \"product\"],\n    \"tags\": [\"ecommerce\", \"product\", \"pdp\", \"shop\", \"cart\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (CSS Grid).\",\n    \"performance_notes\": \"Gradient placeholders for imagery; no JS. Wire variant selection / cart with your framework.\",\n    \"accessibility_notes\": \"Real <button>s and form controls, swatches are labeled radio-style buttons, price/rating in text, focus-visible rings. Add aria-pressed to selected swatches when made interactive.\",\n    \"customization\": [\n      { \"name\": \"--accent\", \"description\": \"Buy button / accents\", \"default\": \"#111827 (or brand)\" },\n      { \"name\": \"content\", \"description\": \"Product name, price, variants, copy, gallery images\", \"default\": \"edit markup\" }\n    ],\n    \"variations\": [\"Sticky buy box on scroll\", \"Add reviews + related products sections\", \"Dark theme\"],\n    \"related\": [\"image-zoom-reveal\", \"card-lift\"],\n    \"ai_usage\": \"Use as a product detail page (PDP). Copy the document; replace the gallery images, title, price, rating, variant swatches/sizes, and details. The grid collapses to one column on mobile. Make swatches/quantity interactive in your framework and reflect selection with aria-pressed + the cart state; keep the buy box as real form controls. Replace gradient placeholders with real product <img>.\"\n  }\n  </script>\n  <style>\n    :root{--ink:#111827;--muted:#6b7280;--paper:#ffffff;--soft:#f4f4f6;--line:#e5e7eb;--accent:#111827;--star:#f59e0b;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,sans-serif;line-height:1.5;}\n    header{border-bottom:1px solid var(--line);}\n    .wrap{max-width:1040px;margin:0 auto;padding:0 1.3rem;}\n    .nav{display:flex;justify-content:space-between;align-items:center;height:60px;}\n    .brand{font-weight:800;} .nav .cart{background:var(--soft);border-radius:10px;padding:.4rem .8rem;font-size:.9rem;}\n    .pdp{display:grid;grid-template-columns:1.1fr 1fr;gap:2.4rem;padding:2rem 0 3rem;}\n    .gallery .main{aspect-ratio:1;border-radius:16px;background:linear-gradient(135deg,#a78bfa,#22d3ee);}\n    .gallery .thumbs{display:flex;gap:.6rem;margin-top:.7rem;}\n    .gallery .thumbs div{width:64px;height:64px;border-radius:10px;border:1px solid var(--line);}\n    .t1{background:linear-gradient(135deg,#a78bfa,#22d3ee);} .t2{background:linear-gradient(135deg,#fb7185,#fbbf24);}\n    .t3{background:linear-gradient(135deg,#34d399,#0ea5e9);} .t4{background:#e5e7eb;}\n    .buy h1{font-size:1.8rem;margin:.2rem 0;}\n    .rating{color:var(--star);font-size:.95rem;} .rating span{color:var(--muted);}\n    .price{font-size:2rem;font-weight:800;margin:.6rem 0 1rem;}\n    .label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:1rem 0 .4rem;}\n    .swatches{display:flex;gap:.5rem;} .swatch{width:32px;height:32px;border-radius:50%;border:2px solid var(--line);cursor:pointer;}\n    .swatch.sel{border-color:var(--ink);} .sw1{background:#111827;} .sw2{background:#5b3ee0;} .sw3{background:#0ea5a5;} .sw4{background:#e11d48;}\n    .sizes{display:flex;gap:.5rem;flex-wrap:wrap;} .size{border:1px solid var(--line);border-radius:8px;padding:.45rem .8rem;background:#fff;cursor:pointer;}\n    .size.sel{border-color:var(--ink);background:var(--ink);color:#fff;}\n    .row{display:flex;gap:.8rem;align-items:center;margin:1.4rem 0;}\n    .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;}\n    .qty button{border:none;background:none;font-size:1.2rem;width:38px;height:42px;cursor:pointer;}\n    .qty span{width:30px;text-align:center;}\n    .add{flex:1;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:.9rem;font-weight:700;font-size:1rem;cursor:pointer;}\n    .add:focus-visible,.size:focus-visible{outline:3px solid #5b3ee0;outline-offset:2px;}\n    .details{border-top:1px solid var(--line);margin-top:1.2rem;padding-top:1rem;color:var(--muted);font-size:.92rem;}\n    @media(max-width:720px){.pdp{grid-template-columns:1fr;}}\n  </style>\n</head>\n<body>\n  <header><div class=\"wrap nav\"><span class=\"brand\">⬢ Loomwear</span><span class=\"cart\">Cart · 2</span></div></header>\n  <main class=\"wrap\">\n    <div class=\"pdp\">\n      <section class=\"gallery\" aria-label=\"Product images\">\n        <div class=\"main\"></div>\n        <div class=\"thumbs\"><div class=\"t1\"></div><div class=\"t2\"></div><div class=\"t3\"></div><div class=\"t4\"></div></div>\n      </section>\n      <section class=\"buy\">\n        <div class=\"rating\">★★★★★ <span>(128 reviews)</span></div>\n        <h1>Merino Crew Sweater</h1>\n        <div class=\"price\">$148</div>\n        <p style=\"color:var(--muted);margin:0\">Ultrafine 19.5-micron merino. Temperature-regulating, machine washable, built to last.</p>\n        <div class=\"label\">Color</div>\n        <div class=\"swatches\"><button class=\"swatch sw1 sel\" aria-label=\"Black\"></button><button class=\"swatch sw2\" aria-label=\"Violet\"></button><button class=\"swatch sw3\" aria-label=\"Teal\"></button><button class=\"swatch sw4\" aria-label=\"Crimson\"></button></div>\n        <div class=\"label\">Size</div>\n        <div class=\"sizes\"><button class=\"size\">XS</button><button class=\"size sel\">S</button><button class=\"size\">M</button><button class=\"size\">L</button><button class=\"size\">XL</button></div>\n        <div class=\"row\">\n          <div class=\"qty\"><button aria-label=\"Decrease\">−</button><span>1</span><button aria-label=\"Increase\">+</button></div>\n          <button class=\"add\">Add to cart · $148</button>\n        </div>\n        <div class=\"details\">Free shipping over $75 · 30-day returns · Ships in 1–2 days</div>\n      </section>\n    </div>\n  </main>\n</body>\n</html>\n"
+    },
+    {
+      "id": "portfolio-minimal",
+      "title": "Minimal Portfolio",
+      "summary": "A clean personal/creative portfolio: intro header, selected-work grid, about, and contact.",
+      "description": "A light, typographic single-page portfolio scaffold — large intro statement, a responsive project grid with hover lift, a short about blurb, and a contact line. Editorial and restrained.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "portfolio",
+        "personal"
+      ],
+      "tags": [
+        "portfolio",
+        "personal",
+        "creative",
+        "minimal",
+        "grid",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All modern browsers.",
+      "performance_notes": "No images or JS; gradient placeholders stand in for project thumbnails.",
+      "accessibility_notes": "Semantic structure, high-contrast light theme, focus-visible on links, project cards are real links.",
+      "customization": [
+        {
+          "name": "--ink / --paper / --accent",
+          "description": "Text, background, accent",
+          "default": "#16181d / #faf9f6 / #5b3ee0"
+        },
+        {
+          "name": "content",
+          "description": "Name, role, projects, about, email",
+          "default": "edit markup"
+        }
+      ],
+      "variations": [
+        "Dark editorial variant",
+        "Two-column about with photo",
+        "Add a filterable tag bar over the grid"
+      ],
+      "related": [
+        "image-zoom-reveal",
+        "card-lift"
+      ],
+      "ai_usage": "Use as a personal/creative portfolio scaffold. Copy the document, set the three color tokens, and replace the name/role, the project cards (title, category, link, and the placeholder thumbnail), the about paragraph, and the contact email. The project grid is auto-fit responsive. Keep it sparse — the design relies on whitespace and type scale. Swap placeholder gradients for real <img> with alt text.",
+      "path": "effects/website-templates/portfolio-minimal.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Minimal Portfolio</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"portfolio-minimal\",\n    \"title\": \"Minimal Portfolio\",\n    \"summary\": \"A clean personal/creative portfolio: intro header, selected-work grid, about, and contact.\",\n    \"description\": \"A light, typographic single-page portfolio scaffold — large intro statement, a responsive project grid with hover lift, a short about blurb, and a contact line. Editorial and restrained.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"portfolio\", \"personal\"],\n    \"tags\": [\"portfolio\", \"personal\", \"creative\", \"minimal\", \"grid\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"No images or JS; gradient placeholders stand in for project thumbnails.\",\n    \"accessibility_notes\": \"Semantic structure, high-contrast light theme, focus-visible on links, project cards are real links.\",\n    \"customization\": [\n      { \"name\": \"--ink / --paper / --accent\", \"description\": \"Text, background, accent\", \"default\": \"#16181d / #faf9f6 / #5b3ee0\" },\n      { \"name\": \"content\", \"description\": \"Name, role, projects, about, email\", \"default\": \"edit markup\" }\n    ],\n    \"variations\": [\"Dark editorial variant\", \"Two-column about with photo\", \"Add a filterable tag bar over the grid\"],\n    \"related\": [\"image-zoom-reveal\", \"card-lift\"],\n    \"ai_usage\": \"Use as a personal/creative portfolio scaffold. Copy the document, set the three color tokens, and replace the name/role, the project cards (title, category, link, and the placeholder thumbnail), the about paragraph, and the contact email. The project grid is auto-fit responsive. Keep it sparse — the design relies on whitespace and type scale. Swap placeholder gradients for real <img> with alt text.\"\n  }\n  </script>\n  <style>\n    :root{--ink:#16181d;--paper:#faf9f6;--muted:#6b7280;--accent:#5b3ee0;--line:#e7e3da;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{background:var(--paper);color:var(--ink);font-family:Georgia,\"Times New Roman\",serif;line-height:1.6;}\n    .wrap{max-width:920px;margin:0 auto;padding:0 1.4rem;}\n    header{padding:3rem 0 1rem;display:flex;justify-content:space-between;align-items:baseline;font-family:system-ui,sans-serif;}\n    header .name{font-weight:800;} header nav a{color:var(--muted);text-decoration:none;margin-left:1.2rem;}\n    .intro{padding:2rem 0 3rem;} .intro h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.15;margin:0;max-width:16ch;}\n    .intro h1 em{color:var(--accent);font-style:italic;}\n    .intro p{color:var(--muted);font-family:system-ui,sans-serif;max-width:48ch;}\n    h2{font-family:system-ui,sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);padding-top:1.4rem;}\n    .work{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-bottom:2.5rem;}\n    .proj{text-decoration:none;color:inherit;transition:transform .25s ease;display:block;}\n    .proj:hover{transform:translateY(-6px);}\n    .proj .thumb{aspect-ratio:4/3;border-radius:12px;margin-bottom:.7rem;}\n    .proj h3{margin:0;font-size:1.2rem;} .proj span{font-family:system-ui,sans-serif;color:var(--muted);font-size:.85rem;}\n    .p1{background:linear-gradient(135deg,#5b3ee0,#9b8cff);} .p2{background:linear-gradient(135deg,#0ea5a5,#5eead4);}\n    .p3{background:linear-gradient(135deg,#e11d48,#fb7185);} .p4{background:linear-gradient(135deg,#d97706,#fbbf24);}\n    .about{max-width:60ch;font-size:1.15rem;margin-bottom:2.5rem;}\n    footer{font-family:system-ui,sans-serif;border-top:1px solid var(--line);padding:1.6rem 0 3rem;color:var(--muted);}\n    footer a{color:var(--accent);}\n    @media(prefers-reduced-motion:reduce){.proj{transition:none;}}\n  </style>\n</head>\n<body>\n  <div class=\"wrap\">\n    <header><span class=\"name\">Ava Mercer</span><nav><a href=\"#work\">Work</a><a href=\"#about\">About</a><a href=\"#contact\">Contact</a></nav></header>\n    <section class=\"intro\">\n      <h1>Designer &amp; developer crafting <em>calm, useful</em> interfaces.</h1>\n      <p>Independent product designer based in Lisbon. Currently helping early-stage teams find their shape.</p>\n    </section>\n\n    <h2 id=\"work\">Selected work</h2>\n    <section class=\"work\">\n      <a class=\"proj\" href=\"#\"><div class=\"thumb p1\"></div><h3>Aurora</h3><span>Brand · Product · 2026</span></a>\n      <a class=\"proj\" href=\"#\"><div class=\"thumb p2\"></div><h3>Tidepool</h3><span>Web app · 2025</span></a>\n      <a class=\"proj\" href=\"#\"><div class=\"thumb p3\"></div><h3>Ember</h3><span>Identity · 2025</span></a>\n      <a class=\"proj\" href=\"#\"><div class=\"thumb p4\"></div><h3>Field Notes</h3><span>Editorial · 2024</span></a>\n    </section>\n\n    <h2 id=\"about\">About</h2>\n    <p class=\"about\">I’ve spent ten years turning fuzzy ideas into shipped products — from zero-to-one prototypes to design systems used by millions. I care about clarity, performance, and the details nobody notices but everybody feels.</p>\n\n    <footer id=\"contact\">Let’s build something — <a href=\"mailto:hello@example.com\">hello@example.com</a> · @avamercer</footer>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "neubrutalist-landing",
+      "title": "Neubrutalist Landing",
+      "summary": "A bold neubrutalist landing: thick black borders, hard offset shadows, clashing flat colors, chunky type.",
+      "description": "The 2020s neubrutalism aesthetic as a full page — heavy 3px borders, hard (non-blurred) drop shadows, saturated flat color blocks, oversized type, and buttons that 'press' by shifting into their shadow. Confident and anti-minimal.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "landing",
+        "brutalist"
+      ],
+      "tags": [
+        "neubrutalism",
+        "brutalist",
+        "bold",
+        "hard-shadow",
+        "flat",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All modern browsers.",
+      "performance_notes": "Solid colors, hard box-shadows; no images or JS. Very light.",
+      "accessibility_notes": "High contrast is inherent to the style (good), but verify color choices still pass on text. Real buttons/links with focus-visible; the press effect also applies on :focus.",
+      "customization": [
+        {
+          "name": "--bg / --c1 / --c2 / --c3",
+          "description": "Canvas + the clashing accent blocks",
+          "default": "#ffe14d / pink / cyan / lime"
+        },
+        {
+          "name": "--shadow",
+          "description": "Hard shadow offset",
+          "default": "6px"
+        }
+      ],
+      "variations": [
+        "Swap the palette (brutalism loves clashing brights)",
+        "Rotate cards a few degrees",
+        "Monospace everything"
+      ],
+      "related": [
+        "press-3d-button",
+        "bento-grid"
+      ],
+      "ai_usage": "Use for bold, opinionated brands, launches, and creative tools. The recipe: thick solid borders (3px #000), hard box-shadow with no blur (offset = --shadow), saturated flat fills, heavy type. Buttons 'press' by translating by --shadow and removing the shadow on :active. Recolor freely with clashing brights. Keep contrast high (the style helps) and retain focus styles.",
+      "path": "effects/website-templates/neubrutalist-landing.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neubrutalist Landing</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neubrutalist-landing\",\n    \"title\": \"Neubrutalist Landing\",\n    \"summary\": \"A bold neubrutalist landing: thick black borders, hard offset shadows, clashing flat colors, chunky type.\",\n    \"description\": \"The 2020s neubrutalism aesthetic as a full page — heavy 3px borders, hard (non-blurred) drop shadows, saturated flat color blocks, oversized type, and buttons that 'press' by shifting into their shadow. Confident and anti-minimal.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"landing\", \"brutalist\"],\n    \"tags\": [\"neubrutalism\", \"brutalist\", \"bold\", \"hard-shadow\", \"flat\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Solid colors, hard box-shadows; no images or JS. Very light.\",\n    \"accessibility_notes\": \"High contrast is inherent to the style (good), but verify color choices still pass on text. Real buttons/links with focus-visible; the press effect also applies on :focus.\",\n    \"customization\": [\n      { \"name\": \"--bg / --c1 / --c2 / --c3\", \"description\": \"Canvas + the clashing accent blocks\", \"default\": \"#ffe14d / pink / cyan / lime\" },\n      { \"name\": \"--shadow\", \"description\": \"Hard shadow offset\", \"default\": \"6px\" }\n    ],\n    \"variations\": [\"Swap the palette (brutalism loves clashing brights)\", \"Rotate cards a few degrees\", \"Monospace everything\"],\n    \"related\": [\"press-3d-button\", \"bento-grid\"],\n    \"ai_usage\": \"Use for bold, opinionated brands, launches, and creative tools. The recipe: thick solid borders (3px #000), hard box-shadow with no blur (offset = --shadow), saturated flat fills, heavy type. Buttons 'press' by translating by --shadow and removing the shadow on :active. Recolor freely with clashing brights. Keep contrast high (the style helps) and retain focus styles.\"\n  }\n  </script>\n  <style>\n    :root{--ink:#111;--bg:#ffe14d;--c1:#ff5da2;--c2:#37e6e6;--c3:#9cff57;--shadow:6px;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{background:var(--bg);color:var(--ink);font-family:\"Arial Black\",\"Helvetica Neue\",system-ui,sans-serif;line-height:1.4;}\n    .wrap{max-width:1000px;margin:0 auto;padding:0 1.2rem;}\n    .bord{border:3px solid var(--ink);box-shadow:var(--shadow) var(--shadow) 0 var(--ink);}\n    header{border-bottom:3px solid var(--ink);background:var(--bg);}\n    .nav{display:flex;justify-content:space-between;align-items:center;height:64px;}\n    .brand{font-size:1.5rem;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;}\n    .nav a{color:var(--ink);text-decoration:none;font-weight:800;margin-left:1rem;text-transform:uppercase;font-size:.85rem;}\n    .btn{display:inline-block;border:3px solid var(--ink);background:#fff;color:var(--ink);font-weight:900;text-transform:uppercase;\n      padding:.7rem 1.4rem;text-decoration:none;cursor:pointer;box-shadow:var(--shadow) var(--shadow) 0 var(--ink);transition:transform .05s,box-shadow .05s;}\n    .btn:active,.btn:focus-visible{transform:translate(var(--shadow),var(--shadow));box-shadow:0 0 0 var(--ink);outline:none;}\n    .btn.pink{background:var(--c1);} .btn.cyan{background:var(--c2);}\n    .hero{padding:3rem 0;}\n    .hero h1{font-size:clamp(2.4rem,8vw,5rem);line-height:.98;text-transform:uppercase;margin:0 0 1rem;}\n    .hero .mark{background:var(--c2);padding:0 .15em;border:3px solid var(--ink);}\n    .hero p{font-family:system-ui,sans-serif;font-weight:600;max-width:46ch;font-size:1.15rem;}\n    .hero .btns{margin-top:1.6rem;display:flex;gap:1rem;flex-wrap:wrap;}\n    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;padding-bottom:3rem;}\n    .card{background:#fff;padding:1.4rem;}\n    .card.c1{background:var(--c1);} .card.c2{background:var(--c2);} .card.c3{background:var(--c3);}\n    .card h3{margin:.2rem 0;text-transform:uppercase;font-size:1.3rem;}\n    .card p{font-family:system-ui,sans-serif;font-weight:600;margin:0;}\n    footer{border-top:3px solid var(--ink);font-family:system-ui,sans-serif;font-weight:700;padding:1.4rem 0;}\n    @media(max-width:720px){.cards{grid-template-columns:1fr;}}\n  </style>\n</head>\n<body>\n  <header><div class=\"wrap nav\">\n    <div class=\"brand\">◼ BLOKK</div>\n    <nav><a href=\"#\">Work</a><a href=\"#\">Pricing</a><a href=\"#\">Blog</a><a class=\"btn pink\" href=\"#\">Get it</a></nav>\n  </div></header>\n  <main class=\"wrap\">\n    <section class=\"hero\">\n      <h1>Build loud.<br/>Ship <span class=\"mark\">bold.</span></h1>\n      <p>The no-nonsense toolkit for makers who’d rather stand out than blend in.</p>\n      <div class=\"btns\"><a class=\"btn cyan\" href=\"#\">Start building →</a><a class=\"btn\" href=\"#\">See demos</a></div>\n    </section>\n    <section class=\"cards\">\n      <div class=\"card c1 bord\"><h3>Fast</h3><p>Zero bloat. Loads before you blink.</p></div>\n      <div class=\"card c2 bord\"><h3>Honest</h3><p>What you see is exactly what ships.</p></div>\n      <div class=\"card c3 bord\"><h3>Yours</h3><p>Own every pixel. No lock-in.</p></div>\n    </section>\n  </main>\n  <footer><div class=\"wrap\">© 2026 BLOKK — made with attitude.</div></footer>\n</body>\n</html>\n"
+    },
+    {
+      "id": "saas-landing",
+      "title": "SaaS Landing Page",
+      "summary": "A complete modern SaaS landing: sticky nav, gradient hero, logo strip, bento features, pricing, and footer.",
+      "description": "A full, self-contained landing-page scaffold in the current SaaS idiom — token-driven colors, a gradient hero with dual CTAs, a social-proof logo row, a bento feature grid, a three-tier pricing block with a highlighted plan, and a footer.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "landing",
+        "marketing"
+      ],
+      "tags": [
+        "saas",
+        "landing-page",
+        "marketing",
+        "hero",
+        "pricing",
+        "bento",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers.",
+      "performance_notes": "Pure HTML/CSS, no images (gradient placeholders), no JS. Loads instantly.",
+      "accessibility_notes": "Semantic landmarks (header/nav/main/section/footer), real headings hierarchy, focus-visible rings on CTAs, sufficient contrast on the dark theme.",
+      "customization": [
+        {
+          "name": "--accent / --accent-2",
+          "description": "Brand gradient",
+          "default": "#7c5cff / #2dd4bf"
+        },
+        {
+          "name": "content regions",
+          "description": "Headlines, features, prices, links — replace the placeholder copy",
+          "default": "edit markup"
+        }
+      ],
+      "variations": [
+        "Light theme (swap the token block)",
+        "Add testimonials / FAQ sections",
+        "Swap bento for a 3-column feature row"
+      ],
+      "related": [
+        "hero-section",
+        "pricing-card",
+        "glass-navbar"
+      ],
+      "ai_usage": "Use as a starting scaffold for a product/SaaS marketing site. Copy the whole document. Reskin by editing the :root tokens (colors, radius) and replacing the text in each <section>. Sections are independent — delete or reorder freely. Replace gradient placeholder tiles with real screenshots/illustrations. The layout is responsive via auto-fit grids; keep the semantic landmarks and heading order. No build step or dependencies required.",
+      "path": "effects/website-templates/saas-landing.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SaaS Landing Page</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"saas-landing\",\n    \"title\": \"SaaS Landing Page\",\n    \"summary\": \"A complete modern SaaS landing: sticky nav, gradient hero, logo strip, bento features, pricing, and footer.\",\n    \"description\": \"A full, self-contained landing-page scaffold in the current SaaS idiom — token-driven colors, a gradient hero with dual CTAs, a social-proof logo row, a bento feature grid, a three-tier pricing block with a highlighted plan, and a footer.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"landing\", \"marketing\"],\n    \"tags\": [\"saas\", \"landing-page\", \"marketing\", \"hero\", \"pricing\", \"bento\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Pure HTML/CSS, no images (gradient placeholders), no JS. Loads instantly.\",\n    \"accessibility_notes\": \"Semantic landmarks (header/nav/main/section/footer), real headings hierarchy, focus-visible rings on CTAs, sufficient contrast on the dark theme.\",\n    \"customization\": [\n      { \"name\": \"--accent / --accent-2\", \"description\": \"Brand gradient\", \"default\": \"#7c5cff / #2dd4bf\" },\n      { \"name\": \"content regions\", \"description\": \"Headlines, features, prices, links — replace the placeholder copy\", \"default\": \"edit markup\" }\n    ],\n    \"variations\": [\"Light theme (swap the token block)\", \"Add testimonials / FAQ sections\", \"Swap bento for a 3-column feature row\"],\n    \"related\": [\"hero-section\", \"pricing-card\", \"glass-navbar\"],\n    \"ai_usage\": \"Use as a starting scaffold for a product/SaaS marketing site. Copy the whole document. Reskin by editing the :root tokens (colors, radius) and replacing the text in each <section>. Sections are independent — delete or reorder freely. Replace gradient placeholder tiles with real screenshots/illustrations. The layout is responsive via auto-fit grids; keep the semantic landmarks and heading order. No build step or dependencies required.\"\n  }\n  </script>\n  <style>\n    :root { --accent:#7c5cff; --accent-2:#2dd4bf; --bg:#0b0d12; --surface:#11141c; --line:#222838; --text:#e7ebf3; --muted:#8b93a7; --radius:16px; }\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,\"Segoe UI\",sans-serif;line-height:1.5;}\n    a{color:inherit;text-decoration:none;}\n    .wrap{max-width:1100px;margin:0 auto;padding:0 1.2rem;}\n    header{position:sticky;top:0;z-index:10;background:rgba(11,13,18,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}\n    .nav{display:flex;align-items:center;justify-content:space-between;height:62px;}\n    .brand{font-weight:800;font-size:1.15rem;}\n    .brand span{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}\n    .nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0;color:var(--muted);font-size:.92rem;}\n    .nav .cta{background:var(--accent);color:#fff;padding:.5rem 1rem;border-radius:10px;font-weight:600;}\n    .hero{text-align:center;padding:5rem 0 4rem;position:relative;overflow:hidden;}\n    .hero::before{content:\"\";position:absolute;width:60vmax;height:60vmax;left:50%;top:-30vmax;transform:translateX(-50%);\n      background:radial-gradient(circle,rgba(124,92,255,.35),transparent 60%);filter:blur(20px);pointer-events:none;}\n    .eyebrow{color:var(--accent-2);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;}\n    .hero h1{font-size:clamp(2.2rem,6vw,3.8rem);margin:.6rem 0;line-height:1.05;font-weight:900;}\n    .hero p{color:var(--muted);font-size:1.15rem;max-width:560px;margin:0 auto 1.8rem;}\n    .btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}\n    .btn{padding:.85rem 1.6rem;border-radius:12px;font-weight:700;border:1px solid transparent;}\n    .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;}\n    .btn-ghost{border-color:var(--line);color:var(--text);}\n    .btn:focus-visible{outline:3px solid var(--accent-2);outline-offset:2px;}\n    .logos{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;opacity:.6;padding:2rem 0;color:var(--muted);font-weight:700;}\n    .section{padding:3.5rem 0;}\n    .section h2{text-align:center;font-size:2rem;margin:0 0 2rem;}\n    .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:120px;gap:1rem;}\n    .tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem;display:flex;flex-direction:column;justify-content:flex-end;}\n    .tile h3{margin:0 0 .2rem;} .tile p{margin:0;color:var(--muted);font-size:.88rem;}\n    .tile.big{grid-column:span 2;grid-row:span 2;background:linear-gradient(160deg,rgba(124,92,255,.25),var(--surface));}\n    .tile.wide{grid-column:span 2;}\n    .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;}\n    .plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;}\n    .plan.featured{border-color:transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,linear-gradient(135deg,var(--accent),var(--accent-2)) border-box;}\n    .plan .price{font-size:2.4rem;font-weight:900;margin:.4rem 0;}\n    .plan ul{list-style:none;padding:0;margin:1rem 0;color:var(--muted);}\n    .plan li{padding:.3rem 0;} .plan li::before{content:\"✓ \";color:var(--accent-2);}\n    footer{border-top:1px solid var(--line);color:var(--muted);padding:2rem 0;text-align:center;font-size:.9rem;}\n    @media(max-width:720px){.bento{grid-template-columns:repeat(2,1fr);}.tile.big{grid-column:span 2;}.nav ul li:not(:last-child){display:none;}}\n  </style>\n</head>\n<body>\n  <header><div class=\"wrap nav\">\n    <div class=\"brand\">◆ <span>Nimbus</span></div>\n    <ul><li>Product</li><li>Features</li><li>Pricing</li><li>Docs</li><li><a class=\"cta\" href=\"#\">Start free</a></li></ul>\n  </div></header>\n\n  <main>\n    <section class=\"hero\"><div class=\"wrap\">\n      <p class=\"eyebrow\">New · v2 is here</p>\n      <h1>Ship products your users love.</h1>\n      <p>The all-in-one platform to build, launch, and scale — without the busywork.</p>\n      <div class=\"btns\"><a class=\"btn btn-primary\" href=\"#\">Start free trial</a><a class=\"btn btn-ghost\" href=\"#\">Book a demo</a></div>\n    </div></section>\n\n    <div class=\"wrap\"><div class=\"logos\"><span>ACME</span><span>Globex</span><span>Umbrella</span><span>Initech</span><span>Hooli</span></div></div>\n\n    <section class=\"section\"><div class=\"wrap\">\n      <h2>Everything you need</h2>\n      <div class=\"bento\">\n        <div class=\"tile big\"><h3>Realtime analytics</h3><p>See what matters as it happens.</p></div>\n        <div class=\"tile\"><h3>Fast</h3><p>Edge-deployed.</p></div>\n        <div class=\"tile\"><h3>Secure</h3><p>SOC2-ready.</p></div>\n        <div class=\"tile wide\"><h3>Integrations</h3><p>100+ connectors out of the box.</p></div>\n        <div class=\"tile\"><h3>Teams</h3><p>Collaborate live.</p></div>\n        <div class=\"tile\"><h3>API</h3><p>Build anything.</p></div>\n      </div>\n    </div></section>\n\n    <section class=\"section\"><div class=\"wrap\">\n      <h2>Simple pricing</h2>\n      <div class=\"pricing\">\n        <div class=\"plan\"><h3>Starter</h3><div class=\"price\">$0</div><ul><li>1 project</li><li>Community support</li></ul><a class=\"btn btn-ghost\" href=\"#\">Get started</a></div>\n        <div class=\"plan featured\"><h3>Pro</h3><div class=\"price\">$29</div><ul><li>Unlimited projects</li><li>Priority support</li><li>Advanced analytics</li></ul><a class=\"btn btn-primary\" href=\"#\">Choose Pro</a></div>\n        <div class=\"plan\"><h3>Enterprise</h3><div class=\"price\">Custom</div><ul><li>SSO & SAML</li><li>Dedicated SLA</li></ul><a class=\"btn btn-ghost\" href=\"#\">Contact us</a></div>\n      </div>\n    </div></section>\n  </main>\n\n  <footer><div class=\"wrap\">© 2026 Nimbus, Inc. · Privacy · Terms · Status</div></footer>\n</body>\n</html>\n"
+    },
+    {
+      "id": "web2-glossy",
+      "title": "Web 2.0 Glossy (2000s)",
+      "summary": "A mid-2000s 'Web 2.0' homepage: glossy gradients, reflective buttons, a beta badge, and rounded boxes.",
+      "description": "A nostalgic but accurate Web 2.0 layout — big friendly headline, glossy reflective CTA, a 'BETA' star badge, soft gradients, rounded panels with subtle shadows, and a tag-cloud footer. The Helvetica-and-shine era.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "retro",
+        "landing"
+      ],
+      "tags": [
+        "web2.0",
+        "2000s",
+        "glossy",
+        "reflective",
+        "beta-badge",
+        "skeuomorphic",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2000s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers (recreated with modern CSS gradients).",
+      "performance_notes": "Pure CSS gloss (layered gradients + box-shadows); no images.",
+      "accessibility_notes": "Despite the era's aesthetic, this uses semantic markup, real buttons, and adequate contrast. Decorative shine is CSS only.",
+      "customization": [
+        {
+          "name": "--sky / --lime",
+          "description": "The signature Web 2.0 blue & green",
+          "default": "#3b9fe0 / #8dc63f"
+        },
+        {
+          "name": "headline / badge",
+          "description": "Copy and the BETA badge",
+          "default": "edit markup"
+        }
+      ],
+      "variations": [
+        "Orange/aqua palette",
+        "Add a faux 'feed' box with rounded rows",
+        "Reflection under the logo"
+      ],
+      "related": [
+        "press-3d-button",
+        "long-shadow"
+      ],
+      "ai_usage": "Use for nostalgic/retro projects or anniversary pages evoking 2005–2008. The 'gloss' is a top-half white-to-transparent gradient overlaid on a colored gradient; reflective buttons stack two gradients. Recolor via --sky/--lime. Keep it tongue-in-cheek. Modern semantics/contrast are preserved so it stays usable.",
+      "path": "effects/website-templates/web2-glossy.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Web 2.0 Glossy (2000s)</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"web2-glossy\",\n    \"title\": \"Web 2.0 Glossy (2000s)\",\n    \"summary\": \"A mid-2000s 'Web 2.0' homepage: glossy gradients, reflective buttons, a beta badge, and rounded boxes.\",\n    \"description\": \"A nostalgic but accurate Web 2.0 layout — big friendly headline, glossy reflective CTA, a 'BETA' star badge, soft gradients, rounded panels with subtle shadows, and a tag-cloud footer. The Helvetica-and-shine era.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"retro\", \"landing\"],\n    \"tags\": [\"web2.0\", \"2000s\", \"glossy\", \"reflective\", \"beta-badge\", \"skeuomorphic\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (recreated with modern CSS gradients).\",\n    \"performance_notes\": \"Pure CSS gloss (layered gradients + box-shadows); no images.\",\n    \"accessibility_notes\": \"Despite the era's aesthetic, this uses semantic markup, real buttons, and adequate contrast. Decorative shine is CSS only.\",\n    \"customization\": [\n      { \"name\": \"--sky / --lime\", \"description\": \"The signature Web 2.0 blue & green\", \"default\": \"#3b9fe0 / #8dc63f\" },\n      { \"name\": \"headline / badge\", \"description\": \"Copy and the BETA badge\", \"default\": \"edit markup\" }\n    ],\n    \"variations\": [\"Orange/aqua palette\", \"Add a faux 'feed' box with rounded rows\", \"Reflection under the logo\"],\n    \"related\": [\"press-3d-button\", \"long-shadow\"],\n    \"ai_usage\": \"Use for nostalgic/retro projects or anniversary pages evoking 2005–2008. The 'gloss' is a top-half white-to-transparent gradient overlaid on a colored gradient; reflective buttons stack two gradients. Recolor via --sky/--lime. Keep it tongue-in-cheek. Modern semantics/contrast are preserved so it stays usable.\"\n  }\n  </script>\n  <style>\n    :root{--sky:#3b9fe0;--lime:#8dc63f;--ink:#33414a;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{font-family:\"Helvetica Neue\",Arial,sans-serif;color:var(--ink);\n      background:#eaf3fb url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23eaf3fb'/%3E%3Crect width='4' height='2' fill='%23e3eef8'/%3E%3C/svg%3E\");}\n    .wrap{max-width:900px;margin:0 auto;padding:0 1rem;}\n    header{background:linear-gradient(#5fb3ec,var(--sky));border-bottom:3px solid #2b7fb8;box-shadow:0 2px 0 rgba(255,255,255,.5) inset;}\n    .top{display:flex;justify-content:space-between;align-items:center;height:70px;}\n    .logo{font-size:1.9rem;font-weight:800;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.3);}\n    .logo em{font-style:normal;color:#dff0c0;} .logo .beta{display:inline-block;background:#ff5e3a;color:#fff;font-size:.6rem;padding:.15rem .4rem;border-radius:4px;vertical-align:super;box-shadow:0 1px 0 rgba(0,0,0,.2);}\n    nav a{color:#fff;text-decoration:none;margin-left:1rem;font-size:.9rem;font-weight:600;text-shadow:0 1px 1px rgba(0,0,0,.25);}\n    .hero{background:linear-gradient(#ffffff,#eef6ff);border:1px solid #cfe2f2;border-radius:14px;margin:1.5rem 0;padding:2.2rem;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.08),0 1px 0 #fff inset;}\n    .hero h1{font-size:2.4rem;margin:.2rem 0;color:#2b6f9e;text-shadow:0 1px 0 #fff;}\n    .hero p{font-size:1.1rem;color:#5a6b75;max-width:46ch;margin:.4rem auto 1.4rem;}\n    .glossy{display:inline-block;border:none;cursor:pointer;font-size:1.05rem;font-weight:700;color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,.3);\n      padding:.8rem 1.8rem;border-radius:999px;text-decoration:none;\n      background:linear-gradient(rgba(255,255,255,.6),rgba(255,255,255,0) 50%,rgba(0,0,0,.08)),linear-gradient(#9ad249,#6fae2e);\n      box-shadow:0 2px 4px rgba(0,0,0,.25),0 1px 0 rgba(255,255,255,.6) inset;border:1px solid #5e9626;}\n    .glossy.blue{background:linear-gradient(rgba(255,255,255,.6),rgba(255,255,255,0) 50%,rgba(0,0,0,.08)),linear-gradient(#69b9ee,#3b8fd0);border-color:#2b7fb8;}\n    .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;}\n    .box{background:#fff;border:1px solid #cfe2f2;border-radius:12px;padding:1.1rem;box-shadow:0 1px 3px rgba(0,0,0,.06),0 1px 0 #fff inset;}\n    .box h3{margin:0 0 .3rem;color:#2b6f9e;} .box p{margin:0;font-size:.9rem;color:#5a6b75;}\n    .tags{text-align:center;padding:1.4rem;color:#6b7d86;}\n    .tags a{color:#3b8fd0;text-decoration:none;margin:0 .35rem;display:inline-block;}\n    .tags .s1{font-size:1.4rem;} .tags .s2{font-size:1rem;} .tags .s3{font-size:1.7rem;} .tags .s4{font-size:.85rem;}\n    footer{text-align:center;color:#7a8c95;font-size:.8rem;padding:1.5rem;}\n    @media(max-width:680px){.cols{grid-template-columns:1fr;}}\n  </style>\n</head>\n<body>\n  <header><div class=\"wrap top\">\n    <div class=\"logo\">Flickter<em>r</em> <span class=\"beta\">BETA</span></div>\n    <nav><a href=\"#\">Home</a><a href=\"#\">Tour</a><a href=\"#\">Sign up</a><a href=\"#\">Login</a></nav>\n  </div></header>\n  <main class=\"wrap\">\n    <section class=\"hero\">\n      <h1>Share your world. It’s that easy.</h1>\n      <p>Upload, tag, and share — now with twice the AJAX and a shiny new look.</p>\n      <a class=\"glossy\" href=\"#\">Sign up — it’s free!</a>\n      <a class=\"glossy blue\" href=\"#\">Take the tour</a>\n    </section>\n    <section class=\"cols\">\n      <div class=\"box\"><h3>Upload</h3><p>Drag, drop, done. No page reloads.</p></div>\n      <div class=\"box\"><h3>Tag</h3><p>Fold-out tag clouds organize everything.</p></div>\n      <div class=\"box\"><h3>Share</h3><p>Send to friends with a single click.</p></div>\n    </section>\n    <div class=\"tags\">\n      <a class=\"s3\" href=\"#\">photos</a><a class=\"s1\" href=\"#\">travel</a><a class=\"s4\" href=\"#\">cats</a>\n      <a class=\"s2\" href=\"#\">music</a><a class=\"s3\" href=\"#\">friends</a><a class=\"s1\" href=\"#\">2007</a>\n      <a class=\"s4\" href=\"#\">blog</a><a class=\"s2\" href=\"#\">rss</a><a class=\"s1\" href=\"#\">podcast</a>\n    </div>\n  </main>\n  <footer>© 2007 Flickterr · Made with Web 2.0™ · powered by AJAX</footer>\n</body>\n</html>\n"
     }
   ]
 }

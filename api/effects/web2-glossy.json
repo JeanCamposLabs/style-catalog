@@ -1,0 +1,56 @@
+{
+  "id": "web2-glossy",
+  "title": "Web 2.0 Glossy (2000s)",
+  "summary": "A mid-2000s 'Web 2.0' homepage: glossy gradients, reflective buttons, a beta badge, and rounded boxes.",
+  "description": "A nostalgic but accurate Web 2.0 layout — big friendly headline, glossy reflective CTA, a 'BETA' star badge, soft gradients, rounded panels with subtle shadows, and a tag-cloud footer. The Helvetica-and-shine era.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "retro",
+    "landing"
+  ],
+  "tags": [
+    "web2.0",
+    "2000s",
+    "glossy",
+    "reflective",
+    "beta-badge",
+    "skeuomorphic",
+    "full-page"
+  ],
+  "tech": [
+    "css",
+    "html"
+  ],
+  "era": "2000s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (recreated with modern CSS gradients).",
+  "performance_notes": "Pure CSS gloss (layered gradients + box-shadows); no images.",
+  "accessibility_notes": "Despite the era's aesthetic, this uses semantic markup, real buttons, and adequate contrast. Decorative shine is CSS only.",
+  "customization": [
+    {
+      "name": "--sky / --lime",
+      "description": "The signature Web 2.0 blue & green",
+      "default": "#3b9fe0 / #8dc63f"
+    },
+    {
+      "name": "headline / badge",
+      "description": "Copy and the BETA badge",
+      "default": "edit markup"
+    }
+  ],
+  "variations": [
+    "Orange/aqua palette",
+    "Add a faux 'feed' box with rounded rows",
+    "Reflection under the logo"
+  ],
+  "related": [
+    "press-3d-button",
+    "long-shadow"
+  ],
+  "ai_usage": "Use for nostalgic/retro projects or anniversary pages evoking 2005–2008. The 'gloss' is a top-half white-to-transparent gradient overlaid on a colored gradient; reflective buttons stack two gradients. Recolor via --sky/--lime. Keep it tongue-in-cheek. Modern semantics/contrast are preserved so it stays usable.",
+  "path": "effects/website-templates/web2-glossy.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Web 2.0 Glossy (2000s)</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"web2-glossy\",\n    \"title\": \"Web 2.0 Glossy (2000s)\",\n    \"summary\": \"A mid-2000s 'Web 2.0' homepage: glossy gradients, reflective buttons, a beta badge, and rounded boxes.\",\n    \"description\": \"A nostalgic but accurate Web 2.0 layout — big friendly headline, glossy reflective CTA, a 'BETA' star badge, soft gradients, rounded panels with subtle shadows, and a tag-cloud footer. The Helvetica-and-shine era.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"retro\", \"landing\"],\n    \"tags\": [\"web2.0\", \"2000s\", \"glossy\", \"reflective\", \"beta-badge\", \"skeuomorphic\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (recreated with modern CSS gradients).\",\n    \"performance_notes\": \"Pure CSS gloss (layered gradients + box-shadows); no images.\",\n    \"accessibility_notes\": \"Despite the era's aesthetic, this uses semantic markup, real buttons, and adequate contrast. Decorative shine is CSS only.\",\n    \"customization\": [\n      { \"name\": \"--sky / --lime\", \"description\": \"The signature Web 2.0 blue & green\", \"default\": \"#3b9fe0 / #8dc63f\" },\n      { \"name\": \"headline / badge\", \"description\": \"Copy and the BETA badge\", \"default\": \"edit markup\" }\n    ],\n    \"variations\": [\"Orange/aqua palette\", \"Add a faux 'feed' box with rounded rows\", \"Reflection under the logo\"],\n    \"related\": [\"press-3d-button\", \"long-shadow\"],\n    \"ai_usage\": \"Use for nostalgic/retro projects or anniversary pages evoking 2005–2008. The 'gloss' is a top-half white-to-transparent gradient overlaid on a colored gradient; reflective buttons stack two gradients. Recolor via --sky/--lime. Keep it tongue-in-cheek. Modern semantics/contrast are preserved so it stays usable.\"\n  }\n  </script>\n  <style>\n    :root{--sky:#3b9fe0;--lime:#8dc63f;--ink:#33414a;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{font-family:\"Helvetica Neue\",Arial,sans-serif;color:var(--ink);\n      background:#eaf3fb url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23eaf3fb'/%3E%3Crect width='4' height='2' fill='%23e3eef8'/%3E%3C/svg%3E\");}\n    .wrap{max-width:900px;margin:0 auto;padding:0 1rem;}\n    header{background:linear-gradient(#5fb3ec,var(--sky));border-bottom:3px solid #2b7fb8;box-shadow:0 2px 0 rgba(255,255,255,.5) inset;}\n    .top{display:flex;justify-content:space-between;align-items:center;height:70px;}\n    .logo{font-size:1.9rem;font-weight:800;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.3);}\n    .logo em{font-style:normal;color:#dff0c0;} .logo .beta{display:inline-block;background:#ff5e3a;color:#fff;font-size:.6rem;padding:.15rem .4rem;border-radius:4px;vertical-align:super;box-shadow:0 1px 0 rgba(0,0,0,.2);}\n    nav a{color:#fff;text-decoration:none;margin-left:1rem;font-size:.9rem;font-weight:600;text-shadow:0 1px 1px rgba(0,0,0,.25);}\n    .hero{background:linear-gradient(#ffffff,#eef6ff);border:1px solid #cfe2f2;border-radius:14px;margin:1.5rem 0;padding:2.2rem;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.08),0 1px 0 #fff inset;}\n    .hero h1{font-size:2.4rem;margin:.2rem 0;color:#2b6f9e;text-shadow:0 1px 0 #fff;}\n    .hero p{font-size:1.1rem;color:#5a6b75;max-width:46ch;margin:.4rem auto 1.4rem;}\n    .glossy{display:inline-block;border:none;cursor:pointer;font-size:1.05rem;font-weight:700;color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,.3);\n      padding:.8rem 1.8rem;border-radius:999px;text-decoration:none;\n      background:linear-gradient(rgba(255,255,255,.6),rgba(255,255,255,0) 50%,rgba(0,0,0,.08)),linear-gradient(#9ad249,#6fae2e);\n      box-shadow:0 2px 4px rgba(0,0,0,.25),0 1px 0 rgba(255,255,255,.6) inset;border:1px solid #5e9626;}\n    .glossy.blue{background:linear-gradient(rgba(255,255,255,.6),rgba(255,255,255,0) 50%,rgba(0,0,0,.08)),linear-gradient(#69b9ee,#3b8fd0);border-color:#2b7fb8;}\n    .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;}\n    .box{background:#fff;border:1px solid #cfe2f2;border-radius:12px;padding:1.1rem;box-shadow:0 1px 3px rgba(0,0,0,.06),0 1px 0 #fff inset;}\n    .box h3{margin:0 0 .3rem;color:#2b6f9e;} .box p{margin:0;font-size:.9rem;color:#5a6b75;}\n    .tags{text-align:center;padding:1.4rem;color:#6b7d86;}\n    .tags a{color:#3b8fd0;text-decoration:none;margin:0 .35rem;display:inline-block;}\n    .tags .s1{font-size:1.4rem;} .tags .s2{font-size:1rem;} .tags .s3{font-size:1.7rem;} .tags .s4{font-size:.85rem;}\n    footer{text-align:center;color:#7a8c95;font-size:.8rem;padding:1.5rem;}\n    @media(max-width:680px){.cols{grid-template-columns:1fr;}}\n  </style>\n</head>\n<body>\n  <header><div class=\"wrap top\">\n    <div class=\"logo\">Flickter<em>r</em> <span class=\"beta\">BETA</span></div>\n    <nav><a href=\"#\">Home</a><a href=\"#\">Tour</a><a href=\"#\">Sign up</a><a href=\"#\">Login</a></nav>\n  </div></header>\n  <main class=\"wrap\">\n    <section class=\"hero\">\n      <h1>Share your world. It’s that easy.</h1>\n      <p>Upload, tag, and share — now with twice the AJAX and a shiny new look.</p>\n      <a class=\"glossy\" href=\"#\">Sign up — it’s free!</a>\n      <a class=\"glossy blue\" href=\"#\">Take the tour</a>\n    </section>\n    <section class=\"cols\">\n      <div class=\"box\"><h3>Upload</h3><p>Drag, drop, done. No page reloads.</p></div>\n      <div class=\"box\"><h3>Tag</h3><p>Fold-out tag clouds organize everything.</p></div>\n      <div class=\"box\"><h3>Share</h3><p>Send to friends with a single click.</p></div>\n    </section>\n    <div class=\"tags\">\n      <a class=\"s3\" href=\"#\">photos</a><a class=\"s1\" href=\"#\">travel</a><a class=\"s4\" href=\"#\">cats</a>\n      <a class=\"s2\" href=\"#\">music</a><a class=\"s3\" href=\"#\">friends</a><a class=\"s1\" href=\"#\">2007</a>\n      <a class=\"s4\" href=\"#\">blog</a><a class=\"s2\" href=\"#\">rss</a><a class=\"s1\" href=\"#\">podcast</a>\n    </div>\n  </main>\n  <footer>© 2007 Flickterr · Made with Web 2.0™ · powered by AJAX</footer>\n</body>\n</html>\n"
+}

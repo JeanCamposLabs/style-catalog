@@ -1,0 +1,55 @@
+{
+  "id": "neubrutalist-landing",
+  "title": "Neubrutalist Landing",
+  "summary": "A bold neubrutalist landing: thick black borders, hard offset shadows, clashing flat colors, chunky type.",
+  "description": "The 2020s neubrutalism aesthetic as a full page — heavy 3px borders, hard (non-blurred) drop shadows, saturated flat color blocks, oversized type, and buttons that 'press' by shifting into their shadow. Confident and anti-minimal.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "landing",
+    "brutalist"
+  ],
+  "tags": [
+    "neubrutalism",
+    "brutalist",
+    "bold",
+    "hard-shadow",
+    "flat",
+    "full-page"
+  ],
+  "tech": [
+    "css",
+    "html"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Solid colors, hard box-shadows; no images or JS. Very light.",
+  "accessibility_notes": "High contrast is inherent to the style (good), but verify color choices still pass on text. Real buttons/links with focus-visible; the press effect also applies on :focus.",
+  "customization": [
+    {
+      "name": "--bg / --c1 / --c2 / --c3",
+      "description": "Canvas + the clashing accent blocks",
+      "default": "#ffe14d / pink / cyan / lime"
+    },
+    {
+      "name": "--shadow",
+      "description": "Hard shadow offset",
+      "default": "6px"
+    }
+  ],
+  "variations": [
+    "Swap the palette (brutalism loves clashing brights)",
+    "Rotate cards a few degrees",
+    "Monospace everything"
+  ],
+  "related": [
+    "press-3d-button",
+    "bento-grid"
+  ],
+  "ai_usage": "Use for bold, opinionated brands, launches, and creative tools. The recipe: thick solid borders (3px #000), hard box-shadow with no blur (offset = --shadow), saturated flat fills, heavy type. Buttons 'press' by translating by --shadow and removing the shadow on :active. Recolor freely with clashing brights. Keep contrast high (the style helps) and retain focus styles.",
+  "path": "effects/website-templates/neubrutalist-landing.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neubrutalist Landing</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neubrutalist-landing\",\n    \"title\": \"Neubrutalist Landing\",\n    \"summary\": \"A bold neubrutalist landing: thick black borders, hard offset shadows, clashing flat colors, chunky type.\",\n    \"description\": \"The 2020s neubrutalism aesthetic as a full page — heavy 3px borders, hard (non-blurred) drop shadows, saturated flat color blocks, oversized type, and buttons that 'press' by shifting into their shadow. Confident and anti-minimal.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"landing\", \"brutalist\"],\n    \"tags\": [\"neubrutalism\", \"brutalist\", \"bold\", \"hard-shadow\", \"flat\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Solid colors, hard box-shadows; no images or JS. Very light.\",\n    \"accessibility_notes\": \"High contrast is inherent to the style (good), but verify color choices still pass on text. Real buttons/links with focus-visible; the press effect also applies on :focus.\",\n    \"customization\": [\n      { \"name\": \"--bg / --c1 / --c2 / --c3\", \"description\": \"Canvas + the clashing accent blocks\", \"default\": \"#ffe14d / pink / cyan / lime\" },\n      { \"name\": \"--shadow\", \"description\": \"Hard shadow offset\", \"default\": \"6px\" }\n    ],\n    \"variations\": [\"Swap the palette (brutalism loves clashing brights)\", \"Rotate cards a few degrees\", \"Monospace everything\"],\n    \"related\": [\"press-3d-button\", \"bento-grid\"],\n    \"ai_usage\": \"Use for bold, opinionated brands, launches, and creative tools. The recipe: thick solid borders (3px #000), hard box-shadow with no blur (offset = --shadow), saturated flat fills, heavy type. Buttons 'press' by translating by --shadow and removing the shadow on :active. Recolor freely with clashing brights. Keep contrast high (the style helps) and retain focus styles.\"\n  }\n  </script>\n  <style>\n    :root{--ink:#111;--bg:#ffe14d;--c1:#ff5da2;--c2:#37e6e6;--c3:#9cff57;--shadow:6px;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{background:var(--bg);color:var(--ink);font-family:\"Arial Black\",\"Helvetica Neue\",system-ui,sans-serif;line-height:1.4;}\n    .wrap{max-width:1000px;margin:0 auto;padding:0 1.2rem;}\n    .bord{border:3px solid var(--ink);box-shadow:var(--shadow) var(--shadow) 0 var(--ink);}\n    header{border-bottom:3px solid var(--ink);background:var(--bg);}\n    .nav{display:flex;justify-content:space-between;align-items:center;height:64px;}\n    .brand{font-size:1.5rem;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;}\n    .nav a{color:var(--ink);text-decoration:none;font-weight:800;margin-left:1rem;text-transform:uppercase;font-size:.85rem;}\n    .btn{display:inline-block;border:3px solid var(--ink);background:#fff;color:var(--ink);font-weight:900;text-transform:uppercase;\n      padding:.7rem 1.4rem;text-decoration:none;cursor:pointer;box-shadow:var(--shadow) var(--shadow) 0 var(--ink);transition:transform .05s,box-shadow .05s;}\n    .btn:active,.btn:focus-visible{transform:translate(var(--shadow),var(--shadow));box-shadow:0 0 0 var(--ink);outline:none;}\n    .btn.pink{background:var(--c1);} .btn.cyan{background:var(--c2);}\n    .hero{padding:3rem 0;}\n    .hero h1{font-size:clamp(2.4rem,8vw,5rem);line-height:.98;text-transform:uppercase;margin:0 0 1rem;}\n    .hero .mark{background:var(--c2);padding:0 .15em;border:3px solid var(--ink);}\n    .hero p{font-family:system-ui,sans-serif;font-weight:600;max-width:46ch;font-size:1.15rem;}\n    .hero .btns{margin-top:1.6rem;display:flex;gap:1rem;flex-wrap:wrap;}\n    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;padding-bottom:3rem;}\n    .card{background:#fff;padding:1.4rem;}\n    .card.c1{background:var(--c1);} .card.c2{background:var(--c2);} .card.c3{background:var(--c3);}\n    .card h3{margin:.2rem 0;text-transform:uppercase;font-size:1.3rem;}\n    .card p{font-family:system-ui,sans-serif;font-weight:600;margin:0;}\n    footer{border-top:3px solid var(--ink);font-family:system-ui,sans-serif;font-weight:700;padding:1.4rem 0;}\n    @media(max-width:720px){.cards{grid-template-columns:1fr;}}\n  </style>\n</head>\n<body>\n  <header><div class=\"wrap nav\">\n    <div class=\"brand\">◼ BLOKK</div>\n    <nav><a href=\"#\">Work</a><a href=\"#\">Pricing</a><a href=\"#\">Blog</a><a class=\"btn pink\" href=\"#\">Get it</a></nav>\n  </div></header>\n  <main class=\"wrap\">\n    <section class=\"hero\">\n      <h1>Build loud.<br/>Ship <span class=\"mark\">bold.</span></h1>\n      <p>The no-nonsense toolkit for makers who’d rather stand out than blend in.</p>\n      <div class=\"btns\"><a class=\"btn cyan\" href=\"#\">Start building →</a><a class=\"btn\" href=\"#\">See demos</a></div>\n    </section>\n    <section class=\"cards\">\n      <div class=\"card c1 bord\"><h3>Fast</h3><p>Zero bloat. Loads before you blink.</p></div>\n      <div class=\"card c2 bord\"><h3>Honest</h3><p>What you see is exactly what ships.</p></div>\n      <div class=\"card c3 bord\"><h3>Yours</h3><p>Own every pixel. No lock-in.</p></div>\n    </section>\n  </main>\n  <footer><div class=\"wrap\">© 2026 BLOKK — made with attitude.</div></footer>\n</body>\n</html>\n"
+}
