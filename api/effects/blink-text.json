@@ -1,0 +1,47 @@
+{
+  "id": "blink-text",
+  "title": "Blink Text",
+  "summary": "The infamous <blink> effect, recreated accessibly with a gentle opacity animation.",
+  "description": "Reproduces blinking text with a CSS keyframe, but uses a slower fade and a hard stop under reduced-motion instead of the harsh original — a tasteful homage to the most reviled HTML tag.",
+  "theme": "retro-web",
+  "themeTitle": "Retro Web",
+  "categories": [
+    "retro",
+    "text",
+    "animation"
+  ],
+  "tags": [
+    "blink",
+    "90s",
+    "deprecated-tag",
+    "flash",
+    "nostalgia"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers (CSS version). The <blink> tag is long removed from browsers.",
+  "performance_notes": "Single opacity animation; trivial.",
+  "accessibility_notes": "Rapid flashing is a serious WCAG/seizure risk. Keep any blink SLOW (>1s), never use on essential content, and disable entirely under prefers-reduced-motion (handled here). Honestly: prefer not to use blinking at all outside of nostalgia pieces.",
+  "customization": [
+    {
+      "name": "--rate",
+      "description": "Blink period",
+      "default": "1.2s"
+    }
+  ],
+  "variations": [
+    "Color cycle instead of opacity",
+    "Soft fade rather than hard on/off"
+  ],
+  "related": [
+    "marquee-scroll",
+    "rainbow-text"
+  ],
+  "ai_usage": "Nostalgia/retro pieces only. Implement as a slow opacity keyframe (step-end for hard blink, ease for soft), period >= 1s, and ALWAYS disable under prefers-reduced-motion. Never apply to important or interactive content — flashing is an accessibility hazard. Treat this as a deliberate retro flourish, not a UI pattern.",
+  "path": "effects/retro-web/blink-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Blink Text (modern &lt;blink&gt;)</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"blink-text\",\n    \"title\": \"Blink Text\",\n    \"summary\": \"The infamous <blink> effect, recreated accessibly with a gentle opacity animation.\",\n    \"description\": \"Reproduces blinking text with a CSS keyframe, but uses a slower fade and a hard stop under reduced-motion instead of the harsh original — a tasteful homage to the most reviled HTML tag.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"text\", \"animation\"],\n    \"tags\": [\"blink\", \"90s\", \"deprecated-tag\", \"flash\", \"nostalgia\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers (CSS version). The <blink> tag is long removed from browsers.\",\n    \"performance_notes\": \"Single opacity animation; trivial.\",\n    \"accessibility_notes\": \"Rapid flashing is a serious WCAG/seizure risk. Keep any blink SLOW (>1s), never use on essential content, and disable entirely under prefers-reduced-motion (handled here). Honestly: prefer not to use blinking at all outside of nostalgia pieces.\",\n    \"customization\": [\n      { \"name\": \"--rate\", \"description\": \"Blink period\", \"default\": \"1.2s\" }\n    ],\n    \"variations\": [\"Color cycle instead of opacity\", \"Soft fade rather than hard on/off\"],\n    \"related\": [\"marquee-scroll\", \"rainbow-text\"],\n    \"ai_usage\": \"Nostalgia/retro pieces only. Implement as a slow opacity keyframe (step-end for hard blink, ease for soft), period >= 1s, and ALWAYS disable under prefers-reduced-motion. Never apply to important or interactive content — flashing is an accessibility hazard. Treat this as a deliberate retro flourish, not a UI pattern.\"\n  }\n  </script>\n  <style>\n    :root { --rate: 1.2s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #000; font-family: \"Times New Roman\", serif; }\n    .blink { color: #ff0; font-size: 2.4rem; font-weight: 700; animation: blink var(--rate) step-end infinite; }\n    @keyframes blink { 50% { opacity: 0; } }\n    @media (prefers-reduced-motion: reduce) { .blink { animation: none; } }\n  </style>\n</head>\n<body>\n  <span class=\"blink\">UNDER CONSTRUCTION</span>\n</body>\n</html>\n"
+}

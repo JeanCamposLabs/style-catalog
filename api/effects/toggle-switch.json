@@ -1,0 +1,53 @@
+{
+  "id": "toggle-switch",
+  "title": "Toggle Switch",
+  "summary": "An iOS-style on/off switch built on a real checkbox for full accessibility.",
+  "description": "Styles a visually-hidden <input type=checkbox> as a sliding track + knob using :checked, so it stays keyboard-operable, focusable, and form-submittable.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "toggle",
+    "control"
+  ],
+  "tags": [
+    "toggle",
+    "switch",
+    "checkbox",
+    "ios",
+    "on-off",
+    "accessible"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2010s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Transform/background transition on :checked; trivial.",
+  "accessibility_notes": "Built on a real checkbox inside a <label>, so it's keyboard toggle-able (Space), focusable, and announced as a checkbox/switch. Keep a visible focus ring. Add role=switch + aria-checked if you want it announced as a switch.",
+  "customization": [
+    {
+      "name": "--on",
+      "description": "Checked track color",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--w",
+      "description": "Switch width",
+      "default": "52px"
+    }
+  ],
+  "variations": [
+    "Icons inside the knob (sun/moon for theme)",
+    "Label text that changes with state",
+    "Larger size for touch"
+  ],
+  "related": [
+    "animated-checkbox"
+  ],
+  "ai_usage": "Use for boolean settings (NOT for navigation or immediate actions — use a button for those). Wrap a real <input type=checkbox> in a <label> with a slider <span>; hide the native box (opacity:0, not display:none, to keep focus) and style the span via input:checked + .slider. Keep the focus-visible ring. For semantics, add role='switch' and sync aria-checked, or rely on the native checkbox role.",
+  "path": "effects/forms-inputs/toggle-switch.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Toggle Switch</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"toggle-switch\",\n    \"title\": \"Toggle Switch\",\n    \"summary\": \"An iOS-style on/off switch built on a real checkbox for full accessibility.\",\n    \"description\": \"Styles a visually-hidden <input type=checkbox> as a sliding track + knob using :checked, so it stays keyboard-operable, focusable, and form-submittable.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"toggle\", \"control\"],\n    \"tags\": [\"toggle\", \"switch\", \"checkbox\", \"ios\", \"on-off\", \"accessible\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Transform/background transition on :checked; trivial.\",\n    \"accessibility_notes\": \"Built on a real checkbox inside a <label>, so it's keyboard toggle-able (Space), focusable, and announced as a checkbox/switch. Keep a visible focus ring. Add role=switch + aria-checked if you want it announced as a switch.\",\n    \"customization\": [\n      { \"name\": \"--on\", \"description\": \"Checked track color\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--w\", \"description\": \"Switch width\", \"default\": \"52px\" }\n    ],\n    \"variations\": [\"Icons inside the knob (sun/moon for theme)\", \"Label text that changes with state\", \"Larger size for touch\"],\n    \"related\": [\"animated-checkbox\"],\n    \"ai_usage\": \"Use for boolean settings (NOT for navigation or immediate actions — use a button for those). Wrap a real <input type=checkbox> in a <label> with a slider <span>; hide the native box (opacity:0, not display:none, to keep focus) and style the span via input:checked + .slider. Keep the focus-visible ring. For semantics, add role='switch' and sync aria-checked, or rely on the native checkbox role.\"\n  }\n  </script>\n  <style>\n    :root { --on: #2dd4bf; --off: #2a3142; --w: 52px; --h: 30px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .switch { position: relative; display: inline-flex; align-items: center; cursor: pointer; }\n    .switch input { position: absolute; opacity: 0; width: var(--w); height: var(--h); margin: 0; cursor: pointer; }\n    .slider { width: var(--w); height: var(--h); background: var(--off); border-radius: 999px; transition: background .25s; }\n    .slider::before { content: \"\"; position: absolute; top: 3px; left: 3px; width: calc(var(--h) - 6px); height: calc(var(--h) - 6px);\n      background: #fff; border-radius: 50%; transition: transform .25s; box-shadow: 0 2px 6px rgba(0,0,0,.4); }\n    .switch input:checked + .slider { background: var(--on); }\n    .switch input:checked + .slider::before { transform: translateX(calc(var(--w) - var(--h))); }\n    .switch input:focus-visible + .slider { outline: 3px solid #7c5cff; outline-offset: 2px; }\n    @media (prefers-reduced-motion: reduce) { .slider, .slider::before { transition: none; } }\n  </style>\n</head>\n<body>\n  <label class=\"switch\">\n    <input type=\"checkbox\" checked />\n    <span class=\"slider\"></span>\n  </label>\n</body>\n</html>\n"
+}

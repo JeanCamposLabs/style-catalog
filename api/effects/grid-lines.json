@@ -1,0 +1,53 @@
+{
+  "id": "grid-lines",
+  "title": "Grid Lines Background",
+  "summary": "A crisp blueprint/graph-paper grid drawn entirely with a repeating gradient.",
+  "description": "Two linear-gradients (one per axis) with a fixed background-size create an infinite grid. A radial mask fades the edges for a focused, tech-y backdrop.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "grid",
+    "lines",
+    "blueprint",
+    "graph-paper",
+    "tech",
+    "pattern"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers; the edge fade uses mask-image (well supported, prefix for older Safari).",
+  "performance_notes": "Pure CSS tiling, no animation — free.",
+  "accessibility_notes": "Decorative; keep grid faint so it doesn't reduce text contrast.",
+  "customization": [
+    {
+      "name": "--grid",
+      "description": "Line color",
+      "default": "rgba(255,255,255,.08)"
+    },
+    {
+      "name": "--size",
+      "description": "Cell size",
+      "default": "40px"
+    }
+  ],
+  "variations": [
+    "Dotted grid (radial-gradient dots)",
+    "Perspective floor grid via transform",
+    "Animate background-position for parallax scroll"
+  ],
+  "related": [
+    "mesh-gradient",
+    "dot-grid"
+  ],
+  "ai_usage": "Use behind dashboards, dev tools, and tech landing pages. Apply .grid-bg to a full container. Two repeating linear-gradients draw vertical+horizontal lines; --size controls cell pitch and --grid the line color/opacity. Add the radial mask to vignette the edges. Keep lines very low opacity over dark backgrounds.",
+  "path": "effects/backgrounds/grid-lines.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Grid Lines Background</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"grid-lines\",\n    \"title\": \"Grid Lines Background\",\n    \"summary\": \"A crisp blueprint/graph-paper grid drawn entirely with a repeating gradient.\",\n    \"description\": \"Two linear-gradients (one per axis) with a fixed background-size create an infinite grid. A radial mask fades the edges for a focused, tech-y backdrop.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"grid\", \"lines\", \"blueprint\", \"graph-paper\", \"tech\", \"pattern\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; the edge fade uses mask-image (well supported, prefix for older Safari).\",\n    \"performance_notes\": \"Pure CSS tiling, no animation — free.\",\n    \"accessibility_notes\": \"Decorative; keep grid faint so it doesn't reduce text contrast.\",\n    \"customization\": [\n      { \"name\": \"--grid\", \"description\": \"Line color\", \"default\": \"rgba(255,255,255,.08)\" },\n      { \"name\": \"--size\", \"description\": \"Cell size\", \"default\": \"40px\" }\n    ],\n    \"variations\": [\"Dotted grid (radial-gradient dots)\", \"Perspective floor grid via transform\", \"Animate background-position for parallax scroll\"],\n    \"related\": [\"mesh-gradient\", \"dot-grid\"],\n    \"ai_usage\": \"Use behind dashboards, dev tools, and tech landing pages. Apply .grid-bg to a full container. Two repeating linear-gradients draw vertical+horizontal lines; --size controls cell pitch and --grid the line color/opacity. Add the radial mask to vignette the edges. Keep lines very low opacity over dark backgrounds.\"\n  }\n  </script>\n  <style>\n    :root { --grid: rgba(255,255,255,.08); --size: 40px; }\n    html, body { height: 100%; margin: 0; }\n    .grid-bg {\n      height: 100vh; background-color: #0b0d12;\n      background-image:\n        linear-gradient(var(--grid) 1px, transparent 1px),\n        linear-gradient(90deg, var(--grid) 1px, transparent 1px);\n      background-size: var(--size) var(--size);\n      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 50%, transparent 100%);\n      mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 50%, transparent 100%);\n    }\n  </style>\n</head>\n<body>\n  <div class=\"grid-bg\"></div>\n</body>\n</html>\n"
+}

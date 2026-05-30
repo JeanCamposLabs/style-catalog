@@ -1,0 +1,2465 @@
+{
+  "name": "style-catalog",
+  "version": "0.3.0",
+  "counts": {
+    "themes": 20,
+    "effects": 94
+  },
+  "effectEndpoint": "api/effects/{id}.json",
+  "effects": [
+    {
+      "id": "carousel-3d",
+      "title": "3D Coverflow Carousel",
+      "summary": "Cards arranged on a rotating 3D cylinder, auto-spinning — the coverflow look.",
+      "theme": "3d-transforms",
+      "themeTitle": "3D Transforms",
+      "categories": [
+        "3d",
+        "carousel",
+        "showcase"
+      ],
+      "tags": [
+        "carousel",
+        "coverflow",
+        "cylinder",
+        "3d",
+        "rotateY",
+        "gallery"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "path": "effects/3d-transforms/carousel-3d.html"
+    },
+    {
+      "id": "flip-card",
+      "title": "3D Flip Card",
+      "summary": "A card flips on hover/focus to reveal its back face in 3D.",
+      "theme": "3d-transforms",
+      "themeTitle": "3D Transforms",
+      "categories": [
+        "3d",
+        "card",
+        "flip"
+      ],
+      "tags": [
+        "flip",
+        "3d",
+        "rotate",
+        "preserve-3d",
+        "backface",
+        "reveal"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "intermediate",
+      "path": "effects/3d-transforms/flip-card.html"
+    },
+    {
+      "id": "layered-depth-hover",
+      "title": "Layered Depth Hover",
+      "summary": "Card layers separate along the Z-axis on hover for a pop-out parallax depth.",
+      "theme": "3d-transforms",
+      "themeTitle": "3D Transforms",
+      "categories": [
+        "3d",
+        "card",
+        "parallax"
+      ],
+      "tags": [
+        "depth",
+        "parallax",
+        "translateZ",
+        "layers",
+        "3d",
+        "popout"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "advanced",
+      "path": "effects/3d-transforms/layered-depth-hover.html"
+    },
+    {
+      "id": "cube-rotate",
+      "title": "Rotating 3D Cube",
+      "summary": "A six-faced cube continuously rotates in 3D space, built from divs.",
+      "theme": "3d-transforms",
+      "themeTitle": "3D Transforms",
+      "categories": [
+        "3d",
+        "cube",
+        "loop"
+      ],
+      "tags": [
+        "cube",
+        "3d",
+        "rotate",
+        "preserve-3d",
+        "translateZ",
+        "showcase"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "path": "effects/3d-transforms/cube-rotate.html"
+    },
+    {
+      "id": "animated-gradient",
+      "title": "Animated Gradient Background",
+      "summary": "A smooth multi-color gradient that slowly drifts across the viewport.",
+      "theme": "backgrounds",
+      "themeTitle": "Backgrounds",
+      "categories": [
+        "background",
+        "gradient"
+      ],
+      "tags": [
+        "gradient",
+        "animated",
+        "hero",
+        "saas",
+        "wash",
+        "ambient"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/backgrounds/animated-gradient.html"
+    },
+    {
+      "id": "wavy-divider",
+      "title": "Animated Wave Divider",
+      "summary": "A gently rolling SVG wave that separates two sections.",
+      "theme": "backgrounds",
+      "themeTitle": "Backgrounds",
+      "categories": [
+        "background",
+        "divider",
+        "svg"
+      ],
+      "tags": [
+        "wave",
+        "divider",
+        "svg",
+        "section",
+        "rolling",
+        "separator"
+      ],
+      "tech": [
+        "css",
+        "svg"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/backgrounds/wavy-divider.html"
+    },
+    {
+      "id": "aurora-background",
+      "title": "Aurora Background",
+      "summary": "Soft, blurred color blobs drift like northern lights behind your content.",
+      "theme": "backgrounds",
+      "themeTitle": "Backgrounds",
+      "categories": [
+        "background",
+        "gradient",
+        "ambient"
+      ],
+      "tags": [
+        "aurora",
+        "blur",
+        "blobs",
+        "northern-lights",
+        "ambient",
+        "dark"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/backgrounds/aurora-background.html"
+    },
+    {
+      "id": "dot-grid",
+      "title": "Dot Grid Background",
+      "summary": "An evenly spaced dotted grid drawn with a single repeating radial-gradient.",
+      "theme": "backgrounds",
+      "themeTitle": "Backgrounds",
+      "categories": [
+        "background",
+        "pattern"
+      ],
+      "tags": [
+        "dots",
+        "grid",
+        "polka",
+        "pattern",
+        "minimal",
+        "canvas"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/backgrounds/dot-grid.html"
+    },
+    {
+      "id": "floating-particles",
+      "title": "Floating Particles",
+      "summary": "Drifting glowing dots rise gently across the background, generated with a little JS.",
+      "theme": "backgrounds",
+      "themeTitle": "Backgrounds",
+      "categories": [
+        "background",
+        "particles",
+        "ambient"
+      ],
+      "tags": [
+        "particles",
+        "float",
+        "ambient",
+        "dots",
+        "bokeh",
+        "atmosphere"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/backgrounds/floating-particles.html"
+    },
+    {
+      "id": "grid-lines",
+      "title": "Grid Lines Background",
+      "summary": "A crisp blueprint/graph-paper grid drawn entirely with a repeating gradient.",
+      "theme": "backgrounds",
+      "themeTitle": "Backgrounds",
+      "categories": [
+        "background",
+        "pattern"
+      ],
+      "tags": [
+        "grid",
+        "lines",
+        "blueprint",
+        "graph-paper",
+        "tech",
+        "pattern"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/backgrounds/grid-lines.html"
+    },
+    {
+      "id": "mesh-gradient",
+      "title": "Mesh Gradient",
+      "summary": "Multiple overlapping radial gradients blend into a rich, painterly mesh.",
+      "theme": "backgrounds",
+      "themeTitle": "Backgrounds",
+      "categories": [
+        "background",
+        "gradient"
+      ],
+      "tags": [
+        "mesh",
+        "gradient",
+        "radial",
+        "stripe",
+        "colorful",
+        "blend"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/backgrounds/mesh-gradient.html"
+    },
+    {
+      "id": "glow-shadow",
+      "title": "Colored Glow Shadow",
+      "summary": "A soft colored halo under an element, echoing its own color for a premium glow.",
+      "theme": "borders-shadows",
+      "themeTitle": "Borders & Shadows",
+      "categories": [
+        "shadow",
+        "glow"
+      ],
+      "tags": [
+        "glow",
+        "shadow",
+        "colored-shadow",
+        "halo",
+        "premium",
+        "depth"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/borders-shadows/glow-shadow.html"
+    },
+    {
+      "id": "long-shadow",
+      "title": "Flat Long Shadow",
+      "summary": "The flat-design 45° long shadow, built from many stacked text-shadows.",
+      "theme": "borders-shadows",
+      "themeTitle": "Borders & Shadows",
+      "categories": [
+        "shadow",
+        "flat-design"
+      ],
+      "tags": [
+        "long-shadow",
+        "flat",
+        "flat-2.0",
+        "diagonal",
+        "retro",
+        "text-shadow"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "intermediate",
+      "path": "effects/borders-shadows/long-shadow.html"
+    },
+    {
+      "id": "gradient-border",
+      "title": "Gradient Border",
+      "summary": "A crisp gradient outline on a rounded element using the double-background trick.",
+      "theme": "borders-shadows",
+      "themeTitle": "Borders & Shadows",
+      "categories": [
+        "border",
+        "gradient"
+      ],
+      "tags": [
+        "gradient",
+        "border",
+        "border-box",
+        "outline",
+        "rounded"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/borders-shadows/gradient-border.html"
+    },
+    {
+      "id": "marching-ants-border",
+      "title": "Marching Ants Border",
+      "summary": "An animated dashed outline that crawls around the element, like a selection marquee.",
+      "theme": "borders-shadows",
+      "themeTitle": "Borders & Shadows",
+      "categories": [
+        "border",
+        "animation"
+      ],
+      "tags": [
+        "marching-ants",
+        "dashed",
+        "marquee",
+        "selection",
+        "animated-border",
+        "dotted"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "intermediate",
+      "path": "effects/borders-shadows/marching-ants-border.html"
+    },
+    {
+      "id": "press-3d-button",
+      "title": "3D Press Button",
+      "summary": "A chunky button with a solid bottom edge that depresses satisfyingly when clicked.",
+      "theme": "buttons",
+      "themeTitle": "Buttons",
+      "categories": [
+        "button",
+        "3d",
+        "skeuomorphic"
+      ],
+      "tags": [
+        "3d",
+        "press",
+        "tactile",
+        "box-shadow",
+        "playful",
+        "skeuomorphic"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/buttons/press-3d-button.html"
+    },
+    {
+      "id": "gradient-border-button",
+      "title": "Animated Gradient Border Button",
+      "summary": "A conic gradient rotates around the button edge as a glowing animated border.",
+      "theme": "buttons",
+      "themeTitle": "Buttons",
+      "categories": [
+        "button",
+        "border",
+        "gradient"
+      ],
+      "tags": [
+        "gradient",
+        "border",
+        "conic",
+        "glow",
+        "animated-border",
+        "outline"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "advanced",
+      "path": "effects/buttons/gradient-border-button.html"
+    },
+    {
+      "id": "arrow-slide-button",
+      "title": "Arrow Slide Button",
+      "summary": "A button whose arrow glides forward (and label nudges) on hover, signaling 'go'.",
+      "theme": "buttons",
+      "themeTitle": "Buttons",
+      "categories": [
+        "button",
+        "hover",
+        "micro-interaction"
+      ],
+      "tags": [
+        "arrow",
+        "slide",
+        "cta",
+        "directional",
+        "hover",
+        "nudge"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/buttons/arrow-slide-button.html"
+    },
+    {
+      "id": "fill-sweep-button",
+      "title": "Fill Sweep Button",
+      "summary": "An outline button whose color sweeps in from one side on hover.",
+      "theme": "buttons",
+      "themeTitle": "Buttons",
+      "categories": [
+        "button",
+        "hover",
+        "outline"
+      ],
+      "tags": [
+        "hover",
+        "fill",
+        "sweep",
+        "ghost",
+        "outline",
+        "transition"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "beginner",
+      "path": "effects/buttons/fill-sweep-button.html"
+    },
+    {
+      "id": "glow-pulse-button",
+      "title": "Glow Pulse Button",
+      "summary": "A CTA that breathes with a soft pulsing glow to draw the eye.",
+      "theme": "buttons",
+      "themeTitle": "Buttons",
+      "categories": [
+        "button",
+        "glow",
+        "attention"
+      ],
+      "tags": [
+        "glow",
+        "pulse",
+        "breathing",
+        "cta",
+        "box-shadow",
+        "attention"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/buttons/glow-pulse-button.html"
+    },
+    {
+      "id": "loading-button",
+      "title": "Loading Button",
+      "summary": "A submit button that swaps its label for an inline spinner and locks during async work.",
+      "theme": "buttons",
+      "themeTitle": "Buttons",
+      "categories": [
+        "button",
+        "loading",
+        "feedback"
+      ],
+      "tags": [
+        "loading",
+        "spinner",
+        "submit",
+        "async",
+        "disabled",
+        "aria-busy"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/buttons/loading-button.html"
+    },
+    {
+      "id": "ripple-button",
+      "title": "Material Ripple Button",
+      "summary": "A circular ripple expands from the click point, the classic Material Design touch feedback.",
+      "theme": "buttons",
+      "themeTitle": "Buttons",
+      "categories": [
+        "button",
+        "feedback",
+        "interaction"
+      ],
+      "tags": [
+        "ripple",
+        "material",
+        "click",
+        "feedback",
+        "wave"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2010s",
+      "difficulty": "intermediate",
+      "path": "effects/buttons/ripple-button.html"
+    },
+    {
+      "id": "dark-mode-tokens",
+      "title": "Dark / Light Mode Tokens",
+      "summary": "A theming pattern where semantic tokens flip between light and dark via a data-attribute — live toggle.",
+      "theme": "color-systems",
+      "themeTitle": "Color Systems",
+      "categories": [
+        "design-tokens",
+        "color",
+        "theming",
+        "dark-mode"
+      ],
+      "tags": [
+        "dark-mode",
+        "light-mode",
+        "theme",
+        "tokens",
+        "prefers-color-scheme",
+        "toggle"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/color-systems/dark-mode-tokens.html"
+    },
+    {
+      "id": "gradient-library",
+      "title": "Gradient Library",
+      "summary": "A curated board of reusable linear/radial/conic gradients with their exact CSS.",
+      "theme": "color-systems",
+      "themeTitle": "Color Systems",
+      "categories": [
+        "color",
+        "gradient",
+        "reference"
+      ],
+      "tags": [
+        "gradient",
+        "library",
+        "linear",
+        "radial",
+        "conic",
+        "palette",
+        "reference"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/color-systems/gradient-library.html"
+    },
+    {
+      "id": "semantic-color-tokens",
+      "title": "Semantic Color Tokens",
+      "summary": "A two-tier color token system (primitive scale → semantic roles) as copy-ready CSS custom properties.",
+      "theme": "color-systems",
+      "themeTitle": "Color Systems",
+      "categories": [
+        "design-tokens",
+        "color",
+        "theming",
+        "reference"
+      ],
+      "tags": [
+        "tokens",
+        "design-system",
+        "palette",
+        "semantic",
+        "css-variables",
+        "theming"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/color-systems/semantic-color-tokens.html"
+    },
+    {
+      "id": "glass-navbar",
+      "title": "Glass Navbar (composed)",
+      "summary": "A sticky frosted-glass navigation bar with animated underline links and a gradient CTA.",
+      "theme": "combos-recipes",
+      "themeTitle": "Combination Recipes",
+      "categories": [
+        "recipe",
+        "navigation",
+        "header"
+      ],
+      "tags": [
+        "navbar",
+        "glass",
+        "sticky",
+        "underline",
+        "header",
+        "composition"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/combos-recipes/glass-navbar.html"
+    },
+    {
+      "id": "hero-section",
+      "title": "Hero Section (composed)",
+      "summary": "A complete landing hero composing an animated gradient backdrop, aurora glow, gradient headline, and a glowing CTA.",
+      "theme": "combos-recipes",
+      "themeTitle": "Combination Recipes",
+      "categories": [
+        "recipe",
+        "hero",
+        "landing"
+      ],
+      "tags": [
+        "hero",
+        "landing",
+        "gradient",
+        "aurora",
+        "cta",
+        "composition",
+        "saas"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/combos-recipes/hero-section.html"
+    },
+    {
+      "id": "login-card",
+      "title": "Login Card (composed)",
+      "summary": "A frosted glass auth card with floating-label inputs and a gradient submit button.",
+      "theme": "combos-recipes",
+      "themeTitle": "Combination Recipes",
+      "categories": [
+        "recipe",
+        "form",
+        "auth"
+      ],
+      "tags": [
+        "login",
+        "form",
+        "glass",
+        "floating-label",
+        "auth",
+        "composition"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/combos-recipes/login-card.html"
+    },
+    {
+      "id": "pricing-card",
+      "title": "Pricing Card (composed)",
+      "summary": "A 'featured' pricing card combining a gradient border, hover lift, colored glow, and a fill-sweep button.",
+      "theme": "combos-recipes",
+      "themeTitle": "Combination Recipes",
+      "categories": [
+        "recipe",
+        "pricing",
+        "card"
+      ],
+      "tags": [
+        "pricing",
+        "card",
+        "gradient-border",
+        "lift",
+        "glow",
+        "cta",
+        "composition"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/combos-recipes/pricing-card.html"
+    },
+    {
+      "id": "spotlight-cursor",
+      "title": "Cursor Spotlight Reveal",
+      "summary": "The cursor carries a spotlight that reveals hidden content through a dark mask.",
+      "theme": "cursors-pointers",
+      "themeTitle": "Cursors & Pointers",
+      "categories": [
+        "cursor",
+        "reveal",
+        "mask"
+      ],
+      "tags": [
+        "spotlight",
+        "flashlight",
+        "torch",
+        "mask",
+        "reveal",
+        "cursor"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/cursors-pointers/spotlight-cursor.html"
+    },
+    {
+      "id": "follow-dot-cursor",
+      "title": "Following Dot & Ring Cursor",
+      "summary": "A custom cursor: a precise dot plus a larger ring that lags behind with easing.",
+      "theme": "cursors-pointers",
+      "themeTitle": "Cursors & Pointers",
+      "categories": [
+        "cursor",
+        "pointer",
+        "interaction"
+      ],
+      "tags": [
+        "cursor",
+        "custom-cursor",
+        "follow",
+        "ring",
+        "lerp",
+        "agency"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/cursors-pointers/follow-dot-cursor.html"
+    },
+    {
+      "id": "blob-trail-cursor",
+      "title": "Gooey Blob Trail Cursor",
+      "summary": "A soft blurred blob chases the cursor with easing, leaving a liquid trailing feel.",
+      "theme": "cursors-pointers",
+      "themeTitle": "Cursors & Pointers",
+      "categories": [
+        "cursor",
+        "pointer",
+        "ambient"
+      ],
+      "tags": [
+        "cursor",
+        "blob",
+        "trail",
+        "gooey",
+        "lerp",
+        "blur"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/cursors-pointers/blob-trail-cursor.html"
+    },
+    {
+      "id": "animated-checkbox",
+      "title": "Animated Checkbox",
+      "summary": "A checkbox whose tick draws itself in with an SVG stroke animation on check.",
+      "theme": "forms-inputs",
+      "themeTitle": "Forms & Inputs",
+      "categories": [
+        "form",
+        "checkbox",
+        "control"
+      ],
+      "tags": [
+        "checkbox",
+        "svg",
+        "stroke",
+        "draw",
+        "tick",
+        "accessible"
+      ],
+      "tech": [
+        "css",
+        "svg"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/forms-inputs/animated-checkbox.html"
+    },
+    {
+      "id": "custom-range-slider",
+      "title": "Custom Range Slider",
+      "summary": "A styled range input with a gradient-filled track that follows the thumb.",
+      "theme": "forms-inputs",
+      "themeTitle": "Forms & Inputs",
+      "categories": [
+        "form",
+        "slider",
+        "control"
+      ],
+      "tags": [
+        "range",
+        "slider",
+        "input",
+        "fill",
+        "thumb",
+        "accessible"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/forms-inputs/custom-range-slider.html"
+    },
+    {
+      "id": "floating-label-input",
+      "title": "Floating Label Input",
+      "summary": "A label that sits inside the field and floats up when focused or filled — pure CSS, fully accessible.",
+      "theme": "forms-inputs",
+      "themeTitle": "Forms & Inputs",
+      "categories": [
+        "form",
+        "input",
+        "label"
+      ],
+      "tags": [
+        "floating-label",
+        "input",
+        "material",
+        "placeholder-shown",
+        "form",
+        "accessible"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "beginner",
+      "path": "effects/forms-inputs/floating-label-input.html"
+    },
+    {
+      "id": "toggle-switch",
+      "title": "Toggle Switch",
+      "summary": "An iOS-style on/off switch built on a real checkbox for full accessibility.",
+      "theme": "forms-inputs",
+      "themeTitle": "Forms & Inputs",
+      "categories": [
+        "form",
+        "toggle",
+        "control"
+      ],
+      "tags": [
+        "toggle",
+        "switch",
+        "checkbox",
+        "ios",
+        "on-off",
+        "accessible"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "beginner",
+      "path": "effects/forms-inputs/toggle-switch.html"
+    },
+    {
+      "id": "claymorphism-card",
+      "title": "Claymorphism Card",
+      "summary": "A puffy, candy-like 3D clay surface with big radii and inset highlights.",
+      "theme": "glass-neumorphism",
+      "themeTitle": "Glass & Neumorphism",
+      "categories": [
+        "surface",
+        "claymorphism",
+        "card"
+      ],
+      "tags": [
+        "claymorphism",
+        "clay",
+        "puffy",
+        "3d",
+        "playful",
+        "inset-shadow"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/glass-neumorphism/claymorphism-card.html"
+    },
+    {
+      "id": "glass-button",
+      "title": "Glass Button",
+      "summary": "A frosted translucent button with a light top-edge highlight that brightens on hover.",
+      "theme": "glass-neumorphism",
+      "themeTitle": "Glass & Neumorphism",
+      "categories": [
+        "surface",
+        "glass",
+        "button"
+      ],
+      "tags": [
+        "glassmorphism",
+        "button",
+        "frosted",
+        "backdrop-filter",
+        "translucent"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/glass-neumorphism/glass-button.html"
+    },
+    {
+      "id": "glassmorphism-card",
+      "title": "Glassmorphism Card",
+      "summary": "A frosted-glass panel that blurs whatever sits behind it, with a subtle light border.",
+      "theme": "glass-neumorphism",
+      "themeTitle": "Glass & Neumorphism",
+      "categories": [
+        "surface",
+        "glass",
+        "card"
+      ],
+      "tags": [
+        "glassmorphism",
+        "frosted",
+        "backdrop-filter",
+        "blur",
+        "translucent",
+        "ios"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/glass-neumorphism/glassmorphism-card.html"
+    },
+    {
+      "id": "neumorphic-button",
+      "title": "Neumorphic Button",
+      "summary": "A soft-UI button that appears extruded at rest and presses inward when active.",
+      "theme": "glass-neumorphism",
+      "themeTitle": "Glass & Neumorphism",
+      "categories": [
+        "surface",
+        "neumorphism",
+        "button"
+      ],
+      "tags": [
+        "neumorphism",
+        "soft-ui",
+        "button",
+        "press",
+        "shadow",
+        "monochrome"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/glass-neumorphism/neumorphic-button.html"
+    },
+    {
+      "id": "neumorphism-card",
+      "title": "Neumorphism Card",
+      "summary": "A soft, extruded 'soft UI' surface made from twin light and dark shadows.",
+      "theme": "glass-neumorphism",
+      "themeTitle": "Glass & Neumorphism",
+      "categories": [
+        "surface",
+        "neumorphism",
+        "card"
+      ],
+      "tags": [
+        "neumorphism",
+        "soft-ui",
+        "shadow",
+        "extruded",
+        "skeuomorphic",
+        "monochrome"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/glass-neumorphism/neumorphism-card.html"
+    },
+    {
+      "id": "tilt-card",
+      "title": "3D Tilt Card",
+      "summary": "A card that tilts in 3D toward the cursor with a moving glare highlight.",
+      "theme": "hover-interactions",
+      "themeTitle": "Hover Interactions",
+      "categories": [
+        "hover",
+        "3d",
+        "card"
+      ],
+      "tags": [
+        "tilt",
+        "3d",
+        "parallax",
+        "perspective",
+        "glare",
+        "card"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/hover-interactions/tilt-card.html"
+    },
+    {
+      "id": "card-lift",
+      "title": "Card Lift on Hover",
+      "summary": "A card rises and casts a deeper shadow on hover — the dependable elevation cue.",
+      "theme": "hover-interactions",
+      "themeTitle": "Hover Interactions",
+      "categories": [
+        "hover",
+        "card",
+        "elevation"
+      ],
+      "tags": [
+        "lift",
+        "shadow",
+        "elevation",
+        "hover",
+        "card",
+        "material"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/hover-interactions/card-lift.html"
+    },
+    {
+      "id": "grayscale-to-color",
+      "title": "Grayscale to Color on Hover",
+      "summary": "A muted grayscale image blooms into full color on hover — great for logo walls and team grids.",
+      "theme": "hover-interactions",
+      "themeTitle": "Hover Interactions",
+      "categories": [
+        "hover",
+        "image",
+        "filter"
+      ],
+      "tags": [
+        "grayscale",
+        "filter",
+        "hover",
+        "logo-wall",
+        "team",
+        "desaturate"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/hover-interactions/grayscale-to-color.html"
+    },
+    {
+      "id": "image-zoom-reveal",
+      "title": "Image Zoom & Caption Reveal",
+      "summary": "On hover the image zooms within its frame while a caption slides up from below.",
+      "theme": "hover-interactions",
+      "themeTitle": "Hover Interactions",
+      "categories": [
+        "hover",
+        "image",
+        "reveal"
+      ],
+      "tags": [
+        "image",
+        "zoom",
+        "caption",
+        "overlay",
+        "gallery",
+        "portfolio"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/hover-interactions/image-zoom-reveal.html"
+    },
+    {
+      "id": "magnetic-button",
+      "title": "Magnetic Button",
+      "summary": "A button that is gently pulled toward the cursor as it approaches, snapping back on exit.",
+      "theme": "hover-interactions",
+      "themeTitle": "Hover Interactions",
+      "categories": [
+        "hover",
+        "button",
+        "micro-interaction"
+      ],
+      "tags": [
+        "magnetic",
+        "cursor",
+        "spring",
+        "agency",
+        "playful",
+        "translate"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/hover-interactions/magnetic-button.html"
+    },
+    {
+      "id": "spotlight-card",
+      "title": "Spotlight Hover Card",
+      "summary": "A soft radial spotlight follows the cursor across the card surface.",
+      "theme": "hover-interactions",
+      "themeTitle": "Hover Interactions",
+      "categories": [
+        "hover",
+        "card",
+        "glow"
+      ],
+      "tags": [
+        "spotlight",
+        "cursor",
+        "glow",
+        "radial",
+        "card",
+        "reveal"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/hover-interactions/spotlight-card.html"
+    },
+    {
+      "id": "before-after-slider",
+      "title": "Before / After Slider",
+      "summary": "Drag a handle to wipe between two images — the classic comparison slider.",
+      "theme": "images-media",
+      "themeTitle": "Images & Media",
+      "categories": [
+        "image",
+        "interaction",
+        "comparison"
+      ],
+      "tags": [
+        "before-after",
+        "comparison",
+        "slider",
+        "wipe",
+        "clip",
+        "range"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2010s",
+      "difficulty": "intermediate",
+      "path": "effects/images-media/before-after-slider.html"
+    },
+    {
+      "id": "clip-path-shapes",
+      "title": "Clip-Path Shapes",
+      "summary": "Crop images/elements into hexagons, blobs, and diagonals with clip-path, animated on hover.",
+      "theme": "images-media",
+      "themeTitle": "Images & Media",
+      "categories": [
+        "image",
+        "shape",
+        "clip"
+      ],
+      "tags": [
+        "clip-path",
+        "polygon",
+        "hexagon",
+        "diagonal",
+        "shape",
+        "crop"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/images-media/clip-path-shapes.html"
+    },
+    {
+      "id": "duotone-image",
+      "title": "Duotone Image",
+      "summary": "Recolor any photo into a two-tone gradient using blend modes.",
+      "theme": "images-media",
+      "themeTitle": "Images & Media",
+      "categories": [
+        "image",
+        "color",
+        "filter"
+      ],
+      "tags": [
+        "duotone",
+        "blend-mode",
+        "filter",
+        "grayscale",
+        "recolor",
+        "spotify"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "intermediate",
+      "path": "effects/images-media/duotone-image.html"
+    },
+    {
+      "id": "ken-burns",
+      "title": "Ken Burns Effect",
+      "summary": "A slow zoom-and-pan over a still image that adds cinematic life to hero photos.",
+      "theme": "images-media",
+      "themeTitle": "Images & Media",
+      "categories": [
+        "image",
+        "animation",
+        "cinematic"
+      ],
+      "tags": [
+        "ken-burns",
+        "zoom",
+        "pan",
+        "cinematic",
+        "hero",
+        "slideshow"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/images-media/ken-burns.html"
+    },
+    {
+      "id": "bento-grid",
+      "title": "Bento Grid",
+      "summary": "The modern 'bento box' feature grid — tiles of varying sizes in a tidy CSS Grid.",
+      "theme": "layout-archetypes",
+      "themeTitle": "Layout Archetypes",
+      "categories": [
+        "layout",
+        "grid",
+        "reference"
+      ],
+      "tags": [
+        "bento",
+        "grid",
+        "css-grid",
+        "feature",
+        "masonry-like",
+        "spans"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/layout-archetypes/bento-grid.html"
+    },
+    {
+      "id": "holy-grail",
+      "title": "Holy Grail Layout",
+      "summary": "Header, footer, fluid main content, and two fixed sidebars — the classic app shell, in CSS Grid.",
+      "theme": "layout-archetypes",
+      "themeTitle": "Layout Archetypes",
+      "categories": [
+        "layout",
+        "grid",
+        "app-shell",
+        "reference"
+      ],
+      "tags": [
+        "holy-grail",
+        "grid-template-areas",
+        "app-shell",
+        "sidebar",
+        "layout",
+        "dashboard"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "intermediate",
+      "path": "effects/layout-archetypes/holy-grail.html"
+    },
+    {
+      "id": "masonry-grid",
+      "title": "Masonry Grid (CSS columns)",
+      "summary": "A Pinterest-style staggered masonry layout using CSS multi-columns — no JS.",
+      "theme": "layout-archetypes",
+      "themeTitle": "Layout Archetypes",
+      "categories": [
+        "layout",
+        "masonry",
+        "reference"
+      ],
+      "tags": [
+        "masonry",
+        "columns",
+        "pinterest",
+        "staggered",
+        "gallery",
+        "break-inside"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/layout-archetypes/masonry-grid.html"
+    },
+    {
+      "id": "responsive-card-grid",
+      "title": "Responsive Card Grid (no media queries)",
+      "summary": "A card grid that reflows columns automatically using auto-fit + minmax — zero breakpoints.",
+      "theme": "layout-archetypes",
+      "themeTitle": "Layout Archetypes",
+      "categories": [
+        "layout",
+        "grid",
+        "responsive",
+        "reference"
+      ],
+      "tags": [
+        "grid",
+        "auto-fit",
+        "minmax",
+        "responsive",
+        "cards",
+        "intrinsic"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/layout-archetypes/responsive-card-grid.html"
+    },
+    {
+      "id": "dots-bounce",
+      "title": "Bouncing Dots",
+      "summary": "Three dots bounce in sequence — the friendly 'typing…' / loading indicator.",
+      "theme": "loaders-spinners",
+      "themeTitle": "Loaders & Spinners",
+      "categories": [
+        "loader",
+        "dots"
+      ],
+      "tags": [
+        "dots",
+        "bounce",
+        "typing",
+        "loading",
+        "stagger",
+        "chat"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/loaders-spinners/dots-bounce.html"
+    },
+    {
+      "id": "progress-ring",
+      "title": "Circular Progress Ring",
+      "summary": "A determinate SVG ring that fills to a percentage via stroke-dashoffset, with a live label.",
+      "theme": "loaders-spinners",
+      "themeTitle": "Loaders & Spinners",
+      "categories": [
+        "loader",
+        "progress"
+      ],
+      "tags": [
+        "progress",
+        "ring",
+        "circular",
+        "svg",
+        "stroke-dashoffset",
+        "percentage"
+      ],
+      "tech": [
+        "css",
+        "svg",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/loaders-spinners/progress-ring.html"
+    },
+    {
+      "id": "dual-ring-spinner",
+      "title": "Dual Ring / Orbit Spinner",
+      "summary": "Two concentric arcs spin in opposite directions for a more dynamic loader.",
+      "theme": "loaders-spinners",
+      "themeTitle": "Loaders & Spinners",
+      "categories": [
+        "loader",
+        "spinner"
+      ],
+      "tags": [
+        "spinner",
+        "orbit",
+        "dual-ring",
+        "loading",
+        "counter-rotate"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/loaders-spinners/dual-ring-spinner.html"
+    },
+    {
+      "id": "progress-bar-indeterminate",
+      "title": "Indeterminate Progress Bar",
+      "summary": "A sliding accent segment loops across a track when progress can't be measured.",
+      "theme": "loaders-spinners",
+      "themeTitle": "Loaders & Spinners",
+      "categories": [
+        "loader",
+        "progress"
+      ],
+      "tags": [
+        "progress",
+        "bar",
+        "indeterminate",
+        "loading",
+        "linear",
+        "topbar"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "beginner",
+      "path": "effects/loaders-spinners/progress-bar-indeterminate.html"
+    },
+    {
+      "id": "ring-spinner",
+      "title": "Ring Spinner",
+      "summary": "The classic spinning ring with a single colored arc, drawn with one element.",
+      "theme": "loaders-spinners",
+      "themeTitle": "Loaders & Spinners",
+      "categories": [
+        "loader",
+        "spinner"
+      ],
+      "tags": [
+        "spinner",
+        "ring",
+        "loading",
+        "border",
+        "rotate",
+        "classic"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/loaders-spinners/ring-spinner.html"
+    },
+    {
+      "id": "skeleton-loader",
+      "title": "Skeleton Loader",
+      "summary": "Gray placeholder blocks with a sweeping shimmer that mimic content while it loads.",
+      "theme": "loaders-spinners",
+      "themeTitle": "Loaders & Spinners",
+      "categories": [
+        "loader",
+        "skeleton",
+        "placeholder"
+      ],
+      "tags": [
+        "skeleton",
+        "shimmer",
+        "placeholder",
+        "loading",
+        "ghost",
+        "content"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/loaders-spinners/skeleton-loader.html"
+    },
+    {
+      "id": "easing-showcase",
+      "title": "Easing Curve Showcase",
+      "summary": "Side-by-side comparison of common easing curves, animated, with their cubic-bezier tokens.",
+      "theme": "motion-principles",
+      "themeTitle": "Motion Principles",
+      "categories": [
+        "motion",
+        "easing",
+        "design-tokens",
+        "reference"
+      ],
+      "tags": [
+        "easing",
+        "cubic-bezier",
+        "motion",
+        "tokens",
+        "timing-function",
+        "animation"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/motion-principles/easing-showcase.html"
+    },
+    {
+      "id": "duration-scale",
+      "title": "Motion Duration Scale",
+      "summary": "A small set of duration tokens (instant→slow) mapped to UI scenarios, demonstrated live.",
+      "theme": "motion-principles",
+      "themeTitle": "Motion Principles",
+      "categories": [
+        "motion",
+        "duration",
+        "design-tokens",
+        "reference"
+      ],
+      "tags": [
+        "duration",
+        "timing",
+        "tokens",
+        "motion",
+        "speed",
+        "animation"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/motion-principles/duration-scale.html"
+    },
+    {
+      "id": "stagger-choreography",
+      "title": "Stagger Choreography",
+      "summary": "A list whose items animate in one after another with an incremental delay.",
+      "theme": "motion-principles",
+      "themeTitle": "Motion Principles",
+      "categories": [
+        "motion",
+        "stagger",
+        "reference"
+      ],
+      "tags": [
+        "stagger",
+        "choreography",
+        "delay",
+        "cascade",
+        "list",
+        "entrance"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/motion-principles/stagger-choreography.html"
+    },
+    {
+      "id": "dropdown-menu",
+      "title": "Animated Dropdown Menu",
+      "summary": "A dropdown that fades and slides down from its trigger, toggled accessibly on click.",
+      "theme": "navigation-menus",
+      "themeTitle": "Navigation & Menus",
+      "categories": [
+        "navigation",
+        "menu",
+        "dropdown"
+      ],
+      "tags": [
+        "dropdown",
+        "menu",
+        "popover",
+        "toggle",
+        "fade",
+        "accessible"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "timeless",
+      "difficulty": "intermediate",
+      "path": "effects/navigation-menus/dropdown-menu.html"
+    },
+    {
+      "id": "underline-grow-link",
+      "title": "Animated Underline Links",
+      "summary": "Nav links whose underline grows from the center (or slides in) on hover/focus.",
+      "theme": "navigation-menus",
+      "themeTitle": "Navigation & Menus",
+      "categories": [
+        "navigation",
+        "link",
+        "hover"
+      ],
+      "tags": [
+        "underline",
+        "link",
+        "hover",
+        "nav",
+        "scaleX",
+        "focus"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/navigation-menus/underline-grow-link.html"
+    },
+    {
+      "id": "hamburger-morph",
+      "title": "Hamburger → X Morph",
+      "summary": "A three-line menu icon that smoothly morphs into a close (X) when toggled.",
+      "theme": "navigation-menus",
+      "themeTitle": "Navigation & Menus",
+      "categories": [
+        "navigation",
+        "menu",
+        "icon"
+      ],
+      "tags": [
+        "hamburger",
+        "menu",
+        "toggle",
+        "morph",
+        "x",
+        "icon"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2010s",
+      "difficulty": "beginner",
+      "path": "effects/navigation-menus/hamburger-morph.html"
+    },
+    {
+      "id": "sliding-tab-indicator",
+      "title": "Sliding Tab Indicator",
+      "summary": "A pill/underline indicator that glides to the active tab.",
+      "theme": "navigation-menus",
+      "themeTitle": "Navigation & Menus",
+      "categories": [
+        "navigation",
+        "tabs",
+        "indicator"
+      ],
+      "tags": [
+        "tabs",
+        "indicator",
+        "slide",
+        "pill",
+        "segmented",
+        "active-state"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/navigation-menus/sliding-tab-indicator.html"
+    },
+    {
+      "id": "blink-text",
+      "title": "Blink Text",
+      "summary": "The infamous <blink> effect, recreated accessibly with a gentle opacity animation.",
+      "theme": "retro-web",
+      "themeTitle": "Retro Web",
+      "categories": [
+        "retro",
+        "text",
+        "animation"
+      ],
+      "tags": [
+        "blink",
+        "90s",
+        "deprecated-tag",
+        "flash",
+        "nostalgia"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "1990s",
+      "difficulty": "beginner",
+      "path": "effects/retro-web/blink-text.html"
+    },
+    {
+      "id": "marquee-scroll",
+      "title": "CSS Marquee",
+      "summary": "A modern, accessible replacement for the deprecated <marquee> tag using CSS animation.",
+      "theme": "retro-web",
+      "themeTitle": "Retro Web",
+      "categories": [
+        "retro",
+        "ticker",
+        "animation"
+      ],
+      "tags": [
+        "marquee",
+        "scroll",
+        "ticker",
+        "90s",
+        "news",
+        "deprecated-tag"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "1990s",
+      "difficulty": "beginner",
+      "path": "effects/retro-web/marquee-scroll.html"
+    },
+    {
+      "id": "rainbow-text",
+      "title": "Rainbow Cycling Text",
+      "summary": "Text that cycles through the rainbow via an animated hue rotation — peak GeoCities energy.",
+      "theme": "retro-web",
+      "themeTitle": "Retro Web",
+      "categories": [
+        "retro",
+        "text",
+        "color"
+      ],
+      "tags": [
+        "rainbow",
+        "hue",
+        "90s",
+        "geocities",
+        "colorful",
+        "nostalgia"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "1990s",
+      "difficulty": "beginner",
+      "path": "effects/retro-web/rainbow-text.html"
+    },
+    {
+      "id": "starfield",
+      "title": "Starfield Warp",
+      "summary": "Stars streaking toward the viewer — the screensaver/space-warp staple, on canvas.",
+      "theme": "retro-web",
+      "themeTitle": "Retro Web",
+      "categories": [
+        "retro",
+        "canvas",
+        "background"
+      ],
+      "tags": [
+        "starfield",
+        "warp",
+        "canvas",
+        "space",
+        "screensaver",
+        "particles"
+      ],
+      "tech": [
+        "canvas",
+        "js"
+      ],
+      "era": "2000s",
+      "difficulty": "advanced",
+      "path": "effects/retro-web/starfield.html"
+    },
+    {
+      "id": "reveal-image-clip",
+      "title": "Image Clip Reveal on Scroll",
+      "summary": "An image unveils behind a clip-path wipe as it scrolls into view.",
+      "theme": "scroll-effects",
+      "themeTitle": "Scroll Effects",
+      "categories": [
+        "scroll",
+        "reveal",
+        "image"
+      ],
+      "tags": [
+        "reveal",
+        "clip-path",
+        "scroll",
+        "wipe",
+        "intersection-observer",
+        "image"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/scroll-effects/reveal-image-clip.html"
+    },
+    {
+      "id": "parallax-layers",
+      "title": "Parallax Layers",
+      "summary": "Background layers scroll slower than foreground content for a depth illusion — pure CSS.",
+      "theme": "scroll-effects",
+      "themeTitle": "Scroll Effects",
+      "categories": [
+        "scroll",
+        "parallax",
+        "3d"
+      ],
+      "tags": [
+        "parallax",
+        "depth",
+        "scroll",
+        "perspective",
+        "layers",
+        "translateZ"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "advanced",
+      "path": "effects/scroll-effects/parallax-layers.html"
+    },
+    {
+      "id": "scroll-progress-bar",
+      "title": "Scroll Progress Bar",
+      "summary": "A top bar that fills as the reader scrolls, using pure-CSS scroll-driven animation.",
+      "theme": "scroll-effects",
+      "themeTitle": "Scroll Effects",
+      "categories": [
+        "scroll",
+        "progress",
+        "indicator"
+      ],
+      "tags": [
+        "scroll",
+        "progress",
+        "reading",
+        "scroll-timeline",
+        "indicator",
+        "topbar"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/scroll-effects/scroll-progress-bar.html"
+    },
+    {
+      "id": "scroll-snap-gallery",
+      "title": "Scroll Snap Gallery",
+      "summary": "A horizontal gallery where each slide snaps cleanly into place — pure CSS scroll-snap.",
+      "theme": "scroll-effects",
+      "themeTitle": "Scroll Effects",
+      "categories": [
+        "scroll",
+        "carousel",
+        "gallery"
+      ],
+      "tags": [
+        "scroll-snap",
+        "carousel",
+        "gallery",
+        "horizontal",
+        "swipe",
+        "slides"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/scroll-effects/scroll-snap-gallery.html"
+    },
+    {
+      "id": "sticky-stack-cards",
+      "title": "Sticky Stacking Cards",
+      "summary": "Cards stick to the top and stack on one another as you scroll past them.",
+      "theme": "scroll-effects",
+      "themeTitle": "Scroll Effects",
+      "categories": [
+        "scroll",
+        "sticky",
+        "layout"
+      ],
+      "tags": [
+        "sticky",
+        "stack",
+        "scroll",
+        "cards",
+        "pin",
+        "storytelling"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/scroll-effects/sticky-stack-cards.html"
+    },
+    {
+      "id": "gradient-text",
+      "title": "Animated Gradient Text",
+      "summary": "Letters filled with a moving multi-stop gradient via background-clip: text.",
+      "theme": "text-effects",
+      "themeTitle": "Text Effects",
+      "categories": [
+        "typography",
+        "gradient"
+      ],
+      "tags": [
+        "gradient",
+        "background-clip",
+        "animation",
+        "colorful",
+        "heading"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/text-effects/gradient-text.html"
+    },
+    {
+      "id": "glitch-text",
+      "title": "Glitch Text",
+      "summary": "RGB-split datamosh glitch using duplicated pseudo-elements and clip-path jitter.",
+      "theme": "text-effects",
+      "themeTitle": "Text Effects",
+      "categories": [
+        "typography",
+        "glitch"
+      ],
+      "tags": [
+        "glitch",
+        "rgb-split",
+        "cyberpunk",
+        "clip-path",
+        "distortion"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "intermediate",
+      "path": "effects/text-effects/glitch-text.html"
+    },
+    {
+      "id": "neon-glow-text",
+      "title": "Neon Glow Text",
+      "summary": "Glowing neon-sign lettering built from layered text-shadows with a soft flicker.",
+      "theme": "text-effects",
+      "themeTitle": "Text Effects",
+      "categories": [
+        "typography",
+        "glow"
+      ],
+      "tags": [
+        "neon",
+        "text-shadow",
+        "glow",
+        "retro",
+        "cyberpunk",
+        "80s"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "beginner",
+      "path": "effects/text-effects/neon-glow-text.html"
+    },
+    {
+      "id": "outline-text",
+      "title": "Outline / Stroke Text",
+      "summary": "Hollow outlined lettering that fills with color on hover, via text-stroke.",
+      "theme": "text-effects",
+      "themeTitle": "Text Effects",
+      "categories": [
+        "typography",
+        "outline"
+      ],
+      "tags": [
+        "outline",
+        "stroke",
+        "hollow",
+        "text-stroke",
+        "poster",
+        "editorial"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/text-effects/outline-text.html"
+    },
+    {
+      "id": "shimmer-text",
+      "title": "Shimmer / Shine Text",
+      "summary": "A bright highlight sweeps across muted text like light catching metal — the classic skeleton/shine loop.",
+      "theme": "text-effects",
+      "themeTitle": "Text Effects",
+      "categories": [
+        "typography",
+        "gradient",
+        "loading"
+      ],
+      "tags": [
+        "shimmer",
+        "shine",
+        "skeleton",
+        "loading",
+        "background-clip",
+        "metallic"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/text-effects/shimmer-text.html"
+    },
+    {
+      "id": "text-reveal-mask",
+      "title": "Text Reveal Mask",
+      "summary": "Lines of text slide up from behind a clipping mask, like film titles.",
+      "theme": "text-effects",
+      "themeTitle": "Text Effects",
+      "categories": [
+        "typography",
+        "animation",
+        "reveal"
+      ],
+      "tags": [
+        "reveal",
+        "mask",
+        "stagger",
+        "clip",
+        "kinetic",
+        "editorial"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/text-effects/text-reveal-mask.html"
+    },
+    {
+      "id": "typewriter-text",
+      "title": "Typewriter Text",
+      "summary": "Text types itself out with a blinking caret using the steps() timing function.",
+      "theme": "text-effects",
+      "themeTitle": "Text Effects",
+      "categories": [
+        "typography",
+        "animation"
+      ],
+      "tags": [
+        "typewriter",
+        "typing",
+        "steps",
+        "caret",
+        "monospace"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "beginner",
+      "path": "effects/text-effects/typewriter-text.html"
+    },
+    {
+      "id": "accordion-expand",
+      "title": "Accordion Expand",
+      "summary": "A native <details> accordion with a smoothly animated open/close using grid-rows.",
+      "theme": "transitions-animations",
+      "themeTitle": "Transitions & Animations",
+      "categories": [
+        "animation",
+        "disclosure",
+        "accordion"
+      ],
+      "tags": [
+        "accordion",
+        "details",
+        "disclosure",
+        "expand",
+        "faq",
+        "grid-rows"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/transitions-animations/accordion-expand.html"
+    },
+    {
+      "id": "floating-bob",
+      "title": "Floating Bob",
+      "summary": "A gentle up-and-down hover float that makes hero illustrations feel alive.",
+      "theme": "transitions-animations",
+      "themeTitle": "Transitions & Animations",
+      "categories": [
+        "animation",
+        "ambient",
+        "loop"
+      ],
+      "tags": [
+        "float",
+        "bob",
+        "hover",
+        "idle",
+        "loop",
+        "weightless"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/transitions-animations/floating-bob.html"
+    },
+    {
+      "id": "modal-fade-scale",
+      "title": "Modal Fade & Scale",
+      "summary": "A dialog that fades its backdrop and scales up from 95%, using the native <dialog> element.",
+      "theme": "transitions-animations",
+      "themeTitle": "Transitions & Animations",
+      "categories": [
+        "animation",
+        "modal",
+        "dialog"
+      ],
+      "tags": [
+        "modal",
+        "dialog",
+        "fade",
+        "scale",
+        "popup",
+        "backdrop"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/transitions-animations/modal-fade-scale.html"
+    },
+    {
+      "id": "blob-morph",
+      "title": "Morphing Blob",
+      "summary": "An organic shape slowly morphs by animating border-radius — no SVG needed.",
+      "theme": "transitions-animations",
+      "themeTitle": "Transitions & Animations",
+      "categories": [
+        "animation",
+        "shape",
+        "ambient"
+      ],
+      "tags": [
+        "blob",
+        "morph",
+        "border-radius",
+        "organic",
+        "ambient",
+        "decorative"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/transitions-animations/blob-morph.html"
+    },
+    {
+      "id": "scroll-reveal-fade",
+      "title": "Scroll Reveal Fade-Up",
+      "summary": "Elements fade and slide up as they enter the viewport, via IntersectionObserver.",
+      "theme": "transitions-animations",
+      "themeTitle": "Transitions & Animations",
+      "categories": [
+        "animation",
+        "scroll",
+        "reveal"
+      ],
+      "tags": [
+        "scroll",
+        "reveal",
+        "fade",
+        "intersection-observer",
+        "entrance",
+        "stagger"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/transitions-animations/scroll-reveal-fade.html"
+    },
+    {
+      "id": "shake-attention",
+      "title": "Shake (Attention / Error)",
+      "summary": "A quick horizontal shake to flag an error or invalid input.",
+      "theme": "transitions-animations",
+      "themeTitle": "Transitions & Animations",
+      "categories": [
+        "animation",
+        "feedback",
+        "attention"
+      ],
+      "tags": [
+        "shake",
+        "error",
+        "validation",
+        "attention",
+        "wobble",
+        "feedback"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/transitions-animations/shake-attention.html"
+    },
+    {
+      "id": "fluid-typography",
+      "title": "Fluid Typography (clamp)",
+      "summary": "Type that scales smoothly with the viewport using clamp() — no breakpoints.",
+      "theme": "typography-systems",
+      "themeTitle": "Typography Systems",
+      "categories": [
+        "typography",
+        "responsive",
+        "reference"
+      ],
+      "tags": [
+        "fluid",
+        "clamp",
+        "responsive",
+        "viewport",
+        "vw",
+        "scaling"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/typography-systems/fluid-typography.html"
+    },
+    {
+      "id": "font-pairings",
+      "title": "Font Pairings",
+      "summary": "Reference combinations of heading + body fonts using only system font stacks.",
+      "theme": "typography-systems",
+      "themeTitle": "Typography Systems",
+      "categories": [
+        "typography",
+        "fonts",
+        "reference"
+      ],
+      "tags": [
+        "font-pairing",
+        "system-fonts",
+        "serif",
+        "sans",
+        "monospace",
+        "stacks"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/typography-systems/font-pairings.html"
+    },
+    {
+      "id": "type-scale",
+      "title": "Modular Type Scale",
+      "summary": "A harmonious heading/body size scale generated from one ratio, as copy-ready tokens.",
+      "theme": "typography-systems",
+      "themeTitle": "Typography Systems",
+      "categories": [
+        "typography",
+        "design-tokens",
+        "scale",
+        "reference"
+      ],
+      "tags": [
+        "type-scale",
+        "modular-scale",
+        "tokens",
+        "hierarchy",
+        "sizing",
+        "rhythm"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/typography-systems/type-scale.html"
+    },
+    {
+      "id": "readable-measure",
+      "title": "Readable Measure & Rhythm",
+      "summary": "Reference for line length (measure), line-height, and line-clamp — the rules that make body text readable.",
+      "theme": "typography-systems",
+      "themeTitle": "Typography Systems",
+      "categories": [
+        "typography",
+        "readability",
+        "reference"
+      ],
+      "tags": [
+        "measure",
+        "line-length",
+        "line-height",
+        "line-clamp",
+        "ch",
+        "readability"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/typography-systems/readable-measure.html"
+    }
+  ]
+}

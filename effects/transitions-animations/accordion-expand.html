@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accordion Expand</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "accordion-expand",
+    "title": "Accordion Expand",
+    "summary": "A native <details> accordion with a smoothly animated open/close using grid-rows.",
+    "description": "Builds the accordion on the semantic <details>/<summary> element and animates the panel height with the grid-template-rows 0fr→1fr technique (which animates from auto height cleanly), plus a rotating chevron.",
+    "theme": "transitions-animations",
+    "categories": ["animation", "disclosure", "accordion"],
+    "tags": ["accordion", "details", "disclosure", "expand", "faq", "grid-rows"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "Modern browsers; the 0fr→1fr grid animation works in current Chromium/Firefox/Safari. Older browsers simply jump (acceptable).",
+    "performance_notes": "Animates grid-template-rows; the content wrapper must be overflow:hidden. No JS needed for toggle (native details).",
+    "accessibility_notes": "Built on <details>/<summary>, so it's keyboard-operable and announced as a disclosure out of the box — no ARIA needed. Honors prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Expand duration", "default": "0.3s" },
+      { "name": "--accent", "description": "Chevron/summary accent", "default": "#7c5cff" }
+    ],
+    "variations": ["Exclusive accordion (name attribute on <details> in supporting browsers)", "Plus/minus icon instead of chevron", "Card-style panels"],
+    "related": ["dropdown-menu"],
+    "ai_usage": "Use for FAQs and settings disclosures. Prefer the native <details>/<summary> for free accessibility. To animate the open height, wrap panel content in a div and use display:grid; grid-template-rows:0fr on closed and 1fr on [open], with the wrapper overflow:hidden. Rotate the chevron on [open]. For 'only one open', use the shared name attribute on <details> where supported. Reduced-motion: drop the transition."
+  }
+  </script>
+  <style>
+    :root { --dur: .3s; --accent: #7c5cff; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .acc { width: 300px; }
+    details { background: #151925; border: 1px solid #262c3d; border-radius: 12px; margin-bottom: .6rem; overflow: hidden; }
+    summary { list-style: none; cursor: pointer; padding: .9rem 1rem; color: #e7ebf3; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary .chev { color: var(--accent); transition: transform var(--dur); }
+    details[open] summary .chev { transform: rotate(180deg); }
+    .panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) ease; }
+    details[open] .panel { grid-template-rows: 1fr; }
+    .panel > div { overflow: hidden; }
+    .panel p { margin: 0; padding: 0 1rem 1rem; color: #8b93a7; }
+    @media (prefers-reduced-motion: reduce) { .panel, summary .chev { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="acc">
+    <details open>
+      <summary>What is Style Catalog? <span class="chev">▾</span></summary>
+      <div class="panel"><div><p>A museum and catalogue of web effects, built for AI agents.</p></div></div>
+    </details>
+    <details>
+      <summary>How do I add an effect? <span class="chev">▾</span></summary>
+      <div class="panel"><div><p>Run npm run new, edit the file, then npm run build.</p></div></div>
+    </details>
+  </div>
+</body>
+</html>

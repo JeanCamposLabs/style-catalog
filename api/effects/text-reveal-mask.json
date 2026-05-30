@@ -1,0 +1,54 @@
+{
+  "id": "text-reveal-mask",
+  "title": "Text Reveal Mask",
+  "summary": "Lines of text slide up from behind a clipping mask, like film titles.",
+  "description": "Each line sits in an overflow:hidden wrapper; the inner span is translated from below to its resting position with a staggered delay, producing an elegant editorial reveal.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "typography",
+    "animation",
+    "reveal"
+  ],
+  "tags": [
+    "reveal",
+    "mask",
+    "stagger",
+    "clip",
+    "kinetic",
+    "editorial"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Animates transform/opacity only — GPU-friendly. Stagger via animation-delay.",
+  "accessibility_notes": "Text is in the DOM and readable; animation collapses to an instant show under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--rise",
+      "description": "Distance the line travels",
+      "default": "100%"
+    },
+    {
+      "name": "--stagger",
+      "description": "Delay step between lines",
+      "default": "0.12s"
+    }
+  ],
+  "variations": [
+    "Trigger on scroll via IntersectionObserver",
+    "Reveal per-word or per-letter",
+    "Add a slight rotation for a flip-up"
+  ],
+  "related": [
+    "typewriter-text",
+    "scroll-reveal-fade"
+  ],
+  "ai_usage": "Use for hero headlines and section intros. Structure: each line is <span class='line'><span class='line__inner'>…</span></span>; the outer clips, the inner animates translateY from --rise to 0. Stagger lines by multiplying --stagger by line index (inline style or :nth-child). For scroll-triggered reveals, add the animating class when the element enters the viewport instead of on load.",
+  "path": "effects/text-effects/text-reveal-mask.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Text Reveal Mask</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"text-reveal-mask\",\n    \"title\": \"Text Reveal Mask\",\n    \"summary\": \"Lines of text slide up from behind a clipping mask, like film titles.\",\n    \"description\": \"Each line sits in an overflow:hidden wrapper; the inner span is translated from below to its resting position with a staggered delay, producing an elegant editorial reveal.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"typography\", \"animation\", \"reveal\"],\n    \"tags\": [\"reveal\", \"mask\", \"stagger\", \"clip\", \"kinetic\", \"editorial\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Animates transform/opacity only — GPU-friendly. Stagger via animation-delay.\",\n    \"accessibility_notes\": \"Text is in the DOM and readable; animation collapses to an instant show under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--rise\", \"description\": \"Distance the line travels\", \"default\": \"100%\" },\n      { \"name\": \"--stagger\", \"description\": \"Delay step between lines\", \"default\": \"0.12s\" }\n    ],\n    \"variations\": [\"Trigger on scroll via IntersectionObserver\", \"Reveal per-word or per-letter\", \"Add a slight rotation for a flip-up\"],\n    \"related\": [\"typewriter-text\", \"scroll-reveal-fade\"],\n    \"ai_usage\": \"Use for hero headlines and section intros. Structure: each line is <span class='line'><span class='line__inner'>…</span></span>; the outer clips, the inner animates translateY from --rise to 0. Stagger lines by multiplying --stagger by line index (inline style or :nth-child). For scroll-triggered reveals, add the animating class when the element enters the viewport instead of on load.\"\n  }\n  </script>\n  <style>\n    :root { --rise: 110%; --stagger: 0.12s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: Georgia, \"Times New Roman\", serif; }\n    .reveal { font-size: 2.6rem; font-weight: 700; color: #f4f4f5; line-height: 1.1; text-align: center; }\n    .line { display: block; overflow: hidden; }\n    .line__inner { display: inline-block; transform: translateY(var(--rise)); animation: rise 0.9s cubic-bezier(.2,.8,.2,1) forwards; }\n    .line:nth-child(1) .line__inner { animation-delay: calc(0 * var(--stagger)); }\n    .line:nth-child(2) .line__inner { animation-delay: calc(1 * var(--stagger)); }\n    .line:nth-child(3) .line__inner { animation-delay: calc(2 * var(--stagger)); }\n    @keyframes rise { to { transform: translateY(0); } }\n    @media (prefers-reduced-motion: reduce) { .line__inner { animation: none; transform: none; } }\n  </style>\n</head>\n<body>\n  <h1 class=\"reveal\">\n    <span class=\"line\"><span class=\"line__inner\">Designed in</span></span>\n    <span class=\"line\"><span class=\"line__inner\">motion, revealed</span></span>\n    <span class=\"line\"><span class=\"line__inner\">line by line.</span></span>\n  </h1>\n</body>\n</html>\n"
+}

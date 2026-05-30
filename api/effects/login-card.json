@@ -1,0 +1,51 @@
+{
+  "id": "login-card",
+  "title": "Login Card (composed)",
+  "summary": "A frosted glass auth card with floating-label inputs and a gradient submit button.",
+  "description": "Composes glassmorphism + floating-label inputs + a gradient CTA over an aurora background — a complete, accessible sign-in panel.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "recipe",
+    "form",
+    "auth"
+  ],
+  "tags": [
+    "login",
+    "form",
+    "glass",
+    "floating-label",
+    "auth",
+    "composition"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers. The floating label uses :placeholder-shown + :focus.",
+  "performance_notes": "Static; trivial.",
+  "accessibility_notes": "Real <label> bound to each <input>; the label stays a real label (not placeholder-only), so screen readers announce fields. Inputs have visible focus styles and the button has a focus ring.",
+  "customization": [
+    {
+      "name": "--accent / --accent-2",
+      "description": "Brand gradient",
+      "default": "#7c5cff / #2dd4bf"
+    }
+  ],
+  "variations": [
+    "Add a 'Remember me' toggle (see toggle-switch)",
+    "Social sign-in buttons row",
+    "Inline validation with the shake effect on error"
+  ],
+  "related": [
+    "glassmorphism-card",
+    "floating-label-input",
+    "gradient-border-button",
+    "shake-attention"
+  ],
+  "ai_usage": "Drop-in sign-in panel. Each field wraps a real <label> + <input placeholder=' '>; the label is absolutely positioned and floats up via :focus / :not(:placeholder-shown). Keep the <label> as an actual label element (a11y) — do not replace it with a placeholder. Submit is a gradient button. Combine with the shake-attention effect on validation failure and an aria-live error region.",
+  "path": "effects/combos-recipes/login-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Login Card (composed)</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"login-card\",\n    \"title\": \"Login Card (composed)\",\n    \"summary\": \"A frosted glass auth card with floating-label inputs and a gradient submit button.\",\n    \"description\": \"Composes glassmorphism + floating-label inputs + a gradient CTA over an aurora background — a complete, accessible sign-in panel.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"recipe\", \"form\", \"auth\"],\n    \"tags\": [\"login\", \"form\", \"glass\", \"floating-label\", \"auth\", \"composition\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers. The floating label uses :placeholder-shown + :focus.\",\n    \"performance_notes\": \"Static; trivial.\",\n    \"accessibility_notes\": \"Real <label> bound to each <input>; the label stays a real label (not placeholder-only), so screen readers announce fields. Inputs have visible focus styles and the button has a focus ring.\",\n    \"customization\": [\n      { \"name\": \"--accent / --accent-2\", \"description\": \"Brand gradient\", \"default\": \"#7c5cff / #2dd4bf\" }\n    ],\n    \"variations\": [\"Add a 'Remember me' toggle (see toggle-switch)\", \"Social sign-in buttons row\", \"Inline validation with the shake effect on error\"],\n    \"related\": [\"glassmorphism-card\", \"floating-label-input\", \"gradient-border-button\", \"shake-attention\"],\n    \"ai_usage\": \"Drop-in sign-in panel. Each field wraps a real <label> + <input placeholder=' '>; the label is absolutely positioned and floats up via :focus / :not(:placeholder-shown). Keep the <label> as an actual label element (a11y) — do not replace it with a placeholder. Submit is a gradient button. Combine with the shake-attention effect on validation failure and an aria-live error region.\"\n  }\n  </script>\n  <style>\n    :root { --accent: #7c5cff; --accent-2: #2dd4bf; }\n    * { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; font-family: system-ui, sans-serif;\n      background: radial-gradient(60vmax 60vmax at 20% 20%, #7c5cff55, transparent), radial-gradient(60vmax 60vmax at 80% 80%, #2dd4bf55, transparent), #06060c; }\n    .login {\n      width: 320px; padding: 2rem; border-radius: 20px; color: #fff;\n      background: rgba(255,255,255,.07); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);\n      border: 1px solid rgba(255,255,255,.2); box-shadow: 0 20px 50px rgba(0,0,0,.4);\n    }\n    .login h2 { margin: 0 0 1.4rem; }\n    .field { position: relative; margin-bottom: 1.3rem; }\n    .field input {\n      width: 100%; padding: .9rem .8rem .5rem; background: rgba(0,0,0,.2); color: #fff;\n      border: 1px solid rgba(255,255,255,.25); border-radius: 10px; font-size: 1rem; outline: none;\n    }\n    .field input:focus { border-color: var(--accent-2); }\n    .field label {\n      position: absolute; left: .8rem; top: .8rem; color: #b7bdcc; pointer-events: none; transition: .2s; font-size: 1rem;\n    }\n    .field input:focus + label, .field input:not(:placeholder-shown) + label {\n      top: .2rem; font-size: .7rem; color: var(--accent-2);\n    }\n    .submit { width: 100%; border: none; cursor: pointer; color: #fff; font-weight: 700; font-size: 1rem;\n      padding: .85rem; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }\n    .submit:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }\n    @media (prefers-reduced-motion: reduce) { .field label { transition: none; } }\n  </style>\n</head>\n<body>\n  <form class=\"login\" onsubmit=\"return false\">\n    <h2>Welcome back</h2>\n    <div class=\"field\">\n      <input id=\"email\" type=\"email\" placeholder=\" \" />\n      <label for=\"email\">Email</label>\n    </div>\n    <div class=\"field\">\n      <input id=\"pw\" type=\"password\" placeholder=\" \" />\n      <label for=\"pw\">Password</label>\n    </div>\n    <button class=\"submit\">Sign in</button>\n  </form>\n</body>\n</html>\n"
+}

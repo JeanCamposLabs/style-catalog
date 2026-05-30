@@ -1,0 +1,54 @@
+{
+  "id": "starfield",
+  "title": "Starfield Warp",
+  "summary": "Stars streaking toward the viewer — the screensaver/space-warp staple, on canvas.",
+  "description": "A canvas animation projects randomized 3D star points toward the camera and resets them when they pass, producing the classic flying-through-space starfield.",
+  "theme": "retro-web",
+  "themeTitle": "Retro Web",
+  "categories": [
+    "retro",
+    "canvas",
+    "background"
+  ],
+  "tags": [
+    "starfield",
+    "warp",
+    "canvas",
+    "space",
+    "screensaver",
+    "particles"
+  ],
+  "tech": [
+    "canvas",
+    "js"
+  ],
+  "era": "2000s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (canvas 2D).",
+  "performance_notes": "Canvas with a few hundred points at 60fps is light. Cap star count and use a single clear per frame. Stop the rAF loop when offscreen in production.",
+  "accessibility_notes": "Decorative full-screen motion; halt the loop and show a static frame under prefers-reduced-motion. Keep foreground text on a contrasted surface.",
+  "customization": [
+    {
+      "name": "STAR_COUNT",
+      "description": "Number of stars",
+      "default": "400"
+    },
+    {
+      "name": "SPEED",
+      "description": "Warp speed",
+      "default": "0.02"
+    }
+  ],
+  "variations": [
+    "Colored/hyperspace streaks (draw trails)",
+    "Slower drift for an ambient sky",
+    "Mouse-steerable camera"
+  ],
+  "related": [
+    "floating-particles"
+  ],
+  "ai_usage": "Hero/space-themed backgrounds and intros. Canvas sized to the container; each star has x,y in [-1,1] and z depth; per frame decrease z (move toward camera), project to screen as x/z, y/z, draw a dot whose size grows as z shrinks; respawn at far z when it passes. Use canvas (not DOM) for hundreds of points. Stop the loop / show static under reduced motion and when offscreen.",
+  "path": "effects/retro-web/starfield.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Starfield Warp</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"starfield\",\n    \"title\": \"Starfield Warp\",\n    \"summary\": \"Stars streaking toward the viewer — the screensaver/space-warp staple, on canvas.\",\n    \"description\": \"A canvas animation projects randomized 3D star points toward the camera and resets them when they pass, producing the classic flying-through-space starfield.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"canvas\", \"background\"],\n    \"tags\": [\"starfield\", \"warp\", \"canvas\", \"space\", \"screensaver\", \"particles\"],\n    \"tech\": [\"canvas\", \"js\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (canvas 2D).\",\n    \"performance_notes\": \"Canvas with a few hundred points at 60fps is light. Cap star count and use a single clear per frame. Stop the rAF loop when offscreen in production.\",\n    \"accessibility_notes\": \"Decorative full-screen motion; halt the loop and show a static frame under prefers-reduced-motion. Keep foreground text on a contrasted surface.\",\n    \"customization\": [\n      { \"name\": \"STAR_COUNT\", \"description\": \"Number of stars\", \"default\": \"400\" },\n      { \"name\": \"SPEED\", \"description\": \"Warp speed\", \"default\": \"0.02\" }\n    ],\n    \"variations\": [\"Colored/hyperspace streaks (draw trails)\", \"Slower drift for an ambient sky\", \"Mouse-steerable camera\"],\n    \"related\": [\"floating-particles\"],\n    \"ai_usage\": \"Hero/space-themed backgrounds and intros. Canvas sized to the container; each star has x,y in [-1,1] and z depth; per frame decrease z (move toward camera), project to screen as x/z, y/z, draw a dot whose size grows as z shrinks; respawn at far z when it passes. Use canvas (not DOM) for hundreds of points. Stop the loop / show static under reduced motion and when offscreen.\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; overflow: hidden; background: #000; }\n    canvas { display: block; }\n  </style>\n</head>\n<body>\n  <canvas id=\"c\"></canvas>\n  <script>\n    var c = document.getElementById(\"c\"), ctx = c.getContext(\"2d\");\n    var STAR_COUNT = 400, SPEED = 0.02, stars = [];\n    var reduce = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    function resize() { c.width = innerWidth; c.height = innerHeight; }\n    resize(); addEventListener(\"resize\", resize);\n    function spawn() { return { x: Math.random() * 2 - 1, y: Math.random() * 2 - 1, z: Math.random() }; }\n    for (var i = 0; i < STAR_COUNT; i++) stars.push(spawn());\n    function draw() {\n      ctx.fillStyle = \"#000\"; ctx.fillRect(0, 0, c.width, c.height);\n      var cx = c.width / 2, cy = c.height / 2;\n      for (var i = 0; i < stars.length; i++) {\n        var s = stars[i];\n        if (!reduce) { s.z -= SPEED; if (s.z <= 0.01) stars[i] = spawn(); }\n        var sx = cx + (s.x / s.z) * cx, sy = cy + (s.y / s.z) * cy;\n        var r = (1 - s.z) * 2.5;\n        ctx.fillStyle = \"rgba(255,255,255,\" + (1 - s.z) + \")\";\n        ctx.beginPath(); ctx.arc(sx, sy, r, 0, Math.PI * 2); ctx.fill();\n      }\n      if (!reduce) requestAnimationFrame(draw);\n    }\n    draw();\n  </script>\n</body>\n</html>\n"
+}

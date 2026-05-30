@@ -1,0 +1,57 @@
+{
+  "id": "dot-grid",
+  "title": "Dot Grid Background",
+  "summary": "An evenly spaced dotted grid drawn with a single repeating radial-gradient.",
+  "description": "One radial-gradient tile repeated via background-size produces a clean polka/dot grid — the understated backdrop seen in note apps and design canvases.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "dots",
+    "grid",
+    "polka",
+    "pattern",
+    "minimal",
+    "canvas"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Single tiled gradient — free.",
+  "accessibility_notes": "Decorative; keep dots subtle.",
+  "customization": [
+    {
+      "name": "--dot",
+      "description": "Dot color",
+      "default": "rgba(255,255,255,.16)"
+    },
+    {
+      "name": "--size",
+      "description": "Grid pitch",
+      "default": "22px"
+    },
+    {
+      "name": "--r",
+      "description": "Dot radius",
+      "default": "1.5px"
+    }
+  ],
+  "variations": [
+    "Offset rows for a diamond layout",
+    "Two dot sizes layered",
+    "Animate position for drifting dots"
+  ],
+  "related": [
+    "grid-lines"
+  ],
+  "ai_usage": "Subtle backdrop for canvases, note apps, and minimal sites. Apply .dot-bg. The dot is radial-gradient(var(--dot) var(--r), transparent var(--r)); background-size:--size sets spacing. Adjust --r vs --size ratio for density. Works on light or dark by changing --dot.",
+  "path": "effects/backgrounds/dot-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dot Grid Background</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dot-grid\",\n    \"title\": \"Dot Grid Background\",\n    \"summary\": \"An evenly spaced dotted grid drawn with a single repeating radial-gradient.\",\n    \"description\": \"One radial-gradient tile repeated via background-size produces a clean polka/dot grid — the understated backdrop seen in note apps and design canvases.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"dots\", \"grid\", \"polka\", \"pattern\", \"minimal\", \"canvas\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Single tiled gradient — free.\",\n    \"accessibility_notes\": \"Decorative; keep dots subtle.\",\n    \"customization\": [\n      { \"name\": \"--dot\", \"description\": \"Dot color\", \"default\": \"rgba(255,255,255,.16)\" },\n      { \"name\": \"--size\", \"description\": \"Grid pitch\", \"default\": \"22px\" },\n      { \"name\": \"--r\", \"description\": \"Dot radius\", \"default\": \"1.5px\" }\n    ],\n    \"variations\": [\"Offset rows for a diamond layout\", \"Two dot sizes layered\", \"Animate position for drifting dots\"],\n    \"related\": [\"grid-lines\"],\n    \"ai_usage\": \"Subtle backdrop for canvases, note apps, and minimal sites. Apply .dot-bg. The dot is radial-gradient(var(--dot) var(--r), transparent var(--r)); background-size:--size sets spacing. Adjust --r vs --size ratio for density. Works on light or dark by changing --dot.\"\n  }\n  </script>\n  <style>\n    :root { --dot: rgba(255,255,255,.16); --size: 22px; --r: 1.5px; }\n    html, body { height: 100%; margin: 0; }\n    .dot-bg {\n      height: 100vh; background-color: #0b0d12;\n      background-image: radial-gradient(var(--dot) var(--r), transparent var(--r));\n      background-size: var(--size) var(--size);\n    }\n  </style>\n</head>\n<body>\n  <div class=\"dot-bg\"></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "blob-morph",
+  "title": "Morphing Blob",
+  "summary": "An organic shape slowly morphs by animating border-radius — no SVG needed.",
+  "description": "Animating the eight-value border-radius syntax between several lopsided states makes a single div ooze between organic blob shapes, popular as decorative hero accents.",
+  "theme": "transitions-animations",
+  "themeTitle": "Transitions & Animations",
+  "categories": [
+    "animation",
+    "shape",
+    "ambient"
+  ],
+  "tags": [
+    "blob",
+    "morph",
+    "border-radius",
+    "organic",
+    "ambient",
+    "decorative"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Animating border-radius repaints but on a single element it's fine. Add a slow rotation for extra life.",
+  "accessibility_notes": "Decorative; disable under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--blob",
+      "description": "Fill (gradient/color)",
+      "default": "linear-gradient(135deg,#7c5cff,#2dd4bf)"
+    },
+    {
+      "name": "--dur",
+      "description": "Morph duration",
+      "default": "8s"
+    }
+  ],
+  "variations": [
+    "Use as an image mask (clip an <img> to the blob)",
+    "Multiple overlapping blobs",
+    "Add a slow rotate for more motion"
+  ],
+  "related": [
+    "floating-bob",
+    "aurora-background"
+  ],
+  "ai_usage": "Decorative hero accents, avatar frames, or image masks. Apply .blob; the keyframes interpolate the long-form border-radius (h-radii / v-radii) between asymmetric values. Combine a slow rotate to avoid the morph looking like simple pulsing. To mask an image, give the <img> the same border-radius animation or use it as a clip shape.",
+  "path": "effects/transitions-animations/blob-morph.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Morphing Blob</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"blob-morph\",\n    \"title\": \"Morphing Blob\",\n    \"summary\": \"An organic shape slowly morphs by animating border-radius — no SVG needed.\",\n    \"description\": \"Animating the eight-value border-radius syntax between several lopsided states makes a single div ooze between organic blob shapes, popular as decorative hero accents.\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"shape\", \"ambient\"],\n    \"tags\": [\"blob\", \"morph\", \"border-radius\", \"organic\", \"ambient\", \"decorative\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Animating border-radius repaints but on a single element it's fine. Add a slow rotation for extra life.\",\n    \"accessibility_notes\": \"Decorative; disable under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--blob\", \"description\": \"Fill (gradient/color)\", \"default\": \"linear-gradient(135deg,#7c5cff,#2dd4bf)\" },\n      { \"name\": \"--dur\", \"description\": \"Morph duration\", \"default\": \"8s\" }\n    ],\n    \"variations\": [\"Use as an image mask (clip an <img> to the blob)\", \"Multiple overlapping blobs\", \"Add a slow rotate for more motion\"],\n    \"related\": [\"floating-bob\", \"aurora-background\"],\n    \"ai_usage\": \"Decorative hero accents, avatar frames, or image masks. Apply .blob; the keyframes interpolate the long-form border-radius (h-radii / v-radii) between asymmetric values. Combine a slow rotate to avoid the morph looking like simple pulsing. To mask an image, give the <img> the same border-radius animation or use it as a clip shape.\"\n  }\n  </script>\n  <style>\n    :root { --blob: linear-gradient(135deg,#7c5cff,#2dd4bf); --dur: 8s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #06060c; }\n    .blob {\n      width: 180px; height: 180px; background: var(--blob);\n      border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;\n      animation: morph var(--dur) ease-in-out infinite, spin 18s linear infinite;\n      box-shadow: 0 20px 60px rgba(124,92,255,.4);\n    }\n    @keyframes morph {\n      0%, 100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }\n      33% { border-radius: 67% 33% 41% 59% / 64% 51% 49% 36%; }\n      66% { border-radius: 38% 62% 56% 44% / 35% 63% 37% 65%; }\n    }\n    @keyframes spin { to { transform: rotate(360deg); } }\n    @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"blob\"></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "flip-card",
+  "title": "3D Flip Card",
+  "summary": "A card flips on hover/focus to reveal its back face in 3D.",
+  "description": "Uses perspective on the scene, transform-style: preserve-3d on the rotating inner element, and backface-visibility: hidden on two stacked faces to create the classic 3D card flip.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "card",
+    "flip"
+  ],
+  "tags": [
+    "flip",
+    "3d",
+    "rotate",
+    "preserve-3d",
+    "backface",
+    "reveal"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2010s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Single rotateY transform; GPU-friendly.",
+  "accessibility_notes": "Make it flip on :focus-within too (not only hover) so keyboard users can reach the back. Back content stays in the DOM. Disable/instant under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Flip duration",
+      "default": "0.6s"
+    },
+    {
+      "name": "perspective",
+      "description": "Scene depth",
+      "default": "1000px"
+    }
+  ],
+  "variations": [
+    "Flip on click via a toggled class",
+    "Vertical flip (rotateX)",
+    "Flip both ways for front/back/back-again"
+  ],
+  "related": [
+    "cube-rotate",
+    "tilt-card"
+  ],
+  "ai_usage": "Use for flashcards, team bios, before/after, pricing toggles. Structure: .scene (perspective) > .card (preserve-3d, rotateY on hover) > .face.front + .face.back (both position:absolute, backface-visibility:hidden; back pre-rotated 180deg). Trigger with :hover AND :focus-within for keyboard access. For click-to-flip, toggle a class instead.",
+  "path": "effects/3d-transforms/flip-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>3D Flip Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"flip-card\",\n    \"title\": \"3D Flip Card\",\n    \"summary\": \"A card flips on hover/focus to reveal its back face in 3D.\",\n    \"description\": \"Uses perspective on the scene, transform-style: preserve-3d on the rotating inner element, and backface-visibility: hidden on two stacked faces to create the classic 3D card flip.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"card\", \"flip\"],\n    \"tags\": [\"flip\", \"3d\", \"rotate\", \"preserve-3d\", \"backface\", \"reveal\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Single rotateY transform; GPU-friendly.\",\n    \"accessibility_notes\": \"Make it flip on :focus-within too (not only hover) so keyboard users can reach the back. Back content stays in the DOM. Disable/instant under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Flip duration\", \"default\": \"0.6s\" },\n      { \"name\": \"perspective\", \"description\": \"Scene depth\", \"default\": \"1000px\" }\n    ],\n    \"variations\": [\"Flip on click via a toggled class\", \"Vertical flip (rotateX)\", \"Flip both ways for front/back/back-again\"],\n    \"related\": [\"cube-rotate\", \"tilt-card\"],\n    \"ai_usage\": \"Use for flashcards, team bios, before/after, pricing toggles. Structure: .scene (perspective) > .card (preserve-3d, rotateY on hover) > .face.front + .face.back (both position:absolute, backface-visibility:hidden; back pre-rotated 180deg). Trigger with :hover AND :focus-within for keyboard access. For click-to-flip, toggle a class instead.\"\n  }\n  </script>\n  <style>\n    :root { --dur: .6s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .scene { perspective: 1000px; width: 220px; height: 300px; }\n    .card { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform var(--dur) cubic-bezier(.2,.8,.2,1); }\n    .scene:hover .card, .scene:focus-within .card { transform: rotateY(180deg); }\n    .face {\n      position: absolute; inset: 0; border-radius: 18px; backface-visibility: hidden;\n      display: grid; place-items: center; padding: 1rem; text-align: center; color: #fff;\n    }\n    .front { background: linear-gradient(160deg, #2a2150, #131022); border: 1px solid #3a3170; }\n    .back { background: linear-gradient(160deg, #7c5cff, #2dd4bf); transform: rotateY(180deg); }\n    @media (prefers-reduced-motion: reduce) { .card { transition: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"scene\" tabindex=\"0\">\n    <div class=\"card\">\n      <div class=\"face front\"><div><h3 style=\"margin:.2rem\">Front</h3><p style=\"margin:.2rem;color:#b6b0d8\">Hover / focus me</p></div></div>\n      <div class=\"face back\"><div><h3 style=\"margin:.2rem\">Back</h3><p style=\"margin:.2rem\">Surprise!</p></div></div>\n    </div>\n  </div>\n</body>\n</html>\n"
+}

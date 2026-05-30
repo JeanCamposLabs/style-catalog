@@ -1,0 +1,57 @@
+{
+  "id": "hero-section",
+  "title": "Hero Section (composed)",
+  "summary": "A complete landing hero composing an animated gradient backdrop, aurora glow, gradient headline, and a glowing CTA.",
+  "description": "Combines four catalog effects into one drop-in hero: animated-gradient + aurora blobs as the background, gradient-text for the headline, and a glow-pulse CTA. Demonstrates how primitives layer into a real section.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "recipe",
+    "hero",
+    "landing"
+  ],
+  "tags": [
+    "hero",
+    "landing",
+    "gradient",
+    "aurora",
+    "cta",
+    "composition",
+    "saas"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Two blurred blobs + one gradient animation. Keep blur moderate. All transform/background-position animations.",
+  "accessibility_notes": "Headline is real text with strong contrast on the dark base. All motion stops under prefers-reduced-motion. CTA is a real button/link with a focus ring.",
+  "customization": [
+    {
+      "name": "--accent / --accent-2",
+      "description": "Brand gradient colors",
+      "default": "#7c5cff / #2dd4bf"
+    },
+    {
+      "name": "copy",
+      "description": "Headline, subhead, button label",
+      "default": "edit the markup"
+    }
+  ],
+  "variations": [
+    "Add the floating-particles effect behind the text",
+    "Two-button hero (primary + ghost)",
+    "Left-aligned with a product mockup on the right"
+  ],
+  "related": [
+    "animated-gradient",
+    "aurora-background",
+    "gradient-text",
+    "glow-pulse-button"
+  ],
+  "ai_usage": "Drop-in marketing hero. It layers: (1) a dark base with two blurred radial 'aurora' blobs, (2) a centered column with a gradient-clipped <h1>, a muted subhead, and a glowing CTA. Swap --accent colors to rebrand and edit the copy in the markup. To add a secondary action, duplicate the CTA as a ghost button. Everything degrades gracefully under reduced motion. This is the canonical example of composing catalog primitives into a section.",
+  "path": "effects/combos-recipes/hero-section.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hero Section (composed)</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hero-section\",\n    \"title\": \"Hero Section (composed)\",\n    \"summary\": \"A complete landing hero composing an animated gradient backdrop, aurora glow, gradient headline, and a glowing CTA.\",\n    \"description\": \"Combines four catalog effects into one drop-in hero: animated-gradient + aurora blobs as the background, gradient-text for the headline, and a glow-pulse CTA. Demonstrates how primitives layer into a real section.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"recipe\", \"hero\", \"landing\"],\n    \"tags\": [\"hero\", \"landing\", \"gradient\", \"aurora\", \"cta\", \"composition\", \"saas\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Two blurred blobs + one gradient animation. Keep blur moderate. All transform/background-position animations.\",\n    \"accessibility_notes\": \"Headline is real text with strong contrast on the dark base. All motion stops under prefers-reduced-motion. CTA is a real button/link with a focus ring.\",\n    \"customization\": [\n      { \"name\": \"--accent / --accent-2\", \"description\": \"Brand gradient colors\", \"default\": \"#7c5cff / #2dd4bf\" },\n      { \"name\": \"copy\", \"description\": \"Headline, subhead, button label\", \"default\": \"edit the markup\" }\n    ],\n    \"variations\": [\"Add the floating-particles effect behind the text\", \"Two-button hero (primary + ghost)\", \"Left-aligned with a product mockup on the right\"],\n    \"related\": [\"animated-gradient\", \"aurora-background\", \"gradient-text\", \"glow-pulse-button\"],\n    \"ai_usage\": \"Drop-in marketing hero. It layers: (1) a dark base with two blurred radial 'aurora' blobs, (2) a centered column with a gradient-clipped <h1>, a muted subhead, and a glowing CTA. Swap --accent colors to rebrand and edit the copy in the markup. To add a secondary action, duplicate the CTA as a ghost button. Everything degrades gracefully under reduced motion. This is the canonical example of composing catalog primitives into a section.\"\n  }\n  </script>\n  <style>\n    :root { --accent: #7c5cff; --accent-2: #2dd4bf; }\n    * { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    .hero {\n      position: relative; height: 100vh; overflow: hidden; display: grid; place-items: center;\n      background: #06060c; font-family: system-ui, sans-serif; text-align: center; padding: 1.5rem;\n    }\n    .hero__blob { position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%; filter: blur(80px); opacity: .5; mix-blend-mode: screen; }\n    .hero__blob.a { background: radial-gradient(circle, var(--accent), transparent 60%); top: -20%; left: -10%; animation: drift 16s ease-in-out infinite; }\n    .hero__blob.b { background: radial-gradient(circle, var(--accent-2), transparent 60%); bottom: -25%; right: -10%; animation: drift 20s ease-in-out infinite reverse; }\n    .hero__content { position: relative; z-index: 1; max-width: 640px; }\n    .hero__eyebrow { color: var(--accent-2); letter-spacing: .15em; text-transform: uppercase; font-size: .8rem; font-weight: 700; }\n    .hero__title {\n      font-size: clamp(2.4rem, 7vw, 4.5rem); font-weight: 900; line-height: 1.05; margin: .6rem 0;\n      background: linear-gradient(120deg, #fff, var(--accent) 60%, var(--accent-2));\n      background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;\n      animation: flow 8s linear infinite;\n    }\n    .hero__sub { color: #b7bdcc; font-size: 1.15rem; margin: 0 auto 2rem; max-width: 480px; }\n    .hero__cta {\n      border: none; cursor: pointer; color: #fff; font-weight: 700; font-size: 1.05rem;\n      padding: 1rem 2.4rem; border-radius: 999px; background: var(--accent);\n      animation: pulse 2.4s ease-in-out infinite;\n    }\n    .hero__cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }\n    @keyframes drift { 50% { transform: translate(12vw, 8vh) scale(1.15); } }\n    @keyframes flow { to { background-position: 200% center; } }\n    @keyframes pulse { 50% { box-shadow: 0 0 40px 8px color-mix(in srgb, var(--accent) 55%, transparent); transform: scale(1.04); } }\n    @media (prefers-reduced-motion: reduce) { .hero__blob, .hero__title, .hero__cta { animation: none; } }\n  </style>\n</head>\n<body>\n  <section class=\"hero\">\n    <div class=\"hero__blob a\"></div>\n    <div class=\"hero__blob b\"></div>\n    <div class=\"hero__content\">\n      <p class=\"hero__eyebrow\">Introducing</p>\n      <h1 class=\"hero__title\">Ship beautiful interfaces, faster.</h1>\n      <p class=\"hero__sub\">A composed hero built entirely from catalog primitives — gradients, aurora, and a glowing call to action.</p>\n      <button class=\"hero__cta\">Get started free</button>\n    </div>\n  </section>\n</body>\n</html>\n"
+}

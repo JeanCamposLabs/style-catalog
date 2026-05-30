@@ -1,0 +1,51 @@
+{
+  "id": "glitch-text",
+  "title": "Glitch Text",
+  "summary": "RGB-split datamosh glitch using duplicated pseudo-elements and clip-path jitter.",
+  "description": "Duplicates the text via ::before and ::after offset in cyan and magenta, then animates clip-path bands to create a chromatic-aberration / signal-glitch effect.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "typography",
+    "glitch"
+  ],
+  "tags": [
+    "glitch",
+    "rgb-split",
+    "cyberpunk",
+    "clip-path",
+    "distortion"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2010s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (clip-path inset is widely supported).",
+  "performance_notes": "Two extra painted layers plus clip-path animation; fine for a few headings, avoid on long body text.",
+  "accessibility_notes": "Can be distracting/seizure-adjacent; the motion stops under prefers-reduced-motion, leaving a static RGB-split. The text is duplicated via data-text and aria stays on the real element.",
+  "customization": [
+    {
+      "name": "--glitch-1",
+      "description": "First channel color",
+      "default": "#0ff"
+    },
+    {
+      "name": "--glitch-2",
+      "description": "Second channel color",
+      "default": "#f0f"
+    }
+  ],
+  "variations": [
+    "Trigger only on :hover",
+    "Increase clip band frequency for heavier corruption",
+    "Add skew transforms for VHS feel"
+  ],
+  "related": [
+    "neon-glow-text"
+  ],
+  "ai_usage": "Use for cyberpunk/gaming/tech headlines. Requires the text to be duplicated in a data-text attribute that matches the visible text exactly (the pseudo-elements read content: attr(data-text)). Apply .glitch to a heading. Best on dark backgrounds. Consider gating the animation behind :hover for calmer pages.",
+  "path": "effects/text-effects/glitch-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glitch Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glitch-text\",\n    \"title\": \"Glitch Text\",\n    \"summary\": \"RGB-split datamosh glitch using duplicated pseudo-elements and clip-path jitter.\",\n    \"description\": \"Duplicates the text via ::before and ::after offset in cyan and magenta, then animates clip-path bands to create a chromatic-aberration / signal-glitch effect.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"typography\", \"glitch\"],\n    \"tags\": [\"glitch\", \"rgb-split\", \"cyberpunk\", \"clip-path\", \"distortion\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (clip-path inset is widely supported).\",\n    \"performance_notes\": \"Two extra painted layers plus clip-path animation; fine for a few headings, avoid on long body text.\",\n    \"accessibility_notes\": \"Can be distracting/seizure-adjacent; the motion stops under prefers-reduced-motion, leaving a static RGB-split. The text is duplicated via data-text and aria stays on the real element.\",\n    \"customization\": [\n      { \"name\": \"--glitch-1\", \"description\": \"First channel color\", \"default\": \"#0ff\" },\n      { \"name\": \"--glitch-2\", \"description\": \"Second channel color\", \"default\": \"#f0f\" }\n    ],\n    \"variations\": [\"Trigger only on :hover\", \"Increase clip band frequency for heavier corruption\", \"Add skew transforms for VHS feel\"],\n    \"related\": [\"neon-glow-text\"],\n    \"ai_usage\": \"Use for cyberpunk/gaming/tech headlines. Requires the text to be duplicated in a data-text attribute that matches the visible text exactly (the pseudo-elements read content: attr(data-text)). Apply .glitch to a heading. Best on dark backgrounds. Consider gating the animation behind :hover for calmer pages.\"\n  }\n  </script>\n  <style>\n    :root { --glitch-1: #0ff; --glitch-2: #f0f; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0a0a0f; font-family: \"Courier New\", monospace; }\n    .glitch {\n      position: relative; font-size: 3.6rem; font-weight: 700; color: #f4f4f5; letter-spacing: 0.04em;\n    }\n    .glitch::before, .glitch::after {\n      content: attr(data-text); position: absolute; inset: 0;\n      background: #0a0a0f; overflow: hidden;\n    }\n    .glitch::before { left: 2px; text-shadow: -2px 0 var(--glitch-2); animation: g1 2.5s infinite linear alternate-reverse; }\n    .glitch::after  { left: -2px; text-shadow: 2px 0 var(--glitch-1); animation: g2 3s infinite linear alternate-reverse; }\n    @keyframes g1 {\n      0% { clip-path: inset(20% 0 60% 0); } 20% { clip-path: inset(70% 0 5% 0); }\n      40% { clip-path: inset(40% 0 40% 0); } 60% { clip-path: inset(10% 0 75% 0); }\n      80% { clip-path: inset(85% 0 5% 0); } 100% { clip-path: inset(55% 0 30% 0); }\n    }\n    @keyframes g2 {\n      0% { clip-path: inset(15% 0 65% 0); } 25% { clip-path: inset(60% 0 15% 0); }\n      50% { clip-path: inset(35% 0 45% 0); } 75% { clip-path: inset(80% 0 10% 0); }\n      100% { clip-path: inset(5% 0 80% 0); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      .glitch::before, .glitch::after { animation: none; clip-path: none; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"glitch\" data-text=\"GLITCH\">GLITCH</div>\n</body>\n</html>\n"
+}

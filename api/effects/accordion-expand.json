@@ -1,0 +1,53 @@
+{
+  "id": "accordion-expand",
+  "title": "Accordion Expand",
+  "summary": "A native <details> accordion with a smoothly animated open/close using grid-rows.",
+  "description": "Builds the accordion on the semantic <details>/<summary> element and animates the panel height with the grid-template-rows 0fr→1fr technique (which animates from auto height cleanly), plus a rotating chevron.",
+  "theme": "transitions-animations",
+  "themeTitle": "Transitions & Animations",
+  "categories": [
+    "animation",
+    "disclosure",
+    "accordion"
+  ],
+  "tags": [
+    "accordion",
+    "details",
+    "disclosure",
+    "expand",
+    "faq",
+    "grid-rows"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "Modern browsers; the 0fr→1fr grid animation works in current Chromium/Firefox/Safari. Older browsers simply jump (acceptable).",
+  "performance_notes": "Animates grid-template-rows; the content wrapper must be overflow:hidden. No JS needed for toggle (native details).",
+  "accessibility_notes": "Built on <details>/<summary>, so it's keyboard-operable and announced as a disclosure out of the box — no ARIA needed. Honors prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Expand duration",
+      "default": "0.3s"
+    },
+    {
+      "name": "--accent",
+      "description": "Chevron/summary accent",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Exclusive accordion (name attribute on <details> in supporting browsers)",
+    "Plus/minus icon instead of chevron",
+    "Card-style panels"
+  ],
+  "related": [
+    "dropdown-menu"
+  ],
+  "ai_usage": "Use for FAQs and settings disclosures. Prefer the native <details>/<summary> for free accessibility. To animate the open height, wrap panel content in a div and use display:grid; grid-template-rows:0fr on closed and 1fr on [open], with the wrapper overflow:hidden. Rotate the chevron on [open]. For 'only one open', use the shared name attribute on <details> where supported. Reduced-motion: drop the transition.",
+  "path": "effects/transitions-animations/accordion-expand.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Accordion Expand</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"accordion-expand\",\n    \"title\": \"Accordion Expand\",\n    \"summary\": \"A native <details> accordion with a smoothly animated open/close using grid-rows.\",\n    \"description\": \"Builds the accordion on the semantic <details>/<summary> element and animates the panel height with the grid-template-rows 0fr→1fr technique (which animates from auto height cleanly), plus a rotating chevron.\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"disclosure\", \"accordion\"],\n    \"tags\": [\"accordion\", \"details\", \"disclosure\", \"expand\", \"faq\", \"grid-rows\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"Modern browsers; the 0fr→1fr grid animation works in current Chromium/Firefox/Safari. Older browsers simply jump (acceptable).\",\n    \"performance_notes\": \"Animates grid-template-rows; the content wrapper must be overflow:hidden. No JS needed for toggle (native details).\",\n    \"accessibility_notes\": \"Built on <details>/<summary>, so it's keyboard-operable and announced as a disclosure out of the box — no ARIA needed. Honors prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Expand duration\", \"default\": \"0.3s\" },\n      { \"name\": \"--accent\", \"description\": \"Chevron/summary accent\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Exclusive accordion (name attribute on <details> in supporting browsers)\", \"Plus/minus icon instead of chevron\", \"Card-style panels\"],\n    \"related\": [\"dropdown-menu\"],\n    \"ai_usage\": \"Use for FAQs and settings disclosures. Prefer the native <details>/<summary> for free accessibility. To animate the open height, wrap panel content in a div and use display:grid; grid-template-rows:0fr on closed and 1fr on [open], with the wrapper overflow:hidden. Rotate the chevron on [open]. For 'only one open', use the shared name attribute on <details> where supported. Reduced-motion: drop the transition.\"\n  }\n  </script>\n  <style>\n    :root { --dur: .3s; --accent: #7c5cff; }\n    * { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .acc { width: 300px; }\n    details { background: #151925; border: 1px solid #262c3d; border-radius: 12px; margin-bottom: .6rem; overflow: hidden; }\n    summary { list-style: none; cursor: pointer; padding: .9rem 1rem; color: #e7ebf3; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }\n    summary::-webkit-details-marker { display: none; }\n    summary .chev { color: var(--accent); transition: transform var(--dur); }\n    details[open] summary .chev { transform: rotate(180deg); }\n    .panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) ease; }\n    details[open] .panel { grid-template-rows: 1fr; }\n    .panel > div { overflow: hidden; }\n    .panel p { margin: 0; padding: 0 1rem 1rem; color: #8b93a7; }\n    @media (prefers-reduced-motion: reduce) { .panel, summary .chev { transition: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"acc\">\n    <details open>\n      <summary>What is Style Catalog? <span class=\"chev\">▾</span></summary>\n      <div class=\"panel\"><div><p>A museum and catalogue of web effects, built for AI agents.</p></div></div>\n    </details>\n    <details>\n      <summary>How do I add an effect? <span class=\"chev\">▾</span></summary>\n      <div class=\"panel\"><div><p>Run npm run new, edit the file, then npm run build.</p></div></div>\n    </details>\n  </div>\n</body>\n</html>\n"
+}

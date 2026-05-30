@@ -1,0 +1,54 @@
+{
+  "id": "ken-burns",
+  "title": "Ken Burns Effect",
+  "summary": "A slow zoom-and-pan over a still image that adds cinematic life to hero photos.",
+  "description": "Animates a slow scale + translate on an image inside an overflow-hidden frame, the documentary 'Ken Burns' pan-and-zoom, ideal for hero backgrounds and slideshows.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "animation",
+    "cinematic"
+  ],
+  "tags": [
+    "ken-burns",
+    "zoom",
+    "pan",
+    "cinematic",
+    "hero",
+    "slideshow"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Animating transform (scale/translate) is GPU-friendly. Slightly over-size the image so panning never reveals edges.",
+  "accessibility_notes": "Ambient motion; disable under prefers-reduced-motion (show a static frame). Keep overlaid text on a scrim for contrast.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Pan/zoom duration",
+      "default": "20s"
+    },
+    {
+      "name": "scale range",
+      "description": "Start/end scale",
+      "default": "1 → 1.18"
+    }
+  ],
+  "variations": [
+    "Crossfade between multiple images for a slideshow",
+    "Pan in different directions per slide",
+    "Pair with a duotone or gradient overlay"
+  ],
+  "related": [
+    "image-zoom-reveal",
+    "duotone-image"
+  ],
+  "ai_usage": "Use for hero backgrounds and photo slideshows to add subtle motion. Put the image in an overflow:hidden frame, scale it slightly above 1 so there's room to move, and animate transform between two scale+translate states over a long duration (15-25s) with ease-in-out alternate. Add a dark scrim/gradient if text sits on top. Disable under reduced motion. Replace the gradient placeholder with a real <img object-fit:cover>.",
+  "path": "effects/images-media/ken-burns.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Ken Burns Effect</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"ken-burns\",\n    \"title\": \"Ken Burns Effect\",\n    \"summary\": \"A slow zoom-and-pan over a still image that adds cinematic life to hero photos.\",\n    \"description\": \"Animates a slow scale + translate on an image inside an overflow-hidden frame, the documentary 'Ken Burns' pan-and-zoom, ideal for hero backgrounds and slideshows.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"animation\", \"cinematic\"],\n    \"tags\": [\"ken-burns\", \"zoom\", \"pan\", \"cinematic\", \"hero\", \"slideshow\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Animating transform (scale/translate) is GPU-friendly. Slightly over-size the image so panning never reveals edges.\",\n    \"accessibility_notes\": \"Ambient motion; disable under prefers-reduced-motion (show a static frame). Keep overlaid text on a scrim for contrast.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Pan/zoom duration\", \"default\": \"20s\" },\n      { \"name\": \"scale range\", \"description\": \"Start/end scale\", \"default\": \"1 → 1.18\" }\n    ],\n    \"variations\": [\"Crossfade between multiple images for a slideshow\", \"Pan in different directions per slide\", \"Pair with a duotone or gradient overlay\"],\n    \"related\": [\"image-zoom-reveal\", \"duotone-image\"],\n    \"ai_usage\": \"Use for hero backgrounds and photo slideshows to add subtle motion. Put the image in an overflow:hidden frame, scale it slightly above 1 so there's room to move, and animate transform between two scale+translate states over a long duration (15-25s) with ease-in-out alternate. Add a dark scrim/gradient if text sits on top. Disable under reduced motion. Replace the gradient placeholder with a real <img object-fit:cover>.\"\n  }\n  </script>\n  <style>\n    :root { --dur: 20s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #000; font-family: system-ui, sans-serif; }\n    .kb { position: relative; width: 320px; height: 220px; overflow: hidden; border-radius: 14px; }\n    .kb__img {\n      position: absolute; inset: -10%; background-size: cover; background-position: center;\n      background-image: linear-gradient(135deg,#7c5cff,#2dd4bf 50%,#f0abfc);\n      animation: kenburns var(--dur) ease-in-out infinite alternate;\n    }\n    .kb__cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 1rem; color: #fff;\n      background: linear-gradient(transparent, rgba(0,0,0,.7)); font-weight: 700; }\n    @keyframes kenburns {\n      0% { transform: scale(1) translate(0, 0); }\n      100% { transform: scale(1.18) translate(-3%, -2%); }\n    }\n    @media (prefers-reduced-motion: reduce) { .kb__img { animation: none; inset: 0; } }\n  </style>\n</head>\n<body>\n  <figure class=\"kb\" style=\"margin:0\">\n    <div class=\"kb__img\"></div>\n    <figcaption class=\"kb__cap\">Cinematic hero</figcaption>\n  </figure>\n</body>\n</html>\n"
+}

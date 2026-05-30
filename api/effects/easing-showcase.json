@@ -1,0 +1,50 @@
+{
+  "id": "easing-showcase",
+  "title": "Easing Curve Showcase",
+  "summary": "Side-by-side comparison of common easing curves, animated, with their cubic-bezier tokens.",
+  "description": "A reference specimen running the same movement through several named easings (ease-out, ease-in-out, a snappy back-ease, etc.) so you can feel the difference and copy the cubic-bezier values as motion tokens.",
+  "theme": "motion-principles",
+  "themeTitle": "Motion Principles",
+  "categories": [
+    "motion",
+    "easing",
+    "design-tokens",
+    "reference"
+  ],
+  "tags": [
+    "easing",
+    "cubic-bezier",
+    "motion",
+    "tokens",
+    "timing-function",
+    "animation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "A handful of transform loops; trivial.",
+  "accessibility_notes": "Demonstration motion stops under prefers-reduced-motion. In real UIs, prefer ease-out for entrances and keep durations short.",
+  "customization": [
+    {
+      "name": "--ease-*",
+      "description": "The cubic-bezier tokens",
+      "default": "see source"
+    }
+  ],
+  "variations": [
+    "Add spring-like overshoot eases",
+    "Pair each ease with a recommended duration",
+    "Linear for continuous/loading motion only"
+  ],
+  "related": [
+    "duration-scale",
+    "floating-bob"
+  ],
+  "ai_usage": "A motion-token reference. Store these as --ease-out, --ease-in-out, --ease-emphasized, --ease-back tokens and reference them in transitions/animations for consistency. Rules of thumb: ease-out for elements entering/responding to input (fast start, gentle settle), ease-in for exits, ease-in-out for movement between two on-screen states, linear ONLY for continuous motion (spinners). Avoid the default 'ease' for everything. Always pair with a reduced-motion guard.",
+  "path": "effects/motion-principles/easing-showcase.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Easing Curve Showcase</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"easing-showcase\",\n    \"title\": \"Easing Curve Showcase\",\n    \"summary\": \"Side-by-side comparison of common easing curves, animated, with their cubic-bezier tokens.\",\n    \"description\": \"A reference specimen running the same movement through several named easings (ease-out, ease-in-out, a snappy back-ease, etc.) so you can feel the difference and copy the cubic-bezier values as motion tokens.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"easing\", \"design-tokens\", \"reference\"],\n    \"tags\": [\"easing\", \"cubic-bezier\", \"motion\", \"tokens\", \"timing-function\", \"animation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"A handful of transform loops; trivial.\",\n    \"accessibility_notes\": \"Demonstration motion stops under prefers-reduced-motion. In real UIs, prefer ease-out for entrances and keep durations short.\",\n    \"customization\": [\n      { \"name\": \"--ease-*\", \"description\": \"The cubic-bezier tokens\", \"default\": \"see source\" }\n    ],\n    \"variations\": [\"Add spring-like overshoot eases\", \"Pair each ease with a recommended duration\", \"Linear for continuous/loading motion only\"],\n    \"related\": [\"duration-scale\", \"floating-bob\"],\n    \"ai_usage\": \"A motion-token reference. Store these as --ease-out, --ease-in-out, --ease-emphasized, --ease-back tokens and reference them in transitions/animations for consistency. Rules of thumb: ease-out for elements entering/responding to input (fast start, gentle settle), ease-in for exits, ease-in-out for movement between two on-screen states, linear ONLY for continuous motion (spinners). Avoid the default 'ease' for everything. Always pair with a reduced-motion guard.\"\n  }\n  </script>\n  <style>\n    :root {\n      --ease-out: cubic-bezier(.22,1,.36,1);\n      --ease-in-out: cubic-bezier(.65,0,.35,1);\n      --ease-emphasized: cubic-bezier(.2,0,0,1);\n      --ease-back: cubic-bezier(.34,1.56,.64,1);\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; padding: 1.2rem; display: grid; align-content: center; gap: .9rem; }\n    .lane { display: grid; grid-template-columns: 130px 1fr; align-items: center; gap: .8rem; }\n    .lane span { font-family: ui-monospace, monospace; font-size: .72rem; color: #8b93a7; }\n    .track { position: relative; height: 26px; background: #151925; border-radius: 999px; border: 1px solid #262c3d; }\n    .dot { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(135deg,#7c5cff,#2dd4bf); }\n    .e1 { animation: run 2.4s var(--ease-out) infinite alternate; }\n    .e2 { animation: run 2.4s var(--ease-in-out) infinite alternate; }\n    .e3 { animation: run 2.4s var(--ease-emphasized) infinite alternate; }\n    .e4 { animation: run 2.4s var(--ease-back) infinite alternate; }\n    @keyframes run { to { left: calc(100% - 23px); } }\n    @media (prefers-reduced-motion: reduce) { .dot { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"lane\"><span>--ease-out</span><div class=\"track\"><div class=\"dot e1\"></div></div></div>\n  <div class=\"lane\"><span>--ease-in-out</span><div class=\"track\"><div class=\"dot e2\"></div></div></div>\n  <div class=\"lane\"><span>--ease-emphasized</span><div class=\"track\"><div class=\"dot e3\"></div></div></div>\n  <div class=\"lane\"><span>--ease-back</span><div class=\"track\"><div class=\"dot e4\"></div></div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,2178 @@
+{
+  "themes": [
+    {
+      "slug": "combos-recipes",
+      "title": "Combination Recipes",
+      "description": "Full UI blocks that compose multiple effects together — heroes, pricing cards, navbars, CTAs, and forms. Copy a whole section, not just one trick.",
+      "icon": "🧩",
+      "order": 5,
+      "count": 4
+    },
+    {
+      "slug": "text-effects",
+      "title": "Text Effects",
+      "description": "Typography treatments — glow, gradients, glitch, reveals, and animated lettering.",
+      "icon": "🅰️",
+      "order": 10,
+      "count": 7
+    },
+    {
+      "slug": "buttons",
+      "title": "Buttons",
+      "description": "Interactive button treatments — ripples, gradient borders, 3D presses, fills, and glows.",
+      "icon": "🔘",
+      "order": 20,
+      "count": 7
+    },
+    {
+      "slug": "backgrounds",
+      "title": "Backgrounds",
+      "description": "Full-surface treatments — animated gradients, aurora, mesh, noise, grids, and patterns.",
+      "icon": "🌈",
+      "order": 30,
+      "count": 7
+    },
+    {
+      "slug": "hover-interactions",
+      "title": "Hover Interactions",
+      "description": "Pointer-driven micro-interactions — 3D tilt, magnetic pull, spotlight, image reveals, and card lifts.",
+      "icon": "🖱️",
+      "order": 40,
+      "count": 6
+    },
+    {
+      "slug": "forms-inputs",
+      "title": "Forms & Inputs",
+      "description": "Accessible, styled form controls — floating labels, toggles, animated checkboxes, and custom sliders.",
+      "icon": "📝",
+      "order": 45,
+      "count": 4
+    },
+    {
+      "slug": "loaders-spinners",
+      "title": "Loaders & Spinners",
+      "description": "Waiting states — spinners, dots, bars, skeleton placeholders, and progress indicators.",
+      "icon": "⏳",
+      "order": 50,
+      "count": 6
+    },
+    {
+      "slug": "transitions-animations",
+      "title": "Transitions & Animations",
+      "description": "Motion primitives — entrance reveals, attention seekers, morphs, and looping ambient animations.",
+      "icon": "🎬",
+      "order": 60,
+      "count": 6
+    },
+    {
+      "slug": "3d-transforms",
+      "title": "3D Transforms",
+      "description": "Perspective-driven effects — card flips, rotating cubes, and depth layering with transform-style: preserve-3d.",
+      "icon": "🧊",
+      "order": 70,
+      "count": 4
+    },
+    {
+      "slug": "glass-neumorphism",
+      "title": "Glass & Neumorphism",
+      "description": "Surface styling trends — frosted glassmorphism, soft neumorphic extrusions, and claymorphism.",
+      "icon": "🧊",
+      "order": 80,
+      "count": 5
+    },
+    {
+      "slug": "borders-shadows",
+      "title": "Borders & Shadows",
+      "description": "Edge and depth treatments — gradient borders, animated outlines, layered long shadows, and glows.",
+      "icon": "🟦",
+      "order": 90,
+      "count": 4
+    },
+    {
+      "slug": "scroll-effects",
+      "title": "Scroll Effects",
+      "description": "Scroll-driven behaviors — progress bars, parallax layers, sticky stacks, and snap.",
+      "icon": "📜",
+      "order": 100,
+      "count": 5
+    },
+    {
+      "slug": "images-media",
+      "title": "Images & Media",
+      "description": "Image treatments — duotone, filters, clip-path shapes, masks, and before/after reveals.",
+      "icon": "🖼️",
+      "order": 110,
+      "count": 4
+    },
+    {
+      "slug": "cursors-pointers",
+      "title": "Cursors & Pointers",
+      "description": "Custom cursor experiences — following dots, trailing rings, and reveal spotlights.",
+      "icon": "👆",
+      "order": 120,
+      "count": 3
+    },
+    {
+      "slug": "navigation-menus",
+      "title": "Navigation & Menus",
+      "description": "Nav affordances — animated underlines, morphing hamburger icons, and animated link lists.",
+      "icon": "🧭",
+      "order": 130,
+      "count": 4
+    },
+    {
+      "slug": "retro-web",
+      "title": "Retro Web",
+      "description": "Nostalgia from the 90s/2000s web — marquees, blink, starfields, visitor counters, and rainbow text. Modern, accessible reimplementations of deprecated tags.",
+      "icon": "💾",
+      "order": 140,
+      "count": 4
+    },
+    {
+      "slug": "color-systems",
+      "title": "Color Systems",
+      "description": "Design-choice references (beyond single effects) — palettes, gradient libraries, and semantic color tokens you can copy as CSS custom properties.",
+      "icon": "🎨",
+      "order": 200,
+      "count": 3
+    },
+    {
+      "slug": "typography-systems",
+      "title": "Typography Systems",
+      "description": "Type-related design choices — modular scales, fluid type, and font pairings, as copy-ready references.",
+      "icon": "🔤",
+      "order": 210,
+      "count": 4
+    },
+    {
+      "slug": "layout-archetypes",
+      "title": "Layout Archetypes",
+      "description": "Reusable page/section layout patterns — bento grids, holy grail, responsive card grids, and sticky sidebars.",
+      "icon": "🧱",
+      "order": 220,
+      "count": 4
+    },
+    {
+      "slug": "motion-principles",
+      "title": "Motion Principles",
+      "description": "Motion-design references — easing curves and a duration scale, as copy-ready tokens for consistent animation.",
+      "icon": "🌀",
+      "order": 230,
+      "count": 3
+    }
+  ],
+  "facets": {
+    "themes": [
+      {
+        "slug": "combos-recipes",
+        "title": "Combination Recipes",
+        "count": 4
+      },
+      {
+        "slug": "text-effects",
+        "title": "Text Effects",
+        "count": 7
+      },
+      {
+        "slug": "buttons",
+        "title": "Buttons",
+        "count": 7
+      },
+      {
+        "slug": "backgrounds",
+        "title": "Backgrounds",
+        "count": 7
+      },
+      {
+        "slug": "hover-interactions",
+        "title": "Hover Interactions",
+        "count": 6
+      },
+      {
+        "slug": "forms-inputs",
+        "title": "Forms & Inputs",
+        "count": 4
+      },
+      {
+        "slug": "loaders-spinners",
+        "title": "Loaders & Spinners",
+        "count": 6
+      },
+      {
+        "slug": "transitions-animations",
+        "title": "Transitions & Animations",
+        "count": 6
+      },
+      {
+        "slug": "3d-transforms",
+        "title": "3D Transforms",
+        "count": 4
+      },
+      {
+        "slug": "glass-neumorphism",
+        "title": "Glass & Neumorphism",
+        "count": 5
+      },
+      {
+        "slug": "borders-shadows",
+        "title": "Borders & Shadows",
+        "count": 4
+      },
+      {
+        "slug": "scroll-effects",
+        "title": "Scroll Effects",
+        "count": 5
+      },
+      {
+        "slug": "images-media",
+        "title": "Images & Media",
+        "count": 4
+      },
+      {
+        "slug": "cursors-pointers",
+        "title": "Cursors & Pointers",
+        "count": 3
+      },
+      {
+        "slug": "navigation-menus",
+        "title": "Navigation & Menus",
+        "count": 4
+      },
+      {
+        "slug": "retro-web",
+        "title": "Retro Web",
+        "count": 4
+      },
+      {
+        "slug": "color-systems",
+        "title": "Color Systems",
+        "count": 3
+      },
+      {
+        "slug": "typography-systems",
+        "title": "Typography Systems",
+        "count": 4
+      },
+      {
+        "slug": "layout-archetypes",
+        "title": "Layout Archetypes",
+        "count": 4
+      },
+      {
+        "slug": "motion-principles",
+        "title": "Motion Principles",
+        "count": 3
+      }
+    ],
+    "tech": [
+      {
+        "value": "css",
+        "count": 93
+      },
+      {
+        "value": "js",
+        "count": 23
+      },
+      {
+        "value": "svg",
+        "count": 3
+      },
+      {
+        "value": "canvas",
+        "count": 1
+      }
+    ],
+    "difficulty": [
+      {
+        "value": "beginner",
+        "count": 50
+      },
+      {
+        "value": "intermediate",
+        "count": 38
+      },
+      {
+        "value": "advanced",
+        "count": 6
+      }
+    ],
+    "era": [
+      {
+        "value": "2020s",
+        "count": 56
+      },
+      {
+        "value": "timeless",
+        "count": 19
+      },
+      {
+        "value": "2010s",
+        "count": 15
+      },
+      {
+        "value": "1990s",
+        "count": 3
+      },
+      {
+        "value": "2000s",
+        "count": 1
+      }
+    ],
+    "categories": [
+      {
+        "value": "reference",
+        "count": 13
+      },
+      {
+        "value": "animation",
+        "count": 12
+      },
+      {
+        "value": "typography",
+        "count": 11
+      },
+      {
+        "value": "button",
+        "count": 10
+      },
+      {
+        "value": "card",
+        "count": 9
+      },
+      {
+        "value": "hover",
+        "count": 9
+      },
+      {
+        "value": "background",
+        "count": 8
+      },
+      {
+        "value": "gradient",
+        "count": 8
+      },
+      {
+        "value": "3d",
+        "count": 7
+      },
+      {
+        "value": "image",
+        "count": 7
+      },
+      {
+        "value": "loader",
+        "count": 6
+      },
+      {
+        "value": "scroll",
+        "count": 6
+      },
+      {
+        "value": "ambient",
+        "count": 5
+      },
+      {
+        "value": "color",
+        "count": 5
+      },
+      {
+        "value": "design-tokens",
+        "count": 5
+      },
+      {
+        "value": "form",
+        "count": 5
+      },
+      {
+        "value": "layout",
+        "count": 5
+      },
+      {
+        "value": "navigation",
+        "count": 5
+      },
+      {
+        "value": "reveal",
+        "count": 5
+      },
+      {
+        "value": "surface",
+        "count": 5
+      },
+      {
+        "value": "glow",
+        "count": 4
+      },
+      {
+        "value": "recipe",
+        "count": 4
+      },
+      {
+        "value": "retro",
+        "count": 4
+      },
+      {
+        "value": "border",
+        "count": 3
+      },
+      {
+        "value": "control",
+        "count": 3
+      },
+      {
+        "value": "cursor",
+        "count": 3
+      },
+      {
+        "value": "feedback",
+        "count": 3
+      },
+      {
+        "value": "grid",
+        "count": 3
+      },
+      {
+        "value": "interaction",
+        "count": 3
+      },
+      {
+        "value": "motion",
+        "count": 3
+      },
+      {
+        "value": "progress",
+        "count": 3
+      },
+      {
+        "value": "attention",
+        "count": 2
+      },
+      {
+        "value": "carousel",
+        "count": 2
+      },
+      {
+        "value": "filter",
+        "count": 2
+      },
+      {
+        "value": "glass",
+        "count": 2
+      },
+      {
+        "value": "indicator",
+        "count": 2
+      },
+      {
+        "value": "loading",
+        "count": 2
+      },
+      {
+        "value": "loop",
+        "count": 2
+      },
+      {
+        "value": "menu",
+        "count": 2
+      },
+      {
+        "value": "micro-interaction",
+        "count": 2
+      },
+      {
+        "value": "neumorphism",
+        "count": 2
+      },
+      {
+        "value": "outline",
+        "count": 2
+      },
+      {
+        "value": "parallax",
+        "count": 2
+      },
+      {
+        "value": "pattern",
+        "count": 2
+      },
+      {
+        "value": "pointer",
+        "count": 2
+      },
+      {
+        "value": "responsive",
+        "count": 2
+      },
+      {
+        "value": "shadow",
+        "count": 2
+      },
+      {
+        "value": "shape",
+        "count": 2
+      },
+      {
+        "value": "spinner",
+        "count": 2
+      },
+      {
+        "value": "text",
+        "count": 2
+      },
+      {
+        "value": "theming",
+        "count": 2
+      },
+      {
+        "value": "accordion",
+        "count": 1
+      },
+      {
+        "value": "app-shell",
+        "count": 1
+      },
+      {
+        "value": "auth",
+        "count": 1
+      },
+      {
+        "value": "canvas",
+        "count": 1
+      },
+      {
+        "value": "checkbox",
+        "count": 1
+      },
+      {
+        "value": "cinematic",
+        "count": 1
+      },
+      {
+        "value": "claymorphism",
+        "count": 1
+      },
+      {
+        "value": "clip",
+        "count": 1
+      },
+      {
+        "value": "comparison",
+        "count": 1
+      },
+      {
+        "value": "cube",
+        "count": 1
+      },
+      {
+        "value": "dark-mode",
+        "count": 1
+      },
+      {
+        "value": "dialog",
+        "count": 1
+      },
+      {
+        "value": "disclosure",
+        "count": 1
+      },
+      {
+        "value": "divider",
+        "count": 1
+      },
+      {
+        "value": "dots",
+        "count": 1
+      },
+      {
+        "value": "dropdown",
+        "count": 1
+      },
+      {
+        "value": "duration",
+        "count": 1
+      },
+      {
+        "value": "easing",
+        "count": 1
+      },
+      {
+        "value": "elevation",
+        "count": 1
+      },
+      {
+        "value": "flat-design",
+        "count": 1
+      },
+      {
+        "value": "flip",
+        "count": 1
+      },
+      {
+        "value": "fonts",
+        "count": 1
+      },
+      {
+        "value": "gallery",
+        "count": 1
+      },
+      {
+        "value": "glitch",
+        "count": 1
+      },
+      {
+        "value": "header",
+        "count": 1
+      },
+      {
+        "value": "hero",
+        "count": 1
+      },
+      {
+        "value": "icon",
+        "count": 1
+      },
+      {
+        "value": "input",
+        "count": 1
+      },
+      {
+        "value": "label",
+        "count": 1
+      },
+      {
+        "value": "landing",
+        "count": 1
+      },
+      {
+        "value": "link",
+        "count": 1
+      },
+      {
+        "value": "mask",
+        "count": 1
+      },
+      {
+        "value": "masonry",
+        "count": 1
+      },
+      {
+        "value": "modal",
+        "count": 1
+      },
+      {
+        "value": "particles",
+        "count": 1
+      },
+      {
+        "value": "placeholder",
+        "count": 1
+      },
+      {
+        "value": "pricing",
+        "count": 1
+      },
+      {
+        "value": "readability",
+        "count": 1
+      },
+      {
+        "value": "scale",
+        "count": 1
+      },
+      {
+        "value": "showcase",
+        "count": 1
+      },
+      {
+        "value": "skeleton",
+        "count": 1
+      },
+      {
+        "value": "skeuomorphic",
+        "count": 1
+      },
+      {
+        "value": "slider",
+        "count": 1
+      },
+      {
+        "value": "stagger",
+        "count": 1
+      },
+      {
+        "value": "sticky",
+        "count": 1
+      },
+      {
+        "value": "svg",
+        "count": 1
+      },
+      {
+        "value": "tabs",
+        "count": 1
+      },
+      {
+        "value": "ticker",
+        "count": 1
+      },
+      {
+        "value": "toggle",
+        "count": 1
+      }
+    ],
+    "tags": [
+      {
+        "value": "3d",
+        "count": 7
+      },
+      {
+        "value": "gradient",
+        "count": 7
+      },
+      {
+        "value": "loading",
+        "count": 7
+      },
+      {
+        "value": "glow",
+        "count": 6
+      },
+      {
+        "value": "hover",
+        "count": 6
+      },
+      {
+        "value": "reveal",
+        "count": 6
+      },
+      {
+        "value": "scroll",
+        "count": 6
+      },
+      {
+        "value": "accessible",
+        "count": 5
+      },
+      {
+        "value": "cursor",
+        "count": 5
+      },
+      {
+        "value": "tokens",
+        "count": 5
+      },
+      {
+        "value": "ambient",
+        "count": 4
+      },
+      {
+        "value": "card",
+        "count": 4
+      },
+      {
+        "value": "composition",
+        "count": 4
+      },
+      {
+        "value": "cta",
+        "count": 4
+      },
+      {
+        "value": "gallery",
+        "count": 4
+      },
+      {
+        "value": "grid",
+        "count": 4
+      },
+      {
+        "value": "outline",
+        "count": 4
+      },
+      {
+        "value": "shadow",
+        "count": 4
+      },
+      {
+        "value": "stagger",
+        "count": 4
+      },
+      {
+        "value": "toggle",
+        "count": 4
+      },
+      {
+        "value": "90s",
+        "count": 3
+      },
+      {
+        "value": "animation",
+        "count": 3
+      },
+      {
+        "value": "blur",
+        "count": 3
+      },
+      {
+        "value": "border",
+        "count": 3
+      },
+      {
+        "value": "clip-path",
+        "count": 3
+      },
+      {
+        "value": "colorful",
+        "count": 3
+      },
+      {
+        "value": "depth",
+        "count": 3
+      },
+      {
+        "value": "dots",
+        "count": 3
+      },
+      {
+        "value": "fade",
+        "count": 3
+      },
+      {
+        "value": "hero",
+        "count": 3
+      },
+      {
+        "value": "material",
+        "count": 3
+      },
+      {
+        "value": "parallax",
+        "count": 3
+      },
+      {
+        "value": "playful",
+        "count": 3
+      },
+      {
+        "value": "progress",
+        "count": 3
+      },
+      {
+        "value": "radial",
+        "count": 3
+      },
+      {
+        "value": "ring",
+        "count": 3
+      },
+      {
+        "value": "rotate",
+        "count": 3
+      },
+      {
+        "value": "spinner",
+        "count": 3
+      },
+      {
+        "value": "svg",
+        "count": 3
+      },
+      {
+        "value": "translateZ",
+        "count": 3
+      },
+      {
+        "value": "agency",
+        "count": 2
+      },
+      {
+        "value": "animated-border",
+        "count": 2
+      },
+      {
+        "value": "attention",
+        "count": 2
+      },
+      {
+        "value": "aurora",
+        "count": 2
+      },
+      {
+        "value": "backdrop-filter",
+        "count": 2
+      },
+      {
+        "value": "background-clip",
+        "count": 2
+      },
+      {
+        "value": "blob",
+        "count": 2
+      },
+      {
+        "value": "box-shadow",
+        "count": 2
+      },
+      {
+        "value": "button",
+        "count": 2
+      },
+      {
+        "value": "canvas",
+        "count": 2
+      },
+      {
+        "value": "cards",
+        "count": 2
+      },
+      {
+        "value": "carousel",
+        "count": 2
+      },
+      {
+        "value": "checkbox",
+        "count": 2
+      },
+      {
+        "value": "clip",
+        "count": 2
+      },
+      {
+        "value": "conic",
+        "count": 2
+      },
+      {
+        "value": "cyberpunk",
+        "count": 2
+      },
+      {
+        "value": "deprecated-tag",
+        "count": 2
+      },
+      {
+        "value": "diagonal",
+        "count": 2
+      },
+      {
+        "value": "editorial",
+        "count": 2
+      },
+      {
+        "value": "entrance",
+        "count": 2
+      },
+      {
+        "value": "feedback",
+        "count": 2
+      },
+      {
+        "value": "fill",
+        "count": 2
+      },
+      {
+        "value": "filter",
+        "count": 2
+      },
+      {
+        "value": "float",
+        "count": 2
+      },
+      {
+        "value": "floating-label",
+        "count": 2
+      },
+      {
+        "value": "form",
+        "count": 2
+      },
+      {
+        "value": "frosted",
+        "count": 2
+      },
+      {
+        "value": "ghost",
+        "count": 2
+      },
+      {
+        "value": "glass",
+        "count": 2
+      },
+      {
+        "value": "glassmorphism",
+        "count": 2
+      },
+      {
+        "value": "grayscale",
+        "count": 2
+      },
+      {
+        "value": "image",
+        "count": 2
+      },
+      {
+        "value": "indicator",
+        "count": 2
+      },
+      {
+        "value": "input",
+        "count": 2
+      },
+      {
+        "value": "intersection-observer",
+        "count": 2
+      },
+      {
+        "value": "ios",
+        "count": 2
+      },
+      {
+        "value": "layers",
+        "count": 2
+      },
+      {
+        "value": "lerp",
+        "count": 2
+      },
+      {
+        "value": "lift",
+        "count": 2
+      },
+      {
+        "value": "linear",
+        "count": 2
+      },
+      {
+        "value": "marquee",
+        "count": 2
+      },
+      {
+        "value": "mask",
+        "count": 2
+      },
+      {
+        "value": "menu",
+        "count": 2
+      },
+      {
+        "value": "monochrome",
+        "count": 2
+      },
+      {
+        "value": "monospace",
+        "count": 2
+      },
+      {
+        "value": "morph",
+        "count": 2
+      },
+      {
+        "value": "motion",
+        "count": 2
+      },
+      {
+        "value": "neumorphism",
+        "count": 2
+      },
+      {
+        "value": "nostalgia",
+        "count": 2
+      },
+      {
+        "value": "palette",
+        "count": 2
+      },
+      {
+        "value": "particles",
+        "count": 2
+      },
+      {
+        "value": "pattern",
+        "count": 2
+      },
+      {
+        "value": "perspective",
+        "count": 2
+      },
+      {
+        "value": "preserve-3d",
+        "count": 2
+      },
+      {
+        "value": "press",
+        "count": 2
+      },
+      {
+        "value": "range",
+        "count": 2
+      },
+      {
+        "value": "responsive",
+        "count": 2
+      },
+      {
+        "value": "retro",
+        "count": 2
+      },
+      {
+        "value": "saas",
+        "count": 2
+      },
+      {
+        "value": "shimmer",
+        "count": 2
+      },
+      {
+        "value": "skeleton",
+        "count": 2
+      },
+      {
+        "value": "skeuomorphic",
+        "count": 2
+      },
+      {
+        "value": "slide",
+        "count": 2
+      },
+      {
+        "value": "slider",
+        "count": 2
+      },
+      {
+        "value": "soft-ui",
+        "count": 2
+      },
+      {
+        "value": "spotlight",
+        "count": 2
+      },
+      {
+        "value": "sticky",
+        "count": 2
+      },
+      {
+        "value": "stroke",
+        "count": 2
+      },
+      {
+        "value": "text-shadow",
+        "count": 2
+      },
+      {
+        "value": "topbar",
+        "count": 2
+      },
+      {
+        "value": "translucent",
+        "count": 2
+      },
+      {
+        "value": "typing",
+        "count": 2
+      },
+      {
+        "value": "underline",
+        "count": 2
+      },
+      {
+        "value": "wave",
+        "count": 2
+      },
+      {
+        "value": "wipe",
+        "count": 2
+      },
+      {
+        "value": "zoom",
+        "count": 2
+      },
+      {
+        "value": "80s",
+        "count": 1
+      },
+      {
+        "value": "accordion",
+        "count": 1
+      },
+      {
+        "value": "active-state",
+        "count": 1
+      },
+      {
+        "value": "animated",
+        "count": 1
+      },
+      {
+        "value": "app-shell",
+        "count": 1
+      },
+      {
+        "value": "aria-busy",
+        "count": 1
+      },
+      {
+        "value": "arrow",
+        "count": 1
+      },
+      {
+        "value": "async",
+        "count": 1
+      },
+      {
+        "value": "atmosphere",
+        "count": 1
+      },
+      {
+        "value": "auth",
+        "count": 1
+      },
+      {
+        "value": "auto-fit",
+        "count": 1
+      },
+      {
+        "value": "backdrop",
+        "count": 1
+      },
+      {
+        "value": "backface",
+        "count": 1
+      },
+      {
+        "value": "bar",
+        "count": 1
+      },
+      {
+        "value": "before-after",
+        "count": 1
+      },
+      {
+        "value": "bento",
+        "count": 1
+      },
+      {
+        "value": "blend",
+        "count": 1
+      },
+      {
+        "value": "blend-mode",
+        "count": 1
+      },
+      {
+        "value": "blink",
+        "count": 1
+      },
+      {
+        "value": "blobs",
+        "count": 1
+      },
+      {
+        "value": "blueprint",
+        "count": 1
+      },
+      {
+        "value": "bob",
+        "count": 1
+      },
+      {
+        "value": "bokeh",
+        "count": 1
+      },
+      {
+        "value": "border-box",
+        "count": 1
+      },
+      {
+        "value": "border-radius",
+        "count": 1
+      },
+      {
+        "value": "bounce",
+        "count": 1
+      },
+      {
+        "value": "break-inside",
+        "count": 1
+      },
+      {
+        "value": "breathing",
+        "count": 1
+      },
+      {
+        "value": "caption",
+        "count": 1
+      },
+      {
+        "value": "caret",
+        "count": 1
+      },
+      {
+        "value": "cascade",
+        "count": 1
+      },
+      {
+        "value": "ch",
+        "count": 1
+      },
+      {
+        "value": "chat",
+        "count": 1
+      },
+      {
+        "value": "choreography",
+        "count": 1
+      },
+      {
+        "value": "cinematic",
+        "count": 1
+      },
+      {
+        "value": "circular",
+        "count": 1
+      },
+      {
+        "value": "clamp",
+        "count": 1
+      },
+      {
+        "value": "classic",
+        "count": 1
+      },
+      {
+        "value": "clay",
+        "count": 1
+      },
+      {
+        "value": "claymorphism",
+        "count": 1
+      },
+      {
+        "value": "click",
+        "count": 1
+      },
+      {
+        "value": "colored-shadow",
+        "count": 1
+      },
+      {
+        "value": "columns",
+        "count": 1
+      },
+      {
+        "value": "comparison",
+        "count": 1
+      },
+      {
+        "value": "content",
+        "count": 1
+      },
+      {
+        "value": "counter-rotate",
+        "count": 1
+      },
+      {
+        "value": "coverflow",
+        "count": 1
+      },
+      {
+        "value": "crop",
+        "count": 1
+      },
+      {
+        "value": "css-grid",
+        "count": 1
+      },
+      {
+        "value": "css-variables",
+        "count": 1
+      },
+      {
+        "value": "cube",
+        "count": 1
+      },
+      {
+        "value": "cubic-bezier",
+        "count": 1
+      },
+      {
+        "value": "custom-cursor",
+        "count": 1
+      },
+      {
+        "value": "cylinder",
+        "count": 1
+      },
+      {
+        "value": "dark",
+        "count": 1
+      },
+      {
+        "value": "dark-mode",
+        "count": 1
+      },
+      {
+        "value": "dashboard",
+        "count": 1
+      },
+      {
+        "value": "dashed",
+        "count": 1
+      },
+      {
+        "value": "decorative",
+        "count": 1
+      },
+      {
+        "value": "delay",
+        "count": 1
+      },
+      {
+        "value": "desaturate",
+        "count": 1
+      },
+      {
+        "value": "design-system",
+        "count": 1
+      },
+      {
+        "value": "details",
+        "count": 1
+      },
+      {
+        "value": "dialog",
+        "count": 1
+      },
+      {
+        "value": "directional",
+        "count": 1
+      },
+      {
+        "value": "disabled",
+        "count": 1
+      },
+      {
+        "value": "disclosure",
+        "count": 1
+      },
+      {
+        "value": "distortion",
+        "count": 1
+      },
+      {
+        "value": "divider",
+        "count": 1
+      },
+      {
+        "value": "dotted",
+        "count": 1
+      },
+      {
+        "value": "draw",
+        "count": 1
+      },
+      {
+        "value": "dropdown",
+        "count": 1
+      },
+      {
+        "value": "dual-ring",
+        "count": 1
+      },
+      {
+        "value": "duotone",
+        "count": 1
+      },
+      {
+        "value": "duration",
+        "count": 1
+      },
+      {
+        "value": "easing",
+        "count": 1
+      },
+      {
+        "value": "elevation",
+        "count": 1
+      },
+      {
+        "value": "error",
+        "count": 1
+      },
+      {
+        "value": "expand",
+        "count": 1
+      },
+      {
+        "value": "extruded",
+        "count": 1
+      },
+      {
+        "value": "faq",
+        "count": 1
+      },
+      {
+        "value": "feature",
+        "count": 1
+      },
+      {
+        "value": "flash",
+        "count": 1
+      },
+      {
+        "value": "flashlight",
+        "count": 1
+      },
+      {
+        "value": "flat",
+        "count": 1
+      },
+      {
+        "value": "flat-2.0",
+        "count": 1
+      },
+      {
+        "value": "flip",
+        "count": 1
+      },
+      {
+        "value": "fluid",
+        "count": 1
+      },
+      {
+        "value": "focus",
+        "count": 1
+      },
+      {
+        "value": "follow",
+        "count": 1
+      },
+      {
+        "value": "font-pairing",
+        "count": 1
+      },
+      {
+        "value": "geocities",
+        "count": 1
+      },
+      {
+        "value": "glare",
+        "count": 1
+      },
+      {
+        "value": "glitch",
+        "count": 1
+      },
+      {
+        "value": "gooey",
+        "count": 1
+      },
+      {
+        "value": "gradient-border",
+        "count": 1
+      },
+      {
+        "value": "graph-paper",
+        "count": 1
+      },
+      {
+        "value": "grid-rows",
+        "count": 1
+      },
+      {
+        "value": "grid-template-areas",
+        "count": 1
+      },
+      {
+        "value": "halo",
+        "count": 1
+      },
+      {
+        "value": "hamburger",
+        "count": 1
+      },
+      {
+        "value": "header",
+        "count": 1
+      },
+      {
+        "value": "heading",
+        "count": 1
+      },
+      {
+        "value": "hexagon",
+        "count": 1
+      },
+      {
+        "value": "hierarchy",
+        "count": 1
+      },
+      {
+        "value": "hollow",
+        "count": 1
+      },
+      {
+        "value": "holy-grail",
+        "count": 1
+      },
+      {
+        "value": "horizontal",
+        "count": 1
+      },
+      {
+        "value": "hue",
+        "count": 1
+      },
+      {
+        "value": "icon",
+        "count": 1
+      },
+      {
+        "value": "idle",
+        "count": 1
+      },
+      {
+        "value": "indeterminate",
+        "count": 1
+      },
+      {
+        "value": "inset-shadow",
+        "count": 1
+      },
+      {
+        "value": "intrinsic",
+        "count": 1
+      },
+      {
+        "value": "ken-burns",
+        "count": 1
+      },
+      {
+        "value": "kinetic",
+        "count": 1
+      },
+      {
+        "value": "landing",
+        "count": 1
+      },
+      {
+        "value": "layout",
+        "count": 1
+      },
+      {
+        "value": "library",
+        "count": 1
+      },
+      {
+        "value": "light-mode",
+        "count": 1
+      },
+      {
+        "value": "line-clamp",
+        "count": 1
+      },
+      {
+        "value": "line-height",
+        "count": 1
+      },
+      {
+        "value": "line-length",
+        "count": 1
+      },
+      {
+        "value": "lines",
+        "count": 1
+      },
+      {
+        "value": "link",
+        "count": 1
+      },
+      {
+        "value": "list",
+        "count": 1
+      },
+      {
+        "value": "login",
+        "count": 1
+      },
+      {
+        "value": "logo-wall",
+        "count": 1
+      },
+      {
+        "value": "long-shadow",
+        "count": 1
+      },
+      {
+        "value": "loop",
+        "count": 1
+      },
+      {
+        "value": "magnetic",
+        "count": 1
+      },
+      {
+        "value": "marching-ants",
+        "count": 1
+      },
+      {
+        "value": "masonry",
+        "count": 1
+      },
+      {
+        "value": "masonry-like",
+        "count": 1
+      },
+      {
+        "value": "measure",
+        "count": 1
+      },
+      {
+        "value": "mesh",
+        "count": 1
+      },
+      {
+        "value": "metallic",
+        "count": 1
+      },
+      {
+        "value": "minimal",
+        "count": 1
+      },
+      {
+        "value": "minmax",
+        "count": 1
+      },
+      {
+        "value": "modal",
+        "count": 1
+      },
+      {
+        "value": "modular-scale",
+        "count": 1
+      },
+      {
+        "value": "nav",
+        "count": 1
+      },
+      {
+        "value": "navbar",
+        "count": 1
+      },
+      {
+        "value": "neon",
+        "count": 1
+      },
+      {
+        "value": "news",
+        "count": 1
+      },
+      {
+        "value": "northern-lights",
+        "count": 1
+      },
+      {
+        "value": "nudge",
+        "count": 1
+      },
+      {
+        "value": "on-off",
+        "count": 1
+      },
+      {
+        "value": "orbit",
+        "count": 1
+      },
+      {
+        "value": "organic",
+        "count": 1
+      },
+      {
+        "value": "overlay",
+        "count": 1
+      },
+      {
+        "value": "pan",
+        "count": 1
+      },
+      {
+        "value": "percentage",
+        "count": 1
+      },
+      {
+        "value": "pill",
+        "count": 1
+      },
+      {
+        "value": "pin",
+        "count": 1
+      },
+      {
+        "value": "pinterest",
+        "count": 1
+      },
+      {
+        "value": "placeholder",
+        "count": 1
+      },
+      {
+        "value": "placeholder-shown",
+        "count": 1
+      },
+      {
+        "value": "polka",
+        "count": 1
+      },
+      {
+        "value": "polygon",
+        "count": 1
+      },
+      {
+        "value": "popout",
+        "count": 1
+      },
+      {
+        "value": "popover",
+        "count": 1
+      },
+      {
+        "value": "popup",
+        "count": 1
+      },
+      {
+        "value": "portfolio",
+        "count": 1
+      },
+      {
+        "value": "poster",
+        "count": 1
+      },
+      {
+        "value": "prefers-color-scheme",
+        "count": 1
+      },
+      {
+        "value": "premium",
+        "count": 1
+      },
+      {
+        "value": "pricing",
+        "count": 1
+      },
+      {
+        "value": "puffy",
+        "count": 1
+      },
+      {
+        "value": "pulse",
+        "count": 1
+      },
+      {
+        "value": "rainbow",
+        "count": 1
+      },
+      {
+        "value": "readability",
+        "count": 1
+      },
+      {
+        "value": "reading",
+        "count": 1
+      },
+      {
+        "value": "recolor",
+        "count": 1
+      },
+      {
+        "value": "reference",
+        "count": 1
+      },
+      {
+        "value": "rgb-split",
+        "count": 1
+      },
+      {
+        "value": "rhythm",
+        "count": 1
+      },
+      {
+        "value": "ripple",
+        "count": 1
+      },
+      {
+        "value": "rolling",
+        "count": 1
+      },
+      {
+        "value": "rotateY",
+        "count": 1
+      },
+      {
+        "value": "rounded",
+        "count": 1
+      },
+      {
+        "value": "sans",
+        "count": 1
+      },
+      {
+        "value": "scale",
+        "count": 1
+      },
+      {
+        "value": "scaleX",
+        "count": 1
+      },
+      {
+        "value": "scaling",
+        "count": 1
+      },
+      {
+        "value": "screensaver",
+        "count": 1
+      },
+      {
+        "value": "scroll-snap",
+        "count": 1
+      },
+      {
+        "value": "scroll-timeline",
+        "count": 1
+      },
+      {
+        "value": "section",
+        "count": 1
+      },
+      {
+        "value": "segmented",
+        "count": 1
+      },
+      {
+        "value": "selection",
+        "count": 1
+      },
+      {
+        "value": "semantic",
+        "count": 1
+      },
+      {
+        "value": "separator",
+        "count": 1
+      },
+      {
+        "value": "serif",
+        "count": 1
+      },
+      {
+        "value": "shake",
+        "count": 1
+      },
+      {
+        "value": "shape",
+        "count": 1
+      },
+      {
+        "value": "shine",
+        "count": 1
+      },
+      {
+        "value": "showcase",
+        "count": 1
+      },
+      {
+        "value": "sidebar",
+        "count": 1
+      },
+      {
+        "value": "sizing",
+        "count": 1
+      },
+      {
+        "value": "slides",
+        "count": 1
+      },
+      {
+        "value": "slideshow",
+        "count": 1
+      },
+      {
+        "value": "space",
+        "count": 1
+      },
+      {
+        "value": "spans",
+        "count": 1
+      },
+      {
+        "value": "speed",
+        "count": 1
+      },
+      {
+        "value": "spotify",
+        "count": 1
+      },
+      {
+        "value": "spring",
+        "count": 1
+      },
+      {
+        "value": "stack",
+        "count": 1
+      },
+      {
+        "value": "stacks",
+        "count": 1
+      },
+      {
+        "value": "staggered",
+        "count": 1
+      },
+      {
+        "value": "starfield",
+        "count": 1
+      },
+      {
+        "value": "steps",
+        "count": 1
+      },
+      {
+        "value": "storytelling",
+        "count": 1
+      },
+      {
+        "value": "stripe",
+        "count": 1
+      },
+      {
+        "value": "stroke-dashoffset",
+        "count": 1
+      },
+      {
+        "value": "submit",
+        "count": 1
+      },
+      {
+        "value": "sweep",
+        "count": 1
+      },
+      {
+        "value": "swipe",
+        "count": 1
+      },
+      {
+        "value": "switch",
+        "count": 1
+      },
+      {
+        "value": "system-fonts",
+        "count": 1
+      },
+      {
+        "value": "tabs",
+        "count": 1
+      },
+      {
+        "value": "tactile",
+        "count": 1
+      },
+      {
+        "value": "team",
+        "count": 1
+      },
+      {
+        "value": "tech",
+        "count": 1
+      },
+      {
+        "value": "text-stroke",
+        "count": 1
+      },
+      {
+        "value": "theme",
+        "count": 1
+      },
+      {
+        "value": "theming",
+        "count": 1
+      },
+      {
+        "value": "thumb",
+        "count": 1
+      },
+      {
+        "value": "tick",
+        "count": 1
+      },
+      {
+        "value": "ticker",
+        "count": 1
+      },
+      {
+        "value": "tilt",
+        "count": 1
+      },
+      {
+        "value": "timing",
+        "count": 1
+      },
+      {
+        "value": "timing-function",
+        "count": 1
+      },
+      {
+        "value": "torch",
+        "count": 1
+      },
+      {
+        "value": "trail",
+        "count": 1
+      },
+      {
+        "value": "transition",
+        "count": 1
+      },
+      {
+        "value": "translate",
+        "count": 1
+      },
+      {
+        "value": "type-scale",
+        "count": 1
+      },
+      {
+        "value": "typewriter",
+        "count": 1
+      },
+      {
+        "value": "validation",
+        "count": 1
+      },
+      {
+        "value": "viewport",
+        "count": 1
+      },
+      {
+        "value": "vw",
+        "count": 1
+      },
+      {
+        "value": "warp",
+        "count": 1
+      },
+      {
+        "value": "wash",
+        "count": 1
+      },
+      {
+        "value": "weightless",
+        "count": 1
+      },
+      {
+        "value": "wobble",
+        "count": 1
+      },
+      {
+        "value": "x",
+        "count": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "before-after-slider",
+  "title": "Before / After Slider",
+  "summary": "Drag a handle to wipe between two images — the classic comparison slider.",
+  "description": "Two stacked images; a range input drives a CSS variable that clips the top image and positions a draggable divider, revealing the 'before' beneath the 'after'.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "interaction",
+    "comparison"
+  ],
+  "tags": [
+    "before-after",
+    "comparison",
+    "slider",
+    "wipe",
+    "clip",
+    "range"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2010s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Updates a CSS variable + clip on input; trivial.",
+  "accessibility_notes": "Built on a real <input type=range> so it's keyboard-operable and labelable — much better than a custom drag handler. Provide aria-label.",
+  "customization": [
+    {
+      "name": "--pos",
+      "description": "Split position (0-100%)",
+      "default": "50%"
+    }
+  ],
+  "variations": [
+    "Vertical wipe",
+    "Hover-to-reveal instead of drag",
+    "Labels for before/after"
+  ],
+  "related": [
+    "duotone-image",
+    "image-zoom-reveal"
+  ],
+  "ai_usage": "Use for retouch/edit comparisons, product configurators, and map overlays. Stack two images; the top one is clipped via inset(0 calc(100% - var(--pos)) 0 0) (or clip-path). Drive --pos from a real range input's value (keyboard accessible) rather than custom mouse drag. Position the divider/handle at --pos. Replace the placeholder gradients with real before/after images and set alt text.",
+  "path": "effects/images-media/before-after-slider.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Before / After Slider</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"before-after-slider\",\n    \"title\": \"Before / After Slider\",\n    \"summary\": \"Drag a handle to wipe between two images — the classic comparison slider.\",\n    \"description\": \"Two stacked images; a range input drives a CSS variable that clips the top image and positions a draggable divider, revealing the 'before' beneath the 'after'.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"interaction\", \"comparison\"],\n    \"tags\": [\"before-after\", \"comparison\", \"slider\", \"wipe\", \"clip\", \"range\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Updates a CSS variable + clip on input; trivial.\",\n    \"accessibility_notes\": \"Built on a real <input type=range> so it's keyboard-operable and labelable — much better than a custom drag handler. Provide aria-label.\",\n    \"customization\": [\n      { \"name\": \"--pos\", \"description\": \"Split position (0-100%)\", \"default\": \"50%\" }\n    ],\n    \"variations\": [\"Vertical wipe\", \"Hover-to-reveal instead of drag\", \"Labels for before/after\"],\n    \"related\": [\"duotone-image\", \"image-zoom-reveal\"],\n    \"ai_usage\": \"Use for retouch/edit comparisons, product configurators, and map overlays. Stack two images; the top one is clipped via inset(0 calc(100% - var(--pos)) 0 0) (or clip-path). Drive --pos from a real range input's value (keyboard accessible) rather than custom mouse drag. Position the divider/handle at --pos. Replace the placeholder gradients with real before/after images and set alt text.\"\n  }\n  </script>\n  <style>\n    :root { --pos: 50%; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .ba { position: relative; width: 320px; height: 220px; border-radius: 14px; overflow: hidden; user-select: none; }\n    .ba__img { position: absolute; inset: 0; }\n    .before { background: linear-gradient(135deg,#334155,#0f172a); }\n    .after  { background: linear-gradient(135deg,#7c5cff,#2dd4bf); clip-path: inset(0 calc(100% - var(--pos)) 0 0); }\n    .ba__divider { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: #fff; transform: translateX(-1px); pointer-events: none; }\n    .ba__divider::after { content: \"⇆\"; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #fff; color: #111; border-radius: 50%; width: 30px; height: 30px; display: grid; place-items: center; }\n    .ba__range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; }\n    .tag { position: absolute; top: 8px; padding: 2px 8px; border-radius: 6px; font-size: .75rem; color: #fff; background: rgba(0,0,0,.5); }\n    .tag.l { left: 8px; } .tag.r { right: 8px; }\n  </style>\n</head>\n<body>\n  <div class=\"ba\" id=\"ba\">\n    <div class=\"ba__img before\"></div>\n    <div class=\"ba__img after\"></div>\n    <span class=\"tag l\">Before</span><span class=\"tag r\">After</span>\n    <div class=\"ba__divider\"></div>\n    <input class=\"ba__range\" type=\"range\" min=\"0\" max=\"100\" value=\"50\" aria-label=\"Reveal amount\" id=\"range\" />\n  </div>\n  <script>\n    var ba = document.getElementById(\"ba\"), range = document.getElementById(\"range\");\n    range.addEventListener(\"input\", function () { ba.style.setProperty(\"--pos\", range.value + \"%\"); });\n  </script>\n</body>\n</html>\n"
+}

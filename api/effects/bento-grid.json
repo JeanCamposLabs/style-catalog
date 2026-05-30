@@ -1,0 +1,54 @@
+{
+  "id": "bento-grid",
+  "title": "Bento Grid",
+  "summary": "The modern 'bento box' feature grid — tiles of varying sizes in a tidy CSS Grid.",
+  "description": "Uses CSS Grid with explicit column/row spans so feature tiles form an asymmetric-but-aligned bento layout, the dominant marketing/feature-section pattern of the 2020s.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "grid",
+    "reference"
+  ],
+  "tags": [
+    "bento",
+    "grid",
+    "css-grid",
+    "feature",
+    "masonry-like",
+    "spans"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (CSS Grid).",
+  "performance_notes": "Pure layout; free.",
+  "accessibility_notes": "Source order should match reading order; use grid placement, not visual reordering that breaks DOM order for keyboard/screen-reader users.",
+  "customization": [
+    {
+      "name": "grid-template-columns",
+      "description": "Base column count",
+      "default": "repeat(4, 1fr)"
+    },
+    {
+      "name": "tile spans",
+      "description": "grid-column / grid-row span per tile",
+      "default": "see source"
+    }
+  ],
+  "variations": [
+    "Collapse to single column on mobile",
+    "Auto-fit tracks with minmax",
+    "Mix media + stat + quote tiles"
+  ],
+  "related": [
+    "responsive-card-grid",
+    "masonry-grid"
+  ],
+  "ai_usage": "Use for feature/overview sections and dashboards. Define a grid (e.g. repeat(4,1fr) with auto rows) and give standout tiles grid-column: span N / grid-row: span M. Keep DOM order = reading order. On small screens, drop to one or two columns (the spans should gracefully reflow — set them in a min-width media query). Replace placeholder tiles with real feature content.",
+  "path": "effects/layout-archetypes/bento-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Bento Grid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bento-grid\",\n    \"title\": \"Bento Grid\",\n    \"summary\": \"The modern 'bento box' feature grid — tiles of varying sizes in a tidy CSS Grid.\",\n    \"description\": \"Uses CSS Grid with explicit column/row spans so feature tiles form an asymmetric-but-aligned bento layout, the dominant marketing/feature-section pattern of the 2020s.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"grid\", \"reference\"],\n    \"tags\": [\"bento\", \"grid\", \"css-grid\", \"feature\", \"masonry-like\", \"spans\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (CSS Grid).\",\n    \"performance_notes\": \"Pure layout; free.\",\n    \"accessibility_notes\": \"Source order should match reading order; use grid placement, not visual reordering that breaks DOM order for keyboard/screen-reader users.\",\n    \"customization\": [\n      { \"name\": \"grid-template-columns\", \"description\": \"Base column count\", \"default\": \"repeat(4, 1fr)\" },\n      { \"name\": \"tile spans\", \"description\": \"grid-column / grid-row span per tile\", \"default\": \"see source\" }\n    ],\n    \"variations\": [\"Collapse to single column on mobile\", \"Auto-fit tracks with minmax\", \"Mix media + stat + quote tiles\"],\n    \"related\": [\"responsive-card-grid\", \"masonry-grid\"],\n    \"ai_usage\": \"Use for feature/overview sections and dashboards. Define a grid (e.g. repeat(4,1fr) with auto rows) and give standout tiles grid-column: span N / grid-row: span M. Keep DOM order = reading order. On small screens, drop to one or two columns (the spans should gracefully reflow — set them in a min-width media query). Replace placeholder tiles with real feature content.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; padding: 1rem; font-family: system-ui, sans-serif; }\n    .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 90px; gap: .8rem; height: 100%; }\n    .tile { border-radius: 14px; padding: 1rem; color: #fff; font-weight: 700; display: flex; align-items: flex-end; }\n    .t1 { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg,#7c5cff,#5b3ee0); }\n    .t2 { grid-column: span 2; background: linear-gradient(135deg,#2dd4bf,#0ea5a5); }\n    .t3 { background: linear-gradient(135deg,#f0abfc,#c026d3); }\n    .t4 { background: linear-gradient(135deg,#fb7185,#e11d48); }\n    .t5 { grid-column: span 2; background: #151925; border: 1px solid #262c3d; }\n    .t6 { grid-column: span 2; background: #151925; border: 1px solid #262c3d; }\n  </style>\n</head>\n<body>\n  <div class=\"bento\">\n    <div class=\"tile t1\">Hero feature</div>\n    <div class=\"tile t2\">Analytics</div>\n    <div class=\"tile t3\">Fast</div>\n    <div class=\"tile t4\">Secure</div>\n    <div class=\"tile t5\">Integrations</div>\n    <div class=\"tile t6\">Testimonial</div>\n  </div>\n</body>\n</html>\n"
+}

@@ -65,11 +65,21 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full authoring guide and
 
 | Command | Action |
 |---|---|
-| `npm run build` | Scan `effects/`, validate, emit `catalog.json` + `assets/catalog.js` |
+| `npm run build` | Scan `effects/`, validate, emit `catalog.json`, `assets/catalog.js`, and the `api/` tree |
 | `npm run validate` | Validate the library (CI-friendly, no writes) |
 | `npm run new` | Scaffold a new effect file |
 | `npm run serve` | Serve the museum locally |
+| `npm run mcp` | Start the MCP server (query the catalog over stdio) |
 | `npm run dev` | Build, then serve |
+
+## Programmatic access (for agents & tools)
+
+- **`catalog.json`** — full machine-readable index (every effect incl. `source`).
+- **`api/index.json`** — lightweight summaries for discovery (no `source`).
+- **`api/effects/<id>.json`** — one effect's full record; **`api/themes.json`** — taxonomy + facets.
+- **MCP server** (`npm run mcp`) — zero-dependency stdio server exposing
+  `list_themes`, `search_effects`, and `get_effect`. See [`mcp/README.md`](mcp/README.md).
+- Taxonomy & key terms: [`docs/GLOSSARY.md`](docs/GLOSSARY.md).
 
 ## License
 

@@ -1,0 +1,49 @@
+{
+  "id": "card-lift",
+  "title": "Card Lift on Hover",
+  "summary": "A card rises and casts a deeper shadow on hover — the dependable elevation cue.",
+  "description": "Combines a translateY lift with a growing, softer box-shadow to convey elevation change, the most common and reliable hover affordance for clickable cards.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "card",
+    "elevation"
+  ],
+  "tags": [
+    "lift",
+    "shadow",
+    "elevation",
+    "hover",
+    "card",
+    "material"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Animating box-shadow can be slightly costly; for buttery performance animate a pseudo-element's opacity instead of the shadow itself.",
+  "accessibility_notes": "Pure visual affordance; transition removed under prefers-reduced-motion. Pair with :focus-visible for keyboard users.",
+  "customization": [
+    {
+      "name": "--lift",
+      "description": "How far it rises",
+      "default": "8px"
+    }
+  ],
+  "variations": [
+    "Add a subtle scale(1.02)",
+    "Accent border on hover",
+    "Performance variant: fade a pre-rendered shadow pseudo-element"
+  ],
+  "related": [
+    "spotlight-card",
+    "tilt-card"
+  ],
+  "ai_usage": "The safe default hover for any clickable card or tile. Apply .lift-card; on hover translateY(-var(--lift)) and increase the box-shadow. Always add the same treatment to :focus-visible so keyboard users get the cue. For grids of many cards, prefer the pseudo-element opacity technique to avoid box-shadow repaint cost.",
+  "path": "effects/hover-interactions/card-lift.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Card Lift on Hover</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-lift\",\n    \"title\": \"Card Lift on Hover\",\n    \"summary\": \"A card rises and casts a deeper shadow on hover — the dependable elevation cue.\",\n    \"description\": \"Combines a translateY lift with a growing, softer box-shadow to convey elevation change, the most common and reliable hover affordance for clickable cards.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"card\", \"elevation\"],\n    \"tags\": [\"lift\", \"shadow\", \"elevation\", \"hover\", \"card\", \"material\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Animating box-shadow can be slightly costly; for buttery performance animate a pseudo-element's opacity instead of the shadow itself.\",\n    \"accessibility_notes\": \"Pure visual affordance; transition removed under prefers-reduced-motion. Pair with :focus-visible for keyboard users.\",\n    \"customization\": [\n      { \"name\": \"--lift\", \"description\": \"How far it rises\", \"default\": \"8px\" }\n    ],\n    \"variations\": [\"Add a subtle scale(1.02)\", \"Accent border on hover\", \"Performance variant: fade a pre-rendered shadow pseudo-element\"],\n    \"related\": [\"spotlight-card\", \"tilt-card\"],\n    \"ai_usage\": \"The safe default hover for any clickable card or tile. Apply .lift-card; on hover translateY(-var(--lift)) and increase the box-shadow. Always add the same treatment to :focus-visible so keyboard users get the cue. For grids of many cards, prefer the pseudo-element opacity technique to avoid box-shadow repaint cost.\"\n  }\n  </script>\n  <style>\n    :root { --lift: 8px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .lift-card {\n      width: 240px; padding: 1.5rem; border-radius: 16px; cursor: pointer;\n      background: #151925; border: 1px solid #262c3d; color: #e7ebf3;\n      box-shadow: 0 4px 12px rgba(0,0,0,.3);\n      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;\n    }\n    .lift-card:hover, .lift-card:focus-visible {\n      transform: translateY(calc(-1 * var(--lift)));\n      box-shadow: 0 24px 48px rgba(0,0,0,.5);\n      border-color: #7c5cff; outline: none;\n    }\n    @media (prefers-reduced-motion: reduce) { .lift-card { transition: none; } }\n  </style>\n</head>\n<body>\n  <article class=\"lift-card\" tabindex=\"0\">\n    <h3 style=\"margin:0 0 .4rem\">Featured</h3>\n    <p style=\"margin:0;color:#8b93a7\">Hover or focus to lift this card.</p>\n  </article>\n</body>\n</html>\n"
+}

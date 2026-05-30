@@ -1,0 +1,50 @@
+{
+  "id": "modal-fade-scale",
+  "title": "Modal Fade & Scale",
+  "summary": "A dialog that fades its backdrop and scales up from 95%, using the native <dialog> element.",
+  "description": "Uses the semantic <dialog> (with showModal()) for built-in focus trapping and backdrop, animating the panel from a slightly-scaled, transparent state and fading ::backdrop.",
+  "theme": "transitions-animations",
+  "themeTitle": "Transitions & Animations",
+  "categories": [
+    "animation",
+    "modal",
+    "dialog"
+  ],
+  "tags": [
+    "modal",
+    "dialog",
+    "fade",
+    "scale",
+    "popup",
+    "backdrop"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (<dialog> + ::backdrop).",
+  "performance_notes": "Transform/opacity transition; trivial.",
+  "accessibility_notes": "The native <dialog> with showModal() gives focus trapping, Escape-to-close, and inert background for free — strongly preferred over a div-based modal. Return focus to the trigger on close (handled here).",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Open/close duration",
+      "default": "0.25s"
+    }
+  ],
+  "variations": [
+    "Slide-up from bottom (sheet)",
+    "Spring scale with --ease-back",
+    "Non-modal popover via popover attribute"
+  ],
+  "related": [
+    "dropdown-menu",
+    "glassmorphism-card"
+  ],
+  "ai_usage": "Use the NATIVE <dialog> for modals — call dialog.showModal() (not just .show()) to get focus trapping, ::backdrop, and Escape handling for free. Animate the panel (opacity + transform: scale) and ::backdrop opacity via an [open] class or the dialog[open] state; manage display with @starting-style or by toggling a class after showModal. Always return focus to the trigger on close. The demo auto-reopens to show the transition.",
+  "path": "effects/transitions-animations/modal-fade-scale.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Modal Fade &amp; Scale</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"modal-fade-scale\",\n    \"title\": \"Modal Fade & Scale\",\n    \"summary\": \"A dialog that fades its backdrop and scales up from 95%, using the native <dialog> element.\",\n    \"description\": \"Uses the semantic <dialog> (with showModal()) for built-in focus trapping and backdrop, animating the panel from a slightly-scaled, transparent state and fading ::backdrop.\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"modal\", \"dialog\"],\n    \"tags\": [\"modal\", \"dialog\", \"fade\", \"scale\", \"popup\", \"backdrop\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (<dialog> + ::backdrop).\",\n    \"performance_notes\": \"Transform/opacity transition; trivial.\",\n    \"accessibility_notes\": \"The native <dialog> with showModal() gives focus trapping, Escape-to-close, and inert background for free — strongly preferred over a div-based modal. Return focus to the trigger on close (handled here).\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Open/close duration\", \"default\": \"0.25s\" }\n    ],\n    \"variations\": [\"Slide-up from bottom (sheet)\", \"Spring scale with --ease-back\", \"Non-modal popover via popover attribute\"],\n    \"related\": [\"dropdown-menu\", \"glassmorphism-card\"],\n    \"ai_usage\": \"Use the NATIVE <dialog> for modals — call dialog.showModal() (not just .show()) to get focus trapping, ::backdrop, and Escape handling for free. Animate the panel (opacity + transform: scale) and ::backdrop opacity via an [open] class or the dialog[open] state; manage display with @starting-style or by toggling a class after showModal. Always return focus to the trigger on close. The demo auto-reopens to show the transition.\"\n  }\n  </script>\n  <style>\n    :root { --dur: .25s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .open-btn { background: #7c5cff; color: #fff; border: none; border-radius: 10px; padding: .7rem 1.4rem; font-weight: 600; cursor: pointer; }\n    dialog {\n      border: 1px solid #262c3d; background: #151925; color: #e7ebf3; border-radius: 16px; padding: 1.6rem; width: 280px;\n      opacity: 0; transform: scale(.95); transition: opacity var(--dur), transform var(--dur); box-shadow: 0 30px 70px rgba(0,0,0,.6);\n    }\n    dialog[open] { opacity: 1; transform: scale(1); }\n    dialog::backdrop { background: rgba(4,6,12,.6); backdrop-filter: blur(3px); }\n    dialog h3 { margin: 0 0 .4rem; } dialog p { margin: 0 0 1.2rem; color: #8b93a7; }\n    dialog button { background: #232a3d; color: #fff; border: none; border-radius: 8px; padding: .5rem 1rem; cursor: pointer; }\n    @media (prefers-reduced-motion: reduce) { dialog { transition: none; } }\n  </style>\n</head>\n<body>\n  <button class=\"open-btn\" id=\"open\">Open dialog</button>\n  <dialog id=\"dlg\">\n    <h3>Native dialog</h3>\n    <p>Focus-trapped, Escape-closable, animated.</p>\n    <button id=\"close\">Close</button>\n  </dialog>\n  <script>\n    var dlg = document.getElementById(\"dlg\"), open = document.getElementById(\"open\"), close = document.getElementById(\"close\");\n    open.addEventListener(\"click\", function () { dlg.showModal(); });\n    close.addEventListener(\"click\", function () { dlg.close(); });\n    // Auto-demo so the transition is visible in the catalog frame.\n    function cycle() { if (!dlg.open) { dlg.showModal(); setTimeout(function () { dlg.close(); }, 1800); } }\n    setTimeout(cycle, 600); setInterval(cycle, 4000);\n  </script>\n</body>\n</html>\n"
+}

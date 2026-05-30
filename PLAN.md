@@ -182,16 +182,21 @@ A single-page, dependency-free gallery (`index.html`):
 
 ## 8. Roadmap
 
-- **v0 (this session): Foundation + deep seed.** Build system, schema, gallery,
-  scaffolder, CI, docs, and a large library across ~12+ themes.
-- **v1: Breadth.** Grow each theme; add combination "recipes" (effects composed
-  together). Add a tag glossary.
-- **v2: Beyond HTML/CSS.** New domains: motion tokens, color systems, layout
-  archetypes, SVG/canvas/shader snippets, sound.
-- **v3: Programmatic access.** Publish `catalog.json` as a fetchable API /
-  npm package; optional MCP server so agents query the catalog directly.
+- **v0: Foundation + deep seed.** ✅ Build system, schema, gallery, scaffolder,
+  CI, docs, and a 55-effect library across 14 themes.
+- **v1: Breadth.** ✅ Grew themes; added combination "recipes"
+  (`combos-recipes`) and a tag/taxonomy glossary (`docs/GLOSSARY.md`).
+- **v2: Beyond HTML/CSS.** ✅ (in progress) New design-choice domains:
+  `color-systems`, `typography-systems`, `layout-archetypes`,
+  `motion-principles`. _Still to come: SVG/canvas/shader snippets, sound._
+- **v3: Programmatic access.** ✅ (initial) Split fetchable API (`api/index.json`,
+  `api/effects/<id>.json`, `api/themes.json`) + a zero-dependency **MCP server**
+  (`mcp/server.mjs`). _Still to come: npm package publish._
 - **v4: Community.** Submission flow, screenshots/thumbnails generation,
   versioned releases.
+
+> Status as of v0.3.0: **94 effects across 20 themes**, plus the API + MCP
+> access layer.
 
 ## 9. How work proceeds (for the agent following this plan)
 

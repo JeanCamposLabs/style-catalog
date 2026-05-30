@@ -1,0 +1,53 @@
+{
+  "id": "glass-button",
+  "title": "Glass Button",
+  "summary": "A frosted translucent button with a light top-edge highlight that brightens on hover.",
+  "description": "Combines a translucent fill, backdrop blur, an inset top highlight, and a subtle border to make a glass button that sits naturally over colorful/photo backgrounds.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "surface",
+    "glass",
+    "button"
+  ],
+  "tags": [
+    "glassmorphism",
+    "button",
+    "frosted",
+    "backdrop-filter",
+    "translucent"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers; backdrop-filter needs -webkit- in Safari.",
+  "performance_notes": "backdrop-filter has a cost; fine for a few buttons. Provide a solid fallback where unsupported.",
+  "accessibility_notes": "Translucency can hurt label contrast over busy backgrounds — keep the tint dark enough and test. Real button with a focus ring.",
+  "customization": [
+    {
+      "name": "--glass",
+      "description": "Tint/opacity",
+      "default": "rgba(255,255,255,.12)"
+    },
+    {
+      "name": "--blur",
+      "description": "Backdrop blur",
+      "default": "10px"
+    }
+  ],
+  "variations": [
+    "Dark glass over light backgrounds",
+    "Pill radius",
+    "Icon-only glass button"
+  ],
+  "related": [
+    "glassmorphism-card",
+    "fill-sweep-button"
+  ],
+  "ai_usage": "Use over imagery/gradients (glass needs something behind it to blur). Translucent background + backdrop-filter blur + 1px light border + an inset top highlight (box-shadow inset 0 1px rgba(255,255,255,.3)). Include -webkit-backdrop-filter and a solid fallback. Verify label contrast against the worst-case background; keep the focus-visible ring.",
+  "path": "effects/glass-neumorphism/glass-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glass Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-button\",\n    \"title\": \"Glass Button\",\n    \"summary\": \"A frosted translucent button with a light top-edge highlight that brightens on hover.\",\n    \"description\": \"Combines a translucent fill, backdrop blur, an inset top highlight, and a subtle border to make a glass button that sits naturally over colorful/photo backgrounds.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"surface\", \"glass\", \"button\"],\n    \"tags\": [\"glassmorphism\", \"button\", \"frosted\", \"backdrop-filter\", \"translucent\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; backdrop-filter needs -webkit- in Safari.\",\n    \"performance_notes\": \"backdrop-filter has a cost; fine for a few buttons. Provide a solid fallback where unsupported.\",\n    \"accessibility_notes\": \"Translucency can hurt label contrast over busy backgrounds — keep the tint dark enough and test. Real button with a focus ring.\",\n    \"customization\": [\n      { \"name\": \"--glass\", \"description\": \"Tint/opacity\", \"default\": \"rgba(255,255,255,.12)\" },\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Dark glass over light backgrounds\", \"Pill radius\", \"Icon-only glass button\"],\n    \"related\": [\"glassmorphism-card\", \"fill-sweep-button\"],\n    \"ai_usage\": \"Use over imagery/gradients (glass needs something behind it to blur). Translucent background + backdrop-filter blur + 1px light border + an inset top highlight (box-shadow inset 0 1px rgba(255,255,255,.3)). Include -webkit-backdrop-filter and a solid fallback. Verify label contrast against the worst-case background; keep the focus-visible ring.\"\n  }\n  </script>\n  <style>\n    :root { --glass: rgba(255,255,255,.12); --blur: 10px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; font-family: system-ui, sans-serif;\n      background: linear-gradient(135deg,#7c5cff,#2dd4bf 50%,#f0abfc); }\n    .glass-btn {\n      border: 1px solid rgba(255,255,255,.4); cursor: pointer; color: #fff; font-weight: 700; font-size: 1rem;\n      padding: .85rem 2rem; border-radius: 14px; background: var(--glass);\n      -webkit-backdrop-filter: blur(var(--blur)); backdrop-filter: blur(var(--blur));\n      box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 8px 24px rgba(0,0,0,.2);\n      transition: background .25s;\n    }\n    .glass-btn:hover { background: rgba(255,255,255,.22); }\n    .glass-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }\n    @media (prefers-reduced-motion: reduce) { .glass-btn { transition: none; } }\n  </style>\n</head>\n<body>\n  <button class=\"glass-btn\">Frosted action</button>\n</body>\n</html>\n"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "outline-text",
+  "title": "Outline / Stroke Text",
+  "summary": "Hollow outlined lettering that fills with color on hover, via text-stroke.",
+  "description": "Uses -webkit-text-stroke with a transparent fill for hollow display text, then transitions to a solid fill on hover — a bold editorial/poster treatment.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "typography",
+    "outline"
+  ],
+  "tags": [
+    "outline",
+    "stroke",
+    "hollow",
+    "text-stroke",
+    "poster",
+    "editorial"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers via -webkit-text-stroke (works cross-browser despite the prefix).",
+  "performance_notes": "Static + color transition; trivial.",
+  "accessibility_notes": "Hollow text can be low-contrast — keep stroke thick enough and the background plain. Provide a solid-fill fallback for very small sizes where strokes get muddy.",
+  "customization": [
+    {
+      "name": "--stroke",
+      "description": "Outline color/width",
+      "default": "#7c5cff, 2px"
+    }
+  ],
+  "variations": [
+    "Outline + drop shadow for depth",
+    "Animated fill sweep on scroll",
+    "Double outline (layered shadows)"
+  ],
+  "related": [
+    "gradient-text",
+    "long-shadow"
+  ],
+  "ai_usage": "Use for large display headings, posters, and section numbers. Set -webkit-text-stroke: WIDTH COLOR and color: transparent for a hollow look; transition color to a solid fill on hover/scroll for emphasis. Keep to big, bold weights — thin/small text loses legibility. Ensure contrast and provide a solid fallback at small sizes.",
+  "path": "effects/text-effects/outline-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Outline / Stroke Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"outline-text\",\n    \"title\": \"Outline / Stroke Text\",\n    \"summary\": \"Hollow outlined lettering that fills with color on hover, via text-stroke.\",\n    \"description\": \"Uses -webkit-text-stroke with a transparent fill for hollow display text, then transitions to a solid fill on hover — a bold editorial/poster treatment.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"typography\", \"outline\"],\n    \"tags\": [\"outline\", \"stroke\", \"hollow\", \"text-stroke\", \"poster\", \"editorial\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers via -webkit-text-stroke (works cross-browser despite the prefix).\",\n    \"performance_notes\": \"Static + color transition; trivial.\",\n    \"accessibility_notes\": \"Hollow text can be low-contrast — keep stroke thick enough and the background plain. Provide a solid-fill fallback for very small sizes where strokes get muddy.\",\n    \"customization\": [\n      { \"name\": \"--stroke\", \"description\": \"Outline color/width\", \"default\": \"#7c5cff, 2px\" }\n    ],\n    \"variations\": [\"Outline + drop shadow for depth\", \"Animated fill sweep on scroll\", \"Double outline (layered shadows)\"],\n    \"related\": [\"gradient-text\", \"long-shadow\"],\n    \"ai_usage\": \"Use for large display headings, posters, and section numbers. Set -webkit-text-stroke: WIDTH COLOR and color: transparent for a hollow look; transition color to a solid fill on hover/scroll for emphasis. Keep to big, bold weights — thin/small text loses legibility. Ensure contrast and provide a solid fallback at small sizes.\"\n  }\n  </script>\n  <style>\n    :root { --stroke: #7c5cff; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .outline {\n      font-size: 5rem; font-weight: 900; letter-spacing: -.02em; color: transparent;\n      -webkit-text-stroke: 2px var(--stroke); text-stroke: 2px var(--stroke);\n      transition: color .35s ease;\n    }\n    .outline:hover { color: var(--stroke); }\n    @media (prefers-reduced-motion: reduce) { .outline { transition: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"outline\">BOLD</div>\n</body>\n</html>\n"
+}

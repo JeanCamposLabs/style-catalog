@@ -1,0 +1,56 @@
+{
+  "id": "type-scale",
+  "title": "Modular Type Scale",
+  "summary": "A harmonious heading/body size scale generated from one ratio, as copy-ready tokens.",
+  "description": "A reference specimen showing a modular scale (each step = previous × ratio, e.g. 1.25 'major third') mapped to --text-xs … --text-4xl tokens, plus a rendered preview of each step.",
+  "theme": "typography-systems",
+  "themeTitle": "Typography Systems",
+  "categories": [
+    "typography",
+    "design-tokens",
+    "scale",
+    "reference"
+  ],
+  "tags": [
+    "type-scale",
+    "modular-scale",
+    "tokens",
+    "hierarchy",
+    "sizing",
+    "rhythm"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Variables + static text; free.",
+  "accessibility_notes": "Use rem so user font-size settings scale everything. Keep body text >= 1rem (16px). Maintain a clear size jump between heading levels for hierarchy.",
+  "customization": [
+    {
+      "name": "--ratio",
+      "description": "Scale ratio (1.2 minor third, 1.25 major third, 1.333 perfect fourth, 1.618 golden)",
+      "default": "1.25"
+    },
+    {
+      "name": "--text-base",
+      "description": "Body size",
+      "default": "1rem"
+    }
+  ],
+  "variations": [
+    "Use calc() chains or Sass to derive steps",
+    "Pair with a line-height scale",
+    "Combine with fluid clamp() (see fluid-typography)"
+  ],
+  "related": [
+    "fluid-typography",
+    "font-pairings",
+    "semantic-color-tokens"
+  ],
+  "ai_usage": "A copy-paste typographic scale. Choose a --ratio (1.2-1.333 for UI, up to 1.618 for editorial) and derive each token from the base: --text-lg = base*ratio, --text-xl = base*ratio^2, etc. Express in rem so OS/user zoom works. Reference these tokens for all font-size declarations instead of arbitrary px. Keep body >= 16px and ensure adjacent heading levels are visually distinct.",
+  "path": "effects/typography-systems/type-scale.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Modular Type Scale</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"type-scale\",\n    \"title\": \"Modular Type Scale\",\n    \"summary\": \"A harmonious heading/body size scale generated from one ratio, as copy-ready tokens.\",\n    \"description\": \"A reference specimen showing a modular scale (each step = previous × ratio, e.g. 1.25 'major third') mapped to --text-xs … --text-4xl tokens, plus a rendered preview of each step.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"design-tokens\", \"scale\", \"reference\"],\n    \"tags\": [\"type-scale\", \"modular-scale\", \"tokens\", \"hierarchy\", \"sizing\", \"rhythm\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Variables + static text; free.\",\n    \"accessibility_notes\": \"Use rem so user font-size settings scale everything. Keep body text >= 1rem (16px). Maintain a clear size jump between heading levels for hierarchy.\",\n    \"customization\": [\n      { \"name\": \"--ratio\", \"description\": \"Scale ratio (1.2 minor third, 1.25 major third, 1.333 perfect fourth, 1.618 golden)\", \"default\": \"1.25\" },\n      { \"name\": \"--text-base\", \"description\": \"Body size\", \"default\": \"1rem\" }\n    ],\n    \"variations\": [\"Use calc() chains or Sass to derive steps\", \"Pair with a line-height scale\", \"Combine with fluid clamp() (see fluid-typography)\"],\n    \"related\": [\"fluid-typography\", \"font-pairings\", \"semantic-color-tokens\"],\n    \"ai_usage\": \"A copy-paste typographic scale. Choose a --ratio (1.2-1.333 for UI, up to 1.618 for editorial) and derive each token from the base: --text-lg = base*ratio, --text-xl = base*ratio^2, etc. Express in rem so OS/user zoom works. Reference these tokens for all font-size declarations instead of arbitrary px. Keep body >= 16px and ensure adjacent heading levels are visually distinct.\"\n  }\n  </script>\n  <style>\n    :root {\n      --ratio: 1.25; --text-base: 1rem;\n      --text-sm: calc(var(--text-base) / var(--ratio));\n      --text-lg: calc(var(--text-base) * var(--ratio));\n      --text-xl: calc(var(--text-lg) * var(--ratio));\n      --text-2xl: calc(var(--text-xl) * var(--ratio));\n      --text-3xl: calc(var(--text-2xl) * var(--ratio));\n      --text-4xl: calc(var(--text-3xl) * var(--ratio));\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; padding: 1.2rem; overflow: auto; }\n    .row { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #1b2030; padding: .35rem 0; }\n    .tok { color: #8b93a7; font-family: ui-monospace, monospace; font-size: .72rem; width: 90px; flex: none; }\n    .s4 { font-size: var(--text-4xl); font-weight: 800; }\n    .s3 { font-size: var(--text-3xl); font-weight: 800; }\n    .s2 { font-size: var(--text-2xl); font-weight: 700; }\n    .s1 { font-size: var(--text-xl); font-weight: 700; }\n    .lg { font-size: var(--text-lg); }\n    .base { font-size: var(--text-base); }\n    .sm { font-size: var(--text-sm); color: #b7bdcc; }\n  </style>\n</head>\n<body>\n  <div class=\"row\"><span class=\"tok\">--text-4xl</span><span class=\"s4\">Display</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-3xl</span><span class=\"s3\">Heading 1</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-2xl</span><span class=\"s2\">Heading 2</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-xl</span><span class=\"s1\">Heading 3</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-lg</span><span class=\"lg\">Lead paragraph</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-base</span><span class=\"base\">Body text · ratio 1.25 (major third)</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-sm</span><span class=\"sm\">Caption / small print</span></div>\n</body>\n</html>\n"
+}

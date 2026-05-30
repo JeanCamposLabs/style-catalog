@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "counts": {
     "themes": 20,
-    "effects": 85
+    "effects": 94
   },
   "themes": [
     {
@@ -44,7 +44,7 @@
       "description": "Pointer-driven micro-interactions — 3D tilt, magnetic pull, spotlight, image reveals, and card lifts.",
       "icon": "🖱️",
       "order": 40,
-      "count": 5
+      "count": 6
     },
     {
       "slug": "forms-inputs",
@@ -68,7 +68,7 @@
       "description": "Motion primitives — entrance reveals, attention seekers, morphs, and looping ambient animations.",
       "icon": "🎬",
       "order": 60,
-      "count": 4
+      "count": 6
     },
     {
       "slug": "3d-transforms",
@@ -84,7 +84,7 @@
       "description": "Surface styling trends — frosted glassmorphism, soft neumorphic extrusions, and claymorphism.",
       "icon": "🧊",
       "order": 80,
-      "count": 3
+      "count": 5
     },
     {
       "slug": "borders-shadows",
@@ -100,7 +100,7 @@
       "description": "Scroll-driven behaviors — progress bars, parallax layers, sticky stacks, and snap.",
       "icon": "📜",
       "order": 100,
-      "count": 3
+      "count": 5
     },
     {
       "slug": "images-media",
@@ -148,7 +148,7 @@
       "description": "Type-related design choices — modular scales, fluid type, and font pairings, as copy-ready references.",
       "icon": "🔤",
       "order": 210,
-      "count": 3
+      "count": 4
     },
     {
       "slug": "layout-archetypes",
@@ -164,7 +164,7 @@
       "description": "Motion-design references — easing curves and a duration scale, as copy-ready tokens for consistent animation.",
       "icon": "🌀",
       "order": 230,
-      "count": 2
+      "count": 3
     }
   ],
   "facets": {
@@ -192,7 +192,7 @@
       {
         "slug": "hover-interactions",
         "title": "Hover Interactions",
-        "count": 5
+        "count": 6
       },
       {
         "slug": "forms-inputs",
@@ -207,7 +207,7 @@
       {
         "slug": "transitions-animations",
         "title": "Transitions & Animations",
-        "count": 4
+        "count": 6
       },
       {
         "slug": "3d-transforms",
@@ -217,7 +217,7 @@
       {
         "slug": "glass-neumorphism",
         "title": "Glass & Neumorphism",
-        "count": 3
+        "count": 5
       },
       {
         "slug": "borders-shadows",
@@ -227,7 +227,7 @@
       {
         "slug": "scroll-effects",
         "title": "Scroll Effects",
-        "count": 3
+        "count": 5
       },
       {
         "slug": "images-media",
@@ -257,7 +257,7 @@
       {
         "slug": "typography-systems",
         "title": "Typography Systems",
-        "count": 3
+        "count": 4
       },
       {
         "slug": "layout-archetypes",
@@ -267,17 +267,17 @@
       {
         "slug": "motion-principles",
         "title": "Motion Principles",
-        "count": 2
+        "count": 3
       }
     ],
     "tech": [
       {
         "value": "css",
-        "count": 84
+        "count": 93
       },
       {
         "value": "js",
-        "count": 21
+        "count": 23
       },
       {
         "value": "svg",
@@ -291,11 +291,11 @@
     "difficulty": [
       {
         "value": "beginner",
-        "count": 44
+        "count": 50
       },
       {
         "value": "intermediate",
-        "count": 35
+        "count": 38
       },
       {
         "value": "advanced",
@@ -305,11 +305,11 @@
     "era": [
       {
         "value": "2020s",
-        "count": 50
+        "count": 56
       },
       {
         "value": "timeless",
-        "count": 16
+        "count": 19
       },
       {
         "value": "2010s",
@@ -327,14 +327,18 @@
     "categories": [
       {
         "value": "reference",
-        "count": 11
+        "count": 13
       },
       {
         "value": "animation",
-        "count": 10
+        "count": 12
       },
       {
         "value": "typography",
+        "count": 11
+      },
+      {
+        "value": "button",
         "count": 10
       },
       {
@@ -342,11 +346,11 @@
         "count": 9
       },
       {
-        "value": "background",
-        "count": 8
+        "value": "hover",
+        "count": 9
       },
       {
-        "value": "button",
+        "value": "background",
         "count": 8
       },
       {
@@ -354,15 +358,19 @@
         "count": 8
       },
       {
-        "value": "hover",
-        "count": 8
-      },
-      {
         "value": "3d",
         "count": 7
       },
       {
+        "value": "image",
+        "count": 7
+      },
+      {
         "value": "loader",
+        "count": 6
+      },
+      {
+        "value": "scroll",
         "count": 6
       },
       {
@@ -382,15 +390,19 @@
         "count": 5
       },
       {
-        "value": "image",
-        "count": 5
-      },
-      {
         "value": "layout",
         "count": 5
       },
       {
         "value": "navigation",
+        "count": 5
+      },
+      {
+        "value": "reveal",
+        "count": 5
+      },
+      {
+        "value": "surface",
         "count": 5
       },
       {
@@ -403,14 +415,6 @@
       },
       {
         "value": "retro",
-        "count": 4
-      },
-      {
-        "value": "reveal",
-        "count": 4
-      },
-      {
-        "value": "scroll",
         "count": 4
       },
       {
@@ -438,15 +442,27 @@
         "count": 3
       },
       {
+        "value": "motion",
+        "count": 3
+      },
+      {
         "value": "progress",
         "count": 3
       },
       {
-        "value": "surface",
-        "count": 3
+        "value": "attention",
+        "count": 2
       },
       {
-        "value": "attention",
+        "value": "carousel",
+        "count": 2
+      },
+      {
+        "value": "filter",
+        "count": 2
+      },
+      {
+        "value": "glass",
         "count": 2
       },
       {
@@ -470,7 +486,7 @@
         "count": 2
       },
       {
-        "value": "motion",
+        "value": "neumorphism",
         "count": 2
       },
       {
@@ -514,6 +530,10 @@
         "count": 2
       },
       {
+        "value": "accordion",
+        "count": 1
+      },
+      {
         "value": "app-shell",
         "count": 1
       },
@@ -523,10 +543,6 @@
       },
       {
         "value": "canvas",
-        "count": 1
-      },
-      {
-        "value": "carousel",
         "count": 1
       },
       {
@@ -558,6 +574,14 @@
         "count": 1
       },
       {
+        "value": "dialog",
+        "count": 1
+      },
+      {
+        "value": "disclosure",
+        "count": 1
+      },
+      {
         "value": "divider",
         "count": 1
       },
@@ -582,10 +606,6 @@
         "count": 1
       },
       {
-        "value": "filter",
-        "count": 1
-      },
-      {
         "value": "flat-design",
         "count": 1
       },
@@ -598,7 +618,7 @@
         "count": 1
       },
       {
-        "value": "glass",
+        "value": "gallery",
         "count": 1
       },
       {
@@ -642,7 +662,7 @@
         "count": 1
       },
       {
-        "value": "neumorphism",
+        "value": "modal",
         "count": 1
       },
       {
@@ -655,6 +675,10 @@
       },
       {
         "value": "pricing",
+        "count": 1
+      },
+      {
+        "value": "readability",
         "count": 1
       },
       {
@@ -675,6 +699,10 @@
       },
       {
         "value": "slider",
+        "count": 1
+      },
+      {
+        "value": "stagger",
         "count": 1
       },
       {
@@ -716,23 +744,23 @@
         "count": 6
       },
       {
+        "value": "hover",
+        "count": 6
+      },
+      {
+        "value": "reveal",
+        "count": 6
+      },
+      {
+        "value": "scroll",
+        "count": 6
+      },
+      {
         "value": "accessible",
         "count": 5
       },
       {
         "value": "cursor",
-        "count": 5
-      },
-      {
-        "value": "hover",
-        "count": 5
-      },
-      {
-        "value": "reveal",
-        "count": 5
-      },
-      {
-        "value": "scroll",
         "count": 5
       },
       {
@@ -756,11 +784,23 @@
         "count": 4
       },
       {
+        "value": "gallery",
+        "count": 4
+      },
+      {
         "value": "grid",
         "count": 4
       },
       {
         "value": "outline",
+        "count": 4
+      },
+      {
+        "value": "shadow",
+        "count": 4
+      },
+      {
+        "value": "stagger",
         "count": 4
       },
       {
@@ -784,6 +824,10 @@
         "count": 3
       },
       {
+        "value": "clip-path",
+        "count": 3
+      },
+      {
         "value": "colorful",
         "count": 3
       },
@@ -796,7 +840,7 @@
         "count": 3
       },
       {
-        "value": "gallery",
+        "value": "fade",
         "count": 3
       },
       {
@@ -832,15 +876,7 @@
         "count": 3
       },
       {
-        "value": "shadow",
-        "count": 3
-      },
-      {
         "value": "spinner",
-        "count": 3
-      },
-      {
-        "value": "stagger",
         "count": 3
       },
       {
@@ -868,6 +904,10 @@
         "count": 2
       },
       {
+        "value": "backdrop-filter",
+        "count": 2
+      },
+      {
         "value": "background-clip",
         "count": 2
       },
@@ -880,6 +920,10 @@
         "count": 2
       },
       {
+        "value": "button",
+        "count": 2
+      },
+      {
         "value": "canvas",
         "count": 2
       },
@@ -888,15 +932,15 @@
         "count": 2
       },
       {
+        "value": "carousel",
+        "count": 2
+      },
+      {
         "value": "checkbox",
         "count": 2
       },
       {
         "value": "clip",
-        "count": 2
-      },
-      {
-        "value": "clip-path",
         "count": 2
       },
       {
@@ -920,7 +964,7 @@
         "count": 2
       },
       {
-        "value": "fade",
+        "value": "entrance",
         "count": 2
       },
       {
@@ -929,6 +973,10 @@
       },
       {
         "value": "fill",
+        "count": 2
+      },
+      {
+        "value": "filter",
         "count": 2
       },
       {
@@ -944,6 +992,10 @@
         "count": 2
       },
       {
+        "value": "frosted",
+        "count": 2
+      },
+      {
         "value": "ghost",
         "count": 2
       },
@@ -952,11 +1004,27 @@
         "count": 2
       },
       {
+        "value": "glassmorphism",
+        "count": 2
+      },
+      {
+        "value": "grayscale",
+        "count": 2
+      },
+      {
+        "value": "image",
+        "count": 2
+      },
+      {
         "value": "indicator",
         "count": 2
       },
       {
         "value": "input",
+        "count": 2
+      },
+      {
+        "value": "intersection-observer",
         "count": 2
       },
       {
@@ -992,6 +1060,10 @@
         "count": 2
       },
       {
+        "value": "monochrome",
+        "count": 2
+      },
+      {
         "value": "monospace",
         "count": 2
       },
@@ -1001,6 +1073,10 @@
       },
       {
         "value": "motion",
+        "count": 2
+      },
+      {
+        "value": "neumorphism",
         "count": 2
       },
       {
@@ -1025,6 +1101,10 @@
       },
       {
         "value": "preserve-3d",
+        "count": 2
+      },
+      {
+        "value": "press",
         "count": 2
       },
       {
@@ -1064,6 +1144,10 @@
         "count": 2
       },
       {
+        "value": "soft-ui",
+        "count": 2
+      },
+      {
         "value": "spotlight",
         "count": 2
       },
@@ -1084,6 +1168,10 @@
         "count": 2
       },
       {
+        "value": "translucent",
+        "count": 2
+      },
+      {
         "value": "typing",
         "count": 2
       },
@@ -1096,11 +1184,19 @@
         "count": 2
       },
       {
+        "value": "wipe",
+        "count": 2
+      },
+      {
         "value": "zoom",
         "count": 2
       },
       {
         "value": "80s",
+        "count": 1
+      },
+      {
+        "value": "accordion",
         "count": 1
       },
       {
@@ -1140,7 +1236,7 @@
         "count": 1
       },
       {
-        "value": "backdrop-filter",
+        "value": "backdrop",
         "count": 1
       },
       {
@@ -1216,11 +1312,19 @@
         "count": 1
       },
       {
-        "value": "carousel",
+        "value": "cascade",
+        "count": 1
+      },
+      {
+        "value": "ch",
         "count": 1
       },
       {
         "value": "chat",
+        "count": 1
+      },
+      {
+        "value": "choreography",
         "count": 1
       },
       {
@@ -1324,7 +1428,23 @@
         "count": 1
       },
       {
+        "value": "delay",
+        "count": 1
+      },
+      {
+        "value": "desaturate",
+        "count": 1
+      },
+      {
         "value": "design-system",
+        "count": 1
+      },
+      {
+        "value": "details",
+        "count": 1
+      },
+      {
+        "value": "dialog",
         "count": 1
       },
       {
@@ -1333,6 +1453,10 @@
       },
       {
         "value": "disabled",
+        "count": 1
+      },
+      {
+        "value": "disclosure",
         "count": 1
       },
       {
@@ -1376,11 +1500,11 @@
         "count": 1
       },
       {
-        "value": "entrance",
+        "value": "error",
         "count": 1
       },
       {
-        "value": "error",
+        "value": "expand",
         "count": 1
       },
       {
@@ -1388,11 +1512,11 @@
         "count": 1
       },
       {
-        "value": "feature",
+        "value": "faq",
         "count": 1
       },
       {
-        "value": "filter",
+        "value": "feature",
         "count": 1
       },
       {
@@ -1432,19 +1556,11 @@
         "count": 1
       },
       {
-        "value": "frosted",
-        "count": 1
-      },
-      {
         "value": "geocities",
         "count": 1
       },
       {
         "value": "glare",
-        "count": 1
-      },
-      {
-        "value": "glassmorphism",
         "count": 1
       },
       {
@@ -1464,7 +1580,7 @@
         "count": 1
       },
       {
-        "value": "grayscale",
+        "value": "grid-rows",
         "count": 1
       },
       {
@@ -1504,6 +1620,10 @@
         "count": 1
       },
       {
+        "value": "horizontal",
+        "count": 1
+      },
+      {
         "value": "hue",
         "count": 1
       },
@@ -1516,19 +1636,11 @@
         "count": 1
       },
       {
-        "value": "image",
-        "count": 1
-      },
-      {
         "value": "indeterminate",
         "count": 1
       },
       {
         "value": "inset-shadow",
-        "count": 1
-      },
-      {
-        "value": "intersection-observer",
         "count": 1
       },
       {
@@ -1560,6 +1672,18 @@
         "count": 1
       },
       {
+        "value": "line-clamp",
+        "count": 1
+      },
+      {
+        "value": "line-height",
+        "count": 1
+      },
+      {
+        "value": "line-length",
+        "count": 1
+      },
+      {
         "value": "lines",
         "count": 1
       },
@@ -1568,7 +1692,15 @@
         "count": 1
       },
       {
+        "value": "list",
+        "count": 1
+      },
+      {
         "value": "login",
+        "count": 1
+      },
+      {
+        "value": "logo-wall",
         "count": 1
       },
       {
@@ -1596,6 +1728,10 @@
         "count": 1
       },
       {
+        "value": "measure",
+        "count": 1
+      },
+      {
         "value": "mesh",
         "count": 1
       },
@@ -1612,11 +1748,11 @@
         "count": 1
       },
       {
-        "value": "modular-scale",
+        "value": "modal",
         "count": 1
       },
       {
-        "value": "monochrome",
+        "value": "modular-scale",
         "count": 1
       },
       {
@@ -1629,10 +1765,6 @@
       },
       {
         "value": "neon",
-        "count": 1
-      },
-      {
-        "value": "neumorphism",
         "count": 1
       },
       {
@@ -1708,6 +1840,10 @@
         "count": 1
       },
       {
+        "value": "popup",
+        "count": 1
+      },
+      {
         "value": "portfolio",
         "count": 1
       },
@@ -1724,10 +1860,6 @@
         "count": 1
       },
       {
-        "value": "press",
-        "count": 1
-      },
-      {
         "value": "pricing",
         "count": 1
       },
@@ -1741,6 +1873,10 @@
       },
       {
         "value": "rainbow",
+        "count": 1
+      },
+      {
+        "value": "readability",
         "count": 1
       },
       {
@@ -1784,6 +1920,10 @@
         "count": 1
       },
       {
+        "value": "scale",
+        "count": 1
+      },
+      {
         "value": "scaleX",
         "count": 1
       },
@@ -1793,6 +1933,10 @@
       },
       {
         "value": "screensaver",
+        "count": 1
+      },
+      {
+        "value": "scroll-snap",
         "count": 1
       },
       {
@@ -1848,11 +1992,11 @@
         "count": 1
       },
       {
-        "value": "slideshow",
+        "value": "slides",
         "count": 1
       },
       {
-        "value": "soft-ui",
+        "value": "slideshow",
         "count": 1
       },
       {
@@ -1916,6 +2060,10 @@
         "count": 1
       },
       {
+        "value": "swipe",
+        "count": 1
+      },
+      {
         "value": "switch",
         "count": 1
       },
@@ -1929,6 +2077,10 @@
       },
       {
         "value": "tactile",
+        "count": 1
+      },
+      {
+        "value": "team",
         "count": 1
       },
       {
@@ -1988,10 +2140,6 @@
         "count": 1
       },
       {
-        "value": "translucent",
-        "count": 1
-      },
-      {
         "value": "type-scale",
         "count": 1
       },
@@ -2021,10 +2169,6 @@
       },
       {
         "value": "weightless",
-        "count": 1
-      },
-      {
-        "value": "wipe",
         "count": 1
       },
       {
@@ -4037,6 +4181,59 @@
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Claymorphism Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"claymorphism-card\",\n    \"title\": \"Claymorphism Card\",\n    \"summary\": \"A puffy, candy-like 3D clay surface with big radii and inset highlights.\",\n    \"description\": \"Combines very large border-radius, a flat fill, a soft drop shadow, and two inset shadows (a bright top-inner and a darker bottom-inner) to make elements look like inflated soft clay.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"surface\", \"claymorphism\", \"card\"],\n    \"tags\": [\"claymorphism\", \"clay\", \"puffy\", \"3d\", \"playful\", \"inset-shadow\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Static multi-shadow; trivial.\",\n    \"accessibility_notes\": \"Generally good contrast since fills are solid and bold; keep text legible on the chosen fill.\",\n    \"customization\": [\n      { \"name\": \"--clay\", \"description\": \"Fill color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--radius\", \"description\": \"Corner roundness\", \"default\": \"44px\" }\n    ],\n    \"variations\": [\"Pastel palette for kid/edu apps\", \"Clay buttons & icons\", \"Combine with a floating-bob animation\"],\n    \"related\": [\"neumorphism-card\", \"glassmorphism-card\"],\n    \"ai_usage\": \"Playful, friendly UIs (education, kids, casual apps). Recipe: large border-radius, solid fill, an outer drop shadow for lift, plus TWO inset shadows — a light one (top-left, simulating a highlight) and a darker tinted one (bottom-right). Increase radius and shadow softness for puffier clay. Pairs well with bright, saturated palettes.\"\n  }\n  </script>\n  <style>\n    :root { --clay: #7c5cff; --radius: 44px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #eef0ff; font-family: system-ui, sans-serif; }\n    .clay {\n      width: 220px; height: 220px; border-radius: var(--radius); background: var(--clay);\n      display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.2rem;\n      box-shadow:\n        0 18px 40px rgba(124,92,255,.45),\n        inset 8px 8px 16px rgba(255,255,255,.45),\n        inset -10px -12px 22px rgba(60,40,140,.55);\n    }\n  </style>\n</head>\n<body>\n  <div class=\"clay\">Clay</div>\n</body>\n</html>\n"
     },
     {
+      "id": "glass-button",
+      "title": "Glass Button",
+      "summary": "A frosted translucent button with a light top-edge highlight that brightens on hover.",
+      "description": "Combines a translucent fill, backdrop blur, an inset top highlight, and a subtle border to make a glass button that sits naturally over colorful/photo backgrounds.",
+      "theme": "glass-neumorphism",
+      "themeTitle": "Glass & Neumorphism",
+      "categories": [
+        "surface",
+        "glass",
+        "button"
+      ],
+      "tags": [
+        "glassmorphism",
+        "button",
+        "frosted",
+        "backdrop-filter",
+        "translucent"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All modern browsers; backdrop-filter needs -webkit- in Safari.",
+      "performance_notes": "backdrop-filter has a cost; fine for a few buttons. Provide a solid fallback where unsupported.",
+      "accessibility_notes": "Translucency can hurt label contrast over busy backgrounds — keep the tint dark enough and test. Real button with a focus ring.",
+      "customization": [
+        {
+          "name": "--glass",
+          "description": "Tint/opacity",
+          "default": "rgba(255,255,255,.12)"
+        },
+        {
+          "name": "--blur",
+          "description": "Backdrop blur",
+          "default": "10px"
+        }
+      ],
+      "variations": [
+        "Dark glass over light backgrounds",
+        "Pill radius",
+        "Icon-only glass button"
+      ],
+      "related": [
+        "glassmorphism-card",
+        "fill-sweep-button"
+      ],
+      "ai_usage": "Use over imagery/gradients (glass needs something behind it to blur). Translucent background + backdrop-filter blur + 1px light border + an inset top highlight (box-shadow inset 0 1px rgba(255,255,255,.3)). Include -webkit-backdrop-filter and a solid fallback. Verify label contrast against the worst-case background; keep the focus-visible ring.",
+      "path": "effects/glass-neumorphism/glass-button.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glass Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-button\",\n    \"title\": \"Glass Button\",\n    \"summary\": \"A frosted translucent button with a light top-edge highlight that brightens on hover.\",\n    \"description\": \"Combines a translucent fill, backdrop blur, an inset top highlight, and a subtle border to make a glass button that sits naturally over colorful/photo backgrounds.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"surface\", \"glass\", \"button\"],\n    \"tags\": [\"glassmorphism\", \"button\", \"frosted\", \"backdrop-filter\", \"translucent\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; backdrop-filter needs -webkit- in Safari.\",\n    \"performance_notes\": \"backdrop-filter has a cost; fine for a few buttons. Provide a solid fallback where unsupported.\",\n    \"accessibility_notes\": \"Translucency can hurt label contrast over busy backgrounds — keep the tint dark enough and test. Real button with a focus ring.\",\n    \"customization\": [\n      { \"name\": \"--glass\", \"description\": \"Tint/opacity\", \"default\": \"rgba(255,255,255,.12)\" },\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Dark glass over light backgrounds\", \"Pill radius\", \"Icon-only glass button\"],\n    \"related\": [\"glassmorphism-card\", \"fill-sweep-button\"],\n    \"ai_usage\": \"Use over imagery/gradients (glass needs something behind it to blur). Translucent background + backdrop-filter blur + 1px light border + an inset top highlight (box-shadow inset 0 1px rgba(255,255,255,.3)). Include -webkit-backdrop-filter and a solid fallback. Verify label contrast against the worst-case background; keep the focus-visible ring.\"\n  }\n  </script>\n  <style>\n    :root { --glass: rgba(255,255,255,.12); --blur: 10px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; font-family: system-ui, sans-serif;\n      background: linear-gradient(135deg,#7c5cff,#2dd4bf 50%,#f0abfc); }\n    .glass-btn {\n      border: 1px solid rgba(255,255,255,.4); cursor: pointer; color: #fff; font-weight: 700; font-size: 1rem;\n      padding: .85rem 2rem; border-radius: 14px; background: var(--glass);\n      -webkit-backdrop-filter: blur(var(--blur)); backdrop-filter: blur(var(--blur));\n      box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 8px 24px rgba(0,0,0,.2);\n      transition: background .25s;\n    }\n    .glass-btn:hover { background: rgba(255,255,255,.22); }\n    .glass-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }\n    @media (prefers-reduced-motion: reduce) { .glass-btn { transition: none; } }\n  </style>\n</head>\n<body>\n  <button class=\"glass-btn\">Frosted action</button>\n</body>\n</html>\n"
+    },
+    {
       "id": "glassmorphism-card",
       "title": "Glassmorphism Card",
       "summary": "A frosted-glass panel that blurs whatever sits behind it, with a subtle light border.",
@@ -4089,6 +4286,60 @@
       "ai_usage": "Use over a colorful/photographic background (it has nothing to blur over a flat color). Apply .glass: semi-transparent background + backdrop-filter:blur(var(--blur)) + a light 1px border + soft shadow. Always include -webkit-backdrop-filter. Verify text contrast; if backdrop-filter is unsupported, fall back to a higher-opacity solid background.",
       "path": "effects/glass-neumorphism/glassmorphism-card.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glassmorphism Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glassmorphism-card\",\n    \"title\": \"Glassmorphism Card\",\n    \"summary\": \"A frosted-glass panel that blurs whatever sits behind it, with a subtle light border.\",\n    \"description\": \"Combines a translucent background, backdrop-filter: blur(), a 1px light border, and a soft shadow to create the frosted-glass surface popularized by iOS/macOS and Windows Acrylic.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"surface\", \"glass\", \"card\"],\n    \"tags\": [\"glassmorphism\", \"frosted\", \"backdrop-filter\", \"blur\", \"translucent\", \"ios\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; backdrop-filter needs the -webkit- prefix for Safari.\",\n    \"performance_notes\": \"backdrop-filter blur is GPU-intensive; limit the blurred area and avoid stacking many glass layers.\",\n    \"accessibility_notes\": \"Translucency can wreck text contrast — keep the tint dark/opaque enough and test contrast over busy backgrounds. Provide a solid fallback where backdrop-filter is unsupported.\",\n    \"customization\": [\n      { \"name\": \"--glass\", \"description\": \"Tint color/opacity\", \"default\": \"rgba(255,255,255,.08)\" },\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur radius\", \"default\": \"12px\" }\n    ],\n    \"variations\": [\"Dark glass (low-opacity black tint)\", \"Colored glass tint\", \"Glass navbar pinned over content\"],\n    \"related\": [\"neumorphism-card\", \"glass-neumorphism\"],\n    \"ai_usage\": \"Use over a colorful/photographic background (it has nothing to blur over a flat color). Apply .glass: semi-transparent background + backdrop-filter:blur(var(--blur)) + a light 1px border + soft shadow. Always include -webkit-backdrop-filter. Verify text contrast; if backdrop-filter is unsupported, fall back to a higher-opacity solid background.\"\n  }\n  </script>\n  <style>\n    :root { --glass: rgba(255,255,255,.08); --blur: 12px; }\n    html, body { height: 100%; margin: 0; }\n    body {\n      display: grid; place-items: center; font-family: system-ui, sans-serif;\n      background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='30%25'%3E%3Cstop offset='0%25' stop-color='%23ff6ec4'/%3E%3Cstop offset='50%25' stop-color='%237c5cff'/%3E%3Cstop offset='100%25' stop-color='%232dd4bf'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23g)'/%3E%3C/svg%3E\") center/cover;\n    }\n    .glass {\n      width: 280px; padding: 1.8rem; border-radius: 20px; color: #fff;\n      background: var(--glass);\n      -webkit-backdrop-filter: blur(var(--blur)); backdrop-filter: blur(var(--blur));\n      border: 1px solid rgba(255,255,255,.25);\n      box-shadow: 0 8px 32px rgba(0,0,0,.25);\n    }\n    .glass h3 { margin: 0 0 .4rem; } .glass p { margin: 0; opacity: .9; }\n  </style>\n</head>\n<body>\n  <div class=\"glass\">\n    <h3>Frosted Glass</h3>\n    <p>Translucent surface with a blurred backdrop.</p>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "neumorphic-button",
+      "title": "Neumorphic Button",
+      "summary": "A soft-UI button that appears extruded at rest and presses inward when active.",
+      "description": "Uses the dual light/dark shadow neumorphism technique; on :active the shadows flip to inset so the button looks physically depressed.",
+      "theme": "glass-neumorphism",
+      "themeTitle": "Glass & Neumorphism",
+      "categories": [
+        "surface",
+        "neumorphism",
+        "button"
+      ],
+      "tags": [
+        "neumorphism",
+        "soft-ui",
+        "button",
+        "press",
+        "shadow",
+        "monochrome"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All browsers.",
+      "performance_notes": "Dual shadows + an inset swap on press; trivial.",
+      "accessibility_notes": "Neumorphism's classic weakness is low contrast — make the label clearly readable and don't rely only on the shadow to signal it's a button. Keep a visible focus ring (neumorphism often forgets this).",
+      "customization": [
+        {
+          "name": "--bg",
+          "description": "Shared surface color (button + page must match)",
+          "default": "#e0e5ec"
+        },
+        {
+          "name": "--accent",
+          "description": "Label color",
+          "default": "#5b3ee0"
+        }
+      ],
+      "variations": [
+        "Dark-mode neumorphism",
+        "Circular icon button",
+        "Toggle that stays pressed when active"
+      ],
+      "related": [
+        "neumorphism-card",
+        "press-3d-button"
+      ],
+      "ai_usage": "Use in calm, tactile soft-UI dashboards — but ensure contrast and an explicit focus ring (neumorphism's main accessibility pitfalls). The button and its container MUST share --bg. Rest: box-shadow with a light offset (top-left) and dark offset (bottom-right). On :active: switch both to inset. Derive the light/dark shades from --bg. Add a focus-visible outline for keyboard users.",
+      "path": "effects/glass-neumorphism/neumorphic-button.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neumorphic Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neumorphic-button\",\n    \"title\": \"Neumorphic Button\",\n    \"summary\": \"A soft-UI button that appears extruded at rest and presses inward when active.\",\n    \"description\": \"Uses the dual light/dark shadow neumorphism technique; on :active the shadows flip to inset so the button looks physically depressed.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"surface\", \"neumorphism\", \"button\"],\n    \"tags\": [\"neumorphism\", \"soft-ui\", \"button\", \"press\", \"shadow\", \"monochrome\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Dual shadows + an inset swap on press; trivial.\",\n    \"accessibility_notes\": \"Neumorphism's classic weakness is low contrast — make the label clearly readable and don't rely only on the shadow to signal it's a button. Keep a visible focus ring (neumorphism often forgets this).\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Shared surface color (button + page must match)\", \"default\": \"#e0e5ec\" },\n      { \"name\": \"--accent\", \"description\": \"Label color\", \"default\": \"#5b3ee0\" }\n    ],\n    \"variations\": [\"Dark-mode neumorphism\", \"Circular icon button\", \"Toggle that stays pressed when active\"],\n    \"related\": [\"neumorphism-card\", \"press-3d-button\"],\n    \"ai_usage\": \"Use in calm, tactile soft-UI dashboards — but ensure contrast and an explicit focus ring (neumorphism's main accessibility pitfalls). The button and its container MUST share --bg. Rest: box-shadow with a light offset (top-left) and dark offset (bottom-right). On :active: switch both to inset. Derive the light/dark shades from --bg. Add a focus-visible outline for keyboard users.\"\n  }\n  </script>\n  <style>\n    :root { --bg: #e0e5ec; --light: #ffffff; --dark: #a3b1c6; --accent: #5b3ee0; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: var(--bg); font-family: system-ui, sans-serif; }\n    .neu-btn {\n      border: none; cursor: pointer; background: var(--bg); color: var(--accent); font-weight: 800; font-size: 1rem;\n      padding: 1rem 2.4rem; border-radius: 16px;\n      box-shadow: 6px 6px 12px var(--dark), -6px -6px 12px var(--light);\n      transition: box-shadow .15s ease;\n    }\n    .neu-btn:active { box-shadow: inset 6px 6px 12px var(--dark), inset -6px -6px 12px var(--light); }\n    .neu-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }\n    @media (prefers-reduced-motion: reduce) { .neu-btn { transition: none; } }\n  </style>\n</head>\n<body>\n  <button class=\"neu-btn\">Press me</button>\n</body>\n</html>\n"
     },
     {
       "id": "neumorphism-card",
@@ -4248,6 +4499,55 @@
       "ai_usage": "The safe default hover for any clickable card or tile. Apply .lift-card; on hover translateY(-var(--lift)) and increase the box-shadow. Always add the same treatment to :focus-visible so keyboard users get the cue. For grids of many cards, prefer the pseudo-element opacity technique to avoid box-shadow repaint cost.",
       "path": "effects/hover-interactions/card-lift.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Card Lift on Hover</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-lift\",\n    \"title\": \"Card Lift on Hover\",\n    \"summary\": \"A card rises and casts a deeper shadow on hover — the dependable elevation cue.\",\n    \"description\": \"Combines a translateY lift with a growing, softer box-shadow to convey elevation change, the most common and reliable hover affordance for clickable cards.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"card\", \"elevation\"],\n    \"tags\": [\"lift\", \"shadow\", \"elevation\", \"hover\", \"card\", \"material\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Animating box-shadow can be slightly costly; for buttery performance animate a pseudo-element's opacity instead of the shadow itself.\",\n    \"accessibility_notes\": \"Pure visual affordance; transition removed under prefers-reduced-motion. Pair with :focus-visible for keyboard users.\",\n    \"customization\": [\n      { \"name\": \"--lift\", \"description\": \"How far it rises\", \"default\": \"8px\" }\n    ],\n    \"variations\": [\"Add a subtle scale(1.02)\", \"Accent border on hover\", \"Performance variant: fade a pre-rendered shadow pseudo-element\"],\n    \"related\": [\"spotlight-card\", \"tilt-card\"],\n    \"ai_usage\": \"The safe default hover for any clickable card or tile. Apply .lift-card; on hover translateY(-var(--lift)) and increase the box-shadow. Always add the same treatment to :focus-visible so keyboard users get the cue. For grids of many cards, prefer the pseudo-element opacity technique to avoid box-shadow repaint cost.\"\n  }\n  </script>\n  <style>\n    :root { --lift: 8px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .lift-card {\n      width: 240px; padding: 1.5rem; border-radius: 16px; cursor: pointer;\n      background: #151925; border: 1px solid #262c3d; color: #e7ebf3;\n      box-shadow: 0 4px 12px rgba(0,0,0,.3);\n      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;\n    }\n    .lift-card:hover, .lift-card:focus-visible {\n      transform: translateY(calc(-1 * var(--lift)));\n      box-shadow: 0 24px 48px rgba(0,0,0,.5);\n      border-color: #7c5cff; outline: none;\n    }\n    @media (prefers-reduced-motion: reduce) { .lift-card { transition: none; } }\n  </style>\n</head>\n<body>\n  <article class=\"lift-card\" tabindex=\"0\">\n    <h3 style=\"margin:0 0 .4rem\">Featured</h3>\n    <p style=\"margin:0;color:#8b93a7\">Hover or focus to lift this card.</p>\n  </article>\n</body>\n</html>\n"
+    },
+    {
+      "id": "grayscale-to-color",
+      "title": "Grayscale to Color on Hover",
+      "summary": "A muted grayscale image blooms into full color on hover — great for logo walls and team grids.",
+      "description": "Applies filter: grayscale(1) at rest and transitions to grayscale(0) (optionally with a slight scale) on hover/focus, drawing attention to the hovered item.",
+      "theme": "hover-interactions",
+      "themeTitle": "Hover Interactions",
+      "categories": [
+        "hover",
+        "image",
+        "filter"
+      ],
+      "tags": [
+        "grayscale",
+        "filter",
+        "hover",
+        "logo-wall",
+        "team",
+        "desaturate"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All browsers (filter).",
+      "performance_notes": "Animating filter is GPU-accelerated in modern browsers; fine for a grid of moderate size.",
+      "accessibility_notes": "Also trigger on :focus-within so keyboard users get the effect. Color must not be the only way information is conveyed.",
+      "customization": [
+        {
+          "name": "--rest",
+          "description": "Resting grayscale amount",
+          "default": "100%"
+        }
+      ],
+      "variations": [
+        "Partial desaturation (60%) at rest",
+        "Sepia/blur at rest instead",
+        "Whole grid muted except the hovered item"
+      ],
+      "related": [
+        "image-zoom-reveal",
+        "duotone-image"
+      ],
+      "ai_usage": "Use for logo walls, partner grids, and team photos to create focus on hover. Rest: filter: grayscale(var(--rest)); hover/focus-within: grayscale(0) + optional scale. Trigger on :focus-within too for keyboard users. For a 'spotlight' grid, mute the whole container and only un-mute the hovered child. Replace the gradient placeholders with real <img> + alt text.",
+      "path": "effects/hover-interactions/grayscale-to-color.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Grayscale to Color on Hover</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"grayscale-to-color\",\n    \"title\": \"Grayscale to Color on Hover\",\n    \"summary\": \"A muted grayscale image blooms into full color on hover — great for logo walls and team grids.\",\n    \"description\": \"Applies filter: grayscale(1) at rest and transitions to grayscale(0) (optionally with a slight scale) on hover/focus, drawing attention to the hovered item.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"image\", \"filter\"],\n    \"tags\": [\"grayscale\", \"filter\", \"hover\", \"logo-wall\", \"team\", \"desaturate\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers (filter).\",\n    \"performance_notes\": \"Animating filter is GPU-accelerated in modern browsers; fine for a grid of moderate size.\",\n    \"accessibility_notes\": \"Also trigger on :focus-within so keyboard users get the effect. Color must not be the only way information is conveyed.\",\n    \"customization\": [\n      { \"name\": \"--rest\", \"description\": \"Resting grayscale amount\", \"default\": \"100%\" }\n    ],\n    \"variations\": [\"Partial desaturation (60%) at rest\", \"Sepia/blur at rest instead\", \"Whole grid muted except the hovered item\"],\n    \"related\": [\"image-zoom-reveal\", \"duotone-image\"],\n    \"ai_usage\": \"Use for logo walls, partner grids, and team photos to create focus on hover. Rest: filter: grayscale(var(--rest)); hover/focus-within: grayscale(0) + optional scale. Trigger on :focus-within too for keyboard users. For a 'spotlight' grid, mute the whole container and only un-mute the hovered child. Replace the gradient placeholders with real <img> + alt text.\"\n  }\n  </script>\n  <style>\n    :root { --rest: 100%; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .grid { display: grid; grid-template-columns: repeat(3, 80px); gap: 1rem; }\n    .item {\n      width: 80px; height: 80px; border-radius: 14px; filter: grayscale(var(--rest)); opacity: .75;\n      transition: filter .35s ease, transform .35s ease, opacity .35s ease;\n    }\n    .item:hover, .item:focus-visible { filter: grayscale(0); transform: scale(1.08); opacity: 1; outline: none; }\n    .a { background: linear-gradient(135deg,#7c5cff,#5b3ee0); }\n    .b { background: linear-gradient(135deg,#2dd4bf,#0ea5a5); }\n    .c { background: linear-gradient(135deg,#f0abfc,#c026d3); }\n    .d { background: linear-gradient(135deg,#fb7185,#e11d48); }\n    .e { background: linear-gradient(135deg,#38bdf8,#0369a1); }\n    .f { background: linear-gradient(135deg,#fbbf24,#d97706); }\n    @media (prefers-reduced-motion: reduce) { .item { transition: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"grid\">\n    <div class=\"item a\" tabindex=\"0\"></div><div class=\"item b\" tabindex=\"0\"></div><div class=\"item c\" tabindex=\"0\"></div>\n    <div class=\"item d\" tabindex=\"0\"></div><div class=\"item e\" tabindex=\"0\"></div><div class=\"item f\" tabindex=\"0\"></div>\n  </div>\n</body>\n</html>\n"
     },
     {
       "id": "image-zoom-reveal",
@@ -5251,6 +5551,61 @@
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Motion Duration Scale</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"duration-scale\",\n    \"title\": \"Motion Duration Scale\",\n    \"summary\": \"A small set of duration tokens (instant→slow) mapped to UI scenarios, demonstrated live.\",\n    \"description\": \"Defines --dur-fast/base/slow tokens and shows the same animation at each speed, with guidance on which to use where — the timing half of a motion system.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"duration\", \"design-tokens\", \"reference\"],\n    \"tags\": [\"duration\", \"timing\", \"tokens\", \"motion\", \"speed\", \"animation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Trivial.\",\n    \"accessibility_notes\": \"Keep UI transitions short (<300ms) to feel responsive; long durations frustrate. All motion respects prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur-fast/base/slow\", \"description\": \"Duration tokens\", \"default\": \"120ms / 240ms / 400ms\" }\n    ],\n    \"variations\": [\"Add --dur-instant (80ms) for micro-feedback\", \"Scale durations with distance/size traveled\", \"Pair each duration with a default easing\"],\n    \"related\": [\"easing-showcase\"],\n    \"ai_usage\": \"The timing half of a motion system. Store --dur-fast (~120ms, hovers/toggles/micro-feedback), --dur-base (~240ms, most transitions, dropdowns), --dur-slow (~400ms, larger surfaces/modals/page-level). Larger/farther-moving elements get longer durations; small UI feedback stays fast. Reference tokens in all transitions for consistency, and combine with the easing tokens. Keep everything under ~400ms for UI.\"\n  }\n  </script>\n  <style>\n    :root { --dur-fast: 120ms; --dur-base: 240ms; --dur-slow: 400ms; --ease: cubic-bezier(.22,1,.36,1); }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; padding: 1.2rem; display: grid; align-content: center; gap: 1rem; }\n    .lane { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: .8rem; }\n    .lane span { font-family: ui-monospace, monospace; font-size: .72rem; color: #8b93a7; }\n    .track { height: 26px; background: #151925; border: 1px solid #262c3d; border-radius: 999px; position: relative; overflow: hidden; }\n    .bar { position: absolute; inset: 3px auto 3px 3px; width: 20px; border-radius: 999px; background: linear-gradient(135deg,#7c5cff,#2dd4bf); }\n    .d1 { animation: slide var(--dur-fast) var(--ease) infinite alternate; }\n    .d2 { animation: slide var(--dur-base) var(--ease) infinite alternate; }\n    .d3 { animation: slide var(--dur-slow) var(--ease) infinite alternate; }\n    @keyframes slide { to { transform: translateX(calc(100% + 200px)); } }\n    @media (prefers-reduced-motion: reduce) { .bar { animation: none; } }\n    .note { color: #b7bdcc; font-size: .8rem; }\n  </style>\n</head>\n<body>\n  <div class=\"lane\"><span>--dur-fast 120ms</span><div class=\"track\"><div class=\"bar d1\"></div></div></div>\n  <div class=\"lane\"><span>--dur-base 240ms</span><div class=\"track\"><div class=\"bar d2\"></div></div></div>\n  <div class=\"lane\"><span>--dur-slow 400ms</span><div class=\"track\"><div class=\"bar d3\"></div></div></div>\n  <p class=\"note\">fast = hovers/toggles · base = dropdowns/most transitions · slow = modals/page-level</p>\n</body>\n</html>\n"
     },
     {
+      "id": "stagger-choreography",
+      "title": "Stagger Choreography",
+      "summary": "A list whose items animate in one after another with an incremental delay.",
+      "description": "Demonstrates staggering: the same entrance animation applied to siblings with animation-delay derived from each item's index, so they cascade rather than appear at once — a core motion-design principle.",
+      "theme": "motion-principles",
+      "themeTitle": "Motion Principles",
+      "categories": [
+        "motion",
+        "stagger",
+        "reference"
+      ],
+      "tags": [
+        "stagger",
+        "choreography",
+        "delay",
+        "cascade",
+        "list",
+        "entrance"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All browsers.",
+      "performance_notes": "Transform/opacity per item; cheap. The delay is set via an --i custom property * a step.",
+      "accessibility_notes": "Keep the total stagger short so content isn't withheld too long. Disable (show all at once) under prefers-reduced-motion.",
+      "customization": [
+        {
+          "name": "--step",
+          "description": "Delay added per item",
+          "default": "80ms"
+        },
+        {
+          "name": "--i",
+          "description": "Item index (set inline or via nth-child)",
+          "default": "0..n"
+        }
+      ],
+      "variations": [
+        "Reverse stagger (last first)",
+        "Stagger by distance from a focal point",
+        "Combine with scroll-reveal so it triggers on entry"
+      ],
+      "related": [
+        "scroll-reveal-fade",
+        "easing-showcase",
+        "text-reveal-mask"
+      ],
+      "ai_usage": "Use whenever multiple siblings enter together (menus, lists, grids) — staggering reads as intentional and guides the eye. Apply one entrance animation to all items and set animation-delay: calc(var(--i) * var(--step)) where --i is the item index (inline style or :nth-child). Keep --step small (50-100ms) and the total under ~600ms. Combine with IntersectionObserver to trigger on scroll. Disable under reduced motion. The demo replays on a loop.",
+      "path": "effects/motion-principles/stagger-choreography.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stagger Choreography</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"stagger-choreography\",\n    \"title\": \"Stagger Choreography\",\n    \"summary\": \"A list whose items animate in one after another with an incremental delay.\",\n    \"description\": \"Demonstrates staggering: the same entrance animation applied to siblings with animation-delay derived from each item's index, so they cascade rather than appear at once — a core motion-design principle.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"stagger\", \"reference\"],\n    \"tags\": [\"stagger\", \"choreography\", \"delay\", \"cascade\", \"list\", \"entrance\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Transform/opacity per item; cheap. The delay is set via an --i custom property * a step.\",\n    \"accessibility_notes\": \"Keep the total stagger short so content isn't withheld too long. Disable (show all at once) under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--step\", \"description\": \"Delay added per item\", \"default\": \"80ms\" },\n      { \"name\": \"--i\", \"description\": \"Item index (set inline or via nth-child)\", \"default\": \"0..n\" }\n    ],\n    \"variations\": [\"Reverse stagger (last first)\", \"Stagger by distance from a focal point\", \"Combine with scroll-reveal so it triggers on entry\"],\n    \"related\": [\"scroll-reveal-fade\", \"easing-showcase\", \"text-reveal-mask\"],\n    \"ai_usage\": \"Use whenever multiple siblings enter together (menus, lists, grids) — staggering reads as intentional and guides the eye. Apply one entrance animation to all items and set animation-delay: calc(var(--i) * var(--step)) where --i is the item index (inline style or :nth-child). Keep --step small (50-100ms) and the total under ~600ms. Combine with IntersectionObserver to trigger on scroll. Disable under reduced motion. The demo replays on a loop.\"\n  }\n  </script>\n  <style>\n    :root { --step: 80ms; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .list { display: grid; gap: .6rem; width: 240px; }\n    .row {\n      background: #151925; border: 1px solid #262c3d; border-radius: 10px; padding: .8rem 1rem; color: #e7ebf3;\n      opacity: 0; transform: translateX(-16px);\n      animation: enter .5s cubic-bezier(.22,1,.36,1) both;\n      animation-delay: calc(var(--i) * var(--step));\n    }\n    @keyframes enter { to { opacity: 1; transform: translateX(0); } }\n    @media (prefers-reduced-motion: reduce) { .row { animation: none; opacity: 1; transform: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"list\" id=\"list\">\n    <div class=\"row\" style=\"--i:0\">Item one</div>\n    <div class=\"row\" style=\"--i:1\">Item two</div>\n    <div class=\"row\" style=\"--i:2\">Item three</div>\n    <div class=\"row\" style=\"--i:3\">Item four</div>\n    <div class=\"row\" style=\"--i:4\">Item five</div>\n  </div>\n  <script>\n    // Replay the stagger on a loop so it's visible in the catalog frame.\n    var list = document.getElementById(\"list\");\n    if (!matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      setInterval(function () {\n        var rows = list.querySelectorAll(\".row\");\n        rows.forEach(function (r) { r.style.animation = \"none\"; });\n        void list.offsetWidth;\n        rows.forEach(function (r) { r.style.animation = \"\"; });\n      }, 3000);\n    }\n  </script>\n</body>\n</html>\n"
+    },
+    {
       "id": "dropdown-menu",
       "title": "Animated Dropdown Menu",
       "summary": "A dropdown that fades and slides down from its trigger, toggled accessibly on click.",
@@ -5656,6 +6011,62 @@
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Starfield Warp</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"starfield\",\n    \"title\": \"Starfield Warp\",\n    \"summary\": \"Stars streaking toward the viewer — the screensaver/space-warp staple, on canvas.\",\n    \"description\": \"A canvas animation projects randomized 3D star points toward the camera and resets them when they pass, producing the classic flying-through-space starfield.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"canvas\", \"background\"],\n    \"tags\": [\"starfield\", \"warp\", \"canvas\", \"space\", \"screensaver\", \"particles\"],\n    \"tech\": [\"canvas\", \"js\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (canvas 2D).\",\n    \"performance_notes\": \"Canvas with a few hundred points at 60fps is light. Cap star count and use a single clear per frame. Stop the rAF loop when offscreen in production.\",\n    \"accessibility_notes\": \"Decorative full-screen motion; halt the loop and show a static frame under prefers-reduced-motion. Keep foreground text on a contrasted surface.\",\n    \"customization\": [\n      { \"name\": \"STAR_COUNT\", \"description\": \"Number of stars\", \"default\": \"400\" },\n      { \"name\": \"SPEED\", \"description\": \"Warp speed\", \"default\": \"0.02\" }\n    ],\n    \"variations\": [\"Colored/hyperspace streaks (draw trails)\", \"Slower drift for an ambient sky\", \"Mouse-steerable camera\"],\n    \"related\": [\"floating-particles\"],\n    \"ai_usage\": \"Hero/space-themed backgrounds and intros. Canvas sized to the container; each star has x,y in [-1,1] and z depth; per frame decrease z (move toward camera), project to screen as x/z, y/z, draw a dot whose size grows as z shrinks; respawn at far z when it passes. Use canvas (not DOM) for hundreds of points. Stop the loop / show static under reduced motion and when offscreen.\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; overflow: hidden; background: #000; }\n    canvas { display: block; }\n  </style>\n</head>\n<body>\n  <canvas id=\"c\"></canvas>\n  <script>\n    var c = document.getElementById(\"c\"), ctx = c.getContext(\"2d\");\n    var STAR_COUNT = 400, SPEED = 0.02, stars = [];\n    var reduce = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    function resize() { c.width = innerWidth; c.height = innerHeight; }\n    resize(); addEventListener(\"resize\", resize);\n    function spawn() { return { x: Math.random() * 2 - 1, y: Math.random() * 2 - 1, z: Math.random() }; }\n    for (var i = 0; i < STAR_COUNT; i++) stars.push(spawn());\n    function draw() {\n      ctx.fillStyle = \"#000\"; ctx.fillRect(0, 0, c.width, c.height);\n      var cx = c.width / 2, cy = c.height / 2;\n      for (var i = 0; i < stars.length; i++) {\n        var s = stars[i];\n        if (!reduce) { s.z -= SPEED; if (s.z <= 0.01) stars[i] = spawn(); }\n        var sx = cx + (s.x / s.z) * cx, sy = cy + (s.y / s.z) * cy;\n        var r = (1 - s.z) * 2.5;\n        ctx.fillStyle = \"rgba(255,255,255,\" + (1 - s.z) + \")\";\n        ctx.beginPath(); ctx.arc(sx, sy, r, 0, Math.PI * 2); ctx.fill();\n      }\n      if (!reduce) requestAnimationFrame(draw);\n    }\n    draw();\n  </script>\n</body>\n</html>\n"
     },
     {
+      "id": "reveal-image-clip",
+      "title": "Image Clip Reveal on Scroll",
+      "summary": "An image unveils behind a clip-path wipe as it scrolls into view.",
+      "description": "Combines IntersectionObserver with a clip-path inset transition so the image is wiped into view (rather than just faded) when it enters the viewport — a premium editorial reveal.",
+      "theme": "scroll-effects",
+      "themeTitle": "Scroll Effects",
+      "categories": [
+        "scroll",
+        "reveal",
+        "image"
+      ],
+      "tags": [
+        "reveal",
+        "clip-path",
+        "scroll",
+        "wipe",
+        "intersection-observer",
+        "image"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers.",
+      "performance_notes": "Animating clip-path is GPU-friendly; the observer fires once per element.",
+      "accessibility_notes": "Image is in the DOM regardless; under prefers-reduced-motion show it immediately (no clip). Provide real alt text.",
+      "customization": [
+        {
+          "name": "--ease / duration",
+          "description": "Wipe timing",
+          "default": "0.9s cubic-bezier(.22,1,.36,1)"
+        },
+        {
+          "name": "direction",
+          "description": "inset side that opens",
+          "default": "left-to-right"
+        }
+      ],
+      "variations": [
+        "Reveal direction per item (alternating)",
+        "Combine with a slight scale for depth",
+        "Circle/iris reveal via circle() clip-path"
+      ],
+      "related": [
+        "scroll-reveal-fade",
+        "clip-path-shapes",
+        "text-reveal-mask"
+      ],
+      "ai_usage": "Use for figure/image reveals in articles and case studies. Start the image clipped (clip-path: inset(0 100% 0 0)) and transition to inset(0) when an IntersectionObserver adds the .in class. Change which inset side is 100% to set wipe direction. Short-circuit to fully revealed under prefers-reduced-motion. The demo auto-scrolls so the wipe is visible in the catalog frame.",
+      "path": "effects/scroll-effects/reveal-image-clip.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Image Clip Reveal on Scroll</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"reveal-image-clip\",\n    \"title\": \"Image Clip Reveal on Scroll\",\n    \"summary\": \"An image unveils behind a clip-path wipe as it scrolls into view.\",\n    \"description\": \"Combines IntersectionObserver with a clip-path inset transition so the image is wiped into view (rather than just faded) when it enters the viewport — a premium editorial reveal.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"reveal\", \"image\"],\n    \"tags\": [\"reveal\", \"clip-path\", \"scroll\", \"wipe\", \"intersection-observer\", \"image\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Animating clip-path is GPU-friendly; the observer fires once per element.\",\n    \"accessibility_notes\": \"Image is in the DOM regardless; under prefers-reduced-motion show it immediately (no clip). Provide real alt text.\",\n    \"customization\": [\n      { \"name\": \"--ease / duration\", \"description\": \"Wipe timing\", \"default\": \"0.9s cubic-bezier(.22,1,.36,1)\" },\n      { \"name\": \"direction\", \"description\": \"inset side that opens\", \"default\": \"left-to-right\" }\n    ],\n    \"variations\": [\"Reveal direction per item (alternating)\", \"Combine with a slight scale for depth\", \"Circle/iris reveal via circle() clip-path\"],\n    \"related\": [\"scroll-reveal-fade\", \"clip-path-shapes\", \"text-reveal-mask\"],\n    \"ai_usage\": \"Use for figure/image reveals in articles and case studies. Start the image clipped (clip-path: inset(0 100% 0 0)) and transition to inset(0) when an IntersectionObserver adds the .in class. Change which inset side is 100% to set wipe direction. Short-circuit to fully revealed under prefers-reduced-motion. The demo auto-scrolls so the wipe is visible in the catalog frame.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; font-family: system-ui, sans-serif; }\n    .scroller { height: 100vh; overflow-y: auto; padding: 1rem; }\n    .spacer { height: 60vh; }\n    .figure { width: 280px; height: 180px; margin: 1rem auto; border-radius: 14px; overflow: hidden; }\n    .figure .img {\n      width: 100%; height: 100%; background: linear-gradient(135deg,#7c5cff,#2dd4bf);\n      clip-path: inset(0 100% 0 0); transition: clip-path .9s cubic-bezier(.22,1,.36,1);\n    }\n    .figure.in .img { clip-path: inset(0 0 0 0); }\n    @media (prefers-reduced-motion: reduce) { .figure .img { transition: none; clip-path: inset(0); } }\n  </style>\n</head>\n<body>\n  <div class=\"scroller\" id=\"scroller\">\n    <div class=\"spacer\"></div>\n    <div class=\"figure\"><div class=\"img\"></div></div>\n    <div class=\"figure\"><div class=\"img\"></div></div>\n    <div class=\"figure\"><div class=\"img\"></div></div>\n    <div class=\"spacer\"></div>\n  </div>\n  <script>\n    var root = document.getElementById(\"scroller\");\n    var io = new IntersectionObserver(function (es) {\n      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add(\"in\"); io.unobserve(e.target); } });\n    }, { root: root, threshold: 0.4 });\n    document.querySelectorAll(\".figure\").forEach(function (f) { io.observe(f); });\n    if (!matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      var dir = 1;\n      setInterval(function () {\n        root.scrollTop += dir * 2;\n        if (root.scrollTop + root.clientHeight >= root.scrollHeight - 2) dir = -1;\n        if (root.scrollTop <= 0) dir = 1;\n      }, 16);\n    }\n  </script>\n</body>\n</html>\n"
+    },
+    {
       "id": "parallax-layers",
       "title": "Parallax Layers",
       "summary": "Background layers scroll slower than foreground content for a depth illusion — pure CSS.",
@@ -5757,6 +6168,60 @@
       "ai_usage": "Reading progress for articles/long pages. Preferred: a fixed bar with transform-origin:left, animation: grow linear, animation-timeline: scroll(root block) — pure CSS, no JS. For browser support, add a JS fallback that sets scaleX = scrollTop / (scrollHeight - innerHeight) on scroll. The demo scrolls its own inner container so it animates in the catalog frame.",
       "path": "effects/scroll-effects/scroll-progress-bar.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scroll Progress Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"scroll-progress-bar\",\n    \"title\": \"Scroll Progress Bar\",\n    \"summary\": \"A top bar that fills as the reader scrolls, using pure-CSS scroll-driven animation.\",\n    \"description\": \"Uses the modern animation-timeline: scroll() to scale a fixed bar from 0 to 1 across the page scroll — no JS. Includes a JS fallback note for older browsers.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"progress\", \"indicator\"],\n    \"tags\": [\"scroll\", \"progress\", \"reading\", \"scroll-timeline\", \"indicator\", \"topbar\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"Chromium 115+ and modern browsers support scroll-driven animations; older browsers ignore the timeline (bar stays empty) — provide a tiny JS fallback in production.\",\n    \"performance_notes\": \"Scroll-driven animations run off the main thread — smoother and cheaper than scroll-event JS.\",\n    \"accessibility_notes\": \"Decorative reading indicator; safe under reduced-motion (it tracks position, not autonomous motion). Don't convey essential info with it alone.\",\n    \"customization\": [\n      { \"name\": \"--bar\", \"description\": \"Fill color/gradient\", \"default\": \"linear-gradient(90deg,#7c5cff,#2dd4bf)\" },\n      { \"name\": \"--h\", \"description\": \"Bar height\", \"default\": \"5px\" }\n    ],\n    \"variations\": [\"Vertical side progress\", \"Circular progress via stroke-dashoffset\", \"JS fallback using scrollY/scrollHeight\"],\n    \"related\": [\"progress-bar-indeterminate\", \"scroll-reveal-fade\"],\n    \"ai_usage\": \"Reading progress for articles/long pages. Preferred: a fixed bar with transform-origin:left, animation: grow linear, animation-timeline: scroll(root block) — pure CSS, no JS. For browser support, add a JS fallback that sets scaleX = scrollTop / (scrollHeight - innerHeight) on scroll. The demo scrolls its own inner container so it animates in the catalog frame.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; }\n    .wrap { height: 100vh; overflow-y: auto; scroll-timeline: --page block; }\n    .bar {\n      position: sticky; top: 0; left: 0; height: 5px; transform-origin: left; transform: scaleX(0);\n      background: linear-gradient(90deg,#7c5cff,#2dd4bf); z-index: 10;\n      animation: grow linear; animation-timeline: --page;\n    }\n    @keyframes grow { to { transform: scaleX(1); } }\n    .content { padding: 1.2rem; }\n    .content p { max-width: 320px; }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\" id=\"wrap\">\n    <div class=\"bar\" id=\"bar\"></div>\n    <div class=\"content\">\n      <h2>Scroll me</h2>\n      <p>The bar at the top fills as you scroll this article.</p>\n      <p style=\"height:200px\">Lorem ipsum dolor sit amet…</p>\n      <p style=\"height:200px\">…consectetur adipiscing elit…</p>\n      <p style=\"height:200px\">…sed do eiusmod tempor.</p>\n      <p>The end.</p>\n    </div>\n  </div>\n  <script>\n    // Fallback for browsers without scroll-driven animations.\n    var wrap = document.getElementById(\"wrap\"), bar = document.getElementById(\"bar\");\n    if (!CSS.supports(\"animation-timeline: scroll()\")) {\n      wrap.addEventListener(\"scroll\", function () {\n        var p = wrap.scrollTop / (wrap.scrollHeight - wrap.clientHeight || 1);\n        bar.style.transform = \"scaleX(\" + p + \")\";\n      });\n    }\n    // Auto-demo scroll so it animates inside the catalog frame.\n    if (!matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      var dir = 1;\n      setInterval(function () {\n        wrap.scrollTop += dir * 2;\n        if (wrap.scrollTop + wrap.clientHeight >= wrap.scrollHeight - 2) dir = -1;\n        if (wrap.scrollTop <= 0) dir = 1;\n      }, 16);\n    }\n  </script>\n</body>\n</html>\n"
+    },
+    {
+      "id": "scroll-snap-gallery",
+      "title": "Scroll Snap Gallery",
+      "summary": "A horizontal gallery where each slide snaps cleanly into place — pure CSS scroll-snap.",
+      "description": "Uses scroll-snap-type on a horizontally-scrolling container and scroll-snap-align on children so swiping/scrolling locks each slide to the start, a native carousel with no JS.",
+      "theme": "scroll-effects",
+      "themeTitle": "Scroll Effects",
+      "categories": [
+        "scroll",
+        "carousel",
+        "gallery"
+      ],
+      "tags": [
+        "scroll-snap",
+        "carousel",
+        "gallery",
+        "horizontal",
+        "swipe",
+        "slides"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All modern browsers (CSS scroll-snap).",
+      "performance_notes": "Native scrolling; very smooth and JS-free.",
+      "accessibility_notes": "Keep slides keyboard-scrollable and focusable; native scroll handles touch/trackpad. For a true carousel add labels and optional prev/next buttons. Snap doesn't trap focus.",
+      "customization": [
+        {
+          "name": "scroll-snap-type",
+          "description": "Axis + strictness (mandatory/proximity)",
+          "default": "x mandatory"
+        },
+        {
+          "name": "slide width",
+          "description": "Per-slide flex-basis",
+          "default": "80%"
+        }
+      ],
+      "variations": [
+        "Vertical snap (full-page sections)",
+        "Center-aligned snap",
+        "Snap with peeking next slide"
+      ],
+      "related": [
+        "sticky-stack-cards",
+        "carousel-3d"
+      ],
+      "ai_usage": "Use for image carousels, onboarding slides, and full-page section snapping. Container: overflow-x:auto; scroll-snap-type: x mandatory; flex row. Each slide: flex:0 0 <width>; scroll-snap-align: start (or center). Use 'proximity' instead of 'mandatory' if mandatory feels too aggressive. Add prev/next buttons calling scrollBy for a fuller carousel; native scroll already gives touch/keyboard support.",
+      "path": "effects/scroll-effects/scroll-snap-gallery.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scroll Snap Gallery</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"scroll-snap-gallery\",\n    \"title\": \"Scroll Snap Gallery\",\n    \"summary\": \"A horizontal gallery where each slide snaps cleanly into place — pure CSS scroll-snap.\",\n    \"description\": \"Uses scroll-snap-type on a horizontally-scrolling container and scroll-snap-align on children so swiping/scrolling locks each slide to the start, a native carousel with no JS.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"carousel\", \"gallery\"],\n    \"tags\": [\"scroll-snap\", \"carousel\", \"gallery\", \"horizontal\", \"swipe\", \"slides\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (CSS scroll-snap).\",\n    \"performance_notes\": \"Native scrolling; very smooth and JS-free.\",\n    \"accessibility_notes\": \"Keep slides keyboard-scrollable and focusable; native scroll handles touch/trackpad. For a true carousel add labels and optional prev/next buttons. Snap doesn't trap focus.\",\n    \"customization\": [\n      { \"name\": \"scroll-snap-type\", \"description\": \"Axis + strictness (mandatory/proximity)\", \"default\": \"x mandatory\" },\n      { \"name\": \"slide width\", \"description\": \"Per-slide flex-basis\", \"default\": \"80%\" }\n    ],\n    \"variations\": [\"Vertical snap (full-page sections)\", \"Center-aligned snap\", \"Snap with peeking next slide\"],\n    \"related\": [\"sticky-stack-cards\", \"carousel-3d\"],\n    \"ai_usage\": \"Use for image carousels, onboarding slides, and full-page section snapping. Container: overflow-x:auto; scroll-snap-type: x mandatory; flex row. Each slide: flex:0 0 <width>; scroll-snap-align: start (or center). Use 'proximity' instead of 'mandatory' if mandatory feels too aggressive. Add prev/next buttons calling scrollBy for a fuller carousel; native scroll already gives touch/keyboard support.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .snap {\n      display: flex; gap: 1rem; width: 320px; padding: 1rem; overflow-x: auto;\n      scroll-snap-type: x mandatory; scrollbar-width: thin;\n    }\n    .slide {\n      flex: 0 0 80%; height: 200px; border-radius: 16px; scroll-snap-align: center;\n      display: grid; place-items: center; color: #fff; font-size: 2rem; font-weight: 800;\n    }\n    .s1 { background: linear-gradient(135deg,#7c5cff,#5b3ee0); }\n    .s2 { background: linear-gradient(135deg,#2dd4bf,#0ea5a5); }\n    .s3 { background: linear-gradient(135deg,#f0abfc,#c026d3); }\n    .s4 { background: linear-gradient(135deg,#fb7185,#e11d48); }\n  </style>\n</head>\n<body>\n  <div class=\"snap\">\n    <div class=\"slide s1\">1</div>\n    <div class=\"slide s2\">2</div>\n    <div class=\"slide s3\">3</div>\n    <div class=\"slide s4\">4</div>\n  </div>\n</body>\n</html>\n"
     },
     {
       "id": "sticky-stack-cards",
@@ -6176,6 +6641,59 @@
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Typewriter Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"typewriter-text\",\n    \"title\": \"Typewriter Text\",\n    \"summary\": \"Text types itself out with a blinking caret using the steps() timing function.\",\n    \"description\": \"Animates max-width / width from 0 with steps() so characters appear one glyph at a time, plus a border-right caret that blinks.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"typography\", \"animation\"],\n    \"tags\": [\"typewriter\", \"typing\", \"steps\", \"caret\", \"monospace\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers. The pure-CSS version needs a known character count and a monospace font.\",\n    \"performance_notes\": \"Animating width triggers layout but on a single short line it is negligible.\",\n    \"accessibility_notes\": \"Full text is present in the DOM immediately (just visually clipped), so screen readers get it. Animation is skipped under prefers-reduced-motion (text shown instantly).\",\n    \"customization\": [\n      { \"name\": \"--chars\", \"description\": \"Number of characters (set to your text length)\", \"default\": \"11\" },\n      { \"name\": \"--speed\", \"description\": \"Typing duration\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Loop with multiple phrases via JS\", \"Solid block caret instead of bar\", \"Remove caret after typing with a forwards fill\"],\n    \"related\": [\"text-reveal-mask\"],\n    \"ai_usage\": \"Great for hero taglines and terminal/CLI aesthetics. Pure-CSS version requires: a monospace font, the text wrapped in an inline-block element, ch-based width animation, and --chars set to the exact character count. For dynamic/looping text, prefer a tiny JS loop that swaps textContent. Keep white-space:nowrap and overflow:hidden.\"\n  }\n  </script>\n  <style>\n    :root { --chars: 11; --speed: 3s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: ui-monospace, \"Courier New\", monospace; }\n    .typewriter {\n      font-size: 2.2rem; color: #34d399; white-space: nowrap; overflow: hidden;\n      border-right: 0.12em solid #34d399;\n      width: 0;\n      animation: typing var(--speed) steps(var(--chars)) forwards, caret 0.8s step-end infinite;\n    }\n    @keyframes typing { to { width: calc(var(--chars) * 1ch); } }\n    @keyframes caret { 50% { border-color: transparent; } }\n    @media (prefers-reduced-motion: reduce) {\n      .typewriter { width: calc(var(--chars) * 1ch); animation: caret 0.8s step-end infinite; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"typewriter\">Hello world</div>\n</body>\n</html>\n"
     },
     {
+      "id": "accordion-expand",
+      "title": "Accordion Expand",
+      "summary": "A native <details> accordion with a smoothly animated open/close using grid-rows.",
+      "description": "Builds the accordion on the semantic <details>/<summary> element and animates the panel height with the grid-template-rows 0fr→1fr technique (which animates from auto height cleanly), plus a rotating chevron.",
+      "theme": "transitions-animations",
+      "themeTitle": "Transitions & Animations",
+      "categories": [
+        "animation",
+        "disclosure",
+        "accordion"
+      ],
+      "tags": [
+        "accordion",
+        "details",
+        "disclosure",
+        "expand",
+        "faq",
+        "grid-rows"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "Modern browsers; the 0fr→1fr grid animation works in current Chromium/Firefox/Safari. Older browsers simply jump (acceptable).",
+      "performance_notes": "Animates grid-template-rows; the content wrapper must be overflow:hidden. No JS needed for toggle (native details).",
+      "accessibility_notes": "Built on <details>/<summary>, so it's keyboard-operable and announced as a disclosure out of the box — no ARIA needed. Honors prefers-reduced-motion.",
+      "customization": [
+        {
+          "name": "--dur",
+          "description": "Expand duration",
+          "default": "0.3s"
+        },
+        {
+          "name": "--accent",
+          "description": "Chevron/summary accent",
+          "default": "#7c5cff"
+        }
+      ],
+      "variations": [
+        "Exclusive accordion (name attribute on <details> in supporting browsers)",
+        "Plus/minus icon instead of chevron",
+        "Card-style panels"
+      ],
+      "related": [
+        "dropdown-menu"
+      ],
+      "ai_usage": "Use for FAQs and settings disclosures. Prefer the native <details>/<summary> for free accessibility. To animate the open height, wrap panel content in a div and use display:grid; grid-template-rows:0fr on closed and 1fr on [open], with the wrapper overflow:hidden. Rotate the chevron on [open]. For 'only one open', use the shared name attribute on <details> where supported. Reduced-motion: drop the transition.",
+      "path": "effects/transitions-animations/accordion-expand.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Accordion Expand</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"accordion-expand\",\n    \"title\": \"Accordion Expand\",\n    \"summary\": \"A native <details> accordion with a smoothly animated open/close using grid-rows.\",\n    \"description\": \"Builds the accordion on the semantic <details>/<summary> element and animates the panel height with the grid-template-rows 0fr→1fr technique (which animates from auto height cleanly), plus a rotating chevron.\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"disclosure\", \"accordion\"],\n    \"tags\": [\"accordion\", \"details\", \"disclosure\", \"expand\", \"faq\", \"grid-rows\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"Modern browsers; the 0fr→1fr grid animation works in current Chromium/Firefox/Safari. Older browsers simply jump (acceptable).\",\n    \"performance_notes\": \"Animates grid-template-rows; the content wrapper must be overflow:hidden. No JS needed for toggle (native details).\",\n    \"accessibility_notes\": \"Built on <details>/<summary>, so it's keyboard-operable and announced as a disclosure out of the box — no ARIA needed. Honors prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Expand duration\", \"default\": \"0.3s\" },\n      { \"name\": \"--accent\", \"description\": \"Chevron/summary accent\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Exclusive accordion (name attribute on <details> in supporting browsers)\", \"Plus/minus icon instead of chevron\", \"Card-style panels\"],\n    \"related\": [\"dropdown-menu\"],\n    \"ai_usage\": \"Use for FAQs and settings disclosures. Prefer the native <details>/<summary> for free accessibility. To animate the open height, wrap panel content in a div and use display:grid; grid-template-rows:0fr on closed and 1fr on [open], with the wrapper overflow:hidden. Rotate the chevron on [open]. For 'only one open', use the shared name attribute on <details> where supported. Reduced-motion: drop the transition.\"\n  }\n  </script>\n  <style>\n    :root { --dur: .3s; --accent: #7c5cff; }\n    * { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .acc { width: 300px; }\n    details { background: #151925; border: 1px solid #262c3d; border-radius: 12px; margin-bottom: .6rem; overflow: hidden; }\n    summary { list-style: none; cursor: pointer; padding: .9rem 1rem; color: #e7ebf3; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }\n    summary::-webkit-details-marker { display: none; }\n    summary .chev { color: var(--accent); transition: transform var(--dur); }\n    details[open] summary .chev { transform: rotate(180deg); }\n    .panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur) ease; }\n    details[open] .panel { grid-template-rows: 1fr; }\n    .panel > div { overflow: hidden; }\n    .panel p { margin: 0; padding: 0 1rem 1rem; color: #8b93a7; }\n    @media (prefers-reduced-motion: reduce) { .panel, summary .chev { transition: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"acc\">\n    <details open>\n      <summary>What is Style Catalog? <span class=\"chev\">▾</span></summary>\n      <div class=\"panel\"><div><p>A museum and catalogue of web effects, built for AI agents.</p></div></div>\n    </details>\n    <details>\n      <summary>How do I add an effect? <span class=\"chev\">▾</span></summary>\n      <div class=\"panel\"><div><p>Run npm run new, edit the file, then npm run build.</p></div></div>\n    </details>\n  </div>\n</body>\n</html>\n"
+    },
+    {
       "id": "floating-bob",
       "title": "Floating Bob",
       "summary": "A gentle up-and-down hover float that makes hero illustrations feel alive.",
@@ -6227,6 +6745,56 @@
       "ai_usage": "Use on hero illustrations, mascots, icons, and badges to add life. Apply .float; the keyframe eases translateY between 0 and -var(--amp). Give grouped elements different --dur and animation-delay so they don't move in lockstep. Mandatory reduced-motion guard.",
       "path": "effects/transitions-animations/floating-bob.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Floating Bob</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"floating-bob\",\n    \"title\": \"Floating Bob\",\n    \"summary\": \"A gentle up-and-down hover float that makes hero illustrations feel alive.\",\n    \"description\": \"An infinite ease-in-out translateY loop (optionally with a soft shadow that breathes) gives an object a weightless, floating quality.\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"ambient\", \"loop\"],\n    \"tags\": [\"float\", \"bob\", \"hover\", \"idle\", \"loop\", \"weightless\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Transform-only loop — GPU-friendly and cheap.\",\n    \"accessibility_notes\": \"Ambient motion; disable under prefers-reduced-motion. Avoid on text the user must read precisely.\",\n    \"customization\": [\n      { \"name\": \"--amp\", \"description\": \"Float height\", \"default\": \"12px\" },\n      { \"name\": \"--dur\", \"description\": \"Cycle duration\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Add a synced shadow that grows as it rises\", \"Slight rotation for a drifting feel\", \"Different delays for a group of floats\"],\n    \"related\": [\"floating-particles\"],\n    \"ai_usage\": \"Use on hero illustrations, mascots, icons, and badges to add life. Apply .float; the keyframe eases translateY between 0 and -var(--amp). Give grouped elements different --dur and animation-delay so they don't move in lockstep. Mandatory reduced-motion guard.\"\n  }\n  </script>\n  <style>\n    :root { --amp: 12px; --dur: 3s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 30%, #1a1040, #06060c); }\n    .float {\n      width: 110px; height: 110px; border-radius: 26px;\n      background: linear-gradient(145deg, #7c5cff, #2dd4bf);\n      box-shadow: 0 30px 40px rgba(0,0,0,.5);\n      animation: bob var(--dur) ease-in-out infinite;\n    }\n    @keyframes bob { 50% { transform: translateY(calc(-1 * var(--amp))); } }\n    @media (prefers-reduced-motion: reduce) { .float { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"float\"></div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "modal-fade-scale",
+      "title": "Modal Fade & Scale",
+      "summary": "A dialog that fades its backdrop and scales up from 95%, using the native <dialog> element.",
+      "description": "Uses the semantic <dialog> (with showModal()) for built-in focus trapping and backdrop, animating the panel from a slightly-scaled, transparent state and fading ::backdrop.",
+      "theme": "transitions-animations",
+      "themeTitle": "Transitions & Animations",
+      "categories": [
+        "animation",
+        "modal",
+        "dialog"
+      ],
+      "tags": [
+        "modal",
+        "dialog",
+        "fade",
+        "scale",
+        "popup",
+        "backdrop"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers (<dialog> + ::backdrop).",
+      "performance_notes": "Transform/opacity transition; trivial.",
+      "accessibility_notes": "The native <dialog> with showModal() gives focus trapping, Escape-to-close, and inert background for free — strongly preferred over a div-based modal. Return focus to the trigger on close (handled here).",
+      "customization": [
+        {
+          "name": "--dur",
+          "description": "Open/close duration",
+          "default": "0.25s"
+        }
+      ],
+      "variations": [
+        "Slide-up from bottom (sheet)",
+        "Spring scale with --ease-back",
+        "Non-modal popover via popover attribute"
+      ],
+      "related": [
+        "dropdown-menu",
+        "glassmorphism-card"
+      ],
+      "ai_usage": "Use the NATIVE <dialog> for modals — call dialog.showModal() (not just .show()) to get focus trapping, ::backdrop, and Escape handling for free. Animate the panel (opacity + transform: scale) and ::backdrop opacity via an [open] class or the dialog[open] state; manage display with @starting-style or by toggling a class after showModal. Always return focus to the trigger on close. The demo auto-reopens to show the transition.",
+      "path": "effects/transitions-animations/modal-fade-scale.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Modal Fade &amp; Scale</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"modal-fade-scale\",\n    \"title\": \"Modal Fade & Scale\",\n    \"summary\": \"A dialog that fades its backdrop and scales up from 95%, using the native <dialog> element.\",\n    \"description\": \"Uses the semantic <dialog> (with showModal()) for built-in focus trapping and backdrop, animating the panel from a slightly-scaled, transparent state and fading ::backdrop.\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"modal\", \"dialog\"],\n    \"tags\": [\"modal\", \"dialog\", \"fade\", \"scale\", \"popup\", \"backdrop\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (<dialog> + ::backdrop).\",\n    \"performance_notes\": \"Transform/opacity transition; trivial.\",\n    \"accessibility_notes\": \"The native <dialog> with showModal() gives focus trapping, Escape-to-close, and inert background for free — strongly preferred over a div-based modal. Return focus to the trigger on close (handled here).\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Open/close duration\", \"default\": \"0.25s\" }\n    ],\n    \"variations\": [\"Slide-up from bottom (sheet)\", \"Spring scale with --ease-back\", \"Non-modal popover via popover attribute\"],\n    \"related\": [\"dropdown-menu\", \"glassmorphism-card\"],\n    \"ai_usage\": \"Use the NATIVE <dialog> for modals — call dialog.showModal() (not just .show()) to get focus trapping, ::backdrop, and Escape handling for free. Animate the panel (opacity + transform: scale) and ::backdrop opacity via an [open] class or the dialog[open] state; manage display with @starting-style or by toggling a class after showModal. Always return focus to the trigger on close. The demo auto-reopens to show the transition.\"\n  }\n  </script>\n  <style>\n    :root { --dur: .25s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .open-btn { background: #7c5cff; color: #fff; border: none; border-radius: 10px; padding: .7rem 1.4rem; font-weight: 600; cursor: pointer; }\n    dialog {\n      border: 1px solid #262c3d; background: #151925; color: #e7ebf3; border-radius: 16px; padding: 1.6rem; width: 280px;\n      opacity: 0; transform: scale(.95); transition: opacity var(--dur), transform var(--dur); box-shadow: 0 30px 70px rgba(0,0,0,.6);\n    }\n    dialog[open] { opacity: 1; transform: scale(1); }\n    dialog::backdrop { background: rgba(4,6,12,.6); backdrop-filter: blur(3px); }\n    dialog h3 { margin: 0 0 .4rem; } dialog p { margin: 0 0 1.2rem; color: #8b93a7; }\n    dialog button { background: #232a3d; color: #fff; border: none; border-radius: 8px; padding: .5rem 1rem; cursor: pointer; }\n    @media (prefers-reduced-motion: reduce) { dialog { transition: none; } }\n  </style>\n</head>\n<body>\n  <button class=\"open-btn\" id=\"open\">Open dialog</button>\n  <dialog id=\"dlg\">\n    <h3>Native dialog</h3>\n    <p>Focus-trapped, Escape-closable, animated.</p>\n    <button id=\"close\">Close</button>\n  </dialog>\n  <script>\n    var dlg = document.getElementById(\"dlg\"), open = document.getElementById(\"open\"), close = document.getElementById(\"close\");\n    open.addEventListener(\"click\", function () { dlg.showModal(); });\n    close.addEventListener(\"click\", function () { dlg.close(); });\n    // Auto-demo so the transition is visible in the catalog frame.\n    function cycle() { if (!dlg.open) { dlg.showModal(); setTimeout(function () { dlg.close(); }, 1800); } }\n    setTimeout(cycle, 600); setInterval(cycle, 4000);\n  </script>\n</body>\n</html>\n"
     },
     {
       "id": "blob-morph",
@@ -6537,6 +7105,65 @@
       "ai_usage": "A copy-paste typographic scale. Choose a --ratio (1.2-1.333 for UI, up to 1.618 for editorial) and derive each token from the base: --text-lg = base*ratio, --text-xl = base*ratio^2, etc. Express in rem so OS/user zoom works. Reference these tokens for all font-size declarations instead of arbitrary px. Keep body >= 16px and ensure adjacent heading levels are visually distinct.",
       "path": "effects/typography-systems/type-scale.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Modular Type Scale</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"type-scale\",\n    \"title\": \"Modular Type Scale\",\n    \"summary\": \"A harmonious heading/body size scale generated from one ratio, as copy-ready tokens.\",\n    \"description\": \"A reference specimen showing a modular scale (each step = previous × ratio, e.g. 1.25 'major third') mapped to --text-xs … --text-4xl tokens, plus a rendered preview of each step.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"design-tokens\", \"scale\", \"reference\"],\n    \"tags\": [\"type-scale\", \"modular-scale\", \"tokens\", \"hierarchy\", \"sizing\", \"rhythm\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Variables + static text; free.\",\n    \"accessibility_notes\": \"Use rem so user font-size settings scale everything. Keep body text >= 1rem (16px). Maintain a clear size jump between heading levels for hierarchy.\",\n    \"customization\": [\n      { \"name\": \"--ratio\", \"description\": \"Scale ratio (1.2 minor third, 1.25 major third, 1.333 perfect fourth, 1.618 golden)\", \"default\": \"1.25\" },\n      { \"name\": \"--text-base\", \"description\": \"Body size\", \"default\": \"1rem\" }\n    ],\n    \"variations\": [\"Use calc() chains or Sass to derive steps\", \"Pair with a line-height scale\", \"Combine with fluid clamp() (see fluid-typography)\"],\n    \"related\": [\"fluid-typography\", \"font-pairings\", \"semantic-color-tokens\"],\n    \"ai_usage\": \"A copy-paste typographic scale. Choose a --ratio (1.2-1.333 for UI, up to 1.618 for editorial) and derive each token from the base: --text-lg = base*ratio, --text-xl = base*ratio^2, etc. Express in rem so OS/user zoom works. Reference these tokens for all font-size declarations instead of arbitrary px. Keep body >= 16px and ensure adjacent heading levels are visually distinct.\"\n  }\n  </script>\n  <style>\n    :root {\n      --ratio: 1.25; --text-base: 1rem;\n      --text-sm: calc(var(--text-base) / var(--ratio));\n      --text-lg: calc(var(--text-base) * var(--ratio));\n      --text-xl: calc(var(--text-lg) * var(--ratio));\n      --text-2xl: calc(var(--text-xl) * var(--ratio));\n      --text-3xl: calc(var(--text-2xl) * var(--ratio));\n      --text-4xl: calc(var(--text-3xl) * var(--ratio));\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; padding: 1.2rem; overflow: auto; }\n    .row { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #1b2030; padding: .35rem 0; }\n    .tok { color: #8b93a7; font-family: ui-monospace, monospace; font-size: .72rem; width: 90px; flex: none; }\n    .s4 { font-size: var(--text-4xl); font-weight: 800; }\n    .s3 { font-size: var(--text-3xl); font-weight: 800; }\n    .s2 { font-size: var(--text-2xl); font-weight: 700; }\n    .s1 { font-size: var(--text-xl); font-weight: 700; }\n    .lg { font-size: var(--text-lg); }\n    .base { font-size: var(--text-base); }\n    .sm { font-size: var(--text-sm); color: #b7bdcc; }\n  </style>\n</head>\n<body>\n  <div class=\"row\"><span class=\"tok\">--text-4xl</span><span class=\"s4\">Display</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-3xl</span><span class=\"s3\">Heading 1</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-2xl</span><span class=\"s2\">Heading 2</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-xl</span><span class=\"s1\">Heading 3</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-lg</span><span class=\"lg\">Lead paragraph</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-base</span><span class=\"base\">Body text · ratio 1.25 (major third)</span></div>\n  <div class=\"row\"><span class=\"tok\">--text-sm</span><span class=\"sm\">Caption / small print</span></div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "readable-measure",
+      "title": "Readable Measure & Rhythm",
+      "summary": "Reference for line length (measure), line-height, and line-clamp — the rules that make body text readable.",
+      "description": "A specimen demonstrating the readability fundamentals: a 60-75 character measure via max-width: Nch, a comfortable line-height, and multi-line truncation with -webkit-line-clamp.",
+      "theme": "typography-systems",
+      "themeTitle": "Typography Systems",
+      "categories": [
+        "typography",
+        "readability",
+        "reference"
+      ],
+      "tags": [
+        "measure",
+        "line-length",
+        "line-height",
+        "line-clamp",
+        "ch",
+        "readability"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All modern browsers; line-clamp uses -webkit-line-clamp (cross-browser despite the prefix).",
+      "performance_notes": "Static; free.",
+      "accessibility_notes": "A 60-75ch measure and ~1.5 line-height materially improve readability for everyone, especially users with dyslexia/low vision. Don't clamp essential content without a way to read the rest.",
+      "customization": [
+        {
+          "name": "max-width",
+          "description": "Measure in ch units",
+          "default": "66ch"
+        },
+        {
+          "name": "line-height",
+          "description": "Body leading",
+          "default": "1.6"
+        },
+        {
+          "name": "-webkit-line-clamp",
+          "description": "Max visible lines before ellipsis",
+          "default": "3"
+        }
+      ],
+      "variations": [
+        "Single-line ellipsis (text-overflow: ellipsis)",
+        "Wider measure for large type",
+        "Tighter line-height for headings"
+      ],
+      "related": [
+        "type-scale",
+        "fluid-typography"
+      ],
+      "ai_usage": "Apply these readability defaults to all body copy: set the text container max-width to ~60-75ch (the 'measure'); use line-height ~1.5-1.65 for body; for card excerpts, clamp with display:-webkit-box; -webkit-line-clamp:N; -webkit-box-orient:vertical; overflow:hidden. Never let body text run the full width of a wide viewport. Don't clamp content that has no 'read more' path.",
+      "path": "effects/typography-systems/readable-measure.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Readable Measure &amp; Rhythm</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"readable-measure\",\n    \"title\": \"Readable Measure & Rhythm\",\n    \"summary\": \"Reference for line length (measure), line-height, and line-clamp — the rules that make body text readable.\",\n    \"description\": \"A specimen demonstrating the readability fundamentals: a 60-75 character measure via max-width: Nch, a comfortable line-height, and multi-line truncation with -webkit-line-clamp.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"readability\", \"reference\"],\n    \"tags\": [\"measure\", \"line-length\", \"line-height\", \"line-clamp\", \"ch\", \"readability\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; line-clamp uses -webkit-line-clamp (cross-browser despite the prefix).\",\n    \"performance_notes\": \"Static; free.\",\n    \"accessibility_notes\": \"A 60-75ch measure and ~1.5 line-height materially improve readability for everyone, especially users with dyslexia/low vision. Don't clamp essential content without a way to read the rest.\",\n    \"customization\": [\n      { \"name\": \"max-width\", \"description\": \"Measure in ch units\", \"default\": \"66ch\" },\n      { \"name\": \"line-height\", \"description\": \"Body leading\", \"default\": \"1.6\" },\n      { \"name\": \"-webkit-line-clamp\", \"description\": \"Max visible lines before ellipsis\", \"default\": \"3\" }\n    ],\n    \"variations\": [\"Single-line ellipsis (text-overflow: ellipsis)\", \"Wider measure for large type\", \"Tighter line-height for headings\"],\n    \"related\": [\"type-scale\", \"fluid-typography\"],\n    \"ai_usage\": \"Apply these readability defaults to all body copy: set the text container max-width to ~60-75ch (the 'measure'); use line-height ~1.5-1.65 for body; for card excerpts, clamp with display:-webkit-box; -webkit-line-clamp:N; -webkit-box-orient:vertical; overflow:hidden. Never let body text run the full width of a wide viewport. Don't clamp content that has no 'read more' path.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: Georgia, serif; padding: 1.4rem; overflow: auto; }\n    .prose { max-width: 60ch; line-height: 1.6; }\n    .prose h3 { font-family: system-ui, sans-serif; }\n    .label { font-family: ui-monospace, monospace; font-size: .7rem; color: #2dd4bf; }\n    .clamp { max-width: 40ch; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: #b7bdcc; }\n  </style>\n</head>\n<body>\n  <div class=\"prose\">\n    <p class=\"label\">max-width: 60ch · line-height: 1.6</p>\n    <h3>A comfortable measure</h3>\n    <p>Lines of 60 to 75 characters are easiest to read: the eye tracks from the end of one line to the start of the next without losing its place. Constrain body text with a ch-based max-width instead of letting it span the whole viewport.</p>\n    <p class=\"label\">-webkit-line-clamp: 2</p>\n    <p class=\"clamp\">This excerpt is clamped to two lines and ends with an ellipsis, which is perfect for card summaries and list previews where space is limited and the full text lives elsewhere.</p>\n  </div>\n</body>\n</html>\n"
     }
   ]
 }

@@ -1,0 +1,54 @@
+{
+  "id": "glow-pulse-button",
+  "title": "Glow Pulse Button",
+  "summary": "A CTA that breathes with a soft pulsing glow to draw the eye.",
+  "description": "Animates an expanding box-shadow halo (and subtle scale) in a gentle loop to create an attention-seeking 'breathing' glow around the button.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "glow",
+    "attention"
+  ],
+  "tags": [
+    "glow",
+    "pulse",
+    "breathing",
+    "cta",
+    "box-shadow",
+    "attention"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Animating box-shadow repaints; acceptable for a single hero CTA, avoid many on screen at once.",
+  "accessibility_notes": "Attention pulse can be distracting; it stops under prefers-reduced-motion. Don't use more than one pulsing element per view.",
+  "customization": [
+    {
+      "name": "--glow",
+      "description": "Halo color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--rate",
+      "description": "Pulse duration",
+      "default": "2.2s"
+    }
+  ],
+  "variations": [
+    "Stronger halo for dark heroes",
+    "Pulse only until first interaction (JS)",
+    "Green 'success' or red 'urgent' palettes"
+  ],
+  "related": [
+    "neon-glow-text",
+    "gradient-border-button"
+  ],
+  "ai_usage": "Use sparingly for the single most important CTA. Apply .pulse-btn; the keyframes animate box-shadow from a tight ring to a wide soft halo and back. Match --glow to your brand accent. Strongly prefer disabling after first interaction or after a few seconds to avoid annoyance; the reduced-motion guard is mandatory.",
+  "path": "effects/buttons/glow-pulse-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glow Pulse Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glow-pulse-button\",\n    \"title\": \"Glow Pulse Button\",\n    \"summary\": \"A CTA that breathes with a soft pulsing glow to draw the eye.\",\n    \"description\": \"Animates an expanding box-shadow halo (and subtle scale) in a gentle loop to create an attention-seeking 'breathing' glow around the button.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"glow\", \"attention\"],\n    \"tags\": [\"glow\", \"pulse\", \"breathing\", \"cta\", \"box-shadow\", \"attention\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Animating box-shadow repaints; acceptable for a single hero CTA, avoid many on screen at once.\",\n    \"accessibility_notes\": \"Attention pulse can be distracting; it stops under prefers-reduced-motion. Don't use more than one pulsing element per view.\",\n    \"customization\": [\n      { \"name\": \"--glow\", \"description\": \"Halo color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--rate\", \"description\": \"Pulse duration\", \"default\": \"2.2s\" }\n    ],\n    \"variations\": [\"Stronger halo for dark heroes\", \"Pulse only until first interaction (JS)\", \"Green 'success' or red 'urgent' palettes\"],\n    \"related\": [\"neon-glow-text\", \"gradient-border-button\"],\n    \"ai_usage\": \"Use sparingly for the single most important CTA. Apply .pulse-btn; the keyframes animate box-shadow from a tight ring to a wide soft halo and back. Match --glow to your brand accent. Strongly prefer disabling after first interaction or after a few seconds to avoid annoyance; the reduced-motion guard is mandatory.\"\n  }\n  </script>\n  <style>\n    :root { --glow: #7c5cff; --rate: 2.2s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .pulse-btn {\n      border: none; cursor: pointer; color: #fff; font-weight: 700; font-size: 1.05rem;\n      padding: 0.95rem 2.4rem; border-radius: 999px; background: var(--glow);\n      animation: pulse var(--rate) ease-in-out infinite;\n    }\n    @keyframes pulse {\n      0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--glow) 70%, transparent); transform: scale(1); }\n      50% { box-shadow: 0 0 36px 8px color-mix(in srgb, var(--glow) 55%, transparent); transform: scale(1.04); }\n    }\n    @media (prefers-reduced-motion: reduce) { .pulse-btn { animation: none; } }\n  </style>\n</head>\n<body>\n  <button class=\"pulse-btn\">Start free trial</button>\n</body>\n</html>\n"
+}

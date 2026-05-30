@@ -1,0 +1,49 @@
+{
+  "id": "rainbow-text",
+  "title": "Rainbow Cycling Text",
+  "summary": "Text that cycles through the rainbow via an animated hue rotation — peak GeoCities energy.",
+  "description": "Fills text with a rainbow gradient (background-clip) and animates the hue with a filter or moving gradient, recreating the animated rainbow text of the early personal web.",
+  "theme": "retro-web",
+  "themeTitle": "Retro Web",
+  "categories": [
+    "retro",
+    "text",
+    "color"
+  ],
+  "tags": [
+    "rainbow",
+    "hue",
+    "90s",
+    "geocities",
+    "colorful",
+    "nostalgia"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers; needs -webkit-background-clip: text.",
+  "performance_notes": "Animating hue-rotate filter or background-position; cheap for a heading.",
+  "accessibility_notes": "Rainbow text can be low-contrast and hard to read; keep it to large display headings, not body copy. Animation stops under prefers-reduced-motion (static rainbow remains).",
+  "customization": [
+    {
+      "name": "--rate",
+      "description": "Hue cycle duration",
+      "default": "4s"
+    }
+  ],
+  "variations": [
+    "Per-letter rainbow with staggered hue",
+    "Static rainbow (no animation)",
+    "Pair with a comic-sans retro vibe"
+  ],
+  "related": [
+    "gradient-text",
+    "blink-text"
+  ],
+  "ai_usage": "Retro/playful headings and easter eggs. Apply a rainbow linear-gradient clipped to text, then animate filter: hue-rotate(0 → 360deg) for the cycling. Keep to large text for readability and disable animation under reduced motion. For a per-letter wave, wrap letters in spans and stagger animation-delay.",
+  "path": "effects/retro-web/rainbow-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rainbow Cycling Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"rainbow-text\",\n    \"title\": \"Rainbow Cycling Text\",\n    \"summary\": \"Text that cycles through the rainbow via an animated hue rotation — peak GeoCities energy.\",\n    \"description\": \"Fills text with a rainbow gradient (background-clip) and animates the hue with a filter or moving gradient, recreating the animated rainbow text of the early personal web.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"text\", \"color\"],\n    \"tags\": [\"rainbow\", \"hue\", \"90s\", \"geocities\", \"colorful\", \"nostalgia\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; needs -webkit-background-clip: text.\",\n    \"performance_notes\": \"Animating hue-rotate filter or background-position; cheap for a heading.\",\n    \"accessibility_notes\": \"Rainbow text can be low-contrast and hard to read; keep it to large display headings, not body copy. Animation stops under prefers-reduced-motion (static rainbow remains).\",\n    \"customization\": [\n      { \"name\": \"--rate\", \"description\": \"Hue cycle duration\", \"default\": \"4s\" }\n    ],\n    \"variations\": [\"Per-letter rainbow with staggered hue\", \"Static rainbow (no animation)\", \"Pair with a comic-sans retro vibe\"],\n    \"related\": [\"gradient-text\", \"blink-text\"],\n    \"ai_usage\": \"Retro/playful headings and easter eggs. Apply a rainbow linear-gradient clipped to text, then animate filter: hue-rotate(0 → 360deg) for the cycling. Keep to large text for readability and disable animation under reduced motion. For a per-letter wave, wrap letters in spans and stagger animation-delay.\"\n  }\n  </script>\n  <style>\n    :root { --rate: 4s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #1a0033; font-family: \"Comic Sans MS\", \"Trebuchet MS\", sans-serif; }\n    .rainbow {\n      font-size: 3rem; font-weight: 900;\n      background: linear-gradient(90deg, #ff0000, #ff8800, #ffee00, #00cc00, #0088ff, #8800ff, #ff0000);\n      -webkit-background-clip: text; background-clip: text; color: transparent;\n      animation: hue var(--rate) linear infinite;\n    }\n    @keyframes hue { to { filter: hue-rotate(360deg); } }\n    @media (prefers-reduced-motion: reduce) { .rainbow { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"rainbow\">~ Welcome ~</div>\n</body>\n</html>\n"
+}

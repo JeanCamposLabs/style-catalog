@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grayscale to Color on Hover</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "grayscale-to-color",
+    "title": "Grayscale to Color on Hover",
+    "summary": "A muted grayscale image blooms into full color on hover — great for logo walls and team grids.",
+    "description": "Applies filter: grayscale(1) at rest and transitions to grayscale(0) (optionally with a slight scale) on hover/focus, drawing attention to the hovered item.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "image", "filter"],
+    "tags": ["grayscale", "filter", "hover", "logo-wall", "team", "desaturate"],
+    "tech": ["css"],
+    "era": "timeless",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers (filter).",
+    "performance_notes": "Animating filter is GPU-accelerated in modern browsers; fine for a grid of moderate size.",
+    "accessibility_notes": "Also trigger on :focus-within so keyboard users get the effect. Color must not be the only way information is conveyed.",
+    "customization": [
+      { "name": "--rest", "description": "Resting grayscale amount", "default": "100%" }
+    ],
+    "variations": ["Partial desaturation (60%) at rest", "Sepia/blur at rest instead", "Whole grid muted except the hovered item"],
+    "related": ["image-zoom-reveal", "duotone-image"],
+    "ai_usage": "Use for logo walls, partner grids, and team photos to create focus on hover. Rest: filter: grayscale(var(--rest)); hover/focus-within: grayscale(0) + optional scale. Trigger on :focus-within too for keyboard users. For a 'spotlight' grid, mute the whole container and only un-mute the hovered child. Replace the gradient placeholders with real <img> + alt text."
+  }
+  </script>
+  <style>
+    :root { --rest: 100%; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .grid { display: grid; grid-template-columns: repeat(3, 80px); gap: 1rem; }
+    .item {
+      width: 80px; height: 80px; border-radius: 14px; filter: grayscale(var(--rest)); opacity: .75;
+      transition: filter .35s ease, transform .35s ease, opacity .35s ease;
+    }
+    .item:hover, .item:focus-visible { filter: grayscale(0); transform: scale(1.08); opacity: 1; outline: none; }
+    .a { background: linear-gradient(135deg,#7c5cff,#5b3ee0); }
+    .b { background: linear-gradient(135deg,#2dd4bf,#0ea5a5); }
+    .c { background: linear-gradient(135deg,#f0abfc,#c026d3); }
+    .d { background: linear-gradient(135deg,#fb7185,#e11d48); }
+    .e { background: linear-gradient(135deg,#38bdf8,#0369a1); }
+    .f { background: linear-gradient(135deg,#fbbf24,#d97706); }
+    @media (prefers-reduced-motion: reduce) { .item { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="item a" tabindex="0"></div><div class="item b" tabindex="0"></div><div class="item c" tabindex="0"></div>
+    <div class="item d" tabindex="0"></div><div class="item e" tabindex="0"></div><div class="item f" tabindex="0"></div>
+  </div>
+</body>
+</html>

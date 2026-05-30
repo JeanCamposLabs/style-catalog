@@ -1,0 +1,54 @@
+{
+  "id": "hamburger-morph",
+  "title": "Hamburger → X Morph",
+  "summary": "A three-line menu icon that smoothly morphs into a close (X) when toggled.",
+  "description": "Three bars transform on toggle: the middle fades, the top and bottom rotate ±45° and translate to form an X — the canonical menu-button animation, on a real accessible button.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu",
+    "icon"
+  ],
+  "tags": [
+    "hamburger",
+    "menu",
+    "toggle",
+    "morph",
+    "x",
+    "icon"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2010s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Transform/opacity transitions on three spans; trivial.",
+  "accessibility_notes": "Built on a <button> with aria-expanded and aria-label that updates on toggle — essential for screen readers. Transition removed under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--bar",
+      "description": "Bar color",
+      "default": "#e7ebf3"
+    },
+    {
+      "name": "--w",
+      "description": "Icon width",
+      "default": "32px"
+    }
+  ],
+  "variations": [
+    "Morph to back-arrow instead of X",
+    "Spin the whole icon while morphing",
+    "Plus → minus for accordions"
+  ],
+  "related": [
+    "underline-grow-link"
+  ],
+  "ai_usage": "Mobile nav toggle. MUST be a real <button> with aria-label and aria-expanded toggled in JS (also drive opening the actual menu from the same state). Three .bar spans; on the .open state, translate+rotate the top/bottom into an X and fade the middle. The top/bottom translate distance equals the gap between bars. Remove transition under reduced motion.",
+  "path": "effects/navigation-menus/hamburger-morph.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hamburger → X Morph</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hamburger-morph\",\n    \"title\": \"Hamburger → X Morph\",\n    \"summary\": \"A three-line menu icon that smoothly morphs into a close (X) when toggled.\",\n    \"description\": \"Three bars transform on toggle: the middle fades, the top and bottom rotate ±45° and translate to form an X — the canonical menu-button animation, on a real accessible button.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\", \"icon\"],\n    \"tags\": [\"hamburger\", \"menu\", \"toggle\", \"morph\", \"x\", \"icon\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Transform/opacity transitions on three spans; trivial.\",\n    \"accessibility_notes\": \"Built on a <button> with aria-expanded and aria-label that updates on toggle — essential for screen readers. Transition removed under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--bar\", \"description\": \"Bar color\", \"default\": \"#e7ebf3\" },\n      { \"name\": \"--w\", \"description\": \"Icon width\", \"default\": \"32px\" }\n    ],\n    \"variations\": [\"Morph to back-arrow instead of X\", \"Spin the whole icon while morphing\", \"Plus → minus for accordions\"],\n    \"related\": [\"underline-grow-link\"],\n    \"ai_usage\": \"Mobile nav toggle. MUST be a real <button> with aria-label and aria-expanded toggled in JS (also drive opening the actual menu from the same state). Three .bar spans; on the .open state, translate+rotate the top/bottom into an X and fade the middle. The top/bottom translate distance equals the gap between bars. Remove transition under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root { --bar: #e7ebf3; --w: 32px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    .burger {\n      background: none; border: none; cursor: pointer; padding: 10px;\n      display: inline-flex; flex-direction: column; gap: 7px;\n    }\n    .bar { width: var(--w); height: 3px; border-radius: 3px; background: var(--bar); transition: transform .3s ease, opacity .3s ease; }\n    .burger.open .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }\n    .burger.open .bar:nth-child(2) { opacity: 0; }\n    .burger.open .bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }\n    @media (prefers-reduced-motion: reduce) { .bar { transition: none; } }\n  </style>\n</head>\n<body>\n  <button class=\"burger\" id=\"burger\" aria-label=\"Open menu\" aria-expanded=\"false\">\n    <span class=\"bar\"></span><span class=\"bar\"></span><span class=\"bar\"></span>\n  </button>\n  <script>\n    var b = document.getElementById(\"burger\");\n    b.addEventListener(\"click\", function () {\n      var open = b.classList.toggle(\"open\");\n      b.setAttribute(\"aria-expanded\", String(open));\n      b.setAttribute(\"aria-label\", open ? \"Close menu\" : \"Open menu\");\n    });\n  </script>\n</body>\n</html>\n"
+}

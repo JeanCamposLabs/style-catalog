@@ -1,0 +1,55 @@
+{
+  "id": "holy-grail",
+  "title": "Holy Grail Layout",
+  "summary": "Header, footer, fluid main content, and two fixed sidebars — the classic app shell, in CSS Grid.",
+  "description": "The famously-hard-in-the-old-days 'holy grail' layout (sticky header/footer, flexible center, fixed-width side rails) expressed cleanly with grid-template-areas.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "grid",
+    "app-shell",
+    "reference"
+  ],
+  "tags": [
+    "holy-grail",
+    "grid-template-areas",
+    "app-shell",
+    "sidebar",
+    "layout",
+    "dashboard"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Grid + template-areas).",
+  "performance_notes": "Pure layout; free.",
+  "accessibility_notes": "Use landmark elements (header/nav/main/aside/footer). Keep DOM order sensible (main content early) for screen readers even if visually centered.",
+  "customization": [
+    {
+      "name": "grid-template-columns",
+      "description": "Side rail widths + flexible center",
+      "default": "200px 1fr 200px"
+    },
+    {
+      "name": "grid-template-areas",
+      "description": "The named region map",
+      "default": "see source"
+    }
+  ],
+  "variations": [
+    "Collapse rails to a single column on mobile",
+    "Sticky header + scrollable main",
+    "Replace a rail with a collapsible drawer"
+  ],
+  "related": [
+    "sticky-sidebar",
+    "bento-grid"
+  ],
+  "ai_usage": "The default app/dashboard/blog shell. Use grid-template-areas to name header/nav/main/aside/footer regions and grid-template-columns/rows to size them (fixed rails + 1fr center). Assign each landmark element to its area. On mobile, redefine the areas to stack into one column inside a media/container query. Keep semantic landmarks for accessibility.",
+  "path": "effects/layout-archetypes/holy-grail.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Holy Grail Layout</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"holy-grail\",\n    \"title\": \"Holy Grail Layout\",\n    \"summary\": \"Header, footer, fluid main content, and two fixed sidebars — the classic app shell, in CSS Grid.\",\n    \"description\": \"The famously-hard-in-the-old-days 'holy grail' layout (sticky header/footer, flexible center, fixed-width side rails) expressed cleanly with grid-template-areas.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"grid\", \"app-shell\", \"reference\"],\n    \"tags\": [\"holy-grail\", \"grid-template-areas\", \"app-shell\", \"sidebar\", \"layout\", \"dashboard\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Grid + template-areas).\",\n    \"performance_notes\": \"Pure layout; free.\",\n    \"accessibility_notes\": \"Use landmark elements (header/nav/main/aside/footer). Keep DOM order sensible (main content early) for screen readers even if visually centered.\",\n    \"customization\": [\n      { \"name\": \"grid-template-columns\", \"description\": \"Side rail widths + flexible center\", \"default\": \"200px 1fr 200px\" },\n      { \"name\": \"grid-template-areas\", \"description\": \"The named region map\", \"default\": \"see source\" }\n    ],\n    \"variations\": [\"Collapse rails to a single column on mobile\", \"Sticky header + scrollable main\", \"Replace a rail with a collapsible drawer\"],\n    \"related\": [\"sticky-sidebar\", \"bento-grid\"],\n    \"ai_usage\": \"The default app/dashboard/blog shell. Use grid-template-areas to name header/nav/main/aside/footer regions and grid-template-columns/rows to size them (fixed rails + 1fr center). Assign each landmark element to its area. On mobile, redefine the areas to stack into one column inside a media/container query. Keep semantic landmarks for accessibility.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { font-family: system-ui, sans-serif; }\n    .hg {\n      height: 100vh; display: grid; gap: .5rem; padding: .5rem; background: #0b0d12;\n      grid-template-columns: 150px 1fr 150px;\n      grid-template-rows: auto 1fr auto;\n      grid-template-areas: \"header header header\" \"nav main aside\" \"footer footer footer\";\n    }\n    .hg > * { border-radius: 10px; padding: .8rem; color: #e7ebf3; display: flex; align-items: center; justify-content: center; font-weight: 600; }\n    header { grid-area: header; background: linear-gradient(90deg,#7c5cff,#2dd4bf); color: #fff; }\n    nav { grid-area: nav; background: #151925; border: 1px solid #262c3d; }\n    main { grid-area: main; background: #11141c; border: 1px solid #262c3d; }\n    aside { grid-area: aside; background: #151925; border: 1px solid #262c3d; }\n    footer { grid-area: footer; background: #151925; border: 1px solid #262c3d; color: #8b93a7; }\n  </style>\n</head>\n<body>\n  <div class=\"hg\">\n    <header>Header</header>\n    <nav>Nav</nav>\n    <main>Main content</main>\n    <aside>Aside</aside>\n    <footer>Footer</footer>\n  </div>\n</body>\n</html>\n"
+}

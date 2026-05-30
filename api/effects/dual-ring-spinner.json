@@ -1,0 +1,51 @@
+{
+  "id": "dual-ring-spinner",
+  "title": "Dual Ring / Orbit Spinner",
+  "summary": "Two concentric arcs spin in opposite directions for a more dynamic loader.",
+  "description": "A container and a pseudo-element each render an arc (colored border on opposing sides) and counter-rotate, producing an orbiting double-ring spinner.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "spinner",
+    "orbit",
+    "dual-ring",
+    "loading",
+    "counter-rotate"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Two rotating layers, transform-only — cheap.",
+  "accessibility_notes": "Pair with role=status + label. Slow down under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--size",
+      "description": "Outer diameter",
+      "default": "56px"
+    },
+    {
+      "name": "--c1 / --c2",
+      "description": "Arc colors",
+      "default": "#7c5cff / #2dd4bf"
+    }
+  ],
+  "variations": [
+    "Same-direction nested rings",
+    "Three rings",
+    "Dashed inner ring"
+  ],
+  "related": [
+    "ring-spinner"
+  ],
+  "ai_usage": "A slightly fancier spinner for splash/loading screens. Outer element has border-top-color:--c1 and spins one way; ::after is an inset ring with border-bottom-color:--c2 spinning the other way. Keep within role=status and a hidden label. Size via --size.",
+  "path": "effects/loaders-spinners/dual-ring-spinner.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dual Ring / Orbit Spinner</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dual-ring-spinner\",\n    \"title\": \"Dual Ring / Orbit Spinner\",\n    \"summary\": \"Two concentric arcs spin in opposite directions for a more dynamic loader.\",\n    \"description\": \"A container and a pseudo-element each render an arc (colored border on opposing sides) and counter-rotate, producing an orbiting double-ring spinner.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"spinner\", \"orbit\", \"dual-ring\", \"loading\", \"counter-rotate\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Two rotating layers, transform-only — cheap.\",\n    \"accessibility_notes\": \"Pair with role=status + label. Slow down under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--size\", \"description\": \"Outer diameter\", \"default\": \"56px\" },\n      { \"name\": \"--c1 / --c2\", \"description\": \"Arc colors\", \"default\": \"#7c5cff / #2dd4bf\" }\n    ],\n    \"variations\": [\"Same-direction nested rings\", \"Three rings\", \"Dashed inner ring\"],\n    \"related\": [\"ring-spinner\"],\n    \"ai_usage\": \"A slightly fancier spinner for splash/loading screens. Outer element has border-top-color:--c1 and spins one way; ::after is an inset ring with border-bottom-color:--c2 spinning the other way. Keep within role=status and a hidden label. Size via --size.\"\n  }\n  </script>\n  <style>\n    :root { --size: 56px; --c1: #7c5cff; --c2: #2dd4bf; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    .orbit {\n      position: relative; width: var(--size); height: var(--size); border-radius: 50%;\n      border: 4px solid transparent; border-top-color: var(--c1);\n      animation: spin 1s linear infinite;\n    }\n    .orbit::after {\n      content: \"\"; position: absolute; inset: 6px; border-radius: 50%;\n      border: 4px solid transparent; border-bottom-color: var(--c2);\n      animation: spin 1.5s linear infinite reverse;\n    }\n    @keyframes spin { to { transform: rotate(360deg); } }\n    @media (prefers-reduced-motion: reduce) { .orbit, .orbit::after { animation-duration: 3s; } }\n    .visually-hidden { position: absolute; width: 1px; height: 1px; clip: rect(0 0 0 0); overflow: hidden; }\n  </style>\n</head>\n<body>\n  <div class=\"orbit\" role=\"status\"><span class=\"visually-hidden\">Loading…</span></div>\n</body>\n</html>\n"
+}

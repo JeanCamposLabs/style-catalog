@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modal Fade &amp; Scale</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "modal-fade-scale",
+    "title": "Modal Fade & Scale",
+    "summary": "A dialog that fades its backdrop and scales up from 95%, using the native <dialog> element.",
+    "description": "Uses the semantic <dialog> (with showModal()) for built-in focus trapping and backdrop, animating the panel from a slightly-scaled, transparent state and fading ::backdrop.",
+    "theme": "transitions-animations",
+    "categories": ["animation", "modal", "dialog"],
+    "tags": ["modal", "dialog", "fade", "scale", "popup", "backdrop"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (<dialog> + ::backdrop).",
+    "performance_notes": "Transform/opacity transition; trivial.",
+    "accessibility_notes": "The native <dialog> with showModal() gives focus trapping, Escape-to-close, and inert background for free — strongly preferred over a div-based modal. Return focus to the trigger on close (handled here).",
+    "customization": [
+      { "name": "--dur", "description": "Open/close duration", "default": "0.25s" }
+    ],
+    "variations": ["Slide-up from bottom (sheet)", "Spring scale with --ease-back", "Non-modal popover via popover attribute"],
+    "related": ["dropdown-menu", "glassmorphism-card"],
+    "ai_usage": "Use the NATIVE <dialog> for modals — call dialog.showModal() (not just .show()) to get focus trapping, ::backdrop, and Escape handling for free. Animate the panel (opacity + transform: scale) and ::backdrop opacity via an [open] class or the dialog[open] state; manage display with @starting-style or by toggling a class after showModal. Always return focus to the trigger on close. The demo auto-reopens to show the transition."
+  }
+  </script>
+  <style>
+    :root { --dur: .25s; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .open-btn { background: #7c5cff; color: #fff; border: none; border-radius: 10px; padding: .7rem 1.4rem; font-weight: 600; cursor: pointer; }
+    dialog {
+      border: 1px solid #262c3d; background: #151925; color: #e7ebf3; border-radius: 16px; padding: 1.6rem; width: 280px;
+      opacity: 0; transform: scale(.95); transition: opacity var(--dur), transform var(--dur); box-shadow: 0 30px 70px rgba(0,0,0,.6);
+    }
+    dialog[open] { opacity: 1; transform: scale(1); }
+    dialog::backdrop { background: rgba(4,6,12,.6); backdrop-filter: blur(3px); }
+    dialog h3 { margin: 0 0 .4rem; } dialog p { margin: 0 0 1.2rem; color: #8b93a7; }
+    dialog button { background: #232a3d; color: #fff; border: none; border-radius: 8px; padding: .5rem 1rem; cursor: pointer; }
+    @media (prefers-reduced-motion: reduce) { dialog { transition: none; } }
+  </style>
+</head>
+<body>
+  <button class="open-btn" id="open">Open dialog</button>
+  <dialog id="dlg">
+    <h3>Native dialog</h3>
+    <p>Focus-trapped, Escape-closable, animated.</p>
+    <button id="close">Close</button>
+  </dialog>
+  <script>
+    var dlg = document.getElementById("dlg"), open = document.getElementById("open"), close = document.getElementById("close");
+    open.addEventListener("click", function () { dlg.showModal(); });
+    close.addEventListener("click", function () { dlg.close(); });
+    // Auto-demo so the transition is visible in the catalog frame.
+    function cycle() { if (!dlg.open) { dlg.showModal(); setTimeout(function () { dlg.close(); }, 1800); } }
+    setTimeout(cycle, 600); setInterval(cycle, 4000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "id": "mesh-gradient",
+  "title": "Mesh Gradient",
+  "summary": "Multiple overlapping radial gradients blend into a rich, painterly mesh.",
+  "description": "Layers several positioned radial-gradients in one background declaration to fake a mesh gradient (smooth multi-point color blends), the look popularized by Stripe and modern design tools.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "gradient"
+  ],
+  "tags": [
+    "mesh",
+    "gradient",
+    "radial",
+    "stripe",
+    "colorful",
+    "blend"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Static layered gradients are essentially free. No animation by default.",
+  "accessibility_notes": "Decorative; ensure overlaid content has its own readable surface.",
+  "customization": [
+    {
+      "name": "color points",
+      "description": "Each radial-gradient's color + position",
+      "default": "see source"
+    }
+  ],
+  "variations": [
+    "Animate background-position for a living mesh",
+    "Pastel light-mode palette",
+    "Add subtle grain for texture"
+  ],
+  "related": [
+    "aurora-background",
+    "animated-gradient"
+  ],
+  "ai_usage": "Use as a static decorative background for heroes, cards, or section dividers. Compose 3-6 radial-gradient(circle at X% Y%, COLOR, transparent N%) layers in a single background property; nearer color stops = tighter blobs. Pick a coherent palette. To animate, give it background-size>100% and animate background-position. Great fallback when true mesh-gradient CSS isn't available.",
+  "path": "effects/backgrounds/mesh-gradient.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Mesh Gradient</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"mesh-gradient\",\n    \"title\": \"Mesh Gradient\",\n    \"summary\": \"Multiple overlapping radial gradients blend into a rich, painterly mesh.\",\n    \"description\": \"Layers several positioned radial-gradients in one background declaration to fake a mesh gradient (smooth multi-point color blends), the look popularized by Stripe and modern design tools.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"gradient\"],\n    \"tags\": [\"mesh\", \"gradient\", \"radial\", \"stripe\", \"colorful\", \"blend\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Static layered gradients are essentially free. No animation by default.\",\n    \"accessibility_notes\": \"Decorative; ensure overlaid content has its own readable surface.\",\n    \"customization\": [\n      { \"name\": \"color points\", \"description\": \"Each radial-gradient's color + position\", \"default\": \"see source\" }\n    ],\n    \"variations\": [\"Animate background-position for a living mesh\", \"Pastel light-mode palette\", \"Add subtle grain for texture\"],\n    \"related\": [\"aurora-background\", \"animated-gradient\"],\n    \"ai_usage\": \"Use as a static decorative background for heroes, cards, or section dividers. Compose 3-6 radial-gradient(circle at X% Y%, COLOR, transparent N%) layers in a single background property; nearer color stops = tighter blobs. Pick a coherent palette. To animate, give it background-size>100% and animate background-position. Great fallback when true mesh-gradient CSS isn't available.\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    .mesh {\n      height: 100vh;\n      background-color: #1a103d;\n      background-image:\n        radial-gradient(at 20% 20%, #7c5cff 0px, transparent 50%),\n        radial-gradient(at 80% 10%, #2dd4bf 0px, transparent 50%),\n        radial-gradient(at 75% 75%, #f0abfc 0px, transparent 50%),\n        radial-gradient(at 15% 85%, #38bdf8 0px, transparent 50%),\n        radial-gradient(at 50% 50%, #fb7185 0px, transparent 45%);\n    }\n  </style>\n</head>\n<body>\n  <div class=\"mesh\"></div>\n</body>\n</html>\n"
+}
