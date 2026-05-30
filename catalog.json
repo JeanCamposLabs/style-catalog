@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "counts": {
-    "themes": 20,
-    "effects": 94
+    "themes": 21,
+    "effects": 102
   },
   "themes": [
     {
@@ -109,6 +109,14 @@
       "icon": "🖼️",
       "order": 110,
       "count": 4
+    },
+    {
+      "slug": "svg-effects",
+      "title": "SVG Effects",
+      "description": "Vector-graphics techniques — self-drawing line art, gooey filters, path morphing, turbulence distortion, text on a path, and grain.",
+      "icon": "✒️",
+      "order": 115,
+      "count": 8
     },
     {
       "slug": "cursors-pointers",
@@ -235,6 +243,11 @@
         "count": 4
       },
       {
+        "slug": "svg-effects",
+        "title": "SVG Effects",
+        "count": 8
+      },
+      {
         "slug": "cursors-pointers",
         "title": "Cursors & Pointers",
         "count": 3
@@ -273,7 +286,7 @@
     "tech": [
       {
         "value": "css",
-        "count": 93
+        "count": 98
       },
       {
         "value": "js",
@@ -281,7 +294,7 @@
       },
       {
         "value": "svg",
-        "count": 3
+        "count": 11
       },
       {
         "value": "canvas",
@@ -291,29 +304,29 @@
     "difficulty": [
       {
         "value": "beginner",
-        "count": 50
+        "count": 51
       },
       {
         "value": "intermediate",
-        "count": 38
+        "count": 42
       },
       {
         "value": "advanced",
-        "count": 6
+        "count": 9
       }
     ],
     "era": [
       {
         "value": "2020s",
-        "count": 56
+        "count": 60
       },
       {
         "value": "timeless",
-        "count": 19
+        "count": 20
       },
       {
         "value": "2010s",
-        "count": 15
+        "count": 18
       },
       {
         "value": "1990s",
@@ -326,16 +339,16 @@
     ],
     "categories": [
       {
+        "value": "animation",
+        "count": 16
+      },
+      {
         "value": "reference",
         "count": 13
       },
       {
-        "value": "animation",
-        "count": 12
-      },
-      {
         "value": "typography",
-        "count": 11
+        "count": 12
       },
       {
         "value": "button",
@@ -347,6 +360,10 @@
       },
       {
         "value": "hover",
+        "count": 9
+      },
+      {
+        "value": "svg",
         "count": 9
       },
       {
@@ -367,7 +384,7 @@
       },
       {
         "value": "loader",
-        "count": 6
+        "count": 7
       },
       {
         "value": "scroll",
@@ -383,6 +400,10 @@
       },
       {
         "value": "design-tokens",
+        "count": 5
+      },
+      {
+        "value": "filter",
         "count": 5
       },
       {
@@ -404,6 +425,10 @@
       {
         "value": "surface",
         "count": 5
+      },
+      {
+        "value": "feedback",
+        "count": 4
       },
       {
         "value": "glow",
@@ -430,10 +455,6 @@
         "count": 3
       },
       {
-        "value": "feedback",
-        "count": 3
-      },
-      {
         "value": "grid",
         "count": 3
       },
@@ -450,15 +471,15 @@
         "count": 3
       },
       {
+        "value": "text",
+        "count": 3
+      },
+      {
         "value": "attention",
         "count": 2
       },
       {
         "value": "carousel",
-        "count": 2
-      },
-      {
-        "value": "filter",
         "count": 2
       },
       {
@@ -522,7 +543,7 @@
         "count": 2
       },
       {
-        "value": "text",
+        "value": "stroke",
         "count": 2
       },
       {
@@ -579,6 +600,10 @@
       },
       {
         "value": "disclosure",
+        "count": 1
+      },
+      {
+        "value": "distortion",
         "count": 1
       },
       {
@@ -666,6 +691,10 @@
         "count": 1
       },
       {
+        "value": "morph",
+        "count": 1
+      },
+      {
         "value": "particles",
         "count": 1
       },
@@ -710,11 +739,11 @@
         "count": 1
       },
       {
-        "value": "svg",
+        "value": "tabs",
         "count": 1
       },
       {
-        "value": "tabs",
+        "value": "texture",
         "count": 1
       },
       {
@@ -727,6 +756,10 @@
       }
     ],
     "tags": [
+      {
+        "value": "svg",
+        "count": 11
+      },
       {
         "value": "3d",
         "count": 7
@@ -796,7 +829,15 @@
         "count": 4
       },
       {
+        "value": "progress",
+        "count": 4
+      },
+      {
         "value": "shadow",
+        "count": 4
+      },
+      {
+        "value": "spinner",
         "count": 4
       },
       {
@@ -813,6 +854,10 @@
       },
       {
         "value": "animation",
+        "count": 3
+      },
+      {
+        "value": "blob",
         "count": 3
       },
       {
@@ -852,15 +897,15 @@
         "count": 3
       },
       {
+        "value": "morph",
+        "count": 3
+      },
+      {
         "value": "parallax",
         "count": 3
       },
       {
         "value": "playful",
-        "count": 3
-      },
-      {
-        "value": "progress",
         "count": 3
       },
       {
@@ -876,11 +921,7 @@
         "count": 3
       },
       {
-        "value": "spinner",
-        "count": 3
-      },
-      {
-        "value": "svg",
+        "value": "stroke",
         "count": 3
       },
       {
@@ -912,10 +953,6 @@
         "count": 2
       },
       {
-        "value": "blob",
-        "count": 2
-      },
-      {
         "value": "box-shadow",
         "count": 2
       },
@@ -940,6 +977,10 @@
         "count": 2
       },
       {
+        "value": "circular",
+        "count": 2
+      },
+      {
         "value": "clip",
         "count": 2
       },
@@ -960,6 +1001,10 @@
         "count": 2
       },
       {
+        "value": "distortion",
+        "count": 2
+      },
+      {
         "value": "editorial",
         "count": 2
       },
@@ -969,6 +1014,10 @@
       },
       {
         "value": "feedback",
+        "count": 2
+      },
+      {
+        "value": "feturbulence",
         "count": 2
       },
       {
@@ -1005,6 +1054,10 @@
       },
       {
         "value": "glassmorphism",
+        "count": 2
+      },
+      {
+        "value": "gooey",
         "count": 2
       },
       {
@@ -1048,6 +1101,10 @@
         "count": 2
       },
       {
+        "value": "liquid",
+        "count": 2
+      },
+      {
         "value": "marquee",
         "count": 2
       },
@@ -1068,15 +1125,15 @@
         "count": 2
       },
       {
-        "value": "morph",
-        "count": 2
-      },
-      {
         "value": "motion",
         "count": 2
       },
       {
         "value": "neumorphism",
+        "count": 2
+      },
+      {
+        "value": "noise",
         "count": 2
       },
       {
@@ -1120,6 +1177,10 @@
         "count": 2
       },
       {
+        "value": "ripple",
+        "count": 2
+      },
+      {
         "value": "saas",
         "count": 2
       },
@@ -1156,11 +1217,15 @@
         "count": 2
       },
       {
-        "value": "stroke",
+        "value": "stroke-dashoffset",
         "count": 2
       },
       {
         "value": "text-shadow",
+        "count": 2
+      },
+      {
+        "value": "tick",
         "count": 2
       },
       {
@@ -1212,6 +1277,10 @@
         "count": 1
       },
       {
+        "value": "arc",
+        "count": 1
+      },
+      {
         "value": "aria-busy",
         "count": 1
       },
@@ -1241,6 +1310,10 @@
       },
       {
         "value": "backface",
+        "count": 1
+      },
+      {
+        "value": "badge",
         "count": 1
       },
       {
@@ -1324,15 +1397,15 @@
         "count": 1
       },
       {
+        "value": "checkmark",
+        "count": 1
+      },
+      {
         "value": "choreography",
         "count": 1
       },
       {
         "value": "cinematic",
-        "count": 1
-      },
-      {
-        "value": "circular",
         "count": 1
       },
       {
@@ -1368,6 +1441,10 @@
         "count": 1
       },
       {
+        "value": "confirmation",
+        "count": 1
+      },
+      {
         "value": "content",
         "count": 1
       },
@@ -1400,6 +1477,10 @@
         "count": 1
       },
       {
+        "value": "curved-text",
+        "count": 1
+      },
+      {
         "value": "custom-cursor",
         "count": 1
       },
@@ -1413,6 +1494,10 @@
       },
       {
         "value": "dark-mode",
+        "count": 1
+      },
+      {
+        "value": "dash",
         "count": 1
       },
       {
@@ -1460,7 +1545,7 @@
         "count": 1
       },
       {
-        "value": "distortion",
+        "value": "displacement",
         "count": 1
       },
       {
@@ -1473,6 +1558,10 @@
       },
       {
         "value": "draw",
+        "count": 1
+      },
+      {
+        "value": "draw-on",
         "count": 1
       },
       {
@@ -1517,6 +1606,18 @@
       },
       {
         "value": "feature",
+        "count": 1
+      },
+      {
+        "value": "feColorMatrix",
+        "count": 1
+      },
+      {
+        "value": "feGaussianBlur",
+        "count": 1
+      },
+      {
+        "value": "film",
         "count": 1
       },
       {
@@ -1568,11 +1669,15 @@
         "count": 1
       },
       {
-        "value": "gooey",
+        "value": "gradient-border",
         "count": 1
       },
       {
-        "value": "gradient-border",
+        "value": "gradient-stroke",
+        "count": 1
+      },
+      {
+        "value": "grain",
         "count": 1
       },
       {
@@ -1676,6 +1781,10 @@
         "count": 1
       },
       {
+        "value": "line-draw",
+        "count": 1
+      },
+      {
         "value": "line-height",
         "count": 1
       },
@@ -1696,7 +1805,15 @@
         "count": 1
       },
       {
+        "value": "loader",
+        "count": 1
+      },
+      {
         "value": "login",
+        "count": 1
+      },
+      {
+        "value": "logo",
         "count": 1
       },
       {
@@ -1733,6 +1850,10 @@
       },
       {
         "value": "mesh",
+        "count": 1
+      },
+      {
+        "value": "metaball",
         "count": 1
       },
       {
@@ -1797,6 +1918,10 @@
       },
       {
         "value": "pan",
+        "count": 1
+      },
+      {
+        "value": "path",
         "count": 1
       },
       {
@@ -1900,10 +2025,6 @@
         "count": 1
       },
       {
-        "value": "ripple",
-        "count": 1
-      },
-      {
         "value": "rolling",
         "count": 1
       },
@@ -1976,6 +2097,10 @@
         "count": 1
       },
       {
+        "value": "shape-tween",
+        "count": 1
+      },
+      {
         "value": "shine",
         "count": 1
       },
@@ -1988,6 +2113,10 @@
         "count": 1
       },
       {
+        "value": "signature",
+        "count": 1
+      },
+      {
         "value": "sizing",
         "count": 1
       },
@@ -1997,6 +2126,10 @@
       },
       {
         "value": "slideshow",
+        "count": 1
+      },
+      {
+        "value": "smil",
         "count": 1
       },
       {
@@ -2048,11 +2181,11 @@
         "count": 1
       },
       {
-        "value": "stroke-dashoffset",
+        "value": "submit",
         "count": 1
       },
       {
-        "value": "submit",
+        "value": "success",
         "count": 1
       },
       {
@@ -2092,6 +2225,14 @@
         "count": 1
       },
       {
+        "value": "textpath",
+        "count": 1
+      },
+      {
+        "value": "texture",
+        "count": 1
+      },
+      {
         "value": "theme",
         "count": 1
       },
@@ -2101,10 +2242,6 @@
       },
       {
         "value": "thumb",
-        "count": 1
-      },
-      {
-        "value": "tick",
         "count": 1
       },
       {
@@ -6276,6 +6413,447 @@
       "ai_usage": "Use for feature walkthroughs and editorial sections. Give each card position:sticky; top:<offset>; the cards naturally pin and overlap as you scroll. Add a slight scale-down via scroll-driven animation for the 'deck' feel. Ensure enough scroll distance between cards. The demo auto-scrolls to show the stacking in the catalog frame.",
       "path": "effects/scroll-effects/sticky-stack-cards.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sticky Stacking Cards</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"sticky-stack-cards\",\n    \"title\": \"Sticky Stacking Cards\",\n    \"summary\": \"Cards stick to the top and stack on one another as you scroll past them.\",\n    \"description\": \"Each card uses position: sticky with the same top offset so successive cards pin and overlap, building a layered stack — a trendy storytelling/section pattern requiring no JS.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"sticky\", \"layout\"],\n    \"tags\": [\"sticky\", \"stack\", \"scroll\", \"cards\", \"pin\", \"storytelling\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (position: sticky).\",\n    \"performance_notes\": \"Pure layout/paint; very efficient, no scroll JS.\",\n    \"accessibility_notes\": \"Content remains in natural reading order; safe under reduced-motion (no autonomous animation).\",\n    \"customization\": [\n      { \"name\": \"top offset\", \"description\": \"Where cards pin\", \"default\": \"20px\" },\n      { \"name\": \"card height\", \"description\": \"Determines overlap\", \"default\": \"auto\" }\n    ],\n    \"variations\": [\"Scale/rotate each card slightly as it stacks (scroll-driven)\", \"Offset top per card for a fanned stack\", \"Horizontal sticky stack\"],\n    \"related\": [\"scroll-progress-bar\", \"parallax-layers\"],\n    \"ai_usage\": \"Use for feature walkthroughs and editorial sections. Give each card position:sticky; top:<offset>; the cards naturally pin and overlap as you scroll. Add a slight scale-down via scroll-driven animation for the 'deck' feel. Ensure enough scroll distance between cards. The demo auto-scrolls to show the stacking in the catalog frame.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; font-family: system-ui, sans-serif; }\n    .stack { height: 100vh; overflow-y: auto; padding: 1rem; }\n    .scard {\n      position: sticky; top: 16px; height: 150px; margin-bottom: 26px; border-radius: 16px;\n      display: grid; place-items: center; color: #fff; font-size: 1.4rem; font-weight: 800;\n      box-shadow: 0 12px 30px rgba(0,0,0,.4);\n    }\n    .scard:nth-child(1) { background: linear-gradient(135deg,#7c5cff,#5b3ee0); }\n    .scard:nth-child(2) { background: linear-gradient(135deg,#2dd4bf,#0ea5a5); }\n    .scard:nth-child(3) { background: linear-gradient(135deg,#f0abfc,#c026d3); }\n    .scard:nth-child(4) { background: linear-gradient(135deg,#fb7185,#e11d48); }\n    .tail { height: 60vh; }\n  </style>\n</head>\n<body>\n  <div class=\"stack\" id=\"stack\">\n    <div class=\"scard\">Card 1</div>\n    <div class=\"scard\">Card 2</div>\n    <div class=\"scard\">Card 3</div>\n    <div class=\"scard\">Card 4</div>\n    <div class=\"tail\"></div>\n  </div>\n  <script>\n    if (!matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      var s = document.getElementById(\"stack\"), dir = 1;\n      setInterval(function () {\n        s.scrollTop += dir * 2;\n        if (s.scrollTop + s.clientHeight >= s.scrollHeight - 2) dir = -1;\n        if (s.scrollTop <= 0) dir = 1;\n      }, 16);\n    }\n  </script>\n</body>\n</html>\n"
+    },
+    {
+      "id": "svg-gradient-stroke",
+      "title": "SVG Animated Gradient Stroke",
+      "summary": "A circular progress/loader ring stroked with a gradient and an animating dash.",
+      "description": "Combines an SVG linearGradient stroke with stroke-linecap round and an animated stroke-dasharray/dashoffset to create a smooth gradient-stroked spinner or progress arc.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "stroke",
+        "loader"
+      ],
+      "tags": [
+        "svg",
+        "gradient-stroke",
+        "spinner",
+        "progress",
+        "dash",
+        "loader"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers. Note: SVG gradient stroke doesn't rotate with the element, so rotate the whole SVG, not the gradient.",
+      "performance_notes": "Animating rotation + dash via CSS is cheap.",
+      "accessibility_notes": "If used as a loader, wrap with role=status + a visually-hidden label. Slow under prefers-reduced-motion rather than stopping (it's a busy indicator).",
+      "customization": [
+        {
+          "name": "gradient stops",
+          "description": "Stroke colors",
+          "default": "#7c5cff → #2dd4bf"
+        },
+        {
+          "name": "stroke-width",
+          "description": "Ring thickness",
+          "default": "10"
+        }
+      ],
+      "variations": [
+        "Determinate progress (set dashoffset from a value)",
+        "Conic-like full-rainbow stroke",
+        "Pulsing dash length"
+      ],
+      "related": [
+        "progress-ring",
+        "ring-spinner",
+        "gradient-border"
+      ],
+      "ai_usage": "Use for premium loaders and progress rings. Stroke a <circle> with url(#gradient); set stroke-linecap='round'. For an indeterminate spinner, animate the whole SVG's rotation AND the stroke-dasharray/dashoffset (Material-style). For determinate progress, fix dasharray to the circumference and set dashoffset from your percentage. Rotate the SVG element, not the gradient (gradients are in user space). Add role=status + label when it's a loader.",
+      "path": "effects/svg-effects/svg-gradient-stroke.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Animated Gradient Stroke</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-gradient-stroke\",\n    \"title\": \"SVG Animated Gradient Stroke\",\n    \"summary\": \"A circular progress/loader ring stroked with a gradient and an animating dash.\",\n    \"description\": \"Combines an SVG linearGradient stroke with stroke-linecap round and an animated stroke-dasharray/dashoffset to create a smooth gradient-stroked spinner or progress arc.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"stroke\", \"loader\"],\n    \"tags\": [\"svg\", \"gradient-stroke\", \"spinner\", \"progress\", \"dash\", \"loader\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers. Note: SVG gradient stroke doesn't rotate with the element, so rotate the whole SVG, not the gradient.\",\n    \"performance_notes\": \"Animating rotation + dash via CSS is cheap.\",\n    \"accessibility_notes\": \"If used as a loader, wrap with role=status + a visually-hidden label. Slow under prefers-reduced-motion rather than stopping (it's a busy indicator).\",\n    \"customization\": [\n      { \"name\": \"gradient stops\", \"description\": \"Stroke colors\", \"default\": \"#7c5cff → #2dd4bf\" },\n      { \"name\": \"stroke-width\", \"description\": \"Ring thickness\", \"default\": \"10\" }\n    ],\n    \"variations\": [\"Determinate progress (set dashoffset from a value)\", \"Conic-like full-rainbow stroke\", \"Pulsing dash length\"],\n    \"related\": [\"progress-ring\", \"ring-spinner\", \"gradient-border\"],\n    \"ai_usage\": \"Use for premium loaders and progress rings. Stroke a <circle> with url(#gradient); set stroke-linecap='round'. For an indeterminate spinner, animate the whole SVG's rotation AND the stroke-dasharray/dashoffset (Material-style). For determinate progress, fix dasharray to the circumference and set dashoffset from your percentage. Rotate the SVG element, not the gradient (gradients are in user space). Add role=status + label when it's a loader.\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    .spin { animation: rotate 2s linear infinite; }\n    .arc { stroke: url(#gs); stroke-width: 10; fill: none; stroke-linecap: round;\n      stroke-dasharray: 200; animation: dash 1.6s ease-in-out infinite; }\n    @keyframes rotate { to { transform: rotate(360deg); } }\n    @keyframes dash {\n      0% { stroke-dashoffset: 190; }\n      50% { stroke-dashoffset: 50; }\n      100% { stroke-dashoffset: 190; }\n    }\n    @media (prefers-reduced-motion: reduce) { .spin { animation-duration: 5s; } .arc { animation-duration: 4s; } }\n    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }\n  </style>\n</head>\n<body>\n  <div role=\"status\">\n    <svg class=\"spin\" width=\"90\" height=\"90\" viewBox=\"0 0 80 80\">\n      <defs>\n        <linearGradient id=\"gs\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n          <stop offset=\"0%\" stop-color=\"#7c5cff\" /><stop offset=\"100%\" stop-color=\"#2dd4bf\" />\n        </linearGradient>\n      </defs>\n      <circle class=\"arc\" cx=\"40\" cy=\"40\" r=\"32\" />\n    </svg>\n    <span class=\"visually-hidden\">Loading…</span>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "svg-gooey-filter",
+      "title": "SVG Gooey Filter",
+      "summary": "Blobs that merge with a liquid 'metaball' connection using an SVG blur + contrast filter.",
+      "description": "The classic gooey effect: feGaussianBlur softens shapes, then feColorMatrix cranks alpha contrast so overlapping blurred edges snap together into a liquid blob. Applied to CSS-animated circles.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "filter",
+        "animation"
+      ],
+      "tags": [
+        "svg",
+        "gooey",
+        "metaball",
+        "feColorMatrix",
+        "feGaussianBlur",
+        "liquid"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "dependencies": [],
+      "browser_support": "All modern browsers. The filter can be defined in a 0-size inline SVG and referenced from CSS via filter: url(#goo).",
+      "performance_notes": "SVG blur filters are moderately expensive; keep the filtered area small and the element count low. Motion is CSS transform (cheap).",
+      "accessibility_notes": "Purely decorative; blob motion stops under prefers-reduced-motion. The contrast matrix can produce hard edges — keep it off text.",
+      "customization": [
+        {
+          "name": "feGaussianBlur stdDeviation",
+          "description": "Higher = gooier/longer connections",
+          "default": "10"
+        },
+        {
+          "name": "feColorMatrix alpha row",
+          "description": "The '18 -7' values tune the snap threshold",
+          "default": "18 -7"
+        }
+      ],
+      "variations": [
+        "Gooey menu (FAB that spits out items)",
+        "Gooey loader dots",
+        "Colored goo with a gradient fill"
+      ],
+      "related": [
+        "blob-morph",
+        "floating-particles"
+      ],
+      "ai_usage": "Use for playful liquid UI: gooey menus, merging loader dots, blob backgrounds. Define filter#goo = feGaussianBlur(stdDeviation ~10) → feColorMatrix(... 18 -7) → feComposite. Apply filter:url(#goo) to a CONTAINER whose children (solid circles) overlap; the blur+contrast makes them fuse. Tune stdDeviation for goo length and the matrix's last two alpha numbers for the merge threshold. Keep it off text and gate motion under reduced-motion.",
+      "path": "effects/svg-effects/svg-gooey-filter.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Gooey Filter</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-gooey-filter\",\n    \"title\": \"SVG Gooey Filter\",\n    \"summary\": \"Blobs that merge with a liquid 'metaball' connection using an SVG blur + contrast filter.\",\n    \"description\": \"The classic gooey effect: feGaussianBlur softens shapes, then feColorMatrix cranks alpha contrast so overlapping blurred edges snap together into a liquid blob. Applied to CSS-animated circles.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"filter\", \"animation\"],\n    \"tags\": [\"svg\", \"gooey\", \"metaball\", \"feColorMatrix\", \"feGaussianBlur\", \"liquid\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers. The filter can be defined in a 0-size inline SVG and referenced from CSS via filter: url(#goo).\",\n    \"performance_notes\": \"SVG blur filters are moderately expensive; keep the filtered area small and the element count low. Motion is CSS transform (cheap).\",\n    \"accessibility_notes\": \"Purely decorative; blob motion stops under prefers-reduced-motion. The contrast matrix can produce hard edges — keep it off text.\",\n    \"customization\": [\n      { \"name\": \"feGaussianBlur stdDeviation\", \"description\": \"Higher = gooier/longer connections\", \"default\": \"10\" },\n      { \"name\": \"feColorMatrix alpha row\", \"description\": \"The '18 -7' values tune the snap threshold\", \"default\": \"18 -7\" }\n    ],\n    \"variations\": [\"Gooey menu (FAB that spits out items)\", \"Gooey loader dots\", \"Colored goo with a gradient fill\"],\n    \"related\": [\"blob-morph\", \"floating-particles\"],\n    \"ai_usage\": \"Use for playful liquid UI: gooey menus, merging loader dots, blob backgrounds. Define filter#goo = feGaussianBlur(stdDeviation ~10) → feColorMatrix(... 18 -7) → feComposite. Apply filter:url(#goo) to a CONTAINER whose children (solid circles) overlap; the blur+contrast makes them fuse. Tune stdDeviation for goo length and the matrix's last two alpha numbers for the merge threshold. Keep it off text and gate motion under reduced-motion.\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #06060c; }\n    .goo { position: relative; width: 200px; height: 200px; filter: url(#goo); }\n    .blob { position: absolute; top: 70px; left: 70px; width: 60px; height: 60px; border-radius: 50%; background: #7c5cff; }\n    .b1 { animation: orbit1 3.5s ease-in-out infinite; }\n    .b2 { background: #2dd4bf; animation: orbit2 4s ease-in-out infinite; }\n    .b3 { background: #f0abfc; animation: orbit3 4.5s ease-in-out infinite; }\n    @keyframes orbit1 { 50% { transform: translate(-50px,-30px); } }\n    @keyframes orbit2 { 50% { transform: translate(55px,40px); } }\n    @keyframes orbit3 { 50% { transform: translate(40px,-55px); } }\n    @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }\n  </style>\n</head>\n<body>\n  <svg width=\"0\" height=\"0\" style=\"position:absolute\">\n    <defs>\n      <filter id=\"goo\">\n        <feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"10\" result=\"blur\" />\n        <feColorMatrix in=\"blur\" mode=\"matrix\" values=\"1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7\" result=\"goo\" />\n        <feComposite in=\"SourceGraphic\" in2=\"goo\" operator=\"atop\" />\n      </filter>\n    </defs>\n  </svg>\n  <div class=\"goo\">\n    <div class=\"blob b1\"></div>\n    <div class=\"blob b2\"></div>\n    <div class=\"blob b3\"></div>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "svg-noise-texture",
+      "title": "SVG Grain / Noise Texture",
+      "summary": "A subtle film-grain overlay generated entirely by feTurbulence — no image asset.",
+      "description": "feTurbulence produces fractal noise rendered to a rect, used as a low-opacity overlay to add tactile grain over flat colors and gradients (the trendy 'noise' texture), with zero network cost.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "filter",
+        "texture"
+      ],
+      "tags": [
+        "svg",
+        "noise",
+        "grain",
+        "feturbulence",
+        "texture",
+        "film"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All modern browsers (feTurbulence).",
+      "performance_notes": "Generating noise once is cheap; do NOT animate it (re-rendering noise every frame is expensive). Reuse one noise layer as a fixed overlay.",
+      "accessibility_notes": "Purely decorative; keep opacity low so it never reduces text contrast. No motion.",
+      "customization": [
+        {
+          "name": "baseFrequency",
+          "description": "Grain size (higher = finer)",
+          "default": "0.8"
+        },
+        {
+          "name": "overlay opacity",
+          "description": "Grain intensity",
+          "default": "0.06"
+        }
+      ],
+      "variations": [
+        "Colored grain (skip the desaturating matrix)",
+        "Heavier grain for a poster look",
+        "Scope the overlay to one card"
+      ],
+      "related": [
+        "svg-turbulence-distortion",
+        "mesh-gradient",
+        "aurora-background"
+      ],
+      "ai_usage": "Use to add tactile grain over flat fills, gradients, and mesh backgrounds (kills banding, adds a premium analog feel). Generate noise with feTurbulence(type='fractalNoise', baseFrequency ~0.8, numOctaves~3); render it to a full-size rect; place that as a position:fixed/absolute overlay at low opacity (0.04-0.08), pointer-events:none, above the background but below text. Do NOT animate the turbulence (costly) — a static layer is enough. Optionally desaturate it with feColorMatrix.",
+      "path": "effects/svg-effects/svg-noise-texture.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Grain / Noise Texture</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-noise-texture\",\n    \"title\": \"SVG Grain / Noise Texture\",\n    \"summary\": \"A subtle film-grain overlay generated entirely by feTurbulence — no image asset.\",\n    \"description\": \"feTurbulence produces fractal noise rendered to a rect, used as a low-opacity overlay to add tactile grain over flat colors and gradients (the trendy 'noise' texture), with zero network cost.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"filter\", \"texture\"],\n    \"tags\": [\"svg\", \"noise\", \"grain\", \"feturbulence\", \"texture\", \"film\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (feTurbulence).\",\n    \"performance_notes\": \"Generating noise once is cheap; do NOT animate it (re-rendering noise every frame is expensive). Reuse one noise layer as a fixed overlay.\",\n    \"accessibility_notes\": \"Purely decorative; keep opacity low so it never reduces text contrast. No motion.\",\n    \"customization\": [\n      { \"name\": \"baseFrequency\", \"description\": \"Grain size (higher = finer)\", \"default\": \"0.8\" },\n      { \"name\": \"overlay opacity\", \"description\": \"Grain intensity\", \"default\": \"0.06\" }\n    ],\n    \"variations\": [\"Colored grain (skip the desaturating matrix)\", \"Heavier grain for a poster look\", \"Scope the overlay to one card\"],\n    \"related\": [\"svg-turbulence-distortion\", \"mesh-gradient\", \"aurora-background\"],\n    \"ai_usage\": \"Use to add tactile grain over flat fills, gradients, and mesh backgrounds (kills banding, adds a premium analog feel). Generate noise with feTurbulence(type='fractalNoise', baseFrequency ~0.8, numOctaves~3); render it to a full-size rect; place that as a position:fixed/absolute overlay at low opacity (0.04-0.08), pointer-events:none, above the background but below text. Do NOT animate the turbulence (costly) — a static layer is enough. Optionally desaturate it with feColorMatrix.\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    body { position: relative; background: linear-gradient(135deg, #7c5cff, #2dd4bf 60%, #f0abfc); font-family: system-ui, sans-serif; }\n    .stage { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; text-align: center; }\n    .stage h1 { font-size: 2.4rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,.3); }\n    .grain {\n      position: absolute; inset: 0; pointer-events: none; opacity: .07; mix-blend-mode: overlay;\n    }\n  </style>\n</head>\n<body>\n  <svg class=\"grain\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\">\n    <filter id=\"noise\">\n      <feTurbulence type=\"fractalNoise\" baseFrequency=\"0.8\" numOctaves=\"3\" stitchTiles=\"stitch\" />\n      <feColorMatrix type=\"saturate\" values=\"0\" />\n    </filter>\n    <rect width=\"100%\" height=\"100%\" filter=\"url(#noise)\" />\n  </svg>\n  <div class=\"stage\"><h1>Grain over gradient</h1></div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "svg-line-draw",
+      "title": "SVG Line Draw",
+      "summary": "A path that draws itself on, like a pen tracing a signature or logo.",
+      "description": "Sets stroke-dasharray and stroke-dashoffset to the path length, then animates the offset to 0 with CSS so the stroke appears to be drawn. The canonical SVG entrance for logos, signatures, and line icons.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "animation",
+        "stroke"
+      ],
+      "tags": [
+        "svg",
+        "line-draw",
+        "stroke-dashoffset",
+        "signature",
+        "logo",
+        "draw-on"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers.",
+      "performance_notes": "Animating stroke-dashoffset is GPU-friendly. Set the dasharray/offset to the path's total length (pathLength attribute lets you use a round number like 100).",
+      "accessibility_notes": "Decorative; give the SVG role=img + a title/aria-label if it conveys meaning. Animation is disabled under prefers-reduced-motion (path shown complete).",
+      "customization": [
+        {
+          "name": "pathLength",
+          "description": "Normalizes length so dasharray can be 100",
+          "default": "100"
+        },
+        {
+          "name": "--dur",
+          "description": "Draw duration",
+          "default": "2.5s"
+        }
+      ],
+      "variations": [
+        "Stagger multiple paths to draw in sequence",
+        "Fill the shape in after the stroke completes",
+        "Loop by alternating the offset"
+      ],
+      "related": [
+        "svg-animated-checkmark",
+        "typewriter-text"
+      ],
+      "ai_usage": "Use for logo/signature reveals and line-icon entrances. Add pathLength='100' to each path so you can set stroke-dasharray:100 and animate stroke-dashoffset from 100 to 0 in CSS. Multiple paths: give each an animation-delay to draw in order. To 'ink in' a filled logo, fade fill from transparent to solid after the stroke finishes. Gate with prefers-reduced-motion (show offset:0).",
+      "path": "effects/svg-effects/svg-line-draw.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Line Draw</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-line-draw\",\n    \"title\": \"SVG Line Draw\",\n    \"summary\": \"A path that draws itself on, like a pen tracing a signature or logo.\",\n    \"description\": \"Sets stroke-dasharray and stroke-dashoffset to the path length, then animates the offset to 0 with CSS so the stroke appears to be drawn. The canonical SVG entrance for logos, signatures, and line icons.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"animation\", \"stroke\"],\n    \"tags\": [\"svg\", \"line-draw\", \"stroke-dashoffset\", \"signature\", \"logo\", \"draw-on\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Animating stroke-dashoffset is GPU-friendly. Set the dasharray/offset to the path's total length (pathLength attribute lets you use a round number like 100).\",\n    \"accessibility_notes\": \"Decorative; give the SVG role=img + a title/aria-label if it conveys meaning. Animation is disabled under prefers-reduced-motion (path shown complete).\",\n    \"customization\": [\n      { \"name\": \"pathLength\", \"description\": \"Normalizes length so dasharray can be 100\", \"default\": \"100\" },\n      { \"name\": \"--dur\", \"description\": \"Draw duration\", \"default\": \"2.5s\" }\n    ],\n    \"variations\": [\"Stagger multiple paths to draw in sequence\", \"Fill the shape in after the stroke completes\", \"Loop by alternating the offset\"],\n    \"related\": [\"svg-animated-checkmark\", \"typewriter-text\"],\n    \"ai_usage\": \"Use for logo/signature reveals and line-icon entrances. Add pathLength='100' to each path so you can set stroke-dasharray:100 and animate stroke-dashoffset from 100 to 0 in CSS. Multiple paths: give each an animation-delay to draw in order. To 'ink in' a filled logo, fade fill from transparent to solid after the stroke finishes. Gate with prefers-reduced-motion (show offset:0).\"\n  }\n  </script>\n  <style>\n    :root { --dur: 2.5s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    .draw path { stroke: #7c5cff; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round;\n      stroke-dasharray: 100; stroke-dashoffset: 100; animation: draw var(--dur) ease forwards infinite; }\n    .draw path:nth-child(2) { stroke: #2dd4bf; animation-delay: .4s; }\n    .draw path:nth-child(3) { stroke: #f0abfc; animation-delay: .8s; }\n    @keyframes draw { 0% { stroke-dashoffset: 100; } 70%, 100% { stroke-dashoffset: 0; } }\n    @media (prefers-reduced-motion: reduce) { .draw path { animation: none; stroke-dashoffset: 0; } }\n  </style>\n</head>\n<body>\n  <svg class=\"draw\" width=\"220\" height=\"160\" viewBox=\"0 0 220 160\" role=\"img\" aria-label=\"Drawing line art\">\n    <path pathLength=\"100\" d=\"M20,120 C40,40 80,40 100,120 S160,40 200,120\" />\n    <path pathLength=\"100\" d=\"M20,80 H200\" />\n    <path pathLength=\"100\" d=\"M110,20 V140\" />\n  </svg>\n</body>\n</html>\n"
+    },
+    {
+      "id": "svg-path-morph",
+      "title": "SVG Path Morph",
+      "summary": "One shape smoothly morphs into another by animating the path's d attribute (SMIL).",
+      "description": "Uses SMIL <animate attributeName='d'> to tween a path between several shapes. Morphing requires each shape's path to have the SAME command structure / point count.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "animation",
+        "morph"
+      ],
+      "tags": [
+        "svg",
+        "morph",
+        "path",
+        "smil",
+        "shape-tween",
+        "blob"
+      ],
+      "tech": [
+        "svg"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "dependencies": [],
+      "browser_support": "SMIL animate of `d` works in Chrome, Firefox, and Safari. (CSS `d` interpolation is Chromium-only; SMIL is the most portable no-JS option.)",
+      "performance_notes": "Cheap for a single path. The hard part is authoring compatible paths, not runtime cost.",
+      "accessibility_notes": "SMIL does NOT honor prefers-reduced-motion automatically — the included script pauses SVG animations when reduced motion is requested. Decorative; add a title if meaningful.",
+      "customization": [
+        {
+          "name": "values",
+          "description": "Semicolon-separated d strings to morph between",
+          "default": "see source"
+        },
+        {
+          "name": "dur",
+          "description": "Full cycle duration",
+          "default": "8s"
+        }
+      ],
+      "variations": [
+        "Morph icons (play↔pause) on state change via JS",
+        "Blob background morph",
+        "Use a JS lib (flubber) when point counts can't match"
+      ],
+      "related": [
+        "blob-morph",
+        "svg-line-draw"
+      ],
+      "ai_usage": "Use to tween between shapes/icons. CRITICAL: every shape in the `values` list must share the same path command sequence and point count, or the morph jumps. Author them by editing one base path's coordinates. SMIL <animate attributeName='d' values='A;B;C;A' dur=... repeatCount='indefinite'> is the most cross-browser no-JS route. For arbitrary shapes with mismatched points, use a JS morphing lib (flubber/GSAP). SMIL ignores reduced-motion, so pause via svg.pauseAnimations() (shown).",
+      "path": "effects/svg-effects/svg-path-morph.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Path Morph</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-path-morph\",\n    \"title\": \"SVG Path Morph\",\n    \"summary\": \"One shape smoothly morphs into another by animating the path's d attribute (SMIL).\",\n    \"description\": \"Uses SMIL <animate attributeName='d'> to tween a path between several shapes. Morphing requires each shape's path to have the SAME command structure / point count.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"animation\", \"morph\"],\n    \"tags\": [\"svg\", \"morph\", \"path\", \"smil\", \"shape-tween\", \"blob\"],\n    \"tech\": [\"svg\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"SMIL animate of `d` works in Chrome, Firefox, and Safari. (CSS `d` interpolation is Chromium-only; SMIL is the most portable no-JS option.)\",\n    \"performance_notes\": \"Cheap for a single path. The hard part is authoring compatible paths, not runtime cost.\",\n    \"accessibility_notes\": \"SMIL does NOT honor prefers-reduced-motion automatically — the included script pauses SVG animations when reduced motion is requested. Decorative; add a title if meaningful.\",\n    \"customization\": [\n      { \"name\": \"values\", \"description\": \"Semicolon-separated d strings to morph between\", \"default\": \"see source\" },\n      { \"name\": \"dur\", \"description\": \"Full cycle duration\", \"default\": \"8s\" }\n    ],\n    \"variations\": [\"Morph icons (play↔pause) on state change via JS\", \"Blob background morph\", \"Use a JS lib (flubber) when point counts can't match\"],\n    \"related\": [\"blob-morph\", \"svg-line-draw\"],\n    \"ai_usage\": \"Use to tween between shapes/icons. CRITICAL: every shape in the `values` list must share the same path command sequence and point count, or the morph jumps. Author them by editing one base path's coordinates. SMIL <animate attributeName='d' values='A;B;C;A' dur=... repeatCount='indefinite'> is the most cross-browser no-JS route. For arbitrary shapes with mismatched points, use a JS morphing lib (flubber/GSAP). SMIL ignores reduced-motion, so pause via svg.pauseAnimations() (shown).\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n  </style>\n</head>\n<body>\n  <svg width=\"220\" height=\"220\" viewBox=\"0 0 200 200\" role=\"img\" aria-label=\"Morphing shape\">\n    <defs>\n      <linearGradient id=\"mg\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n        <stop offset=\"0%\" stop-color=\"#7c5cff\" /><stop offset=\"100%\" stop-color=\"#2dd4bf\" />\n      </linearGradient>\n    </defs>\n    <path fill=\"url(#mg)\" d=\"M100,30 C140,30 170,60 170,100 C170,140 140,170 100,170 C60,170 30,140 30,100 C30,60 60,30 100,30 Z\">\n      <animate attributeName=\"d\" dur=\"8s\" repeatCount=\"indefinite\"\n        values=\"\n          M100,30 C140,30 170,60 170,100 C170,140 140,170 100,170 C60,170 30,140 30,100 C30,60 60,30 100,30 Z;\n          M100,20 C150,40 180,70 165,115 C150,160 120,180 95,170 C55,155 25,135 30,90 C35,50 60,30 100,20 Z;\n          M100,35 C135,25 175,55 165,100 C175,145 135,175 100,165 C65,175 25,145 35,100 C25,55 65,45 100,35 Z;\n          M100,30 C140,30 170,60 170,100 C170,140 140,170 100,170 C60,170 30,140 30,100 C30,60 60,30 100,30 Z\" />\n    </path>\n  </svg>\n  <script>\n    if (matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      document.querySelectorAll(\"svg\").forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });\n    }\n  </script>\n</body>\n</html>\n"
+    },
+    {
+      "id": "svg-animated-checkmark",
+      "title": "SVG Success Checkmark",
+      "summary": "A success animation: the circle draws around, then the tick strokes in, with a pop.",
+      "description": "Two stroked SVG paths (circle + check) animate their stroke-dashoffset in sequence, plus a subtle scale pop — the satisfying confirmation seen after form submits and payments.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "animation",
+        "feedback"
+      ],
+      "tags": [
+        "svg",
+        "checkmark",
+        "success",
+        "confirmation",
+        "stroke",
+        "tick"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers.",
+      "performance_notes": "Two stroke-dashoffset animations + one transform; trivial.",
+      "accessibility_notes": "Pair with a text message and aria-live so success isn't conveyed by the icon alone. Under prefers-reduced-motion, show the completed check instantly.",
+      "customization": [
+        {
+          "name": "--ok",
+          "description": "Success color",
+          "default": "#22c55e"
+        },
+        {
+          "name": "timing",
+          "description": "Circle then tick durations/delays",
+          "default": "0.5s + 0.3s"
+        }
+      ],
+      "variations": [
+        "Error variant (red circle + X)",
+        "Replace a loading spinner on completion",
+        "Bounce the whole badge in"
+      ],
+      "related": [
+        "svg-line-draw",
+        "animated-checkbox",
+        "loading-button"
+      ],
+      "ai_usage": "Use to confirm completed async actions (submit, pay, save), ideally swapping in where a spinner was. Stroke a circle path and a check path; animate each one's stroke-dashoffset from full to 0, the tick delayed until the circle finishes; add a small scale pop. ALWAYS accompany with a text status + aria-live region — color/icon alone isn't accessible. Show the final state instantly under reduced motion. Demo loops for visibility.",
+      "path": "effects/svg-effects/svg-animated-checkmark.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Success Checkmark</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-animated-checkmark\",\n    \"title\": \"SVG Success Checkmark\",\n    \"summary\": \"A success animation: the circle draws around, then the tick strokes in, with a pop.\",\n    \"description\": \"Two stroked SVG paths (circle + check) animate their stroke-dashoffset in sequence, plus a subtle scale pop — the satisfying confirmation seen after form submits and payments.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"animation\", \"feedback\"],\n    \"tags\": [\"svg\", \"checkmark\", \"success\", \"confirmation\", \"stroke\", \"tick\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Two stroke-dashoffset animations + one transform; trivial.\",\n    \"accessibility_notes\": \"Pair with a text message and aria-live so success isn't conveyed by the icon alone. Under prefers-reduced-motion, show the completed check instantly.\",\n    \"customization\": [\n      { \"name\": \"--ok\", \"description\": \"Success color\", \"default\": \"#22c55e\" },\n      { \"name\": \"timing\", \"description\": \"Circle then tick durations/delays\", \"default\": \"0.5s + 0.3s\" }\n    ],\n    \"variations\": [\"Error variant (red circle + X)\", \"Replace a loading spinner on completion\", \"Bounce the whole badge in\"],\n    \"related\": [\"svg-line-draw\", \"animated-checkbox\", \"loading-button\"],\n    \"ai_usage\": \"Use to confirm completed async actions (submit, pay, save), ideally swapping in where a spinner was. Stroke a circle path and a check path; animate each one's stroke-dashoffset from full to 0, the tick delayed until the circle finishes; add a small scale pop. ALWAYS accompany with a text status + aria-live region — color/icon alone isn't accessible. Show the final state instantly under reduced motion. Demo loops for visibility.\"\n  }\n  </script>\n  <style>\n    :root { --ok: #22c55e; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    .check { animation: pop .4s ease both; }\n    .circle { stroke: var(--ok); stroke-width: 5; fill: none; stroke-dasharray: 166; stroke-dashoffset: 166;\n      animation: stroke .5s cubic-bezier(.65,0,.45,1) forwards; }\n    .tick { stroke: var(--ok); stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round;\n      stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke .3s cubic-bezier(.65,0,.45,1) .5s forwards; }\n    @keyframes stroke { to { stroke-dashoffset: 0; } }\n    @keyframes pop { 0% { transform: scale(.7); } 60% { transform: scale(1.05); } 100% { transform: scale(1); } }\n    @media (prefers-reduced-motion: reduce) {\n      .circle, .tick { animation: none; stroke-dashoffset: 0; } .check { animation: none; }\n    }\n  </style>\n</head>\n<body>\n  <svg class=\"check\" width=\"120\" height=\"120\" viewBox=\"0 0 60 60\" role=\"img\" aria-label=\"Success\">\n    <circle class=\"circle\" cx=\"30\" cy=\"30\" r=\"26\" />\n    <path class=\"tick\" d=\"M18,31 l8,8 l16,-17\" />\n  </svg>\n  <script>\n    // Replay on a loop so the draw-in is visible in the catalog frame.\n    if (!matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      var svg = document.querySelector(\".check\");\n      setInterval(function () {\n        svg.querySelectorAll(\".circle,.tick\").forEach(function (p) { p.style.animation = \"none\"; });\n        svg.style.animation = \"none\"; void svg.offsetWidth;\n        svg.querySelectorAll(\".circle,.tick\").forEach(function (p) { p.style.animation = \"\"; });\n        svg.style.animation = \"\";\n      }, 2600);\n    }\n  </script>\n</body>\n</html>\n"
+    },
+    {
+      "id": "svg-text-on-path",
+      "title": "SVG Text on a Path",
+      "summary": "Text that flows along a curve, optionally scrolling around it — circular badges and arched headings.",
+      "description": "Uses <textPath href='#path'> to lay text along an arbitrary path, with an animated startOffset to make it travel — perfect for circular seal/badge text and curved labels.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "typography",
+        "text"
+      ],
+      "tags": [
+        "svg",
+        "textpath",
+        "curved-text",
+        "badge",
+        "circular",
+        "arc"
+      ],
+      "tech": [
+        "svg"
+      ],
+      "era": "timeless",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers (textPath). startOffset animation via SMIL works broadly.",
+      "performance_notes": "Cheap. Define the path once and reference it; hide the path stroke if you only want the text.",
+      "accessibility_notes": "SVG text is real, selectable, and readable by screen readers — better than image text. Add role=img + aria-label on the SVG if the curved text is part of a logo. SMIL motion ignores reduced-motion; the script pauses it.",
+      "customization": [
+        {
+          "name": "path d",
+          "description": "The curve the text follows (arc, circle, wave)",
+          "default": "circle path"
+        },
+        {
+          "name": "startOffset",
+          "description": "Where text begins along the path (animate to scroll)",
+          "default": "0%"
+        }
+      ],
+      "variations": [
+        "Static arched heading",
+        "Rotating circular badge/seal",
+        "Text along a wavy or spiral path"
+      ],
+      "related": [
+        "svg-line-draw",
+        "rainbow-text"
+      ],
+      "ai_usage": "Use for circular badges/seals, arched titles, and curved labels. Define a <path id='p'> (a circle drawn as a path for a ring of text, or an arc for an arch) and put <text><textPath href='#p'>…</textPath></text>. Set the path's stroke to none if you only want text. To rotate the text around the ring, animate startOffset 0%→100% (SMIL) — pause under reduced motion. SVG text stays accessible/selectable.",
+      "path": "effects/svg-effects/svg-text-on-path.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Text on a Path</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-text-on-path\",\n    \"title\": \"SVG Text on a Path\",\n    \"summary\": \"Text that flows along a curve, optionally scrolling around it — circular badges and arched headings.\",\n    \"description\": \"Uses <textPath href='#path'> to lay text along an arbitrary path, with an animated startOffset to make it travel — perfect for circular seal/badge text and curved labels.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"typography\", \"text\"],\n    \"tags\": [\"svg\", \"textpath\", \"curved-text\", \"badge\", \"circular\", \"arc\"],\n    \"tech\": [\"svg\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (textPath). startOffset animation via SMIL works broadly.\",\n    \"performance_notes\": \"Cheap. Define the path once and reference it; hide the path stroke if you only want the text.\",\n    \"accessibility_notes\": \"SVG text is real, selectable, and readable by screen readers — better than image text. Add role=img + aria-label on the SVG if the curved text is part of a logo. SMIL motion ignores reduced-motion; the script pauses it.\",\n    \"customization\": [\n      { \"name\": \"path d\", \"description\": \"The curve the text follows (arc, circle, wave)\", \"default\": \"circle path\" },\n      { \"name\": \"startOffset\", \"description\": \"Where text begins along the path (animate to scroll)\", \"default\": \"0%\" }\n    ],\n    \"variations\": [\"Static arched heading\", \"Rotating circular badge/seal\", \"Text along a wavy or spiral path\"],\n    \"related\": [\"svg-line-draw\", \"rainbow-text\"],\n    \"ai_usage\": \"Use for circular badges/seals, arched titles, and curved labels. Define a <path id='p'> (a circle drawn as a path for a ring of text, or an arc for an arch) and put <text><textPath href='#p'>…</textPath></text>. Set the path's stroke to none if you only want text. To rotate the text around the ring, animate startOffset 0%→100% (SMIL) — pause under reduced motion. SVG text stays accessible/selectable.\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    text { font-family: system-ui, sans-serif; font-weight: 700; fill: #2dd4bf; letter-spacing: 2px; }\n    .ring { fill: none; stroke: #1b2030; stroke-width: 1; }\n  </style>\n</head>\n<body>\n  <svg width=\"240\" height=\"240\" viewBox=\"0 0 240 240\" role=\"img\" aria-label=\"Style Catalog circular badge\">\n    <path id=\"circle\" class=\"ring\" d=\"M120,120 m-90,0 a90,90 0 1,1 180,0 a90,90 0 1,1 -180,0\" />\n    <text font-size=\"18\">\n      <textPath href=\"#circle\" startOffset=\"0%\">\n        ★ STYLE CATALOG ★ MUSEUM OF WEB EFFECTS&nbsp;\n        <animate attributeName=\"startOffset\" from=\"0%\" to=\"100%\" dur=\"12s\" repeatCount=\"indefinite\" />\n      </textPath>\n    </text>\n    <text x=\"120\" y=\"128\" text-anchor=\"middle\" font-size=\"30\" fill=\"#7c5cff\">SVG</text>\n  </svg>\n  <script>\n    if (matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      document.querySelectorAll(\"svg\").forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });\n    }\n  </script>\n</body>\n</html>\n"
+    },
+    {
+      "id": "svg-turbulence-distortion",
+      "title": "SVG Turbulence Distortion",
+      "summary": "A wavy, liquid distortion driven by feTurbulence + feDisplacementMap, animated.",
+      "description": "feTurbulence generates Perlin-style noise that feDisplacementMap uses to push pixels around, creating a rippling/heat-haze/liquid warp. An animated baseFrequency makes the distortion flow.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "filter",
+        "distortion"
+      ],
+      "tags": [
+        "svg",
+        "feturbulence",
+        "displacement",
+        "distortion",
+        "ripple",
+        "liquid",
+        "noise"
+      ],
+      "tech": [
+        "svg"
+      ],
+      "era": "2020s",
+      "difficulty": "advanced",
+      "dependencies": [],
+      "browser_support": "All modern browsers support the filter primitives. Animating baseFrequency via SMIL works broadly.",
+      "performance_notes": "Displacement filters are GPU-heavy at large sizes — keep the filtered region modest and the scale low. Static distortion is much cheaper than animated.",
+      "accessibility_notes": "Decorative. SMIL ignores reduced-motion; the script pauses animation when requested. Avoid distorting readable text.",
+      "customization": [
+        {
+          "name": "feDisplacementMap scale",
+          "description": "Distortion strength",
+          "default": "18"
+        },
+        {
+          "name": "baseFrequency",
+          "description": "Noise scale (smaller = larger waves)",
+          "default": "0.012"
+        }
+      ],
+      "variations": [
+        "Heat-haze on a hero image (low scale)",
+        "Flag wave on text/logo",
+        "Hover-only distortion via JS toggling the filter"
+      ],
+      "related": [
+        "svg-noise-texture",
+        "blob-morph"
+      ],
+      "ai_usage": "Use for liquid/wavy/heat-haze treatments on shapes, images, or logos. Pipeline: feTurbulence(type='fractalNoise', baseFrequency=low) → feDisplacementMap(in='SourceGraphic', scale=N). Increase scale for stronger warp; animate baseFrequency (SMIL) to make it flow. Keep scale modest on text or it becomes unreadable, and keep the area small for performance. Pause via svg.pauseAnimations() under reduced motion (shown).",
+      "path": "effects/svg-effects/svg-turbulence-distortion.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Turbulence Distortion</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-turbulence-distortion\",\n    \"title\": \"SVG Turbulence Distortion\",\n    \"summary\": \"A wavy, liquid distortion driven by feTurbulence + feDisplacementMap, animated.\",\n    \"description\": \"feTurbulence generates Perlin-style noise that feDisplacementMap uses to push pixels around, creating a rippling/heat-haze/liquid warp. An animated baseFrequency makes the distortion flow.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"filter\", \"distortion\"],\n    \"tags\": [\"svg\", \"feturbulence\", \"displacement\", \"distortion\", \"ripple\", \"liquid\", \"noise\"],\n    \"tech\": [\"svg\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers support the filter primitives. Animating baseFrequency via SMIL works broadly.\",\n    \"performance_notes\": \"Displacement filters are GPU-heavy at large sizes — keep the filtered region modest and the scale low. Static distortion is much cheaper than animated.\",\n    \"accessibility_notes\": \"Decorative. SMIL ignores reduced-motion; the script pauses animation when requested. Avoid distorting readable text.\",\n    \"customization\": [\n      { \"name\": \"feDisplacementMap scale\", \"description\": \"Distortion strength\", \"default\": \"18\" },\n      { \"name\": \"baseFrequency\", \"description\": \"Noise scale (smaller = larger waves)\", \"default\": \"0.012\" }\n    ],\n    \"variations\": [\"Heat-haze on a hero image (low scale)\", \"Flag wave on text/logo\", \"Hover-only distortion via JS toggling the filter\"],\n    \"related\": [\"svg-noise-texture\", \"blob-morph\"],\n    \"ai_usage\": \"Use for liquid/wavy/heat-haze treatments on shapes, images, or logos. Pipeline: feTurbulence(type='fractalNoise', baseFrequency=low) → feDisplacementMap(in='SourceGraphic', scale=N). Increase scale for stronger warp; animate baseFrequency (SMIL) to make it flow. Keep scale modest on text or it becomes unreadable, and keep the area small for performance. Pause via svg.pauseAnimations() under reduced motion (shown).\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #06060c; font-family: system-ui, sans-serif; }\n  </style>\n</head>\n<body>\n  <svg width=\"300\" height=\"200\" viewBox=\"0 0 300 200\" role=\"img\" aria-label=\"Distorted shape\">\n    <defs>\n      <filter id=\"warp\">\n        <feTurbulence type=\"fractalNoise\" baseFrequency=\"0.012 0.02\" numOctaves=\"2\" seed=\"7\" result=\"noise\">\n          <animate attributeName=\"baseFrequency\" dur=\"14s\" repeatCount=\"indefinite\"\n            values=\"0.012 0.02; 0.02 0.012; 0.012 0.02\" />\n        </feTurbulence>\n        <feDisplacementMap in=\"SourceGraphic\" in2=\"noise\" scale=\"18\" xChannelSelector=\"R\" yChannelSelector=\"G\" />\n      </filter>\n      <linearGradient id=\"wg\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n        <stop offset=\"0%\" stop-color=\"#7c5cff\" /><stop offset=\"100%\" stop-color=\"#2dd4bf\" />\n      </linearGradient>\n    </defs>\n    <g filter=\"url(#warp)\">\n      <rect x=\"40\" y=\"40\" width=\"220\" height=\"120\" rx=\"20\" fill=\"url(#wg)\" />\n      <text x=\"150\" y=\"112\" text-anchor=\"middle\" font-size=\"40\" font-weight=\"800\" fill=\"#fff\" font-family=\"system-ui, sans-serif\">LIQUID</text>\n    </g>\n  </svg>\n  <script>\n    if (matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      document.querySelectorAll(\"svg\").forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });\n    }\n  </script>\n</body>\n</html>\n"
     },
     {
       "id": "gradient-text",

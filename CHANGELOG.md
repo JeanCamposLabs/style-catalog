@@ -3,6 +3,22 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.4.0] — 2026-05-30
+
+### Added — SVG Effects theme (now 102 effects across 21 themes)
+- New **`svg-effects`** theme covering vector-graphics techniques beyond plain
+  CSS:
+  - `svg-line-draw` — self-drawing stroke (logos/signatures).
+  - `svg-gooey-filter` — metaball merge via feGaussianBlur + feColorMatrix.
+  - `svg-path-morph` — shape tweening with SMIL `animate` on `d`.
+  - `svg-turbulence-distortion` — feTurbulence + feDisplacementMap warp.
+  - `svg-text-on-path` — curved/circular text via `textPath`.
+  - `svg-gradient-stroke` — gradient-stroked spinner/progress ring.
+  - `svg-animated-checkmark` — success draw-in confirmation.
+  - `svg-noise-texture` — film-grain overlay from feTurbulence (no asset).
+- SMIL-based specimens pause animation under `prefers-reduced-motion` via
+  `svg.pauseAnimations()`; CSS-based ones use the standard media guard.
+
 ## [0.3.0] — 2026-05-30
 
 ### Added — Programmatic access (roadmap v3) + glossary

@@ -105,6 +105,14 @@
       "count": 4
     },
     {
+      "slug": "svg-effects",
+      "title": "SVG Effects",
+      "description": "Vector-graphics techniques — self-drawing line art, gooey filters, path morphing, turbulence distortion, text on a path, and grain.",
+      "icon": "✒️",
+      "order": 115,
+      "count": 8
+    },
+    {
       "slug": "cursors-pointers",
       "title": "Cursors & Pointers",
       "description": "Custom cursor experiences — following dots, trailing rings, and reveal spotlights.",
@@ -229,6 +237,11 @@
         "count": 4
       },
       {
+        "slug": "svg-effects",
+        "title": "SVG Effects",
+        "count": 8
+      },
+      {
         "slug": "cursors-pointers",
         "title": "Cursors & Pointers",
         "count": 3
@@ -267,7 +280,7 @@
     "tech": [
       {
         "value": "css",
-        "count": 93
+        "count": 98
       },
       {
         "value": "js",
@@ -275,7 +288,7 @@
       },
       {
         "value": "svg",
-        "count": 3
+        "count": 11
       },
       {
         "value": "canvas",
@@ -285,29 +298,29 @@
     "difficulty": [
       {
         "value": "beginner",
-        "count": 50
+        "count": 51
       },
       {
         "value": "intermediate",
-        "count": 38
+        "count": 42
       },
       {
         "value": "advanced",
-        "count": 6
+        "count": 9
       }
     ],
     "era": [
       {
         "value": "2020s",
-        "count": 56
+        "count": 60
       },
       {
         "value": "timeless",
-        "count": 19
+        "count": 20
       },
       {
         "value": "2010s",
-        "count": 15
+        "count": 18
       },
       {
         "value": "1990s",
@@ -320,16 +333,16 @@
     ],
     "categories": [
       {
+        "value": "animation",
+        "count": 16
+      },
+      {
         "value": "reference",
         "count": 13
       },
       {
-        "value": "animation",
-        "count": 12
-      },
-      {
         "value": "typography",
-        "count": 11
+        "count": 12
       },
       {
         "value": "button",
@@ -341,6 +354,10 @@
       },
       {
         "value": "hover",
+        "count": 9
+      },
+      {
+        "value": "svg",
         "count": 9
       },
       {
@@ -361,7 +378,7 @@
       },
       {
         "value": "loader",
-        "count": 6
+        "count": 7
       },
       {
         "value": "scroll",
@@ -377,6 +394,10 @@
       },
       {
         "value": "design-tokens",
+        "count": 5
+      },
+      {
+        "value": "filter",
         "count": 5
       },
       {
@@ -398,6 +419,10 @@
       {
         "value": "surface",
         "count": 5
+      },
+      {
+        "value": "feedback",
+        "count": 4
       },
       {
         "value": "glow",
@@ -424,10 +449,6 @@
         "count": 3
       },
       {
-        "value": "feedback",
-        "count": 3
-      },
-      {
         "value": "grid",
         "count": 3
       },
@@ -444,15 +465,15 @@
         "count": 3
       },
       {
+        "value": "text",
+        "count": 3
+      },
+      {
         "value": "attention",
         "count": 2
       },
       {
         "value": "carousel",
-        "count": 2
-      },
-      {
-        "value": "filter",
         "count": 2
       },
       {
@@ -516,7 +537,7 @@
         "count": 2
       },
       {
-        "value": "text",
+        "value": "stroke",
         "count": 2
       },
       {
@@ -573,6 +594,10 @@
       },
       {
         "value": "disclosure",
+        "count": 1
+      },
+      {
+        "value": "distortion",
         "count": 1
       },
       {
@@ -660,6 +685,10 @@
         "count": 1
       },
       {
+        "value": "morph",
+        "count": 1
+      },
+      {
         "value": "particles",
         "count": 1
       },
@@ -704,11 +733,11 @@
         "count": 1
       },
       {
-        "value": "svg",
+        "value": "tabs",
         "count": 1
       },
       {
-        "value": "tabs",
+        "value": "texture",
         "count": 1
       },
       {
@@ -721,6 +750,10 @@
       }
     ],
     "tags": [
+      {
+        "value": "svg",
+        "count": 11
+      },
       {
         "value": "3d",
         "count": 7
@@ -790,7 +823,15 @@
         "count": 4
       },
       {
+        "value": "progress",
+        "count": 4
+      },
+      {
         "value": "shadow",
+        "count": 4
+      },
+      {
+        "value": "spinner",
         "count": 4
       },
       {
@@ -807,6 +848,10 @@
       },
       {
         "value": "animation",
+        "count": 3
+      },
+      {
+        "value": "blob",
         "count": 3
       },
       {
@@ -846,15 +891,15 @@
         "count": 3
       },
       {
+        "value": "morph",
+        "count": 3
+      },
+      {
         "value": "parallax",
         "count": 3
       },
       {
         "value": "playful",
-        "count": 3
-      },
-      {
-        "value": "progress",
         "count": 3
       },
       {
@@ -870,11 +915,7 @@
         "count": 3
       },
       {
-        "value": "spinner",
-        "count": 3
-      },
-      {
-        "value": "svg",
+        "value": "stroke",
         "count": 3
       },
       {
@@ -906,10 +947,6 @@
         "count": 2
       },
       {
-        "value": "blob",
-        "count": 2
-      },
-      {
         "value": "box-shadow",
         "count": 2
       },
@@ -934,6 +971,10 @@
         "count": 2
       },
       {
+        "value": "circular",
+        "count": 2
+      },
+      {
         "value": "clip",
         "count": 2
       },
@@ -954,6 +995,10 @@
         "count": 2
       },
       {
+        "value": "distortion",
+        "count": 2
+      },
+      {
         "value": "editorial",
         "count": 2
       },
@@ -963,6 +1008,10 @@
       },
       {
         "value": "feedback",
+        "count": 2
+      },
+      {
+        "value": "feturbulence",
         "count": 2
       },
       {
@@ -999,6 +1048,10 @@
       },
       {
         "value": "glassmorphism",
+        "count": 2
+      },
+      {
+        "value": "gooey",
         "count": 2
       },
       {
@@ -1042,6 +1095,10 @@
         "count": 2
       },
       {
+        "value": "liquid",
+        "count": 2
+      },
+      {
         "value": "marquee",
         "count": 2
       },
@@ -1062,15 +1119,15 @@
         "count": 2
       },
       {
-        "value": "morph",
-        "count": 2
-      },
-      {
         "value": "motion",
         "count": 2
       },
       {
         "value": "neumorphism",
+        "count": 2
+      },
+      {
+        "value": "noise",
         "count": 2
       },
       {
@@ -1114,6 +1171,10 @@
         "count": 2
       },
       {
+        "value": "ripple",
+        "count": 2
+      },
+      {
         "value": "saas",
         "count": 2
       },
@@ -1150,11 +1211,15 @@
         "count": 2
       },
       {
-        "value": "stroke",
+        "value": "stroke-dashoffset",
         "count": 2
       },
       {
         "value": "text-shadow",
+        "count": 2
+      },
+      {
+        "value": "tick",
         "count": 2
       },
       {
@@ -1206,6 +1271,10 @@
         "count": 1
       },
       {
+        "value": "arc",
+        "count": 1
+      },
+      {
         "value": "aria-busy",
         "count": 1
       },
@@ -1235,6 +1304,10 @@
       },
       {
         "value": "backface",
+        "count": 1
+      },
+      {
+        "value": "badge",
         "count": 1
       },
       {
@@ -1318,15 +1391,15 @@
         "count": 1
       },
       {
+        "value": "checkmark",
+        "count": 1
+      },
+      {
         "value": "choreography",
         "count": 1
       },
       {
         "value": "cinematic",
-        "count": 1
-      },
-      {
-        "value": "circular",
         "count": 1
       },
       {
@@ -1362,6 +1435,10 @@
         "count": 1
       },
       {
+        "value": "confirmation",
+        "count": 1
+      },
+      {
         "value": "content",
         "count": 1
       },
@@ -1394,6 +1471,10 @@
         "count": 1
       },
       {
+        "value": "curved-text",
+        "count": 1
+      },
+      {
         "value": "custom-cursor",
         "count": 1
       },
@@ -1407,6 +1488,10 @@
       },
       {
         "value": "dark-mode",
+        "count": 1
+      },
+      {
+        "value": "dash",
         "count": 1
       },
       {
@@ -1454,7 +1539,7 @@
         "count": 1
       },
       {
-        "value": "distortion",
+        "value": "displacement",
         "count": 1
       },
       {
@@ -1467,6 +1552,10 @@
       },
       {
         "value": "draw",
+        "count": 1
+      },
+      {
+        "value": "draw-on",
         "count": 1
       },
       {
@@ -1511,6 +1600,18 @@
       },
       {
         "value": "feature",
+        "count": 1
+      },
+      {
+        "value": "feColorMatrix",
+        "count": 1
+      },
+      {
+        "value": "feGaussianBlur",
+        "count": 1
+      },
+      {
+        "value": "film",
         "count": 1
       },
       {
@@ -1562,11 +1663,15 @@
         "count": 1
       },
       {
-        "value": "gooey",
+        "value": "gradient-border",
         "count": 1
       },
       {
-        "value": "gradient-border",
+        "value": "gradient-stroke",
+        "count": 1
+      },
+      {
+        "value": "grain",
         "count": 1
       },
       {
@@ -1670,6 +1775,10 @@
         "count": 1
       },
       {
+        "value": "line-draw",
+        "count": 1
+      },
+      {
         "value": "line-height",
         "count": 1
       },
@@ -1690,7 +1799,15 @@
         "count": 1
       },
       {
+        "value": "loader",
+        "count": 1
+      },
+      {
         "value": "login",
+        "count": 1
+      },
+      {
+        "value": "logo",
         "count": 1
       },
       {
@@ -1727,6 +1844,10 @@
       },
       {
         "value": "mesh",
+        "count": 1
+      },
+      {
+        "value": "metaball",
         "count": 1
       },
       {
@@ -1791,6 +1912,10 @@
       },
       {
         "value": "pan",
+        "count": 1
+      },
+      {
+        "value": "path",
         "count": 1
       },
       {
@@ -1894,10 +2019,6 @@
         "count": 1
       },
       {
-        "value": "ripple",
-        "count": 1
-      },
-      {
         "value": "rolling",
         "count": 1
       },
@@ -1970,6 +2091,10 @@
         "count": 1
       },
       {
+        "value": "shape-tween",
+        "count": 1
+      },
+      {
         "value": "shine",
         "count": 1
       },
@@ -1982,6 +2107,10 @@
         "count": 1
       },
       {
+        "value": "signature",
+        "count": 1
+      },
+      {
         "value": "sizing",
         "count": 1
       },
@@ -1991,6 +2120,10 @@
       },
       {
         "value": "slideshow",
+        "count": 1
+      },
+      {
+        "value": "smil",
         "count": 1
       },
       {
@@ -2042,11 +2175,11 @@
         "count": 1
       },
       {
-        "value": "stroke-dashoffset",
+        "value": "submit",
         "count": 1
       },
       {
-        "value": "submit",
+        "value": "success",
         "count": 1
       },
       {
@@ -2086,6 +2219,14 @@
         "count": 1
       },
       {
+        "value": "textpath",
+        "count": 1
+      },
+      {
+        "value": "texture",
+        "count": 1
+      },
+      {
         "value": "theme",
         "count": 1
       },
@@ -2095,10 +2236,6 @@
       },
       {
         "value": "thumb",
-        "count": 1
-      },
-      {
-        "value": "tick",
         "count": 1
       },
       {

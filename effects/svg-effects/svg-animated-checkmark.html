@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Success Checkmark</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-animated-checkmark",
+    "title": "SVG Success Checkmark",
+    "summary": "A success animation: the circle draws around, then the tick strokes in, with a pop.",
+    "description": "Two stroked SVG paths (circle + check) animate their stroke-dashoffset in sequence, plus a subtle scale pop — the satisfying confirmation seen after form submits and payments.",
+    "theme": "svg-effects",
+    "categories": ["svg", "animation", "feedback"],
+    "tags": ["svg", "checkmark", "success", "confirmation", "stroke", "tick"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Two stroke-dashoffset animations + one transform; trivial.",
+    "accessibility_notes": "Pair with a text message and aria-live so success isn't conveyed by the icon alone. Under prefers-reduced-motion, show the completed check instantly.",
+    "customization": [
+      { "name": "--ok", "description": "Success color", "default": "#22c55e" },
+      { "name": "timing", "description": "Circle then tick durations/delays", "default": "0.5s + 0.3s" }
+    ],
+    "variations": ["Error variant (red circle + X)", "Replace a loading spinner on completion", "Bounce the whole badge in"],
+    "related": ["svg-line-draw", "animated-checkbox", "loading-button"],
+    "ai_usage": "Use to confirm completed async actions (submit, pay, save), ideally swapping in where a spinner was. Stroke a circle path and a check path; animate each one's stroke-dashoffset from full to 0, the tick delayed until the circle finishes; add a small scale pop. ALWAYS accompany with a text status + aria-live region — color/icon alone isn't accessible. Show the final state instantly under reduced motion. Demo loops for visibility."
+  }
+  </script>
+  <style>
+    :root { --ok: #22c55e; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; }
+    .check { animation: pop .4s ease both; }
+    .circle { stroke: var(--ok); stroke-width: 5; fill: none; stroke-dasharray: 166; stroke-dashoffset: 166;
+      animation: stroke .5s cubic-bezier(.65,0,.45,1) forwards; }
+    .tick { stroke: var(--ok); stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke .3s cubic-bezier(.65,0,.45,1) .5s forwards; }
+    @keyframes stroke { to { stroke-dashoffset: 0; } }
+    @keyframes pop { 0% { transform: scale(.7); } 60% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    @media (prefers-reduced-motion: reduce) {
+      .circle, .tick { animation: none; stroke-dashoffset: 0; } .check { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <svg class="check" width="120" height="120" viewBox="0 0 60 60" role="img" aria-label="Success">
+    <circle class="circle" cx="30" cy="30" r="26" />
+    <path class="tick" d="M18,31 l8,8 l16,-17" />
+  </svg>
+  <script>
+    // Replay on a loop so the draw-in is visible in the catalog frame.
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      var svg = document.querySelector(".check");
+      setInterval(function () {
+        svg.querySelectorAll(".circle,.tick").forEach(function (p) { p.style.animation = "none"; });
+        svg.style.animation = "none"; void svg.offsetWidth;
+        svg.querySelectorAll(".circle,.tick").forEach(function (p) { p.style.animation = ""; });
+        svg.style.animation = "";
+      }, 2600);
+    }
+  </script>
+</body>
+</html>

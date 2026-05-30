@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "counts": {
-    "themes": 20,
-    "effects": 94
+    "themes": 21,
+    "effects": 102
   },
   "effectEndpoint": "api/effects/{id}.json",
   "effects": [
@@ -2022,6 +2022,220 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/scroll-effects/sticky-stack-cards.html"
+    },
+    {
+      "id": "svg-gradient-stroke",
+      "title": "SVG Animated Gradient Stroke",
+      "summary": "A circular progress/loader ring stroked with a gradient and an animating dash.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "stroke",
+        "loader"
+      ],
+      "tags": [
+        "svg",
+        "gradient-stroke",
+        "spinner",
+        "progress",
+        "dash",
+        "loader"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-gradient-stroke.html"
+    },
+    {
+      "id": "svg-gooey-filter",
+      "title": "SVG Gooey Filter",
+      "summary": "Blobs that merge with a liquid 'metaball' connection using an SVG blur + contrast filter.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "filter",
+        "animation"
+      ],
+      "tags": [
+        "svg",
+        "gooey",
+        "metaball",
+        "feColorMatrix",
+        "feGaussianBlur",
+        "liquid"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "path": "effects/svg-effects/svg-gooey-filter.html"
+    },
+    {
+      "id": "svg-noise-texture",
+      "title": "SVG Grain / Noise Texture",
+      "summary": "A subtle film-grain overlay generated entirely by feTurbulence — no image asset.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "filter",
+        "texture"
+      ],
+      "tags": [
+        "svg",
+        "noise",
+        "grain",
+        "feturbulence",
+        "texture",
+        "film"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/svg-effects/svg-noise-texture.html"
+    },
+    {
+      "id": "svg-line-draw",
+      "title": "SVG Line Draw",
+      "summary": "A path that draws itself on, like a pen tracing a signature or logo.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "animation",
+        "stroke"
+      ],
+      "tags": [
+        "svg",
+        "line-draw",
+        "stroke-dashoffset",
+        "signature",
+        "logo",
+        "draw-on"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-line-draw.html"
+    },
+    {
+      "id": "svg-path-morph",
+      "title": "SVG Path Morph",
+      "summary": "One shape smoothly morphs into another by animating the path's d attribute (SMIL).",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "animation",
+        "morph"
+      ],
+      "tags": [
+        "svg",
+        "morph",
+        "path",
+        "smil",
+        "shape-tween",
+        "blob"
+      ],
+      "tech": [
+        "svg"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "path": "effects/svg-effects/svg-path-morph.html"
+    },
+    {
+      "id": "svg-animated-checkmark",
+      "title": "SVG Success Checkmark",
+      "summary": "A success animation: the circle draws around, then the tick strokes in, with a pop.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "animation",
+        "feedback"
+      ],
+      "tags": [
+        "svg",
+        "checkmark",
+        "success",
+        "confirmation",
+        "stroke",
+        "tick"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-animated-checkmark.html"
+    },
+    {
+      "id": "svg-text-on-path",
+      "title": "SVG Text on a Path",
+      "summary": "Text that flows along a curve, optionally scrolling around it — circular badges and arched headings.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "typography",
+        "text"
+      ],
+      "tags": [
+        "svg",
+        "textpath",
+        "curved-text",
+        "badge",
+        "circular",
+        "arc"
+      ],
+      "tech": [
+        "svg"
+      ],
+      "era": "timeless",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-text-on-path.html"
+    },
+    {
+      "id": "svg-turbulence-distortion",
+      "title": "SVG Turbulence Distortion",
+      "summary": "A wavy, liquid distortion driven by feTurbulence + feDisplacementMap, animated.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "filter",
+        "distortion"
+      ],
+      "tags": [
+        "svg",
+        "feturbulence",
+        "displacement",
+        "distortion",
+        "ripple",
+        "liquid",
+        "noise"
+      ],
+      "tech": [
+        "svg"
+      ],
+      "era": "2020s",
+      "difficulty": "advanced",
+      "path": "effects/svg-effects/svg-turbulence-distortion.html"
     },
     {
       "id": "gradient-text",

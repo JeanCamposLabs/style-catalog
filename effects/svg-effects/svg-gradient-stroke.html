@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Animated Gradient Stroke</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-gradient-stroke",
+    "title": "SVG Animated Gradient Stroke",
+    "summary": "A circular progress/loader ring stroked with a gradient and an animating dash.",
+    "description": "Combines an SVG linearGradient stroke with stroke-linecap round and an animated stroke-dasharray/dashoffset to create a smooth gradient-stroked spinner or progress arc.",
+    "theme": "svg-effects",
+    "categories": ["svg", "stroke", "loader"],
+    "tags": ["svg", "gradient-stroke", "spinner", "progress", "dash", "loader"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers. Note: SVG gradient stroke doesn't rotate with the element, so rotate the whole SVG, not the gradient.",
+    "performance_notes": "Animating rotation + dash via CSS is cheap.",
+    "accessibility_notes": "If used as a loader, wrap with role=status + a visually-hidden label. Slow under prefers-reduced-motion rather than stopping (it's a busy indicator).",
+    "customization": [
+      { "name": "gradient stops", "description": "Stroke colors", "default": "#7c5cff → #2dd4bf" },
+      { "name": "stroke-width", "description": "Ring thickness", "default": "10" }
+    ],
+    "variations": ["Determinate progress (set dashoffset from a value)", "Conic-like full-rainbow stroke", "Pulsing dash length"],
+    "related": ["progress-ring", "ring-spinner", "gradient-border"],
+    "ai_usage": "Use for premium loaders and progress rings. Stroke a <circle> with url(#gradient); set stroke-linecap='round'. For an indeterminate spinner, animate the whole SVG's rotation AND the stroke-dasharray/dashoffset (Material-style). For determinate progress, fix dasharray to the circumference and set dashoffset from your percentage. Rotate the SVG element, not the gradient (gradients are in user space). Add role=status + label when it's a loader."
+  }
+  </script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; }
+    .spin { animation: rotate 2s linear infinite; }
+    .arc { stroke: url(#gs); stroke-width: 10; fill: none; stroke-linecap: round;
+      stroke-dasharray: 200; animation: dash 1.6s ease-in-out infinite; }
+    @keyframes rotate { to { transform: rotate(360deg); } }
+    @keyframes dash {
+      0% { stroke-dashoffset: 190; }
+      50% { stroke-dashoffset: 50; }
+      100% { stroke-dashoffset: 190; }
+    }
+    @media (prefers-reduced-motion: reduce) { .spin { animation-duration: 5s; } .arc { animation-duration: 4s; } }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  </style>
+</head>
+<body>
+  <div role="status">
+    <svg class="spin" width="90" height="90" viewBox="0 0 80 80">
+      <defs>
+        <linearGradient id="gs" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#7c5cff" /><stop offset="100%" stop-color="#2dd4bf" />
+        </linearGradient>
+      </defs>
+      <circle class="arc" cx="40" cy="40" r="32" />
+    </svg>
+    <span class="visually-hidden">Loading…</span>
+  </div>
+</body>
+</html>

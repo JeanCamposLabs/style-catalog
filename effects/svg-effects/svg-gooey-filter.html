@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Gooey Filter</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-gooey-filter",
+    "title": "SVG Gooey Filter",
+    "summary": "Blobs that merge with a liquid 'metaball' connection using an SVG blur + contrast filter.",
+    "description": "The classic gooey effect: feGaussianBlur softens shapes, then feColorMatrix cranks alpha contrast so overlapping blurred edges snap together into a liquid blob. Applied to CSS-animated circles.",
+    "theme": "svg-effects",
+    "categories": ["svg", "filter", "animation"],
+    "tags": ["svg", "gooey", "metaball", "feColorMatrix", "feGaussianBlur", "liquid"],
+    "tech": ["svg", "css"],
+    "era": "2010s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers. The filter can be defined in a 0-size inline SVG and referenced from CSS via filter: url(#goo).",
+    "performance_notes": "SVG blur filters are moderately expensive; keep the filtered area small and the element count low. Motion is CSS transform (cheap).",
+    "accessibility_notes": "Purely decorative; blob motion stops under prefers-reduced-motion. The contrast matrix can produce hard edges — keep it off text.",
+    "customization": [
+      { "name": "feGaussianBlur stdDeviation", "description": "Higher = gooier/longer connections", "default": "10" },
+      { "name": "feColorMatrix alpha row", "description": "The '18 -7' values tune the snap threshold", "default": "18 -7" }
+    ],
+    "variations": ["Gooey menu (FAB that spits out items)", "Gooey loader dots", "Colored goo with a gradient fill"],
+    "related": ["blob-morph", "floating-particles"],
+    "ai_usage": "Use for playful liquid UI: gooey menus, merging loader dots, blob backgrounds. Define filter#goo = feGaussianBlur(stdDeviation ~10) → feColorMatrix(... 18 -7) → feComposite. Apply filter:url(#goo) to a CONTAINER whose children (solid circles) overlap; the blur+contrast makes them fuse. Tune stdDeviation for goo length and the matrix's last two alpha numbers for the merge threshold. Keep it off text and gate motion under reduced-motion."
+  }
+  </script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #06060c; }
+    .goo { position: relative; width: 200px; height: 200px; filter: url(#goo); }
+    .blob { position: absolute; top: 70px; left: 70px; width: 60px; height: 60px; border-radius: 50%; background: #7c5cff; }
+    .b1 { animation: orbit1 3.5s ease-in-out infinite; }
+    .b2 { background: #2dd4bf; animation: orbit2 4s ease-in-out infinite; }
+    .b3 { background: #f0abfc; animation: orbit3 4.5s ease-in-out infinite; }
+    @keyframes orbit1 { 50% { transform: translate(-50px,-30px); } }
+    @keyframes orbit2 { 50% { transform: translate(55px,40px); } }
+    @keyframes orbit3 { 50% { transform: translate(40px,-55px); } }
+    @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+    </defs>
+  </svg>
+  <div class="goo">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+</body>
+</html>
