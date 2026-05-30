@@ -3,6 +3,27 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.7.0] — 2026-05-30
+
+### Changed — hand-crafted, trend-researched templates (replaces the generator)
+- Removed `scripts/gen-templates.mjs` and its 132 generated templates. Generated
+  palette-swaps lacked authentic variety; replaced with hand-built specimens.
+- Added **12 distinct, hand-crafted templates**, each embodying a researched
+  2026 design trend + a real use-case, with effects woven in authentically:
+  - `aurora-saas` — Aurora UI (animated gradient mesh + glass)
+  - `bento-showcase` — Apple-style bento grid product page
+  - `swiss-editorial` — Resonant Stark / Swiss typographic studio
+  - `glass-fintech` — controlled glassmorphism with a floating app mock
+  - `kinetic-portfolio` — cursor-reactive kinetic typography
+  - `dopamine-brand` — dopamine / Y2K maximalist beverage brand
+  - `clay-app` — claymorphism (soft 3D) wellness app
+  - `terminal-devtool` — dark terminal/dev tool with typing animation
+  - `synthwave-arcade` — retro-futurism with an animated neon grid
+  - `luxe-serif` — quiet-luxury serif hospitality
+  - `organic-wellness` — organic/botanical earthy brand
+  - `magazine-home` — editorial magazine front page
+- Catalog now 123 effects across 22 themes (Website Templates: 21).
+
 ## [0.6.0] — 2026-05-30
 
 ### Added — 132 premium templates (catalog now 243 effects)

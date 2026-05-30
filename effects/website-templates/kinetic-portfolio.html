@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kinetic Type — Creative Portfolio</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "kinetic-portfolio",
+  "title": "Kinetic Type — Creative Portfolio",
+  "summary": "A bold creative-director portfolio led by kinetic typography: a cursor-reactive hero headline and an infinite marquee, on stark black.",
+  "description": "Kinetic typography — text that moves and reacts — is a defining 2026 hero treatment. This portfolio opens with a massive headline whose words tilt and shift toward the cursor, backed by a high-speed marquee strip, then a minimal work list. Stark, confident, motion-first.",
+  "theme": "website-templates",
+  "categories": ["template", "portfolio", "creative"],
+  "tags": ["kinetic-typography", "marquee", "portfolio", "creative", "dark", "interactive", "2026-trend", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (pointer events, CSS transforms).",
+  "performance_notes": "One rAF-free pointermove handler (throttled via CSS transitions) + a CSS marquee. Lightweight.",
+  "accessibility_notes": "Headline remains readable text; motion is decorative. Marquee and cursor-reaction disable under prefers-reduced-motion. Focus-visible on links.",
+  "customization": [
+    { "name": "--accent", "description": "The single accent", "default": "#d6ff3f" },
+    { "name": "reaction strength", "description": "Multiplier in JS (max tilt/shift)", "default": "moderate" }
+  ],
+  "variations": ["Light version (invert)", "Replace marquee with a second kinetic line", "Per-letter reaction instead of per-word"],
+  "related": ["kinetic-typography", "marquee-scroll", "magnetic-button"],
+  "ai_usage": "Use for creative directors, motion designers, studios. The hero words are spans translated/rotated by the cursor's offset from center via a pointermove handler; CSS transitions smooth it. Keep one accent color and lots of black. Replace the headline words, marquee text, and work rows. All motion is reduced-motion guarded."
+}
+</script>
+<style>
+  :root{--bg:#0c0c0c;--text:#f5f5f0;--muted:#8a8a82;--accent:#d6ff3f;}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:"Archivo","Helvetica Neue",Arial,sans-serif;line-height:1.2;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 1.6rem}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 0;mix-blend-mode:difference}
+  .brand{font-weight:800;letter-spacing:-.02em}
+  nav a{margin-left:1.4rem;font-size:.9rem;color:var(--muted)}nav a:hover{color:var(--text)}
+  .hero{padding:6vw 0 2vw;text-align:center}
+  .kinetic{font-size:clamp(3rem,15vw,12rem);font-weight:900;letter-spacing:-.05em;line-height:.85;text-transform:uppercase;margin:0;perspective:800px}
+  .kinetic .w{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1);will-change:transform}
+  .kinetic .w.acc{color:var(--accent)}
+  .kinetic .w em{font-style:italic;font-weight:400}
+  .tag{max-width:54ch;margin:2rem auto 0;color:var(--muted);font-size:1.15rem;line-height:1.5}
+  .marquee{margin:3vw 0;border-top:1px solid #222;border-bottom:1px solid #222;overflow:hidden;white-space:nowrap;padding:.6rem 0}
+  .marquee .track{display:inline-block;animation:scroll 22s linear infinite;font-size:clamp(1.4rem,4vw,2.6rem);font-weight:800;text-transform:uppercase;letter-spacing:-.02em}
+  .marquee .track span{margin:0 1.5rem}.marquee .track .dot{color:var(--accent)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  section{padding:5vw 0}
+  .lbl{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:1rem}
+  .work a{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;padding:1.6rem 0;border-top:1px solid #1e1e1e;font-size:clamp(1.6rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em;transition:padding-left .3s,color .3s}
+  .work a:hover{padding-left:1.2rem;color:var(--accent)}
+  .work a .meta{font-size:.95rem;color:var(--muted);font-weight:400}
+  footer{padding:4vw 0 4rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--muted);border-top:1px solid #1e1e1e;font-size:.95rem}
+  footer a{color:var(--accent)}
+  @media(prefers-reduced-motion:reduce){.kinetic .w{transition:none!important;transform:none!important}.marquee .track{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav><div class="brand">RÍAN ☻ FOX</div><div><a href="#work">Work</a><a href="#info">Info</a><a href="#contact">Contact</a></div></nav>
+    <header class="hero">
+      <h1 class="kinetic" id="k" aria-label="Designer who makes brands move">
+        <span class="w">Designer</span> <span class="w">who</span><br>
+        <span class="w">makes</span> <span class="w acc">brands</span> <span class="w"><em>move.</em></span>
+      </h1>
+      <p class="tag">Independent creative director &amp; motion designer crafting identities and interfaces with rhythm, weight, and a little chaos.</p>
+    </header>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="track">
+    <span>BRANDING</span><span class="dot">✺</span><span>MOTION</span><span class="dot">✺</span><span>ART DIRECTION</span><span class="dot">✺</span><span>WEB</span><span class="dot">✺</span>
+    <span>BRANDING</span><span class="dot">✺</span><span>MOTION</span><span class="dot">✺</span><span>ART DIRECTION</span><span class="dot">✺</span><span>WEB</span><span class="dot">✺</span>
+  </div></div>
+
+  <section class="wrap" id="work">
+    <div class="lbl">Selected work</div>
+    <div class="work">
+      <a href="#"><span>Hyper&nbsp;Sans</span><span class="meta">Type · 2026</span></a>
+      <a href="#"><span>Voltage&nbsp;Energy</span><span class="meta">Brand · 2025</span></a>
+      <a href="#"><span>Nocturne&nbsp;Records</span><span class="meta">Identity · 2025</span></a>
+      <a href="#"><span>Kestrel&nbsp;App</span><span class="meta">Product · 2024</span></a>
+    </div>
+  </section>
+
+  <footer class="wrap" id="contact">
+    <span>Open for collaborations — <a href="mailto:hi@rianfox.studio">hi@rianfox.studio</a></span>
+    <span>© <span id="yr"></span> Rían Fox</span>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce){
+      var ws=[].slice.call(document.querySelectorAll('#k .w'));
+      addEventListener('pointermove',function(e){
+        var cx=innerWidth/2, cy=innerHeight/2;
+        var dx=(e.clientX-cx)/cx, dy=(e.clientY-cy)/cy;
+        ws.forEach(function(w,i){
+          var f=((i%3)+1)*4; // varied strength per word
+          w.style.transform='translate('+(dx*f)+'px,'+(dy*f)+'px) rotate('+(dx*(i%2?2:-2))+'deg)';
+        });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aurora UI — SaaS</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "aurora-saas",
+  "title": "Aurora UI — SaaS",
+  "summary": "A dreamy SaaS landing in the Aurora UI trend: an animated gradient-mesh backdrop, frosted-glass nav and cards, and an oversized gradient headline.",
+  "description": "Aurora UI (named for the northern lights) is one of 2026's signature looks — soft, animated gradient meshes glowing behind glassmorphic surfaces. This is a full SaaS landing built on it: drifting multi-radial mesh, a glass sticky nav, a giant gradient hero headline, glass feature cards, and a metrics band.",
+  "theme": "website-templates",
+  "categories": ["template", "landing", "saas"],
+  "tags": ["aurora-ui", "gradient-mesh", "glassmorphism", "saas", "dark", "2026-trend", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (backdrop-filter, CSS animations).",
+  "performance_notes": "Three animated radial-gradient layers + IntersectionObserver reveals. No images or libraries. Mesh animation pauses under reduced-motion.",
+  "accessibility_notes": "Semantic landmarks, focus-visible rings, contrast preserved over the dark mesh, prefers-reduced-motion disables the drift and reveals.",
+  "customization": [
+    { "name": "--a1/--a2/--a3", "description": "The three aurora colors", "default": "violet / teal / pink" },
+    { "name": "mesh keyframes", "description": "Drift speed/positions", "default": "26s loops" }
+  ],
+  "variations": ["Light aurora (raise lightness, lower opacity)", "Two-color mesh", "Static mesh (drop the animation)"],
+  "related": ["animated-gradient", "glass-navbar", "gradient-text", "reveal-on-scroll"],
+  "ai_usage": "Use for atmospheric, premium SaaS/AI landings. The aurora is three blurred radial gradients on a fixed layer, each drifting on its own keyframe; glass surfaces use backdrop-filter blur over it. Recolor via --a1/--a2/--a3. Keep text on solid-ish glass for contrast. Replace the hero mock and feature copy. Reduced-motion safe."
+}
+</script>
+<style>
+  :root{--bg:#06060d;--text:#eef0fb;--muted:#9aa0c0;--line:rgba(255,255,255,.1);
+    --a1:#7c5cff;--a2:#2dd4bf;--a3:#ff6ec7;--glass:rgba(255,255,255,.055);--radius:20px;}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:"Inter",system-ui,-apple-system,sans-serif;line-height:1.6;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  /* aurora mesh */
+  .aurora{position:fixed;inset:-20%;z-index:-1;filter:blur(70px);opacity:.85}
+  .aurora i{position:absolute;width:48vw;height:48vw;border-radius:50%;mix-blend-mode:screen;will-change:transform}
+  .aurora i:nth-child(1){background:var(--a1);left:-5%;top:-5%;animation:d1 26s ease-in-out infinite}
+  .aurora i:nth-child(2){background:var(--a2);right:-8%;top:10%;animation:d2 30s ease-in-out infinite}
+  .aurora i:nth-child(3){background:var(--a3);left:25%;bottom:-15%;animation:d3 34s ease-in-out infinite}
+  @keyframes d1{50%{transform:translate(20vw,18vh) scale(1.25)}}
+  @keyframes d2{50%{transform:translate(-16vw,12vh) scale(1.15)}}
+  @keyframes d3{50%{transform:translate(10vw,-18vh) scale(1.3)}}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 1.4rem}
+  nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(16px) saturate(1.4);background:rgba(8,8,16,.45);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+  .brand b{background:linear-gradient(100deg,var(--a1),var(--a2),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .links{display:flex;gap:1.6rem;align-items:center}.links a{color:var(--muted);font-size:.93rem;font-weight:500}.links a:hover{color:var(--text)}
+  .btn{display:inline-block;font-weight:600;border-radius:999px;padding:.6rem 1.2rem;background:linear-gradient(100deg,var(--a1),var(--a3));color:#fff;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(124,92,255,.4)}
+  .btn.glass{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(8px)}
+  .btn:focus-visible{outline:2px solid var(--a2);outline-offset:3px}
+  .hero{text-align:center;padding:7rem 0 5rem}
+  .pill{display:inline-flex;gap:.5rem;align-items:center;font-size:.8rem;color:var(--muted);background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(8px);padding:.4rem .9rem;border-radius:999px}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--a2);box-shadow:0 0 10px var(--a2)}
+  h1{font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.02;font-weight:800;letter-spacing:-.03em;margin:1.2rem 0 .8rem}
+  h1 .g{background:linear-gradient(100deg,var(--a1),var(--a2),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);font-size:1.2rem;max-width:50ch;margin:0 auto 2rem}
+  .ctas{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+  .mock{max-width:920px;margin:3.5rem auto 0;aspect-ratio:16/9;border-radius:var(--radius);background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(12px);box-shadow:0 40px 120px rgba(0,0,0,.6)}
+  section{padding:5rem 0}
+  .eyebrow{text-align:center;color:var(--a2);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.76rem}
+  h2{text-align:center;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;letter-spacing:-.02em;margin:.6rem 0 2.6rem}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  .card{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(14px);border-radius:var(--radius);padding:1.6rem}
+  .card .ic{font-size:1.6rem}.card h3{margin:.6rem 0 .3rem;font-size:1.15rem}.card p{color:var(--muted);margin:0;font-size:.95rem}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(14px);border-radius:var(--radius);padding:2.2rem 1rem}
+  .metrics .n{font-size:clamp(2rem,4vw,3rem);font-weight:800;background:linear-gradient(100deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .metrics .l{color:var(--muted);font-size:.9rem}
+  footer{border-top:1px solid var(--line);color:var(--muted);text-align:center;padding:2.5rem 0;font-size:.9rem}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.reveal.in{opacity:1;transform:none}
+  @media(max-width:780px){.cards,.metrics{grid-template-columns:repeat(2,1fr)}.links a:not(.btn){display:none}}
+  @media(prefers-reduced-motion:reduce){.aurora i{animation:none}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <nav><div class="wrap">
+    <div class="brand">✦ <b>Lumina</b></div>
+    <div class="links"><a href="#">Product</a><a href="#">Solutions</a><a href="#">Pricing</a><a href="#">Docs</a><a class="btn" href="#">Start free</a></div>
+  </div></nav>
+
+  <header class="hero"><div class="wrap">
+    <span class="pill"><span class="dot"></span> Now with realtime AI agents</span>
+    <h1>The workspace that <span class="g">thinks ahead</span>.</h1>
+    <p class="sub">Lumina unifies your docs, data, and workflows under one calm, intelligent surface — so your team moves at the speed of thought.</p>
+    <div class="ctas"><a class="btn" href="#">Start free trial</a><a class="btn glass" href="#">Watch the film ↗</a></div>
+    <div class="mock" role="img" aria-label="Product screenshot placeholder"></div>
+  </div></header>
+
+  <section><div class="wrap">
+    <p class="eyebrow reveal">Why teams switch</p>
+    <h2 class="reveal">Built for flow, not friction</h2>
+    <div class="cards">
+      <div class="card reveal"><div class="ic">🌌</div><h3>Ambient intelligence</h3><p>Context-aware suggestions that surface the moment you need them — never before.</p></div>
+      <div class="card reveal"><div class="ic">⚡</div><h3>Instant everywhere</h3><p>Edge-synced and offline-first. Your work is there before you ask.</p></div>
+      <div class="card reveal"><div class="ic">🔒</div><h3>Private by design</h3><p>End-to-end encryption and zero data training, by default.</p></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="metrics reveal">
+      <div><div class="n">2.4M</div><div class="l">active users</div></div>
+      <div><div class="n">99.99%</div><div class="l">uptime</div></div>
+      <div><div class="n">11ms</div><div class="l">p95 latency</div></div>
+      <div><div class="n">4.9★</div><div class="l">avg rating</div></div>
+    </div>
+  </div></section>
+
+  <footer><div class="wrap">© <span id="yr"></span> Lumina, Inc. · Made under the northern lights.</div></footer>
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  </script>
+</body>
+</html>

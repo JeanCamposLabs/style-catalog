@@ -1,0 +1,60 @@
+{
+  "id": "dopamine-brand",
+  "title": "Dopamine / Y2K — Beverage Brand",
+  "summary": "A loud, joyful consumer-brand page in the 'dopamine design' / Y2K trend: clashing saturated colors, blobby shapes, sticker badges, and a wobbling product.",
+  "description": "Dopamine design and Y2K nostalgia are back for 2026 — maximal, saturated, playful. This is a beverage/snack brand landing: hot color blocks, organic blob backgrounds, rotated sticker badges, a floating product hero, a flavor grid, and a bold CTA. Fun, tactile, and unapologetically bright.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "ecommerce",
+    "brand"
+  ],
+  "tags": [
+    "dopamine",
+    "y2k",
+    "maximalist",
+    "playful",
+    "brand",
+    "saturated",
+    "2026-trend",
+    "full-page"
+  ],
+  "tech": [
+    "html",
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "CSS blobs (border-radius morph) + a wobble animation + reveals. No images.",
+  "accessibility_notes": "Bright but text kept on solid blocks for contrast; focus-visible; wobble/blob animation stops under reduced-motion.",
+  "customization": [
+    {
+      "name": "--p1..--p4",
+      "description": "The clashing brand colors",
+      "default": "pink/lime/blue/yellow"
+    },
+    {
+      "name": "blob shapes",
+      "description": "border-radius morph keyframes",
+      "default": "organic"
+    }
+  ],
+  "variations": [
+    "Pick a 2-color palette for less chaos",
+    "Swap blobs for grain texture",
+    "Real product photo instead of CSS bottle"
+  ],
+  "related": [
+    "blob-morph",
+    "sticker-badge",
+    "card-lift",
+    "reveal-on-scroll"
+  ],
+  "ai_usage": "Use for consumer brands, snacks, drinks, events, Gen-Z products. The energy comes from clashing saturated colors, rotated 'sticker' badges, and morphing blob backgrounds. Keep body text on solid color blocks so it stays legible. Recolor via --p1..--p4. Replace the CSS bottle with a product photo. Reduced-motion safe.",
+  "path": "effects/website-templates/dopamine-brand.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>Dopamine / Y2K — Beverage Brand</title>\n<script type=\"application/json\" id=\"effect-meta\">\n{\n  \"id\": \"dopamine-brand\",\n  \"title\": \"Dopamine / Y2K — Beverage Brand\",\n  \"summary\": \"A loud, joyful consumer-brand page in the 'dopamine design' / Y2K trend: clashing saturated colors, blobby shapes, sticker badges, and a wobbling product.\",\n  \"description\": \"Dopamine design and Y2K nostalgia are back for 2026 — maximal, saturated, playful. This is a beverage/snack brand landing: hot color blocks, organic blob backgrounds, rotated sticker badges, a floating product hero, a flavor grid, and a bold CTA. Fun, tactile, and unapologetically bright.\",\n  \"theme\": \"website-templates\",\n  \"categories\": [\"template\", \"ecommerce\", \"brand\"],\n  \"tags\": [\"dopamine\", \"y2k\", \"maximalist\", \"playful\", \"brand\", \"saturated\", \"2026-trend\", \"full-page\"],\n  \"tech\": [\"html\", \"css\", \"js\"],\n  \"era\": \"2020s\",\n  \"difficulty\": \"beginner\",\n  \"dependencies\": [],\n  \"browser_support\": \"All modern browsers.\",\n  \"performance_notes\": \"CSS blobs (border-radius morph) + a wobble animation + reveals. No images.\",\n  \"accessibility_notes\": \"Bright but text kept on solid blocks for contrast; focus-visible; wobble/blob animation stops under reduced-motion.\",\n  \"customization\": [\n    { \"name\": \"--p1..--p4\", \"description\": \"The clashing brand colors\", \"default\": \"pink/lime/blue/yellow\" },\n    { \"name\": \"blob shapes\", \"description\": \"border-radius morph keyframes\", \"default\": \"organic\" }\n  ],\n  \"variations\": [\"Pick a 2-color palette for less chaos\", \"Swap blobs for grain texture\", \"Real product photo instead of CSS bottle\"],\n  \"related\": [\"blob-morph\", \"sticker-badge\", \"card-lift\", \"reveal-on-scroll\"],\n  \"ai_usage\": \"Use for consumer brands, snacks, drinks, events, Gen-Z products. The energy comes from clashing saturated colors, rotated 'sticker' badges, and morphing blob backgrounds. Keep body text on solid color blocks so it stays legible. Recolor via --p1..--p4. Replace the CSS bottle with a product photo. Reduced-motion safe.\"\n}\n</script>\n<style>\n  :root{--p1:#ff4da6;--p2:#c6ff3d;--p3:#3d7bff;--p4:#ffd23d;--ink:#1a1130;--paper:#fff6fb;}\n  *{box-sizing:border-box}html{scroll-behavior:smooth}\n  body{margin:0;background:var(--paper);color:var(--ink);font-family:\"Poppins\",\"Trebuchet MS\",system-ui,sans-serif;line-height:1.5;overflow-x:hidden}\n  a{color:inherit;text-decoration:none}\n  .wrap{max-width:1100px;margin:0 auto;padding:0 1.4rem;position:relative;z-index:1}\n  .blob{position:absolute;filter:blur(8px);opacity:.85;z-index:0;border-radius:60% 40% 55% 45%/55% 45% 60% 40%;animation:morph 12s ease-in-out infinite}\n  @keyframes morph{50%{border-radius:45% 55% 40% 60%/40% 60% 45% 55%;transform:scale(1.1) rotate(8deg)}}\n  nav{display:flex;align-items:center;justify-content:space-between;height:74px}\n  .brand{font-weight:900;font-size:1.5rem;letter-spacing:-.03em;color:var(--p1)}\n  .links{display:flex;gap:1.2rem;align-items:center;font-weight:700}\n  .btn{display:inline-block;background:var(--ink);color:#fff;border:3px solid var(--ink);border-radius:999px;padding:.6rem 1.3rem;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--p1);transition:transform .12s,box-shadow .12s}\n  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--p1)}\n  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--p1)}\n  .btn.lime{box-shadow:4px 4px 0 var(--p2)}.btn.lime:hover{box-shadow:6px 6px 0 var(--p2)}\n  .btn:focus-visible{outline:3px solid var(--p3);outline-offset:3px}\n  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:3rem 0 4rem}\n  .sticker{display:inline-block;background:var(--p4);border:3px solid var(--ink);border-radius:14px;padding:.3rem .8rem;font-weight:900;transform:rotate(-4deg);box-shadow:3px 3px 0 var(--ink)}\n  h1{font-size:clamp(2.8rem,8vw,5.4rem);font-weight:900;letter-spacing:-.04em;line-height:.95;margin:1rem 0}\n  h1 .a{color:var(--p1)}h1 .b{color:var(--p3)}h1 .c{color:var(--p2);-webkit-text-stroke:2px var(--ink)}\n  .sub{font-size:1.2rem;font-weight:600;max-width:38ch;margin:0 0 1.6rem}\n  .ctas{display:flex;gap:.8rem;flex-wrap:wrap}\n  .bottle{position:relative;height:420px;display:grid;place-items:center}\n  .can{width:170px;height:320px;border-radius:90px;background:linear-gradient(160deg,var(--p1),var(--p3));border:4px solid var(--ink);box-shadow:10px 12px 0 var(--ink);display:grid;place-items:center;text-align:center;color:#fff;animation:wob 4s ease-in-out infinite}\n  @keyframes wob{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg) translateY(-10px)}}\n  .can .big{font-size:2rem;font-weight:900;-webkit-text-stroke:1.5px var(--ink)}\n  .can .sm{font-weight:800;letter-spacing:.2em;font-size:.8rem}\n  .b1{width:280px;height:280px;background:var(--p2);left:-60px;top:-30px}.b2{width:220px;height:220px;background:var(--p4);right:-40px;top:120px}\n  section{padding:4rem 0;position:relative}\n  h2{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-.03em;text-align:center;margin:0 0 2rem}\n  .flavors{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}\n  .flav{border:3px solid var(--ink);border-radius:24px;padding:1.4rem;text-align:center;font-weight:800;box-shadow:5px 5px 0 var(--ink);transition:transform .15s}\n  .flav:hover{transform:translateY(-6px) rotate(-2deg)}\n  .flav .e{font-size:2.4rem}.flav .n{margin-top:.4rem}.flav .d{font-weight:600;font-size:.85rem;color:#6b5a7a}\n  .f1{background:#ffe3f1}.f2{background:#eaffc7}.f3{background:#dbe7ff}.f4{background:#fff3c9}\n  .cta-band{background:var(--ink);color:#fff;border-radius:32px;padding:3rem 1.5rem;text-align:center;border:4px solid var(--ink);box-shadow:8px 8px 0 var(--p1)}\n  .cta-band h2{color:#fff}\n  footer{text-align:center;padding:2.5rem 0 3rem;font-weight:700;color:#7a6a88}\n  .reveal{opacity:0;transform:translateY(22px) scale(.98);transition:opacity .6s,transform .6s cubic-bezier(.2,.9,.3,1)}.reveal.in{opacity:1;transform:none}\n  @media(max-width:840px){.hero{grid-template-columns:1fr}.flavors{grid-template-columns:repeat(2,1fr)}.links a:not(.btn){display:none}}\n  @media(prefers-reduced-motion:reduce){.blob,.can{animation:none}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}\n</style>\n</head>\n<body>\n  <span class=\"blob b1\" aria-hidden=\"true\"></span>\n  <div class=\"wrap\">\n    <nav>\n      <div class=\"brand\">ZAP!</div>\n      <div class=\"links\"><a href=\"#\">Flavors</a><a href=\"#\">Story</a><a href=\"#\">Find us</a><a class=\"btn\" href=\"#\">Shop now</a></div>\n    </nav>\n\n    <header class=\"hero\">\n      <div>\n        <span class=\"sticker\">★ 0g sugar · all buzz</span>\n        <h1><span class=\"a\">Taste</span> the <span class=\"b\">electric</span> <span class=\"c\">fizz.</span></h1>\n        <p class=\"sub\">Sparkling energy drinks made with real fruit and zero junk. Crack one open and feel the zap.</p>\n        <div class=\"ctas\"><a class=\"btn\" href=\"#\">Grab a 12-pack</a><a class=\"btn lime\" href=\"#\" style=\"background:var(--p2);color:var(--ink)\">Try a sample</a></div>\n      </div>\n      <div class=\"bottle\">\n        <span class=\"blob b2\" aria-hidden=\"true\"></span>\n        <div class=\"can\"><div><div class=\"big\">ZAP!</div><div class=\"sm\">BERRY BOLT</div></div></div>\n      </div>\n    </header>\n  </div>\n\n  <section><div class=\"wrap\">\n    <h2 class=\"reveal\">Pick your zap ⚡</h2>\n    <div class=\"flavors\">\n      <div class=\"flav f1 reveal\"><div class=\"e\">🍓</div><div class=\"n\">Berry Bolt</div><div class=\"d\">Strawberry + lime</div></div>\n      <div class=\"flav f2 reveal\"><div class=\"e\">🍏</div><div class=\"n\">Green Surge</div><div class=\"d\">Apple + kiwi</div></div>\n      <div class=\"flav f3 reveal\"><div class=\"e\">🫐</div><div class=\"n\">Blue Spark</div><div class=\"d\">Blueberry + mint</div></div>\n      <div class=\"flav f4 reveal\"><div class=\"e\">🍍</div><div class=\"n\">Sun Jolt</div><div class=\"d\">Pineapple + yuzu</div></div>\n    </div>\n  </div></section>\n\n  <section><div class=\"wrap\"><div class=\"cta-band reveal\">\n    <h2>Ready to get zapped?</h2>\n    <p style=\"font-weight:600;max-width:40ch;margin:0 auto 1.4rem\">Free shipping on your first 12-pack. Cancel the boring, keep the buzz.</p>\n    <a class=\"btn lime\" href=\"#\" style=\"background:var(--p2);color:var(--ink)\">Shop all flavors →</a>\n  </div></div></section>\n\n  <footer>© <span id=\"yr\"></span> ZAP! Beverages · Drink responsibly, vibe irresponsibly.</footer>\n  <script>\n    document.getElementById('yr').textContent=new Date().getFullYear();\n    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});\n    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});\n  </script>\n</body>\n</html>\n"
+}

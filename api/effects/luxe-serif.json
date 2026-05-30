@@ -1,0 +1,59 @@
+{
+  "id": "luxe-serif",
+  "title": "Quiet Luxury — Serif Hospitality",
+  "summary": "An elegant, high-end hotel/brand page: dark warm palette, refined serif type, champagne-gold hairlines, and unhurried spacing.",
+  "description": "Quiet luxury — the antidote to loud design — uses restraint to signal premium: large serif display type, a deep warm background, thin gold rules, and generous negative space. Built as a boutique-hotel landing with a letter-spaced hero, an amenities list, a split feature, and a reservation CTA.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "landing",
+    "hospitality"
+  ],
+  "tags": [
+    "luxury",
+    "serif",
+    "elegant",
+    "hotel",
+    "editorial",
+    "dark",
+    "full-page"
+  ],
+  "tech": [
+    "html",
+    "css",
+    "js"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Type, hairlines, and gradient placeholders only. A subtle fade-up reveal. No images or libraries.",
+  "accessibility_notes": "Warm-on-dark contrast verified; focus-visible gold underlines; reduced-motion safe.",
+  "customization": [
+    {
+      "name": "--gold / --bg",
+      "description": "Accent + canvas",
+      "default": "#c8a96a / #14110d"
+    },
+    {
+      "name": "serif stack",
+      "description": "Display serif",
+      "default": "Playfair-style"
+    }
+  ],
+  "variations": [
+    "Ivory light version",
+    "Jewelry/fashion copy",
+    "Add a full-bleed image hero"
+  ],
+  "related": [
+    "serif-display",
+    "hairline-divider",
+    "fade-up",
+    "reveal-on-scroll"
+  ],
+  "ai_usage": "Use for hotels, fine dining, jewelry, fashion, real estate, and premium brands. The luxury reads through restraint: big serif, one metallic accent, thin rules, lots of space — resist adding shadows or bright color. Recolor via --gold/--bg. Swap copy and drop in editorial photography. Reduced-motion safe.",
+  "path": "effects/website-templates/luxe-serif.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>Quiet Luxury — Serif Hospitality</title>\n<script type=\"application/json\" id=\"effect-meta\">\n{\n  \"id\": \"luxe-serif\",\n  \"title\": \"Quiet Luxury — Serif Hospitality\",\n  \"summary\": \"An elegant, high-end hotel/brand page: dark warm palette, refined serif type, champagne-gold hairlines, and unhurried spacing.\",\n  \"description\": \"Quiet luxury — the antidote to loud design — uses restraint to signal premium: large serif display type, a deep warm background, thin gold rules, and generous negative space. Built as a boutique-hotel landing with a letter-spaced hero, an amenities list, a split feature, and a reservation CTA.\",\n  \"theme\": \"website-templates\",\n  \"categories\": [\"template\", \"landing\", \"hospitality\"],\n  \"tags\": [\"luxury\", \"serif\", \"elegant\", \"hotel\", \"editorial\", \"dark\", \"full-page\"],\n  \"tech\": [\"html\", \"css\", \"js\"],\n  \"era\": \"timeless\",\n  \"difficulty\": \"beginner\",\n  \"dependencies\": [],\n  \"browser_support\": \"All modern browsers.\",\n  \"performance_notes\": \"Type, hairlines, and gradient placeholders only. A subtle fade-up reveal. No images or libraries.\",\n  \"accessibility_notes\": \"Warm-on-dark contrast verified; focus-visible gold underlines; reduced-motion safe.\",\n  \"customization\": [\n    { \"name\": \"--gold / --bg\", \"description\": \"Accent + canvas\", \"default\": \"#c8a96a / #14110d\" },\n    { \"name\": \"serif stack\", \"description\": \"Display serif\", \"default\": \"Playfair-style\" }\n  ],\n  \"variations\": [\"Ivory light version\", \"Jewelry/fashion copy\", \"Add a full-bleed image hero\"],\n  \"related\": [\"serif-display\", \"hairline-divider\", \"fade-up\", \"reveal-on-scroll\"],\n  \"ai_usage\": \"Use for hotels, fine dining, jewelry, fashion, real estate, and premium brands. The luxury reads through restraint: big serif, one metallic accent, thin rules, lots of space — resist adding shadows or bright color. Recolor via --gold/--bg. Swap copy and drop in editorial photography. Reduced-motion safe.\"\n}\n</script>\n<style>\n  :root{--bg:#14110d;--bg2:#1b1712;--text:#efe9df;--muted:#a99e8c;--gold:#c8a96a;--line:rgba(200,169,106,.32);\n    --serif:\"Playfair Display\",Georgia,\"Times New Roman\",serif;--sans:\"Inter\",system-ui,sans-serif;}\n  *{box-sizing:border-box}html{scroll-behavior:smooth}\n  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}\n  a{color:inherit;text-decoration:none}\n  .wrap{max-width:1080px;margin:0 auto;padding:0 1.8rem}\n  nav{display:flex;align-items:center;justify-content:space-between;height:84px;border-bottom:1px solid var(--line)}\n  .brand{font-family:var(--serif);font-size:1.4rem;letter-spacing:.18em}\n  .links{display:flex;gap:1.8rem;align-items:center;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}\n  .links a:hover{color:var(--gold)}\n  .btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:.7rem 1.6rem;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;transition:background .3s,color .3s}\n  .btn:hover{background:var(--gold);color:var(--bg)}\n  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}\n  .hero{text-align:center;padding:7rem 0 5rem}\n  .ey{color:var(--gold);font-size:.76rem;letter-spacing:.3em;text-transform:uppercase}\n  h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.8rem,8vw,6rem);line-height:1.02;letter-spacing:.01em;margin:1.4rem 0 1rem}\n  h1 em{font-style:italic;color:var(--gold)}\n  .hero p{color:var(--muted);max-width:48ch;margin:0 auto 2.2rem;font-size:1.1rem}\n  .rule{height:1px;background:var(--line);max-width:120px;margin:2.5rem auto}\n  .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-block:1px solid var(--line);text-align:center}\n  .strip div{padding:2rem 1rem}.strip div+div{border-left:1px solid var(--line)}\n  .strip .n{font-family:var(--serif);font-size:2.4rem;color:var(--gold)}.strip .l{color:var(--muted);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase}\n  section{padding:6rem 0}\n  .split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}\n  .split .ph{aspect-ratio:4/5;background:linear-gradient(160deg,#3a3024,#1b1712);border:1px solid var(--line)}\n  .split h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4vw,3rem);margin:0 0 1rem}\n  .split p{color:var(--muted)}\n  .amen{columns:2;column-gap:3rem;border-top:1px solid var(--line);padding-top:2rem}\n  .amen p{break-inside:avoid;margin:0 0 1rem;padding-bottom:1rem;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:1.2rem}\n  .amen p span{display:block;font-family:var(--sans);font-size:.85rem;color:var(--muted)}\n  .reserve{text-align:center;border:1px solid var(--line);padding:5rem 1.5rem;background:var(--bg2)}\n  .reserve h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,5vw,3.4rem);margin:0 0 1rem}\n  footer{border-top:1px solid var(--line);padding:3rem 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--muted);font-size:.8rem;letter-spacing:.1em}\n  .reveal{opacity:0;transform:translateY(24px);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1)}.reveal.in{opacity:1;transform:none}\n  @media(max-width:780px){.split,.amen{grid-template-columns:1fr;columns:1}.links a:not(.btn){display:none}}\n  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}\n</style>\n</head>\n<body>\n  <div class=\"wrap\">\n    <nav>\n      <div class=\"brand\">THE LINDEN</div>\n      <div class=\"links\"><a href=\"#\">Rooms</a><a href=\"#\">Dining</a><a href=\"#\">Spa</a><a class=\"btn\" href=\"#\">Reserve</a></div>\n    </nav>\n\n    <header class=\"hero\">\n      <p class=\"ey\">Boutique hotel · Lake Como</p>\n      <h1>Where time <em>slows</em><br>and stays a while.</h1>\n      <p>Twenty-two rooms above the water, a kitchen that honors the seasons, and the quiet luxury of being unhurried.</p>\n      <a class=\"btn\" href=\"#\">Check availability</a>\n      <div class=\"rule\"></div>\n    </header>\n  </div>\n\n  <div class=\"wrap\"><div class=\"strip\">\n    <div><div class=\"n\">22</div><div class=\"l\">Rooms &amp; suites</div></div>\n    <div><div class=\"n\">1898</div><div class=\"l\">Est.</div></div>\n    <div><div class=\"n\">★★★★★</div><div class=\"l\">Guest rating</div></div>\n  </div></div>\n\n  <section class=\"wrap\"><div class=\"split\">\n    <div class=\"ph reveal\" role=\"img\" aria-label=\"Suite interior\"></div>\n    <div class=\"reveal\">\n      <h2>An address that whispers.</h2>\n      <p>Each room is composed, never decorated — linen, stone, and light arranged with intention. Wake to the lake, fall asleep to nothing at all.</p>\n      <a class=\"btn\" href=\"#\">View the rooms</a>\n    </div>\n  </div></section>\n\n  <section class=\"wrap\">\n    <div class=\"amen\">\n      <p>Lakeside dining<span>A seasonal tasting menu, sourced within the valley.</span></p>\n      <p>The spa<span>Thermal baths, stone treatments, and silence.</span></p>\n      <p>Private terrace<span>Aperitivo as the sun leaves the water.</span></p>\n      <p>Concierge<span>Anything, arranged — quietly.</span></p>\n    </div>\n  </section>\n\n  <section class=\"wrap\"><div class=\"reserve reveal\">\n    <p class=\"ey\">Your stay awaits</p>\n    <h2>Reserve your escape.</h2>\n    <p style=\"color:var(--muted);max-width:42ch;margin:0 auto 2rem\">Rooms are limited and the season is short. We would be delighted to host you.</p>\n    <a class=\"btn\" href=\"#\">Begin reservation</a>\n  </div></section>\n\n  <footer class=\"wrap\">\n    <span>THE LINDEN · Via del Lago 12, Como, Italy</span>\n    <span>© <span id=\"yr\"></span> · +39 031 000 000</span>\n  </footer>\n  <script>\n    document.getElementById('yr').textContent=new Date().getFullYear();\n    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});\n    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});\n  </script>\n</body>\n</html>\n"
+}

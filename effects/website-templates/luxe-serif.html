@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quiet Luxury — Serif Hospitality</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "luxe-serif",
+  "title": "Quiet Luxury — Serif Hospitality",
+  "summary": "An elegant, high-end hotel/brand page: dark warm palette, refined serif type, champagne-gold hairlines, and unhurried spacing.",
+  "description": "Quiet luxury — the antidote to loud design — uses restraint to signal premium: large serif display type, a deep warm background, thin gold rules, and generous negative space. Built as a boutique-hotel landing with a letter-spaced hero, an amenities list, a split feature, and a reservation CTA.",
+  "theme": "website-templates",
+  "categories": ["template", "landing", "hospitality"],
+  "tags": ["luxury", "serif", "elegant", "hotel", "editorial", "dark", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Type, hairlines, and gradient placeholders only. A subtle fade-up reveal. No images or libraries.",
+  "accessibility_notes": "Warm-on-dark contrast verified; focus-visible gold underlines; reduced-motion safe.",
+  "customization": [
+    { "name": "--gold / --bg", "description": "Accent + canvas", "default": "#c8a96a / #14110d" },
+    { "name": "serif stack", "description": "Display serif", "default": "Playfair-style" }
+  ],
+  "variations": ["Ivory light version", "Jewelry/fashion copy", "Add a full-bleed image hero"],
+  "related": ["serif-display", "hairline-divider", "fade-up", "reveal-on-scroll"],
+  "ai_usage": "Use for hotels, fine dining, jewelry, fashion, real estate, and premium brands. The luxury reads through restraint: big serif, one metallic accent, thin rules, lots of space — resist adding shadows or bright color. Recolor via --gold/--bg. Swap copy and drop in editorial photography. Reduced-motion safe."
+}
+</script>
+<style>
+  :root{--bg:#14110d;--bg2:#1b1712;--text:#efe9df;--muted:#a99e8c;--gold:#c8a96a;--line:rgba(200,169,106,.32);
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;--sans:"Inter",system-ui,sans-serif;}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 1.8rem}
+  nav{display:flex;align-items:center;justify-content:space-between;height:84px;border-bottom:1px solid var(--line)}
+  .brand{font-family:var(--serif);font-size:1.4rem;letter-spacing:.18em}
+  .links{display:flex;gap:1.8rem;align-items:center;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .links a:hover{color:var(--gold)}
+  .btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:.7rem 1.6rem;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;transition:background .3s,color .3s}
+  .btn:hover{background:var(--gold);color:var(--bg)}
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .hero{text-align:center;padding:7rem 0 5rem}
+  .ey{color:var(--gold);font-size:.76rem;letter-spacing:.3em;text-transform:uppercase}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.8rem,8vw,6rem);line-height:1.02;letter-spacing:.01em;margin:1.4rem 0 1rem}
+  h1 em{font-style:italic;color:var(--gold)}
+  .hero p{color:var(--muted);max-width:48ch;margin:0 auto 2.2rem;font-size:1.1rem}
+  .rule{height:1px;background:var(--line);max-width:120px;margin:2.5rem auto}
+  .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-block:1px solid var(--line);text-align:center}
+  .strip div{padding:2rem 1rem}.strip div+div{border-left:1px solid var(--line)}
+  .strip .n{font-family:var(--serif);font-size:2.4rem;color:var(--gold)}.strip .l{color:var(--muted);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase}
+  section{padding:6rem 0}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .split .ph{aspect-ratio:4/5;background:linear-gradient(160deg,#3a3024,#1b1712);border:1px solid var(--line)}
+  .split h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4vw,3rem);margin:0 0 1rem}
+  .split p{color:var(--muted)}
+  .amen{columns:2;column-gap:3rem;border-top:1px solid var(--line);padding-top:2rem}
+  .amen p{break-inside:avoid;margin:0 0 1rem;padding-bottom:1rem;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:1.2rem}
+  .amen p span{display:block;font-family:var(--sans);font-size:.85rem;color:var(--muted)}
+  .reserve{text-align:center;border:1px solid var(--line);padding:5rem 1.5rem;background:var(--bg2)}
+  .reserve h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,5vw,3.4rem);margin:0 0 1rem}
+  footer{border-top:1px solid var(--line);padding:3rem 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--muted);font-size:.8rem;letter-spacing:.1em}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1)}.reveal.in{opacity:1;transform:none}
+  @media(max-width:780px){.split,.amen{grid-template-columns:1fr;columns:1}.links a:not(.btn){display:none}}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="brand">THE LINDEN</div>
+      <div class="links"><a href="#">Rooms</a><a href="#">Dining</a><a href="#">Spa</a><a class="btn" href="#">Reserve</a></div>
+    </nav>
+
+    <header class="hero">
+      <p class="ey">Boutique hotel · Lake Como</p>
+      <h1>Where time <em>slows</em><br>and stays a while.</h1>
+      <p>Twenty-two rooms above the water, a kitchen that honors the seasons, and the quiet luxury of being unhurried.</p>
+      <a class="btn" href="#">Check availability</a>
+      <div class="rule"></div>
+    </header>
+  </div>
+
+  <div class="wrap"><div class="strip">
+    <div><div class="n">22</div><div class="l">Rooms &amp; suites</div></div>
+    <div><div class="n">1898</div><div class="l">Est.</div></div>
+    <div><div class="n">★★★★★</div><div class="l">Guest rating</div></div>
+  </div></div>
+
+  <section class="wrap"><div class="split">
+    <div class="ph reveal" role="img" aria-label="Suite interior"></div>
+    <div class="reveal">
+      <h2>An address that whispers.</h2>
+      <p>Each room is composed, never decorated — linen, stone, and light arranged with intention. Wake to the lake, fall asleep to nothing at all.</p>
+      <a class="btn" href="#">View the rooms</a>
+    </div>
+  </div></section>
+
+  <section class="wrap">
+    <div class="amen">
+      <p>Lakeside dining<span>A seasonal tasting menu, sourced within the valley.</span></p>
+      <p>The spa<span>Thermal baths, stone treatments, and silence.</span></p>
+      <p>Private terrace<span>Aperitivo as the sun leaves the water.</span></p>
+      <p>Concierge<span>Anything, arranged — quietly.</span></p>
+    </div>
+  </section>
+
+  <section class="wrap"><div class="reserve reveal">
+    <p class="ey">Your stay awaits</p>
+    <h2>Reserve your escape.</h2>
+    <p style="color:var(--muted);max-width:42ch;margin:0 auto 2rem">Rooms are limited and the season is short. We would be delighted to host you.</p>
+    <a class="btn" href="#">Begin reservation</a>
+  </div></section>
+
+  <footer class="wrap">
+    <span>THE LINDEN · Via del Lago 12, Como, Italy</span>
+    <span>© <span id="yr"></span> · +39 031 000 000</span>
+  </footer>
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  </script>
+</body>
+</html>

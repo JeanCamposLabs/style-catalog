@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resonant Stark — Editorial Studio</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "swiss-editorial",
+  "title": "Resonant Stark — Editorial Studio",
+  "summary": "A calm, confident studio site in the 'Resonant Stark' / Swiss style: oversized type, a visible baseline grid, generous whitespace, and restraint.",
+  "description": "2026's quiet-luxury counter-trend: Swiss/International typographic discipline — a strict grid, enormous type, monochrome palette, and negative space doing the work. Built as a design-studio site: index-style header, a huge statement, a ruled project index, and capabilities — no gradients, no noise.",
+  "theme": "website-templates",
+  "categories": ["template", "agency", "portfolio"],
+  "tags": ["swiss", "editorial", "minimal", "typographic", "monochrome", "grid", "resonant-stark", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Type and rules only — no images, gradients, or heavy JS. Extremely light.",
+  "accessibility_notes": "High-contrast black on off-white, true heading order, large hit areas, focus-visible underlines, reduced-motion safe.",
+  "customization": [
+    { "name": "--ink/--paper", "description": "The two colors", "default": "#111 / #f2f1ec" },
+    { "name": "type scale", "description": "Clamp on the statement", "default": "huge" }
+  ],
+  "variations": ["Invert to dark", "Add one accent color sparingly", "Swap the project rules for a grid of thumbnails"],
+  "related": ["type-scale", "readable-measure", "kinetic-underline"],
+  "ai_usage": "Use for studios, agencies, and high-end personal sites where restraint signals confidence. The design lives in the type scale, the ruled grid, and whitespace — do not add gradients or shadows. Keep it to two colors. Replace the statement, the project rows, and the capabilities. The hover underline animation on rows is the only motion; it's reduced-motion safe."
+}
+</script>
+<style>
+  :root{--ink:#111110;--paper:#f2f1ec;--muted:#6b6a64;--line:#d4d2c8;}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.3;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+  header{display:flex;justify-content:space-between;align-items:baseline;padding:1.6rem 0;border-bottom:1px solid var(--ink)}
+  .brand{font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+  nav a{font-size:.9rem;margin-left:1.6rem;color:var(--muted)}nav a:hover{color:var(--ink)}
+  .hero{padding:5vw 0 4vw}
+  .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:2rem}
+  .statement{font-size:clamp(2.6rem,9vw,8rem);font-weight:700;letter-spacing:-.04em;line-height:.95;margin:0;max-width:16ch}
+  .statement em{font-style:italic;font-weight:400}
+  .lead{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;border-top:1px solid var(--line);padding-top:1.4rem}
+  .lead p{font-size:1.15rem;max-width:46ch;margin:0}.lead .num{color:var(--muted);font-size:.85rem}
+  section{padding:4vw 0}
+  .label{font-size:.85rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);border-bottom:1px solid var(--ink);padding-bottom:.8rem;margin-bottom:.5rem}
+  .row{display:grid;grid-template-columns:2.2rem 1fr auto auto;gap:1.5rem;align-items:baseline;padding:1.3rem 0;border-bottom:1px solid var(--line);position:relative}
+  .row .idx{color:var(--muted);font-size:.85rem}
+  .row .name{font-size:clamp(1.4rem,3vw,2.4rem);font-weight:600;letter-spacing:-.02em}
+  .row .cat,.row .yr{color:var(--muted);font-size:.9rem}
+  .row .name span{display:inline-block;position:relative}
+  .row .name span::after{content:"";position:absolute;left:0;bottom:.05em;height:2px;width:0;background:var(--ink);transition:width .35s cubic-bezier(.2,.8,.2,1)}
+  .row:hover .name span::after{width:100%}
+  .caps{columns:2;column-gap:3rem;font-size:1.05rem}
+  .caps p{break-inside:avoid;margin:0 0 .6rem;border-bottom:1px solid var(--line);padding-bottom:.6rem}
+  footer{border-top:1px solid var(--ink);padding:2rem 0 4rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--muted);font-size:.9rem}
+  footer a{color:var(--ink)}
+  @media(max-width:720px){.lead,.caps{grid-template-columns:1fr;columns:1}.row{grid-template-columns:1.6rem 1fr;gap:.6rem}.row .cat,.row .yr{display:none}}
+  @media(prefers-reduced-motion:reduce){.row .name span::after{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">STUDIO HALD —</div>
+      <nav><a href="#work">Work</a><a href="#about">Studio</a><a href="#caps">Capabilities</a><a href="#contact">Contact</a></nav>
+    </header>
+
+    <section class="hero">
+      <div class="meta"><span>Independent design studio</span><span>Est. 2014 — Copenhagen</span></div>
+      <h1 class="statement">We make <em>quiet</em> things that get noticed.</h1>
+      <div class="lead">
+        <p><span class="num">01 —</span> A small studio working with ambitious brands on identity, typography, and digital products built to last.</p>
+        <p><span class="num">02 —</span> No trends for the sake of trends. We design with intent, edit ruthlessly, and let the work speak plainly.</p>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="label">Selected work · 2020—2026</div>
+      <a class="row" href="#"><span class="idx">001</span><span class="name"><span>Kvist Type Foundry</span></span><span class="cat">Identity · Type</span><span class="yr">’26</span></a>
+      <a class="row" href="#"><span class="idx">002</span><span class="name"><span>Nordlys Bank</span></span><span class="cat">Product · Brand</span><span class="yr">’25</span></a>
+      <a class="row" href="#"><span class="idx">003</span><span class="name"><span>Aalto Editions</span></span><span class="cat">Editorial</span><span class="yr">’25</span></a>
+      <a class="row" href="#"><span class="idx">004</span><span class="name"><span>Form &amp; Field</span></span><span class="cat">Web · Motion</span><span class="yr">’24</span></a>
+      <a class="row" href="#"><span class="idx">005</span><span class="name"><span>Meridian Press</span></span><span class="cat">Identity</span><span class="yr">’24</span></a>
+    </section>
+
+    <section id="caps">
+      <div class="label">Capabilities</div>
+      <div class="caps">
+        <p>Brand identity &amp; naming</p><p>Typography &amp; custom type</p><p>Art direction</p>
+        <p>Editorial &amp; print</p><p>Product &amp; UI design</p><p>Design systems</p>
+        <p>Motion &amp; interaction</p><p>Packaging</p>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <span>Now booking projects for Q3 2026</span>
+      <span><a href="mailto:hej@studiohald.com">hej@studiohald.com</a> · © <span id="yr"></span></span>
+    </footer>
+  </div>
+  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
