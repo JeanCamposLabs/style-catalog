@@ -24,7 +24,6 @@ project, and how to add new effects correctly.
 ```jsonc
 {
   "version": "0.1.0",
-  "generatedAt": "ISO timestamp",
   "counts": { "themes": N, "effects": M },
   "themes":  [ { "slug", "title", "description", "count" } ],
   "facets":  { "themes":[], "tech":[], "difficulty":[], "era":[], "tags":[], "categories":[] },

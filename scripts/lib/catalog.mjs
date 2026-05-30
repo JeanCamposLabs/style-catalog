@@ -181,7 +181,9 @@ export function scanCatalog() {
   const catalog = {
     name: "style-catalog",
     version: "0.1.0",
-    generatedAt: new Date().toISOString(),
+    // NOTE: intentionally no build timestamp here — the generated artifacts
+    // (catalog.json / assets/catalog.js) are committed and verified for
+    // staleness in CI, so the output must be deterministic from the inputs.
     counts: { themes: themes.length, effects: effects.length },
     themes,
     facets,

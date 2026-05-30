@@ -32,3 +32,4 @@ console.log(
 );
 console.log(`  → catalog.json`);
 console.log(`  → assets/catalog.js`);
+console.log(`  (built ${new Date().toISOString()})`);
