@@ -1,0 +1,56 @@
+{
+  "id": "svg-annotation-arrow",
+  "title": "SVG Annotation Arrow",
+  "summary": "A hand-drawn marker arrow that draws itself in to point at something — the 'look here' annotation seen on landing pages.",
+  "description": "A curved, slightly wobbly SVG arrow with a drawn-on arrowhead that animates via stroke-dashoffset to point from a label to a target (a button, a feature). Adds a human, marker-pen 'notice this' cue.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "annotation",
+    "animation"
+  ],
+  "tags": [
+    "svg",
+    "arrow",
+    "annotation",
+    "hand-drawn",
+    "draw",
+    "marker"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Two stroke-dashoffset animations (shaft + head). Trivial.",
+  "accessibility_notes": "Purely decorative (aria-hidden); never rely on it alone — keep the label text it points from. Draws instantly under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--ink",
+      "description": "Marker color",
+      "default": "#ff6ec7"
+    },
+    {
+      "name": "path",
+      "description": "Curve toward your target",
+      "default": "edit d"
+    }
+  ],
+  "variations": [
+    "Loop the draw to keep nudging",
+    "Straight arrow for diagrams",
+    "Dashed 'doodle' stroke"
+  ],
+  "related": [
+    "svg-line-draw",
+    "svg-squiggle-underline",
+    "svg-dashed-connector"
+  ],
+  "ai_usage": "Use to point at a CTA, a new feature, or a form field with a friendly hand-drawn cue. Draw a curved shaft path + a 2-stroke arrowhead; animate each one's stroke-dashoffset from full to 0 (head after the shaft). Keep it aria-hidden and pair it with the real label text; draw instantly under reduced motion. Position relative to the target you're annotating.",
+  "path": "effects/svg-effects/svg-annotation-arrow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Annotation Arrow</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-annotation-arrow\",\n    \"title\": \"SVG Annotation Arrow\",\n    \"summary\": \"A hand-drawn marker arrow that draws itself in to point at something — the 'look here' annotation seen on landing pages.\",\n    \"description\": \"A curved, slightly wobbly SVG arrow with a drawn-on arrowhead that animates via stroke-dashoffset to point from a label to a target (a button, a feature). Adds a human, marker-pen 'notice this' cue.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"annotation\", \"animation\"],\n    \"tags\": [\"svg\", \"arrow\", \"annotation\", \"hand-drawn\", \"draw\", \"marker\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Two stroke-dashoffset animations (shaft + head). Trivial.\",\n    \"accessibility_notes\": \"Purely decorative (aria-hidden); never rely on it alone — keep the label text it points from. Draws instantly under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--ink\", \"description\": \"Marker color\", \"default\": \"#ff6ec7\" },\n      { \"name\": \"path\", \"description\": \"Curve toward your target\", \"default\": \"edit d\" }\n    ],\n    \"variations\": [\"Loop the draw to keep nudging\", \"Straight arrow for diagrams\", \"Dashed 'doodle' stroke\"],\n    \"related\": [\"svg-line-draw\", \"svg-squiggle-underline\", \"svg-dashed-connector\"],\n    \"ai_usage\": \"Use to point at a CTA, a new feature, or a form field with a friendly hand-drawn cue. Draw a curved shaft path + a 2-stroke arrowhead; animate each one's stroke-dashoffset from full to 0 (head after the shaft). Keep it aria-hidden and pair it with the real label text; draw instantly under reduced motion. Position relative to the target you're annotating.\"\n  }\n  </script>\n  <style>\n    :root{--ink:#ff6ec7;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;font-family:\"Caveat\",\"Segoe Script\",cursive,system-ui}\n    .wrap{position:relative;text-align:center}\n    .note{color:var(--ink);font-size:2rem;transform:rotate(-6deg);margin-bottom:.4rem;font-weight:700}\n    .cta{background:#7c5cff;color:#fff;border:none;border-radius:12px;padding:1rem 2rem;font-size:1.1rem;font-weight:700;font-family:system-ui,sans-serif;cursor:pointer}\n    svg.ann{position:absolute;left:50%;top:2.6rem;width:120px;height:90px;transform:translateX(-130%);overflow:visible}\n    svg.ann path{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}\n    .shaft{stroke-dasharray:160;stroke-dashoffset:160;animation:draw .8s ease forwards}\n    .head{stroke-dasharray:40;stroke-dashoffset:40;animation:draw .3s ease .8s forwards}\n    @keyframes draw{to{stroke-dashoffset:0}}\n    @media(prefers-reduced-motion:reduce){.shaft,.head{animation:none;stroke-dashoffset:0}}\n  </style>\n</head>\n<body>\n  <div class=\"wrap\">\n    <div class=\"note\">it's free!</div>\n    <svg class=\"ann\" viewBox=\"0 0 120 90\" aria-hidden=\"true\">\n      <path class=\"shaft\" d=\"M6,8 C50,2 80,20 92,62\"/>\n      <path class=\"head\" d=\"M78,52 L92,64 L98,46\"/>\n    </svg>\n    <button class=\"cta\">Get started</button>\n  </div>\n</body>\n</html>\n"
+}

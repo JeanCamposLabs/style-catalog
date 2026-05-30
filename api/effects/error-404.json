@@ -1,0 +1,57 @@
+{
+  "id": "error-404",
+  "title": "404 — Page Not Found",
+  "summary": "A playful 404 page: a glitching gradient '404', a friendly message, a search box, and quick links home — over a subtle dot grid.",
+  "description": "A memorable error page that turns a dead end into brand personality: an oversized glitch-animated 404, a helpful line of copy, a working-looking search, and shortcut links back into the site, all on a dark dot-grid backdrop.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "utility",
+    "landing"
+  ],
+  "tags": [
+    "404",
+    "error",
+    "glitch",
+    "not-found",
+    "utility",
+    "full-page"
+  ],
+  "tech": [
+    "html",
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "A CSS glitch (clipped pseudo-layers) + dot-grid background. Tiny. Glitch stops under reduced-motion.",
+  "accessibility_notes": "Real heading + landmark, the search is a labeled form, links are keyboard-accessible with focus-visible, and the glitch is decorative (the readable 404 stays). Glitch disabled under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a/--b",
+      "description": "Glitch channel colors",
+      "default": "cyan / magenta"
+    },
+    {
+      "name": "links",
+      "description": "Quick links back into the site",
+      "default": "edit markup"
+    }
+  ],
+  "variations": [
+    "Illustration/mascot instead of glitch",
+    "500 / maintenance variants",
+    "Auto-redirect countdown"
+  ],
+  "related": [
+    "glitch-text",
+    "dot-grid-spotlight",
+    "coming-soon"
+  ],
+  "ai_usage": "Use as a custom 404 (or 500/maintenance). Keep it helpful, not just cute: a big readable error number with an optional glitch, one line of copy, a search field, and 3–4 links back into the site (home, docs, contact). Use real landmarks/labels, keep focus-visible, and disable the glitch under prefers-reduced-motion.",
+  "path": "effects/website-templates/error-404.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>404 — Not Found</title>\n<script type=\"application/json\" id=\"effect-meta\">\n{\n  \"id\": \"error-404\",\n  \"title\": \"404 — Page Not Found\",\n  \"summary\": \"A playful 404 page: a glitching gradient '404', a friendly message, a search box, and quick links home — over a subtle dot grid.\",\n  \"description\": \"A memorable error page that turns a dead end into brand personality: an oversized glitch-animated 404, a helpful line of copy, a working-looking search, and shortcut links back into the site, all on a dark dot-grid backdrop.\",\n  \"theme\": \"website-templates\",\n  \"categories\": [\"template\", \"utility\", \"landing\"],\n  \"tags\": [\"404\", \"error\", \"glitch\", \"not-found\", \"utility\", \"full-page\"],\n  \"tech\": [\"html\", \"css\", \"js\"],\n  \"era\": \"2020s\",\n  \"difficulty\": \"beginner\",\n  \"dependencies\": [],\n  \"browser_support\": \"All modern browsers.\",\n  \"performance_notes\": \"A CSS glitch (clipped pseudo-layers) + dot-grid background. Tiny. Glitch stops under reduced-motion.\",\n  \"accessibility_notes\": \"Real heading + landmark, the search is a labeled form, links are keyboard-accessible with focus-visible, and the glitch is decorative (the readable 404 stays). Glitch disabled under prefers-reduced-motion.\",\n  \"customization\": [\n    { \"name\": \"--a/--b\", \"description\": \"Glitch channel colors\", \"default\": \"cyan / magenta\" },\n    { \"name\": \"links\", \"description\": \"Quick links back into the site\", \"default\": \"edit markup\" }\n  ],\n  \"variations\": [\"Illustration/mascot instead of glitch\", \"500 / maintenance variants\", \"Auto-redirect countdown\"],\n  \"related\": [\"glitch-text\", \"dot-grid-spotlight\", \"coming-soon\"],\n  \"ai_usage\": \"Use as a custom 404 (or 500/maintenance). Keep it helpful, not just cute: a big readable error number with an optional glitch, one line of copy, a search field, and 3–4 links back into the site (home, docs, contact). Use real landmarks/labels, keep focus-visible, and disable the glitch under prefers-reduced-motion.\"\n}\n</script>\n<style>\n  :root{--bg:#0a0c12;--text:#e8ecf6;--muted:#8b93a7;--a:#22d3ee;--b:#ff2bd6;--accent:#7c5cff;}\n  *{box-sizing:border-box}\n  body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:\"Inter\",system-ui,sans-serif;\n    display:grid;place-items:center;text-align:center;padding:2rem;\n    background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px}\n  .wrap{max-width:560px}\n  .num{position:relative;font-size:clamp(6rem,26vw,16rem);font-weight:900;letter-spacing:-.04em;line-height:.9;color:var(--text)}\n  .num span{position:absolute;inset:0;color:var(--text)}\n  .num .g1{color:var(--a);animation:gl1 2.4s infinite steps(2)}\n  .num .g2{color:var(--b);animation:gl2 3s infinite steps(2)}\n  @keyframes gl1{0%,92%,100%{clip-path:inset(0 0 100% 0);transform:translate(0)}93%{clip-path:inset(20% 0 40% 0);transform:translate(-4px,0)}96%{clip-path:inset(60% 0 10% 0);transform:translate(4px,0)}}\n  @keyframes gl2{0%,90%,100%{clip-path:inset(0 0 100% 0);transform:translate(0)}91%{clip-path:inset(40% 0 30% 0);transform:translate(4px,0)}97%{clip-path:inset(10% 0 60% 0);transform:translate(-4px,0)}}\n  h1{font-size:1.6rem;font-weight:800;letter-spacing:-.01em;margin:.4rem 0 .3rem}\n  p{color:var(--muted);margin:0 auto 1.6rem;max-width:40ch}\n  form{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.4rem}\n  input{flex:1;min-width:200px;max-width:300px;background:#11131b;border:1px solid #242a3b;border-radius:999px;padding:.8rem 1.1rem;color:var(--text);outline:none}\n  input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(124,92,255,.2)}\n  button{background:linear-gradient(120deg,var(--accent),var(--a));color:#fff;border:none;border-radius:999px;padding:.8rem 1.4rem;font-weight:700;cursor:pointer}\n  .links{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;font-size:.95rem}\n  .links a{color:var(--a)}.links a:hover{color:var(--text)}\n  a:focus-visible,button:focus-visible{outline:3px solid var(--a);outline-offset:3px}\n  @media(prefers-reduced-motion:reduce){.num .g1,.num .g2{display:none}}\n</style>\n</head>\n<body>\n  <main class=\"wrap\">\n    <div class=\"num\" aria-hidden=\"true\">404<span class=\"g1\">404</span><span class=\"g2\">404</span></div>\n    <h1>This page wandered off.</h1>\n    <p>We couldn't find what you were looking for — but let's get you back on track.</p>\n    <form role=\"search\" onsubmit=\"event.preventDefault()\">\n      <input type=\"search\" placeholder=\"Search the site…\" aria-label=\"Search the site\" />\n      <button type=\"submit\">Search</button>\n    </form>\n    <nav class=\"links\" aria-label=\"Helpful links\">\n      <a href=\"#\">← Home</a><a href=\"#\">Docs</a><a href=\"#\">Status</a><a href=\"#\">Contact</a>\n    </nav>\n  </main>\n</body>\n</html>\n"
+}

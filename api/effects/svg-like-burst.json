@@ -1,0 +1,58 @@
+{
+  "id": "svg-like-burst",
+  "title": "SVG Like Burst",
+  "summary": "A heart that pops and emits a radial particle burst when liked — the satisfying 'favorite' micro-interaction.",
+  "description": "Clicking the heart toggles its filled state with a spring 'pop' and fires a one-shot burst of dots/sparks radiating outward (Twitter/Instagram-style). A high-reward micro-interaction for likes, saves, and favorites.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "micro-interaction",
+    "feedback"
+  ],
+  "tags": [
+    "svg",
+    "like",
+    "heart",
+    "burst",
+    "particles",
+    "favorite",
+    "2026-trend"
+  ],
+  "tech": [
+    "svg",
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "The burst is a set of pre-placed particles animated once via a toggled class; the heart scales with a keyframe. No per-frame JS.",
+  "accessibility_notes": "It's a real <button> with aria-pressed reflecting liked state and an accessible label that updates (Like/Unlike). Burst is decorative (aria-hidden) and skipped under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--heart",
+      "description": "Liked color",
+      "default": "#ff4d6d"
+    },
+    {
+      "name": "particle count/spread",
+      "description": "Burst density",
+      "default": "8 / 28px"
+    }
+  ],
+  "variations": [
+    "Star or bookmark instead of heart",
+    "Number counter that ticks up",
+    "Confetti colors for the particles"
+  ],
+  "related": [
+    "svg-animated-checkmark",
+    "press-3d-button",
+    "magnetic-button"
+  ],
+  "ai_usage": "Use for like/save/favorite buttons. Make it a <button> with aria-pressed; on activate, toggle the filled heart with a spring pop and play a one-shot particle burst (radial dots animated by a toggled class, removed after). Reflect state in aria-pressed + label, keep the burst aria-hidden, and skip the burst/pop under prefers-reduced-motion.",
+  "path": "effects/svg-effects/svg-like-burst.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Like Burst</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-like-burst\",\n    \"title\": \"SVG Like Burst\",\n    \"summary\": \"A heart that pops and emits a radial particle burst when liked — the satisfying 'favorite' micro-interaction.\",\n    \"description\": \"Clicking the heart toggles its filled state with a spring 'pop' and fires a one-shot burst of dots/sparks radiating outward (Twitter/Instagram-style). A high-reward micro-interaction for likes, saves, and favorites.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"micro-interaction\", \"feedback\"],\n    \"tags\": [\"svg\", \"like\", \"heart\", \"burst\", \"particles\", \"favorite\", \"2026-trend\"],\n    \"tech\": [\"svg\", \"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"The burst is a set of pre-placed particles animated once via a toggled class; the heart scales with a keyframe. No per-frame JS.\",\n    \"accessibility_notes\": \"It's a real <button> with aria-pressed reflecting liked state and an accessible label that updates (Like/Unlike). Burst is decorative (aria-hidden) and skipped under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--heart\", \"description\": \"Liked color\", \"default\": \"#ff4d6d\" },\n      { \"name\": \"particle count/spread\", \"description\": \"Burst density\", \"default\": \"8 / 28px\" }\n    ],\n    \"variations\": [\"Star or bookmark instead of heart\", \"Number counter that ticks up\", \"Confetti colors for the particles\"],\n    \"related\": [\"svg-animated-checkmark\", \"press-3d-button\", \"magnetic-button\"],\n    \"ai_usage\": \"Use for like/save/favorite buttons. Make it a <button> with aria-pressed; on activate, toggle the filled heart with a spring pop and play a one-shot particle burst (radial dots animated by a toggled class, removed after). Reflect state in aria-pressed + label, keep the burst aria-hidden, and skip the burst/pop under prefers-reduced-motion.\"\n  }\n  </script>\n  <style>\n    :root{--heart:#ff4d6d;--idle:#5b6377;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif}\n    .like{position:relative;background:none;border:none;cursor:pointer;width:120px;height:120px;display:grid;place-items:center}\n    .like svg{width:64px;height:64px;overflow:visible}\n    .heart{fill:none;stroke:var(--idle);stroke-width:2.5;transition:fill .2s,stroke .2s}\n    .like[aria-pressed=\"true\"] .heart{fill:var(--heart);stroke:var(--heart)}\n    .like.pop svg{animation:pop .45s cubic-bezier(.2,.9,.3,1.4)}\n    @keyframes pop{0%{transform:scale(.6)}45%{transform:scale(1.25)}100%{transform:scale(1)}}\n    .spark{position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:var(--heart);opacity:0}\n    .like.burst .spark{animation:burst .5s ease-out forwards}\n    .s1{--a:0deg}.s2{--a:45deg}.s3{--a:90deg}.s4{--a:135deg}.s5{--a:180deg}.s6{--a:225deg}.s7{--a:270deg}.s8{--a:315deg}\n    .s2,.s4,.s6,.s8{background:#ffb454}\n    @keyframes burst{0%{opacity:1;transform:translate(-50%,-50%) rotate(var(--a)) translateY(0) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) rotate(var(--a)) translateY(-34px) scale(.3)}}\n    .count{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);color:#8b93a7;font-size:.85rem}\n    @media(prefers-reduced-motion:reduce){.like.pop svg{animation:none}.like.burst .spark{animation:none;opacity:0}}\n  </style>\n</head>\n<body>\n  <button class=\"like\" id=\"like\" aria-pressed=\"false\" aria-label=\"Like\">\n    <span class=\"spark s1\"></span><span class=\"spark s2\"></span><span class=\"spark s3\"></span><span class=\"spark s4\"></span>\n    <span class=\"spark s5\"></span><span class=\"spark s6\"></span><span class=\"spark s7\"></span><span class=\"spark s8\"></span>\n    <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path class=\"heart\" d=\"M12 21s-7.5-4.6-10-9.2C.4 8.6 2 5 5.5 5 7.6 5 9 6.3 12 9c3-2.7 4.4-4 6.5-4C22 5 23.6 8.6 22 11.8 19.5 16.4 12 21 12 21z\"/></svg>\n    <span class=\"count\" id=\"count\">128</span>\n  </button>\n  <script>\n    var like=document.getElementById('like'),count=document.getElementById('count'),n=128;\n    like.addEventListener('click',function(){\n      var on=like.getAttribute('aria-pressed')!=='true';\n      like.setAttribute('aria-pressed',on);like.setAttribute('aria-label',on?'Unlike':'Like');\n      n+=on?1:-1;count.textContent=n;\n      like.classList.remove('pop','burst');void like.offsetWidth;\n      like.classList.add('pop');if(on)like.classList.add('burst');\n    });\n  </script>\n</body>\n</html>\n"
+}

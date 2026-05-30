@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Annotation Arrow</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-annotation-arrow",
+    "title": "SVG Annotation Arrow",
+    "summary": "A hand-drawn marker arrow that draws itself in to point at something — the 'look here' annotation seen on landing pages.",
+    "description": "A curved, slightly wobbly SVG arrow with a drawn-on arrowhead that animates via stroke-dashoffset to point from a label to a target (a button, a feature). Adds a human, marker-pen 'notice this' cue.",
+    "theme": "svg-effects",
+    "categories": ["svg", "annotation", "animation"],
+    "tags": ["svg", "arrow", "annotation", "hand-drawn", "draw", "marker"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Two stroke-dashoffset animations (shaft + head). Trivial.",
+    "accessibility_notes": "Purely decorative (aria-hidden); never rely on it alone — keep the label text it points from. Draws instantly under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--ink", "description": "Marker color", "default": "#ff6ec7" },
+      { "name": "path", "description": "Curve toward your target", "default": "edit d" }
+    ],
+    "variations": ["Loop the draw to keep nudging", "Straight arrow for diagrams", "Dashed 'doodle' stroke"],
+    "related": ["svg-line-draw", "svg-squiggle-underline", "svg-dashed-connector"],
+    "ai_usage": "Use to point at a CTA, a new feature, or a form field with a friendly hand-drawn cue. Draw a curved shaft path + a 2-stroke arrowhead; animate each one's stroke-dashoffset from full to 0 (head after the shaft). Keep it aria-hidden and pair it with the real label text; draw instantly under reduced motion. Position relative to the target you're annotating."
+  }
+  </script>
+  <style>
+    :root{--ink:#ff6ec7;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12;font-family:"Caveat","Segoe Script",cursive,system-ui}
+    .wrap{position:relative;text-align:center}
+    .note{color:var(--ink);font-size:2rem;transform:rotate(-6deg);margin-bottom:.4rem;font-weight:700}
+    .cta{background:#7c5cff;color:#fff;border:none;border-radius:12px;padding:1rem 2rem;font-size:1.1rem;font-weight:700;font-family:system-ui,sans-serif;cursor:pointer}
+    svg.ann{position:absolute;left:50%;top:2.6rem;width:120px;height:90px;transform:translateX(-130%);overflow:visible}
+    svg.ann path{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .shaft{stroke-dasharray:160;stroke-dashoffset:160;animation:draw .8s ease forwards}
+    .head{stroke-dasharray:40;stroke-dashoffset:40;animation:draw .3s ease .8s forwards}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    @media(prefers-reduced-motion:reduce){.shaft,.head{animation:none;stroke-dashoffset:0}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="note">it's free!</div>
+    <svg class="ann" viewBox="0 0 120 90" aria-hidden="true">
+      <path class="shaft" d="M6,8 C50,2 80,20 92,62"/>
+      <path class="head" d="M78,52 L92,64 L98,46"/>
+    </svg>
+    <button class="cta">Get started</button>
+  </div>
+</body>
+</html>

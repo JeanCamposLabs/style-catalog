@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blur-Up Image Load</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "blur-up-load",
+    "title": "Blur-Up Image Load",
+    "summary": "The progressive 'blur-up': a tiny blurred placeholder sharpens into the full image as it loads — no layout jank, perceived speed.",
+    "description": "The LQIP / blur-up technique used by Next.js, Medium, and Unsplash: show a tiny, upscaled, blurred preview immediately, then crossfade to the sharp image on load. This demo simulates the load with a button so you can replay it.",
+    "theme": "images-media",
+    "categories": ["image", "loading", "performance"],
+    "tags": ["blur-up", "lqip", "placeholder", "lazy", "progressive", "performance"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "The placeholder is a tiny inline gradient/data-URI scaled up and blurred; swapping to the full image removes the blur. Reserve the box with aspect-ratio to avoid layout shift.",
+    "accessibility_notes": "Always give the real <img> meaningful alt text; the blurred layer is aria-hidden. The box uses aspect-ratio so there's no CLS. Crossfade respects prefers-reduced-motion.",
+    "customization": [
+      { "name": "placeholder", "description": "Tiny LQIP / dominant-color blur", "default": "gradient stand-in" },
+      { "name": "--fade", "description": "Crossfade duration", "default": "0.6s" }
+    ],
+    "variations": ["Dominant-color block instead of blur", "Shimmer skeleton during load", "Pixelated (no blur) reveal"],
+    "related": ["skeleton-loader", "ken-burns", "duotone-image"],
+    "ai_usage": "Use for any content image to improve perceived performance and prevent layout shift. Wrap the image in a box with a fixed aspect-ratio; render a tiny LQIP (base64 or dominant color) scaled up + blurred behind it; when the full <img> fires load, fade it in over the placeholder. Keep real alt text on the <img>, aria-hide the placeholder, and respect reduced motion for the fade."
+  }
+  </script>
+  <style>
+    :root{--fade:.6s;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;gap:1rem;background:#0b0d12;color:#e8ecf6;font-family:system-ui,sans-serif}
+    .frame{position:relative;width:min(420px,90vw);aspect-ratio:3/2;border-radius:16px;overflow:hidden;background:#11131b}
+    .lqip{position:absolute;inset:0;filter:blur(18px);transform:scale(1.1);
+      background:linear-gradient(135deg,#5b3ea8,#c0552f 45%,#1b6b7a)}
+    .full{position:absolute;inset:0;opacity:0;transition:opacity var(--fade) ease;
+      background:
+        radial-gradient(circle at 30% 30%,#a78bff,transparent 40%),
+        radial-gradient(circle at 75% 60%,#ffb454,transparent 45%),
+        linear-gradient(135deg,#6d4ec9,#c0552f 45%,#1b8aa0);
+      display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.3rem;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+    .full.loaded{opacity:1}
+    button{background:#7c5cff;color:#fff;border:none;border-radius:10px;padding:.6rem 1.2rem;font-weight:700;cursor:pointer}
+    button:focus-visible{outline:3px solid #2dd4bf;outline-offset:2px}
+    @media(prefers-reduced-motion:reduce){.full{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="lqip" aria-hidden="true"></div>
+    <div class="full" id="full" role="img" aria-label="A colorful gradient photograph">Sharp image ✶</div>
+  </div>
+  <button id="reload">▶ Simulate load</button>
+  <script>
+    var full=document.getElementById('full'),reload=document.getElementById('reload');
+    function load(){ full.classList.remove('loaded'); setTimeout(function(){full.classList.add('loaded');},900); }
+    reload.addEventListener('click',load);
+    load();
+  </script>
+</body>
+</html>

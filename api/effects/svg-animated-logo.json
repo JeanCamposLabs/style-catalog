@@ -1,0 +1,56 @@
+{
+  "id": "svg-animated-logo",
+  "title": "SVG Animated Logo Reveal",
+  "summary": "A logo mark that draws its outline (stroke), then fills with color — the classic brand intro / splash reveal.",
+  "description": "Combines two SVG techniques into a brand moment: first the logo's paths stroke themselves on via stroke-dashoffset, then the fill fades in and the wordmark slides up. Ideal as a page/app splash or header entrance.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "branding",
+    "animation"
+  ],
+  "tags": [
+    "svg",
+    "logo",
+    "draw",
+    "reveal",
+    "splash",
+    "stroke-fill"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "stroke-dashoffset draw + an opacity fill fade + a small translate on the wordmark. One-shot, then static.",
+  "accessibility_notes": "Give the SVG role='img' and a <title> (the brand name) so it has an accessible name. Under prefers-reduced-motion, show the final filled logo immediately.",
+  "customization": [
+    {
+      "name": "--c1/--c2",
+      "description": "Fill gradient",
+      "default": "violet/teal"
+    },
+    {
+      "name": "timing",
+      "description": "Draw then fill durations",
+      "default": "1.1s + 0.5s"
+    }
+  ],
+  "variations": [
+    "Loop for a loader",
+    "Draw on scroll into view",
+    "Stroke stays as an outline logo"
+  ],
+  "related": [
+    "svg-line-draw",
+    "svg-gradient-stroke",
+    "svg-blob-spinner"
+  ],
+  "ai_usage": "Use as a splash/intro or header logo entrance. Set each path's stroke-dasharray to its length, offset it hidden, animate offset to 0 to 'draw', then transition fill-opacity from 0 to 1 (delayed) and slide the wordmark up. Add role='img' + <title>=brand name for a11y and show the final filled state instantly under reduced motion.",
+  "path": "effects/svg-effects/svg-animated-logo.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Animated Logo Reveal</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-animated-logo\",\n    \"title\": \"SVG Animated Logo Reveal\",\n    \"summary\": \"A logo mark that draws its outline (stroke), then fills with color — the classic brand intro / splash reveal.\",\n    \"description\": \"Combines two SVG techniques into a brand moment: first the logo's paths stroke themselves on via stroke-dashoffset, then the fill fades in and the wordmark slides up. Ideal as a page/app splash or header entrance.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"branding\", \"animation\"],\n    \"tags\": [\"svg\", \"logo\", \"draw\", \"reveal\", \"splash\", \"stroke-fill\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"stroke-dashoffset draw + an opacity fill fade + a small translate on the wordmark. One-shot, then static.\",\n    \"accessibility_notes\": \"Give the SVG role='img' and a <title> (the brand name) so it has an accessible name. Under prefers-reduced-motion, show the final filled logo immediately.\",\n    \"customization\": [\n      { \"name\": \"--c1/--c2\", \"description\": \"Fill gradient\", \"default\": \"violet/teal\" },\n      { \"name\": \"timing\", \"description\": \"Draw then fill durations\", \"default\": \"1.1s + 0.5s\" }\n    ],\n    \"variations\": [\"Loop for a loader\", \"Draw on scroll into view\", \"Stroke stays as an outline logo\"],\n    \"related\": [\"svg-line-draw\", \"svg-gradient-stroke\", \"svg-blob-spinner\"],\n    \"ai_usage\": \"Use as a splash/intro or header logo entrance. Set each path's stroke-dasharray to its length, offset it hidden, animate offset to 0 to 'draw', then transition fill-opacity from 0 to 1 (delayed) and slide the wordmark up. Add role='img' + <title>=brand name for a11y and show the final filled state instantly under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root{--c1:#7c5cff;--c2:#2dd4bf;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif;color:#e8ecf6}\n    .lockup{text-align:center}\n    svg.logo{width:120px;height:120px}\n    .stroke{fill:none;stroke:url(#lg);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;\n      stroke-dasharray:var(--len,300);stroke-dashoffset:var(--len,300);animation:draw 1.1s ease forwards}\n    .fill{fill:url(#lg);fill-opacity:0;animation:fill .5s ease 1s forwards}\n    @keyframes draw{to{stroke-dashoffset:0}}\n    @keyframes fill{to{fill-opacity:1}}\n    .word{font-size:1.6rem;font-weight:800;letter-spacing:.02em;margin-top:.4rem;opacity:0;transform:translateY(10px);animation:rise .5s ease 1.3s forwards}\n    .word b{background:linear-gradient(100deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}\n    @keyframes rise{to{opacity:1;transform:none}}\n    @media(prefers-reduced-motion:reduce){.stroke{animation:none;stroke-dashoffset:0}.fill{animation:none;fill-opacity:1}.word{animation:none;opacity:1;transform:none}}\n  </style>\n</head>\n<body>\n  <div class=\"lockup\">\n    <svg class=\"logo\" viewBox=\"0 0 100 100\" role=\"img\">\n      <title>Vertex</title>\n      <defs><linearGradient id=\"lg\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#7c5cff\"/><stop offset=\"1\" stop-color=\"#2dd4bf\"/></linearGradient></defs>\n      <path class=\"stroke\" style=\"--len:360\" d=\"M50 12 L86 32 L86 68 L50 88 L14 68 L14 32 Z\"/>\n      <path class=\"fill\" d=\"M50 30 L70 42 L70 60 L50 72 L30 60 L30 42 Z\"/>\n    </svg>\n    <div class=\"word\">VER<b>TEX</b></div>\n  </div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Command Palette (⌘K)</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "command-palette",
+    "title": "Command Palette (⌘K)",
+    "summary": "A ⌘K / Ctrl+K spotlight that opens a searchable command menu — fuzzy filter, arrow-key navigation, Enter to run, Esc to close.",
+    "description": "The keyboard-first navigation pattern popularized by Linear, Raycast, and VS Code. Press ⌘K (or click) to open a centered overlay with a search field that filters a command list live; arrow keys move the selection, Enter activates, Escape closes.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "search", "keyboard"],
+    "tags": ["command-palette", "cmdk", "search", "keyboard", "shortcut", "2026-trend"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "In-memory filter over a small list; no libraries. Opens/closes by toggling a class.",
+    "accessibility_notes": "Dialog uses role='dialog' aria-modal; input is labeled; the list is role='listbox' with aria-selected on the active option and aria-activedescendant on the input; Esc closes and focus returns to the trigger. Provide a visible trigger too (not keyboard-only).",
+    "customization": [
+      { "name": "commands", "description": "The command list (label, icon, hint)", "default": "edit array" },
+      { "name": "shortcut", "description": "Open key combo", "default": "⌘K / Ctrl+K" }
+    ],
+    "variations": ["Grouped sections with headings", "Recent / suggested on empty query", "Inline subcommands"],
+    "related": ["dropdown-menu", "text-scramble"],
+    "ai_usage": "Use as primary navigation/search in apps and dev tools. Toggle a dialog on ⌘K/Ctrl+K AND a visible button; filter the command array on input; track a selected index for ArrowUp/Down + Enter; Esc closes and restores focus to the trigger. Wire ARIA: role='dialog' aria-modal, input with aria-activedescendant, listbox/options with aria-selected. Always offer a clickable trigger, not just the shortcut."
+  }
+  </script>
+  <style>
+    :root{--bg:#0b0d12;--panel:#14171f;--line:#2a3040;--text:#e8ecf6;--muted:#8b93a7;--accent:#7c5cff;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:var(--bg);color:var(--text);font-family:system-ui,sans-serif}
+    .trigger{display:inline-flex;gap:.6rem;align-items:center;background:var(--panel);border:1px solid var(--line);color:var(--muted);
+      padding:.7rem 1rem;border-radius:12px;cursor:pointer;font-size:.95rem}
+    .trigger kbd{background:#0b0d12;border:1px solid var(--line);border-radius:6px;padding:.1rem .4rem;font-size:.78rem;color:var(--text)}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding-top:14vh;z-index:50}
+    .overlay.open{display:flex}
+    .palette{width:min(560px,92vw);background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+    .palette input{width:100%;border:none;outline:none;background:transparent;color:var(--text);font-size:1.1rem;padding:1.1rem 1.2rem;border-bottom:1px solid var(--line)}
+    .list{max-height:300px;overflow:auto;padding:.4rem}
+    .opt{display:flex;align-items:center;gap:.8rem;padding:.7rem .9rem;border-radius:10px;cursor:pointer;color:var(--text)}
+    .opt .ic{width:26px;text-align:center}.opt .hint{margin-left:auto;color:var(--muted);font-size:.78rem}
+    .opt[aria-selected="true"]{background:linear-gradient(100deg,rgba(124,92,255,.25),rgba(45,212,191,.15));outline:1px solid var(--accent)}
+    .empty{padding:1.4rem;color:var(--muted);text-align:center}
+    .trigger:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  </style>
+</head>
+<body>
+  <button class="trigger" id="trigger" aria-haspopup="dialog">🔎 Search… <kbd>⌘ K</kbd></button>
+
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="palette">
+      <input id="q" type="text" placeholder="Type a command or search…" aria-label="Command search" aria-activedescendant="" autocomplete="off" />
+      <div class="list" id="list" role="listbox" aria-label="Commands"></div>
+    </div>
+  </div>
+
+  <script>
+    var CMDS=[
+      {ic:'🏠',label:'Go to Dashboard',hint:'G then D'},
+      {ic:'📄',label:'New document',hint:'⌘N'},
+      {ic:'🔍',label:'Search files',hint:'⌘P'},
+      {ic:'⚙️',label:'Open settings',hint:'⌘,'},
+      {ic:'🌗',label:'Toggle theme',hint:''},
+      {ic:'👤',label:'Invite teammate',hint:''},
+      {ic:'📦',label:'Export data',hint:''},
+      {ic:'🚪',label:'Sign out',hint:''}
+    ];
+    var overlay=document.getElementById('overlay'),trigger=document.getElementById('trigger'),q=document.getElementById('q'),list=document.getElementById('list');
+    var sel=0, filtered=CMDS.slice();
+    function render(){
+      list.innerHTML='';
+      if(!filtered.length){list.innerHTML='<div class="empty">No results</div>';return;}
+      filtered.forEach(function(c,i){
+        var el=document.createElement('div');el.className='opt';el.id='opt-'+i;el.setAttribute('role','option');el.setAttribute('aria-selected',i===sel);
+        el.innerHTML='<span class="ic">'+c.ic+'</span><span>'+c.label+'</span>'+(c.hint?'<span class="hint">'+c.hint+'</span>':'');
+        el.addEventListener('click',function(){run(c)});
+        list.appendChild(el);
+      });
+      q.setAttribute('aria-activedescendant', filtered.length?'opt-'+sel:'');
+    }
+    function open(){overlay.classList.add('open');q.value='';filtered=CMDS.slice();sel=0;render();q.focus();}
+    function close(){overlay.classList.remove('open');trigger.focus();}
+    function run(c){close();trigger.innerHTML='✓ Ran: '+c.label;}
+    trigger.addEventListener('click',open);
+    overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+    q.addEventListener('input',function(){
+      var v=q.value.toLowerCase();filtered=CMDS.filter(function(c){return c.label.toLowerCase().indexOf(v)>-1});sel=0;render();
+    });
+    document.addEventListener('keydown',function(e){
+      if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();overlay.classList.contains('open')?close():open();return;}
+      if(!overlay.classList.contains('open'))return;
+      if(e.key==='Escape')close();
+      else if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(filtered.length-1,sel+1);render();}
+      else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(0,sel-1);render();}
+      else if(e.key==='Enter'&&filtered[sel])run(filtered[sel]);
+    });
+  </script>
+</body>
+</html>

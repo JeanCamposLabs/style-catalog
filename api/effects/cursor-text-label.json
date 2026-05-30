@@ -1,0 +1,56 @@
+{
+  "id": "cursor-text-label",
+  "title": "Cursor with Contextual Label",
+  "summary": "A custom dot cursor that expands into a labeled pill over interactive areas — 'View', 'Drag', 'Play' — the award-site signature.",
+  "description": "Replaces the pointer with a smoothly-trailing dot; when it enters elements that declare a cursor label (data-cursor), the dot grows into a circle showing that word. A hallmark of Awwwards-style portfolios and galleries.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "interactive",
+    "javascript"
+  ],
+  "tags": [
+    "custom-cursor",
+    "label",
+    "trail",
+    "awwwards",
+    "pointer",
+    "2026-trend"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "Modern browsers with a fine pointer; falls back to the native cursor on touch.",
+  "performance_notes": "One rAF lerp loop moving the cursor toward the pointer; transform-only. Disabled on touch / coarse pointers and under reduced-motion.",
+  "accessibility_notes": "The native cursor is only hidden when a fine pointer exists; keyboard users and touch are unaffected. The label is decorative — keep real, focusable controls underneath. Honor prefers-reduced-motion (no trailing).",
+  "customization": [
+    {
+      "name": "data-cursor",
+      "description": "Per-element label text",
+      "default": "View / Drag / Play"
+    },
+    {
+      "name": "--size / lerp",
+      "description": "Dot size and follow easing",
+      "default": "12px / 0.2"
+    }
+  ],
+  "variations": [
+    "Invert colors over dark/light blocks",
+    "Magnetic snap to targets",
+    "Arrow icon instead of text for galleries"
+  ],
+  "related": [
+    "follow-dot-cursor",
+    "blob-trail-cursor",
+    "magnetic-button"
+  ],
+  "ai_usage": "Use on creative portfolios and galleries for a premium pointer. Render a fixed dot that lerps toward the pointer each frame; on pointerenter of elements with data-cursor, add a class that scales the dot up and show the data-cursor text inside it; remove on leave. Only hide the native cursor when matchMedia('(pointer:fine)') matches, keep underlying controls focusable, and disable trailing under reduced motion.",
+  "path": "effects/cursors-pointers/cursor-text-label.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Cursor with Contextual Label</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-text-label\",\n    \"title\": \"Cursor with Contextual Label\",\n    \"summary\": \"A custom dot cursor that expands into a labeled pill over interactive areas — 'View', 'Drag', 'Play' — the award-site signature.\",\n    \"description\": \"Replaces the pointer with a smoothly-trailing dot; when it enters elements that declare a cursor label (data-cursor), the dot grows into a circle showing that word. A hallmark of Awwwards-style portfolios and galleries.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"interactive\", \"javascript\"],\n    \"tags\": [\"custom-cursor\", \"label\", \"trail\", \"awwwards\", \"pointer\", \"2026-trend\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"Modern browsers with a fine pointer; falls back to the native cursor on touch.\",\n    \"performance_notes\": \"One rAF lerp loop moving the cursor toward the pointer; transform-only. Disabled on touch / coarse pointers and under reduced-motion.\",\n    \"accessibility_notes\": \"The native cursor is only hidden when a fine pointer exists; keyboard users and touch are unaffected. The label is decorative — keep real, focusable controls underneath. Honor prefers-reduced-motion (no trailing).\",\n    \"customization\": [\n      { \"name\": \"data-cursor\", \"description\": \"Per-element label text\", \"default\": \"View / Drag / Play\" },\n      { \"name\": \"--size / lerp\", \"description\": \"Dot size and follow easing\", \"default\": \"12px / 0.2\" }\n    ],\n    \"variations\": [\"Invert colors over dark/light blocks\", \"Magnetic snap to targets\", \"Arrow icon instead of text for galleries\"],\n    \"related\": [\"follow-dot-cursor\", \"blob-trail-cursor\", \"magnetic-button\"],\n    \"ai_usage\": \"Use on creative portfolios and galleries for a premium pointer. Render a fixed dot that lerps toward the pointer each frame; on pointerenter of elements with data-cursor, add a class that scales the dot up and show the data-cursor text inside it; remove on leave. Only hide the native cursor when matchMedia('(pointer:fine)') matches, keep underlying controls focusable, and disable trailing under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root{--size:12px;--accent:#7c5cff;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;gap:1.2rem;grid-auto-flow:column;background:#0b0d12;color:#e8ecf6;font-family:system-ui,sans-serif}\n    @media (pointer:fine){ body.custom *{cursor:none} }\n    .box{width:170px;height:200px;border-radius:18px;display:grid;place-items:center;font-weight:700;text-align:center;padding:1rem;border:1px solid #242a3b}\n    .b1{background:linear-gradient(135deg,#7c5cff,#a78bff)}.b2{background:linear-gradient(135deg,#2dd4bf,#22a8c0)}.b3{background:linear-gradient(135deg,#ff6ec7,#ff9472)}\n    .cursor{position:fixed;top:0;left:0;width:var(--size);height:var(--size);border-radius:50%;background:#fff;pointer-events:none;z-index:99;\n      transform:translate(-50%,-50%);display:grid;place-items:center;color:#0b0d12;font-size:.72rem;font-weight:800;mix-blend-mode:difference;\n      transition:width .25s,height .25s,background .25s}\n    .cursor.big{width:74px;height:74px;background:var(--accent);mix-blend-mode:normal;color:#fff}\n    .cursor .t{opacity:0;transition:opacity .2s}.cursor.big .t{opacity:1}\n    .hint{position:fixed;bottom:1rem;color:#5b6377;font-size:.85rem}\n  </style>\n</head>\n<body>\n  <div class=\"box b1\" data-cursor=\"View\">Project A</div>\n  <div class=\"box b2\" data-cursor=\"Drag\">Gallery</div>\n  <div class=\"box b3\" data-cursor=\"Play\">Showreel</div>\n  <div class=\"cursor\" id=\"cur\" aria-hidden=\"true\"><span class=\"t\" id=\"curt\"></span></div>\n  <p class=\"hint\">move across the cards</p>\n  <script>\n    var fine=matchMedia('(pointer:fine)').matches, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;\n    var cur=document.getElementById('cur'), curt=document.getElementById('curt');\n    if(fine){\n      document.body.classList.add('custom');\n      var tx=innerWidth/2,ty=innerHeight/2,x=tx,y=ty;\n      addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY; if(reduce){x=tx;y=ty;place();}});\n      function place(){cur.style.transform='translate('+x+'px,'+y+'px) translate(-50%,-50%)';}\n      if(!reduce){(function loop(){x+=(tx-x)*0.2;y+=(ty-y)*0.2;place();requestAnimationFrame(loop);})();}\n      document.querySelectorAll('[data-cursor]').forEach(function(el){\n        el.addEventListener('pointerenter',function(){cur.classList.add('big');curt.textContent=el.dataset.cursor;});\n        el.addEventListener('pointerleave',function(){cur.classList.remove('big');curt.textContent='';});\n      });\n    } else { cur.style.display='none'; }\n  </script>\n</body>\n</html>\n"
+}

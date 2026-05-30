@@ -1,0 +1,55 @@
+{
+  "id": "command-palette",
+  "title": "Command Palette (⌘K)",
+  "summary": "A ⌘K / Ctrl+K spotlight that opens a searchable command menu — fuzzy filter, arrow-key navigation, Enter to run, Esc to close.",
+  "description": "The keyboard-first navigation pattern popularized by Linear, Raycast, and VS Code. Press ⌘K (or click) to open a centered overlay with a search field that filters a command list live; arrow keys move the selection, Enter activates, Escape closes.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "search",
+    "keyboard"
+  ],
+  "tags": [
+    "command-palette",
+    "cmdk",
+    "search",
+    "keyboard",
+    "shortcut",
+    "2026-trend"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "In-memory filter over a small list; no libraries. Opens/closes by toggling a class.",
+  "accessibility_notes": "Dialog uses role='dialog' aria-modal; input is labeled; the list is role='listbox' with aria-selected on the active option and aria-activedescendant on the input; Esc closes and focus returns to the trigger. Provide a visible trigger too (not keyboard-only).",
+  "customization": [
+    {
+      "name": "commands",
+      "description": "The command list (label, icon, hint)",
+      "default": "edit array"
+    },
+    {
+      "name": "shortcut",
+      "description": "Open key combo",
+      "default": "⌘K / Ctrl+K"
+    }
+  ],
+  "variations": [
+    "Grouped sections with headings",
+    "Recent / suggested on empty query",
+    "Inline subcommands"
+  ],
+  "related": [
+    "dropdown-menu",
+    "text-scramble"
+  ],
+  "ai_usage": "Use as primary navigation/search in apps and dev tools. Toggle a dialog on ⌘K/Ctrl+K AND a visible button; filter the command array on input; track a selected index for ArrowUp/Down + Enter; Esc closes and restores focus to the trigger. Wire ARIA: role='dialog' aria-modal, input with aria-activedescendant, listbox/options with aria-selected. Always offer a clickable trigger, not just the shortcut.",
+  "path": "effects/navigation-menus/command-palette.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Command Palette (⌘K)</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"command-palette\",\n    \"title\": \"Command Palette (⌘K)\",\n    \"summary\": \"A ⌘K / Ctrl+K spotlight that opens a searchable command menu — fuzzy filter, arrow-key navigation, Enter to run, Esc to close.\",\n    \"description\": \"The keyboard-first navigation pattern popularized by Linear, Raycast, and VS Code. Press ⌘K (or click) to open a centered overlay with a search field that filters a command list live; arrow keys move the selection, Enter activates, Escape closes.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"search\", \"keyboard\"],\n    \"tags\": [\"command-palette\", \"cmdk\", \"search\", \"keyboard\", \"shortcut\", \"2026-trend\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"In-memory filter over a small list; no libraries. Opens/closes by toggling a class.\",\n    \"accessibility_notes\": \"Dialog uses role='dialog' aria-modal; input is labeled; the list is role='listbox' with aria-selected on the active option and aria-activedescendant on the input; Esc closes and focus returns to the trigger. Provide a visible trigger too (not keyboard-only).\",\n    \"customization\": [\n      { \"name\": \"commands\", \"description\": \"The command list (label, icon, hint)\", \"default\": \"edit array\" },\n      { \"name\": \"shortcut\", \"description\": \"Open key combo\", \"default\": \"⌘K / Ctrl+K\" }\n    ],\n    \"variations\": [\"Grouped sections with headings\", \"Recent / suggested on empty query\", \"Inline subcommands\"],\n    \"related\": [\"dropdown-menu\", \"text-scramble\"],\n    \"ai_usage\": \"Use as primary navigation/search in apps and dev tools. Toggle a dialog on ⌘K/Ctrl+K AND a visible button; filter the command array on input; track a selected index for ArrowUp/Down + Enter; Esc closes and restores focus to the trigger. Wire ARIA: role='dialog' aria-modal, input with aria-activedescendant, listbox/options with aria-selected. Always offer a clickable trigger, not just the shortcut.\"\n  }\n  </script>\n  <style>\n    :root{--bg:#0b0d12;--panel:#14171f;--line:#2a3040;--text:#e8ecf6;--muted:#8b93a7;--accent:#7c5cff;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:var(--bg);color:var(--text);font-family:system-ui,sans-serif}\n    .trigger{display:inline-flex;gap:.6rem;align-items:center;background:var(--panel);border:1px solid var(--line);color:var(--muted);\n      padding:.7rem 1rem;border-radius:12px;cursor:pointer;font-size:.95rem}\n    .trigger kbd{background:#0b0d12;border:1px solid var(--line);border-radius:6px;padding:.1rem .4rem;font-size:.78rem;color:var(--text)}\n    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding-top:14vh;z-index:50}\n    .overlay.open{display:flex}\n    .palette{width:min(560px,92vw);background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}\n    .palette input{width:100%;border:none;outline:none;background:transparent;color:var(--text);font-size:1.1rem;padding:1.1rem 1.2rem;border-bottom:1px solid var(--line)}\n    .list{max-height:300px;overflow:auto;padding:.4rem}\n    .opt{display:flex;align-items:center;gap:.8rem;padding:.7rem .9rem;border-radius:10px;cursor:pointer;color:var(--text)}\n    .opt .ic{width:26px;text-align:center}.opt .hint{margin-left:auto;color:var(--muted);font-size:.78rem}\n    .opt[aria-selected=\"true\"]{background:linear-gradient(100deg,rgba(124,92,255,.25),rgba(45,212,191,.15));outline:1px solid var(--accent)}\n    .empty{padding:1.4rem;color:var(--muted);text-align:center}\n    .trigger:focus-visible{outline:3px solid var(--accent);outline-offset:2px}\n  </style>\n</head>\n<body>\n  <button class=\"trigger\" id=\"trigger\" aria-haspopup=\"dialog\">🔎 Search… <kbd>⌘ K</kbd></button>\n\n  <div class=\"overlay\" id=\"overlay\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Command palette\">\n    <div class=\"palette\">\n      <input id=\"q\" type=\"text\" placeholder=\"Type a command or search…\" aria-label=\"Command search\" aria-activedescendant=\"\" autocomplete=\"off\" />\n      <div class=\"list\" id=\"list\" role=\"listbox\" aria-label=\"Commands\"></div>\n    </div>\n  </div>\n\n  <script>\n    var CMDS=[\n      {ic:'🏠',label:'Go to Dashboard',hint:'G then D'},\n      {ic:'📄',label:'New document',hint:'⌘N'},\n      {ic:'🔍',label:'Search files',hint:'⌘P'},\n      {ic:'⚙️',label:'Open settings',hint:'⌘,'},\n      {ic:'🌗',label:'Toggle theme',hint:''},\n      {ic:'👤',label:'Invite teammate',hint:''},\n      {ic:'📦',label:'Export data',hint:''},\n      {ic:'🚪',label:'Sign out',hint:''}\n    ];\n    var overlay=document.getElementById('overlay'),trigger=document.getElementById('trigger'),q=document.getElementById('q'),list=document.getElementById('list');\n    var sel=0, filtered=CMDS.slice();\n    function render(){\n      list.innerHTML='';\n      if(!filtered.length){list.innerHTML='<div class=\"empty\">No results</div>';return;}\n      filtered.forEach(function(c,i){\n        var el=document.createElement('div');el.className='opt';el.id='opt-'+i;el.setAttribute('role','option');el.setAttribute('aria-selected',i===sel);\n        el.innerHTML='<span class=\"ic\">'+c.ic+'</span><span>'+c.label+'</span>'+(c.hint?'<span class=\"hint\">'+c.hint+'</span>':'');\n        el.addEventListener('click',function(){run(c)});\n        list.appendChild(el);\n      });\n      q.setAttribute('aria-activedescendant', filtered.length?'opt-'+sel:'');\n    }\n    function open(){overlay.classList.add('open');q.value='';filtered=CMDS.slice();sel=0;render();q.focus();}\n    function close(){overlay.classList.remove('open');trigger.focus();}\n    function run(c){close();trigger.innerHTML='✓ Ran: '+c.label;}\n    trigger.addEventListener('click',open);\n    overlay.addEventListener('click',function(e){if(e.target===overlay)close();});\n    q.addEventListener('input',function(){\n      var v=q.value.toLowerCase();filtered=CMDS.filter(function(c){return c.label.toLowerCase().indexOf(v)>-1});sel=0;render();\n    });\n    document.addEventListener('keydown',function(e){\n      if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();overlay.classList.contains('open')?close():open();return;}\n      if(!overlay.classList.contains('open'))return;\n      if(e.key==='Escape')close();\n      else if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(filtered.length-1,sel+1);render();}\n      else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(0,sel-1);render();}\n      else if(e.key==='Enter'&&filtered[sel])run(filtered[sel]);\n    });\n  </script>\n</body>\n</html>\n"
+}

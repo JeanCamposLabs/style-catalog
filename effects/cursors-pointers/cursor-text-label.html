@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cursor with Contextual Label</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-text-label",
+    "title": "Cursor with Contextual Label",
+    "summary": "A custom dot cursor that expands into a labeled pill over interactive areas — 'View', 'Drag', 'Play' — the award-site signature.",
+    "description": "Replaces the pointer with a smoothly-trailing dot; when it enters elements that declare a cursor label (data-cursor), the dot grows into a circle showing that word. A hallmark of Awwwards-style portfolios and galleries.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "interactive", "javascript"],
+    "tags": ["custom-cursor", "label", "trail", "awwwards", "pointer", "2026-trend"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "Modern browsers with a fine pointer; falls back to the native cursor on touch.",
+    "performance_notes": "One rAF lerp loop moving the cursor toward the pointer; transform-only. Disabled on touch / coarse pointers and under reduced-motion.",
+    "accessibility_notes": "The native cursor is only hidden when a fine pointer exists; keyboard users and touch are unaffected. The label is decorative — keep real, focusable controls underneath. Honor prefers-reduced-motion (no trailing).",
+    "customization": [
+      { "name": "data-cursor", "description": "Per-element label text", "default": "View / Drag / Play" },
+      { "name": "--size / lerp", "description": "Dot size and follow easing", "default": "12px / 0.2" }
+    ],
+    "variations": ["Invert colors over dark/light blocks", "Magnetic snap to targets", "Arrow icon instead of text for galleries"],
+    "related": ["follow-dot-cursor", "blob-trail-cursor", "magnetic-button"],
+    "ai_usage": "Use on creative portfolios and galleries for a premium pointer. Render a fixed dot that lerps toward the pointer each frame; on pointerenter of elements with data-cursor, add a class that scales the dot up and show the data-cursor text inside it; remove on leave. Only hide the native cursor when matchMedia('(pointer:fine)') matches, keep underlying controls focusable, and disable trailing under reduced motion."
+  }
+  </script>
+  <style>
+    :root{--size:12px;--accent:#7c5cff;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;gap:1.2rem;grid-auto-flow:column;background:#0b0d12;color:#e8ecf6;font-family:system-ui,sans-serif}
+    @media (pointer:fine){ body.custom *{cursor:none} }
+    .box{width:170px;height:200px;border-radius:18px;display:grid;place-items:center;font-weight:700;text-align:center;padding:1rem;border:1px solid #242a3b}
+    .b1{background:linear-gradient(135deg,#7c5cff,#a78bff)}.b2{background:linear-gradient(135deg,#2dd4bf,#22a8c0)}.b3{background:linear-gradient(135deg,#ff6ec7,#ff9472)}
+    .cursor{position:fixed;top:0;left:0;width:var(--size);height:var(--size);border-radius:50%;background:#fff;pointer-events:none;z-index:99;
+      transform:translate(-50%,-50%);display:grid;place-items:center;color:#0b0d12;font-size:.72rem;font-weight:800;mix-blend-mode:difference;
+      transition:width .25s,height .25s,background .25s}
+    .cursor.big{width:74px;height:74px;background:var(--accent);mix-blend-mode:normal;color:#fff}
+    .cursor .t{opacity:0;transition:opacity .2s}.cursor.big .t{opacity:1}
+    .hint{position:fixed;bottom:1rem;color:#5b6377;font-size:.85rem}
+  </style>
+</head>
+<body>
+  <div class="box b1" data-cursor="View">Project A</div>
+  <div class="box b2" data-cursor="Drag">Gallery</div>
+  <div class="box b3" data-cursor="Play">Showreel</div>
+  <div class="cursor" id="cur" aria-hidden="true"><span class="t" id="curt"></span></div>
+  <p class="hint">move across the cards</p>
+  <script>
+    var fine=matchMedia('(pointer:fine)').matches, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var cur=document.getElementById('cur'), curt=document.getElementById('curt');
+    if(fine){
+      document.body.classList.add('custom');
+      var tx=innerWidth/2,ty=innerHeight/2,x=tx,y=ty;
+      addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY; if(reduce){x=tx;y=ty;place();}});
+      function place(){cur.style.transform='translate('+x+'px,'+y+'px) translate(-50%,-50%)';}
+      if(!reduce){(function loop(){x+=(tx-x)*0.2;y+=(ty-y)*0.2;place();requestAnimationFrame(loop);})();}
+      document.querySelectorAll('[data-cursor]').forEach(function(el){
+        el.addEventListener('pointerenter',function(){cur.classList.add('big');curt.textContent=el.dataset.cursor;});
+        el.addEventListener('pointerleave',function(){cur.classList.remove('big');curt.textContent='';});
+      });
+    } else { cur.style.display='none'; }
+  </script>
+</body>
+</html>

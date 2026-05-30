@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animated Corner Brackets</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "corner-brackets",
+    "title": "Animated Corner Brackets",
+    "summary": "L-shaped corner brackets that draw inward to frame a card on hover/focus — a techy, HUD-style accent instead of a full border.",
+    "description": "Four corner 'brackets' (like camera focus marks or a sci-fi HUD) expand from the corners on hover/focus to frame the element, then retract. A lighter, more characterful alternative to a solid animated border.",
+    "theme": "borders-shadows",
+    "categories": ["border", "hover", "decoration"],
+    "tags": ["corner", "brackets", "hud", "frame", "hover", "focus"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Pure CSS — four gradient pseudo-corners sized on hover. transform/size only.",
+    "accessibility_notes": "Brackets also appear on :focus-within so keyboard users get the cue; decorative only. Motion removed under prefers-reduced-motion (corners appear instantly).",
+    "customization": [
+      { "name": "--c", "description": "Bracket color", "default": "#2dd4bf" },
+      { "name": "--len / --thick", "description": "Arm length and thickness", "default": "26px / 2px" }
+    ],
+    "variations": ["Always-on brackets, lengthen on hover", "Single accent corner", "Offset brackets outside the box"],
+    "related": ["marching-ants-border", "glow-shadow", "gradient-border"],
+    "ai_usage": "Use to frame featured cards, selected states, or media on tech/dev/AI UIs. Place four corner pseudo-elements built from two gradients (an L); on :hover/:focus-within grow each from a small size to --len. Trigger on focus-within too, keep them decorative, and skip the transition under prefers-reduced-motion."
+  }
+  </script>
+  <style>
+    :root{--c:#2dd4bf;--len:14px;--thick:2px;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif}
+    .card{position:relative;width:300px;padding:2rem;border-radius:14px;background:#12151f;color:#e8ecf6;border:1px solid #1c2230}
+    .card h3{margin:0 0 .4rem}.card p{margin:0;color:#8b93a7;font-size:.95rem}
+    .card::before,.card::after,.card .b1,.card .b2{content:"";position:absolute;width:var(--len);height:var(--len);transition:width .3s ease,height .3s ease;pointer-events:none}
+    .card::before{top:-2px;left:-2px;border-top:var(--thick) solid var(--c);border-left:var(--thick) solid var(--c);border-top-left-radius:14px}
+    .card::after{top:-2px;right:-2px;border-top:var(--thick) solid var(--c);border-right:var(--thick) solid var(--c);border-top-right-radius:14px}
+    .card .b1{bottom:-2px;left:-2px;border-bottom:var(--thick) solid var(--c);border-left:var(--thick) solid var(--c);border-bottom-left-radius:14px}
+    .card .b2{bottom:-2px;right:-2px;border-bottom:var(--thick) solid var(--c);border-right:var(--thick) solid var(--c);border-bottom-right-radius:14px}
+    .card:hover::before,.card:hover::after,.card:hover .b1,.card:hover .b2,
+    .card:focus-within::before,.card:focus-within::after,.card:focus-within .b1,.card:focus-within .b2{width:40px;height:40px}
+    .card a{color:var(--c);display:inline-block;margin-top:1rem}
+    @media(prefers-reduced-motion:reduce){.card::before,.card::after,.card .b1,.card .b2{transition:none}}
+  </style>
+</head>
+<body>
+  <article class="card" tabindex="0">
+    <span class="b1"></span><span class="b2"></span>
+    <h3>Targeting system</h3>
+    <p>Hover or focus this card — the corner brackets lock on like a HUD.</p>
+    <a href="#">Engage →</a>
+  </article>
+</body>
+</html>

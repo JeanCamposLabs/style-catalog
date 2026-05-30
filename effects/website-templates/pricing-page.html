@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pricing Page</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "pricing-page",
+  "title": "Pricing Page",
+  "summary": "A dedicated pricing page: monthly/yearly toggle with live price swap, three tiers (one featured), a feature comparison table, and a pricing FAQ.",
+  "description": "The conversion-critical pricing page done properly — a billing toggle that updates all prices and shows the annual saving, three cards with a highlighted recommended plan, a detailed feature-comparison table, and an objection-handling FAQ.",
+  "theme": "website-templates",
+  "categories": ["template", "saas", "pricing"],
+  "tags": ["pricing", "saas", "billing-toggle", "comparison", "faq", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "A toggle that swaps prices via data attributes + reveals. No libraries.",
+  "accessibility_notes": "Billing toggle is a real switch (role/aria-checked, keyboard operable); the comparison is a real <table> with scope headers; FAQ uses <details>. Focus-visible throughout.",
+  "customization": [
+    { "name": "prices", "description": "data-monthly / data-yearly per tier", "default": "edit markup" },
+    { "name": "--accent", "description": "Brand + featured highlight", "default": "#7c5cff" }
+  ],
+  "variations": ["Add a usage-based slider", "Per-seat calculator", "Add a free tier column to the table"],
+  "related": ["saas-landing", "aurora-saas", "tilt-spotlight-card"],
+  "ai_usage": "Use as a standalone pricing page. Wire a monthly/yearly switch (role='switch', aria-checked) that swaps each price from data-monthly/data-yearly and shows the annual saving; highlight one recommended tier. Provide a real <table> comparison with scope headers and a <details> FAQ. Recolor via --accent; edit prices/features. Keep the switch keyboard-operable and focus-visible."
+}
+</script>
+<style>
+  :root{--bg:#0b0d12;--surface:#12151f;--line:#242a3b;--text:#e8ecf6;--muted:#8b93a7;--accent:#7c5cff;--accent2:#2dd4bf;--r:16px;}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:"Inter",system-ui,sans-serif;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 1.4rem}
+  nav{display:flex;align-items:center;justify-content:space-between;height:66px;border-bottom:1px solid var(--line)}
+  .brand{font-weight:800}.links{display:flex;gap:1.4rem;color:var(--muted);font-size:.92rem}.links a:hover{color:var(--text)}
+  .head{text-align:center;padding:4rem 0 1rem}
+  .head h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em;margin:0 0 .5rem}
+  .head p{color:var(--muted);font-size:1.1rem}
+  .toggle{display:flex;align-items:center;gap:.8rem;justify-content:center;margin:1.6rem 0 .4rem}
+  .toggle .sw{width:54px;height:30px;border-radius:999px;background:var(--surface);border:1px solid var(--line);position:relative;cursor:pointer}
+  .toggle .sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--accent);transition:transform .2s}
+  .toggle .sw[aria-checked="true"]::after{transform:translateX(24px)}
+  .toggle .sw:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}
+  .save{color:var(--accent2);font-size:.82rem;font-weight:700;background:rgba(45,212,191,.12);padding:.2rem .6rem;border-radius:999px}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;padding:1.5rem 0 1rem;align-items:start}
+  .tier{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.8rem}
+  .tier.feat{border-color:transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,linear-gradient(135deg,var(--accent),var(--accent2)) border-box;border:2px solid transparent;position:relative}
+  .tier.feat .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(120deg,var(--accent),var(--accent2));color:#fff;font-size:.72rem;font-weight:800;padding:.25rem .8rem;border-radius:999px}
+  .tier h3{margin:0}.tier .desc{color:var(--muted);font-size:.9rem;min-height:2.4em}
+  .price{font-size:2.6rem;font-weight:800;letter-spacing:-.02em;margin:.4rem 0 0}.price small{font-size:1rem;color:var(--muted);font-weight:500}
+  .tier ul{list-style:none;padding:0;margin:1.2rem 0;color:var(--muted)}
+  .tier li{padding:.3rem 0}.tier li::before{content:"✓ ";color:var(--accent2)}
+  .btn{display:block;text-align:center;border-radius:12px;padding:.85rem;font-weight:700;cursor:pointer;border:1px solid var(--line);color:var(--text)}
+  .btn.primary{background:linear-gradient(120deg,var(--accent),var(--accent2));color:#fff;border:none}
+  .btn:focus-visible{outline:3px solid var(--accent2);outline-offset:2px}
+  section{padding:3rem 0}
+  h2{text-align:center;font-size:clamp(1.7rem,3.4vw,2.3rem);font-weight:800;margin:0 0 1.6rem}
+  table{width:100%;border-collapse:collapse;font-size:.95rem}
+  th,td{padding:.85rem 1rem;text-align:center;border-bottom:1px solid var(--line)}
+  th[scope="col"]{font-size:1rem}td:first-child,th:first-child{text-align:left;color:var(--muted)}
+  tbody tr:hover{background:rgba(255,255,255,.02)}
+  .y{color:var(--accent2)}.n{color:#4a5266}
+  .faq{max-width:720px;margin:0 auto}
+  details{border-top:1px solid var(--line);padding:1rem 0}summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}
+  summary::-webkit-details-marker{display:none}details[open] summary{color:var(--accent2)}
+  footer{border-top:1px solid var(--line);color:var(--muted);text-align:center;padding:2.2rem 0;font-size:.9rem}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s ease}.reveal.in{opacity:1;transform:none}
+  @media(max-width:820px){.tiers{grid-template-columns:1fr}.links{display:none}table{font-size:.82rem}th,td{padding:.6rem .4rem}}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav><div class="brand">◆ Nimbus</div><div class="links"><a href="#">Product</a><a href="#">Customers</a><a href="#">Docs</a><a href="#">Sign in</a></div></nav>
+
+    <header class="head">
+      <h1>Simple pricing that scales with you</h1>
+      <p>Start free. Upgrade when you're ready. Cancel anytime.</p>
+      <div class="toggle">
+        <span>Monthly</span>
+        <span class="sw" id="sw" role="switch" aria-checked="false" tabindex="0" aria-label="Toggle yearly billing"></span>
+        <span>Yearly <span class="save">Save 20%</span></span>
+      </div>
+    </header>
+
+    <div class="tiers">
+      <div class="tier reveal">
+        <h3>Starter</h3><p class="desc">For individuals getting started.</p>
+        <div class="price" data-monthly="$0" data-yearly="$0">$0<small>/mo</small></div>
+        <ul><li>1 project</li><li>Community support</li><li>1 GB storage</li></ul>
+        <a class="btn" href="#">Start free</a>
+      </div>
+      <div class="tier feat reveal">
+        <span class="tag">Most popular</span>
+        <h3>Pro</h3><p class="desc">For growing teams that ship.</p>
+        <div class="price" data-monthly="$29" data-yearly="$23">$29<small>/mo</small></div>
+        <ul><li>Unlimited projects</li><li>Priority support</li><li>100 GB storage</li><li>Advanced analytics</li></ul>
+        <a class="btn primary" href="#">Choose Pro</a>
+      </div>
+      <div class="tier reveal">
+        <h3>Enterprise</h3><p class="desc">For organizations at scale.</p>
+        <div class="price" data-monthly="$99" data-yearly="$79">$99<small>/mo</small></div>
+        <ul><li>Everything in Pro</li><li>SSO &amp; SAML</li><li>Dedicated SLA</li><li>Onboarding</li></ul>
+        <a class="btn" href="#">Contact sales</a>
+      </div>
+    </div>
+
+    <section>
+      <h2 class="reveal">Compare plans</h2>
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col">Starter</th><th scope="col">Pro</th><th scope="col">Enterprise</th></tr></thead>
+        <tbody>
+          <tr><td>Projects</td><td>1</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Storage</td><td>1 GB</td><td>100 GB</td><td>1 TB</td></tr>
+          <tr><td>Analytics</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>SSO &amp; SAML</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+          <tr><td>Dedicated SLA</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+          <tr><td>Support</td><td>Community</td><td>Priority</td><td>Dedicated</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2 class="reveal">Pricing FAQ</h2>
+      <div class="faq reveal">
+        <details><summary>Can I change plans later?<span>+</span></summary><p class="muted" style="color:var(--muted)">Yes — upgrade or downgrade anytime; we prorate the difference automatically.</p></details>
+        <details><summary>Is there a free trial?<span>+</span></summary><p style="color:var(--muted)">Pro includes a 14-day free trial, no card required.</p></details>
+        <details><summary>What payment methods do you accept?<span>+</span></summary><p style="color:var(--muted)">All major cards, and invoicing on Enterprise.</p></details>
+        <details><summary>Do you offer discounts?<span>+</span></summary><p style="color:var(--muted)">Yearly billing saves 20%, plus discounts for students and nonprofits.</p></details>
+      </div>
+    </section>
+
+    <footer>© <span id="yr"></span> Nimbus, Inc. · Questions? sales@nimbus.dev</footer>
+  </div>
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    var sw=document.getElementById('sw');
+    function setBilling(yearly){
+      sw.setAttribute('aria-checked',yearly);
+      document.querySelectorAll('.price').forEach(function(p){
+        var v=yearly?p.dataset.yearly:p.dataset.monthly;
+        p.innerHTML=v+'<small>/mo</small>';
+      });
+    }
+    sw.addEventListener('click',function(){setBilling(sw.getAttribute('aria-checked')!=='true');});
+    sw.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();setBilling(sw.getAttribute('aria-checked')!=='true');}});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  </script>
+</body>
+</html>

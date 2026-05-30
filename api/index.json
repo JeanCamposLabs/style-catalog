@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "counts": {
     "themes": 22,
-    "effects": 142
+    "effects": 156
   },
   "effectEndpoint": "api/effects/{id}.json",
   "effects": [
@@ -346,6 +346,32 @@
       "era": "2020s",
       "difficulty": "beginner",
       "path": "effects/backgrounds/mesh-gradient.html"
+    },
+    {
+      "id": "corner-brackets",
+      "title": "Animated Corner Brackets",
+      "summary": "L-shaped corner brackets that draw inward to frame a card on hover/focus — a techy, HUD-style accent instead of a full border.",
+      "theme": "borders-shadows",
+      "themeTitle": "Borders & Shadows",
+      "categories": [
+        "border",
+        "hover",
+        "decoration"
+      ],
+      "tags": [
+        "corner",
+        "brackets",
+        "hud",
+        "frame",
+        "hover",
+        "focus"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/borders-shadows/corner-brackets.html"
     },
     {
       "id": "glow-shadow",
@@ -871,6 +897,33 @@
       "path": "effects/cursors-pointers/spotlight-cursor.html"
     },
     {
+      "id": "cursor-text-label",
+      "title": "Cursor with Contextual Label",
+      "summary": "A custom dot cursor that expands into a labeled pill over interactive areas — 'View', 'Drag', 'Play' — the award-site signature.",
+      "theme": "cursors-pointers",
+      "themeTitle": "Cursors & Pointers",
+      "categories": [
+        "cursor",
+        "interactive",
+        "javascript"
+      ],
+      "tags": [
+        "custom-cursor",
+        "label",
+        "trail",
+        "awwwards",
+        "pointer",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/cursors-pointers/cursor-text-label.html"
+    },
+    {
       "id": "follow-dot-cursor",
       "title": "Following Dot & Ring Cursor",
       "summary": "A custom cursor: a precise dot plus a larger ring that lags behind with easing.",
@@ -1031,6 +1084,33 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/forms-inputs/otp-input.html"
+    },
+    {
+      "id": "password-strength",
+      "title": "Password Strength Meter",
+      "summary": "A password field with a live strength bar, a weak→strong label, a show/hide toggle, and a ticking requirements checklist.",
+      "theme": "forms-inputs",
+      "themeTitle": "Forms & Inputs",
+      "categories": [
+        "form",
+        "input",
+        "validation"
+      ],
+      "tags": [
+        "password",
+        "strength",
+        "meter",
+        "validation",
+        "checklist",
+        "show-hide"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/forms-inputs/password-strength.html"
     },
     {
       "id": "toggle-switch",
@@ -1402,6 +1482,33 @@
       "path": "effects/images-media/before-after-slider.html"
     },
     {
+      "id": "blur-up-load",
+      "title": "Blur-Up Image Load",
+      "summary": "The progressive 'blur-up': a tiny blurred placeholder sharpens into the full image as it loads — no layout jank, perceived speed.",
+      "theme": "images-media",
+      "themeTitle": "Images & Media",
+      "categories": [
+        "image",
+        "loading",
+        "performance"
+      ],
+      "tags": [
+        "blur-up",
+        "lqip",
+        "placeholder",
+        "lazy",
+        "progressive",
+        "performance"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/images-media/blur-up-load.html"
+    },
+    {
       "id": "clip-path-shapes",
       "title": "Clip-Path Shapes",
       "summary": "Crop images/elements into hexagons, blobs, and diagonals with clip-path, animated on hover.",
@@ -1687,6 +1794,32 @@
       "path": "effects/loaders-spinners/progress-bar-indeterminate.html"
     },
     {
+      "id": "orbit-loader",
+      "title": "Orbit Loader",
+      "summary": "A nucleus with electrons orbiting on tilted rings at different speeds — an atomic, premium loading indicator.",
+      "theme": "loaders-spinners",
+      "themeTitle": "Loaders & Spinners",
+      "categories": [
+        "loader",
+        "spinner",
+        "animation"
+      ],
+      "tags": [
+        "orbit",
+        "atom",
+        "spinner",
+        "loader",
+        "rings",
+        "css-only"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/loaders-spinners/orbit-loader.html"
+    },
+    {
       "id": "ring-spinner",
       "title": "Ring Spinner",
       "summary": "The classic spinning ring with a single colored arc, drawn with one element.",
@@ -1869,6 +2002,33 @@
       "era": "timeless",
       "difficulty": "beginner",
       "path": "effects/navigation-menus/underline-grow-link.html"
+    },
+    {
+      "id": "command-palette",
+      "title": "Command Palette (⌘K)",
+      "summary": "A ⌘K / Ctrl+K spotlight that opens a searchable command menu — fuzzy filter, arrow-key navigation, Enter to run, Esc to close.",
+      "theme": "navigation-menus",
+      "themeTitle": "Navigation & Menus",
+      "categories": [
+        "navigation",
+        "search",
+        "keyboard"
+      ],
+      "tags": [
+        "command-palette",
+        "cmdk",
+        "search",
+        "keyboard",
+        "shortcut",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/navigation-menus/command-palette.html"
     },
     {
       "id": "hamburger-morph",
@@ -2241,6 +2401,33 @@
       "path": "effects/svg-effects/svg-gradient-stroke.html"
     },
     {
+      "id": "svg-animated-logo",
+      "title": "SVG Animated Logo Reveal",
+      "summary": "A logo mark that draws its outline (stroke), then fills with color — the classic brand intro / splash reveal.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "branding",
+        "animation"
+      ],
+      "tags": [
+        "svg",
+        "logo",
+        "draw",
+        "reveal",
+        "splash",
+        "stroke-fill"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-animated-logo.html"
+    },
+    {
       "id": "svg-wave-divider",
       "title": "SVG Animated Wave Divider",
       "summary": "Layered SVG waves that drift at different speeds to separate two sections with gentle, looping motion.",
@@ -2266,6 +2453,33 @@
       "era": "2020s",
       "difficulty": "beginner",
       "path": "effects/svg-effects/svg-wave-divider.html"
+    },
+    {
+      "id": "svg-annotation-arrow",
+      "title": "SVG Annotation Arrow",
+      "summary": "A hand-drawn marker arrow that draws itself in to point at something — the 'look here' annotation seen on landing pages.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "annotation",
+        "animation"
+      ],
+      "tags": [
+        "svg",
+        "arrow",
+        "annotation",
+        "hand-drawn",
+        "draw",
+        "marker"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/svg-effects/svg-annotation-arrow.html"
     },
     {
       "id": "svg-gooey-filter",
@@ -2320,6 +2534,35 @@
       "era": "2020s",
       "difficulty": "beginner",
       "path": "effects/svg-effects/svg-noise-texture.html"
+    },
+    {
+      "id": "svg-like-burst",
+      "title": "SVG Like Burst",
+      "summary": "A heart that pops and emits a radial particle burst when liked — the satisfying 'favorite' micro-interaction.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "micro-interaction",
+        "feedback"
+      ],
+      "tags": [
+        "svg",
+        "like",
+        "heart",
+        "burst",
+        "particles",
+        "favorite",
+        "2026-trend"
+      ],
+      "tech": [
+        "svg",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-like-burst.html"
     },
     {
       "id": "svg-line-draw",
@@ -3031,6 +3274,34 @@
       "path": "effects/typography-systems/readable-measure.html"
     },
     {
+      "id": "error-404",
+      "title": "404 — Page Not Found",
+      "summary": "A playful 404 page: a glitching gradient '404', a friendly message, a search box, and quick links home — over a subtle dot grid.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "utility",
+        "landing"
+      ],
+      "tags": [
+        "404",
+        "error",
+        "glitch",
+        "not-found",
+        "utility",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/error-404.html"
+    },
+    {
       "id": "retro-90s-homepage",
       "title": "90s GeoCities Homepage",
       "summary": "A loving 1990s personal homepage: starry tiled background, marquee, visitor counter, webring, and 'under construction'.",
@@ -3256,6 +3527,34 @@
       "era": "timeless",
       "difficulty": "beginner",
       "path": "effects/website-templates/coming-soon.html"
+    },
+    {
+      "id": "docs-portal",
+      "title": "Docs Portal",
+      "summary": "A documentation layout: left section nav, readable article column with code blocks and callouts, and a right 'on this page' table of contents.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "docs",
+        "app"
+      ],
+      "tags": [
+        "docs",
+        "documentation",
+        "sidebar",
+        "toc",
+        "knowledge-base",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/docs-portal.html"
     },
     {
       "id": "dopamine-brand",
@@ -3515,6 +3814,62 @@
       "path": "effects/website-templates/organic-wellness.html"
     },
     {
+      "id": "podcast-show",
+      "title": "Podcast Show",
+      "summary": "A podcast home: cover-art hero with a play button, subscribe-on-platform row, an episode list with durations, and a host bio.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator",
+        "media"
+      ],
+      "tags": [
+        "podcast",
+        "audio",
+        "episodes",
+        "creator",
+        "media",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/podcast-show.html"
+    },
+    {
+      "id": "pricing-page",
+      "title": "Pricing Page",
+      "summary": "A dedicated pricing page: monthly/yearly toggle with live price swap, three tiers (one featured), a feature comparison table, and a pricing FAQ.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas",
+        "pricing"
+      ],
+      "tags": [
+        "pricing",
+        "saas",
+        "billing-toggle",
+        "comparison",
+        "faq",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/pricing-page.html"
+    },
+    {
       "id": "luxe-serif",
       "title": "Quiet Luxury — Serif Hospitality",
       "summary": "An elegant, high-end hotel/brand page: dark warm palette, refined serif type, champagne-gold hairlines, and unhurried spacing.",
@@ -3542,6 +3897,34 @@
       "era": "timeless",
       "difficulty": "beginner",
       "path": "effects/website-templates/luxe-serif.html"
+    },
+    {
+      "id": "real-estate-listing",
+      "title": "Real Estate Listings",
+      "summary": "A property search page: a filter bar, a featured listing, and a responsive grid of property cards with price, beds/baths/area, and a save toggle.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "real-estate",
+        "listing"
+      ],
+      "tags": [
+        "real-estate",
+        "listings",
+        "property",
+        "filters",
+        "cards",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/real-estate-listing.html"
     },
     {
       "id": "swiss-editorial",

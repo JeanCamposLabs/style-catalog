@@ -1,0 +1,55 @@
+{
+  "id": "corner-brackets",
+  "title": "Animated Corner Brackets",
+  "summary": "L-shaped corner brackets that draw inward to frame a card on hover/focus — a techy, HUD-style accent instead of a full border.",
+  "description": "Four corner 'brackets' (like camera focus marks or a sci-fi HUD) expand from the corners on hover/focus to frame the element, then retract. A lighter, more characterful alternative to a solid animated border.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border",
+    "hover",
+    "decoration"
+  ],
+  "tags": [
+    "corner",
+    "brackets",
+    "hud",
+    "frame",
+    "hover",
+    "focus"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Pure CSS — four gradient pseudo-corners sized on hover. transform/size only.",
+  "accessibility_notes": "Brackets also appear on :focus-within so keyboard users get the cue; decorative only. Motion removed under prefers-reduced-motion (corners appear instantly).",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Bracket color",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--len / --thick",
+      "description": "Arm length and thickness",
+      "default": "26px / 2px"
+    }
+  ],
+  "variations": [
+    "Always-on brackets, lengthen on hover",
+    "Single accent corner",
+    "Offset brackets outside the box"
+  ],
+  "related": [
+    "marching-ants-border",
+    "glow-shadow",
+    "gradient-border"
+  ],
+  "ai_usage": "Use to frame featured cards, selected states, or media on tech/dev/AI UIs. Place four corner pseudo-elements built from two gradients (an L); on :hover/:focus-within grow each from a small size to --len. Trigger on focus-within too, keep them decorative, and skip the transition under prefers-reduced-motion.",
+  "path": "effects/borders-shadows/corner-brackets.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Animated Corner Brackets</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"corner-brackets\",\n    \"title\": \"Animated Corner Brackets\",\n    \"summary\": \"L-shaped corner brackets that draw inward to frame a card on hover/focus — a techy, HUD-style accent instead of a full border.\",\n    \"description\": \"Four corner 'brackets' (like camera focus marks or a sci-fi HUD) expand from the corners on hover/focus to frame the element, then retract. A lighter, more characterful alternative to a solid animated border.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\", \"hover\", \"decoration\"],\n    \"tags\": [\"corner\", \"brackets\", \"hud\", \"frame\", \"hover\", \"focus\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Pure CSS — four gradient pseudo-corners sized on hover. transform/size only.\",\n    \"accessibility_notes\": \"Brackets also appear on :focus-within so keyboard users get the cue; decorative only. Motion removed under prefers-reduced-motion (corners appear instantly).\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Bracket color\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--len / --thick\", \"description\": \"Arm length and thickness\", \"default\": \"26px / 2px\" }\n    ],\n    \"variations\": [\"Always-on brackets, lengthen on hover\", \"Single accent corner\", \"Offset brackets outside the box\"],\n    \"related\": [\"marching-ants-border\", \"glow-shadow\", \"gradient-border\"],\n    \"ai_usage\": \"Use to frame featured cards, selected states, or media on tech/dev/AI UIs. Place four corner pseudo-elements built from two gradients (an L); on :hover/:focus-within grow each from a small size to --len. Trigger on focus-within too, keep them decorative, and skip the transition under prefers-reduced-motion.\"\n  }\n  </script>\n  <style>\n    :root{--c:#2dd4bf;--len:14px;--thick:2px;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif}\n    .card{position:relative;width:300px;padding:2rem;border-radius:14px;background:#12151f;color:#e8ecf6;border:1px solid #1c2230}\n    .card h3{margin:0 0 .4rem}.card p{margin:0;color:#8b93a7;font-size:.95rem}\n    .card::before,.card::after,.card .b1,.card .b2{content:\"\";position:absolute;width:var(--len);height:var(--len);transition:width .3s ease,height .3s ease;pointer-events:none}\n    .card::before{top:-2px;left:-2px;border-top:var(--thick) solid var(--c);border-left:var(--thick) solid var(--c);border-top-left-radius:14px}\n    .card::after{top:-2px;right:-2px;border-top:var(--thick) solid var(--c);border-right:var(--thick) solid var(--c);border-top-right-radius:14px}\n    .card .b1{bottom:-2px;left:-2px;border-bottom:var(--thick) solid var(--c);border-left:var(--thick) solid var(--c);border-bottom-left-radius:14px}\n    .card .b2{bottom:-2px;right:-2px;border-bottom:var(--thick) solid var(--c);border-right:var(--thick) solid var(--c);border-bottom-right-radius:14px}\n    .card:hover::before,.card:hover::after,.card:hover .b1,.card:hover .b2,\n    .card:focus-within::before,.card:focus-within::after,.card:focus-within .b1,.card:focus-within .b2{width:40px;height:40px}\n    .card a{color:var(--c);display:inline-block;margin-top:1rem}\n    @media(prefers-reduced-motion:reduce){.card::before,.card::after,.card .b1,.card .b2{transition:none}}\n  </style>\n</head>\n<body>\n  <article class=\"card\" tabindex=\"0\">\n    <span class=\"b1\"></span><span class=\"b2\"></span>\n    <h3>Targeting system</h3>\n    <p>Hover or focus this card — the corner brackets lock on like a HUD.</p>\n    <a href=\"#\">Engage →</a>\n  </article>\n</body>\n</html>\n"
+}

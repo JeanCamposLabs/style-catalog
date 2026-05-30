@@ -1,0 +1,55 @@
+{
+  "id": "orbit-loader",
+  "title": "Orbit Loader",
+  "summary": "A nucleus with electrons orbiting on tilted rings at different speeds — an atomic, premium loading indicator.",
+  "description": "Concentric rings rotate at different rates, each carrying a glowing dot, around a central pulsing core — like an atom. A more characterful loader than a plain spinner, good for science/AI/dev brands.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner",
+    "animation"
+  ],
+  "tags": [
+    "orbit",
+    "atom",
+    "spinner",
+    "loader",
+    "rings",
+    "css-only"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Three rotation animations + one pulse, transform/opacity only — GPU-friendly. Pure CSS, no JS.",
+  "accessibility_notes": "Wrap with role='status' and a visually-hidden 'Loading…' label so state is announced. Under prefers-reduced-motion, stop rotation (show a static atom).",
+  "customization": [
+    {
+      "name": "--c1/--c2/--c3",
+      "description": "Per-ring colors",
+      "default": "violet/teal/pink"
+    },
+    {
+      "name": "--speed",
+      "description": "Base rotation duration",
+      "default": "2s"
+    }
+  ],
+  "variations": [
+    "Single ring for a minimal look",
+    "Trail/comet tail on each dot",
+    "Match brand colors per ring"
+  ],
+  "related": [
+    "dual-ring-spinner",
+    "ring-spinner",
+    "svg-blob-spinner"
+  ],
+  "ai_usage": "Use as a branded loading state for science/AI/dev products. Stack rings (each a bordered ellipse rotated in 3D) with a dot positioned on the edge; rotate each ring at a different --speed and direction; pulse the core. Wrap in role='status' + a visually-hidden 'Loading…' label and freeze rotation under prefers-reduced-motion.",
+  "path": "effects/loaders-spinners/orbit-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Orbit Loader</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"orbit-loader\",\n    \"title\": \"Orbit Loader\",\n    \"summary\": \"A nucleus with electrons orbiting on tilted rings at different speeds — an atomic, premium loading indicator.\",\n    \"description\": \"Concentric rings rotate at different rates, each carrying a glowing dot, around a central pulsing core — like an atom. A more characterful loader than a plain spinner, good for science/AI/dev brands.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\", \"animation\"],\n    \"tags\": [\"orbit\", \"atom\", \"spinner\", \"loader\", \"rings\", \"css-only\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Three rotation animations + one pulse, transform/opacity only — GPU-friendly. Pure CSS, no JS.\",\n    \"accessibility_notes\": \"Wrap with role='status' and a visually-hidden 'Loading…' label so state is announced. Under prefers-reduced-motion, stop rotation (show a static atom).\",\n    \"customization\": [\n      { \"name\": \"--c1/--c2/--c3\", \"description\": \"Per-ring colors\", \"default\": \"violet/teal/pink\" },\n      { \"name\": \"--speed\", \"description\": \"Base rotation duration\", \"default\": \"2s\" }\n    ],\n    \"variations\": [\"Single ring for a minimal look\", \"Trail/comet tail on each dot\", \"Match brand colors per ring\"],\n    \"related\": [\"dual-ring-spinner\", \"ring-spinner\", \"svg-blob-spinner\"],\n    \"ai_usage\": \"Use as a branded loading state for science/AI/dev products. Stack rings (each a bordered ellipse rotated in 3D) with a dot positioned on the edge; rotate each ring at a different --speed and direction; pulse the core. Wrap in role='status' + a visually-hidden 'Loading…' label and freeze rotation under prefers-reduced-motion.\"\n  }\n  </script>\n  <style>\n    :root{--c1:#7c5cff;--c2:#2dd4bf;--c3:#ff6ec7;--speed:2s;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12}\n    .atom{position:relative;width:140px;height:140px}\n    .core{position:absolute;inset:50% auto auto 50%;width:18px;height:18px;border-radius:50%;transform:translate(-50%,-50%);\n      background:radial-gradient(circle at 35% 35%,#fff,var(--c1));box-shadow:0 0 18px var(--c1);animation:pulse 1.4s ease-in-out infinite}\n    .ring{position:absolute;inset:0;border-radius:50%;border:2px solid transparent}\n    .r1{border-top-color:var(--c1);animation:spin var(--speed) linear infinite}\n    .r2{border-top-color:var(--c2);transform:rotate(60deg);animation:spin calc(var(--speed)*1.4) linear infinite reverse}\n    .r3{border-top-color:var(--c3);transform:rotate(120deg);animation:spin calc(var(--speed)*1.8) linear infinite}\n    .ring::after{content:\"\";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;transform:translateX(-50%)}\n    .r1::after{background:var(--c1);box-shadow:0 0 12px var(--c1)}\n    .r2::after{background:var(--c2);box-shadow:0 0 12px var(--c2)}\n    .r3::after{background:var(--c3);box-shadow:0 0 12px var(--c3)}\n    @keyframes spin{to{transform:rotate(360deg)}}\n    .r2{animation-name:spin2}@keyframes spin2{from{transform:rotate(60deg)}to{transform:rotate(420deg)}}\n    .r3{animation-name:spin3}@keyframes spin3{from{transform:rotate(120deg)}to{transform:rotate(480deg)}}\n    @keyframes pulse{50%{transform:translate(-50%,-50%) scale(1.35)}}\n    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}\n    @media(prefers-reduced-motion:reduce){.ring,.core{animation:none}}\n  </style>\n</head>\n<body>\n  <div role=\"status\">\n    <div class=\"atom\" aria-hidden=\"true\">\n      <div class=\"ring r1\"></div><div class=\"ring r2\"></div><div class=\"ring r3\"></div>\n      <div class=\"core\"></div>\n    </div>\n    <span class=\"sr\">Loading…</span>\n  </div>\n</body>\n</html>\n"
+}

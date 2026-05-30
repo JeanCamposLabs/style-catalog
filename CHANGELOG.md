@@ -3,6 +3,20 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.9.0] — 2026-05-30
+
+### Added — another hand-crafted round: +14 specimens (now 156 effects)
+- **Effects (6):** `command-palette` (⌘K), `cursor-text-label` (labeled custom
+  cursor), `orbit-loader`, `password-strength` (meter + checklist),
+  `corner-brackets` (HUD frame), `blur-up-load` (LQIP progressive image).
+- **SVG (3):** `svg-annotation-arrow` (hand-drawn pointer), `svg-like-burst`
+  (heart + particle burst), `svg-animated-logo` (stroke-then-fill reveal).
+- **Templates (5):** `pricing-page` (billing toggle + comparison + FAQ),
+  `docs-portal` (sidebar + scroll-spy TOC + copy code), `error-404` (glitch),
+  `podcast-show` (episodes + play states), `real-estate-listing` (filters + grid).
+- All verified rendering with zero console errors; ARIA, focus-visible, and
+  reduced-motion guards throughout. Website Templates now 32.
+
 ## [0.8.0] — 2026-05-30
 
 ### Added — library expansion: +19 hand-crafted specimens (now 142 effects)
