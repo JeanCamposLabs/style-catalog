@@ -1,0 +1,56 @@
+{
+  "id": "dot-grid-spotlight",
+  "title": "Dot Grid Spotlight",
+  "summary": "A subtle dot-grid background that lights up only within a soft circle following the cursor.",
+  "description": "A faint dot grid covers the section; a brighter copy is revealed through a radial mask centered on the pointer, so the grid 'illuminates' around the cursor. A clean, techy hero backdrop seen across modern dev/SaaS sites.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "interactive",
+    "grid"
+  ],
+  "tags": [
+    "dot-grid",
+    "spotlight",
+    "cursor",
+    "mask",
+    "tech",
+    "2026-trend"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (CSS mask, custom properties).",
+  "performance_notes": "One pointermove updates --mx/--my; the grid is a repeating radial-gradient (cheap). Spotlight hides under reduced-motion / no-pointer.",
+  "accessibility_notes": "Decorative only; foreground content keeps its own contrast. No keyboard dependency.",
+  "customization": [
+    {
+      "name": "--gap / --dot",
+      "description": "Grid spacing and dot size",
+      "default": "26px / 1.5px"
+    },
+    {
+      "name": "--r",
+      "description": "Spotlight radius",
+      "default": "180px"
+    }
+  ],
+  "variations": [
+    "Line grid instead of dots",
+    "Two-color (dim everywhere, brand inside)",
+    "Static centered spotlight"
+  ],
+  "related": [
+    "grain-gradient",
+    "tilt-spotlight-card",
+    "animated-gradient"
+  ],
+  "ai_usage": "Use as a hero/section backdrop for dev/SaaS/AI sites. Render a dim repeating-radial-gradient dot grid; overlay a brighter identical grid masked by a radial-gradient at --mx/--my (updated on pointermove) so dots brighten near the cursor. Tune --gap and --r. Keep content above it; the spotlight is decorative, so it's fine to hide it when no pointer or under reduced motion.",
+  "path": "effects/backgrounds/dot-grid-spotlight.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dot Grid Spotlight</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dot-grid-spotlight\",\n    \"title\": \"Dot Grid Spotlight\",\n    \"summary\": \"A subtle dot-grid background that lights up only within a soft circle following the cursor.\",\n    \"description\": \"A faint dot grid covers the section; a brighter copy is revealed through a radial mask centered on the pointer, so the grid 'illuminates' around the cursor. A clean, techy hero backdrop seen across modern dev/SaaS sites.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"interactive\", \"grid\"],\n    \"tags\": [\"dot-grid\", \"spotlight\", \"cursor\", \"mask\", \"tech\", \"2026-trend\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (CSS mask, custom properties).\",\n    \"performance_notes\": \"One pointermove updates --mx/--my; the grid is a repeating radial-gradient (cheap). Spotlight hides under reduced-motion / no-pointer.\",\n    \"accessibility_notes\": \"Decorative only; foreground content keeps its own contrast. No keyboard dependency.\",\n    \"customization\": [\n      { \"name\": \"--gap / --dot\", \"description\": \"Grid spacing and dot size\", \"default\": \"26px / 1.5px\" },\n      { \"name\": \"--r\", \"description\": \"Spotlight radius\", \"default\": \"180px\" }\n    ],\n    \"variations\": [\"Line grid instead of dots\", \"Two-color (dim everywhere, brand inside)\", \"Static centered spotlight\"],\n    \"related\": [\"grain-gradient\", \"tilt-spotlight-card\", \"animated-gradient\"],\n    \"ai_usage\": \"Use as a hero/section backdrop for dev/SaaS/AI sites. Render a dim repeating-radial-gradient dot grid; overlay a brighter identical grid masked by a radial-gradient at --mx/--my (updated on pointermove) so dots brighten near the cursor. Tune --gap and --r. Keep content above it; the spotlight is decorative, so it's fine to hide it when no pointer or under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root{--gap:26px;--dot:1.5px;--r:180px;--mx:50%;--my:50%;--dim:#1b2233;--lit:#7c5cff;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0a0c12;font-family:system-ui,sans-serif;color:#e8ecf6;position:relative;overflow:hidden}\n    .grid,.glow{position:absolute;inset:0;background-image:radial-gradient(var(--dot) var(--dim) 1px,transparent 1px);background-size:var(--gap) var(--gap)}\n    .glow{background-image:radial-gradient(var(--dot) var(--lit) 1px,transparent 1px);\n      -webkit-mask:radial-gradient(var(--r) circle at var(--mx) var(--my),#000 0%,transparent 70%);\n      mask:radial-gradient(var(--r) circle at var(--mx) var(--my),#000 0%,transparent 70%)}\n    .label{position:relative;z-index:1;font-size:clamp(1.4rem,4vw,2.2rem);font-weight:800;letter-spacing:-.02em}\n    @media(prefers-reduced-motion:reduce){.glow{display:none}}\n  </style>\n</head>\n<body>\n  <div class=\"grid\"></div>\n  <div class=\"glow\" id=\"glow\"></div>\n  <div class=\"label\">Move your cursor ✦</div>\n  <script>\n    var glow=document.getElementById('glow');\n    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){\n      addEventListener('pointermove',function(e){\n        glow.style.setProperty('--mx',e.clientX+'px');\n        glow.style.setProperty('--my',e.clientY+'px');\n      });\n    }\n  </script>\n</body>\n</html>\n"
+}

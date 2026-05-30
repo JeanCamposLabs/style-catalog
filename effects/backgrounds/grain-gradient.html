@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grainy Gradient Background</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "grain-gradient",
+    "title": "Grainy Gradient Background",
+    "summary": "A slowly drifting multi-color gradient mesh with an SVG film-grain overlay for a tactile, premium finish.",
+    "description": "Pairs two 2026 staples: an animated gradient mesh (Aurora-style) and a noise/grain texture. The grain (an inline SVG feTurbulence) breaks up banding and adds an analog, expensive feel over the smooth gradient.",
+    "theme": "backgrounds",
+    "categories": ["background", "gradient", "texture"],
+    "tags": ["gradient-mesh", "grain", "noise", "aurora", "texture", "2026-trend"],
+    "tech": ["css", "svg"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (SVG filters, CSS animation).",
+    "performance_notes": "The grain is a tiled static SVG data-URI (cheap); only the gradient position animates. Animation pauses under reduced-motion.",
+    "accessibility_notes": "Purely decorative; ensure foreground text has its own contrast. Grain opacity kept low to avoid distraction.",
+    "customization": [
+      { "name": "--c1..--c3", "description": "Mesh colors", "default": "violet/teal/pink" },
+      { "name": "grain opacity", "description": "Texture strength", "default": "0.06" }
+    ],
+    "variations": ["Light gradient + darker grain", "Static gradient, animated grain flicker", "Heavier grain for a poster look"],
+    "related": ["animated-gradient", "svg-noise-texture", "aurora-saas"],
+    "ai_usage": "Use as a hero/section background that feels premium and avoids flat gradient banding. Layer: animated multi-radial gradient on the base, then a tiled SVG feTurbulence grain (data-URI) on top at low opacity (~0.05–0.1) with mix-blend overlay. Recolor via --c1..--c3. Keep text contrast independent of the background and pause the drift under prefers-reduced-motion."
+  }
+  </script>
+  <style>
+    :root{--c1:#7c5cff;--c2:#2dd4bf;--c3:#ff6ec7;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;font-family:system-ui,sans-serif;color:#fff;position:relative;overflow:hidden;
+      background:#0a0a14}
+    .bg{position:absolute;inset:0;
+      background:radial-gradient(40vw 40vw at 15% 20%,var(--c1),transparent 60%),
+                 radial-gradient(45vw 45vw at 85% 25%,var(--c2),transparent 60%),
+                 radial-gradient(40vw 40vw at 55% 90%,var(--c3),transparent 60%),#0a0a14;
+      background-size:200% 200%;animation:drift 18s ease-in-out infinite}
+    @keyframes drift{50%{background-position:60% 40%,30% 60%,70% 20%}}
+    .grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .label{position:relative;z-index:1;font-size:clamp(1.6rem,5vw,2.6rem);font-weight:800;letter-spacing:-.02em;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+    @media(prefers-reduced-motion:reduce){.bg{animation:none}}
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="grain"></div>
+  <div class="label">Grainy gradient ✶</div>
+</body>
+</html>

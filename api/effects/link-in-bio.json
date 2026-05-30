@@ -1,0 +1,58 @@
+{
+  "id": "link-in-bio",
+  "title": "Link-in-Bio — Creator",
+  "summary": "A mobile-first creator hub: avatar, bio, a stack of tappable link buttons, social row, and a featured card — over an animated gradient.",
+  "description": "The creator 'link in bio' page (Linktree-style) reimagined: a centered, phone-width column with a glowing avatar, verified bio, big tappable link buttons with hover sheen, a social icon row, and a highlighted 'latest drop' card. Animated gradient backdrop.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "creator",
+    "landing"
+  ],
+  "tags": [
+    "link-in-bio",
+    "linktree",
+    "creator",
+    "mobile-first",
+    "bio",
+    "2026-trend",
+    "full-page"
+  ],
+  "tech": [
+    "html",
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "One animated gradient + CSS hover sheens. No images (avatar is a gradient). Tiny.",
+  "accessibility_notes": "Real links with large tap targets, focus-visible rings, sufficient contrast, and labeled social icons. Gradient animation stops under reduced-motion.",
+  "customization": [
+    {
+      "name": "--g1/--g2",
+      "description": "Background gradient",
+      "default": "violet / pink"
+    },
+    {
+      "name": "link list",
+      "description": "Buttons (label + url)",
+      "default": "edit markup"
+    }
+  ],
+  "variations": [
+    "Light theme",
+    "Glass buttons over a photo",
+    "Add a tiny analytics-free click counter"
+  ],
+  "related": [
+    "coming-soon",
+    "clay-app",
+    "animated-gradient"
+  ],
+  "ai_usage": "Use as a creator/brand link hub (bio link). Keep it a narrow centered column: avatar, name + bio, then a vertical stack of full-width link buttons with big tap targets, a labeled social row, and one featured card. Recolor via the gradient tokens; edit the link list. Ensure 44px+ tap targets, focus-visible, and pause the gradient under reduced motion.",
+  "path": "effects/website-templates/link-in-bio.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>Link-in-Bio — Creator</title>\n<script type=\"application/json\" id=\"effect-meta\">\n{\n  \"id\": \"link-in-bio\",\n  \"title\": \"Link-in-Bio — Creator\",\n  \"summary\": \"A mobile-first creator hub: avatar, bio, a stack of tappable link buttons, social row, and a featured card — over an animated gradient.\",\n  \"description\": \"The creator 'link in bio' page (Linktree-style) reimagined: a centered, phone-width column with a glowing avatar, verified bio, big tappable link buttons with hover sheen, a social icon row, and a highlighted 'latest drop' card. Animated gradient backdrop.\",\n  \"theme\": \"website-templates\",\n  \"categories\": [\"template\", \"creator\", \"landing\"],\n  \"tags\": [\"link-in-bio\", \"linktree\", \"creator\", \"mobile-first\", \"bio\", \"2026-trend\", \"full-page\"],\n  \"tech\": [\"html\", \"css\", \"js\"],\n  \"era\": \"2020s\",\n  \"difficulty\": \"beginner\",\n  \"dependencies\": [],\n  \"browser_support\": \"All modern browsers.\",\n  \"performance_notes\": \"One animated gradient + CSS hover sheens. No images (avatar is a gradient). Tiny.\",\n  \"accessibility_notes\": \"Real links with large tap targets, focus-visible rings, sufficient contrast, and labeled social icons. Gradient animation stops under reduced-motion.\",\n  \"customization\": [\n    { \"name\": \"--g1/--g2\", \"description\": \"Background gradient\", \"default\": \"violet / pink\" },\n    { \"name\": \"link list\", \"description\": \"Buttons (label + url)\", \"default\": \"edit markup\" }\n  ],\n  \"variations\": [\"Light theme\", \"Glass buttons over a photo\", \"Add a tiny analytics-free click counter\"],\n  \"related\": [\"coming-soon\", \"clay-app\", \"animated-gradient\"],\n  \"ai_usage\": \"Use as a creator/brand link hub (bio link). Keep it a narrow centered column: avatar, name + bio, then a vertical stack of full-width link buttons with big tap targets, a labeled social row, and one featured card. Recolor via the gradient tokens; edit the link list. Ensure 44px+ tap targets, focus-visible, and pause the gradient under reduced motion.\"\n}\n</script>\n<style>\n  :root{--g1:#7c5cff;--g2:#ff6ec7;--g3:#22d3ee;--card:rgba(255,255,255,.1);--line:rgba(255,255,255,.2);--text:#fff;}\n  *{box-sizing:border-box}html{scroll-behavior:smooth}\n  body{margin:0;min-height:100vh;color:var(--text);font-family:\"Inter\",system-ui,sans-serif;display:flex;justify-content:center;\n    background:linear-gradient(-45deg,var(--g1),var(--g2),var(--g3),var(--g1));background-size:400% 400%;animation:bg 18s ease infinite;padding:2.5rem 1rem}\n  @keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}\n  a{color:inherit;text-decoration:none}\n  .col{width:100%;max-width:440px;text-align:center}\n  .avatar{width:96px;height:96px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#fff,#dfe7ff);\n    box-shadow:0 0 0 4px rgba(255,255,255,.4),0 18px 40px rgba(0,0,0,.3);display:grid;place-items:center;font-size:2.4rem}\n  h1{font-size:1.5rem;font-weight:800;margin:1rem 0 .15rem;display:flex;gap:.35rem;justify-content:center;align-items:center}\n  .verified{color:#fff;background:rgba(255,255,255,.25);border-radius:50%;width:20px;height:20px;display:grid;place-items:center;font-size:.7rem}\n  .bio{opacity:.9;margin:0 auto 1.4rem;max-width:30ch;font-size:.98rem}\n  .links{display:flex;flex-direction:column;gap:.8rem}\n  .link{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(10px);\n    border-radius:16px;padding:1rem 1.2rem;font-weight:700;display:flex;align-items:center;gap:.7rem;justify-content:center;transition:transform .15s,background .2s}\n  .link:hover{transform:translateY(-3px);background:rgba(255,255,255,.2)}\n  .link::after{content:\"\";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .5s}\n  .link:hover::after{left:130%}\n  .link:focus-visible{outline:3px solid #fff;outline-offset:3px}\n  .featured{margin-top:1rem;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(10px);border-radius:18px;overflow:hidden;text-align:left}\n  .featured .ph{height:130px;background:linear-gradient(135deg,#fbbf24,#f97316)}\n  .featured .body{padding:1rem}.featured .tag{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;opacity:.8}\n  .featured h3{margin:.2rem 0}.featured p{margin:0;opacity:.85;font-size:.9rem}\n  .socials{display:flex;gap:1.1rem;justify-content:center;margin:1.4rem 0;font-size:1.3rem}\n  .socials a{width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;transition:transform .15s}\n  .socials a:hover{transform:translateY(-3px) scale(1.05)}\n  .foot{opacity:.7;font-size:.8rem;margin-top:1rem}\n  @media(prefers-reduced-motion:reduce){body{animation:none}.link::after{display:none}.link:hover{transform:none}}\n</style>\n</head>\n<body>\n  <main class=\"col\">\n    <div class=\"avatar\">🦊</div>\n    <h1>Remy Fields <span class=\"verified\" title=\"Verified\">✓</span></h1>\n    <p class=\"bio\">Music producer &amp; creative coder. New EP out now. ✨ Below: everything I'm into this month.</p>\n\n    <nav class=\"links\" aria-label=\"My links\">\n      <a class=\"link\" href=\"#\">🎧 Listen to the new EP</a>\n      <a class=\"link\" href=\"#\">🛍️ Shop merch (new drop)</a>\n      <a class=\"link\" href=\"#\">📺 Latest YouTube video</a>\n      <a class=\"link\" href=\"#\">📨 Join the newsletter</a>\n      <a class=\"link\" href=\"#\">🎟️ Tour dates &amp; tickets</a>\n    </nav>\n\n    <a class=\"featured\" href=\"#\">\n      <div class=\"ph\" role=\"img\" aria-label=\"Latest release artwork\"></div>\n      <div class=\"body\"><div class=\"tag\">★ Latest drop</div><h3>“Afterglow” — out now</h3><p>Stream on every platform.</p></div>\n    </a>\n\n    <div class=\"socials\">\n      <a href=\"#\" aria-label=\"Instagram\">📷</a>\n      <a href=\"#\" aria-label=\"TikTok\">🎵</a>\n      <a href=\"#\" aria-label=\"X\">𝕏</a>\n      <a href=\"#\" aria-label=\"YouTube\">▶️</a>\n    </div>\n    <p class=\"foot\">© <span id=\"yr\"></span> Remy Fields</p>\n  </main>\n  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>\n</body>\n</html>\n"
+}

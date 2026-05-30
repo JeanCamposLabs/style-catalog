@@ -1,0 +1,56 @@
+{
+  "id": "text-scramble",
+  "title": "Text Scramble / Decode",
+  "summary": "Text resolves from random glyph noise into the real words, like a terminal decoding — on load and on hover.",
+  "description": "Each character cycles through random symbols before locking to its final letter, staggered left to right, producing a 'decrypting' reveal. A favorite for hero words and hover labels on dev/cyber/creative sites.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "animation",
+    "javascript"
+  ],
+  "tags": [
+    "scramble",
+    "decode",
+    "glitch",
+    "terminal",
+    "reveal",
+    "2026-trend"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "A single requestAnimationFrame loop mutating textContent for the duration of the reveal, then it stops. Lightweight.",
+  "accessibility_notes": "Keep the final text as the element's accessible name (set it before/after, or use aria-label) so screen readers don't read scrambled glyphs. Under reduced-motion, show final text instantly.",
+  "customization": [
+    {
+      "name": "chars",
+      "description": "Glyph pool for scrambling",
+      "default": "!<>-_\\/[]{}=+*^?#"
+    },
+    {
+      "name": "speed",
+      "description": "Frames per character settle",
+      "default": "~ per-char random"
+    }
+  ],
+  "variations": [
+    "Trigger on scroll into view",
+    "Loop through several phrases",
+    "Color the still-scrambling chars differently"
+  ],
+  "related": [
+    "typewriter-text",
+    "glitch-text",
+    "kinetic-portfolio"
+  ],
+  "ai_usage": "Use for hero words, section labels, and hover micro-copy on dev/cyber/creative sites. Implement a setText(newText) that, per character, randomly shows pool glyphs until a per-char 'settle' frame, then locks the real char; drive it with requestAnimationFrame. Set the real string as aria-label (or render it then animate) so assistive tech reads the word, and skip the animation under prefers-reduced-motion.",
+  "path": "effects/text-effects/text-scramble.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Text Scramble / Decode</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"text-scramble\",\n    \"title\": \"Text Scramble / Decode\",\n    \"summary\": \"Text resolves from random glyph noise into the real words, like a terminal decoding — on load and on hover.\",\n    \"description\": \"Each character cycles through random symbols before locking to its final letter, staggered left to right, producing a 'decrypting' reveal. A favorite for hero words and hover labels on dev/cyber/creative sites.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"animation\", \"javascript\"],\n    \"tags\": [\"scramble\", \"decode\", \"glitch\", \"terminal\", \"reveal\", \"2026-trend\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"A single requestAnimationFrame loop mutating textContent for the duration of the reveal, then it stops. Lightweight.\",\n    \"accessibility_notes\": \"Keep the final text as the element's accessible name (set it before/after, or use aria-label) so screen readers don't read scrambled glyphs. Under reduced-motion, show final text instantly.\",\n    \"customization\": [\n      { \"name\": \"chars\", \"description\": \"Glyph pool for scrambling\", \"default\": \"!<>-_\\\\/[]{}=+*^?#\" },\n      { \"name\": \"speed\", \"description\": \"Frames per character settle\", \"default\": \"~ per-char random\" }\n    ],\n    \"variations\": [\"Trigger on scroll into view\", \"Loop through several phrases\", \"Color the still-scrambling chars differently\"],\n    \"related\": [\"typewriter-text\", \"glitch-text\", \"kinetic-portfolio\"],\n    \"ai_usage\": \"Use for hero words, section labels, and hover micro-copy on dev/cyber/creative sites. Implement a setText(newText) that, per character, randomly shows pool glyphs until a per-char 'settle' frame, then locks the real char; drive it with requestAnimationFrame. Set the real string as aria-label (or render it then animate) so assistive tech reads the word, and skip the animation under prefers-reduced-motion.\"\n  }\n  </script>\n  <style>\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#06080d;font-family:ui-monospace,Menlo,Consolas,monospace}\n    .scramble{font-size:clamp(1.8rem,7vw,4rem);font-weight:700;letter-spacing:.02em;color:#46e0a0;cursor:pointer;\n      text-shadow:0 0 18px rgba(70,224,160,.35)}\n    .scramble .dud{color:#2a6b52}\n    .hint{position:fixed;bottom:1.2rem;color:#3a4a44;font-family:system-ui,sans-serif;font-size:.85rem}\n  </style>\n</head>\n<body>\n  <h1 class=\"scramble\" id=\"t\" aria-label=\"ACCESS GRANTED\" title=\"hover to re-decode\">ACCESS GRANTED</h1>\n  <p class=\"hint\">hover to re-run</p>\n  <script>\n    var el=document.getElementById('t');\n    var chars='!<>-_\\\\/[]{}=+*^?#________';\n    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;\n    function scramble(text){\n      if(reduce){el.textContent=text;return;}\n      var queue=[],frame=0,raf;\n      for(var i=0;i<text.length;i++){\n        var start=Math.floor(Math.random()*20),end=start+Math.floor(Math.random()*20)+10;\n        queue.push({to:text[i],start:start,end:end,ch:''});\n      }\n      function update(){\n        var out='',done=0;\n        for(var i=0;i<queue.length;i++){\n          var q=queue[i];\n          if(frame>=q.end){done++;out+=q.to;}\n          else if(frame>=q.start){\n            if(!q.ch||Math.random()<0.28)q.ch=chars[Math.floor(Math.random()*chars.length)];\n            out+='<span class=\"dud\">'+q.ch+'</span>';\n          } else out+='';\n        }\n        el.innerHTML=out;\n        if(done<queue.length){frame++;raf=requestAnimationFrame(update);}\n        else el.textContent=text;\n      }\n      cancelAnimationFrame(raf);update();\n    }\n    var msg=el.getAttribute('aria-label');\n    scramble(msg);\n    el.addEventListener('pointerenter',function(){scramble(msg);});\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,56 @@
+{
+  "id": "svg-dashed-connector",
+  "title": "SVG Animated Connector",
+  "summary": "A curved dashed line that draws itself between two nodes and then flows, like a live data/flow diagram link.",
+  "description": "An SVG path connecting two boxes draws in via stroke-dashoffset, then a marching-ants dash flow animates continuously to imply data moving along it. The look of flow builders, integrations diagrams, and 'how it works' graphics.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "diagram",
+    "animation"
+  ],
+  "tags": [
+    "svg",
+    "connector",
+    "flow",
+    "dashed",
+    "diagram",
+    "marching-ants"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "One draw-in transition then a looping dashoffset animation on a single path. Cheap.",
+  "accessibility_notes": "Decorative diagram; convey the relationship in adjacent text too. The flow loop stops under prefers-reduced-motion (show the drawn line).",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Line + node accent",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "dash",
+      "description": "Dash size and flow speed",
+      "default": "8 8 / 1s"
+    }
+  ],
+  "variations": [
+    "Add an arrowhead marker at the end",
+    "Animate a dot traveling the path (offset-path)",
+    "Branch to multiple nodes"
+  ],
+  "related": [
+    "svg-line-draw",
+    "svg-path-morph",
+    "terminal-devtool"
+  ],
+  "ai_usage": "Use for 'how it works', integration maps, and flow/pipeline graphics. Draw a path between two nodes; animate stroke-dashoffset from pathLength to 0 to 'draw' it, then switch to a looping dash flow (animate stroke-dashoffset continuously with a fixed stroke-dasharray) for 'marching ants'. Add an arrowhead marker if directional, describe the relationship in text, and stop the loop under reduced motion.",
+  "path": "effects/svg-effects/svg-dashed-connector.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Animated Connector</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-dashed-connector\",\n    \"title\": \"SVG Animated Connector\",\n    \"summary\": \"A curved dashed line that draws itself between two nodes and then flows, like a live data/flow diagram link.\",\n    \"description\": \"An SVG path connecting two boxes draws in via stroke-dashoffset, then a marching-ants dash flow animates continuously to imply data moving along it. The look of flow builders, integrations diagrams, and 'how it works' graphics.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"diagram\", \"animation\"],\n    \"tags\": [\"svg\", \"connector\", \"flow\", \"dashed\", \"diagram\", \"marching-ants\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"One draw-in transition then a looping dashoffset animation on a single path. Cheap.\",\n    \"accessibility_notes\": \"Decorative diagram; convey the relationship in adjacent text too. The flow loop stops under prefers-reduced-motion (show the drawn line).\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Line + node accent\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"dash\", \"description\": \"Dash size and flow speed\", \"default\": \"8 8 / 1s\" }\n    ],\n    \"variations\": [\"Add an arrowhead marker at the end\", \"Animate a dot traveling the path (offset-path)\", \"Branch to multiple nodes\"],\n    \"related\": [\"svg-line-draw\", \"svg-path-morph\", \"terminal-devtool\"],\n    \"ai_usage\": \"Use for 'how it works', integration maps, and flow/pipeline graphics. Draw a path between two nodes; animate stroke-dashoffset from pathLength to 0 to 'draw' it, then switch to a looping dash flow (animate stroke-dashoffset continuously with a fixed stroke-dasharray) for 'marching ants'. Add an arrowhead marker if directional, describe the relationship in text, and stop the loop under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root{--c:#2dd4bf;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif}\n    .diagram{position:relative;display:flex;align-items:center;gap:160px}\n    .node{width:120px;height:90px;border-radius:16px;background:#12151f;border:1px solid #2a3142;color:#e8ecf6;\n      display:grid;place-items:center;text-align:center;font-weight:700;z-index:1;padding:.5rem}\n    .node .ic{font-size:1.6rem}.node small{display:block;color:#8b93a7;font-weight:500;font-size:.78rem}\n    svg.link{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}\n    .path{fill:none;stroke:var(--c);stroke-width:2.5;stroke-linecap:round}\n    .draw{stroke-dasharray:300;stroke-dashoffset:300;animation:draw 1s ease forwards}\n    .flow{stroke-dasharray:8 8;animation:flow 1s linear infinite 1s}\n    @keyframes draw{to{stroke-dashoffset:0}}\n    @keyframes flow{to{stroke-dashoffset:-160}}\n    .dot{fill:var(--c)}\n    @media(prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.flow{animation:none}}\n  </style>\n</head>\n<body>\n  <div class=\"diagram\">\n    <svg class=\"link\" viewBox=\"0 0 400 200\" aria-hidden=\"true\">\n      <path class=\"path draw\" d=\"M120,100 C200,100 200,100 280,100\"/>\n      <path class=\"path flow\" d=\"M120,100 C200,100 200,100 280,100\"/>\n      <circle class=\"dot\" cx=\"120\" cy=\"100\" r=\"4\"/><circle class=\"dot\" cx=\"280\" cy=\"100\" r=\"4\"/>\n    </svg>\n    <div class=\"node\"><div><div class=\"ic\">📥</div>Source<small>your data</small></div></div>\n    <div class=\"node\"><div><div class=\"ic\">⚙️</div>Pipeline<small>transform</small></div></div>\n  </div>\n</body>\n</html>\n"
+}

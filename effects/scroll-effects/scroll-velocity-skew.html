@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scroll Velocity Skew</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scroll-velocity-skew",
+    "title": "Scroll Velocity Skew",
+    "summary": "Content skews and squashes in proportion to scroll speed, then springs back to rest — a fluid, physical scroll feel.",
+    "description": "Tracks scroll velocity each frame and maps it to a skewY (and slight scale) on the content, which eases back to zero when you stop. Fast flicks bend the page; slow scrolls barely move. A signature 'smooth scroll' flourish on award-style sites.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "animation", "javascript"],
+    "tags": ["scroll-velocity", "skew", "momentum", "physical", "smooth-scroll", "2026-trend"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "A single requestAnimationFrame loop computing velocity and writing one transform. transform-only — GPU-friendly. Loop is cheap and self-limiting.",
+    "accessibility_notes": "Purely decorative motion; content remains fully readable and in order. Disabled entirely under prefers-reduced-motion. Clamp max skew so text never becomes unreadable.",
+    "customization": [
+      { "name": "--max-skew", "description": "Skew clamp (deg)", "default": "8" },
+      { "name": "ease factor", "description": "How fast it springs back (lerp)", "default": "0.85 decay" }
+    ],
+    "variations": ["Skew only images, not text", "Map velocity to letter-spacing instead", "Horizontal skewX for sideways scrollers"],
+    "related": ["parallax-layers", "sticky-stack-cards", "reveal-on-scroll"],
+    "ai_usage": "Use for premium/creative sites to add tactile momentum. Each frame, compute velocity = scrollY − lastScrollY, smooth it toward 0 with a decay (lerp), clamp to ±--max-skew, and write transform: skewY(v) (optionally scaleY). Apply to a wrapper, not body. Clamp so text stays legible and disable under prefers-reduced-motion. Use one rAF loop, not a scroll listener per event."
+  }
+  </script>
+  <style>
+    :root{--max-skew:8;}
+    *{box-sizing:border-box}body{margin:0;background:#0b0d12;color:#e8ecf6;font-family:system-ui,sans-serif}
+    .skewer{transform-origin:center top;will-change:transform}
+    .hero{min-height:60vh;display:grid;place-items:center;text-align:center}
+    .hero h1{font-size:clamp(2rem,7vw,4.5rem);font-weight:800;letter-spacing:-.03em;margin:0}
+    .row{max-width:760px;margin:0 auto;padding:0 1.2rem}
+    .block{border-radius:18px;padding:2rem;margin:1.2rem 0;color:#fff;font-size:1.4rem;font-weight:700}
+    .b1{background:linear-gradient(120deg,#7c5cff,#a78bff)}.b2{background:linear-gradient(120deg,#2dd4bf,#22a8c0)}
+    .b3{background:linear-gradient(120deg,#ff6ec7,#ff9472)}.b4{background:linear-gradient(120deg,#fbbf24,#f97316)}
+    .hint{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);color:#5b6377;font-size:.85rem}
+  </style>
+</head>
+<body>
+  <div class="skewer" id="skewer">
+    <section class="hero"><h1>Flick to bend ↯</h1></section>
+    <div class="row">
+      <div class="block b1">Scroll fast and this whole column skews…</div>
+      <div class="block b2">…proportionally to how hard you flick…</div>
+      <div class="block b3">…then springs back to rest when you stop.</div>
+      <div class="block b4">Subtle physics make scrolling feel alive.</div>
+      <div class="block b1">Keep going — try a hard swipe.</div>
+      <div class="block b2">And a slow, gentle one.</div>
+    </div>
+    <section class="hero"><h1>Smooth.</h1></section>
+  </div>
+  <p class="hint">scroll ↑↓</p>
+  <script>
+    var el=document.getElementById('skewer');
+    var max=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-skew'))||8;
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce){
+      var last=window.scrollY, cur=0;
+      (function loop(){
+        var now=window.scrollY;
+        var v=now-last; last=now;
+        // smooth toward latest velocity, decay toward 0
+        cur += (v - cur)*0.25; cur *= 0.9;
+        var s=Math.max(-max,Math.min(max, cur*0.4));
+        el.style.transform='skewY('+s+'deg) scaleY('+(1 - Math.abs(s)*0.004)+')';
+        requestAnimationFrame(loop);
+      })();
+    }
+  </script>
+</body>
+</html>

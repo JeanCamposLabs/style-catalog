@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Morphing Blob Loader</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-blob-spinner",
+    "title": "SVG Morphing Blob Loader",
+    "summary": "A gradient blob that endlessly morphs between organic shapes while slowly rotating — a friendlier alternative to a spinner.",
+    "description": "An SVG path whose 'd' attribute animates through several blob shapes (SMIL), filled with an animated gradient and gently rotating. A warmer, on-brand loading indicator for playful or premium products.",
+    "theme": "svg-effects",
+    "categories": ["svg", "loader", "animation"],
+    "tags": ["svg", "blob", "morph", "loader", "spinner", "organic", "2026-trend"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "SMIL path morphing works in all current browsers; rotation/gradient via CSS.",
+    "performance_notes": "One SMIL d-morph + a CSS rotation. Keep the loop under ~3s so it feels intentional.",
+    "accessibility_notes": "Add role='status' and a visually-hidden 'Loading…' label so the state is announced. Under prefers-reduced-motion, stop the morph (show one shape).",
+    "customization": [
+      { "name": "--c1/--c2", "description": "Gradient fill", "default": "violet/teal" },
+      { "name": "morph values", "description": "Blob 'd' keyframes", "default": "4 shapes" }
+    ],
+    "variations": ["Solid color instead of gradient", "Pulse scale instead of rotate", "Use as an idle mascot, not just loading"],
+    "related": ["svg-path-morph", "svg-gradient-stroke", "morphing-blob-loader"],
+    "ai_usage": "Use as a branded loading indicator. Animate an SVG path's d through a few blob shapes that share point count (SMIL <animate attributeName='d'> with values, calcMode='spline'), fill with a gradient, and add a slow CSS rotation. Wrap with role='status' + a visually-hidden 'Loading…' label, keep the loop short, and freeze to one shape under reduced motion."
+  }
+  </script>
+  <style>
+    :root{--c1:#7c5cff;--c2:#2dd4bf;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif}
+    .blob{width:160px;height:160px;animation:spin 8s linear infinite}
+    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media(prefers-reduced-motion:reduce){.blob{animation:none}.blob animate{display:none}}
+  </style>
+</head>
+<body>
+  <div role="status">
+    <svg class="blob" viewBox="0 0 200 200" aria-hidden="true">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#2dd4bf"/>
+      </linearGradient></defs>
+      <path fill="url(#g)" d="M48,-58C62,-46,72,-31,74,-15C76,1,70,18,60,32C50,46,36,57,19,63C3,69,-15,69,-31,61C-47,53,-61,37,-67,18C-73,-1,-71,-23,-60,-37C-49,-51,-30,-58,-12,-64C7,-70,28,-70,48,-58Z" transform="translate(100 100)">
+        <animate attributeName="d" dur="2.6s" repeatCount="indefinite" calcMode="spline"
+          keyTimes="0;0.33;0.66;1" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"
+          values="M48,-58C62,-46,72,-31,74,-15C76,1,70,18,60,32C50,46,36,57,19,63C3,69,-15,69,-31,61C-47,53,-61,37,-67,18C-73,-1,-71,-23,-60,-37C-49,-51,-30,-58,-12,-64C7,-70,28,-70,48,-58Z;
+                  M52,-62C66,-50,73,-30,73,-11C73,8,66,25,55,40C44,55,29,67,11,71C-7,75,-27,71,-43,61C-59,51,-71,35,-74,17C-77,-1,-71,-21,-60,-36C-49,-51,-33,-61,-15,-66C3,-71,26,-74,52,-62Z;
+                  M44,-54C58,-43,71,-31,75,-15C79,1,74,19,64,33C54,47,39,57,22,63C5,69,-13,71,-30,64C-47,57,-63,41,-69,22C-75,3,-71,-19,-60,-35C-49,-51,-31,-61,-12,-66C8,-71,29,-66,44,-54Z;
+                  M48,-58C62,-46,72,-31,74,-15C76,1,70,18,60,32C50,46,36,57,19,63C3,69,-15,69,-31,61C-47,53,-61,37,-67,18C-73,-1,-71,-23,-60,-37C-49,-51,-30,-58,-12,-64C7,-70,28,-70,48,-58Z"/>
+      </path>
+    </svg>
+    <span class="sr">Loading…</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "id": "svg-progress-ring",
+  "title": "SVG Progress Ring",
+  "summary": "A circular progress meter: a gradient ring sweeps to a target percentage while the number counts up to match.",
+  "description": "An SVG circle uses stroke-dasharray/offset to fill to a set percentage along a track, paired with a JS count-up of the value. The canonical dashboard/stat ring (storage used, score, completion).",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "data",
+    "animation"
+  ],
+  "tags": [
+    "svg",
+    "progress",
+    "ring",
+    "circular",
+    "count-up",
+    "dashboard"
+  ],
+  "tech": [
+    "svg",
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "One stroke-dashoffset transition + a short rAF count-up. Trivial.",
+  "accessibility_notes": "Expose value via role='progressbar' with aria-valuenow/min/max so it's not visual-only. Under reduced-motion, set the final value instantly (no sweep/count).",
+  "customization": [
+    {
+      "name": "--p",
+      "description": "Target percentage",
+      "default": "72"
+    },
+    {
+      "name": "--c1/--c2",
+      "description": "Ring gradient",
+      "default": "violet/teal"
+    }
+  ],
+  "variations": [
+    "Multiple concentric rings (activity-style)",
+    "Color shifts by threshold (green/amber/red)",
+    "Square 'ring' with rounded rect"
+  ],
+  "related": [
+    "svg-gradient-stroke",
+    "svg-animated-checkmark",
+    "loaders-spinners"
+  ],
+  "ai_usage": "Use for dashboards, scores, quotas, and completion meters. Draw a track circle and a value circle; set the value circle's stroke-dasharray to its circumference and animate stroke-dashoffset to circumference×(1−p/100); count the label up in parallel. Add role='progressbar' + aria-valuenow/min/max, and set final state instantly under reduced motion.",
+  "path": "effects/svg-effects/svg-progress-ring.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Progress Ring</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-progress-ring\",\n    \"title\": \"SVG Progress Ring\",\n    \"summary\": \"A circular progress meter: a gradient ring sweeps to a target percentage while the number counts up to match.\",\n    \"description\": \"An SVG circle uses stroke-dasharray/offset to fill to a set percentage along a track, paired with a JS count-up of the value. The canonical dashboard/stat ring (storage used, score, completion).\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"data\", \"animation\"],\n    \"tags\": [\"svg\", \"progress\", \"ring\", \"circular\", \"count-up\", \"dashboard\"],\n    \"tech\": [\"svg\", \"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"One stroke-dashoffset transition + a short rAF count-up. Trivial.\",\n    \"accessibility_notes\": \"Expose value via role='progressbar' with aria-valuenow/min/max so it's not visual-only. Under reduced-motion, set the final value instantly (no sweep/count).\",\n    \"customization\": [\n      { \"name\": \"--p\", \"description\": \"Target percentage\", \"default\": \"72\" },\n      { \"name\": \"--c1/--c2\", \"description\": \"Ring gradient\", \"default\": \"violet/teal\" }\n    ],\n    \"variations\": [\"Multiple concentric rings (activity-style)\", \"Color shifts by threshold (green/amber/red)\", \"Square 'ring' with rounded rect\"],\n    \"related\": [\"svg-gradient-stroke\", \"svg-animated-checkmark\", \"loaders-spinners\"],\n    \"ai_usage\": \"Use for dashboards, scores, quotas, and completion meters. Draw a track circle and a value circle; set the value circle's stroke-dasharray to its circumference and animate stroke-dashoffset to circumference×(1−p/100); count the label up in parallel. Add role='progressbar' + aria-valuenow/min/max, and set final state instantly under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root{--p:72;--c1:#7c5cff;--c2:#2dd4bf;--size:200px;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif;color:#e8ecf6}\n    .ring{position:relative;width:var(--size);height:var(--size)}\n    .ring svg{transform:rotate(-90deg)}\n    .track{fill:none;stroke:#1c2333;stroke-width:14}\n    .val{fill:none;stroke:url(#rg);stroke-width:14;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.65,0,.35,1)}\n    .num{position:absolute;inset:0;display:grid;place-items:center;font-size:2.4rem;font-weight:800}\n    .num small{font-size:1rem;font-weight:600;color:#8b93a7;margin-left:2px}\n    @media(prefers-reduced-motion:reduce){.val{transition:none}}\n  </style>\n</head>\n<body>\n  <div class=\"ring\" id=\"ring\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\" aria-label=\"Storage used\">\n    <svg viewBox=\"0 0 120 120\" width=\"200\" height=\"200\">\n      <defs><linearGradient id=\"rg\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#7c5cff\"/><stop offset=\"1\" stop-color=\"#2dd4bf\"/></linearGradient></defs>\n      <circle class=\"track\" cx=\"60\" cy=\"60\" r=\"52\"/>\n      <circle class=\"val\" id=\"val\" cx=\"60\" cy=\"60\" r=\"52\"/>\n    </svg>\n    <div class=\"num\"><span id=\"pct\">0</span><small>%</small></div>\n  </div>\n  <script>\n    var cs=getComputedStyle(document.documentElement), P=Math.max(0,Math.min(100,+cs.getPropertyValue('--p')||72));\n    var r=52, C=2*Math.PI*r, val=document.getElementById('val'), pct=document.getElementById('pct'), ring=document.getElementById('ring');\n    val.style.strokeDasharray=C;\n    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;\n    function setAria(v){ring.setAttribute('aria-valuenow',Math.round(v));}\n    if(reduce){ val.style.strokeDashoffset=C*(1-P/100); pct.textContent=P; setAria(P); }\n    else{\n      val.style.strokeDashoffset=C; // start empty\n      requestAnimationFrame(function(){ requestAnimationFrame(function(){ val.style.strokeDashoffset=C*(1-P/100); }); });\n      var t0=null,dur=1200;\n      function count(ts){ if(!t0)t0=ts; var k=Math.min(1,(ts-t0)/dur); var v=Math.round(P*(k*(2-k))); pct.textContent=v; setAria(v); if(k<1)requestAnimationFrame(count); }\n      requestAnimationFrame(count);\n    }\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tilt + Spotlight Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "tilt-spotlight-card",
+    "title": "Tilt + Spotlight Card",
+    "summary": "A card that tilts in 3D toward the cursor while a soft spotlight follows the pointer across its surface.",
+    "description": "Two effects in one interaction: the card rotates on X/Y based on pointer position (parallax depth), and a radial 'spotlight' highlight tracks the cursor via CSS custom properties. The signature hover for premium feature/pricing cards.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "3d", "card"],
+    "tags": ["tilt", "3d", "spotlight", "parallax", "cursor", "card", "2026-trend"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (CSS 3D transforms, custom properties).",
+    "performance_notes": "One pointermove updates two CSS vars (rotation) + spotlight position. transform/opacity only — GPU-friendly.",
+    "accessibility_notes": "Decorative; content stays readable and focusable. Effect is pointer-only and disabled under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--max-tilt", "description": "Max rotation degrees", "default": "10deg" },
+      { "name": "spotlight color/size", "description": "Radial highlight", "default": "white 20% / 240px" }
+    ],
+    "variations": ["Spotlight only (no tilt)", "Add a glare streak", "Stronger tilt for hero product shots"],
+    "related": ["card-lift", "magnetic-button", "layered-depth-hover"],
+    "ai_usage": "Use for feature/pricing/product cards on premium landings. Set perspective on the parent; on pointermove map the cursor's position within the card to rotateX/rotateY (invert Y) and to a --mx/--my used by a radial-gradient spotlight overlay; reset on leave. Keep content above the spotlight layer, preserve focus order, and disable under reduced motion."
+  }
+  </script>
+  <style>
+    :root{--max-tilt:10;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif;perspective:900px}
+    .card{position:relative;width:300px;border-radius:20px;background:#12151f;border:1px solid #242a3b;color:#e8ecf6;
+      padding:1.8rem;transform-style:preserve-3d;transition:transform .3s ease;overflow:hidden;--mx:50%;--my:50%}
+    .card::before{content:"";position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx) var(--my),rgba(124,92,255,.28),transparent 60%);
+      opacity:0;transition:opacity .3s;pointer-events:none}
+    .card:hover::before{opacity:1}
+    .card .ic{font-size:1.8rem}.card h3{margin:.6rem 0 .3rem}.card p{color:#8b93a7;margin:0;font-size:.95rem}
+    @media(prefers-reduced-motion:reduce){.card{transition:none}.card::before{display:none}}
+  </style>
+</head>
+<body>
+  <article class="card" id="card">
+    <div class="ic">✦</div>
+    <h3>Realtime sync</h3>
+    <p>Move your cursor across the card — it tilts in 3D and a spotlight follows.</p>
+  </article>
+  <script>
+    var card=document.getElementById('card');
+    var max=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-tilt'))||10;
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce){
+      card.addEventListener('pointermove',function(e){
+        var r=card.getBoundingClientRect();
+        var px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+        card.style.transform='rotateY('+((px-.5)*2*max)+'deg) rotateX('+((.5-py)*2*max)+'deg)';
+        card.style.setProperty('--mx',(px*100)+'%');
+        card.style.setProperty('--my',(py*100)+'%');
+      });
+      card.addEventListener('pointerleave',function(){card.style.transform='';});
+    }
+  </script>
+</body>
+</html>

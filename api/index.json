@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "counts": {
     "themes": 22,
-    "effects": 123
+    "effects": 142
   },
   "effectEndpoint": "api/effects/{id}.json",
   "effects": [
@@ -217,6 +217,33 @@
       "path": "effects/backgrounds/dot-grid.html"
     },
     {
+      "id": "dot-grid-spotlight",
+      "title": "Dot Grid Spotlight",
+      "summary": "A subtle dot-grid background that lights up only within a soft circle following the cursor.",
+      "theme": "backgrounds",
+      "themeTitle": "Backgrounds",
+      "categories": [
+        "background",
+        "interactive",
+        "grid"
+      ],
+      "tags": [
+        "dot-grid",
+        "spotlight",
+        "cursor",
+        "mask",
+        "tech",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/backgrounds/dot-grid-spotlight.html"
+    },
+    {
       "id": "floating-particles",
       "title": "Floating Particles",
       "summary": "Drifting glowing dots rise gently across the background, generated with a little JS.",
@@ -242,6 +269,33 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/backgrounds/floating-particles.html"
+    },
+    {
+      "id": "grain-gradient",
+      "title": "Grainy Gradient Background",
+      "summary": "A slowly drifting multi-color gradient mesh with an SVG film-grain overlay for a tactile, premium finish.",
+      "theme": "backgrounds",
+      "themeTitle": "Backgrounds",
+      "categories": [
+        "background",
+        "gradient",
+        "texture"
+      ],
+      "tags": [
+        "gradient-mesh",
+        "grain",
+        "noise",
+        "aurora",
+        "texture",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "svg"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/backgrounds/grain-gradient.html"
     },
     {
       "id": "grid-lines",
@@ -417,6 +471,32 @@
       "era": "2020s",
       "difficulty": "beginner",
       "path": "effects/buttons/press-3d-button.html"
+    },
+    {
+      "id": "gradient-border-glow",
+      "title": "Animated Gradient Border",
+      "summary": "A button (or card) wrapped in a conic gradient border that rotates, with a soft matching glow.",
+      "theme": "buttons",
+      "themeTitle": "Buttons",
+      "categories": [
+        "button",
+        "border",
+        "animation"
+      ],
+      "tags": [
+        "gradient-border",
+        "conic",
+        "glow",
+        "animated",
+        "ai",
+        "2026-trend"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/buttons/gradient-border-glow.html"
     },
     {
       "id": "gradient-border-button",
@@ -925,6 +1005,34 @@
       "path": "effects/forms-inputs/floating-label-input.html"
     },
     {
+      "id": "otp-input",
+      "title": "OTP / Verification Code Input",
+      "summary": "A segmented one-time-code field: type to auto-advance, backspace to go back, paste to fill all boxes, with a success pulse.",
+      "theme": "forms-inputs",
+      "themeTitle": "Forms & Inputs",
+      "categories": [
+        "form",
+        "input",
+        "interaction"
+      ],
+      "tags": [
+        "otp",
+        "verification",
+        "2fa",
+        "code",
+        "auto-advance",
+        "paste",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/forms-inputs/otp-input.html"
+    },
+    {
       "id": "toggle-switch",
       "title": "Toggle Switch",
       "summary": "An iOS-style on/off switch built on a real checkbox for full accessibility.",
@@ -1237,6 +1345,34 @@
       "era": "2020s",
       "difficulty": "beginner",
       "path": "effects/hover-interactions/spotlight-card.html"
+    },
+    {
+      "id": "tilt-spotlight-card",
+      "title": "Tilt + Spotlight Card",
+      "summary": "A card that tilts in 3D toward the cursor while a soft spotlight follows the pointer across its surface.",
+      "theme": "hover-interactions",
+      "themeTitle": "Hover Interactions",
+      "categories": [
+        "hover",
+        "3d",
+        "card"
+      ],
+      "tags": [
+        "tilt",
+        "3d",
+        "spotlight",
+        "parallax",
+        "cursor",
+        "card",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/hover-interactions/tilt-spotlight-card.html"
     },
     {
       "id": "before-after-slider",
@@ -1998,6 +2134,33 @@
       "path": "effects/scroll-effects/scroll-snap-gallery.html"
     },
     {
+      "id": "scroll-velocity-skew",
+      "title": "Scroll Velocity Skew",
+      "summary": "Content skews and squashes in proportion to scroll speed, then springs back to rest — a fluid, physical scroll feel.",
+      "theme": "scroll-effects",
+      "themeTitle": "Scroll Effects",
+      "categories": [
+        "scroll",
+        "animation",
+        "javascript"
+      ],
+      "tags": [
+        "scroll-velocity",
+        "skew",
+        "momentum",
+        "physical",
+        "smooth-scroll",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/scroll-effects/scroll-velocity-skew.html"
+    },
+    {
       "id": "sticky-stack-cards",
       "title": "Sticky Stacking Cards",
       "summary": "Cards stick to the top and stack on one another as you scroll past them.",
@@ -2022,6 +2185,33 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/scroll-effects/sticky-stack-cards.html"
+    },
+    {
+      "id": "svg-dashed-connector",
+      "title": "SVG Animated Connector",
+      "summary": "A curved dashed line that draws itself between two nodes and then flows, like a live data/flow diagram link.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "diagram",
+        "animation"
+      ],
+      "tags": [
+        "svg",
+        "connector",
+        "flow",
+        "dashed",
+        "diagram",
+        "marching-ants"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-dashed-connector.html"
     },
     {
       "id": "svg-gradient-stroke",
@@ -2049,6 +2239,33 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/svg-effects/svg-gradient-stroke.html"
+    },
+    {
+      "id": "svg-wave-divider",
+      "title": "SVG Animated Wave Divider",
+      "summary": "Layered SVG waves that drift at different speeds to separate two sections with gentle, looping motion.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "divider",
+        "animation"
+      ],
+      "tags": [
+        "svg",
+        "wave",
+        "divider",
+        "section",
+        "parallax",
+        "loop"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/svg-effects/svg-wave-divider.html"
     },
     {
       "id": "svg-gooey-filter",
@@ -2132,6 +2349,34 @@
       "path": "effects/svg-effects/svg-line-draw.html"
     },
     {
+      "id": "svg-blob-spinner",
+      "title": "SVG Morphing Blob Loader",
+      "summary": "A gradient blob that endlessly morphs between organic shapes while slowly rotating — a friendlier alternative to a spinner.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "loader",
+        "animation"
+      ],
+      "tags": [
+        "svg",
+        "blob",
+        "morph",
+        "loader",
+        "spinner",
+        "organic",
+        "2026-trend"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-blob-spinner.html"
+    },
+    {
       "id": "svg-path-morph",
       "title": "SVG Path Morph",
       "summary": "One shape smoothly morphs into another by animating the path's d attribute (SMIL).",
@@ -2156,6 +2401,62 @@
       "era": "2010s",
       "difficulty": "advanced",
       "path": "effects/svg-effects/svg-path-morph.html"
+    },
+    {
+      "id": "svg-progress-ring",
+      "title": "SVG Progress Ring",
+      "summary": "A circular progress meter: a gradient ring sweeps to a target percentage while the number counts up to match.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "data",
+        "animation"
+      ],
+      "tags": [
+        "svg",
+        "progress",
+        "ring",
+        "circular",
+        "count-up",
+        "dashboard"
+      ],
+      "tech": [
+        "svg",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-progress-ring.html"
+    },
+    {
+      "id": "svg-squiggle-underline",
+      "title": "SVG Squiggle Underline",
+      "summary": "A hand-drawn wavy underline that draws itself on hover/focus — a playful, human alternative to a flat underline.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "link",
+        "hover"
+      ],
+      "tags": [
+        "svg",
+        "underline",
+        "squiggle",
+        "hand-drawn",
+        "link",
+        "stroke",
+        "2026-trend"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/svg-effects/svg-squiggle-underline.html"
     },
     {
       "id": "svg-animated-checkmark",
@@ -2386,6 +2687,33 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/text-effects/text-reveal-mask.html"
+    },
+    {
+      "id": "text-scramble",
+      "title": "Text Scramble / Decode",
+      "summary": "Text resolves from random glyph noise into the real words, like a terminal decoding — on load and on hover.",
+      "theme": "text-effects",
+      "themeTitle": "Text Effects",
+      "categories": [
+        "text",
+        "animation",
+        "javascript"
+      ],
+      "tags": [
+        "scramble",
+        "decode",
+        "glitch",
+        "terminal",
+        "reveal",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/text-effects/text-scramble.html"
     },
     {
       "id": "typewriter-text",
@@ -2623,6 +2951,33 @@
       "path": "effects/typography-systems/font-pairings.html"
     },
     {
+      "id": "variable-font-weight",
+      "title": "Interactive Variable Weight",
+      "summary": "Headline letters thicken toward the cursor — each glyph's weight responds to how close the pointer is, like a spotlight of boldness.",
+      "theme": "typography-systems",
+      "themeTitle": "Typography Systems",
+      "categories": [
+        "typography",
+        "interactive",
+        "variable-font"
+      ],
+      "tags": [
+        "variable-font",
+        "wght",
+        "interactive",
+        "kinetic",
+        "cursor",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/typography-systems/variable-font-weight.html"
+    },
+    {
       "id": "type-scale",
       "title": "Modular Type Scale",
       "summary": "A harmonious heading/body size scale generated from one ratio, as copy-ready tokens.",
@@ -2730,6 +3085,34 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/website-templates/admin-dashboard.html"
+    },
+    {
+      "id": "anti-design",
+      "title": "Anti-Design / Maximalist",
+      "summary": "Intentional chaos: clashing system fonts, raw borders, overlapping rotated blocks, blinding color, and a marquee — anti-design as a statement.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "experimental",
+        "brand"
+      ],
+      "tags": [
+        "anti-design",
+        "maximalist",
+        "brutalist",
+        "raw",
+        "zine",
+        "experimental",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/anti-design.html"
     },
     {
       "id": "aurora-saas",
@@ -3020,6 +3403,35 @@
       "path": "effects/website-templates/kinetic-portfolio.html"
     },
     {
+      "id": "link-in-bio",
+      "title": "Link-in-Bio — Creator",
+      "summary": "A mobile-first creator hub: avatar, bio, a stack of tappable link buttons, social row, and a featured card — over an animated gradient.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator",
+        "landing"
+      ],
+      "tags": [
+        "link-in-bio",
+        "linktree",
+        "creator",
+        "mobile-first",
+        "bio",
+        "2026-trend",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/link-in-bio.html"
+    },
+    {
       "id": "portfolio-minimal",
       "title": "Minimal Portfolio",
       "summary": "A clean personal/creative portfolio: intro header, selected-work grid, about, and contact.",
@@ -3162,6 +3574,34 @@
       "path": "effects/website-templates/swiss-editorial.html"
     },
     {
+      "id": "restaurant-menu",
+      "title": "Restaurant — Interactive Menu",
+      "summary": "A warm restaurant page with a real, tabbed menu (starters / mains / desserts / drinks), hours, and a reservation form.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local",
+        "hospitality"
+      ],
+      "tags": [
+        "restaurant",
+        "menu",
+        "tabs",
+        "reservation",
+        "food",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/restaurant-menu.html"
+    },
+    {
       "id": "synthwave-arcade",
       "title": "Retro-Futurism — Synthwave Game",
       "summary": "An 80s synthwave landing for a game/album: an animated neon perspective grid, chrome-gradient title, sun, and scanlines.",
@@ -3217,6 +3657,92 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/website-templates/saas-landing.html"
+    },
+    {
+      "id": "skeuomorphic-revival",
+      "title": "Skeuomorphic Revival — Music Player",
+      "summary": "Tactile, realistic UI: a brushed-metal music player with a glossy LCD, embossed buttons, and a chunky knob — skeuomorphism, reborn.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "landing",
+        "product"
+      ],
+      "tags": [
+        "skeuomorphism",
+        "tactile",
+        "realistic",
+        "material",
+        "device",
+        "music",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "advanced",
+      "path": "effects/website-templates/skeuomorphic-revival.html"
+    },
+    {
+      "id": "spatial-depth",
+      "title": "Spatial Depth — Parallax Landing",
+      "summary": "A depth-driven landing: layered elements parallax with the cursor and scroll, creating a sense of 3D space behind the headline.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "landing",
+        "creative"
+      ],
+      "tags": [
+        "spatial",
+        "3d",
+        "parallax",
+        "depth",
+        "interactive",
+        "2026-trend",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/spatial-depth.html"
+    },
+    {
+      "id": "event-conference",
+      "title": "Tech Conference — Event",
+      "summary": "A high-energy conference page: bold date hero, speaker grid, a day-by-day schedule, ticket tiers, and sponsors.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events",
+        "landing"
+      ],
+      "tags": [
+        "conference",
+        "event",
+        "schedule",
+        "speakers",
+        "tickets",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/event-conference.html"
     },
     {
       "id": "terminal-devtool",

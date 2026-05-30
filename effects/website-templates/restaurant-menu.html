@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Restaurant — Interactive Menu</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "restaurant-menu",
+  "title": "Restaurant — Interactive Menu",
+  "summary": "A warm restaurant page with a real, tabbed menu (starters / mains / desserts / drinks), hours, and a reservation form.",
+  "description": "Unlike a generic landing, this centers the thing diners want: the menu. A warm editorial hero leads into a tabbed menu with dish names, descriptions, dietary dots, and prices, followed by hours/location and a reservation form. Cozy, appetizing, and practical.",
+  "theme": "website-templates",
+  "categories": ["template", "local", "hospitality"],
+  "tags": ["restaurant", "menu", "tabs", "reservation", "food", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "A tiny tab toggle + reveals. No images (gradient food tiles). Light.",
+  "accessibility_notes": "Menu tabs are real buttons with aria-selected and keyboard focus; menu is a semantic list; dietary markers have text labels; reservation uses a labeled form. Reduced-motion safe.",
+  "customization": [
+    { "name": "--paper/--ink/--accent", "description": "Warm palette", "default": "cream / espresso / terracotta" },
+    { "name": "menu data", "description": "Categories + dishes (name/desc/price)", "default": "edit markup" }
+  ],
+  "variations": ["Add prices in two currencies", "Wine pairing column", "Photo thumbnails per dish"],
+  "related": ["luxe-serif", "organic-wellness", "saas-landing"],
+  "ai_usage": "Use for restaurants, cafés, and bars where the menu is the point. Build category tabs as real buttons toggling panels (aria-selected); render each menu category as a semantic list of dish rows (name, description, dietary markers with text labels, price). Include hours/location and a labeled reservation form. Recolor via the warm tokens; replace dishes. Reduced-motion safe."
+}
+</script>
+<style>
+  :root{--paper:#fbf6ee;--paper2:#f3e9da;--ink:#2a1c12;--muted:#806856;--accent:#c0552f;--gold:#b08338;--line:#e6d8c5;
+    --serif:"Fraunces","Georgia",serif;--sans:"Inter",system-ui,sans-serif;--r:14px;}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 1.5rem}
+  nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{font-family:var(--serif);font-size:1.5rem;font-weight:600}
+  .links{display:flex;gap:1.5rem;align-items:center;color:var(--muted);font-size:.92rem}.links a:hover{color:var(--ink)}
+  .btn{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:.65rem 1.4rem;font-weight:700;cursor:pointer;transition:transform .15s,filter .15s}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--accent)}
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .hero{text-align:center;padding:3rem 0 4rem}
+  .ey{color:var(--accent);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.76rem}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,7vw,5rem);line-height:1.02;margin:1rem 0 .6rem}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{color:var(--muted);font-size:1.15rem;max-width:46ch;margin:0 auto 1.6rem}
+  .strip{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:1.4rem}
+  .strip .ph{width:120px;height:84px;border-radius:var(--r)}
+  .p1{background:linear-gradient(135deg,#e9a23b,#c0552f)}.p2{background:linear-gradient(135deg,#7a8b4f,#46603a)}.p3{background:linear-gradient(135deg,#c45d6e,#8a3b52)}.p4{background:linear-gradient(135deg,#caa05a,#8a6a2f)}
+  section{padding:3.5rem 0}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4vw,3rem);text-align:center;margin:0 0 1.6rem}
+  .tabs{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+  .tab{background:var(--paper2);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:.5rem 1.2rem;font-weight:700;cursor:pointer;font-family:var(--serif)}
+  .tab[aria-selected="true"]{background:var(--accent);color:#fff;border-color:transparent}
+  .tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .cat{display:none;max-width:760px;margin:0 auto}.cat.on{display:block}
+  .dish{display:grid;grid-template-columns:1fr auto;gap:.4rem 1rem;padding:1.1rem 0;border-bottom:1px dashed var(--line)}
+  .dish h3{font-family:var(--serif);font-weight:600;margin:0;font-size:1.25rem;display:flex;align-items:center;gap:.5rem}
+  .dot{font-size:.7rem;padding:.1rem .45rem;border-radius:999px;border:1px solid var(--line);color:var(--muted);font-family:var(--sans)}
+  .v{color:#5f7a3a;border-color:#cfe0b5}.gf{color:#9a6a2f;border-color:#ecd9b5}
+  .price{font-family:var(--serif);font-weight:600;color:var(--accent);font-size:1.2rem}
+  .desc{grid-column:1;color:var(--muted);font-size:.95rem;margin:0}
+  .info{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;background:var(--paper2);border-radius:24px;padding:2.5rem;align-items:center}
+  .info h2{text-align:left;margin:0 0 .6rem}
+  .hours{list-style:none;padding:0;margin:0}.hours li{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:.5rem 0;color:var(--muted)}
+  form{display:grid;gap:.7rem}
+  form input,form select{padding:.75rem;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-family:inherit}
+  footer{border-top:1px solid var(--line);color:var(--muted);text-align:center;padding:2.4rem 0;font-size:.9rem}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s ease}.reveal.in{opacity:1;transform:none}
+  @media(max-width:760px){.info{grid-template-columns:1fr}.links a:not(.btn){display:none}}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="brand">Saffron &amp; Salt</div>
+      <div class="links"><a href="#menu">Menu</a><a href="#visit">Visit</a><a href="#book">Book</a><a class="btn" href="#book">Reserve</a></div>
+    </nav>
+
+    <header class="hero">
+      <p class="ey">Modern Mediterranean · est. 2019</p>
+      <h1>Cooked with <em>fire</em>,<br>served with love.</h1>
+      <p>A neighborhood kitchen built around the wood oven, the season, and the long table.</p>
+      <a class="btn" href="#book">Reserve a table</a>
+      <div class="strip" aria-hidden="true"><span class="ph p1"></span><span class="ph p2"></span><span class="ph p3"></span><span class="ph p4"></span></div>
+    </header>
+  </div>
+
+  <section id="menu"><div class="wrap">
+    <h2 class="reveal">The Menu</h2>
+    <div class="tabs" role="tablist" aria-label="Menu categories">
+      <button class="tab" role="tab" aria-selected="true" data-cat="starters">Starters</button>
+      <button class="tab" role="tab" aria-selected="false" data-cat="mains">Mains</button>
+      <button class="tab" role="tab" aria-selected="false" data-cat="desserts">Desserts</button>
+      <button class="tab" role="tab" aria-selected="false" data-cat="drinks">Drinks</button>
+    </div>
+
+    <div class="cat on" data-cat="starters">
+      <div class="dish"><h3>Charred flatbread <span class="dot v">veg</span></h3><span class="price">$9</span><p class="desc">Wood oven, za'atar, whipped feta, wild honey.</p></div>
+      <div class="dish"><h3>Burrata &amp; peaches</h3><span class="price">$14</span><p class="desc">Grilled stone fruit, basil oil, aged balsamic.</p></div>
+      <div class="dish"><h3>Smoked eggplant <span class="dot v">veg</span> <span class="dot gf">gf</span></h3><span class="price">$11</span><p class="desc">Tahini, pomegranate, toasted pine nuts.</p></div>
+    </div>
+    <div class="cat" data-cat="mains">
+      <div class="dish"><h3>Lamb shoulder</h3><span class="price">$28</span><p class="desc">Slow-cooked 12 hours, charred onion, jus.</p></div>
+      <div class="dish"><h3>Line-caught sea bass <span class="dot gf">gf</span></h3><span class="price">$26</span><p class="desc">Salsa verde, fennel, new potatoes.</p></div>
+      <div class="dish"><h3>Roast cauliflower steak <span class="dot v">veg</span></h3><span class="price">$19</span><p class="desc">Romesco, capers, golden raisins.</p></div>
+    </div>
+    <div class="cat" data-cat="desserts">
+      <div class="dish"><h3>Olive oil cake</h3><span class="price">$10</span><p class="desc">Citrus, crème fraîche, candied zest.</p></div>
+      <div class="dish"><h3>Dark chocolate tart <span class="dot gf">gf</span></h3><span class="price">$11</span><p class="desc">Sea salt, smoked almond praline.</p></div>
+    </div>
+    <div class="cat" data-cat="drinks">
+      <div class="dish"><h3>Natural wine (glass)</h3><span class="price">$12</span><p class="desc">Ask for today's short, lovely list.</p></div>
+      <div class="dish"><h3>Saffron spritz</h3><span class="price">$13</span><p class="desc">House aperitivo, citrus, soda.</p></div>
+      <div class="dish"><h3>Mint &amp; lime soda <span class="dot v">veg</span></h3><span class="price">$6</span><p class="desc">Cold-pressed, lightly sweet.</p></div>
+    </div>
+  </div></section>
+
+  <section id="visit"><div class="wrap"><div class="info reveal">
+    <div>
+      <h2>Visit us</h2>
+      <p style="color:var(--muted)">128 Harbour Lane, Old Town. Walk-ins welcome at the bar; tables by reservation.</p>
+      <ul class="hours">
+        <li><span>Tue–Thu</span><span>5pm – 10pm</span></li>
+        <li><span>Fri–Sat</span><span>5pm – 11pm</span></li>
+        <li><span>Sunday</span><span>12pm – 9pm (brunch)</span></li>
+        <li><span>Monday</span><span>Closed</span></li>
+      </ul>
+    </div>
+    <form id="book" onsubmit="event.preventDefault();this.querySelector('button').textContent='Requested ✓'">
+      <h2 style="font-size:1.6rem">Book a table</h2>
+      <input placeholder="Name" aria-label="Name" required>
+      <input type="date" aria-label="Date" required>
+      <select aria-label="Party size"><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select>
+      <button class="btn" type="submit">Request reservation</button>
+    </form>
+  </div></div></section>
+
+  <footer>© <span id="yr"></span> Saffron &amp; Salt · 128 Harbour Lane · (555) 010-7788</footer>
+  </div>
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    var tabs=[].slice.call(document.querySelectorAll('.tab'));
+    tabs.forEach(function(t){t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.setAttribute('aria-selected','false')}); t.setAttribute('aria-selected','true');
+      document.querySelectorAll('.cat').forEach(function(c){c.classList.toggle('on',c.dataset.cat===t.dataset.cat)});
+    });});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  </script>
+</body>
+</html>

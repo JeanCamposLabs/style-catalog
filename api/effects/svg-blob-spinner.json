@@ -1,0 +1,57 @@
+{
+  "id": "svg-blob-spinner",
+  "title": "SVG Morphing Blob Loader",
+  "summary": "A gradient blob that endlessly morphs between organic shapes while slowly rotating — a friendlier alternative to a spinner.",
+  "description": "An SVG path whose 'd' attribute animates through several blob shapes (SMIL), filled with an animated gradient and gently rotating. A warmer, on-brand loading indicator for playful or premium products.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "loader",
+    "animation"
+  ],
+  "tags": [
+    "svg",
+    "blob",
+    "morph",
+    "loader",
+    "spinner",
+    "organic",
+    "2026-trend"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "SMIL path morphing works in all current browsers; rotation/gradient via CSS.",
+  "performance_notes": "One SMIL d-morph + a CSS rotation. Keep the loop under ~3s so it feels intentional.",
+  "accessibility_notes": "Add role='status' and a visually-hidden 'Loading…' label so the state is announced. Under prefers-reduced-motion, stop the morph (show one shape).",
+  "customization": [
+    {
+      "name": "--c1/--c2",
+      "description": "Gradient fill",
+      "default": "violet/teal"
+    },
+    {
+      "name": "morph values",
+      "description": "Blob 'd' keyframes",
+      "default": "4 shapes"
+    }
+  ],
+  "variations": [
+    "Solid color instead of gradient",
+    "Pulse scale instead of rotate",
+    "Use as an idle mascot, not just loading"
+  ],
+  "related": [
+    "svg-path-morph",
+    "svg-gradient-stroke",
+    "morphing-blob-loader"
+  ],
+  "ai_usage": "Use as a branded loading indicator. Animate an SVG path's d through a few blob shapes that share point count (SMIL <animate attributeName='d'> with values, calcMode='spline'), fill with a gradient, and add a slow CSS rotation. Wrap with role='status' + a visually-hidden 'Loading…' label, keep the loop short, and freeze to one shape under reduced motion.",
+  "path": "effects/svg-effects/svg-blob-spinner.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Morphing Blob Loader</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-blob-spinner\",\n    \"title\": \"SVG Morphing Blob Loader\",\n    \"summary\": \"A gradient blob that endlessly morphs between organic shapes while slowly rotating — a friendlier alternative to a spinner.\",\n    \"description\": \"An SVG path whose 'd' attribute animates through several blob shapes (SMIL), filled with an animated gradient and gently rotating. A warmer, on-brand loading indicator for playful or premium products.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"loader\", \"animation\"],\n    \"tags\": [\"svg\", \"blob\", \"morph\", \"loader\", \"spinner\", \"organic\", \"2026-trend\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"SMIL path morphing works in all current browsers; rotation/gradient via CSS.\",\n    \"performance_notes\": \"One SMIL d-morph + a CSS rotation. Keep the loop under ~3s so it feels intentional.\",\n    \"accessibility_notes\": \"Add role='status' and a visually-hidden 'Loading…' label so the state is announced. Under prefers-reduced-motion, stop the morph (show one shape).\",\n    \"customization\": [\n      { \"name\": \"--c1/--c2\", \"description\": \"Gradient fill\", \"default\": \"violet/teal\" },\n      { \"name\": \"morph values\", \"description\": \"Blob 'd' keyframes\", \"default\": \"4 shapes\" }\n    ],\n    \"variations\": [\"Solid color instead of gradient\", \"Pulse scale instead of rotate\", \"Use as an idle mascot, not just loading\"],\n    \"related\": [\"svg-path-morph\", \"svg-gradient-stroke\", \"morphing-blob-loader\"],\n    \"ai_usage\": \"Use as a branded loading indicator. Animate an SVG path's d through a few blob shapes that share point count (SMIL <animate attributeName='d'> with values, calcMode='spline'), fill with a gradient, and add a slow CSS rotation. Wrap with role='status' + a visually-hidden 'Loading…' label, keep the loop short, and freeze to one shape under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root{--c1:#7c5cff;--c2:#2dd4bf;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif}\n    .blob{width:160px;height:160px;animation:spin 8s linear infinite}\n    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}\n    @keyframes spin{to{transform:rotate(360deg)}}\n    @media(prefers-reduced-motion:reduce){.blob{animation:none}.blob animate{display:none}}\n  </style>\n</head>\n<body>\n  <div role=\"status\">\n    <svg class=\"blob\" viewBox=\"0 0 200 200\" aria-hidden=\"true\">\n      <defs><linearGradient id=\"g\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n        <stop offset=\"0\" stop-color=\"#7c5cff\"/><stop offset=\"1\" stop-color=\"#2dd4bf\"/>\n      </linearGradient></defs>\n      <path fill=\"url(#g)\" d=\"M48,-58C62,-46,72,-31,74,-15C76,1,70,18,60,32C50,46,36,57,19,63C3,69,-15,69,-31,61C-47,53,-61,37,-67,18C-73,-1,-71,-23,-60,-37C-49,-51,-30,-58,-12,-64C7,-70,28,-70,48,-58Z\" transform=\"translate(100 100)\">\n        <animate attributeName=\"d\" dur=\"2.6s\" repeatCount=\"indefinite\" calcMode=\"spline\"\n          keyTimes=\"0;0.33;0.66;1\" keySplines=\"0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1\"\n          values=\"M48,-58C62,-46,72,-31,74,-15C76,1,70,18,60,32C50,46,36,57,19,63C3,69,-15,69,-31,61C-47,53,-61,37,-67,18C-73,-1,-71,-23,-60,-37C-49,-51,-30,-58,-12,-64C7,-70,28,-70,48,-58Z;\n                  M52,-62C66,-50,73,-30,73,-11C73,8,66,25,55,40C44,55,29,67,11,71C-7,75,-27,71,-43,61C-59,51,-71,35,-74,17C-77,-1,-71,-21,-60,-36C-49,-51,-33,-61,-15,-66C3,-71,26,-74,52,-62Z;\n                  M44,-54C58,-43,71,-31,75,-15C79,1,74,19,64,33C54,47,39,57,22,63C5,69,-13,71,-30,64C-47,57,-63,41,-69,22C-75,3,-71,-19,-60,-35C-49,-51,-31,-61,-12,-66C8,-71,29,-66,44,-54Z;\n                  M48,-58C62,-46,72,-31,74,-15C76,1,70,18,60,32C50,46,36,57,19,63C3,69,-15,69,-31,61C-47,53,-61,37,-67,18C-73,-1,-71,-23,-60,-37C-49,-51,-30,-58,-12,-64C7,-70,28,-70,48,-58Z\"/>\n      </path>\n    </svg>\n    <span class=\"sr\">Loading…</span>\n  </div>\n</body>\n</html>\n"
+}

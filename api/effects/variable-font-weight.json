@@ -1,0 +1,56 @@
+{
+  "id": "variable-font-weight",
+  "title": "Interactive Variable Weight",
+  "summary": "Headline letters thicken toward the cursor — each glyph's weight responds to how close the pointer is, like a spotlight of boldness.",
+  "description": "Variable-font interactivity is a 2026 typography trend. Each letter is a span; on pointermove, its font-weight (font-variation-settings 'wght') is set by its distance to the cursor, so a wave of weight follows the pointer across the word. Smoothly interpolates with a true variable font.",
+  "theme": "typography-systems",
+  "themeTitle": "Typography Systems",
+  "categories": [
+    "typography",
+    "interactive",
+    "variable-font"
+  ],
+  "tags": [
+    "variable-font",
+    "wght",
+    "interactive",
+    "kinetic",
+    "cursor",
+    "2026-trend"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "Variable fonts everywhere; smoothest with a loaded variable font. With static system fonts it snaps between available weights (still effective).",
+  "performance_notes": "One pointermove writing font-variation-settings on each letter span. Fine for headline-length text; avoid on whole paragraphs.",
+  "accessibility_notes": "The full word stays as text (and as the heading's accessible name); weight is decorative. Pointer-only; disabled under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--min/--max wght",
+      "description": "Weight range",
+      "default": "200–900"
+    },
+    {
+      "name": "radius",
+      "description": "Influence distance (px)",
+      "default": "160"
+    }
+  ],
+  "variations": [
+    "Drive width ('wdth') axis instead",
+    "Animate weight as a looping wave on load",
+    "Per-word instead of per-letter for long text"
+  ],
+  "related": [
+    "fluid-typography",
+    "kinetic-portfolio",
+    "text-scramble"
+  ],
+  "ai_usage": "Use on hero words and big numerals where you have a variable font loaded. Split text into per-letter spans; on pointermove, set each letter's font-variation-settings: 'wght' N where N maps inversely to its distance from the cursor (clamped to your min/max). Keep the full word as real text for a11y, load an actual variable font for smooth interpolation, and disable under reduced motion.",
+  "path": "effects/typography-systems/variable-font-weight.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Interactive Variable Weight</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"variable-font-weight\",\n    \"title\": \"Interactive Variable Weight\",\n    \"summary\": \"Headline letters thicken toward the cursor — each glyph's weight responds to how close the pointer is, like a spotlight of boldness.\",\n    \"description\": \"Variable-font interactivity is a 2026 typography trend. Each letter is a span; on pointermove, its font-weight (font-variation-settings 'wght') is set by its distance to the cursor, so a wave of weight follows the pointer across the word. Smoothly interpolates with a true variable font.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"interactive\", \"variable-font\"],\n    \"tags\": [\"variable-font\", \"wght\", \"interactive\", \"kinetic\", \"cursor\", \"2026-trend\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"Variable fonts everywhere; smoothest with a loaded variable font. With static system fonts it snaps between available weights (still effective).\",\n    \"performance_notes\": \"One pointermove writing font-variation-settings on each letter span. Fine for headline-length text; avoid on whole paragraphs.\",\n    \"accessibility_notes\": \"The full word stays as text (and as the heading's accessible name); weight is decorative. Pointer-only; disabled under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--min/--max wght\", \"description\": \"Weight range\", \"default\": \"200–900\" },\n      { \"name\": \"radius\", \"description\": \"Influence distance (px)\", \"default\": \"160\" }\n    ],\n    \"variations\": [\"Drive width ('wdth') axis instead\", \"Animate weight as a looping wave on load\", \"Per-word instead of per-letter for long text\"],\n    \"related\": [\"fluid-typography\", \"kinetic-portfolio\", \"text-scramble\"],\n    \"ai_usage\": \"Use on hero words and big numerals where you have a variable font loaded. Split text into per-letter spans; on pointermove, set each letter's font-variation-settings: 'wght' N where N maps inversely to its distance from the cursor (clamped to your min/max). Keep the full word as real text for a11y, load an actual variable font for smooth interpolation, and disable under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root{--min:200;--max:900;--radius:160;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;font-family:\"Inter var\",\"Inter\",system-ui,sans-serif}\n    .vf{font-size:clamp(3rem,13vw,9rem);letter-spacing:-.02em;color:#e8ecf6;margin:0;cursor:default;user-select:none}\n    .vf span{display:inline-block;font-variation-settings:'wght' 400;font-weight:400;transition:font-variation-settings .12s linear,font-weight .12s linear}\n    .hint{position:fixed;bottom:1.2rem;color:#4a5266;font-size:.85rem}\n  </style>\n</head>\n<body>\n  <h1 class=\"vf\" id=\"vf\" aria-label=\"VARIABLE\"></h1>\n  <p class=\"hint\">move your cursor across the word</p>\n  <script>\n    var word='VARIABLE', host=document.getElementById('vf');\n    var cs=getComputedStyle(document.documentElement);\n    var MIN=+cs.getPropertyValue('--min')||200, MAX=+cs.getPropertyValue('--max')||900, R=+cs.getPropertyValue('--radius')||160;\n    var spans=[];\n    for(var i=0;i<word.length;i++){var s=document.createElement('span');s.textContent=word[i];host.appendChild(s);spans.push(s);}\n    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;\n    if(!reduce){\n      addEventListener('pointermove',function(e){\n        spans.forEach(function(s){\n          var r=s.getBoundingClientRect();\n          var cx=r.left+r.width/2, cy=r.top+r.height/2;\n          var d=Math.hypot(e.clientX-cx,e.clientY-cy);\n          var t=Math.max(0,1-d/R); // 1 near, 0 far\n          var w=Math.round(MIN+(MAX-MIN)*t);\n          s.style.fontVariationSettings=\"'wght' \"+w; s.style.fontWeight=w;\n        });\n      });\n    } else { spans.forEach(function(s){s.style.fontWeight=600;}); }\n  </script>\n</body>\n</html>\n"
+}

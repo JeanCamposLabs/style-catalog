@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tech Conference — Event</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "event-conference",
+  "title": "Tech Conference — Event",
+  "summary": "A high-energy conference page: bold date hero, speaker grid, a day-by-day schedule, ticket tiers, and sponsors.",
+  "description": "A complete event landing with the sections conferences actually need — a date/location hero with a marquee of topics, a speakers grid with hover reveal, a tabbed/day schedule list, three ticket tiers (one featured), and a sponsor wall. Confident, modern, and conversion-focused.",
+  "theme": "website-templates",
+  "categories": ["template", "events", "landing"],
+  "tags": ["conference", "event", "schedule", "speakers", "tickets", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "A CSS marquee + IntersectionObserver reveals + a tiny tab toggle for schedule days. No images or libraries.",
+  "accessibility_notes": "Tabs use real buttons with aria-selected and keyboard focus; schedule is a semantic list; speakers are figures; focus-visible throughout. Marquee/reveals respect reduced-motion.",
+  "customization": [
+    { "name": "--a/--b", "description": "Brand gradient", "default": "violet / lime" },
+    { "name": "schedule data", "description": "Day tabs + sessions", "default": "edit markup" }
+  ],
+  "variations": ["Add a countdown to the hero", "Workshop track as a second schedule", "Map/venue embed in the info section"],
+  "related": ["synthwave-arcade", "saas-landing", "scroll-progress-bar"],
+  "ai_usage": "Use for conferences, summits, meetups, and launch events. Sections: date/location hero (+ topic marquee), speaker grid, a day-tabbed schedule list, ticket tiers with one featured, sponsor wall, CTA. Wire the day tabs as real buttons toggling panels with aria-selected; keep the schedule a semantic list. Recolor via --a/--b; replace speakers, sessions, and prices. Respect reduced-motion."
+}
+</script>
+<style>
+  :root{--bg:#0c0a18;--surface:#15122a;--line:#2a2547;--text:#efeafc;--muted:#a79fce;--a:#9b5cff;--b:#c6ff3d;--r:16px;}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:"Inter",system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 1.4rem}
+  nav{display:flex;align-items:center;justify-content:space-between;height:66px;position:sticky;top:0;z-index:20;background:rgba(12,10,24,.7);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:1100px;margin:0 auto;padding:0 1.4rem;display:flex;align-items:center;justify-content:space-between;width:100%}
+  .brand{font-weight:900;letter-spacing:-.02em}.brand b{background:linear-gradient(100deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .links{display:flex;gap:1.4rem;align-items:center;color:var(--muted);font-size:.92rem}.links a:hover{color:var(--text)}
+  .btn{background:linear-gradient(100deg,var(--a),var(--b));color:#16121f;border:none;border-radius:999px;padding:.6rem 1.2rem;font-weight:800;cursor:pointer}
+  .btn:focus-visible{outline:2px solid var(--b);outline-offset:3px}
+  .hero{text-align:center;padding:5rem 0 2rem}
+  .date{display:inline-block;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:.4rem 1rem;font-size:.85rem;color:var(--muted);letter-spacing:.06em}
+  h1{font-size:clamp(2.6rem,8vw,5.4rem);font-weight:900;letter-spacing:-.03em;line-height:.98;margin:1rem 0 .6rem}
+  h1 .g{background:linear-gradient(100deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);font-size:1.15rem;max-width:46ch;margin:0 auto 1.6rem}
+  .marquee{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);margin:2.5rem 0;padding:.7rem 0}
+  .marquee .t{display:inline-block;animation:scroll 24s linear infinite;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .marquee .t span{margin:0 1.4rem}.marquee .t b{color:var(--b)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  section{padding:4rem 0}
+  .eyebrow{color:var(--b);font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;text-align:center}
+  h2{text-align:center;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-.02em;margin:.4rem 0 2rem}
+  .speakers{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+  .sp{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4}
+  .sp .face{position:absolute;inset:0}
+  .f1{background:linear-gradient(135deg,#9b5cff,#22d3ee)}.f2{background:linear-gradient(135deg,#ff6ec7,#fbbf24)}.f3{background:linear-gradient(135deg,#34d399,#0ea5e9)}.f4{background:linear-gradient(135deg,#f472b6,#9b5cff)}.f5{background:linear-gradient(135deg,#c6ff3d,#34d399)}.f6{background:linear-gradient(135deg,#60a5fa,#a78bfa)}.f7{background:linear-gradient(135deg,#fb7185,#f97316)}.f8{background:linear-gradient(135deg,#2dd4bf,#9b5cff)}
+  .sp .info{position:absolute;left:0;right:0;bottom:0;padding:.8rem;background:linear-gradient(transparent,rgba(0,0,0,.7));transform:translateY(30%);opacity:.0;transition:transform .3s,opacity .3s}
+  .sp:hover .info{transform:none;opacity:1}
+  .sp .info strong{display:block}.sp .info span{color:#d8d2f0;font-size:.8rem}
+  .sched{max-width:780px;margin:0 auto}
+  .tabs{display:flex;gap:.5rem;justify-content:center;margin-bottom:1.4rem;flex-wrap:wrap}
+  .tab{background:var(--surface);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:.5rem 1.1rem;font-weight:700;cursor:pointer}
+  .tab[aria-selected="true"]{background:linear-gradient(100deg,var(--a),var(--b));color:#16121f;border-color:transparent}
+  .tab:focus-visible{outline:2px solid var(--b);outline-offset:2px}
+  .day{display:none}.day.on{display:block}
+  .ses{display:grid;grid-template-columns:90px 1fr auto;gap:1rem;align-items:center;padding:1rem 0;border-bottom:1px solid var(--line)}
+  .ses .time{color:var(--b);font-weight:700;font-size:.9rem}.ses h4{margin:0;font-size:1.05rem}.ses .who{color:var(--muted);font-size:.85rem}
+  .tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;align-items:start}
+  .tk{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.6rem}
+  .tk.feat{border-color:transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,linear-gradient(120deg,var(--a),var(--b)) border-box;border:2px solid transparent}
+  .tk .price{font-size:2.2rem;font-weight:900;margin:.3rem 0}.tk ul{list-style:none;padding:0;margin:1rem 0;color:var(--muted)}.tk li{padding:.25rem 0}.tk li::before{content:"✓ ";color:var(--b)}
+  .sponsors{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;opacity:.6;font-weight:800;color:var(--muted)}
+  footer{border-top:1px solid var(--line);color:var(--muted);text-align:center;padding:2.4rem 0;font-size:.9rem}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s ease}.reveal.in{opacity:1;transform:none}
+  @media(max-width:820px){.speakers{grid-template-columns:repeat(2,1fr)}.tickets{grid-template-columns:1fr}.links a:not(.btn){display:none}}
+  @media(prefers-reduced-motion:reduce){.marquee .t{animation:none}.reveal{opacity:1;transform:none;transition:none}.sp .info{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+  <nav><div class="nav-in">
+    <div class="brand">◆ <b>SHIFT</b> ’26</div>
+    <div class="links"><a href="#speakers">Speakers</a><a href="#schedule">Schedule</a><a href="#tickets">Tickets</a><a class="btn" href="#tickets">Get tickets</a></div>
+  </div></nav>
+
+  <header class="hero"><div class="wrap">
+    <span class="date">Sept 14–16, 2026 · Lisbon + Online</span>
+    <h1>The future,<br><span class="g">three days early.</span></h1>
+    <p>Two thousand builders. Fifty talks. The conversations that decide what ships next.</p>
+    <a class="btn" href="#tickets">Get your ticket →</a>
+  </div></header>
+
+  <div class="marquee" aria-hidden="true"><div class="t">
+    <span>AI AGENTS</span><b>✦</b><span>EDGE</span><b>✦</b><span>DESIGN ENG</span><b>✦</b><span>OPEN SOURCE</span><b>✦</b><span>WEBGPU</span><b>✦</b>
+    <span>AI AGENTS</span><b>✦</b><span>EDGE</span><b>✦</b><span>DESIGN ENG</span><b>✦</b><span>OPEN SOURCE</span><b>✦</b><span>WEBGPU</span><b>✦</b>
+  </div></div>
+
+  <section id="speakers"><div class="wrap">
+    <p class="eyebrow reveal">Speakers</p><h2 class="reveal">Learn from the people building it</h2>
+    <div class="speakers">
+      <figure class="sp reveal" style="margin:0"><div class="face f1"></div><figcaption class="info"><strong>Ada Stone</strong><span>CTO, Vectorly</span></figcaption></figure>
+      <figure class="sp reveal" style="margin:0"><div class="face f2"></div><figcaption class="info"><strong>Kai Mori</strong><span>Creator, Flux</span></figcaption></figure>
+      <figure class="sp reveal" style="margin:0"><div class="face f3"></div><figcaption class="info"><strong>Lena Park</strong><span>Design Eng, Arc</span></figcaption></figure>
+      <figure class="sp reveal" style="margin:0"><div class="face f4"></div><figcaption class="info"><strong>Omar Diaz</strong><span>Founder, Relay</span></figcaption></figure>
+      <figure class="sp reveal" style="margin:0"><div class="face f5"></div><figcaption class="info"><strong>Yuki Tan</strong><span>AI Lead, Cortex</span></figcaption></figure>
+      <figure class="sp reveal" style="margin:0"><div class="face f6"></div><figcaption class="info"><strong>Nora Vance</strong><span>VP Eng, Stride</span></figcaption></figure>
+      <figure class="sp reveal" style="margin:0"><div class="face f7"></div><figcaption class="info"><strong>Theo Ruiz</strong><span>OSS Maintainer</span></figcaption></figure>
+      <figure class="sp reveal" style="margin:0"><div class="face f8"></div><figcaption class="info"><strong>Priya Nair</strong><span>Head of DX</span></figcaption></figure>
+    </div>
+  </div></section>
+
+  <section id="schedule"><div class="wrap">
+    <p class="eyebrow reveal">Schedule</p><h2 class="reveal">Three days, no filler</h2>
+    <div class="sched">
+      <div class="tabs" role="tablist" aria-label="Schedule days">
+        <button class="tab" role="tab" aria-selected="true" data-day="1">Day 1</button>
+        <button class="tab" role="tab" aria-selected="false" data-day="2">Day 2</button>
+        <button class="tab" role="tab" aria-selected="false" data-day="3">Day 3</button>
+      </div>
+      <div class="day on" data-day="1">
+        <div class="ses"><div class="time">09:30</div><div><h4>Opening keynote: what's next</h4><div class="who">Ada Stone</div></div><span class="who">Main</span></div>
+        <div class="ses"><div class="time">11:00</div><div><h4>Agents in production</h4><div class="who">Yuki Tan</div></div><span class="who">Track A</span></div>
+        <div class="ses"><div class="time">14:00</div><div><h4>Designing for the edge</h4><div class="who">Lena Park</div></div><span class="who">Track B</span></div>
+      </div>
+      <div class="day" data-day="2">
+        <div class="ses"><div class="time">10:00</div><div><h4>Building Flux from scratch</h4><div class="who">Kai Mori</div></div><span class="who">Main</span></div>
+        <div class="ses"><div class="time">13:00</div><div><h4>WebGPU for everyone</h4><div class="who">Nora Vance</div></div><span class="who">Track A</span></div>
+        <div class="ses"><div class="time">16:00</div><div><h4>Open source, sustainably</h4><div class="who">Theo Ruiz</div></div><span class="who">Track B</span></div>
+      </div>
+      <div class="day" data-day="3">
+        <div class="ses"><div class="time">10:30</div><div><h4>The DX playbook</h4><div class="who">Priya Nair</div></div><span class="who">Main</span></div>
+        <div class="ses"><div class="time">12:30</div><div><h4>Scaling Relay to millions</h4><div class="who">Omar Diaz</div></div><span class="who">Track A</span></div>
+        <div class="ses"><div class="time">15:00</div><div><h4>Closing &amp; afterparty</h4><div class="who">Everyone</div></div><span class="who">Main</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section id="tickets"><div class="wrap">
+    <p class="eyebrow reveal">Tickets</p><h2 class="reveal">Save with early bird</h2>
+    <div class="tickets">
+      <div class="tk reveal"><h3>Online</h3><div class="price">$99</div><ul><li>All talks, livestreamed</li><li>Talk recordings</li><li>Community Discord</li></ul><a class="btn" href="#" style="width:100%;text-align:center">Choose</a></div>
+      <div class="tk feat reveal"><h3>In-person</h3><div class="price">$449</div><ul><li>Everything in Online</li><li>3 days on-site</li><li>Workshops + meals</li><li>Afterparties</li></ul><a class="btn" href="#" style="width:100%;text-align:center">Choose</a></div>
+      <div class="tk reveal"><h3>Team (5)</h3><div class="price">$1,899</div><ul><li>5 in-person passes</li><li>Reserved seating</li><li>Invoice billing</li></ul><a class="btn" href="#" style="width:100%;text-align:center">Choose</a></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap sponsors reveal"><span>VERCEL</span><span>STRIPE</span><span>LINEAR</span><span>SUPABASE</span><span>RAYCAST</span></div></section>
+
+  <footer><div class="wrap">© <span id="yr"></span> SHIFT Conference · See you in Lisbon.</div></footer>
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    var tabs=[].slice.call(document.querySelectorAll('.tab'));
+    tabs.forEach(function(t){t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.setAttribute('aria-selected','false')}); t.setAttribute('aria-selected','true');
+      document.querySelectorAll('.day').forEach(function(d){d.classList.toggle('on',d.dataset.day===t.dataset.day)});
+    });});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  </script>
+</body>
+</html>

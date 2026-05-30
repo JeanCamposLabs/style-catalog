@@ -3,6 +3,25 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.8.0] — 2026-05-30
+
+### Added — library expansion: +19 hand-crafted specimens (now 142 effects)
+Researched current trends, then hand-built across effects, SVGs, and templates.
+- **Effects (8):** `gradient-border-glow` (animated conic border), `tilt-spotlight-card`
+  (3D tilt + cursor spotlight), `grain-gradient` (mesh + film grain), `dot-grid-spotlight`
+  (cursor-lit grid), `text-scramble` (decode reveal), `scroll-velocity-skew`
+  (momentum skew), `variable-font-weight` (interactive variable type), `otp-input`
+  (segmented verification code).
+- **SVG (5):** `svg-blob-spinner` (morphing loader), `svg-squiggle-underline`,
+  `svg-wave-divider` (layered parallax waves), `svg-progress-ring` (count-up),
+  `svg-dashed-connector` (draw + marching-ants flow).
+- **Templates (6):** `spatial-depth` (parallax depth), `link-in-bio` (creator hub),
+  `event-conference` (speakers + tabbed schedule + tickets), `restaurant-menu`
+  (tabbed interactive menu), `anti-design` (maximalist), `skeuomorphic-revival`
+  (CSS-only tactile music player).
+- All verified rendering with zero console errors; reduced-motion + focus-visible
+  throughout. Website Templates now 27.
+
 ## [0.7.0] — 2026-05-30
 
 ### Changed — hand-crafted, trend-researched templates (replaces the generator)

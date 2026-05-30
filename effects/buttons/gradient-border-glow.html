@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animated Gradient Border</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gradient-border-glow",
+    "title": "Animated Gradient Border",
+    "summary": "A button (or card) wrapped in a conic gradient border that rotates, with a soft matching glow.",
+    "description": "A rotating conic-gradient sits behind the element and is revealed only as a ring via a masked inset, so the border appears to spin. A blurred copy underneath adds a glow. Popular on AI/dev product CTAs and pricing 'featured' cards.",
+    "theme": "buttons",
+    "categories": ["button", "border", "animation"],
+    "tags": ["gradient-border", "conic", "glow", "animated", "ai", "2026-trend"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "Uses @property for smooth angle animation (Chromium/Safari/FF current); degrades to a static gradient where unsupported.",
+    "performance_notes": "One animated custom property driving a conic-gradient + a blurred glow layer. Pause on reduced-motion.",
+    "accessibility_notes": "Decorative border; keep the inner element a real button with focus-visible and adequate contrast.",
+    "customization": [
+      { "name": "--g1/--g2/--g3", "description": "Gradient stops", "default": "violet/teal/pink" },
+      { "name": "--speed", "description": "Rotation duration", "default": "4s" }
+    ],
+    "variations": ["Apply to pricing 'featured' cards", "Two-color sweep", "Reveal the spin only on hover"],
+    "related": ["magnetic-button", "neon-glow", "gradient-text"],
+    "ai_usage": "Use to make a CTA or 'most popular' card stand out on AI/dev/SaaS sites. Put a rotating conic-gradient on a wrapper, then mask its center so only a ring shows (border); duplicate it blurred underneath for glow. Animate the angle via an @property <angle> custom property for a smooth spin. Keep the inner button accessible and pause under prefers-reduced-motion."
+  }
+  </script>
+  <style>
+    @property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+    :root{--g1:#7c5cff;--g2:#2dd4bf;--g3:#ff6ec7;--speed:4s;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif}
+    .wrap{position:relative;padding:2px;border-radius:16px;isolation:isolate}
+    .wrap::before,.wrap::after{content:"";position:absolute;inset:0;border-radius:inherit;
+      background:conic-gradient(from var(--ang),var(--g1),var(--g2),var(--g3),var(--g1));
+      animation:spin var(--speed) linear infinite}
+    .wrap::after{filter:blur(14px);opacity:.7;z-index:-1}
+    .glow-btn{position:relative;border:none;cursor:pointer;background:#11131b;color:#fff;font-weight:700;font-size:1.05rem;
+      padding:.95rem 2rem;border-radius:14px}
+    .glow-btn:focus-visible{outline:3px solid var(--g2);outline-offset:4px}
+    @keyframes spin{to{--ang:360deg}}
+    @media(prefers-reduced-motion:reduce){.wrap::before,.wrap::after{animation:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap"><button class="glow-btn">✦ Generate with AI</button></div>
+</body>
+</html>

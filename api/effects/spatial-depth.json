@@ -1,0 +1,58 @@
+{
+  "id": "spatial-depth",
+  "title": "Spatial Depth — Parallax Landing",
+  "summary": "A depth-driven landing: layered elements parallax with the cursor and scroll, creating a sense of 3D space behind the headline.",
+  "description": "Spatial / 3D-depth design is a 2026 direction enabled by cheap WebGL/CSS transforms. This template fakes it elegantly with pure CSS/JS: multiple z-layers (orbs, cards, grid) that translate at different rates on pointer-move and scroll, so the scene has real parallax depth without a 3D library.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "landing",
+    "creative"
+  ],
+  "tags": [
+    "spatial",
+    "3d",
+    "parallax",
+    "depth",
+    "interactive",
+    "2026-trend",
+    "full-page"
+  ],
+  "tech": [
+    "html",
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (CSS transforms, pointer events).",
+  "performance_notes": "One pointermove + one scroll handler writing translate3d on a handful of layers (transform-only, GPU). Parallax disabled under reduced-motion.",
+  "accessibility_notes": "All motion is decorative; content stays readable and in order with focus-visible. prefers-reduced-motion disables the parallax and reveals.",
+  "customization": [
+    {
+      "name": "data-depth",
+      "description": "Per-layer parallax strength",
+      "default": "0.02–0.12"
+    },
+    {
+      "name": "--a1/--a2",
+      "description": "Orb colors",
+      "default": "violet / cyan"
+    }
+  ],
+  "variations": [
+    "Add a real product render as the front layer",
+    "Tie depth to device orientation on mobile",
+    "Swap orbs for floating UI cards"
+  ],
+  "related": [
+    "parallax-layers",
+    "tilt-spotlight-card",
+    "aurora-saas"
+  ],
+  "ai_usage": "Use for premium product/agency hero sections that want depth without a 3D engine. Give each layer a data-depth; on pointermove translate each by (cursorOffset × depth), and optionally add scrollY × depth for vertical parallax — write translate3d for GPU compositing. Keep the headline a near-zero-depth layer so it stays readable. Disable the handlers under prefers-reduced-motion.",
+  "path": "effects/website-templates/spatial-depth.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>Spatial Depth — Parallax Landing</title>\n<script type=\"application/json\" id=\"effect-meta\">\n{\n  \"id\": \"spatial-depth\",\n  \"title\": \"Spatial Depth — Parallax Landing\",\n  \"summary\": \"A depth-driven landing: layered elements parallax with the cursor and scroll, creating a sense of 3D space behind the headline.\",\n  \"description\": \"Spatial / 3D-depth design is a 2026 direction enabled by cheap WebGL/CSS transforms. This template fakes it elegantly with pure CSS/JS: multiple z-layers (orbs, cards, grid) that translate at different rates on pointer-move and scroll, so the scene has real parallax depth without a 3D library.\",\n  \"theme\": \"website-templates\",\n  \"categories\": [\"template\", \"landing\", \"creative\"],\n  \"tags\": [\"spatial\", \"3d\", \"parallax\", \"depth\", \"interactive\", \"2026-trend\", \"full-page\"],\n  \"tech\": [\"html\", \"css\", \"js\"],\n  \"era\": \"2020s\",\n  \"difficulty\": \"intermediate\",\n  \"dependencies\": [],\n  \"browser_support\": \"All modern browsers (CSS transforms, pointer events).\",\n  \"performance_notes\": \"One pointermove + one scroll handler writing translate3d on a handful of layers (transform-only, GPU). Parallax disabled under reduced-motion.\",\n  \"accessibility_notes\": \"All motion is decorative; content stays readable and in order with focus-visible. prefers-reduced-motion disables the parallax and reveals.\",\n  \"customization\": [\n    { \"name\": \"data-depth\", \"description\": \"Per-layer parallax strength\", \"default\": \"0.02–0.12\" },\n    { \"name\": \"--a1/--a2\", \"description\": \"Orb colors\", \"default\": \"violet / cyan\" }\n  ],\n  \"variations\": [\"Add a real product render as the front layer\", \"Tie depth to device orientation on mobile\", \"Swap orbs for floating UI cards\"],\n  \"related\": [\"parallax-layers\", \"tilt-spotlight-card\", \"aurora-saas\"],\n  \"ai_usage\": \"Use for premium product/agency hero sections that want depth without a 3D engine. Give each layer a data-depth; on pointermove translate each by (cursorOffset × depth), and optionally add scrollY × depth for vertical parallax — write translate3d for GPU compositing. Keep the headline a near-zero-depth layer so it stays readable. Disable the handlers under prefers-reduced-motion.\"\n}\n</script>\n<style>\n  :root{--bg:#070711;--text:#eef0fb;--muted:#9aa0c0;--a1:#7c5cff;--a2:#22d3ee;--a3:#ff6ec7;}\n  *{box-sizing:border-box}html{scroll-behavior:smooth}\n  body{margin:0;background:var(--bg);color:var(--text);font-family:\"Inter\",system-ui,sans-serif;line-height:1.6;overflow-x:hidden}\n  a{color:inherit;text-decoration:none}\n  .wrap{max-width:1080px;margin:0 auto;padding:0 1.4rem;position:relative;z-index:5}\n  nav{display:flex;align-items:center;justify-content:space-between;height:70px;position:relative;z-index:6}\n  .brand{font-weight:800;letter-spacing:-.01em}\n  .links{display:flex;gap:1.5rem;align-items:center;color:var(--muted);font-size:.92rem}.links a:hover{color:var(--text)}\n  .btn{background:linear-gradient(120deg,var(--a1),var(--a3));color:#fff;border:none;border-radius:999px;padding:.6rem 1.2rem;font-weight:600;cursor:pointer}\n  .btn:focus-visible{outline:2px solid var(--a2);outline-offset:3px}\n  .scene{position:relative;height:92vh;min-height:600px;display:grid;place-items:center;overflow:hidden}\n  .layer{position:absolute;will-change:transform}\n  .orb{border-radius:50%;filter:blur(8px);opacity:.8}\n  .o1{width:340px;height:340px;background:radial-gradient(circle at 30% 30%,var(--a1),transparent 70%);left:8%;top:18%}\n  .o2{width:280px;height:280px;background:radial-gradient(circle at 30% 30%,var(--a2),transparent 70%);right:10%;top:30%}\n  .o3{width:220px;height:220px;background:radial-gradient(circle at 30% 30%,var(--a3),transparent 70%);left:30%;bottom:10%}\n  .gridlayer{inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px;-webkit-mask:radial-gradient(60% 60% at 50% 45%,#000,transparent);mask:radial-gradient(60% 60% at 50% 45%,#000,transparent)}\n  .chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);border-radius:14px;padding:.7rem 1rem;font-size:.85rem;color:var(--muted);box-shadow:0 20px 60px rgba(0,0,0,.4)}\n  .c1{left:12%;bottom:22%}.c2{right:12%;top:24%}.c3{right:24%;bottom:18%}\n  .center{position:relative;z-index:5;text-align:center;max-width:760px}\n  .pill{display:inline-block;font-size:.78rem;color:var(--muted);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);padding:.35rem .9rem;border-radius:999px}\n  h1{font-size:clamp(2.6rem,8vw,5.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.02;margin:1.2rem 0 .8rem}\n  h1 .g{background:linear-gradient(120deg,var(--a1),var(--a2),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}\n  .center p{color:var(--muted);font-size:1.15rem;max-width:46ch;margin:0 auto 1.8rem}\n  section{padding:5rem 0;position:relative;z-index:5}\n  h2{text-align:center;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin:0 0 2rem}\n  .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}\n  .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:1.6rem}\n  .card .ic{font-size:1.6rem}.card h3{margin:.5rem 0 .3rem}.card p{color:var(--muted);margin:0;font-size:.93rem}\n  footer{border-top:1px solid rgba(255,255,255,.1);color:var(--muted);text-align:center;padding:2.4rem 0;font-size:.9rem;position:relative;z-index:5}\n  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.reveal.in{opacity:1;transform:none}\n  @media(max-width:780px){.feats{grid-template-columns:1fr}.chip{display:none}.links a:not(.btn){display:none}}\n  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}\n</style>\n</head>\n<body>\n  <div class=\"wrap\"><nav>\n    <div class=\"brand\">◬ Parallax</div>\n    <div class=\"links\"><a href=\"#\">Platform</a><a href=\"#\">Showcase</a><a href=\"#\">Docs</a><a class=\"btn\" href=\"#\">Get started</a></div>\n  </nav></div>\n\n  <header class=\"scene\" id=\"scene\">\n    <div class=\"layer gridlayer\" data-depth=\"0.015\" aria-hidden=\"true\"></div>\n    <div class=\"layer orb o1\" data-depth=\"0.08\" aria-hidden=\"true\"></div>\n    <div class=\"layer orb o2\" data-depth=\"0.05\" aria-hidden=\"true\"></div>\n    <div class=\"layer orb o3\" data-depth=\"0.1\" aria-hidden=\"true\"></div>\n    <div class=\"layer chip c1\" data-depth=\"0.12\" aria-hidden=\"true\">⚡ 0.2s builds</div>\n    <div class=\"layer chip c2\" data-depth=\"0.09\" aria-hidden=\"true\">🌐 Edge-native</div>\n    <div class=\"layer chip c3\" data-depth=\"0.14\" aria-hidden=\"true\">🔒 SOC2</div>\n    <div class=\"center layer\" data-depth=\"0.02\">\n      <span class=\"pill\">Spatial computing, on the web</span>\n      <h1>Build in <span class=\"g\">three dimensions</span>.</h1>\n      <p>A platform for spatial interfaces that feel alive. Move your cursor — the whole scene has depth.</p>\n      <a class=\"btn\" href=\"#\">Enter the space →</a>\n    </div>\n  </header>\n\n  <section class=\"wrap\">\n    <h2 class=\"reveal\">Depth, by default</h2>\n    <div class=\"feats\">\n      <div class=\"card reveal\"><div class=\"ic\">🪐</div><h3>Layered scenes</h3><p>Compose interfaces in z-space, not just x and y.</p></div>\n      <div class=\"card reveal\"><div class=\"ic\">🖱️</div><h3>Reactive parallax</h3><p>Every layer responds to pointer and motion.</p></div>\n      <div class=\"card reveal\"><div class=\"ic\">⚙️</div><h3>No 3D engine</h3><p>Pure transforms — fast, light, accessible.</p></div>\n    </div>\n  </section>\n\n  <footer class=\"wrap\">© <span id=\"yr\"></span> Parallax · Interfaces with depth.</footer>\n  <script>\n    document.getElementById('yr').textContent=new Date().getFullYear();\n    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;\n    var layers=[].slice.call(document.querySelectorAll('.scene .layer'));\n    if(!reduce){\n      var tx=0,ty=0,sc=0;\n      addEventListener('pointermove',function(e){ tx=(e.clientX/innerWidth-.5); ty=(e.clientY/innerHeight-.5); apply(); });\n      addEventListener('scroll',function(){ sc=window.scrollY; apply(); },{passive:true});\n      function apply(){ layers.forEach(function(l){ var d=parseFloat(l.dataset.depth)||0; l.style.transform='translate3d('+(-tx*d*400)+'px,'+(-ty*d*400 + sc*d*0.6)+'px,0)'; }); }\n      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});\n      document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});\n    } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')}); }\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OTP / Verification Code Input</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "otp-input",
+    "title": "OTP / Verification Code Input",
+    "summary": "A segmented one-time-code field: type to auto-advance, backspace to go back, paste to fill all boxes, with a success pulse.",
+    "description": "The ubiquitous 2FA/verification pattern: separate boxes per digit that auto-advance as you type, handle backspace navigation, accept a pasted full code across all inputs, and animate to a success state when complete.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input", "interaction"],
+    "tags": ["otp", "verification", "2fa", "code", "auto-advance", "paste", "2026-trend"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "A few input event handlers; negligible.",
+    "accessibility_notes": "Real <input>s with inputmode=numeric and autocomplete='one-time-code' (enables OS autofill), labeled as a group; focus-visible rings; success announced via aria-live. Backspace and arrow navigation supported.",
+    "customization": [
+      { "name": "length", "description": "Number of digits", "default": "6" },
+      { "name": "--accent / --ok", "description": "Focus + success colors", "default": "violet / green" }
+    ],
+    "variations": ["4-digit PIN", "Alphanumeric codes", "Auto-submit on completion"],
+    "related": ["floating-label-input", "animated-checkbox"],
+    "ai_usage": "Use for 2FA, email/phone verification, and PIN entry. Render N inputs with inputmode='numeric', maxlength=1, and autocomplete='one-time-code' on the first (for OS autofill). On input, move focus to the next; on Backspace when empty, focus the previous; on paste, distribute digits across boxes. Wrap in a labeled group, keep focus-visible, and announce completion via an aria-live region."
+  }
+  </script>
+  <style>
+    :root{--accent:#7c5cff;--ok:#22c55e;--bg:#11131b;--line:#2a3040;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12;color:#e8ecf6;font-family:system-ui,sans-serif;text-align:center}
+    fieldset{border:none;margin:0;padding:0}
+    legend{font-size:1.2rem;font-weight:700;margin-bottom:.3rem}
+    .sub{color:#8b93a7;margin-bottom:1.2rem;font-size:.95rem}
+    .otp{display:flex;gap:.6rem;justify-content:center}
+    .otp input{width:54px;height:64px;text-align:center;font-size:1.6rem;font-weight:700;color:#fff;background:var(--bg);
+      border:2px solid var(--line);border-radius:12px;outline:none;transition:border-color .15s,transform .15s,box-shadow .15s}
+    .otp input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(124,92,255,.25)}
+    .otp input.filled{border-color:var(--accent)}
+    .otp.done input{border-color:var(--ok);animation:pop .3s ease}
+    @keyframes pop{50%{transform:translateY(-6px)}}
+    .status{margin-top:1rem;min-height:1.3em;font-weight:600;color:var(--ok)}
+    @media(prefers-reduced-motion:reduce){.otp input{transition:none}.otp.done input{animation:none}}
+  </style>
+</head>
+<body>
+  <form id="form">
+    <fieldset>
+      <legend>Enter verification code</legend>
+      <p class="sub">We sent a 6-digit code to your email.</p>
+      <div class="otp" id="otp" role="group" aria-label="6-digit verification code">
+        <input inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="Digit 1" />
+        <input inputmode="numeric" maxlength="1" aria-label="Digit 2" />
+        <input inputmode="numeric" maxlength="1" aria-label="Digit 3" />
+        <input inputmode="numeric" maxlength="1" aria-label="Digit 4" />
+        <input inputmode="numeric" maxlength="1" aria-label="Digit 5" />
+        <input inputmode="numeric" maxlength="1" aria-label="Digit 6" />
+      </div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </fieldset>
+  </form>
+  <script>
+    var wrap=document.getElementById('otp'), inputs=[].slice.call(wrap.querySelectorAll('input')), status=document.getElementById('status');
+    function check(){
+      var code=inputs.map(function(i){return i.value;}).join('');
+      inputs.forEach(function(i){i.classList.toggle('filled',!!i.value);});
+      if(code.length===inputs.length && /^\d+$/.test(code)){
+        wrap.classList.add('done'); status.textContent='✓ Verified — code '+code;
+      } else { wrap.classList.remove('done'); status.textContent=''; }
+    }
+    inputs.forEach(function(inp,idx){
+      inp.addEventListener('input',function(e){
+        this.value=this.value.replace(/\D/g,'').slice(0,1);
+        if(this.value && idx<inputs.length-1) inputs[idx+1].focus();
+        check();
+      });
+      inp.addEventListener('keydown',function(e){
+        if(e.key==='Backspace' && !this.value && idx>0){inputs[idx-1].focus();}
+        if(e.key==='ArrowLeft' && idx>0){inputs[idx-1].focus();}
+        if(e.key==='ArrowRight' && idx<inputs.length-1){inputs[idx+1].focus();}
+      });
+      inp.addEventListener('paste',function(e){
+        e.preventDefault();
+        var d=(e.clipboardData||window.clipboardData).getData('text').replace(/\D/g,'').split('');
+        for(var k=0;k<inputs.length;k++){ inputs[k].value=d[k]||''; }
+        inputs[Math.min(d.length,inputs.length-1)].focus();
+        check();
+      });
+    });
+  </script>
+</body>
+</html>
