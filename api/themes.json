@@ -6,7 +6,7 @@
       "description": "Complete, self-contained page scaffolds across eras and genres — modern SaaS, portfolio, blog, dashboard, e-commerce, plus Web 2.0 and 90s retro. Copy a whole page and reskin it.",
       "icon": "🌐",
       "order": 1,
-      "count": 9
+      "count": 141
     },
     {
       "slug": "combos-recipes",
@@ -182,7 +182,7 @@
       {
         "slug": "website-templates",
         "title": "Website Templates",
-        "count": 9
+        "count": 141
       },
       {
         "slug": "combos-recipes",
@@ -293,19 +293,19 @@
     "tech": [
       {
         "value": "css",
-        "count": 107
+        "count": 239
       },
       {
         "value": "js",
-        "count": 24
+        "count": 156
+      },
+      {
+        "value": "html",
+        "count": 141
       },
       {
         "value": "svg",
         "count": 11
-      },
-      {
-        "value": "html",
-        "count": 9
       },
       {
         "value": "canvas",
@@ -314,12 +314,12 @@
     ],
     "difficulty": [
       {
-        "value": "beginner",
-        "count": 56
+        "value": "intermediate",
+        "count": 178
       },
       {
-        "value": "intermediate",
-        "count": 46
+        "value": "beginner",
+        "count": 56
       },
       {
         "value": "advanced",
@@ -329,7 +329,7 @@
     "era": [
       {
         "value": "2020s",
-        "count": 65
+        "count": 197
       },
       {
         "value": "timeless",
@@ -350,12 +350,40 @@
     ],
     "categories": [
       {
+        "value": "template",
+        "count": 141
+      },
+      {
+        "value": "business",
+        "count": 24
+      },
+      {
         "value": "animation",
+        "count": 16
+      },
+      {
+        "value": "creator",
+        "count": 16
+      },
+      {
+        "value": "health",
+        "count": 16
+      },
+      {
+        "value": "saas",
         "count": 16
       },
       {
         "value": "reference",
         "count": 13
+      },
+      {
+        "value": "events",
+        "count": 12
+      },
+      {
+        "value": "local",
+        "count": 12
       },
       {
         "value": "typography",
@@ -370,7 +398,15 @@
         "count": 9
       },
       {
+        "value": "ecommerce",
+        "count": 9
+      },
+      {
         "value": "hover",
+        "count": 9
+      },
+      {
+        "value": "portfolio",
         "count": 9
       },
       {
@@ -378,11 +414,15 @@
         "count": 9
       },
       {
-        "value": "template",
-        "count": 9
+        "value": "agency",
+        "count": 8
       },
       {
         "value": "background",
+        "count": 8
+      },
+      {
+        "value": "education",
         "count": 8
       },
       {
@@ -455,6 +495,10 @@
       },
       {
         "value": "glow",
+        "count": 4
+      },
+      {
+        "value": "nonprofit",
         "count": 4
       },
       {
@@ -666,10 +710,6 @@
         "count": 1
       },
       {
-        "value": "ecommerce",
-        "count": 1
-      },
-      {
         "value": "editorial",
         "count": 1
       },
@@ -750,10 +790,6 @@
         "count": 1
       },
       {
-        "value": "portfolio",
-        "count": 1
-      },
-      {
         "value": "pre-launch",
         "count": 1
       },
@@ -816,15 +852,111 @@
     ],
     "tags": [
       {
+        "value": "full-page",
+        "count": 141
+      },
+      {
+        "value": "responsive",
+        "count": 134
+      },
+      {
+        "value": "effects",
+        "count": 132
+      },
+      {
+        "value": "template",
+        "count": 132
+      },
+      {
+        "value": "business",
+        "count": 24
+      },
+      {
+        "value": "midnight",
+        "count": 23
+      },
+      {
+        "value": "saas",
+        "count": 23
+      },
+      {
+        "value": "paper",
+        "count": 20
+      },
+      {
+        "value": "creator",
+        "count": 16
+      },
+      {
+        "value": "health",
+        "count": 16
+      },
+      {
+        "value": "agency",
+        "count": 14
+      },
+      {
+        "value": "corporate",
+        "count": 14
+      },
+      {
+        "value": "portfolio",
+        "count": 14
+      },
+      {
+        "value": "ocean",
+        "count": 13
+      },
+      {
+        "value": "aurora",
+        "count": 12
+      },
+      {
+        "value": "events",
+        "count": 12
+      },
+      {
+        "value": "local",
+        "count": 12
+      },
+      {
         "value": "svg",
         "count": 11
       },
       {
-        "value": "full-page",
+        "value": "mono",
+        "count": 10
+      },
+      {
+        "value": "neon",
+        "count": 10
+      },
+      {
+        "value": "pastel",
+        "count": 10
+      },
+      {
+        "value": "sunset",
+        "count": 10
+      },
+      {
+        "value": "ecommerce",
         "count": 9
       },
       {
+        "value": "education",
+        "count": 8
+      },
+      {
+        "value": "nonprofit",
+        "count": 8
+      },
+      {
         "value": "3d",
+        "count": 7
+      },
+      {
+        "value": "forest",
         "count": 7
       },
       {
@@ -834,6 +966,10 @@
       {
         "value": "loading",
         "count": 7
+      },
+      {
+        "value": "brutalist",
+        "count": 6
       },
       {
         "value": "glow",
@@ -872,7 +1008,19 @@
         "count": 4
       },
       {
+        "value": "ai-startup",
+        "count": 4
+      },
+      {
         "value": "ambient",
+        "count": 4
+      },
+      {
+        "value": "architecture",
+        "count": 4
+      },
+      {
+        "value": "bakery",
         "count": 4
       },
       {
@@ -880,7 +1028,23 @@
         "count": 4
       },
       {
+        "value": "coffee-shop",
+        "count": 4
+      },
+      {
         "value": "composition",
+        "count": 4
+      },
+      {
+        "value": "conference",
+        "count": 4
+      },
+      {
+        "value": "course",
+        "count": 4
+      },
+      {
+        "value": "crypto",
         "count": 4
       },
       {
@@ -888,7 +1052,31 @@
         "count": 4
       },
       {
+        "value": "dental",
+        "count": 4
+      },
+      {
+        "value": "design-studio",
+        "count": 4
+      },
+      {
+        "value": "fashion",
+        "count": 4
+      },
+      {
+        "value": "festival",
+        "count": 4
+      },
+      {
+        "value": "fitness",
+        "count": 4
+      },
+      {
         "value": "gallery",
+        "count": 4
+      },
+      {
+        "value": "game-studio",
         "count": 4
       },
       {
@@ -896,11 +1084,55 @@
         "count": 4
       },
       {
+        "value": "hotel",
+        "count": 4
+      },
+      {
+        "value": "interior",
+        "count": 4
+      },
+      {
+        "value": "law-firm",
+        "count": 4
+      },
+      {
+        "value": "medical",
+        "count": 4
+      },
+      {
+        "value": "mobile-app",
+        "count": 4
+      },
+      {
+        "value": "musician",
+        "count": 4
+      },
+      {
+        "value": "newsletter",
+        "count": 4
+      },
+      {
         "value": "outline",
         "count": 4
       },
       {
+        "value": "photographer",
+        "count": 4
+      },
+      {
+        "value": "podcast",
+        "count": 4
+      },
+      {
         "value": "progress",
+        "count": 4
+      },
+      {
+        "value": "real-estate",
+        "count": 4
+      },
+      {
+        "value": "restaurant",
         "count": 4
       },
       {
@@ -916,7 +1148,27 @@
         "count": 4
       },
       {
+        "value": "store",
+        "count": 4
+      },
+      {
         "value": "toggle",
+        "count": 4
+      },
+      {
+        "value": "travel",
+        "count": 4
+      },
+      {
+        "value": "university",
+        "count": 4
+      },
+      {
+        "value": "wedding",
+        "count": 4
+      },
+      {
+        "value": "yoga",
         "count": 4
       },
       {
@@ -956,6 +1208,10 @@
         "count": 3
       },
       {
+        "value": "glass",
+        "count": 3
+      },
+      {
         "value": "marquee",
         "count": 3
       },
@@ -992,10 +1248,6 @@
         "count": 3
       },
       {
-        "value": "saas",
-        "count": 3
-      },
-      {
         "value": "skeuomorphic",
         "count": 3
       },
@@ -1008,10 +1260,6 @@
         "count": 3
       },
       {
-        "value": "agency",
-        "count": 2
-      },
-      {
         "value": "animated-border",
         "count": 2
       },
@@ -1021,10 +1269,6 @@
       },
       {
         "value": "attention",
-        "count": 2
-      },
-      {
-        "value": "aurora",
         "count": 2
       },
       {
@@ -1148,10 +1392,6 @@
         "count": 2
       },
       {
-        "value": "glass",
-        "count": 2
-      },
-      {
         "value": "glassmorphism",
         "count": 2
       },
@@ -1256,10 +1496,6 @@
         "count": 2
       },
       {
-        "value": "portfolio",
-        "count": 2
-      },
-      {
         "value": "preserve-3d",
         "count": 2
       },
@@ -1277,10 +1513,6 @@
       },
       {
         "value": "reading",
-        "count": 2
-      },
-      {
-        "value": "responsive",
         "count": 2
       },
       {
@@ -1493,10 +1725,6 @@
       },
       {
         "value": "breathing",
-        "count": 1
-      },
-      {
-        "value": "brutalist",
         "count": 1
       },
       {
@@ -1717,10 +1945,6 @@
       },
       {
         "value": "easing",
-        "count": 1
-      },
-      {
-        "value": "ecommerce",
         "count": 1
       },
       {
@@ -2041,10 +2265,6 @@
       },
       {
         "value": "navbar",
-        "count": 1
-      },
-      {
-        "value": "neon",
         "count": 1
       },
       {

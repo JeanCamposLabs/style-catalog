@@ -179,16 +179,35 @@
     for (var i = 0; i < CATALOG.effects.length; i++) if (CATALOG.effects[i].id === id) return CATALOG.effects[i];
     return null;
   }
+  // Source is not in the eager catalog (to keep it small); fetch it on demand.
+  function loadSource(e) {
+    var pre = $("#modal-source");
+    if (e.source) { pre.textContent = e.source; return; }
+    pre.textContent = "Loading source…";
+    var want = e.id;
+    fetch("api/effects/" + encodeURIComponent(e.id) + ".json", { cache: "force-cache" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (full) {
+        if ($("#modal").getAttribute("data-eid") !== want) return; // modal changed
+        pre.textContent = (full && full.source) ? full.source :
+          "// Source unavailable here — open the standalone page to view it.";
+      })
+      .catch(function () {
+        if ($("#modal").getAttribute("data-eid") === want)
+          pre.textContent = "// Could not load source (offline?). Open the standalone page.";
+      });
+  }
   function openModal(id) {
     var e = findEffect(id);
     if (!e) return;
+    $("#modal").setAttribute("data-eid", e.id);
     lastFocus = document.activeElement;
     $("#modal-theme").textContent = e.themeTitle;
     $("#modal-title").textContent = e.title;
     $("#modal-summary").textContent = e.summary;
     $("#modal-iframe").src = e.path;
     $("#open-new").href = e.path;
-    $("#modal-source").textContent = e.source;
+    loadSource(e);
     $("#modal-ai").textContent = e.ai_usage || "No AI notes provided.";
     $("#modal-details").innerHTML = detailsHtml(e);
     switchTab("preview");

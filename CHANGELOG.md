@@ -3,6 +3,28 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.6.0] — 2026-05-30
+
+### Added — 132 premium templates (catalog now 243 effects)
+- New `scripts/gen-templates.mjs` generator composes self-contained, full-page
+  templates from a library of **12 palettes** (Midnight, Aurora, Glass, Neon,
+  Forest, Ocean, Paper, Mono, Pastel, Sunset, Corporate, Brutalist) × **33
+  categories** (SaaS, AI startup, agency, portfolio, photographer, restaurant,
+  café, bakery, gym, yoga, fashion, store, real estate, interior, architecture,
+  law, dental, medical, course, university, nonprofit, conference, festival,
+  wedding, musician, podcast, newsletter, travel, hotel, crypto, mobile app,
+  game studio, …) → **132 generated templates**.
+- Each template **composes catalog effects inline**: animated gradient hero,
+  glassmorphic sticky nav, scroll-triggered reveals (IntersectionObserver),
+  card hover-lift, a scroll-progress bar, and gradient text — zero dependencies,
+  responsive, and `prefers-reduced-motion` safe.
+
+### Changed — leaner gallery payload
+- `assets/catalog.js` (eagerly loaded) no longer inlines per-effect `source`;
+  the gallery lazy-loads source from `api/effects/<id>.json` when a modal opens.
+  Eager payload dropped from ~2.7 MB to ~512 KB despite 2× the effects. Full
+  `source` remains in `catalog.json` and the per-effect API files.
+
 ## [0.5.0] — 2026-05-30
 
 ### Added — Website Templates theme (now 111 effects across 22 themes)

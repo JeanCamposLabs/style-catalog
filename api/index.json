@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "counts": {
     "themes": 22,
-    "effects": 111
+    "effects": 243
   },
   "effectEndpoint": "api/effects/{id}.json",
   "effects": [
@@ -2732,6 +2732,342 @@
       "path": "effects/website-templates/admin-dashboard.html"
     },
     {
+      "id": "ai-startup-aurora",
+      "title": "AI Startup — Aurora",
+      "summary": "A premium, self-contained ai startup landing page in the Aurora style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "ai-startup",
+        "saas",
+        "aurora",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/ai-startup-aurora.html"
+    },
+    {
+      "id": "ai-startup-midnight",
+      "title": "AI Startup — Midnight",
+      "summary": "A premium, self-contained ai startup landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "ai-startup",
+        "saas",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/ai-startup-midnight.html"
+    },
+    {
+      "id": "ai-startup-neon",
+      "title": "AI Startup — Neon",
+      "summary": "A premium, self-contained ai startup landing page in the Neon style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "ai-startup",
+        "saas",
+        "neon",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/ai-startup-neon.html"
+    },
+    {
+      "id": "ai-startup-ocean",
+      "title": "AI Startup — Ocean",
+      "summary": "A premium, self-contained ai startup landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "ai-startup",
+        "saas",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/ai-startup-ocean.html"
+    },
+    {
+      "id": "architecture-corporate",
+      "title": "Architecture Firm — Corporate",
+      "summary": "A premium, self-contained architecture firm landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "architecture",
+        "business",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/architecture-corporate.html"
+    },
+    {
+      "id": "architecture-midnight",
+      "title": "Architecture Firm — Midnight",
+      "summary": "A premium, self-contained architecture firm landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "architecture",
+        "business",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/architecture-midnight.html"
+    },
+    {
+      "id": "architecture-mono",
+      "title": "Architecture Firm — Mono",
+      "summary": "A premium, self-contained architecture firm landing page in the Mono style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "architecture",
+        "business",
+        "mono",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/architecture-mono.html"
+    },
+    {
+      "id": "architecture-paper",
+      "title": "Architecture Firm — Paper",
+      "summary": "A premium, self-contained architecture firm landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "architecture",
+        "business",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/architecture-paper.html"
+    },
+    {
+      "id": "bakery-corporate",
+      "title": "Bakery — Corporate",
+      "summary": "A premium, self-contained bakery landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "bakery",
+        "local",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/bakery-corporate.html"
+    },
+    {
+      "id": "bakery-paper",
+      "title": "Bakery — Paper",
+      "summary": "A premium, self-contained bakery landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "bakery",
+        "local",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/bakery-paper.html"
+    },
+    {
+      "id": "bakery-pastel",
+      "title": "Bakery — Pastel",
+      "summary": "A premium, self-contained bakery landing page in the Pastel style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "bakery",
+        "local",
+        "pastel",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/bakery-pastel.html"
+    },
+    {
+      "id": "bakery-sunset",
+      "title": "Bakery — Sunset",
+      "summary": "A premium, self-contained bakery landing page in the Sunset style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "bakery",
+        "local",
+        "sunset",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/bakery-sunset.html"
+    },
+    {
       "id": "blog-article",
       "title": "Blog Article",
       "summary": "A readable long-form article layout: title, byline, cover, prose with a constrained measure, and a footer.",
@@ -2757,6 +3093,230 @@
       "era": "timeless",
       "difficulty": "beginner",
       "path": "effects/website-templates/blog-article.html"
+    },
+    {
+      "id": "hotel-midnight",
+      "title": "Boutique Hotel — Midnight",
+      "summary": "A premium, self-contained boutique hotel landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "hotel",
+        "business",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/hotel-midnight.html"
+    },
+    {
+      "id": "hotel-ocean",
+      "title": "Boutique Hotel — Ocean",
+      "summary": "A premium, self-contained boutique hotel landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "hotel",
+        "business",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/hotel-ocean.html"
+    },
+    {
+      "id": "hotel-paper",
+      "title": "Boutique Hotel — Paper",
+      "summary": "A premium, self-contained boutique hotel landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "hotel",
+        "business",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/hotel-paper.html"
+    },
+    {
+      "id": "hotel-sunset",
+      "title": "Boutique Hotel — Sunset",
+      "summary": "A premium, self-contained boutique hotel landing page in the Sunset style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "hotel",
+        "business",
+        "sunset",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/hotel-sunset.html"
+    },
+    {
+      "id": "coffee-shop-forest",
+      "title": "Coffee Shop — Forest",
+      "summary": "A premium, self-contained coffee shop landing page in the Forest style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "coffee-shop",
+        "local",
+        "forest",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/coffee-shop-forest.html"
+    },
+    {
+      "id": "coffee-shop-paper",
+      "title": "Coffee Shop — Paper",
+      "summary": "A premium, self-contained coffee shop landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "coffee-shop",
+        "local",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/coffee-shop-paper.html"
+    },
+    {
+      "id": "coffee-shop-pastel",
+      "title": "Coffee Shop — Pastel",
+      "summary": "A premium, self-contained coffee shop landing page in the Pastel style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "coffee-shop",
+        "local",
+        "pastel",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/coffee-shop-pastel.html"
+    },
+    {
+      "id": "coffee-shop-sunset",
+      "title": "Coffee Shop — Sunset",
+      "summary": "A premium, self-contained coffee shop landing page in the Sunset style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "coffee-shop",
+        "local",
+        "sunset",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/coffee-shop-sunset.html"
     },
     {
       "id": "coming-soon",
@@ -2787,6 +3347,566 @@
       "path": "effects/website-templates/coming-soon.html"
     },
     {
+      "id": "agency-brutalist",
+      "title": "Creative Agency — Brutalist",
+      "summary": "A premium, self-contained creative agency landing page in the Brutalist style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "agency"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "agency",
+        "agency",
+        "brutalist",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/agency-brutalist.html"
+    },
+    {
+      "id": "agency-midnight",
+      "title": "Creative Agency — Midnight",
+      "summary": "A premium, self-contained creative agency landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "agency"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "agency",
+        "agency",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/agency-midnight.html"
+    },
+    {
+      "id": "agency-mono",
+      "title": "Creative Agency — Mono",
+      "summary": "A premium, self-contained creative agency landing page in the Mono style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "agency"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "agency",
+        "agency",
+        "mono",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/agency-mono.html"
+    },
+    {
+      "id": "agency-paper",
+      "title": "Creative Agency — Paper",
+      "summary": "A premium, self-contained creative agency landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "agency"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "agency",
+        "agency",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/agency-paper.html"
+    },
+    {
+      "id": "crypto-aurora",
+      "title": "Crypto / Web3 — Aurora",
+      "summary": "A premium, self-contained crypto / web3 landing page in the Aurora style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "crypto",
+        "saas",
+        "aurora",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/crypto-aurora.html"
+    },
+    {
+      "id": "crypto-midnight",
+      "title": "Crypto / Web3 — Midnight",
+      "summary": "A premium, self-contained crypto / web3 landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "crypto",
+        "saas",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/crypto-midnight.html"
+    },
+    {
+      "id": "crypto-neon",
+      "title": "Crypto / Web3 — Neon",
+      "summary": "A premium, self-contained crypto / web3 landing page in the Neon style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "crypto",
+        "saas",
+        "neon",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/crypto-neon.html"
+    },
+    {
+      "id": "crypto-ocean",
+      "title": "Crypto / Web3 — Ocean",
+      "summary": "A premium, self-contained crypto / web3 landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "crypto",
+        "saas",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/crypto-ocean.html"
+    },
+    {
+      "id": "dental-corporate",
+      "title": "Dental Clinic — Corporate",
+      "summary": "A premium, self-contained dental clinic landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "dental",
+        "health",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/dental-corporate.html"
+    },
+    {
+      "id": "dental-ocean",
+      "title": "Dental Clinic — Ocean",
+      "summary": "A premium, self-contained dental clinic landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "dental",
+        "health",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/dental-ocean.html"
+    },
+    {
+      "id": "dental-paper",
+      "title": "Dental Clinic — Paper",
+      "summary": "A premium, self-contained dental clinic landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "dental",
+        "health",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/dental-paper.html"
+    },
+    {
+      "id": "dental-pastel",
+      "title": "Dental Clinic — Pastel",
+      "summary": "A premium, self-contained dental clinic landing page in the Pastel style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "dental",
+        "health",
+        "pastel",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/dental-pastel.html"
+    },
+    {
+      "id": "design-studio-midnight",
+      "title": "Design Studio — Midnight",
+      "summary": "A premium, self-contained design studio landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "agency"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "design-studio",
+        "agency",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/design-studio-midnight.html"
+    },
+    {
+      "id": "design-studio-mono",
+      "title": "Design Studio — Mono",
+      "summary": "A premium, self-contained design studio landing page in the Mono style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "agency"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "design-studio",
+        "agency",
+        "mono",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/design-studio-mono.html"
+    },
+    {
+      "id": "design-studio-paper",
+      "title": "Design Studio — Paper",
+      "summary": "A premium, self-contained design studio landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "agency"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "design-studio",
+        "agency",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/design-studio-paper.html"
+    },
+    {
+      "id": "design-studio-pastel",
+      "title": "Design Studio — Pastel",
+      "summary": "A premium, self-contained design studio landing page in the Pastel style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "agency"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "design-studio",
+        "agency",
+        "pastel",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/design-studio-pastel.html"
+    },
+    {
+      "id": "portfolio-midnight",
+      "title": "Developer Portfolio — Midnight",
+      "summary": "A premium, self-contained developer portfolio landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "portfolio"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "portfolio",
+        "portfolio",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/portfolio-midnight.html"
+    },
+    {
+      "id": "portfolio-mono",
+      "title": "Developer Portfolio — Mono",
+      "summary": "A premium, self-contained developer portfolio landing page in the Mono style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "portfolio"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "portfolio",
+        "portfolio",
+        "mono",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/portfolio-mono.html"
+    },
+    {
+      "id": "portfolio-neon",
+      "title": "Developer Portfolio — Neon",
+      "summary": "A premium, self-contained developer portfolio landing page in the Neon style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "portfolio"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "portfolio",
+        "portfolio",
+        "neon",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/portfolio-neon.html"
+    },
+    {
+      "id": "portfolio-ocean",
+      "title": "Developer Portfolio — Ocean",
+      "summary": "A premium, self-contained developer portfolio landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "portfolio"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "portfolio",
+        "portfolio",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/portfolio-ocean.html"
+    },
+    {
       "id": "ecommerce-product",
       "title": "E-commerce Product Page",
       "summary": "A product detail page: gallery, title/price, variant swatches, quantity, add-to-cart, and details.",
@@ -2812,6 +3932,678 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/website-templates/ecommerce-product.html"
+    },
+    {
+      "id": "fashion-midnight",
+      "title": "Fashion Brand — Midnight",
+      "summary": "A premium, self-contained fashion brand landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "ecommerce"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "fashion",
+        "ecommerce",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/fashion-midnight.html"
+    },
+    {
+      "id": "fashion-mono",
+      "title": "Fashion Brand — Mono",
+      "summary": "A premium, self-contained fashion brand landing page in the Mono style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "ecommerce"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "fashion",
+        "ecommerce",
+        "mono",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/fashion-mono.html"
+    },
+    {
+      "id": "fashion-paper",
+      "title": "Fashion Brand — Paper",
+      "summary": "A premium, self-contained fashion brand landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "ecommerce"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "fashion",
+        "ecommerce",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/fashion-paper.html"
+    },
+    {
+      "id": "fashion-pastel",
+      "title": "Fashion Brand — Pastel",
+      "summary": "A premium, self-contained fashion brand landing page in the Pastel style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "ecommerce"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "fashion",
+        "ecommerce",
+        "pastel",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/fashion-pastel.html"
+    },
+    {
+      "id": "fitness-brutalist",
+      "title": "Fitness Gym — Brutalist",
+      "summary": "A premium, self-contained fitness gym landing page in the Brutalist style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "fitness",
+        "health",
+        "brutalist",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/fitness-brutalist.html"
+    },
+    {
+      "id": "fitness-midnight",
+      "title": "Fitness Gym — Midnight",
+      "summary": "A premium, self-contained fitness gym landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "fitness",
+        "health",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/fitness-midnight.html"
+    },
+    {
+      "id": "fitness-neon",
+      "title": "Fitness Gym — Neon",
+      "summary": "A premium, self-contained fitness gym landing page in the Neon style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "fitness",
+        "health",
+        "neon",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/fitness-neon.html"
+    },
+    {
+      "id": "fitness-ocean",
+      "title": "Fitness Gym — Ocean",
+      "summary": "A premium, self-contained fitness gym landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "fitness",
+        "health",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/fitness-ocean.html"
+    },
+    {
+      "id": "game-studio-aurora",
+      "title": "Game Studio — Aurora",
+      "summary": "A premium, self-contained game studio landing page in the Aurora style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "game-studio",
+        "creator",
+        "aurora",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/game-studio-aurora.html"
+    },
+    {
+      "id": "game-studio-brutalist",
+      "title": "Game Studio — Brutalist",
+      "summary": "A premium, self-contained game studio landing page in the Brutalist style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "game-studio",
+        "creator",
+        "brutalist",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/game-studio-brutalist.html"
+    },
+    {
+      "id": "game-studio-midnight",
+      "title": "Game Studio — Midnight",
+      "summary": "A premium, self-contained game studio landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "game-studio",
+        "creator",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/game-studio-midnight.html"
+    },
+    {
+      "id": "game-studio-neon",
+      "title": "Game Studio — Neon",
+      "summary": "A premium, self-contained game studio landing page in the Neon style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "game-studio",
+        "creator",
+        "neon",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/game-studio-neon.html"
+    },
+    {
+      "id": "interior-midnight",
+      "title": "Interior Design — Midnight",
+      "summary": "A premium, self-contained interior design landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "interior",
+        "business",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/interior-midnight.html"
+    },
+    {
+      "id": "interior-mono",
+      "title": "Interior Design — Mono",
+      "summary": "A premium, self-contained interior design landing page in the Mono style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "interior",
+        "business",
+        "mono",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/interior-mono.html"
+    },
+    {
+      "id": "interior-paper",
+      "title": "Interior Design — Paper",
+      "summary": "A premium, self-contained interior design landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "interior",
+        "business",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/interior-paper.html"
+    },
+    {
+      "id": "interior-pastel",
+      "title": "Interior Design — Pastel",
+      "summary": "A premium, self-contained interior design landing page in the Pastel style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "interior",
+        "business",
+        "pastel",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/interior-pastel.html"
+    },
+    {
+      "id": "law-firm-corporate",
+      "title": "Law Firm — Corporate",
+      "summary": "A premium, self-contained law firm landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "law-firm",
+        "business",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/law-firm-corporate.html"
+    },
+    {
+      "id": "law-firm-mono",
+      "title": "Law Firm — Mono",
+      "summary": "A premium, self-contained law firm landing page in the Mono style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "law-firm",
+        "business",
+        "mono",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/law-firm-mono.html"
+    },
+    {
+      "id": "law-firm-ocean",
+      "title": "Law Firm — Ocean",
+      "summary": "A premium, self-contained law firm landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "law-firm",
+        "business",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/law-firm-ocean.html"
+    },
+    {
+      "id": "law-firm-paper",
+      "title": "Law Firm — Paper",
+      "summary": "A premium, self-contained law firm landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "law-firm",
+        "business",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/law-firm-paper.html"
+    },
+    {
+      "id": "medical-corporate",
+      "title": "Medical Practice — Corporate",
+      "summary": "A premium, self-contained medical practice landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "medical",
+        "health",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/medical-corporate.html"
+    },
+    {
+      "id": "medical-forest",
+      "title": "Medical Practice — Forest",
+      "summary": "A premium, self-contained medical practice landing page in the Forest style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "medical",
+        "health",
+        "forest",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/medical-forest.html"
+    },
+    {
+      "id": "medical-ocean",
+      "title": "Medical Practice — Ocean",
+      "summary": "A premium, self-contained medical practice landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "medical",
+        "health",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/medical-ocean.html"
+    },
+    {
+      "id": "medical-paper",
+      "title": "Medical Practice — Paper",
+      "summary": "A premium, self-contained medical practice landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "medical",
+        "health",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/medical-paper.html"
     },
     {
       "id": "portfolio-minimal",
@@ -2841,6 +4633,342 @@
       "path": "effects/website-templates/portfolio-minimal.html"
     },
     {
+      "id": "mobile-app-aurora",
+      "title": "Mobile App — Aurora",
+      "summary": "A premium, self-contained mobile app landing page in the Aurora style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "mobile-app",
+        "saas",
+        "aurora",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/mobile-app-aurora.html"
+    },
+    {
+      "id": "mobile-app-corporate",
+      "title": "Mobile App — Corporate",
+      "summary": "A premium, self-contained mobile app landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "mobile-app",
+        "saas",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/mobile-app-corporate.html"
+    },
+    {
+      "id": "mobile-app-midnight",
+      "title": "Mobile App — Midnight",
+      "summary": "A premium, self-contained mobile app landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "mobile-app",
+        "saas",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/mobile-app-midnight.html"
+    },
+    {
+      "id": "mobile-app-pastel",
+      "title": "Mobile App — Pastel",
+      "summary": "A premium, self-contained mobile app landing page in the Pastel style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "mobile-app",
+        "saas",
+        "pastel",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/mobile-app-pastel.html"
+    },
+    {
+      "id": "festival-aurora",
+      "title": "Music Festival — Aurora",
+      "summary": "A premium, self-contained music festival landing page in the Aurora style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "festival",
+        "events",
+        "aurora",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/festival-aurora.html"
+    },
+    {
+      "id": "festival-midnight",
+      "title": "Music Festival — Midnight",
+      "summary": "A premium, self-contained music festival landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "festival",
+        "events",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/festival-midnight.html"
+    },
+    {
+      "id": "festival-neon",
+      "title": "Music Festival — Neon",
+      "summary": "A premium, self-contained music festival landing page in the Neon style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "festival",
+        "events",
+        "neon",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/festival-neon.html"
+    },
+    {
+      "id": "festival-sunset",
+      "title": "Music Festival — Sunset",
+      "summary": "A premium, self-contained music festival landing page in the Sunset style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "festival",
+        "events",
+        "sunset",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/festival-sunset.html"
+    },
+    {
+      "id": "musician-aurora",
+      "title": "Musician — Aurora",
+      "summary": "A premium, self-contained musician landing page in the Aurora style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "musician",
+        "creator",
+        "aurora",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/musician-aurora.html"
+    },
+    {
+      "id": "musician-brutalist",
+      "title": "Musician — Brutalist",
+      "summary": "A premium, self-contained musician landing page in the Brutalist style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "musician",
+        "creator",
+        "brutalist",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/musician-brutalist.html"
+    },
+    {
+      "id": "musician-midnight",
+      "title": "Musician — Midnight",
+      "summary": "A premium, self-contained musician landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "musician",
+        "creator",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/musician-midnight.html"
+    },
+    {
+      "id": "musician-neon",
+      "title": "Musician — Neon",
+      "summary": "A premium, self-contained musician landing page in the Neon style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "musician",
+        "creator",
+        "neon",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/musician-neon.html"
+    },
+    {
       "id": "neubrutalist-landing",
       "title": "Neubrutalist Landing",
       "summary": "A bold neubrutalist landing: thick black borders, hard offset shadows, clashing flat colors, chunky type.",
@@ -2866,6 +4994,1014 @@
       "era": "2020s",
       "difficulty": "beginner",
       "path": "effects/website-templates/neubrutalist-landing.html"
+    },
+    {
+      "id": "newsletter-corporate",
+      "title": "Newsletter — Corporate",
+      "summary": "A premium, self-contained newsletter landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "newsletter",
+        "creator",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/newsletter-corporate.html"
+    },
+    {
+      "id": "newsletter-midnight",
+      "title": "Newsletter — Midnight",
+      "summary": "A premium, self-contained newsletter landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "newsletter",
+        "creator",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/newsletter-midnight.html"
+    },
+    {
+      "id": "newsletter-mono",
+      "title": "Newsletter — Mono",
+      "summary": "A premium, self-contained newsletter landing page in the Mono style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "newsletter",
+        "creator",
+        "mono",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/newsletter-mono.html"
+    },
+    {
+      "id": "newsletter-paper",
+      "title": "Newsletter — Paper",
+      "summary": "A premium, self-contained newsletter landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "newsletter",
+        "creator",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/newsletter-paper.html"
+    },
+    {
+      "id": "nonprofit-corporate",
+      "title": "Nonprofit — Corporate",
+      "summary": "A premium, self-contained nonprofit landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "nonprofit"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "nonprofit",
+        "nonprofit",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/nonprofit-corporate.html"
+    },
+    {
+      "id": "nonprofit-forest",
+      "title": "Nonprofit — Forest",
+      "summary": "A premium, self-contained nonprofit landing page in the Forest style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "nonprofit"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "nonprofit",
+        "nonprofit",
+        "forest",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/nonprofit-forest.html"
+    },
+    {
+      "id": "nonprofit-ocean",
+      "title": "Nonprofit — Ocean",
+      "summary": "A premium, self-contained nonprofit landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "nonprofit"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "nonprofit",
+        "nonprofit",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/nonprofit-ocean.html"
+    },
+    {
+      "id": "nonprofit-sunset",
+      "title": "Nonprofit — Sunset",
+      "summary": "A premium, self-contained nonprofit landing page in the Sunset style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "nonprofit"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "nonprofit",
+        "nonprofit",
+        "sunset",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/nonprofit-sunset.html"
+    },
+    {
+      "id": "course-aurora",
+      "title": "Online Course — Aurora",
+      "summary": "A premium, self-contained online course landing page in the Aurora style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "education"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "course",
+        "education",
+        "aurora",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/course-aurora.html"
+    },
+    {
+      "id": "course-corporate",
+      "title": "Online Course — Corporate",
+      "summary": "A premium, self-contained online course landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "education"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "course",
+        "education",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/course-corporate.html"
+    },
+    {
+      "id": "course-midnight",
+      "title": "Online Course — Midnight",
+      "summary": "A premium, self-contained online course landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "education"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "course",
+        "education",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/course-midnight.html"
+    },
+    {
+      "id": "course-neon",
+      "title": "Online Course — Neon",
+      "summary": "A premium, self-contained online course landing page in the Neon style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "education"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "course",
+        "education",
+        "neon",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/course-neon.html"
+    },
+    {
+      "id": "store-corporate",
+      "title": "Online Store — Corporate",
+      "summary": "A premium, self-contained online store landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "ecommerce"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "store",
+        "ecommerce",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/store-corporate.html"
+    },
+    {
+      "id": "store-midnight",
+      "title": "Online Store — Midnight",
+      "summary": "A premium, self-contained online store landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "ecommerce"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "store",
+        "ecommerce",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/store-midnight.html"
+    },
+    {
+      "id": "store-paper",
+      "title": "Online Store — Paper",
+      "summary": "A premium, self-contained online store landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "ecommerce"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "store",
+        "ecommerce",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/store-paper.html"
+    },
+    {
+      "id": "store-pastel",
+      "title": "Online Store — Pastel",
+      "summary": "A premium, self-contained online store landing page in the Pastel style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "ecommerce"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "store",
+        "ecommerce",
+        "pastel",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/store-pastel.html"
+    },
+    {
+      "id": "photographer-midnight",
+      "title": "Photographer — Midnight",
+      "summary": "A premium, self-contained photographer landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "portfolio"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "photographer",
+        "portfolio",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/photographer-midnight.html"
+    },
+    {
+      "id": "photographer-mono",
+      "title": "Photographer — Mono",
+      "summary": "A premium, self-contained photographer landing page in the Mono style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "portfolio"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "photographer",
+        "portfolio",
+        "mono",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/photographer-mono.html"
+    },
+    {
+      "id": "photographer-paper",
+      "title": "Photographer — Paper",
+      "summary": "A premium, self-contained photographer landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "portfolio"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "photographer",
+        "portfolio",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/photographer-paper.html"
+    },
+    {
+      "id": "photographer-sunset",
+      "title": "Photographer — Sunset",
+      "summary": "A premium, self-contained photographer landing page in the Sunset style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "portfolio"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "photographer",
+        "portfolio",
+        "sunset",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/photographer-sunset.html"
+    },
+    {
+      "id": "podcast-aurora",
+      "title": "Podcast — Aurora",
+      "summary": "A premium, self-contained podcast landing page in the Aurora style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "podcast",
+        "creator",
+        "aurora",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/podcast-aurora.html"
+    },
+    {
+      "id": "podcast-midnight",
+      "title": "Podcast — Midnight",
+      "summary": "A premium, self-contained podcast landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "podcast",
+        "creator",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/podcast-midnight.html"
+    },
+    {
+      "id": "podcast-ocean",
+      "title": "Podcast — Ocean",
+      "summary": "A premium, self-contained podcast landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "podcast",
+        "creator",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/podcast-ocean.html"
+    },
+    {
+      "id": "podcast-paper",
+      "title": "Podcast — Paper",
+      "summary": "A premium, self-contained podcast landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "creator"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "podcast",
+        "creator",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/podcast-paper.html"
+    },
+    {
+      "id": "real-estate-corporate",
+      "title": "Real Estate — Corporate",
+      "summary": "A premium, self-contained real estate landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "real-estate",
+        "business",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/real-estate-corporate.html"
+    },
+    {
+      "id": "real-estate-midnight",
+      "title": "Real Estate — Midnight",
+      "summary": "A premium, self-contained real estate landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "real-estate",
+        "business",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/real-estate-midnight.html"
+    },
+    {
+      "id": "real-estate-ocean",
+      "title": "Real Estate — Ocean",
+      "summary": "A premium, self-contained real estate landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "real-estate",
+        "business",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/real-estate-ocean.html"
+    },
+    {
+      "id": "real-estate-paper",
+      "title": "Real Estate — Paper",
+      "summary": "A premium, self-contained real estate landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "real-estate",
+        "business",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/real-estate-paper.html"
+    },
+    {
+      "id": "restaurant-forest",
+      "title": "Restaurant — Forest",
+      "summary": "A premium, self-contained restaurant landing page in the Forest style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "restaurant",
+        "local",
+        "forest",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/restaurant-forest.html"
+    },
+    {
+      "id": "restaurant-midnight",
+      "title": "Restaurant — Midnight",
+      "summary": "A premium, self-contained restaurant landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "restaurant",
+        "local",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/restaurant-midnight.html"
+    },
+    {
+      "id": "restaurant-paper",
+      "title": "Restaurant — Paper",
+      "summary": "A premium, self-contained restaurant landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "restaurant",
+        "local",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/restaurant-paper.html"
+    },
+    {
+      "id": "restaurant-sunset",
+      "title": "Restaurant — Sunset",
+      "summary": "A premium, self-contained restaurant landing page in the Sunset style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "local"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "restaurant",
+        "local",
+        "sunset",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/restaurant-sunset.html"
+    },
+    {
+      "id": "saas-aurora",
+      "title": "SaaS Landing — Aurora",
+      "summary": "A premium, self-contained saas landing landing page in the Aurora style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "saas",
+        "saas",
+        "aurora",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/saas-aurora.html"
+    },
+    {
+      "id": "saas-corporate",
+      "title": "SaaS Landing — Corporate",
+      "summary": "A premium, self-contained saas landing landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "saas",
+        "saas",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/saas-corporate.html"
+    },
+    {
+      "id": "saas-glass",
+      "title": "SaaS Landing — Glass",
+      "summary": "A premium, self-contained saas landing landing page in the Glass style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "saas",
+        "saas",
+        "glass",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/saas-glass.html"
+    },
+    {
+      "id": "saas-midnight",
+      "title": "SaaS Landing — Midnight",
+      "summary": "A premium, self-contained saas landing landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "saas",
+        "saas",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/saas-midnight.html"
     },
     {
       "id": "saas-landing",
@@ -2896,6 +6032,342 @@
       "path": "effects/website-templates/saas-landing.html"
     },
     {
+      "id": "conference-aurora",
+      "title": "Tech Conference — Aurora",
+      "summary": "A premium, self-contained tech conference landing page in the Aurora style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "conference",
+        "events",
+        "aurora",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/conference-aurora.html"
+    },
+    {
+      "id": "conference-brutalist",
+      "title": "Tech Conference — Brutalist",
+      "summary": "A premium, self-contained tech conference landing page in the Brutalist style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "conference",
+        "events",
+        "brutalist",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/conference-brutalist.html"
+    },
+    {
+      "id": "conference-midnight",
+      "title": "Tech Conference — Midnight",
+      "summary": "A premium, self-contained tech conference landing page in the Midnight style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "conference",
+        "events",
+        "midnight",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/conference-midnight.html"
+    },
+    {
+      "id": "conference-neon",
+      "title": "Tech Conference — Neon",
+      "summary": "A premium, self-contained tech conference landing page in the Neon style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "conference",
+        "events",
+        "neon",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/conference-neon.html"
+    },
+    {
+      "id": "travel-corporate",
+      "title": "Travel Agency — Corporate",
+      "summary": "A premium, self-contained travel agency landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "travel",
+        "business",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/travel-corporate.html"
+    },
+    {
+      "id": "travel-forest",
+      "title": "Travel Agency — Forest",
+      "summary": "A premium, self-contained travel agency landing page in the Forest style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "travel",
+        "business",
+        "forest",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/travel-forest.html"
+    },
+    {
+      "id": "travel-ocean",
+      "title": "Travel Agency — Ocean",
+      "summary": "A premium, self-contained travel agency landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "travel",
+        "business",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/travel-ocean.html"
+    },
+    {
+      "id": "travel-sunset",
+      "title": "Travel Agency — Sunset",
+      "summary": "A premium, self-contained travel agency landing page in the Sunset style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "business"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "travel",
+        "business",
+        "sunset",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/travel-sunset.html"
+    },
+    {
+      "id": "university-corporate",
+      "title": "University Program — Corporate",
+      "summary": "A premium, self-contained university program landing page in the Corporate style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "education"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "university",
+        "education",
+        "corporate",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/university-corporate.html"
+    },
+    {
+      "id": "university-forest",
+      "title": "University Program — Forest",
+      "summary": "A premium, self-contained university program landing page in the Forest style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "education"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "university",
+        "education",
+        "forest",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/university-forest.html"
+    },
+    {
+      "id": "university-ocean",
+      "title": "University Program — Ocean",
+      "summary": "A premium, self-contained university program landing page in the Ocean style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "education"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "university",
+        "education",
+        "ocean",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/university-ocean.html"
+    },
+    {
+      "id": "university-paper",
+      "title": "University Program — Paper",
+      "summary": "A premium, self-contained university program landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "education"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "university",
+        "education",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/university-paper.html"
+    },
+    {
       "id": "web2-glossy",
       "title": "Web 2.0 Glossy (2000s)",
       "summary": "A mid-2000s 'Web 2.0' homepage: glossy gradients, reflective buttons, a beta badge, and rounded boxes.",
@@ -2922,6 +6394,230 @@
       "era": "2000s",
       "difficulty": "intermediate",
       "path": "effects/website-templates/web2-glossy.html"
+    },
+    {
+      "id": "wedding-mono",
+      "title": "Wedding — Mono",
+      "summary": "A premium, self-contained wedding landing page in the Mono style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "wedding",
+        "events",
+        "mono",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/wedding-mono.html"
+    },
+    {
+      "id": "wedding-paper",
+      "title": "Wedding — Paper",
+      "summary": "A premium, self-contained wedding landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "wedding",
+        "events",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/wedding-paper.html"
+    },
+    {
+      "id": "wedding-pastel",
+      "title": "Wedding — Pastel",
+      "summary": "A premium, self-contained wedding landing page in the Pastel style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "wedding",
+        "events",
+        "pastel",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/wedding-pastel.html"
+    },
+    {
+      "id": "wedding-sunset",
+      "title": "Wedding — Sunset",
+      "summary": "A premium, self-contained wedding landing page in the Sunset style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "events"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "wedding",
+        "events",
+        "sunset",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/wedding-sunset.html"
+    },
+    {
+      "id": "yoga-forest",
+      "title": "Yoga Studio — Forest",
+      "summary": "A premium, self-contained yoga studio landing page in the Forest style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "yoga",
+        "health",
+        "forest",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/yoga-forest.html"
+    },
+    {
+      "id": "yoga-paper",
+      "title": "Yoga Studio — Paper",
+      "summary": "A premium, self-contained yoga studio landing page in the Paper style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "yoga",
+        "health",
+        "paper",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/yoga-paper.html"
+    },
+    {
+      "id": "yoga-pastel",
+      "title": "Yoga Studio — Pastel",
+      "summary": "A premium, self-contained yoga studio landing page in the Pastel style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "yoga",
+        "health",
+        "pastel",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/yoga-pastel.html"
+    },
+    {
+      "id": "yoga-sunset",
+      "title": "Yoga Studio — Sunset",
+      "summary": "A premium, self-contained yoga studio landing page in the Sunset style, with catalog effects (animated gradient, glass nav, scroll-reveal, card-lift, scroll-progress, gradient text) baked in.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "health"
+      ],
+      "tags": [
+        "template",
+        "full-page",
+        "yoga",
+        "health",
+        "sunset",
+        "responsive",
+        "effects"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/yoga-sunset.html"
     }
   ]
 }
