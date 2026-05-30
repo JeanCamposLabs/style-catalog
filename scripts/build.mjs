@@ -60,11 +60,18 @@ const banner =
 writeFileSync(jsPath, banner + "window.__CATALOG__ = " + JSON.stringify(catalog) + ";\n", "utf8");
 
 // Deploy build stamp (gitignored — see buildStamp() above).
+// Written twice: build.js (sync global for the badge) and build.json (polled by
+// the page's live-reload check to detect a new deploy).
 const stamp = buildStamp(catalog.version);
 writeFileSync(
   join(ROOT, "assets", "build.js"),
   "// GENERATED at build time — do not edit, do not commit.\n" +
     "window.__BUILD__ = " + JSON.stringify(stamp) + ";\n",
+  "utf8",
+);
+writeFileSync(
+  join(ROOT, "assets", "build.json"),
+  JSON.stringify(stamp) + "\n",
   "utf8",
 );
 

@@ -112,20 +112,61 @@
       var b = window.__BUILD__ || {};
       var cat = window.__CATALOG__ || {};
       var el = document.getElementById("version-badge");
-      if (!el) return;
-      var version = b.version || cat.version || "dev";
-      el.textContent = "v" + version;
-      if (b.build != null) {
-        el.title =
-          "build " + b.build +
-          (b.sha ? " · " + b.sha : "") +
-          (b.builtAt ? " · " + b.builtAt : "");
+      if (el) {
+        var version = b.version || cat.version || "dev";
+        el.textContent = "v" + version;
+        if (b.build != null) {
+          el.title =
+            "build " + b.build +
+            (b.sha ? " · " + b.sha : "") +
+            (b.builtAt ? " · " + b.builtAt : "");
+        }
+        if (b.repo && b.sha && b.sha !== "dev") {
+          el.href = "https://github.com/" + b.repo + "/commit/" + b.sha;
+        } else {
+          el.removeAttribute("href");
+        }
       }
-      if (b.repo && b.sha && b.sha !== "dev") {
-        el.href = "https://github.com/" + b.repo + "/commit/" + b.sha;
-      } else {
-        el.removeAttribute("href");
+
+      // ---- Live reload: notice a newer deploy and refresh automatically ----
+      // Polls a tiny build.json (cache-busted, so it reads the freshly deployed
+      // origin) and compares its build number to the one this page booted with.
+      var running = typeof b.build === "number" ? b.build : null;
+      if (running === null) return; // raw checkout / no stamp → nothing to do.
+
+      function showToast(msg) {
+        var t = document.createElement("div");
+        t.className = "update-toast";
+        t.setAttribute("role", "status");
+        t.textContent = msg;
+        document.body.appendChild(t);
+        requestAnimationFrame(function () { t.classList.add("is-in"); });
       }
+
+      function check() {
+        if (document.hidden) return;
+        fetch("assets/build.json?t=" + Date.now(), { cache: "no-store" })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (latest) {
+            if (!latest || typeof latest.build !== "number") return;
+            if (latest.build <= running) return;
+            // Reload at most once per detected build number → never loops even
+            // if the CDN is briefly slow to purge our cached document.
+            var tried = Number(sessionStorage.getItem("sc_reloaded_for") || 0);
+            if (latest.build <= tried) return;
+            sessionStorage.setItem("sc_reloaded_for", String(latest.build));
+            showToast("New version v" + latest.version + " deployed — refreshing…");
+            setTimeout(function () { location.reload(); }, 1600);
+          })
+          .catch(function () {});
+      }
+
+      setInterval(check, 30000);
+      document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) check();
+      });
+      // First check shortly after load (don't fire instantly on boot).
+      setTimeout(check, 8000);
     })();
   </script>
   <script src="assets/app.js"></script>
