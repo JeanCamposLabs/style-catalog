@@ -1,0 +1,55 @@
+{
+  "id": "ecommerce-product",
+  "title": "E-commerce Product Page",
+  "summary": "A product detail page: gallery, title/price, variant swatches, quantity, add-to-cart, and details.",
+  "description": "A clean two-column product page — image gallery with thumbnails on the left, buy box on the right (price, rating, color/size selectors, quantity stepper, add-to-cart), plus a details list. The core PDP layout.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "ecommerce",
+    "product"
+  ],
+  "tags": [
+    "ecommerce",
+    "product",
+    "pdp",
+    "shop",
+    "cart",
+    "full-page"
+  ],
+  "tech": [
+    "css",
+    "html"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (CSS Grid).",
+  "performance_notes": "Gradient placeholders for imagery; no JS. Wire variant selection / cart with your framework.",
+  "accessibility_notes": "Real <button>s and form controls, swatches are labeled radio-style buttons, price/rating in text, focus-visible rings. Add aria-pressed to selected swatches when made interactive.",
+  "customization": [
+    {
+      "name": "--accent",
+      "description": "Buy button / accents",
+      "default": "#111827 (or brand)"
+    },
+    {
+      "name": "content",
+      "description": "Product name, price, variants, copy, gallery images",
+      "default": "edit markup"
+    }
+  ],
+  "variations": [
+    "Sticky buy box on scroll",
+    "Add reviews + related products sections",
+    "Dark theme"
+  ],
+  "related": [
+    "image-zoom-reveal",
+    "card-lift"
+  ],
+  "ai_usage": "Use as a product detail page (PDP). Copy the document; replace the gallery images, title, price, rating, variant swatches/sizes, and details. The grid collapses to one column on mobile. Make swatches/quantity interactive in your framework and reflect selection with aria-pressed + the cart state; keep the buy box as real form controls. Replace gradient placeholders with real product <img>.",
+  "path": "effects/website-templates/ecommerce-product.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>E-commerce Product Page</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"ecommerce-product\",\n    \"title\": \"E-commerce Product Page\",\n    \"summary\": \"A product detail page: gallery, title/price, variant swatches, quantity, add-to-cart, and details.\",\n    \"description\": \"A clean two-column product page — image gallery with thumbnails on the left, buy box on the right (price, rating, color/size selectors, quantity stepper, add-to-cart), plus a details list. The core PDP layout.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"ecommerce\", \"product\"],\n    \"tags\": [\"ecommerce\", \"product\", \"pdp\", \"shop\", \"cart\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (CSS Grid).\",\n    \"performance_notes\": \"Gradient placeholders for imagery; no JS. Wire variant selection / cart with your framework.\",\n    \"accessibility_notes\": \"Real <button>s and form controls, swatches are labeled radio-style buttons, price/rating in text, focus-visible rings. Add aria-pressed to selected swatches when made interactive.\",\n    \"customization\": [\n      { \"name\": \"--accent\", \"description\": \"Buy button / accents\", \"default\": \"#111827 (or brand)\" },\n      { \"name\": \"content\", \"description\": \"Product name, price, variants, copy, gallery images\", \"default\": \"edit markup\" }\n    ],\n    \"variations\": [\"Sticky buy box on scroll\", \"Add reviews + related products sections\", \"Dark theme\"],\n    \"related\": [\"image-zoom-reveal\", \"card-lift\"],\n    \"ai_usage\": \"Use as a product detail page (PDP). Copy the document; replace the gallery images, title, price, rating, variant swatches/sizes, and details. The grid collapses to one column on mobile. Make swatches/quantity interactive in your framework and reflect selection with aria-pressed + the cart state; keep the buy box as real form controls. Replace gradient placeholders with real product <img>.\"\n  }\n  </script>\n  <style>\n    :root{--ink:#111827;--muted:#6b7280;--paper:#ffffff;--soft:#f4f4f6;--line:#e5e7eb;--accent:#111827;--star:#f59e0b;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,sans-serif;line-height:1.5;}\n    header{border-bottom:1px solid var(--line);}\n    .wrap{max-width:1040px;margin:0 auto;padding:0 1.3rem;}\n    .nav{display:flex;justify-content:space-between;align-items:center;height:60px;}\n    .brand{font-weight:800;} .nav .cart{background:var(--soft);border-radius:10px;padding:.4rem .8rem;font-size:.9rem;}\n    .pdp{display:grid;grid-template-columns:1.1fr 1fr;gap:2.4rem;padding:2rem 0 3rem;}\n    .gallery .main{aspect-ratio:1;border-radius:16px;background:linear-gradient(135deg,#a78bfa,#22d3ee);}\n    .gallery .thumbs{display:flex;gap:.6rem;margin-top:.7rem;}\n    .gallery .thumbs div{width:64px;height:64px;border-radius:10px;border:1px solid var(--line);}\n    .t1{background:linear-gradient(135deg,#a78bfa,#22d3ee);} .t2{background:linear-gradient(135deg,#fb7185,#fbbf24);}\n    .t3{background:linear-gradient(135deg,#34d399,#0ea5e9);} .t4{background:#e5e7eb;}\n    .buy h1{font-size:1.8rem;margin:.2rem 0;}\n    .rating{color:var(--star);font-size:.95rem;} .rating span{color:var(--muted);}\n    .price{font-size:2rem;font-weight:800;margin:.6rem 0 1rem;}\n    .label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:1rem 0 .4rem;}\n    .swatches{display:flex;gap:.5rem;} .swatch{width:32px;height:32px;border-radius:50%;border:2px solid var(--line);cursor:pointer;}\n    .swatch.sel{border-color:var(--ink);} .sw1{background:#111827;} .sw2{background:#5b3ee0;} .sw3{background:#0ea5a5;} .sw4{background:#e11d48;}\n    .sizes{display:flex;gap:.5rem;flex-wrap:wrap;} .size{border:1px solid var(--line);border-radius:8px;padding:.45rem .8rem;background:#fff;cursor:pointer;}\n    .size.sel{border-color:var(--ink);background:var(--ink);color:#fff;}\n    .row{display:flex;gap:.8rem;align-items:center;margin:1.4rem 0;}\n    .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;}\n    .qty button{border:none;background:none;font-size:1.2rem;width:38px;height:42px;cursor:pointer;}\n    .qty span{width:30px;text-align:center;}\n    .add{flex:1;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:.9rem;font-weight:700;font-size:1rem;cursor:pointer;}\n    .add:focus-visible,.size:focus-visible{outline:3px solid #5b3ee0;outline-offset:2px;}\n    .details{border-top:1px solid var(--line);margin-top:1.2rem;padding-top:1rem;color:var(--muted);font-size:.92rem;}\n    @media(max-width:720px){.pdp{grid-template-columns:1fr;}}\n  </style>\n</head>\n<body>\n  <header><div class=\"wrap nav\"><span class=\"brand\">⬢ Loomwear</span><span class=\"cart\">Cart · 2</span></div></header>\n  <main class=\"wrap\">\n    <div class=\"pdp\">\n      <section class=\"gallery\" aria-label=\"Product images\">\n        <div class=\"main\"></div>\n        <div class=\"thumbs\"><div class=\"t1\"></div><div class=\"t2\"></div><div class=\"t3\"></div><div class=\"t4\"></div></div>\n      </section>\n      <section class=\"buy\">\n        <div class=\"rating\">★★★★★ <span>(128 reviews)</span></div>\n        <h1>Merino Crew Sweater</h1>\n        <div class=\"price\">$148</div>\n        <p style=\"color:var(--muted);margin:0\">Ultrafine 19.5-micron merino. Temperature-regulating, machine washable, built to last.</p>\n        <div class=\"label\">Color</div>\n        <div class=\"swatches\"><button class=\"swatch sw1 sel\" aria-label=\"Black\"></button><button class=\"swatch sw2\" aria-label=\"Violet\"></button><button class=\"swatch sw3\" aria-label=\"Teal\"></button><button class=\"swatch sw4\" aria-label=\"Crimson\"></button></div>\n        <div class=\"label\">Size</div>\n        <div class=\"sizes\"><button class=\"size\">XS</button><button class=\"size sel\">S</button><button class=\"size\">M</button><button class=\"size\">L</button><button class=\"size\">XL</button></div>\n        <div class=\"row\">\n          <div class=\"qty\"><button aria-label=\"Decrease\">−</button><span>1</span><button aria-label=\"Increase\">+</button></div>\n          <button class=\"add\">Add to cart · $148</button>\n        </div>\n        <div class=\"details\">Free shipping over $75 · 30-day returns · Ships in 1–2 days</div>\n      </section>\n    </div>\n  </main>\n</body>\n</html>\n"
+}

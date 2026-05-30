@@ -1,0 +1,55 @@
+{
+  "id": "portfolio-minimal",
+  "title": "Minimal Portfolio",
+  "summary": "A clean personal/creative portfolio: intro header, selected-work grid, about, and contact.",
+  "description": "A light, typographic single-page portfolio scaffold — large intro statement, a responsive project grid with hover lift, a short about blurb, and a contact line. Editorial and restrained.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "portfolio",
+    "personal"
+  ],
+  "tags": [
+    "portfolio",
+    "personal",
+    "creative",
+    "minimal",
+    "grid",
+    "full-page"
+  ],
+  "tech": [
+    "css",
+    "html"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "No images or JS; gradient placeholders stand in for project thumbnails.",
+  "accessibility_notes": "Semantic structure, high-contrast light theme, focus-visible on links, project cards are real links.",
+  "customization": [
+    {
+      "name": "--ink / --paper / --accent",
+      "description": "Text, background, accent",
+      "default": "#16181d / #faf9f6 / #5b3ee0"
+    },
+    {
+      "name": "content",
+      "description": "Name, role, projects, about, email",
+      "default": "edit markup"
+    }
+  ],
+  "variations": [
+    "Dark editorial variant",
+    "Two-column about with photo",
+    "Add a filterable tag bar over the grid"
+  ],
+  "related": [
+    "image-zoom-reveal",
+    "card-lift"
+  ],
+  "ai_usage": "Use as a personal/creative portfolio scaffold. Copy the document, set the three color tokens, and replace the name/role, the project cards (title, category, link, and the placeholder thumbnail), the about paragraph, and the contact email. The project grid is auto-fit responsive. Keep it sparse — the design relies on whitespace and type scale. Swap placeholder gradients for real <img> with alt text.",
+  "path": "effects/website-templates/portfolio-minimal.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Minimal Portfolio</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"portfolio-minimal\",\n    \"title\": \"Minimal Portfolio\",\n    \"summary\": \"A clean personal/creative portfolio: intro header, selected-work grid, about, and contact.\",\n    \"description\": \"A light, typographic single-page portfolio scaffold — large intro statement, a responsive project grid with hover lift, a short about blurb, and a contact line. Editorial and restrained.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"portfolio\", \"personal\"],\n    \"tags\": [\"portfolio\", \"personal\", \"creative\", \"minimal\", \"grid\", \"full-page\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"No images or JS; gradient placeholders stand in for project thumbnails.\",\n    \"accessibility_notes\": \"Semantic structure, high-contrast light theme, focus-visible on links, project cards are real links.\",\n    \"customization\": [\n      { \"name\": \"--ink / --paper / --accent\", \"description\": \"Text, background, accent\", \"default\": \"#16181d / #faf9f6 / #5b3ee0\" },\n      { \"name\": \"content\", \"description\": \"Name, role, projects, about, email\", \"default\": \"edit markup\" }\n    ],\n    \"variations\": [\"Dark editorial variant\", \"Two-column about with photo\", \"Add a filterable tag bar over the grid\"],\n    \"related\": [\"image-zoom-reveal\", \"card-lift\"],\n    \"ai_usage\": \"Use as a personal/creative portfolio scaffold. Copy the document, set the three color tokens, and replace the name/role, the project cards (title, category, link, and the placeholder thumbnail), the about paragraph, and the contact email. The project grid is auto-fit responsive. Keep it sparse — the design relies on whitespace and type scale. Swap placeholder gradients for real <img> with alt text.\"\n  }\n  </script>\n  <style>\n    :root{--ink:#16181d;--paper:#faf9f6;--muted:#6b7280;--accent:#5b3ee0;--line:#e7e3da;}\n    *{box-sizing:border-box;} html,body{margin:0;}\n    body{background:var(--paper);color:var(--ink);font-family:Georgia,\"Times New Roman\",serif;line-height:1.6;}\n    .wrap{max-width:920px;margin:0 auto;padding:0 1.4rem;}\n    header{padding:3rem 0 1rem;display:flex;justify-content:space-between;align-items:baseline;font-family:system-ui,sans-serif;}\n    header .name{font-weight:800;} header nav a{color:var(--muted);text-decoration:none;margin-left:1.2rem;}\n    .intro{padding:2rem 0 3rem;} .intro h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.15;margin:0;max-width:16ch;}\n    .intro h1 em{color:var(--accent);font-style:italic;}\n    .intro p{color:var(--muted);font-family:system-ui,sans-serif;max-width:48ch;}\n    h2{font-family:system-ui,sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);padding-top:1.4rem;}\n    .work{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-bottom:2.5rem;}\n    .proj{text-decoration:none;color:inherit;transition:transform .25s ease;display:block;}\n    .proj:hover{transform:translateY(-6px);}\n    .proj .thumb{aspect-ratio:4/3;border-radius:12px;margin-bottom:.7rem;}\n    .proj h3{margin:0;font-size:1.2rem;} .proj span{font-family:system-ui,sans-serif;color:var(--muted);font-size:.85rem;}\n    .p1{background:linear-gradient(135deg,#5b3ee0,#9b8cff);} .p2{background:linear-gradient(135deg,#0ea5a5,#5eead4);}\n    .p3{background:linear-gradient(135deg,#e11d48,#fb7185);} .p4{background:linear-gradient(135deg,#d97706,#fbbf24);}\n    .about{max-width:60ch;font-size:1.15rem;margin-bottom:2.5rem;}\n    footer{font-family:system-ui,sans-serif;border-top:1px solid var(--line);padding:1.6rem 0 3rem;color:var(--muted);}\n    footer a{color:var(--accent);}\n    @media(prefers-reduced-motion:reduce){.proj{transition:none;}}\n  </style>\n</head>\n<body>\n  <div class=\"wrap\">\n    <header><span class=\"name\">Ava Mercer</span><nav><a href=\"#work\">Work</a><a href=\"#about\">About</a><a href=\"#contact\">Contact</a></nav></header>\n    <section class=\"intro\">\n      <h1>Designer &amp; developer crafting <em>calm, useful</em> interfaces.</h1>\n      <p>Independent product designer based in Lisbon. Currently helping early-stage teams find their shape.</p>\n    </section>\n\n    <h2 id=\"work\">Selected work</h2>\n    <section class=\"work\">\n      <a class=\"proj\" href=\"#\"><div class=\"thumb p1\"></div><h3>Aurora</h3><span>Brand · Product · 2026</span></a>\n      <a class=\"proj\" href=\"#\"><div class=\"thumb p2\"></div><h3>Tidepool</h3><span>Web app · 2025</span></a>\n      <a class=\"proj\" href=\"#\"><div class=\"thumb p3\"></div><h3>Ember</h3><span>Identity · 2025</span></a>\n      <a class=\"proj\" href=\"#\"><div class=\"thumb p4\"></div><h3>Field Notes</h3><span>Editorial · 2024</span></a>\n    </section>\n\n    <h2 id=\"about\">About</h2>\n    <p class=\"about\">I’ve spent ten years turning fuzzy ideas into shipped products — from zero-to-one prototypes to design systems used by millions. I care about clarity, performance, and the details nobody notices but everybody feels.</p>\n\n    <footer id=\"contact\">Let’s build something — <a href=\"mailto:hello@example.com\">hello@example.com</a> · @avamercer</footer>\n  </div>\n</body>\n</html>\n"
+}

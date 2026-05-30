@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "counts": {
-    "themes": 21,
-    "effects": 102
+    "themes": 22,
+    "effects": 111
   },
   "effectEndpoint": "api/effects/{id}.json",
   "effects": [
@@ -2674,6 +2674,254 @@
       "era": "timeless",
       "difficulty": "beginner",
       "path": "effects/typography-systems/readable-measure.html"
+    },
+    {
+      "id": "retro-90s-homepage",
+      "title": "90s GeoCities Homepage",
+      "summary": "A loving 1990s personal homepage: starry tiled background, marquee, visitor counter, webring, and 'under construction'.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "retro",
+        "personal"
+      ],
+      "tags": [
+        "90s",
+        "geocities",
+        "retro",
+        "marquee",
+        "visitor-counter",
+        "webring",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "1990s",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/retro-90s-homepage.html"
+    },
+    {
+      "id": "admin-dashboard",
+      "title": "Admin Dashboard",
+      "summary": "An app shell: fixed sidebar nav, topbar, KPI stat cards, a pure-CSS bar chart, and a data table.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "dashboard",
+        "app"
+      ],
+      "tags": [
+        "dashboard",
+        "admin",
+        "app-shell",
+        "sidebar",
+        "table",
+        "kpi",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/admin-dashboard.html"
+    },
+    {
+      "id": "blog-article",
+      "title": "Blog Article",
+      "summary": "A readable long-form article layout: title, byline, cover, prose with a constrained measure, and a footer.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "blog",
+        "editorial"
+      ],
+      "tags": [
+        "blog",
+        "article",
+        "long-form",
+        "reading",
+        "typography",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/blog-article.html"
+    },
+    {
+      "id": "coming-soon",
+      "title": "Coming Soon / Waitlist",
+      "summary": "A centered pre-launch page with a live countdown and an email capture form over an animated gradient.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "landing",
+        "pre-launch"
+      ],
+      "tags": [
+        "coming-soon",
+        "waitlist",
+        "countdown",
+        "launch",
+        "email-capture",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "js",
+        "html"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/coming-soon.html"
+    },
+    {
+      "id": "ecommerce-product",
+      "title": "E-commerce Product Page",
+      "summary": "A product detail page: gallery, title/price, variant swatches, quantity, add-to-cart, and details.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "ecommerce",
+        "product"
+      ],
+      "tags": [
+        "ecommerce",
+        "product",
+        "pdp",
+        "shop",
+        "cart",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/ecommerce-product.html"
+    },
+    {
+      "id": "portfolio-minimal",
+      "title": "Minimal Portfolio",
+      "summary": "A clean personal/creative portfolio: intro header, selected-work grid, about, and contact.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "portfolio",
+        "personal"
+      ],
+      "tags": [
+        "portfolio",
+        "personal",
+        "creative",
+        "minimal",
+        "grid",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/portfolio-minimal.html"
+    },
+    {
+      "id": "neubrutalist-landing",
+      "title": "Neubrutalist Landing",
+      "summary": "A bold neubrutalist landing: thick black borders, hard offset shadows, clashing flat colors, chunky type.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "landing",
+        "brutalist"
+      ],
+      "tags": [
+        "neubrutalism",
+        "brutalist",
+        "bold",
+        "hard-shadow",
+        "flat",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/neubrutalist-landing.html"
+    },
+    {
+      "id": "saas-landing",
+      "title": "SaaS Landing Page",
+      "summary": "A complete modern SaaS landing: sticky nav, gradient hero, logo strip, bento features, pricing, and footer.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "landing",
+        "marketing"
+      ],
+      "tags": [
+        "saas",
+        "landing-page",
+        "marketing",
+        "hero",
+        "pricing",
+        "bento",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/saas-landing.html"
+    },
+    {
+      "id": "web2-glossy",
+      "title": "Web 2.0 Glossy (2000s)",
+      "summary": "A mid-2000s 'Web 2.0' homepage: glossy gradients, reflective buttons, a beta badge, and rounded boxes.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "retro",
+        "landing"
+      ],
+      "tags": [
+        "web2.0",
+        "2000s",
+        "glossy",
+        "reflective",
+        "beta-badge",
+        "skeuomorphic",
+        "full-page"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "2000s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/web2-glossy.html"
     }
   ]
 }

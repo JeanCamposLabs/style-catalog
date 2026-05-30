@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "admin-dashboard",
+    "title": "Admin Dashboard",
+    "summary": "An app shell: fixed sidebar nav, topbar, KPI stat cards, a pure-CSS bar chart, and a data table.",
+    "description": "A static dashboard scaffold using the holy-grail grid (sidebar + topbar + content). Includes KPI cards, a CSS-only bar chart placeholder, and a responsive table — the skeleton for an internal tool or SaaS app.",
+    "theme": "website-templates",
+    "categories": ["template", "dashboard", "app"],
+    "tags": ["dashboard", "admin", "app-shell", "sidebar", "table", "kpi", "full-page"],
+    "tech": ["css", "html"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (CSS Grid).",
+    "performance_notes": "No JS or chart library; the bar chart is CSS heights. Swap in a real chart lib when wiring live data.",
+    "accessibility_notes": "Landmarks (aside/nav/header/main), a real <table> with <th scope>, focus-visible on nav items. Charts need text alternatives when populated with real data.",
+    "customization": [
+      { "name": "--accent / surfaces", "description": "Brand + panel colors", "default": "#7c5cff / dark" },
+      { "name": "grid-template-columns", "description": "Sidebar width", "default": "230px 1fr" }
+    ],
+    "variations": ["Collapsible sidebar (toggle a class)", "Light theme", "Replace the CSS chart with a real charting lib"],
+    "related": ["holy-grail", "card-lift", "skeleton-loader"],
+    "ai_usage": "Use as the shell for internal tools / SaaS apps. Copy the document; the layout is a CSS grid (sidebar + topbar + main). Replace nav items, KPI numbers, the bar-chart values (set each bar's height), and the table rows. Wire real data by swapping the static table/chart for components, keeping the grid and tokens. Keep the <table> semantics and add aria labels to charts when populated."
+  }
+  </script>
+  <style>
+    :root{--bg:#0b0d12;--panel:#11141c;--panel2:#151925;--line:#222838;--text:#e7ebf3;--muted:#8b93a7;--accent:#7c5cff;--accent2:#2dd4bf;}
+    *{box-sizing:border-box;} html,body{margin:0;height:100%;}
+    body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;}
+    .app{display:grid;grid-template-columns:220px 1fr;grid-template-rows:56px 1fr;grid-template-areas:"side top" "side main";height:100vh;}
+    aside{grid-area:side;background:var(--panel);border-right:1px solid var(--line);padding:1rem;}
+    .logo{font-weight:800;margin-bottom:1.4rem;} .logo span{color:var(--accent2);}
+    nav a{display:block;padding:.55rem .7rem;border-radius:8px;color:var(--muted);text-decoration:none;margin-bottom:.2rem;font-size:.92rem;}
+    nav a.active,nav a:hover{background:var(--panel2);color:var(--text);}
+    header{grid-area:top;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem;border-bottom:1px solid var(--line);background:var(--panel);}
+    header .search{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:.4rem .8rem;color:var(--muted);font-size:.85rem;width:220px;}
+    .avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));}
+    main{grid-area:main;overflow:auto;padding:1.4rem;}
+    .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:1.4rem;}
+    .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;}
+    .kpi .label{color:var(--muted);font-size:.8rem;} .kpi .num{font-size:1.8rem;font-weight:800;margin:.2rem 0;}
+    .kpi .delta{color:var(--accent2);font-size:.8rem;}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.2rem;margin-bottom:1.4rem;}
+    .panel h3{margin:0 0 1rem;font-size:1rem;}
+    .chart{display:flex;align-items:flex-end;gap:10px;height:140px;}
+    .chart .bar{flex:1;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:6px 6px 0 0;}
+    table{width:100%;border-collapse:collapse;font-size:.9rem;}
+    th,td{text-align:left;padding:.6rem .5rem;border-bottom:1px solid var(--line);}
+    th{color:var(--muted);font-weight:600;font-size:.8rem;}
+    .pill{padding:.15rem .55rem;border-radius:999px;font-size:.75rem;}
+    .ok{background:rgba(34,197,94,.15);color:#4ade80;} .pend{background:rgba(245,158,11,.15);color:#fbbf24;}
+    @media(max-width:680px){.app{grid-template-columns:1fr;grid-template-areas:"top" "main";}aside{display:none;}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <div class="logo">◆ <span>Console</span></div>
+      <nav><a class="active" href="#">Overview</a><a href="#">Customers</a><a href="#">Revenue</a><a href="#">Reports</a><a href="#">Settings</a></nav>
+    </aside>
+    <header><input class="search" placeholder="Search…" /><div class="avatar"></div></header>
+    <main>
+      <div class="kpis">
+        <div class="kpi"><div class="label">MRR</div><div class="num">$48.2k</div><div class="delta">▲ 12.4%</div></div>
+        <div class="kpi"><div class="label">Active users</div><div class="num">9,341</div><div class="delta">▲ 4.1%</div></div>
+        <div class="kpi"><div class="label">Churn</div><div class="num">1.8%</div><div class="delta">▼ 0.3%</div></div>
+        <div class="kpi"><div class="label">NPS</div><div class="num">62</div><div class="delta">▲ 5</div></div>
+      </div>
+      <div class="panel"><h3>Revenue (last 12 weeks)</h3>
+        <div class="chart">
+          <div class="bar" style="height:40%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:48%"></div>
+          <div class="bar" style="height:70%"></div><div class="bar" style="height:62%"></div><div class="bar" style="height:80%"></div>
+          <div class="bar" style="height:75%"></div><div class="bar" style="height:90%"></div><div class="bar" style="height:84%"></div>
+          <div class="bar" style="height:96%"></div><div class="bar" style="height:88%"></div><div class="bar" style="height:100%"></div>
+        </div>
+      </div>
+      <div class="panel"><h3>Recent orders</h3>
+        <table>
+          <thead><tr><th scope="col">Order</th><th scope="col">Customer</th><th scope="col">Amount</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><td>#10241</td><td>Acme Co.</td><td>$1,200</td><td><span class="pill ok">Paid</span></td></tr>
+            <tr><td>#10240</td><td>Globex</td><td>$840</td><td><span class="pill pend">Pending</span></td></tr>
+            <tr><td>#10239</td><td>Initech</td><td>$2,310</td><td><span class="pill ok">Paid</span></td></tr>
+            <tr><td>#10238</td><td>Hooli</td><td>$560</td><td><span class="pill ok">Paid</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
