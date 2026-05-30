@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Line Draw</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-line-draw",
+    "title": "SVG Line Draw",
+    "summary": "A path that draws itself on, like a pen tracing a signature or logo.",
+    "description": "Sets stroke-dasharray and stroke-dashoffset to the path length, then animates the offset to 0 with CSS so the stroke appears to be drawn. The canonical SVG entrance for logos, signatures, and line icons.",
+    "theme": "svg-effects",
+    "categories": ["svg", "animation", "stroke"],
+    "tags": ["svg", "line-draw", "stroke-dashoffset", "signature", "logo", "draw-on"],
+    "tech": ["svg", "css"],
+    "era": "2010s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Animating stroke-dashoffset is GPU-friendly. Set the dasharray/offset to the path's total length (pathLength attribute lets you use a round number like 100).",
+    "accessibility_notes": "Decorative; give the SVG role=img + a title/aria-label if it conveys meaning. Animation is disabled under prefers-reduced-motion (path shown complete).",
+    "customization": [
+      { "name": "pathLength", "description": "Normalizes length so dasharray can be 100", "default": "100" },
+      { "name": "--dur", "description": "Draw duration", "default": "2.5s" }
+    ],
+    "variations": ["Stagger multiple paths to draw in sequence", "Fill the shape in after the stroke completes", "Loop by alternating the offset"],
+    "related": ["svg-animated-checkmark", "typewriter-text"],
+    "ai_usage": "Use for logo/signature reveals and line-icon entrances. Add pathLength='100' to each path so you can set stroke-dasharray:100 and animate stroke-dashoffset from 100 to 0 in CSS. Multiple paths: give each an animation-delay to draw in order. To 'ink in' a filled logo, fade fill from transparent to solid after the stroke finishes. Gate with prefers-reduced-motion (show offset:0)."
+  }
+  </script>
+  <style>
+    :root { --dur: 2.5s; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; }
+    .draw path { stroke: #7c5cff; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 100; stroke-dashoffset: 100; animation: draw var(--dur) ease forwards infinite; }
+    .draw path:nth-child(2) { stroke: #2dd4bf; animation-delay: .4s; }
+    .draw path:nth-child(3) { stroke: #f0abfc; animation-delay: .8s; }
+    @keyframes draw { 0% { stroke-dashoffset: 100; } 70%, 100% { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .draw path { animation: none; stroke-dashoffset: 0; } }
+  </style>
+</head>
+<body>
+  <svg class="draw" width="220" height="160" viewBox="0 0 220 160" role="img" aria-label="Drawing line art">
+    <path pathLength="100" d="M20,120 C40,40 80,40 100,120 S160,40 200,120" />
+    <path pathLength="100" d="M20,80 H200" />
+    <path pathLength="100" d="M110,20 V140" />
+  </svg>
+</body>
+</html>

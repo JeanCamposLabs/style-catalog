@@ -1,0 +1,55 @@
+{
+  "id": "follow-dot-cursor",
+  "title": "Following Dot & Ring Cursor",
+  "summary": "A custom cursor: a precise dot plus a larger ring that lags behind with easing.",
+  "description": "Hides the native cursor and renders two elements — a dot that snaps to the pointer and a ring that eases toward it via a rAF lerp — the signature 'agency' custom cursor.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "pointer",
+    "interaction"
+  ],
+  "tags": [
+    "cursor",
+    "custom-cursor",
+    "follow",
+    "ring",
+    "lerp",
+    "agency"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "Pointer devices only; on touch there is no cursor (gracefully no-ops). All modern browsers.",
+  "performance_notes": "One rAF loop updating transforms; cheap. Use transform (not top/left) for smoothness.",
+  "accessibility_notes": "Never hide the cursor on critical UI without a clear, large custom replacement. Respect prefers-reduced-motion (drop the lag/ease). Ensure focus styles remain for keyboard users.",
+  "customization": [
+    {
+      "name": "--dot / --ring",
+      "description": "Colors",
+      "default": "#fff / #7c5cff"
+    },
+    {
+      "name": "ease",
+      "description": "Ring lag factor (0-1)",
+      "default": "0.18"
+    }
+  ],
+  "variations": [
+    "Grow the ring on hovering links",
+    "Invert colors over images (mix-blend-mode: difference)",
+    "Magnetic ring that snaps to buttons"
+  ],
+  "related": [
+    "spotlight-cursor",
+    "magnetic-button"
+  ],
+  "ai_usage": "Expressive marketing sites. Render a fixed dot and ring; on pointermove store target x/y; in a rAF loop snap the dot and lerp the ring (current += (target-current)*ease). Use transform: translate3d for compositing. Add cursor:none on the body but KEEP it usable: enlarge the ring on interactive elements and never hide cursor on forms. Skip the lag under reduced motion. No-op on touch.",
+  "path": "effects/cursors-pointers/follow-dot-cursor.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Following Dot &amp; Ring Cursor</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"follow-dot-cursor\",\n    \"title\": \"Following Dot & Ring Cursor\",\n    \"summary\": \"A custom cursor: a precise dot plus a larger ring that lags behind with easing.\",\n    \"description\": \"Hides the native cursor and renders two elements — a dot that snaps to the pointer and a ring that eases toward it via a rAF lerp — the signature 'agency' custom cursor.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\", \"interaction\"],\n    \"tags\": [\"cursor\", \"custom-cursor\", \"follow\", \"ring\", \"lerp\", \"agency\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"Pointer devices only; on touch there is no cursor (gracefully no-ops). All modern browsers.\",\n    \"performance_notes\": \"One rAF loop updating transforms; cheap. Use transform (not top/left) for smoothness.\",\n    \"accessibility_notes\": \"Never hide the cursor on critical UI without a clear, large custom replacement. Respect prefers-reduced-motion (drop the lag/ease). Ensure focus styles remain for keyboard users.\",\n    \"customization\": [\n      { \"name\": \"--dot / --ring\", \"description\": \"Colors\", \"default\": \"#fff / #7c5cff\" },\n      { \"name\": \"ease\", \"description\": \"Ring lag factor (0-1)\", \"default\": \"0.18\" }\n    ],\n    \"variations\": [\"Grow the ring on hovering links\", \"Invert colors over images (mix-blend-mode: difference)\", \"Magnetic ring that snaps to buttons\"],\n    \"related\": [\"spotlight-cursor\", \"magnetic-button\"],\n    \"ai_usage\": \"Expressive marketing sites. Render a fixed dot and ring; on pointermove store target x/y; in a rAF loop snap the dot and lerp the ring (current += (target-current)*ease). Use transform: translate3d for compositing. Add cursor:none on the body but KEEP it usable: enlarge the ring on interactive elements and never hide cursor on forms. Skip the lag under reduced motion. No-op on touch.\"\n  }\n  </script>\n  <style>\n    :root { --dot: #fff; --ring: #7c5cff; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #8b93a7; font-family: system-ui, sans-serif; cursor: none; }\n    .hint { pointer-events: none; }\n    .cur-dot, .cur-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; transform: translate(-50%,-50%); z-index: 50; }\n    .cur-dot { width: 8px; height: 8px; background: var(--dot); }\n    .cur-ring { width: 38px; height: 38px; border: 2px solid var(--ring); }\n  </style>\n</head>\n<body>\n  <p class=\"hint\">Move your cursor</p>\n  <div class=\"cur-ring\" id=\"ring\"></div>\n  <div class=\"cur-dot\" id=\"dot\"></div>\n  <script>\n    var dot = document.getElementById(\"dot\"), ring = document.getElementById(\"ring\");\n    var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;\n    var reduce = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    addEventListener(\"pointermove\", function (e) { mx = e.clientX; my = e.clientY; });\n    function frame() {\n      dot.style.transform = \"translate(\" + mx + \"px,\" + my + \"px) translate(-50%,-50%)\";\n      var ease = reduce ? 1 : 0.18;\n      rx += (mx - rx) * ease; ry += (my - ry) * ease;\n      ring.style.transform = \"translate(\" + rx + \"px,\" + ry + \"px) translate(-50%,-50%)\";\n      requestAnimationFrame(frame);\n    }\n    frame();\n  </script>\n</body>\n</html>\n"
+}

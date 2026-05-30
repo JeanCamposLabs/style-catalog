@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Card (composed)</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "login-card",
+    "title": "Login Card (composed)",
+    "summary": "A frosted glass auth card with floating-label inputs and a gradient submit button.",
+    "description": "Composes glassmorphism + floating-label inputs + a gradient CTA over an aurora background — a complete, accessible sign-in panel.",
+    "theme": "combos-recipes",
+    "categories": ["recipe", "form", "auth"],
+    "tags": ["login", "form", "glass", "floating-label", "auth", "composition"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers. The floating label uses :placeholder-shown + :focus.",
+    "performance_notes": "Static; trivial.",
+    "accessibility_notes": "Real <label> bound to each <input>; the label stays a real label (not placeholder-only), so screen readers announce fields. Inputs have visible focus styles and the button has a focus ring.",
+    "customization": [
+      { "name": "--accent / --accent-2", "description": "Brand gradient", "default": "#7c5cff / #2dd4bf" }
+    ],
+    "variations": ["Add a 'Remember me' toggle (see toggle-switch)", "Social sign-in buttons row", "Inline validation with the shake effect on error"],
+    "related": ["glassmorphism-card", "floating-label-input", "gradient-border-button", "shake-attention"],
+    "ai_usage": "Drop-in sign-in panel. Each field wraps a real <label> + <input placeholder=' '>; the label is absolutely positioned and floats up via :focus / :not(:placeholder-shown). Keep the <label> as an actual label element (a11y) — do not replace it with a placeholder. Submit is a gradient button. Combine with the shake-attention effect on validation failure and an aria-live error region."
+  }
+  </script>
+  <style>
+    :root { --accent: #7c5cff; --accent-2: #2dd4bf; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; font-family: system-ui, sans-serif;
+      background: radial-gradient(60vmax 60vmax at 20% 20%, #7c5cff55, transparent), radial-gradient(60vmax 60vmax at 80% 80%, #2dd4bf55, transparent), #06060c; }
+    .login {
+      width: 320px; padding: 2rem; border-radius: 20px; color: #fff;
+      background: rgba(255,255,255,.07); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.2); box-shadow: 0 20px 50px rgba(0,0,0,.4);
+    }
+    .login h2 { margin: 0 0 1.4rem; }
+    .field { position: relative; margin-bottom: 1.3rem; }
+    .field input {
+      width: 100%; padding: .9rem .8rem .5rem; background: rgba(0,0,0,.2); color: #fff;
+      border: 1px solid rgba(255,255,255,.25); border-radius: 10px; font-size: 1rem; outline: none;
+    }
+    .field input:focus { border-color: var(--accent-2); }
+    .field label {
+      position: absolute; left: .8rem; top: .8rem; color: #b7bdcc; pointer-events: none; transition: .2s; font-size: 1rem;
+    }
+    .field input:focus + label, .field input:not(:placeholder-shown) + label {
+      top: .2rem; font-size: .7rem; color: var(--accent-2);
+    }
+    .submit { width: 100%; border: none; cursor: pointer; color: #fff; font-weight: 700; font-size: 1rem;
+      padding: .85rem; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+    .submit:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { .field label { transition: none; } }
+  </style>
+</head>
+<body>
+  <form class="login" onsubmit="return false">
+    <h2>Welcome back</h2>
+    <div class="field">
+      <input id="email" type="email" placeholder=" " />
+      <label for="email">Email</label>
+    </div>
+    <div class="field">
+      <input id="pw" type="password" placeholder=" " />
+      <label for="pw">Password</label>
+    </div>
+    <button class="submit">Sign in</button>
+  </form>
+</body>
+</html>

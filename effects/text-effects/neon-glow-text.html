@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Glow Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neon-glow-text",
+    "title": "Neon Glow Text",
+    "summary": "Glowing neon-sign lettering built from layered text-shadows with a soft flicker.",
+    "description": "Stacks several increasingly-blurred text-shadows in the brand color to fake the bloom of a gas neon tube, plus an optional flicker animation.",
+    "theme": "text-effects",
+    "categories": ["typography", "glow"],
+    "tags": ["neon", "text-shadow", "glow", "retro", "cyberpunk", "80s"],
+    "tech": ["css"],
+    "era": "2010s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers; text-shadow is universally supported.",
+    "performance_notes": "Multiple text-shadows are cheap. The flicker animates opacity/text-shadow on a single element — negligible cost.",
+    "accessibility_notes": "Ensure sufficient contrast against the dark background. The flicker is disabled under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--neon", "description": "Core neon color", "default": "#0ff" },
+      { "name": "--neon-text", "description": "Letter fill color", "default": "#fff" }
+    ],
+    "variations": ["Swap --neon per word for multi-color signage", "Remove the flicker for a steady tube", "Add a CSS @property hue rotation"],
+    "related": ["gradient-text", "shimmer-text"],
+    "ai_usage": "Use for hero headings, logos, or playful CTAs with a retro/cyberpunk vibe on dark backgrounds. Apply the .neon class to any inline text element. Tune --neon for the tube color and keep the background dark for the glow to read. The glow is purely text-shadow, so it scales with font-size automatically. Always keep the prefers-reduced-motion guard if you keep the flicker."
+  }
+  </script>
+  <style>
+    :root { --neon: #0ff; --neon-text: #fff; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      display: grid; place-items: center;
+      background: radial-gradient(circle at 50% 40%, #1a1030, #05030a 70%);
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+    .neon {
+      font-size: 4rem; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--neon-text);
+      text-shadow:
+        0 0 4px var(--neon-text),
+        0 0 11px var(--neon),
+        0 0 22px var(--neon),
+        0 0 40px var(--neon),
+        0 0 75px var(--neon);
+      animation: flicker 4.5s infinite;
+    }
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+      20%, 24%, 55% { opacity: 0.55; }
+    }
+    @media (prefers-reduced-motion: reduce) { .neon { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="neon">NEON</div>
+</body>
+</html>

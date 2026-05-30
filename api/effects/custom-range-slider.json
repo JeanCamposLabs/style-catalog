@@ -1,0 +1,55 @@
+{
+  "id": "custom-range-slider",
+  "title": "Custom Range Slider",
+  "summary": "A styled range input with a gradient-filled track that follows the thumb.",
+  "description": "Styles the native <input type=range> thumb and track cross-browser, and uses a CSS variable updated on input to paint the filled portion of the track up to the current value.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "slider",
+    "control"
+  ],
+  "tags": [
+    "range",
+    "slider",
+    "input",
+    "fill",
+    "thumb",
+    "accessible"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers; thumb/track styling needs ::-webkit-slider-thumb and ::-moz-range-thumb.",
+  "performance_notes": "Updates one CSS var on input; trivial.",
+  "accessibility_notes": "Built on a real <input type=range>, so it is keyboard-operable (arrows) and announces value. Provide a <label> and aria-valuetext if the raw number needs units/context.",
+  "customization": [
+    {
+      "name": "--accent",
+      "description": "Filled track + thumb color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--track",
+      "description": "Empty track color",
+      "default": "#2a3142"
+    }
+  ],
+  "variations": [
+    "Show a value tooltip above the thumb",
+    "Stepped/ticked slider",
+    "Dual-thumb range (needs two inputs)"
+  ],
+  "related": [
+    "before-after-slider",
+    "toggle-switch"
+  ],
+  "ai_usage": "Use for volume, price, opacity, etc. Keep the native <input type=range> for accessibility; style ::-webkit-slider-thumb and ::-moz-range-thumb plus the track. For the filled portion, set a --fill percentage from JS on 'input' (value normalized to 0-100%) and paint the track with a linear-gradient hard-stop at --fill. Always pair with a <label>.",
+  "path": "effects/forms-inputs/custom-range-slider.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Custom Range Slider</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"custom-range-slider\",\n    \"title\": \"Custom Range Slider\",\n    \"summary\": \"A styled range input with a gradient-filled track that follows the thumb.\",\n    \"description\": \"Styles the native <input type=range> thumb and track cross-browser, and uses a CSS variable updated on input to paint the filled portion of the track up to the current value.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"slider\", \"control\"],\n    \"tags\": [\"range\", \"slider\", \"input\", \"fill\", \"thumb\", \"accessible\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; thumb/track styling needs ::-webkit-slider-thumb and ::-moz-range-thumb.\",\n    \"performance_notes\": \"Updates one CSS var on input; trivial.\",\n    \"accessibility_notes\": \"Built on a real <input type=range>, so it is keyboard-operable (arrows) and announces value. Provide a <label> and aria-valuetext if the raw number needs units/context.\",\n    \"customization\": [\n      { \"name\": \"--accent\", \"description\": \"Filled track + thumb color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--track\", \"description\": \"Empty track color\", \"default\": \"#2a3142\" }\n    ],\n    \"variations\": [\"Show a value tooltip above the thumb\", \"Stepped/ticked slider\", \"Dual-thumb range (needs two inputs)\"],\n    \"related\": [\"before-after-slider\", \"toggle-switch\"],\n    \"ai_usage\": \"Use for volume, price, opacity, etc. Keep the native <input type=range> for accessibility; style ::-webkit-slider-thumb and ::-moz-range-thumb plus the track. For the filled portion, set a --fill percentage from JS on 'input' (value normalized to 0-100%) and paint the track with a linear-gradient hard-stop at --fill. Always pair with a <label>.\"\n  }\n  </script>\n  <style>\n    :root { --accent: #7c5cff; --track: #2a3142; --fill: 50%; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .range {\n      -webkit-appearance: none; appearance: none; width: 280px; height: 8px; border-radius: 999px; outline: none;\n      background: linear-gradient(90deg, var(--accent) var(--fill), var(--track) var(--fill));\n    }\n    .range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%;\n      background: #fff; border: 3px solid var(--accent); cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.5); }\n    .range::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 3px solid var(--accent); cursor: pointer; }\n    .range:focus-visible { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 35%, transparent); }\n  </style>\n</head>\n<body>\n  <input class=\"range\" type=\"range\" min=\"0\" max=\"100\" value=\"50\" aria-label=\"Volume\" id=\"r\" />\n  <script>\n    var r = document.getElementById(\"r\");\n    function paint() { r.style.setProperty(\"--fill\", ((r.value - r.min) / (r.max - r.min) * 100) + \"%\"); }\n    r.addEventListener(\"input\", paint); paint();\n  </script>\n</body>\n</html>\n"
+}

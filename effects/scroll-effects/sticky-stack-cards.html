@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sticky Stacking Cards</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "sticky-stack-cards",
+    "title": "Sticky Stacking Cards",
+    "summary": "Cards stick to the top and stack on one another as you scroll past them.",
+    "description": "Each card uses position: sticky with the same top offset so successive cards pin and overlap, building a layered stack — a trendy storytelling/section pattern requiring no JS.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "sticky", "layout"],
+    "tags": ["sticky", "stack", "scroll", "cards", "pin", "storytelling"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (position: sticky).",
+    "performance_notes": "Pure layout/paint; very efficient, no scroll JS.",
+    "accessibility_notes": "Content remains in natural reading order; safe under reduced-motion (no autonomous animation).",
+    "customization": [
+      { "name": "top offset", "description": "Where cards pin", "default": "20px" },
+      { "name": "card height", "description": "Determines overlap", "default": "auto" }
+    ],
+    "variations": ["Scale/rotate each card slightly as it stacks (scroll-driven)", "Offset top per card for a fanned stack", "Horizontal sticky stack"],
+    "related": ["scroll-progress-bar", "parallax-layers"],
+    "ai_usage": "Use for feature walkthroughs and editorial sections. Give each card position:sticky; top:<offset>; the cards naturally pin and overlap as you scroll. Add a slight scale-down via scroll-driven animation for the 'deck' feel. Ensure enough scroll distance between cards. The demo auto-scrolls to show the stacking in the catalog frame."
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; font-family: system-ui, sans-serif; }
+    .stack { height: 100vh; overflow-y: auto; padding: 1rem; }
+    .scard {
+      position: sticky; top: 16px; height: 150px; margin-bottom: 26px; border-radius: 16px;
+      display: grid; place-items: center; color: #fff; font-size: 1.4rem; font-weight: 800;
+      box-shadow: 0 12px 30px rgba(0,0,0,.4);
+    }
+    .scard:nth-child(1) { background: linear-gradient(135deg,#7c5cff,#5b3ee0); }
+    .scard:nth-child(2) { background: linear-gradient(135deg,#2dd4bf,#0ea5a5); }
+    .scard:nth-child(3) { background: linear-gradient(135deg,#f0abfc,#c026d3); }
+    .scard:nth-child(4) { background: linear-gradient(135deg,#fb7185,#e11d48); }
+    .tail { height: 60vh; }
+  </style>
+</head>
+<body>
+  <div class="stack" id="stack">
+    <div class="scard">Card 1</div>
+    <div class="scard">Card 2</div>
+    <div class="scard">Card 3</div>
+    <div class="scard">Card 4</div>
+    <div class="tail"></div>
+  </div>
+  <script>
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      var s = document.getElementById("stack"), dir = 1;
+      setInterval(function () {
+        s.scrollTop += dir * 2;
+        if (s.scrollTop + s.clientHeight >= s.scrollHeight - 2) dir = -1;
+        if (s.scrollTop <= 0) dir = 1;
+      }, 16);
+    }
+  </script>
+</body>
+</html>

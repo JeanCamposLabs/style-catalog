@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Path Morph</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-path-morph",
+    "title": "SVG Path Morph",
+    "summary": "One shape smoothly morphs into another by animating the path's d attribute (SMIL).",
+    "description": "Uses SMIL <animate attributeName='d'> to tween a path between several shapes. Morphing requires each shape's path to have the SAME command structure / point count.",
+    "theme": "svg-effects",
+    "categories": ["svg", "animation", "morph"],
+    "tags": ["svg", "morph", "path", "smil", "shape-tween", "blob"],
+    "tech": ["svg"],
+    "era": "2010s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "SMIL animate of `d` works in Chrome, Firefox, and Safari. (CSS `d` interpolation is Chromium-only; SMIL is the most portable no-JS option.)",
+    "performance_notes": "Cheap for a single path. The hard part is authoring compatible paths, not runtime cost.",
+    "accessibility_notes": "SMIL does NOT honor prefers-reduced-motion automatically — the included script pauses SVG animations when reduced motion is requested. Decorative; add a title if meaningful.",
+    "customization": [
+      { "name": "values", "description": "Semicolon-separated d strings to morph between", "default": "see source" },
+      { "name": "dur", "description": "Full cycle duration", "default": "8s" }
+    ],
+    "variations": ["Morph icons (play↔pause) on state change via JS", "Blob background morph", "Use a JS lib (flubber) when point counts can't match"],
+    "related": ["blob-morph", "svg-line-draw"],
+    "ai_usage": "Use to tween between shapes/icons. CRITICAL: every shape in the `values` list must share the same path command sequence and point count, or the morph jumps. Author them by editing one base path's coordinates. SMIL <animate attributeName='d' values='A;B;C;A' dur=... repeatCount='indefinite'> is the most cross-browser no-JS route. For arbitrary shapes with mismatched points, use a JS morphing lib (flubber/GSAP). SMIL ignores reduced-motion, so pause via svg.pauseAnimations() (shown)."
+  }
+  </script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; }
+  </style>
+</head>
+<body>
+  <svg width="220" height="220" viewBox="0 0 200 200" role="img" aria-label="Morphing shape">
+    <defs>
+      <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#7c5cff" /><stop offset="100%" stop-color="#2dd4bf" />
+      </linearGradient>
+    </defs>
+    <path fill="url(#mg)" d="M100,30 C140,30 170,60 170,100 C170,140 140,170 100,170 C60,170 30,140 30,100 C30,60 60,30 100,30 Z">
+      <animate attributeName="d" dur="8s" repeatCount="indefinite"
+        values="
+          M100,30 C140,30 170,60 170,100 C170,140 140,170 100,170 C60,170 30,140 30,100 C30,60 60,30 100,30 Z;
+          M100,20 C150,40 180,70 165,115 C150,160 120,180 95,170 C55,155 25,135 30,90 C35,50 60,30 100,20 Z;
+          M100,35 C135,25 175,55 165,100 C175,145 135,175 100,165 C65,175 25,145 35,100 C25,55 65,45 100,35 Z;
+          M100,30 C140,30 170,60 170,100 C170,140 140,170 100,170 C60,170 30,140 30,100 C30,60 60,30 100,30 Z" />
+    </path>
+  </svg>
+  <script>
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll("svg").forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arrow Slide Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "arrow-slide-button",
+    "title": "Arrow Slide Button",
+    "summary": "A button whose arrow glides forward (and label nudges) on hover, signaling 'go'.",
+    "description": "On hover, a trailing arrow translates to the right while the label shifts slightly, a small directional micro-interaction that reads as forward motion.",
+    "theme": "buttons",
+    "categories": ["button", "hover", "micro-interaction"],
+    "tags": ["arrow", "slide", "cta", "directional", "hover", "nudge"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Transform on two inline elements; trivial.",
+    "accessibility_notes": "Real button; the arrow is decorative (aria-hidden). Motion removed under prefers-reduced-motion. Keep a focus ring.",
+    "customization": [
+      { "name": "--bg", "description": "Button color", "default": "#7c5cff" },
+      { "name": "--shift", "description": "Arrow travel distance", "default": "6px" }
+    ],
+    "variations": ["Arrow appears from 0 width on hover", "Use for 'Read more' text links", "Back-arrow variant that slides left"],
+    "related": ["fill-sweep-button", "magnetic-button"],
+    "ai_usage": "Use for 'Continue', 'Get started', 'Read more' CTAs where direction matters. Put the label and an aria-hidden arrow (→) inline; on hover translateX the arrow by --shift (and optionally nudge the label). Mark the arrow aria-hidden so screen readers don't read it. Keep the focus-visible ring and a reduced-motion guard."
+  }
+  </script>
+  <style>
+    :root { --bg: #7c5cff; --shift: 6px; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .arrow-btn {
+      display: inline-flex; align-items: center; gap: .5rem; border: none; cursor: pointer;
+      background: var(--bg); color: #fff; font-weight: 700; font-size: 1rem; padding: .85rem 1.6rem; border-radius: 12px;
+    }
+    .arrow-btn .label { transition: transform .25s ease; }
+    .arrow-btn .arrow { transition: transform .25s ease; }
+    .arrow-btn:hover .arrow { transform: translateX(var(--shift)); }
+    .arrow-btn:hover .label { transform: translateX(2px); }
+    .arrow-btn:focus-visible { outline: 3px solid #2dd4bf; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { .arrow-btn .arrow, .arrow-btn .label { transition: none; } }
+  </style>
+</head>
+<body>
+  <button class="arrow-btn"><span class="label">Get started</span><span class="arrow" aria-hidden="true">→</span></button>
+</body>
+</html>

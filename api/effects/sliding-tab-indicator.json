@@ -1,0 +1,49 @@
+{
+  "id": "sliding-tab-indicator",
+  "title": "Sliding Tab Indicator",
+  "summary": "A pill/underline indicator that glides to the active tab.",
+  "description": "A single absolutely-positioned indicator is moved (translate + width) to match the selected tab, giving the smooth 'shared element' tab transition instead of a hard jump.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "tabs",
+    "indicator"
+  ],
+  "tags": [
+    "tabs",
+    "indicator",
+    "slide",
+    "pill",
+    "segmented",
+    "active-state"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Animates transform/width of one element; cheap.",
+  "accessibility_notes": "Use role=tablist/tab/tabpanel and manage aria-selected + roving tabindex; the moving pill is decorative (visual only). Keyboard arrow navigation should move focus between tabs.",
+  "customization": [
+    {
+      "name": "--pill",
+      "description": "Indicator color",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Underline instead of pill",
+    "Vertical tabs",
+    "Auto-detect active on load from aria-selected"
+  ],
+  "related": [
+    "underline-grow-link"
+  ],
+  "ai_usage": "Use for segmented controls and tab bars. Render real tab buttons in a tablist; keep ONE indicator element and on tab change set its transform: translateX(offsetLeft) and width to the active tab's metrics (read from getBoundingClientRect/offsetLeft). Drive selection with proper ARIA (role=tab, aria-selected, arrow-key roving focus); the pill is purely visual. Recompute on resize.",
+  "path": "effects/navigation-menus/sliding-tab-indicator.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sliding Tab Indicator</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"sliding-tab-indicator\",\n    \"title\": \"Sliding Tab Indicator\",\n    \"summary\": \"A pill/underline indicator that glides to the active tab.\",\n    \"description\": \"A single absolutely-positioned indicator is moved (translate + width) to match the selected tab, giving the smooth 'shared element' tab transition instead of a hard jump.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"tabs\", \"indicator\"],\n    \"tags\": [\"tabs\", \"indicator\", \"slide\", \"pill\", \"segmented\", \"active-state\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Animates transform/width of one element; cheap.\",\n    \"accessibility_notes\": \"Use role=tablist/tab/tabpanel and manage aria-selected + roving tabindex; the moving pill is decorative (visual only). Keyboard arrow navigation should move focus between tabs.\",\n    \"customization\": [\n      { \"name\": \"--pill\", \"description\": \"Indicator color\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Underline instead of pill\", \"Vertical tabs\", \"Auto-detect active on load from aria-selected\"],\n    \"related\": [\"underline-grow-link\"],\n    \"ai_usage\": \"Use for segmented controls and tab bars. Render real tab buttons in a tablist; keep ONE indicator element and on tab change set its transform: translateX(offsetLeft) and width to the active tab's metrics (read from getBoundingClientRect/offsetLeft). Drive selection with proper ARIA (role=tab, aria-selected, arrow-key roving focus); the pill is purely visual. Recompute on resize.\"\n  }\n  </script>\n  <style>\n    :root { --pill: #7c5cff; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .tabs { position: relative; display: inline-flex; background: #151925; border: 1px solid #262c3d; border-radius: 999px; padding: 5px; }\n    .tab { position: relative; z-index: 1; border: none; background: none; color: #b7bdcc; cursor: pointer;\n      padding: .55rem 1.2rem; border-radius: 999px; font-size: .95rem; font-weight: 600; }\n    .tab.active { color: #fff; }\n    .tab:focus-visible { outline: 2px solid #2dd4bf; }\n    .pill { position: absolute; top: 5px; bottom: 5px; left: 0; border-radius: 999px; background: var(--pill);\n      transition: transform .3s cubic-bezier(.22,1,.36,1), width .3s cubic-bezier(.22,1,.36,1); }\n    @media (prefers-reduced-motion: reduce) { .pill { transition: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"tabs\" role=\"tablist\" id=\"tabs\">\n    <span class=\"pill\" id=\"pill\"></span>\n    <button class=\"tab active\" role=\"tab\" aria-selected=\"true\">Overview</button>\n    <button class=\"tab\" role=\"tab\" aria-selected=\"false\">Activity</button>\n    <button class=\"tab\" role=\"tab\" aria-selected=\"false\">Settings</button>\n  </div>\n  <script>\n    var tabs = [].slice.call(document.querySelectorAll(\".tab\"));\n    var pill = document.getElementById(\"pill\");\n    function move(el) { pill.style.width = el.offsetWidth + \"px\"; pill.style.transform = \"translateX(\" + el.offsetLeft + \"px)\"; }\n    tabs.forEach(function (t) {\n      t.addEventListener(\"click\", function () {\n        tabs.forEach(function (x) { x.classList.remove(\"active\"); x.setAttribute(\"aria-selected\", \"false\"); });\n        t.classList.add(\"active\"); t.setAttribute(\"aria-selected\", \"true\"); move(t);\n      });\n    });\n    move(tabs[0]);\n    addEventListener(\"resize\", function () { move(document.querySelector(\".tab.active\")); });\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Floating Label Input</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "floating-label-input",
+    "title": "Floating Label Input",
+    "summary": "A label that sits inside the field and floats up when focused or filled — pure CSS, fully accessible.",
+    "description": "Uses an empty placeholder plus :placeholder-shown and :focus to animate a real <label> from inside the input to above it, keeping the label available to assistive tech.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input", "label"],
+    "tags": ["floating-label", "input", "material", "placeholder-shown", "form", "accessible"],
+    "tech": ["css"],
+    "era": "2010s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (:placeholder-shown).",
+    "performance_notes": "Static + a transform transition; trivial.",
+    "accessibility_notes": "Critically: keep a REAL <label for> — do not use a placeholder as the only label. The input needs placeholder=' ' (a space) so :placeholder-shown works. Focus styles are visible.",
+    "customization": [
+      { "name": "--accent", "description": "Focus/active color", "default": "#7c5cff" }
+    ],
+    "variations": ["Outlined (notched) Material style", "Leading icon", "Error/success states with color + message"],
+    "related": ["login-card", "shake-attention"],
+    "ai_usage": "Use for any text field. Markup: wrapper > input(placeholder=' ') + label(for=id). The label is absolutely positioned over the input; when the input :is(:focus, :not(:placeholder-shown)) the adjacent label (input + label) shrinks and moves up. ALWAYS keep the <label> element for accessibility; the placeholder must be a single space, not the field name. Add aria-describedby for error text."
+  }
+  </script>
+  <style>
+    :root { --accent: #7c5cff; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .field { position: relative; width: 280px; }
+    .field input {
+      width: 100%; padding: 1.1rem .9rem .5rem; font-size: 1rem; color: #e7ebf3; outline: none;
+      background: #151925; border: 1px solid #2a3142; border-radius: 10px;
+    }
+    .field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
+    .field label { position: absolute; left: .95rem; top: .95rem; color: #8b93a7; pointer-events: none; transition: transform .18s ease, color .18s ease, font-size .18s ease; transform-origin: left; }
+    .field input:focus + label, .field input:not(:placeholder-shown) + label {
+      transform: translateY(-9px) scale(.78); color: var(--accent);
+    }
+    @media (prefers-reduced-motion: reduce) { .field label { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="field">
+    <input id="name" type="text" placeholder=" " />
+    <label for="name">Full name</label>
+  </div>
+</body>
+</html>

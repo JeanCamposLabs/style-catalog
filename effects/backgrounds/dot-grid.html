@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dot Grid Background</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "dot-grid",
+    "title": "Dot Grid Background",
+    "summary": "An evenly spaced dotted grid drawn with a single repeating radial-gradient.",
+    "description": "One radial-gradient tile repeated via background-size produces a clean polka/dot grid — the understated backdrop seen in note apps and design canvases.",
+    "theme": "backgrounds",
+    "categories": ["background", "pattern"],
+    "tags": ["dots", "grid", "polka", "pattern", "minimal", "canvas"],
+    "tech": ["css"],
+    "era": "timeless",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Single tiled gradient — free.",
+    "accessibility_notes": "Decorative; keep dots subtle.",
+    "customization": [
+      { "name": "--dot", "description": "Dot color", "default": "rgba(255,255,255,.16)" },
+      { "name": "--size", "description": "Grid pitch", "default": "22px" },
+      { "name": "--r", "description": "Dot radius", "default": "1.5px" }
+    ],
+    "variations": ["Offset rows for a diamond layout", "Two dot sizes layered", "Animate position for drifting dots"],
+    "related": ["grid-lines"],
+    "ai_usage": "Subtle backdrop for canvases, note apps, and minimal sites. Apply .dot-bg. The dot is radial-gradient(var(--dot) var(--r), transparent var(--r)); background-size:--size sets spacing. Adjust --r vs --size ratio for density. Works on light or dark by changing --dot."
+  }
+  </script>
+  <style>
+    :root { --dot: rgba(255,255,255,.16); --size: 22px; --r: 1.5px; }
+    html, body { height: 100%; margin: 0; }
+    .dot-bg {
+      height: 100vh; background-color: #0b0d12;
+      background-image: radial-gradient(var(--dot) var(--r), transparent var(--r));
+      background-size: var(--size) var(--size);
+    }
+  </style>
+</head>
+<body>
+  <div class="dot-bg"></div>
+</body>
+</html>

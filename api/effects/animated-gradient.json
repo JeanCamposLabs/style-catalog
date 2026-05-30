@@ -1,0 +1,53 @@
+{
+  "id": "animated-gradient",
+  "title": "Animated Gradient Background",
+  "summary": "A smooth multi-color gradient that slowly drifts across the viewport.",
+  "description": "An oversized linear-gradient with background-size 400% and an animated background-position produces an endlessly shifting color wash — the ubiquitous SaaS hero background.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "gradient"
+  ],
+  "tags": [
+    "gradient",
+    "animated",
+    "hero",
+    "saas",
+    "wash",
+    "ambient"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Animating background-position is cheap; no JS. Long duration keeps repaints infrequent.",
+  "accessibility_notes": "Decorative. Keep foreground text contrast high across all gradient stops. Animation stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "background",
+      "description": "The gradient stops/angle",
+      "default": "linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#23d5ab)"
+    },
+    {
+      "name": "animation duration",
+      "description": "Drift speed",
+      "default": "15s"
+    }
+  ],
+  "variations": [
+    "Brand-color two-stop subtle drift",
+    "Radial instead of linear",
+    "Pair with a noise overlay for texture"
+  ],
+  "related": [
+    "aurora-background",
+    "mesh-gradient"
+  ],
+  "ai_usage": "Drop on a hero section or full page. Apply .animated-gradient to a full-size container; set background-size:400% 400% and animate background-position between corners. Use 3-4 harmonious colors. For readable text, overlay a semi-transparent dark layer or constrain text to a contrasted card. Keep duration long (12-20s) for an ambient feel.",
+  "path": "effects/backgrounds/animated-gradient.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Animated Gradient Background</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"animated-gradient\",\n    \"title\": \"Animated Gradient Background\",\n    \"summary\": \"A smooth multi-color gradient that slowly drifts across the viewport.\",\n    \"description\": \"An oversized linear-gradient with background-size 400% and an animated background-position produces an endlessly shifting color wash — the ubiquitous SaaS hero background.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"gradient\"],\n    \"tags\": [\"gradient\", \"animated\", \"hero\", \"saas\", \"wash\", \"ambient\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Animating background-position is cheap; no JS. Long duration keeps repaints infrequent.\",\n    \"accessibility_notes\": \"Decorative. Keep foreground text contrast high across all gradient stops. Animation stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"background\", \"description\": \"The gradient stops/angle\", \"default\": \"linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#23d5ab)\" },\n      { \"name\": \"animation duration\", \"description\": \"Drift speed\", \"default\": \"15s\" }\n    ],\n    \"variations\": [\"Brand-color two-stop subtle drift\", \"Radial instead of linear\", \"Pair with a noise overlay for texture\"],\n    \"related\": [\"aurora-background\", \"mesh-gradient\"],\n    \"ai_usage\": \"Drop on a hero section or full page. Apply .animated-gradient to a full-size container; set background-size:400% 400% and animate background-position between corners. Use 3-4 harmonious colors. For readable text, overlay a semi-transparent dark layer or constrain text to a contrasted card. Keep duration long (12-20s) for an ambient feel.\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    .animated-gradient {\n      height: 100vh;\n      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);\n      background-size: 400% 400%;\n      animation: gradient 15s ease infinite;\n    }\n    @keyframes gradient {\n      0% { background-position: 0% 50%; }\n      50% { background-position: 100% 50%; }\n      100% { background-position: 0% 50%; }\n    }\n    @media (prefers-reduced-motion: reduce) { .animated-gradient { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"animated-gradient\"></div>\n</body>\n</html>\n"
+}

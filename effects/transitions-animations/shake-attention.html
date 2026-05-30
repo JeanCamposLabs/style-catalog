@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shake (Attention / Error)</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shake-attention",
+    "title": "Shake (Attention / Error)",
+    "summary": "A quick horizontal shake to flag an error or invalid input.",
+    "description": "A short keyframe wobbles translateX left/right a few times then settles — the universal 'wrong password' / validation-error cue. Demo re-triggers on a timer (and on click).",
+    "theme": "transitions-animations",
+    "categories": ["animation", "feedback", "attention"],
+    "tags": ["shake", "error", "validation", "attention", "wobble", "feedback"],
+    "tech": ["css", "js"],
+    "era": "timeless",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Single short transform animation; negligible.",
+    "accessibility_notes": "Motion is brief but should be paired with a text error message and aria-live, not used alone. Reduce-motion users get a static color flash instead of shaking.",
+    "customization": [
+      { "name": "--dist", "description": "Shake distance", "default": "8px" }
+    ],
+    "variations": ["Vertical shake", "Single 'head-shake' (no)", "Combine with a red border flash"],
+    "related": ["glow-pulse-button"],
+    "ai_usage": "Trigger on form validation failure by toggling a .shake class (remove then re-add on the next frame to restart the animation, or listen for animationend to clean up). Always accompany with a visible, aria-live error message — motion alone is not accessible. Under reduced motion, flash the border/background color instead of translating."
+  }
+  </script>
+  <style>
+    :root { --dist: 8px; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .field {
+      padding: .9rem 1.1rem; border-radius: 10px; background: #151925; color: #e7ebf3;
+      border: 2px solid #ef4444; font-size: 1rem; cursor: pointer; user-select: none;
+    }
+    .shake { animation: shake .4s ease; }
+    @keyframes shake {
+      10%, 90% { transform: translateX(calc(-1 * var(--dist) * .25)); }
+      20%, 80% { transform: translateX(calc(var(--dist) * .5)); }
+      30%, 50%, 70% { transform: translateX(calc(-1 * var(--dist))); }
+      40%, 60% { transform: translateX(var(--dist)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .shake { animation: flash .5s ease; }
+      @keyframes flash { 50% { background: #7f1d1d; } }
+    }
+  </style>
+</head>
+<body>
+  <div class="field" id="field">Invalid — click or wait to shake</div>
+  <script>
+    var f = document.getElementById("field");
+    function go() { f.classList.remove("shake"); void f.offsetWidth; f.classList.add("shake"); }
+    f.addEventListener("click", go);
+    setInterval(go, 2200);
+  </script>
+</body>
+</html>

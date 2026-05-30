@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gradient Border</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gradient-border",
+    "title": "Gradient Border",
+    "summary": "A crisp gradient outline on a rounded element using the double-background trick.",
+    "description": "Layers a solid background (padding-box) over a gradient background (border-box) with a transparent border, so the gradient shows only in the border area — the reliable way to get gradient borders with border-radius.",
+    "theme": "borders-shadows",
+    "categories": ["border", "gradient"],
+    "tags": ["gradient", "border", "border-box", "outline", "rounded"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers. (border-image can't do rounded corners, hence this technique.)",
+    "performance_notes": "Static; free.",
+    "accessibility_notes": "Decorative border; keep inner content contrast independent of the border.",
+    "customization": [
+      { "name": "--bg", "description": "Inner fill", "default": "#11141c" },
+      { "name": "--grad", "description": "Border gradient", "default": "linear-gradient(135deg,#7c5cff,#2dd4bf)" },
+      { "name": "--bw", "description": "Border width", "default": "2px" }
+    ],
+    "variations": ["Animate the gradient angle (see gradient-border-button)", "Conic rainbow border", "Thicker frame for hero images"],
+    "related": ["gradient-border-button", "glow-shadow"],
+    "ai_usage": "The go-to for gradient borders WITH rounded corners. Set background: linear-gradient(var(--bg),var(--bg)) padding-box, var(--grad) border-box; with a transparent border of width --bw and your border-radius. Works on any element. For animation, register an @property angle and animate a conic-gradient. Don't use border-image if you need rounded corners."
+  }
+  </script>
+  <style>
+    :root { --bg: #11141c; --grad: linear-gradient(135deg,#7c5cff,#2dd4bf); --bw: 2px; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .grad-border {
+      width: 240px; padding: 1.6rem; border-radius: 18px; color: #e7ebf3;
+      border: var(--bw) solid transparent;
+      background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--grad) border-box;
+    }
+    .grad-border h3 { margin: 0 0 .4rem; } .grad-border p { margin: 0; color: #8b93a7; }
+  </style>
+</head>
+<body>
+  <div class="grad-border">
+    <h3>Gradient Border</h3>
+    <p>Rounded corners, crisp gradient edge.</p>
+  </div>
+</body>
+</html>

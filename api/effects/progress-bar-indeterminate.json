@@ -1,0 +1,58 @@
+{
+  "id": "progress-bar-indeterminate",
+  "title": "Indeterminate Progress Bar",
+  "summary": "A sliding accent segment loops across a track when progress can't be measured.",
+  "description": "A track contains a short bar that animates its position/width across, signaling ongoing work of unknown duration — the top-of-page loading bar pattern.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "progress"
+  ],
+  "tags": [
+    "progress",
+    "bar",
+    "indeterminate",
+    "loading",
+    "linear",
+    "topbar"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2010s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Animates transform/left of one segment; cheap.",
+  "accessibility_notes": "Use role=\"progressbar\" with aria-valuetext or an adjacent 'Loading' label; omit aria-valuenow when indeterminate. Animation continues under reduced-motion but you may slow it.",
+  "customization": [
+    {
+      "name": "--bar",
+      "description": "Moving segment color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--track",
+      "description": "Track color",
+      "default": "#1b2030"
+    },
+    {
+      "name": "--h",
+      "description": "Bar height",
+      "default": "4px"
+    }
+  ],
+  "variations": [
+    "Gradient segment",
+    "Two staggered segments (Material style)",
+    "Fix to top of viewport for route changes"
+  ],
+  "related": [
+    "ring-spinner",
+    "skeleton-loader"
+  ],
+  "ai_usage": "Use for unknown-duration tasks and page/route transitions (often pinned to the top of the viewport). The track is overflow:hidden; an inner segment animates from left:-40% to left:100%. Switch to a real determinate <progress> or a width-driven bar once you know the percentage. Set role=progressbar and a label.",
+  "path": "effects/loaders-spinners/progress-bar-indeterminate.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Indeterminate Progress Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"progress-bar-indeterminate\",\n    \"title\": \"Indeterminate Progress Bar\",\n    \"summary\": \"A sliding accent segment loops across a track when progress can't be measured.\",\n    \"description\": \"A track contains a short bar that animates its position/width across, signaling ongoing work of unknown duration — the top-of-page loading bar pattern.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"progress\"],\n    \"tags\": [\"progress\", \"bar\", \"indeterminate\", \"loading\", \"linear\", \"topbar\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Animates transform/left of one segment; cheap.\",\n    \"accessibility_notes\": \"Use role=\\\"progressbar\\\" with aria-valuetext or an adjacent 'Loading' label; omit aria-valuenow when indeterminate. Animation continues under reduced-motion but you may slow it.\",\n    \"customization\": [\n      { \"name\": \"--bar\", \"description\": \"Moving segment color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--track\", \"description\": \"Track color\", \"default\": \"#1b2030\" },\n      { \"name\": \"--h\", \"description\": \"Bar height\", \"default\": \"4px\" }\n    ],\n    \"variations\": [\"Gradient segment\", \"Two staggered segments (Material style)\", \"Fix to top of viewport for route changes\"],\n    \"related\": [\"ring-spinner\", \"skeleton-loader\"],\n    \"ai_usage\": \"Use for unknown-duration tasks and page/route transitions (often pinned to the top of the viewport). The track is overflow:hidden; an inner segment animates from left:-40% to left:100%. Switch to a real determinate <progress> or a width-driven bar once you know the percentage. Set role=progressbar and a label.\"\n  }\n  </script>\n  <style>\n    :root { --bar: #7c5cff; --track: #1b2030; --h: 4px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    .track { position: relative; width: 300px; height: var(--h); background: var(--track); border-radius: 999px; overflow: hidden; }\n    .track::before {\n      content: \"\"; position: absolute; top: 0; bottom: 0; width: 40%; border-radius: 999px;\n      background: var(--bar); animation: slide 1.4s ease-in-out infinite;\n    }\n    @keyframes slide { 0% { left: -40%; } 100% { left: 100%; } }\n    @media (prefers-reduced-motion: reduce) { .track::before { animation-duration: 2.6s; } }\n  </style>\n</head>\n<body>\n  <div class=\"track\" role=\"progressbar\" aria-label=\"Loading\"></div>\n</body>\n</html>\n"
+}

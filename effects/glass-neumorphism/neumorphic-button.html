@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neumorphic Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neumorphic-button",
+    "title": "Neumorphic Button",
+    "summary": "A soft-UI button that appears extruded at rest and presses inward when active.",
+    "description": "Uses the dual light/dark shadow neumorphism technique; on :active the shadows flip to inset so the button looks physically depressed.",
+    "theme": "glass-neumorphism",
+    "categories": ["surface", "neumorphism", "button"],
+    "tags": ["neumorphism", "soft-ui", "button", "press", "shadow", "monochrome"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Dual shadows + an inset swap on press; trivial.",
+    "accessibility_notes": "Neumorphism's classic weakness is low contrast — make the label clearly readable and don't rely only on the shadow to signal it's a button. Keep a visible focus ring (neumorphism often forgets this).",
+    "customization": [
+      { "name": "--bg", "description": "Shared surface color (button + page must match)", "default": "#e0e5ec" },
+      { "name": "--accent", "description": "Label color", "default": "#5b3ee0" }
+    ],
+    "variations": ["Dark-mode neumorphism", "Circular icon button", "Toggle that stays pressed when active"],
+    "related": ["neumorphism-card", "press-3d-button"],
+    "ai_usage": "Use in calm, tactile soft-UI dashboards — but ensure contrast and an explicit focus ring (neumorphism's main accessibility pitfalls). The button and its container MUST share --bg. Rest: box-shadow with a light offset (top-left) and dark offset (bottom-right). On :active: switch both to inset. Derive the light/dark shades from --bg. Add a focus-visible outline for keyboard users."
+  }
+  </script>
+  <style>
+    :root { --bg: #e0e5ec; --light: #ffffff; --dark: #a3b1c6; --accent: #5b3ee0; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: var(--bg); font-family: system-ui, sans-serif; }
+    .neu-btn {
+      border: none; cursor: pointer; background: var(--bg); color: var(--accent); font-weight: 800; font-size: 1rem;
+      padding: 1rem 2.4rem; border-radius: 16px;
+      box-shadow: 6px 6px 12px var(--dark), -6px -6px 12px var(--light);
+      transition: box-shadow .15s ease;
+    }
+    .neu-btn:active { box-shadow: inset 6px 6px 12px var(--dark), inset -6px -6px 12px var(--light); }
+    .neu-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    @media (prefers-reduced-motion: reduce) { .neu-btn { transition: none; } }
+  </style>
+</head>
+<body>
+  <button class="neu-btn">Press me</button>
+</body>
+</html>

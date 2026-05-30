@@ -1,0 +1,56 @@
+{
+  "id": "tilt-card",
+  "title": "3D Tilt Card",
+  "summary": "A card that tilts in 3D toward the cursor with a moving glare highlight.",
+  "description": "Tracks the pointer over the card and maps its position to rotateX/rotateY transforms under perspective, plus a radial glare that follows the cursor — the popular 'parallax tilt' interaction.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "3d",
+    "card"
+  ],
+  "tags": [
+    "tilt",
+    "3d",
+    "parallax",
+    "perspective",
+    "glare",
+    "card"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Updates CSS variables on pointermove; cheap since only transform/background-position change. Throttle via rAF for many cards.",
+  "accessibility_notes": "Enhancement only; card is fully usable without hover. Tilt is disabled under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--max-tilt",
+      "description": "Max rotation in degrees",
+      "default": "12"
+    },
+    {
+      "name": "perspective",
+      "description": "Depth of the 3D scene",
+      "default": "800px"
+    }
+  ],
+  "variations": [
+    "Add layered children with translateZ for depth",
+    "Snap-back spring on leave",
+    "Invert tilt direction"
+  ],
+  "related": [
+    "magnetic-button",
+    "spotlight-card",
+    "card-lift"
+  ],
+  "ai_usage": "Premium product/feature cards. Wrap the card in a perspective container; on pointermove compute normalized (-0.5..0.5) x/y from the bounding rect and set rotateY = x*maxTilt, rotateX = -y*maxTilt. Reset on pointerleave. The glare is a radial-gradient whose position follows the same coordinates. For grids, reuse one handler via event delegation and rAF-throttle.",
+  "path": "effects/hover-interactions/tilt-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>3D Tilt Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"tilt-card\",\n    \"title\": \"3D Tilt Card\",\n    \"summary\": \"A card that tilts in 3D toward the cursor with a moving glare highlight.\",\n    \"description\": \"Tracks the pointer over the card and maps its position to rotateX/rotateY transforms under perspective, plus a radial glare that follows the cursor — the popular 'parallax tilt' interaction.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"3d\", \"card\"],\n    \"tags\": [\"tilt\", \"3d\", \"parallax\", \"perspective\", \"glare\", \"card\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Updates CSS variables on pointermove; cheap since only transform/background-position change. Throttle via rAF for many cards.\",\n    \"accessibility_notes\": \"Enhancement only; card is fully usable without hover. Tilt is disabled under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--max-tilt\", \"description\": \"Max rotation in degrees\", \"default\": \"12\" },\n      { \"name\": \"perspective\", \"description\": \"Depth of the 3D scene\", \"default\": \"800px\" }\n    ],\n    \"variations\": [\"Add layered children with translateZ for depth\", \"Snap-back spring on leave\", \"Invert tilt direction\"],\n    \"related\": [\"magnetic-button\", \"spotlight-card\", \"card-lift\"],\n    \"ai_usage\": \"Premium product/feature cards. Wrap the card in a perspective container; on pointermove compute normalized (-0.5..0.5) x/y from the bounding rect and set rotateY = x*maxTilt, rotateX = -y*maxTilt. Reset on pointerleave. The glare is a radial-gradient whose position follows the same coordinates. For grids, reuse one handler via event delegation and rAF-throttle.\"\n  }\n  </script>\n  <style>\n    :root { --max-tilt: 12; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .tilt-scene { perspective: 800px; }\n    .tilt-card {\n      position: relative; width: 240px; height: 320px; border-radius: 18px; overflow: hidden;\n      background: linear-gradient(160deg, #2a2150, #131022); color: #fff;\n      display: grid; place-items: center; text-align: center; padding: 1rem;\n      transform: rotateX(0) rotateY(0); transition: transform .2s ease;\n      box-shadow: 0 20px 50px rgba(0,0,0,.5);\n      transform-style: preserve-3d;\n    }\n    .tilt-card__glare {\n      position: absolute; inset: 0; pointer-events: none;\n      background: radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(255,255,255,.35), transparent 45%);\n      opacity: 0; transition: opacity .2s ease;\n    }\n    .tilt-card:hover .tilt-card__glare { opacity: 1; }\n    @media (prefers-reduced-motion: reduce) { .tilt-card { transition: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"tilt-scene\">\n    <div class=\"tilt-card\" id=\"card\">\n      <div>\n        <h3 style=\"margin:.2rem\">Tilt me</h3>\n        <p style=\"margin:.2rem;color:#b6b0d8\">Move your cursor</p>\n      </div>\n      <div class=\"tilt-card__glare\"></div>\n    </div>\n  </div>\n  <script>\n    var card = document.getElementById(\"card\");\n    var max = parseFloat(getComputedStyle(document.documentElement).getPropertyValue(\"--max-tilt\")) || 12;\n    var reduce = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    if (!reduce) {\n      card.addEventListener(\"pointermove\", function (e) {\n        var r = card.getBoundingClientRect();\n        var x = (e.clientX - r.left) / r.width - 0.5;\n        var y = (e.clientY - r.top) / r.height - 0.5;\n        card.style.transform = \"rotateY(\" + (x * max) + \"deg) rotateX(\" + (-y * max) + \"deg)\";\n        card.style.setProperty(\"--gx\", (x + 0.5) * 100 + \"%\");\n        card.style.setProperty(\"--gy\", (y + 0.5) * 100 + \"%\");\n      });\n      card.addEventListener(\"pointerleave\", function () {\n        card.style.transform = \"rotateX(0) rotateY(0)\";\n      });\n    }\n  </script>\n</body>\n</html>\n"
+}

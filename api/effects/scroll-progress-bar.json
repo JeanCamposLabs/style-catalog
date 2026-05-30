@@ -1,0 +1,54 @@
+{
+  "id": "scroll-progress-bar",
+  "title": "Scroll Progress Bar",
+  "summary": "A top bar that fills as the reader scrolls, using pure-CSS scroll-driven animation.",
+  "description": "Uses the modern animation-timeline: scroll() to scale a fixed bar from 0 to 1 across the page scroll — no JS. Includes a JS fallback note for older browsers.",
+  "theme": "scroll-effects",
+  "themeTitle": "Scroll Effects",
+  "categories": [
+    "scroll",
+    "progress",
+    "indicator"
+  ],
+  "tags": [
+    "scroll",
+    "progress",
+    "reading",
+    "scroll-timeline",
+    "indicator",
+    "topbar"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "Chromium 115+ and modern browsers support scroll-driven animations; older browsers ignore the timeline (bar stays empty) — provide a tiny JS fallback in production.",
+  "performance_notes": "Scroll-driven animations run off the main thread — smoother and cheaper than scroll-event JS.",
+  "accessibility_notes": "Decorative reading indicator; safe under reduced-motion (it tracks position, not autonomous motion). Don't convey essential info with it alone.",
+  "customization": [
+    {
+      "name": "--bar",
+      "description": "Fill color/gradient",
+      "default": "linear-gradient(90deg,#7c5cff,#2dd4bf)"
+    },
+    {
+      "name": "--h",
+      "description": "Bar height",
+      "default": "5px"
+    }
+  ],
+  "variations": [
+    "Vertical side progress",
+    "Circular progress via stroke-dashoffset",
+    "JS fallback using scrollY/scrollHeight"
+  ],
+  "related": [
+    "progress-bar-indeterminate",
+    "scroll-reveal-fade"
+  ],
+  "ai_usage": "Reading progress for articles/long pages. Preferred: a fixed bar with transform-origin:left, animation: grow linear, animation-timeline: scroll(root block) — pure CSS, no JS. For browser support, add a JS fallback that sets scaleX = scrollTop / (scrollHeight - innerHeight) on scroll. The demo scrolls its own inner container so it animates in the catalog frame.",
+  "path": "effects/scroll-effects/scroll-progress-bar.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scroll Progress Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"scroll-progress-bar\",\n    \"title\": \"Scroll Progress Bar\",\n    \"summary\": \"A top bar that fills as the reader scrolls, using pure-CSS scroll-driven animation.\",\n    \"description\": \"Uses the modern animation-timeline: scroll() to scale a fixed bar from 0 to 1 across the page scroll — no JS. Includes a JS fallback note for older browsers.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"progress\", \"indicator\"],\n    \"tags\": [\"scroll\", \"progress\", \"reading\", \"scroll-timeline\", \"indicator\", \"topbar\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"Chromium 115+ and modern browsers support scroll-driven animations; older browsers ignore the timeline (bar stays empty) — provide a tiny JS fallback in production.\",\n    \"performance_notes\": \"Scroll-driven animations run off the main thread — smoother and cheaper than scroll-event JS.\",\n    \"accessibility_notes\": \"Decorative reading indicator; safe under reduced-motion (it tracks position, not autonomous motion). Don't convey essential info with it alone.\",\n    \"customization\": [\n      { \"name\": \"--bar\", \"description\": \"Fill color/gradient\", \"default\": \"linear-gradient(90deg,#7c5cff,#2dd4bf)\" },\n      { \"name\": \"--h\", \"description\": \"Bar height\", \"default\": \"5px\" }\n    ],\n    \"variations\": [\"Vertical side progress\", \"Circular progress via stroke-dashoffset\", \"JS fallback using scrollY/scrollHeight\"],\n    \"related\": [\"progress-bar-indeterminate\", \"scroll-reveal-fade\"],\n    \"ai_usage\": \"Reading progress for articles/long pages. Preferred: a fixed bar with transform-origin:left, animation: grow linear, animation-timeline: scroll(root block) — pure CSS, no JS. For browser support, add a JS fallback that sets scaleX = scrollTop / (scrollHeight - innerHeight) on scroll. The demo scrolls its own inner container so it animates in the catalog frame.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; }\n    .wrap { height: 100vh; overflow-y: auto; scroll-timeline: --page block; }\n    .bar {\n      position: sticky; top: 0; left: 0; height: 5px; transform-origin: left; transform: scaleX(0);\n      background: linear-gradient(90deg,#7c5cff,#2dd4bf); z-index: 10;\n      animation: grow linear; animation-timeline: --page;\n    }\n    @keyframes grow { to { transform: scaleX(1); } }\n    .content { padding: 1.2rem; }\n    .content p { max-width: 320px; }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\" id=\"wrap\">\n    <div class=\"bar\" id=\"bar\"></div>\n    <div class=\"content\">\n      <h2>Scroll me</h2>\n      <p>The bar at the top fills as you scroll this article.</p>\n      <p style=\"height:200px\">Lorem ipsum dolor sit amet…</p>\n      <p style=\"height:200px\">…consectetur adipiscing elit…</p>\n      <p style=\"height:200px\">…sed do eiusmod tempor.</p>\n      <p>The end.</p>\n    </div>\n  </div>\n  <script>\n    // Fallback for browsers without scroll-driven animations.\n    var wrap = document.getElementById(\"wrap\"), bar = document.getElementById(\"bar\");\n    if (!CSS.supports(\"animation-timeline: scroll()\")) {\n      wrap.addEventListener(\"scroll\", function () {\n        var p = wrap.scrollTop / (wrap.scrollHeight - wrap.clientHeight || 1);\n        bar.style.transform = \"scaleX(\" + p + \")\";\n      });\n    }\n    // Auto-demo scroll so it animates inside the catalog frame.\n    if (!matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      var dir = 1;\n      setInterval(function () {\n        wrap.scrollTop += dir * 2;\n        if (wrap.scrollTop + wrap.clientHeight >= wrap.scrollHeight - 2) dir = -1;\n        if (wrap.scrollTop <= 0) dir = 1;\n      }, 16);\n    }\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "clip-path-shapes",
+  "title": "Clip-Path Shapes",
+  "summary": "Crop images/elements into hexagons, blobs, and diagonals with clip-path, animated on hover.",
+  "description": "Demonstrates clip-path polygon/inset cropping and a smooth hover morph between two shapes, the basis for diagonal section dividers and decorative image framing.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "shape",
+    "clip"
+  ],
+  "tags": [
+    "clip-path",
+    "polygon",
+    "hexagon",
+    "diagonal",
+    "shape",
+    "crop"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers. Animating between polygons requires the same number of points.",
+  "performance_notes": "Clip-path is GPU-friendly; animating it is smooth if point counts match.",
+  "accessibility_notes": "Cropping may hide image content; keep important subjects within the visible region. No motion concern beyond the optional hover.",
+  "customization": [
+    {
+      "name": "--shape",
+      "description": "clip-path value",
+      "default": "polygon(hexagon)"
+    }
+  ],
+  "variations": [
+    "Diagonal section divider (inset/polygon on a band)",
+    "Arrow/chevron shapes",
+    "Morph between two polygons on hover"
+  ],
+  "related": [
+    "blob-morph",
+    "duotone-image"
+  ],
+  "ai_usage": "Use for decorative image framing, diagonal section dividers, and badges. Apply clip-path to the element; common shapes: hexagon polygon, diagonal polygon for dividers, circle()/ellipse(). To animate between shapes on hover, both clip-paths must have the SAME number of points. Keep key subject matter away from clipped edges.",
+  "path": "effects/images-media/clip-path-shapes.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Clip-Path Shapes</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"clip-path-shapes\",\n    \"title\": \"Clip-Path Shapes\",\n    \"summary\": \"Crop images/elements into hexagons, blobs, and diagonals with clip-path, animated on hover.\",\n    \"description\": \"Demonstrates clip-path polygon/inset cropping and a smooth hover morph between two shapes, the basis for diagonal section dividers and decorative image framing.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"shape\", \"clip\"],\n    \"tags\": [\"clip-path\", \"polygon\", \"hexagon\", \"diagonal\", \"shape\", \"crop\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers. Animating between polygons requires the same number of points.\",\n    \"performance_notes\": \"Clip-path is GPU-friendly; animating it is smooth if point counts match.\",\n    \"accessibility_notes\": \"Cropping may hide image content; keep important subjects within the visible region. No motion concern beyond the optional hover.\",\n    \"customization\": [\n      { \"name\": \"--shape\", \"description\": \"clip-path value\", \"default\": \"polygon(hexagon)\" }\n    ],\n    \"variations\": [\"Diagonal section divider (inset/polygon on a band)\", \"Arrow/chevron shapes\", \"Morph between two polygons on hover\"],\n    \"related\": [\"blob-morph\", \"duotone-image\"],\n    \"ai_usage\": \"Use for decorative image framing, diagonal section dividers, and badges. Apply clip-path to the element; common shapes: hexagon polygon, diagonal polygon for dividers, circle()/ellipse(). To animate between shapes on hover, both clip-paths must have the SAME number of points. Keep key subject matter away from clipped edges.\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; grid-auto-flow: column; gap: 1.4rem; background: #0b0d12; }\n    .shape {\n      width: 150px; height: 150px; background: linear-gradient(135deg,#7c5cff,#2dd4bf);\n      transition: clip-path .4s ease;\n    }\n    .hex { clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%); }\n    .hex:hover { clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }\n    .diag { clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); }\n    .star { clip-path: polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }\n    @media (prefers-reduced-motion: reduce) { .shape { transition: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"shape hex\" title=\"hover me\"></div>\n  <div class=\"shape diag\"></div>\n  <div class=\"shape star\"></div>\n</body>\n</html>\n"
+}

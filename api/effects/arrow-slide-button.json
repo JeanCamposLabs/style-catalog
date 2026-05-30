@@ -1,0 +1,54 @@
+{
+  "id": "arrow-slide-button",
+  "title": "Arrow Slide Button",
+  "summary": "A button whose arrow glides forward (and label nudges) on hover, signaling 'go'.",
+  "description": "On hover, a trailing arrow translates to the right while the label shifts slightly, a small directional micro-interaction that reads as forward motion.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "hover",
+    "micro-interaction"
+  ],
+  "tags": [
+    "arrow",
+    "slide",
+    "cta",
+    "directional",
+    "hover",
+    "nudge"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Transform on two inline elements; trivial.",
+  "accessibility_notes": "Real button; the arrow is decorative (aria-hidden). Motion removed under prefers-reduced-motion. Keep a focus ring.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Button color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--shift",
+      "description": "Arrow travel distance",
+      "default": "6px"
+    }
+  ],
+  "variations": [
+    "Arrow appears from 0 width on hover",
+    "Use for 'Read more' text links",
+    "Back-arrow variant that slides left"
+  ],
+  "related": [
+    "fill-sweep-button",
+    "magnetic-button"
+  ],
+  "ai_usage": "Use for 'Continue', 'Get started', 'Read more' CTAs where direction matters. Put the label and an aria-hidden arrow (→) inline; on hover translateX the arrow by --shift (and optionally nudge the label). Mark the arrow aria-hidden so screen readers don't read it. Keep the focus-visible ring and a reduced-motion guard.",
+  "path": "effects/buttons/arrow-slide-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Arrow Slide Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"arrow-slide-button\",\n    \"title\": \"Arrow Slide Button\",\n    \"summary\": \"A button whose arrow glides forward (and label nudges) on hover, signaling 'go'.\",\n    \"description\": \"On hover, a trailing arrow translates to the right while the label shifts slightly, a small directional micro-interaction that reads as forward motion.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"hover\", \"micro-interaction\"],\n    \"tags\": [\"arrow\", \"slide\", \"cta\", \"directional\", \"hover\", \"nudge\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Transform on two inline elements; trivial.\",\n    \"accessibility_notes\": \"Real button; the arrow is decorative (aria-hidden). Motion removed under prefers-reduced-motion. Keep a focus ring.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Button color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--shift\", \"description\": \"Arrow travel distance\", \"default\": \"6px\" }\n    ],\n    \"variations\": [\"Arrow appears from 0 width on hover\", \"Use for 'Read more' text links\", \"Back-arrow variant that slides left\"],\n    \"related\": [\"fill-sweep-button\", \"magnetic-button\"],\n    \"ai_usage\": \"Use for 'Continue', 'Get started', 'Read more' CTAs where direction matters. Put the label and an aria-hidden arrow (→) inline; on hover translateX the arrow by --shift (and optionally nudge the label). Mark the arrow aria-hidden so screen readers don't read it. Keep the focus-visible ring and a reduced-motion guard.\"\n  }\n  </script>\n  <style>\n    :root { --bg: #7c5cff; --shift: 6px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .arrow-btn {\n      display: inline-flex; align-items: center; gap: .5rem; border: none; cursor: pointer;\n      background: var(--bg); color: #fff; font-weight: 700; font-size: 1rem; padding: .85rem 1.6rem; border-radius: 12px;\n    }\n    .arrow-btn .label { transition: transform .25s ease; }\n    .arrow-btn .arrow { transition: transform .25s ease; }\n    .arrow-btn:hover .arrow { transform: translateX(var(--shift)); }\n    .arrow-btn:hover .label { transform: translateX(2px); }\n    .arrow-btn:focus-visible { outline: 3px solid #2dd4bf; outline-offset: 2px; }\n    @media (prefers-reduced-motion: reduce) { .arrow-btn .arrow, .arrow-btn .label { transition: none; } }\n  </style>\n</head>\n<body>\n  <button class=\"arrow-btn\"><span class=\"label\">Get started</span><span class=\"arrow\" aria-hidden=\"true\">→</span></button>\n</body>\n</html>\n"
+}

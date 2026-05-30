@@ -1,0 +1,55 @@
+{
+  "id": "responsive-card-grid",
+  "title": "Responsive Card Grid (no media queries)",
+  "summary": "A card grid that reflows columns automatically using auto-fit + minmax — zero breakpoints.",
+  "description": "grid-template-columns: repeat(auto-fit, minmax(MIN, 1fr)) makes the grid add/remove columns based on available width, the single most useful responsive grid one-liner.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "grid",
+    "responsive",
+    "reference"
+  ],
+  "tags": [
+    "grid",
+    "auto-fit",
+    "minmax",
+    "responsive",
+    "cards",
+    "intrinsic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Pure layout; free. No JS or media queries.",
+  "accessibility_notes": "DOM order = visual order, so tab/reading order is correct by default.",
+  "customization": [
+    {
+      "name": "min column width",
+      "description": "The minmax minimum that decides when columns wrap",
+      "default": "220px"
+    },
+    {
+      "name": "gap",
+      "description": "Spacing between cards",
+      "default": "1rem"
+    }
+  ],
+  "variations": [
+    "auto-fill (keeps empty tracks) vs auto-fit (collapses them)",
+    "Add minmax(0,1fr) to fix overflow with long content",
+    "Equal-height cards via align-items: stretch"
+  ],
+  "related": [
+    "bento-grid",
+    "masonry-grid"
+  ],
+  "ai_usage": "The default responsive grid for card lists, galleries, product grids. One line: grid-template-columns: repeat(auto-fit, minmax(MIN, 1fr)). Choose MIN = the smallest acceptable card width; the grid computes column count per viewport with no media queries. Use auto-fit to collapse empty tracks (cards stretch), auto-fill to keep them. Add minmax(0,1fr) if long words overflow. Resize the frame to watch it reflow.",
+  "path": "effects/layout-archetypes/responsive-card-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Responsive Card Grid (no media queries)</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"responsive-card-grid\",\n    \"title\": \"Responsive Card Grid (no media queries)\",\n    \"summary\": \"A card grid that reflows columns automatically using auto-fit + minmax — zero breakpoints.\",\n    \"description\": \"grid-template-columns: repeat(auto-fit, minmax(MIN, 1fr)) makes the grid add/remove columns based on available width, the single most useful responsive grid one-liner.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"grid\", \"responsive\", \"reference\"],\n    \"tags\": [\"grid\", \"auto-fit\", \"minmax\", \"responsive\", \"cards\", \"intrinsic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Pure layout; free. No JS or media queries.\",\n    \"accessibility_notes\": \"DOM order = visual order, so tab/reading order is correct by default.\",\n    \"customization\": [\n      { \"name\": \"min column width\", \"description\": \"The minmax minimum that decides when columns wrap\", \"default\": \"220px\" },\n      { \"name\": \"gap\", \"description\": \"Spacing between cards\", \"default\": \"1rem\" }\n    ],\n    \"variations\": [\"auto-fill (keeps empty tracks) vs auto-fit (collapses them)\", \"Add minmax(0,1fr) to fix overflow with long content\", \"Equal-height cards via align-items: stretch\"],\n    \"related\": [\"bento-grid\", \"masonry-grid\"],\n    \"ai_usage\": \"The default responsive grid for card lists, galleries, product grids. One line: grid-template-columns: repeat(auto-fit, minmax(MIN, 1fr)). Choose MIN = the smallest acceptable card width; the grid computes column count per viewport with no media queries. Use auto-fit to collapse empty tracks (cards stretch), auto-fill to keep them. Add minmax(0,1fr) if long words overflow. Resize the frame to watch it reflow.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; padding: 1rem; font-family: system-ui, sans-serif; overflow: auto; }\n    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }\n    .card { background: #151925; border: 1px solid #262c3d; border-radius: 14px; padding: 1.2rem; color: #e7ebf3; }\n    .card h3 { margin: 0 0 .3rem; } .card p { margin: 0; color: #8b93a7; font-size: .9rem; }\n    .card .thumb { height: 80px; border-radius: 10px; margin-bottom: .8rem; background: linear-gradient(135deg,#7c5cff,#2dd4bf); }\n  </style>\n</head>\n<body>\n  <div class=\"grid\">\n    <div class=\"card\"><div class=\"thumb\"></div><h3>Card one</h3><p>auto-fit + minmax</p></div>\n    <div class=\"card\"><div class=\"thumb\"></div><h3>Card two</h3><p>reflows on resize</p></div>\n    <div class=\"card\"><div class=\"thumb\"></div><h3>Card three</h3><p>no media queries</p></div>\n    <div class=\"card\"><div class=\"thumb\"></div><h3>Card four</h3><p>equal columns</p></div>\n    <div class=\"card\"><div class=\"thumb\"></div><h3>Card five</h3><p>intrinsic responsive</p></div>\n    <div class=\"card\"><div class=\"thumb\"></div><h3>Card six</h3><p>one CSS line</p></div>\n  </div>\n</body>\n</html>\n"
+}

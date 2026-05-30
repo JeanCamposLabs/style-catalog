@@ -1,0 +1,53 @@
+{
+  "id": "neon-glow-text",
+  "title": "Neon Glow Text",
+  "summary": "Glowing neon-sign lettering built from layered text-shadows with a soft flicker.",
+  "description": "Stacks several increasingly-blurred text-shadows in the brand color to fake the bloom of a gas neon tube, plus an optional flicker animation.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "typography",
+    "glow"
+  ],
+  "tags": [
+    "neon",
+    "text-shadow",
+    "glow",
+    "retro",
+    "cyberpunk",
+    "80s"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2010s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers; text-shadow is universally supported.",
+  "performance_notes": "Multiple text-shadows are cheap. The flicker animates opacity/text-shadow on a single element — negligible cost.",
+  "accessibility_notes": "Ensure sufficient contrast against the dark background. The flicker is disabled under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--neon",
+      "description": "Core neon color",
+      "default": "#0ff"
+    },
+    {
+      "name": "--neon-text",
+      "description": "Letter fill color",
+      "default": "#fff"
+    }
+  ],
+  "variations": [
+    "Swap --neon per word for multi-color signage",
+    "Remove the flicker for a steady tube",
+    "Add a CSS @property hue rotation"
+  ],
+  "related": [
+    "gradient-text",
+    "shimmer-text"
+  ],
+  "ai_usage": "Use for hero headings, logos, or playful CTAs with a retro/cyberpunk vibe on dark backgrounds. Apply the .neon class to any inline text element. Tune --neon for the tube color and keep the background dark for the glow to read. The glow is purely text-shadow, so it scales with font-size automatically. Always keep the prefers-reduced-motion guard if you keep the flicker.",
+  "path": "effects/text-effects/neon-glow-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neon Glow Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-glow-text\",\n    \"title\": \"Neon Glow Text\",\n    \"summary\": \"Glowing neon-sign lettering built from layered text-shadows with a soft flicker.\",\n    \"description\": \"Stacks several increasingly-blurred text-shadows in the brand color to fake the bloom of a gas neon tube, plus an optional flicker animation.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"typography\", \"glow\"],\n    \"tags\": [\"neon\", \"text-shadow\", \"glow\", \"retro\", \"cyberpunk\", \"80s\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers; text-shadow is universally supported.\",\n    \"performance_notes\": \"Multiple text-shadows are cheap. The flicker animates opacity/text-shadow on a single element — negligible cost.\",\n    \"accessibility_notes\": \"Ensure sufficient contrast against the dark background. The flicker is disabled under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--neon\", \"description\": \"Core neon color\", \"default\": \"#0ff\" },\n      { \"name\": \"--neon-text\", \"description\": \"Letter fill color\", \"default\": \"#fff\" }\n    ],\n    \"variations\": [\"Swap --neon per word for multi-color signage\", \"Remove the flicker for a steady tube\", \"Add a CSS @property hue rotation\"],\n    \"related\": [\"gradient-text\", \"shimmer-text\"],\n    \"ai_usage\": \"Use for hero headings, logos, or playful CTAs with a retro/cyberpunk vibe on dark backgrounds. Apply the .neon class to any inline text element. Tune --neon for the tube color and keep the background dark for the glow to read. The glow is purely text-shadow, so it scales with font-size automatically. Always keep the prefers-reduced-motion guard if you keep the flicker.\"\n  }\n  </script>\n  <style>\n    :root { --neon: #0ff; --neon-text: #fff; }\n    html, body { height: 100%; margin: 0; }\n    body {\n      display: grid; place-items: center;\n      background: radial-gradient(circle at 50% 40%, #1a1030, #05030a 70%);\n      font-family: \"Segoe UI\", system-ui, sans-serif;\n    }\n    .neon {\n      font-size: 4rem; font-weight: 700; letter-spacing: 0.06em;\n      color: var(--neon-text);\n      text-shadow:\n        0 0 4px var(--neon-text),\n        0 0 11px var(--neon),\n        0 0 22px var(--neon),\n        0 0 40px var(--neon),\n        0 0 75px var(--neon);\n      animation: flicker 4.5s infinite;\n    }\n    @keyframes flicker {\n      0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }\n      20%, 24%, 55% { opacity: 0.55; }\n    }\n    @media (prefers-reduced-motion: reduce) { .neon { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"neon\">NEON</div>\n</body>\n</html>\n"
+}

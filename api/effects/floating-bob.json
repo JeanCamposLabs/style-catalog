@@ -1,0 +1,53 @@
+{
+  "id": "floating-bob",
+  "title": "Floating Bob",
+  "summary": "A gentle up-and-down hover float that makes hero illustrations feel alive.",
+  "description": "An infinite ease-in-out translateY loop (optionally with a soft shadow that breathes) gives an object a weightless, floating quality.",
+  "theme": "transitions-animations",
+  "themeTitle": "Transitions & Animations",
+  "categories": [
+    "animation",
+    "ambient",
+    "loop"
+  ],
+  "tags": [
+    "float",
+    "bob",
+    "hover",
+    "idle",
+    "loop",
+    "weightless"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Transform-only loop — GPU-friendly and cheap.",
+  "accessibility_notes": "Ambient motion; disable under prefers-reduced-motion. Avoid on text the user must read precisely.",
+  "customization": [
+    {
+      "name": "--amp",
+      "description": "Float height",
+      "default": "12px"
+    },
+    {
+      "name": "--dur",
+      "description": "Cycle duration",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Add a synced shadow that grows as it rises",
+    "Slight rotation for a drifting feel",
+    "Different delays for a group of floats"
+  ],
+  "related": [
+    "floating-particles"
+  ],
+  "ai_usage": "Use on hero illustrations, mascots, icons, and badges to add life. Apply .float; the keyframe eases translateY between 0 and -var(--amp). Give grouped elements different --dur and animation-delay so they don't move in lockstep. Mandatory reduced-motion guard.",
+  "path": "effects/transitions-animations/floating-bob.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Floating Bob</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"floating-bob\",\n    \"title\": \"Floating Bob\",\n    \"summary\": \"A gentle up-and-down hover float that makes hero illustrations feel alive.\",\n    \"description\": \"An infinite ease-in-out translateY loop (optionally with a soft shadow that breathes) gives an object a weightless, floating quality.\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"ambient\", \"loop\"],\n    \"tags\": [\"float\", \"bob\", \"hover\", \"idle\", \"loop\", \"weightless\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Transform-only loop — GPU-friendly and cheap.\",\n    \"accessibility_notes\": \"Ambient motion; disable under prefers-reduced-motion. Avoid on text the user must read precisely.\",\n    \"customization\": [\n      { \"name\": \"--amp\", \"description\": \"Float height\", \"default\": \"12px\" },\n      { \"name\": \"--dur\", \"description\": \"Cycle duration\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Add a synced shadow that grows as it rises\", \"Slight rotation for a drifting feel\", \"Different delays for a group of floats\"],\n    \"related\": [\"floating-particles\"],\n    \"ai_usage\": \"Use on hero illustrations, mascots, icons, and badges to add life. Apply .float; the keyframe eases translateY between 0 and -var(--amp). Give grouped elements different --dur and animation-delay so they don't move in lockstep. Mandatory reduced-motion guard.\"\n  }\n  </script>\n  <style>\n    :root { --amp: 12px; --dur: 3s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 30%, #1a1040, #06060c); }\n    .float {\n      width: 110px; height: 110px; border-radius: 26px;\n      background: linear-gradient(145deg, #7c5cff, #2dd4bf);\n      box-shadow: 0 30px 40px rgba(0,0,0,.5);\n      animation: bob var(--dur) ease-in-out infinite;\n    }\n    @keyframes bob { 50% { transform: translateY(calc(-1 * var(--amp))); } }\n    @media (prefers-reduced-motion: reduce) { .float { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"float\"></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "svg-text-on-path",
+  "title": "SVG Text on a Path",
+  "summary": "Text that flows along a curve, optionally scrolling around it — circular badges and arched headings.",
+  "description": "Uses <textPath href='#path'> to lay text along an arbitrary path, with an animated startOffset to make it travel — perfect for circular seal/badge text and curved labels.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "typography",
+    "text"
+  ],
+  "tags": [
+    "svg",
+    "textpath",
+    "curved-text",
+    "badge",
+    "circular",
+    "arc"
+  ],
+  "tech": [
+    "svg"
+  ],
+  "era": "timeless",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (textPath). startOffset animation via SMIL works broadly.",
+  "performance_notes": "Cheap. Define the path once and reference it; hide the path stroke if you only want the text.",
+  "accessibility_notes": "SVG text is real, selectable, and readable by screen readers — better than image text. Add role=img + aria-label on the SVG if the curved text is part of a logo. SMIL motion ignores reduced-motion; the script pauses it.",
+  "customization": [
+    {
+      "name": "path d",
+      "description": "The curve the text follows (arc, circle, wave)",
+      "default": "circle path"
+    },
+    {
+      "name": "startOffset",
+      "description": "Where text begins along the path (animate to scroll)",
+      "default": "0%"
+    }
+  ],
+  "variations": [
+    "Static arched heading",
+    "Rotating circular badge/seal",
+    "Text along a wavy or spiral path"
+  ],
+  "related": [
+    "svg-line-draw",
+    "rainbow-text"
+  ],
+  "ai_usage": "Use for circular badges/seals, arched titles, and curved labels. Define a <path id='p'> (a circle drawn as a path for a ring of text, or an arc for an arch) and put <text><textPath href='#p'>…</textPath></text>. Set the path's stroke to none if you only want text. To rotate the text around the ring, animate startOffset 0%→100% (SMIL) — pause under reduced motion. SVG text stays accessible/selectable.",
+  "path": "effects/svg-effects/svg-text-on-path.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Text on a Path</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-text-on-path\",\n    \"title\": \"SVG Text on a Path\",\n    \"summary\": \"Text that flows along a curve, optionally scrolling around it — circular badges and arched headings.\",\n    \"description\": \"Uses <textPath href='#path'> to lay text along an arbitrary path, with an animated startOffset to make it travel — perfect for circular seal/badge text and curved labels.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"typography\", \"text\"],\n    \"tags\": [\"svg\", \"textpath\", \"curved-text\", \"badge\", \"circular\", \"arc\"],\n    \"tech\": [\"svg\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (textPath). startOffset animation via SMIL works broadly.\",\n    \"performance_notes\": \"Cheap. Define the path once and reference it; hide the path stroke if you only want the text.\",\n    \"accessibility_notes\": \"SVG text is real, selectable, and readable by screen readers — better than image text. Add role=img + aria-label on the SVG if the curved text is part of a logo. SMIL motion ignores reduced-motion; the script pauses it.\",\n    \"customization\": [\n      { \"name\": \"path d\", \"description\": \"The curve the text follows (arc, circle, wave)\", \"default\": \"circle path\" },\n      { \"name\": \"startOffset\", \"description\": \"Where text begins along the path (animate to scroll)\", \"default\": \"0%\" }\n    ],\n    \"variations\": [\"Static arched heading\", \"Rotating circular badge/seal\", \"Text along a wavy or spiral path\"],\n    \"related\": [\"svg-line-draw\", \"rainbow-text\"],\n    \"ai_usage\": \"Use for circular badges/seals, arched titles, and curved labels. Define a <path id='p'> (a circle drawn as a path for a ring of text, or an arc for an arch) and put <text><textPath href='#p'>…</textPath></text>. Set the path's stroke to none if you only want text. To rotate the text around the ring, animate startOffset 0%→100% (SMIL) — pause under reduced motion. SVG text stays accessible/selectable.\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    text { font-family: system-ui, sans-serif; font-weight: 700; fill: #2dd4bf; letter-spacing: 2px; }\n    .ring { fill: none; stroke: #1b2030; stroke-width: 1; }\n  </style>\n</head>\n<body>\n  <svg width=\"240\" height=\"240\" viewBox=\"0 0 240 240\" role=\"img\" aria-label=\"Style Catalog circular badge\">\n    <path id=\"circle\" class=\"ring\" d=\"M120,120 m-90,0 a90,90 0 1,1 180,0 a90,90 0 1,1 -180,0\" />\n    <text font-size=\"18\">\n      <textPath href=\"#circle\" startOffset=\"0%\">\n        ★ STYLE CATALOG ★ MUSEUM OF WEB EFFECTS&nbsp;\n        <animate attributeName=\"startOffset\" from=\"0%\" to=\"100%\" dur=\"12s\" repeatCount=\"indefinite\" />\n      </textPath>\n    </text>\n    <text x=\"120\" y=\"128\" text-anchor=\"middle\" font-size=\"30\" fill=\"#7c5cff\">SVG</text>\n  </svg>\n  <script>\n    if (matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      document.querySelectorAll(\"svg\").forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });\n    }\n  </script>\n</body>\n</html>\n"
+}

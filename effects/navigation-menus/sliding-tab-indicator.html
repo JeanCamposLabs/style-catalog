@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sliding Tab Indicator</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "sliding-tab-indicator",
+    "title": "Sliding Tab Indicator",
+    "summary": "A pill/underline indicator that glides to the active tab.",
+    "description": "A single absolutely-positioned indicator is moved (translate + width) to match the selected tab, giving the smooth 'shared element' tab transition instead of a hard jump.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "tabs", "indicator"],
+    "tags": ["tabs", "indicator", "slide", "pill", "segmented", "active-state"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Animates transform/width of one element; cheap.",
+    "accessibility_notes": "Use role=tablist/tab/tabpanel and manage aria-selected + roving tabindex; the moving pill is decorative (visual only). Keyboard arrow navigation should move focus between tabs.",
+    "customization": [
+      { "name": "--pill", "description": "Indicator color", "default": "#7c5cff" }
+    ],
+    "variations": ["Underline instead of pill", "Vertical tabs", "Auto-detect active on load from aria-selected"],
+    "related": ["underline-grow-link"],
+    "ai_usage": "Use for segmented controls and tab bars. Render real tab buttons in a tablist; keep ONE indicator element and on tab change set its transform: translateX(offsetLeft) and width to the active tab's metrics (read from getBoundingClientRect/offsetLeft). Drive selection with proper ARIA (role=tab, aria-selected, arrow-key roving focus); the pill is purely visual. Recompute on resize."
+  }
+  </script>
+  <style>
+    :root { --pill: #7c5cff; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .tabs { position: relative; display: inline-flex; background: #151925; border: 1px solid #262c3d; border-radius: 999px; padding: 5px; }
+    .tab { position: relative; z-index: 1; border: none; background: none; color: #b7bdcc; cursor: pointer;
+      padding: .55rem 1.2rem; border-radius: 999px; font-size: .95rem; font-weight: 600; }
+    .tab.active { color: #fff; }
+    .tab:focus-visible { outline: 2px solid #2dd4bf; }
+    .pill { position: absolute; top: 5px; bottom: 5px; left: 0; border-radius: 999px; background: var(--pill);
+      transition: transform .3s cubic-bezier(.22,1,.36,1), width .3s cubic-bezier(.22,1,.36,1); }
+    @media (prefers-reduced-motion: reduce) { .pill { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="tabs" role="tablist" id="tabs">
+    <span class="pill" id="pill"></span>
+    <button class="tab active" role="tab" aria-selected="true">Overview</button>
+    <button class="tab" role="tab" aria-selected="false">Activity</button>
+    <button class="tab" role="tab" aria-selected="false">Settings</button>
+  </div>
+  <script>
+    var tabs = [].slice.call(document.querySelectorAll(".tab"));
+    var pill = document.getElementById("pill");
+    function move(el) { pill.style.width = el.offsetWidth + "px"; pill.style.transform = "translateX(" + el.offsetLeft + "px)"; }
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () {
+        tabs.forEach(function (x) { x.classList.remove("active"); x.setAttribute("aria-selected", "false"); });
+        t.classList.add("active"); t.setAttribute("aria-selected", "true"); move(t);
+      });
+    });
+    move(tabs[0]);
+    addEventListener("resize", function () { move(document.querySelector(".tab.active")); });
+  </script>
+</body>
+</html>

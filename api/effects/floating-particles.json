@@ -1,0 +1,55 @@
+{
+  "id": "floating-particles",
+  "title": "Floating Particles",
+  "summary": "Drifting glowing dots rise gently across the background, generated with a little JS.",
+  "description": "A small script spawns N absolutely-positioned dots with randomized size, position, and animation duration; CSS floats them upward in a loop for an ambient particle field.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "particles",
+    "ambient"
+  ],
+  "tags": [
+    "particles",
+    "float",
+    "ambient",
+    "dots",
+    "bokeh",
+    "atmosphere"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Keep particle count modest (≈30-60). Each animates transform/opacity only. For hundreds of particles, switch to canvas.",
+  "accessibility_notes": "Purely decorative; the script skips animation when prefers-reduced-motion is set (renders static dots).",
+  "customization": [
+    {
+      "name": "COUNT",
+      "description": "Number of particles",
+      "default": "40"
+    },
+    {
+      "name": "--particle",
+      "description": "Particle color",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Snow (fall downward, white)",
+    "Embers (orange, rise + flicker)",
+    "Connect nearby particles with lines via canvas"
+  ],
+  "related": [
+    "aurora-background",
+    "starfield"
+  ],
+  "ai_usage": "Ambient atmosphere behind heroes. The JS loop creates COUNT dots with random left%, size, delay, and duration, appended to a relative container. CSS animates translateY upward + fade. Keep count low for DOM-based; escalate to canvas for dense fields. Always behind content (z-index) and behind the reduced-motion guard.",
+  "path": "effects/backgrounds/floating-particles.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Floating Particles</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"floating-particles\",\n    \"title\": \"Floating Particles\",\n    \"summary\": \"Drifting glowing dots rise gently across the background, generated with a little JS.\",\n    \"description\": \"A small script spawns N absolutely-positioned dots with randomized size, position, and animation duration; CSS floats them upward in a loop for an ambient particle field.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"particles\", \"ambient\"],\n    \"tags\": [\"particles\", \"float\", \"ambient\", \"dots\", \"bokeh\", \"atmosphere\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Keep particle count modest (≈30-60). Each animates transform/opacity only. For hundreds of particles, switch to canvas.\",\n    \"accessibility_notes\": \"Purely decorative; the script skips animation when prefers-reduced-motion is set (renders static dots).\",\n    \"customization\": [\n      { \"name\": \"COUNT\", \"description\": \"Number of particles\", \"default\": \"40\" },\n      { \"name\": \"--particle\", \"description\": \"Particle color\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Snow (fall downward, white)\", \"Embers (orange, rise + flicker)\", \"Connect nearby particles with lines via canvas\"],\n    \"related\": [\"aurora-background\", \"starfield\"],\n    \"ai_usage\": \"Ambient atmosphere behind heroes. The JS loop creates COUNT dots with random left%, size, delay, and duration, appended to a relative container. CSS animates translateY upward + fade. Keep count low for DOM-based; escalate to canvas for dense fields. Always behind content (z-index) and behind the reduced-motion guard.\"\n  }\n  </script>\n  <style>\n    :root { --particle: #7c5cff; }\n    html, body { height: 100%; margin: 0; }\n    .particles { position: relative; height: 100vh; overflow: hidden; background: radial-gradient(circle at 50% 120%, #1a1040, #05030a); }\n    .particle {\n      position: absolute; bottom: -20px; border-radius: 50%;\n      background: var(--particle); box-shadow: 0 0 8px var(--particle);\n      animation: rise linear infinite;\n    }\n    @keyframes rise {\n      0% { transform: translateY(0) scale(1); opacity: 0; }\n      10% { opacity: .9; }\n      90% { opacity: .7; }\n      100% { transform: translateY(-110vh) scale(.4); opacity: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) { .particle { animation: none; opacity: .5; } }\n  </style>\n</head>\n<body>\n  <div class=\"particles\" id=\"field\"></div>\n  <script>\n    var COUNT = 40;\n    var field = document.getElementById(\"field\");\n    var reduce = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    for (var i = 0; i < COUNT; i++) {\n      var p = document.createElement(\"span\");\n      p.className = \"particle\";\n      var size = 2 + Math.random() * 6;\n      p.style.width = p.style.height = size + \"px\";\n      p.style.left = Math.random() * 100 + \"%\";\n      if (!reduce) {\n        p.style.animationDuration = (6 + Math.random() * 10) + \"s\";\n        p.style.animationDelay = (-Math.random() * 16) + \"s\";\n      } else {\n        p.style.bottom = Math.random() * 100 + \"%\";\n      }\n      field.appendChild(p);\n    }\n  </script>\n</body>\n</html>\n"
+}

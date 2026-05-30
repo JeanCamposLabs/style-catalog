@@ -1,0 +1,55 @@
+{
+  "id": "dark-mode-tokens",
+  "title": "Dark / Light Mode Tokens",
+  "summary": "A theming pattern where semantic tokens flip between light and dark via a data-attribute — live toggle.",
+  "description": "Demonstrates the standard themeable token setup: semantic CSS variables defined for the default theme and overridden under [data-theme='light'] / prefers-color-scheme, with a working toggle button.",
+  "theme": "color-systems",
+  "themeTitle": "Color Systems",
+  "categories": [
+    "design-tokens",
+    "color",
+    "theming",
+    "dark-mode"
+  ],
+  "tags": [
+    "dark-mode",
+    "light-mode",
+    "theme",
+    "tokens",
+    "prefers-color-scheme",
+    "toggle"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Swapping a data attribute re-resolves variables instantly; negligible.",
+  "accessibility_notes": "Respect prefers-color-scheme as the default; let users override via the toggle and persist their choice. Maintain contrast in BOTH themes. The toggle is a real button with aria-pressed.",
+  "customization": [
+    {
+      "name": ":root tokens",
+      "description": "Default (dark) semantic colors",
+      "default": "see source"
+    },
+    {
+      "name": "[data-theme=light]",
+      "description": "Light overrides",
+      "default": "see source"
+    }
+  ],
+  "variations": [
+    "System-default + manual override with localStorage",
+    "Multiple brand themes",
+    "Per-component theme scopes"
+  ],
+  "related": [
+    "semantic-color-tokens"
+  ],
+  "ai_usage": "The canonical dark/light theming pattern. Define semantic tokens on :root for one theme and override the SAME token names under [data-theme='...'] (and/or @media (prefers-color-scheme)). Components only reference semantic tokens, so theme switching is a single attribute change on <html>. Default to the system preference, allow a toggle (button with aria-pressed), and persist the choice in localStorage. Verify contrast in every theme.",
+  "path": "effects/color-systems/dark-mode-tokens.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dark / Light Mode Tokens</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dark-mode-tokens\",\n    \"title\": \"Dark / Light Mode Tokens\",\n    \"summary\": \"A theming pattern where semantic tokens flip between light and dark via a data-attribute — live toggle.\",\n    \"description\": \"Demonstrates the standard themeable token setup: semantic CSS variables defined for the default theme and overridden under [data-theme='light'] / prefers-color-scheme, with a working toggle button.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"design-tokens\", \"color\", \"theming\", \"dark-mode\"],\n    \"tags\": [\"dark-mode\", \"light-mode\", \"theme\", \"tokens\", \"prefers-color-scheme\", \"toggle\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Swapping a data attribute re-resolves variables instantly; negligible.\",\n    \"accessibility_notes\": \"Respect prefers-color-scheme as the default; let users override via the toggle and persist their choice. Maintain contrast in BOTH themes. The toggle is a real button with aria-pressed.\",\n    \"customization\": [\n      { \"name\": \":root tokens\", \"description\": \"Default (dark) semantic colors\", \"default\": \"see source\" },\n      { \"name\": \"[data-theme=light]\", \"description\": \"Light overrides\", \"default\": \"see source\" }\n    ],\n    \"variations\": [\"System-default + manual override with localStorage\", \"Multiple brand themes\", \"Per-component theme scopes\"],\n    \"related\": [\"semantic-color-tokens\"],\n    \"ai_usage\": \"The canonical dark/light theming pattern. Define semantic tokens on :root for one theme and override the SAME token names under [data-theme='...'] (and/or @media (prefers-color-scheme)). Components only reference semantic tokens, so theme switching is a single attribute change on <html>. Default to the system preference, allow a toggle (button with aria-pressed), and persist the choice in localStorage. Verify contrast in every theme.\"\n  }\n  </script>\n  <style>\n    :root {\n      --bg:#0b0d12; --surface:#151925; --border:#262c3d; --text:#e7ebf3; --muted:#8b93a7; --primary:#7c5cff;\n    }\n    [data-theme=\"light\"] {\n      --bg:#f6f7fb; --surface:#ffffff; --border:#e2e6ef; --text:#0f172a; --muted:#64748b; --primary:#5b3ee0;\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; display: grid; place-items: center; transition: background .3s, color .3s; }\n    .demo { width: 300px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; transition: background .3s, border-color .3s; }\n    .demo h3 { margin: 0 0 .3rem; } .demo p { color: var(--muted); margin: 0 0 1rem; }\n    .toggle { border: 1px solid var(--border); background: var(--primary); color: #fff; border-radius: 10px; padding: .6rem 1rem; cursor: pointer; font-weight: 600; }\n    @media (prefers-reduced-motion: reduce) { body, .demo { transition: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"demo\">\n    <h3>Themeable surface</h3>\n    <p>Same tokens, two themes.</p>\n    <button class=\"toggle\" id=\"t\" aria-pressed=\"false\">Toggle theme</button>\n  </div>\n  <script>\n    var t = document.getElementById(\"t\");\n    t.addEventListener(\"click\", function () {\n      var light = document.documentElement.getAttribute(\"data-theme\") === \"light\";\n      document.documentElement.setAttribute(\"data-theme\", light ? \"dark\" : \"light\");\n      t.setAttribute(\"aria-pressed\", String(!light));\n    });\n  </script>\n</body>\n</html>\n"
+}

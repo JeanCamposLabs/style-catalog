@@ -1,0 +1,53 @@
+{
+  "id": "cube-rotate",
+  "title": "Rotating 3D Cube",
+  "summary": "A six-faced cube continuously rotates in 3D space, built from divs.",
+  "description": "Six faces are positioned with rotateX/rotateY + translateZ inside a preserve-3d container, which spins on a loop — a showcase of pure-CSS 3D.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "cube",
+    "loop"
+  ],
+  "tags": [
+    "cube",
+    "3d",
+    "rotate",
+    "preserve-3d",
+    "translateZ",
+    "showcase"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2010s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Six layers + continuous rotation; fine standalone. Avoid many cubes at once.",
+  "accessibility_notes": "Decorative; pause under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--s",
+      "description": "Cube edge length",
+      "default": "120px"
+    },
+    {
+      "name": "--dur",
+      "description": "Rotation period",
+      "default": "12s"
+    }
+  ],
+  "variations": [
+    "Rotate on drag (JS)",
+    "Glass faces (semi-transparent)",
+    "Map images onto faces"
+  ],
+  "related": [
+    "flip-card"
+  ],
+  "ai_usage": "Eye-catching hero/showcase element. Each face is translated out by half the edge: e.g. front translateZ(s/2), back rotateY(180deg) translateZ(s/2), etc. The wrapper uses transform-style:preserve-3d and animates rotateX+rotateY. Half the edge length must equal translateZ. Wrap in a perspective scene. Pause under reduced motion.",
+  "path": "effects/3d-transforms/cube-rotate.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rotating 3D Cube</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cube-rotate\",\n    \"title\": \"Rotating 3D Cube\",\n    \"summary\": \"A six-faced cube continuously rotates in 3D space, built from divs.\",\n    \"description\": \"Six faces are positioned with rotateX/rotateY + translateZ inside a preserve-3d container, which spins on a loop — a showcase of pure-CSS 3D.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"cube\", \"loop\"],\n    \"tags\": [\"cube\", \"3d\", \"rotate\", \"preserve-3d\", \"translateZ\", \"showcase\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Six layers + continuous rotation; fine standalone. Avoid many cubes at once.\",\n    \"accessibility_notes\": \"Decorative; pause under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--s\", \"description\": \"Cube edge length\", \"default\": \"120px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"12s\" }\n    ],\n    \"variations\": [\"Rotate on drag (JS)\", \"Glass faces (semi-transparent)\", \"Map images onto faces\"],\n    \"related\": [\"flip-card\"],\n    \"ai_usage\": \"Eye-catching hero/showcase element. Each face is translated out by half the edge: e.g. front translateZ(s/2), back rotateY(180deg) translateZ(s/2), etc. The wrapper uses transform-style:preserve-3d and animates rotateX+rotateY. Half the edge length must equal translateZ. Wrap in a perspective scene. Pause under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root { --s: 120px; --dur: 12s; --half: calc(var(--s) / 2); }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #1a1040, #06060c); perspective: 800px; }\n    .cube { position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: rot var(--dur) linear infinite; }\n    .face {\n      position: absolute; width: var(--s); height: var(--s);\n      background: linear-gradient(135deg, rgba(124,92,255,.85), rgba(45,212,191,.85));\n      border: 1px solid rgba(255,255,255,.4); display: grid; place-items: center;\n      color: #fff; font-weight: 700; font-family: system-ui, sans-serif;\n    }\n    .f1 { transform: rotateY(0deg) translateZ(var(--half)); }\n    .f2 { transform: rotateY(90deg) translateZ(var(--half)); }\n    .f3 { transform: rotateY(180deg) translateZ(var(--half)); }\n    .f4 { transform: rotateY(-90deg) translateZ(var(--half)); }\n    .f5 { transform: rotateX(90deg) translateZ(var(--half)); }\n    .f6 { transform: rotateX(-90deg) translateZ(var(--half)); }\n    @keyframes rot { to { transform: rotateX(360deg) rotateY(360deg); } }\n    @media (prefers-reduced-motion: reduce) { .cube { animation: none; transform: rotateX(-25deg) rotateY(35deg); } }\n  </style>\n</head>\n<body>\n  <div class=\"cube\">\n    <div class=\"face f1\">1</div><div class=\"face f2\">2</div><div class=\"face f3\">3</div>\n    <div class=\"face f4\">4</div><div class=\"face f5\">5</div><div class=\"face f6\">6</div>\n  </div>\n</body>\n</html>\n"
+}

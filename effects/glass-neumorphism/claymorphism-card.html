@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Claymorphism Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "claymorphism-card",
+    "title": "Claymorphism Card",
+    "summary": "A puffy, candy-like 3D clay surface with big radii and inset highlights.",
+    "description": "Combines very large border-radius, a flat fill, a soft drop shadow, and two inset shadows (a bright top-inner and a darker bottom-inner) to make elements look like inflated soft clay.",
+    "theme": "glass-neumorphism",
+    "categories": ["surface", "claymorphism", "card"],
+    "tags": ["claymorphism", "clay", "puffy", "3d", "playful", "inset-shadow"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Static multi-shadow; trivial.",
+    "accessibility_notes": "Generally good contrast since fills are solid and bold; keep text legible on the chosen fill.",
+    "customization": [
+      { "name": "--clay", "description": "Fill color", "default": "#7c5cff" },
+      { "name": "--radius", "description": "Corner roundness", "default": "44px" }
+    ],
+    "variations": ["Pastel palette for kid/edu apps", "Clay buttons & icons", "Combine with a floating-bob animation"],
+    "related": ["neumorphism-card", "glassmorphism-card"],
+    "ai_usage": "Playful, friendly UIs (education, kids, casual apps). Recipe: large border-radius, solid fill, an outer drop shadow for lift, plus TWO inset shadows — a light one (top-left, simulating a highlight) and a darker tinted one (bottom-right). Increase radius and shadow softness for puffier clay. Pairs well with bright, saturated palettes."
+  }
+  </script>
+  <style>
+    :root { --clay: #7c5cff; --radius: 44px; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #eef0ff; font-family: system-ui, sans-serif; }
+    .clay {
+      width: 220px; height: 220px; border-radius: var(--radius); background: var(--clay);
+      display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.2rem;
+      box-shadow:
+        0 18px 40px rgba(124,92,255,.45),
+        inset 8px 8px 16px rgba(255,255,255,.45),
+        inset -10px -12px 22px rgba(60,40,140,.55);
+    }
+  </style>
+</head>
+<body>
+  <div class="clay">Clay</div>
+</body>
+</html>

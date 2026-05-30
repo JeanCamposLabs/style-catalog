@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Coverflow Carousel</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "carousel-3d",
+    "title": "3D Coverflow Carousel",
+    "summary": "Cards arranged on a rotating 3D cylinder, auto-spinning — the coverflow look.",
+    "description": "Panels are distributed around a Y axis with rotateY + translateZ inside a preserve-3d stage that rotates, placing items on a virtual cylinder you can spin.",
+    "theme": "3d-transforms",
+    "categories": ["3d", "carousel", "showcase"],
+    "tags": ["carousel", "coverflow", "cylinder", "3d", "rotateY", "gallery"],
+    "tech": ["css", "js"],
+    "era": "2010s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (3D transforms).",
+    "performance_notes": "N panels each transformed once; rotating the stage is GPU-composited. Fine for ~6-12 panels.",
+    "accessibility_notes": "Decorative showcase. For a real content carousel, provide prev/next buttons, keyboard control, pause, and ensure off-screen panels are not focus-trapped (inert/aria-hidden). Stop auto-rotate under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--radius", "description": "Cylinder radius (panel distance)", "default": "260px" },
+      { "name": "panel count", "description": "Number of panels (sets the angle step)", "default": "6" }
+    ],
+    "variations": ["Drag to spin (pointer events)", "Snap to nearest panel", "Reflective coverflow with a CSS reflection"],
+    "related": ["cube-rotate", "flip-card"],
+    "ai_usage": "Eye-catching media/product showcase. angleStep = 360/N; each panel i: rotateY(i*step) translateZ(radius). Wrap panels in a preserve-3d stage under a perspective container and rotate the stage (auto or via prev/next that change rotation by ±step). For production add controls, keyboard support, pause, and inert/aria-hidden on non-active panels. Disable auto-spin under reduced motion."
+  }
+  </script>
+  <style>
+    :root { --radius: 240px; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #1a1040, #06060c); overflow: hidden; perspective: 1100px; }
+    .stage { position: relative; width: 160px; height: 220px; transform-style: preserve-3d; animation: spin 18s linear infinite; }
+    .panel {
+      position: absolute; inset: 0; border-radius: 14px; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.4rem;
+      border: 1px solid rgba(255,255,255,.25); box-shadow: 0 14px 40px rgba(0,0,0,.5);
+      backface-visibility: hidden;
+    }
+    .p1 { background: linear-gradient(135deg,#7c5cff,#5b3ee0); transform: rotateY(0deg) translateZ(var(--radius)); }
+    .p2 { background: linear-gradient(135deg,#2dd4bf,#0ea5a5); transform: rotateY(60deg) translateZ(var(--radius)); }
+    .p3 { background: linear-gradient(135deg,#f0abfc,#c026d3); transform: rotateY(120deg) translateZ(var(--radius)); }
+    .p4 { background: linear-gradient(135deg,#fb7185,#e11d48); transform: rotateY(180deg) translateZ(var(--radius)); }
+    .p5 { background: linear-gradient(135deg,#38bdf8,#0369a1); transform: rotateY(240deg) translateZ(var(--radius)); }
+    .p6 { background: linear-gradient(135deg,#fbbf24,#d97706); transform: rotateY(300deg) translateZ(var(--radius)); }
+    @keyframes spin { to { transform: rotateY(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .stage { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="panel p1">1</div><div class="panel p2">2</div><div class="panel p3">3</div>
+    <div class="panel p4">4</div><div class="panel p5">5</div><div class="panel p6">6</div>
+  </div>
+</body>
+</html>

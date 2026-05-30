@@ -1,0 +1,54 @@
+{
+  "id": "animated-checkbox",
+  "title": "Animated Checkbox",
+  "summary": "A checkbox whose tick draws itself in with an SVG stroke animation on check.",
+  "description": "A real checkbox controls an SVG checkmark whose stroke-dashoffset animates from hidden to drawn when :checked, plus a filling box — a satisfying, accessible custom checkbox.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "checkbox",
+    "control"
+  ],
+  "tags": [
+    "checkbox",
+    "svg",
+    "stroke",
+    "draw",
+    "tick",
+    "accessible"
+  ],
+  "tech": [
+    "css",
+    "svg"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (SVG stroke-dasharray animation).",
+  "performance_notes": "Animates stroke-dashoffset + background; trivial.",
+  "accessibility_notes": "Backed by a real <input type=checkbox> kept focusable (opacity:0, not display:none). The SVG is decorative (aria-hidden). Keep a visible focus ring and a real <label>.",
+  "customization": [
+    {
+      "name": "--accent",
+      "description": "Checked fill color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--size",
+      "description": "Box size",
+      "default": "26px"
+    }
+  ],
+  "variations": [
+    "Bounce/scale pop on check",
+    "Indeterminate dash state",
+    "Radio-button variant with a draw-in dot"
+  ],
+  "related": [
+    "toggle-switch"
+  ],
+  "ai_usage": "Use for multi-select lists, terms acceptance, todo items. Hide the native checkbox (opacity:0) but keep it in flow for focus/keyboard; draw a custom box + inline SVG checkmark. On input:checked, fill the box and animate the SVG path's stroke-dashoffset from path-length to 0 to 'draw' the tick. Keep the real <input> + <label for> and a focus-visible ring.",
+  "path": "effects/forms-inputs/animated-checkbox.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Animated Checkbox</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"animated-checkbox\",\n    \"title\": \"Animated Checkbox\",\n    \"summary\": \"A checkbox whose tick draws itself in with an SVG stroke animation on check.\",\n    \"description\": \"A real checkbox controls an SVG checkmark whose stroke-dashoffset animates from hidden to drawn when :checked, plus a filling box — a satisfying, accessible custom checkbox.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"checkbox\", \"control\"],\n    \"tags\": [\"checkbox\", \"svg\", \"stroke\", \"draw\", \"tick\", \"accessible\"],\n    \"tech\": [\"css\", \"svg\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (SVG stroke-dasharray animation).\",\n    \"performance_notes\": \"Animates stroke-dashoffset + background; trivial.\",\n    \"accessibility_notes\": \"Backed by a real <input type=checkbox> kept focusable (opacity:0, not display:none). The SVG is decorative (aria-hidden). Keep a visible focus ring and a real <label>.\",\n    \"customization\": [\n      { \"name\": \"--accent\", \"description\": \"Checked fill color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--size\", \"description\": \"Box size\", \"default\": \"26px\" }\n    ],\n    \"variations\": [\"Bounce/scale pop on check\", \"Indeterminate dash state\", \"Radio-button variant with a draw-in dot\"],\n    \"related\": [\"toggle-switch\"],\n    \"ai_usage\": \"Use for multi-select lists, terms acceptance, todo items. Hide the native checkbox (opacity:0) but keep it in flow for focus/keyboard; draw a custom box + inline SVG checkmark. On input:checked, fill the box and animate the SVG path's stroke-dashoffset from path-length to 0 to 'draw' the tick. Keep the real <input> + <label for> and a focus-visible ring.\"\n  }\n  </script>\n  <style>\n    :root { --accent: #7c5cff; --size: 26px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .check { display: inline-flex; align-items: center; gap: .7rem; cursor: pointer; color: #e7ebf3; font-size: 1.05rem; }\n    .check input { position: absolute; opacity: 0; width: var(--size); height: var(--size); cursor: pointer; }\n    .box { width: var(--size); height: var(--size); border: 2px solid #3a4256; border-radius: 7px; display: grid; place-items: center; transition: background .2s, border-color .2s; }\n    .box svg { width: 70%; height: 70%; }\n    .box path { fill: none; stroke: #fff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;\n      stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset .3s ease .05s; }\n    .check input:checked + .box { background: var(--accent); border-color: var(--accent); }\n    .check input:checked + .box path { stroke-dashoffset: 0; }\n    .check input:focus-visible + .box { outline: 3px solid #2dd4bf; outline-offset: 2px; }\n    @media (prefers-reduced-motion: reduce) { .box path, .box { transition: none; } }\n  </style>\n</head>\n<body>\n  <label class=\"check\">\n    <input type=\"checkbox\" checked />\n    <span class=\"box\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M4 12.5l5 5L20 6\"/></svg></span>\n    I agree to the terms\n  </label>\n</body>\n</html>\n"
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fluid Typography (clamp)</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "fluid-typography",
+    "title": "Fluid Typography (clamp)",
+    "summary": "Type that scales smoothly with the viewport using clamp() — no breakpoints.",
+    "description": "Demonstrates clamp(min, preferred-vw, max) for headings/body so font sizes interpolate fluidly between a minimum and maximum across screen widths, eliminating media-query font jumps.",
+    "theme": "typography-systems",
+    "categories": ["typography", "responsive", "reference"],
+    "tags": ["fluid", "clamp", "responsive", "viewport", "vw", "scaling"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (clamp(), vw units).",
+    "performance_notes": "Pure CSS; recalculated on resize by the engine — free.",
+    "accessibility_notes": "Include a rem term in the preferred value (e.g. 1rem + 2vw) so text still responds to user zoom/font-size; a pure-vw value can break zoom. Respect the min so text never gets too small.",
+    "customization": [
+      { "name": "clamp(min, fluid, max)", "description": "Bounds + viewport-relative middle", "default": "clamp(2rem, 1rem + 4vw, 4rem)" }
+    ],
+    "variations": ["Fluid spacing/margins with the same technique", "Combine with a modular scale for fluid steps", "Container-query-based fluid type"],
+    "related": ["type-scale"],
+    "ai_usage": "Use to make headings responsive WITHOUT media queries. Pattern: font-size: clamp(MIN, REM + VW, MAX). ALWAYS include a rem term in the middle (e.g. 1rem + 4vw) so the text still scales with user zoom — a pure vw value is an accessibility failure. Pick MIN/MAX from your type scale. Resize the catalog frame / window to see it interpolate."
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; display: grid; place-items: center; padding: 1.2rem; text-align: center; }
+    h1 { font-size: clamp(2rem, 1rem + 5vw, 4.5rem); margin: 0 0 .5rem; line-height: 1.05;
+      background: linear-gradient(120deg,#7c5cff,#2dd4bf); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    p { font-size: clamp(1rem, .9rem + .6vw, 1.3rem); color: #b7bdcc; max-width: 40ch; margin: 0 auto; }
+    code { color: #2dd4bf; font-family: ui-monospace, monospace; font-size: .8rem; }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Resize me, I flow</h1>
+    <p>Fluid type with <code>clamp(2rem, 1rem + 5vw, 4.5rem)</code> — smooth scaling, no breakpoints, still zoomable.</p>
+  </div>
+</body>
+</html>

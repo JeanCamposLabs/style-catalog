@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Font Pairings</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "font-pairings",
+    "title": "Font Pairings",
+    "summary": "Reference combinations of heading + body fonts using only system font stacks.",
+    "description": "Shows several tasteful heading/body pairings (serif display + sans body, geometric + humanist, monospace accent) built from cross-platform system font stacks so they need no web-font downloads.",
+    "theme": "typography-systems",
+    "categories": ["typography", "fonts", "reference"],
+    "tags": ["font-pairing", "system-fonts", "serif", "sans", "monospace", "stacks"],
+    "tech": ["css"],
+    "era": "timeless",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers (system font stacks resolve per OS).",
+    "performance_notes": "System fonts = zero network cost and no layout shift. The fastest possible typography.",
+    "accessibility_notes": "System stacks respect user/OS font settings. Ensure adequate size and line-height for readability (1.5 for body).",
+    "customization": [
+      { "name": "--font-head / --font-body", "description": "The paired stacks", "default": "see each card" }
+    ],
+    "variations": ["Swap a system stack for a self-hosted web font", "Add a --font-mono for code", "Pair weights, not just families, within one superfamily"],
+    "related": ["type-scale", "fluid-typography"],
+    "ai_usage": "A reference for pairing fonts WITHOUT web-font downloads. Define --font-head and --font-body as system stacks and apply to headings/body. Principles shown: contrast families (serif heading + sans body), or stay in one family with weight contrast. Prefer system stacks for performance; only add a web font when brand truly requires it (then preload + font-display: swap). Copy a card's two stacks as your tokens."
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { background: #0b0d12; color: #e7ebf3; padding: 1.2rem; overflow: auto; font-family: system-ui, sans-serif; }
+    .pair { border: 1px solid #262c3d; border-radius: 14px; padding: 1.1rem 1.3rem; margin-bottom: 1rem; background: #11141c; }
+    .pair h3 { margin: 0 0 .2rem; font-size: 1.6rem; }
+    .pair p { margin: .2rem 0 .5rem; color: #b7bdcc; line-height: 1.5; }
+    .pair code { font-size: .68rem; color: #8b93a7; font-family: ui-monospace, monospace; }
+    .p1 h3 { font-family: Georgia, "Times New Roman", serif; }
+    .p1 p { font-family: system-ui, sans-serif; }
+    .p2 h3 { font-family: "Trebuchet MS", "Segoe UI", sans-serif; font-weight: 800; letter-spacing: -.02em; }
+    .p2 p { font-family: Georgia, serif; }
+    .p3 h3 { font-family: ui-monospace, "Cascadia Code", monospace; }
+    .p3 p { font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="pair p1">
+    <h3>Editorial Serif</h3>
+    <p>Serif display over a clean sans body — classic, trustworthy, great for long-form reading.</p>
+    <code>head: Georgia, serif · body: system-ui, sans-serif</code>
+  </div>
+  <div class="pair p2">
+    <h3>Modern Geometric</h3>
+    <p>A bold geometric sans heading paired with a serif body for an unexpected, refined contrast.</p>
+    <code>head: Trebuchet MS, sans-serif · body: Georgia, serif</code>
+  </div>
+  <div class="pair p3">
+    <h3>Technical Mono</h3>
+    <p>Monospace heading signals a developer/technical product; sans body keeps it readable.</p>
+    <code>head: ui-monospace, monospace · body: system-ui, sans-serif</code>
+  </div>
+</body>
+</html>

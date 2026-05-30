@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scroll Snap Gallery</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scroll-snap-gallery",
+    "title": "Scroll Snap Gallery",
+    "summary": "A horizontal gallery where each slide snaps cleanly into place — pure CSS scroll-snap.",
+    "description": "Uses scroll-snap-type on a horizontally-scrolling container and scroll-snap-align on children so swiping/scrolling locks each slide to the start, a native carousel with no JS.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "carousel", "gallery"],
+    "tags": ["scroll-snap", "carousel", "gallery", "horizontal", "swipe", "slides"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (CSS scroll-snap).",
+    "performance_notes": "Native scrolling; very smooth and JS-free.",
+    "accessibility_notes": "Keep slides keyboard-scrollable and focusable; native scroll handles touch/trackpad. For a true carousel add labels and optional prev/next buttons. Snap doesn't trap focus.",
+    "customization": [
+      { "name": "scroll-snap-type", "description": "Axis + strictness (mandatory/proximity)", "default": "x mandatory" },
+      { "name": "slide width", "description": "Per-slide flex-basis", "default": "80%" }
+    ],
+    "variations": ["Vertical snap (full-page sections)", "Center-aligned snap", "Snap with peeking next slide"],
+    "related": ["sticky-stack-cards", "carousel-3d"],
+    "ai_usage": "Use for image carousels, onboarding slides, and full-page section snapping. Container: overflow-x:auto; scroll-snap-type: x mandatory; flex row. Each slide: flex:0 0 <width>; scroll-snap-align: start (or center). Use 'proximity' instead of 'mandatory' if mandatory feels too aggressive. Add prev/next buttons calling scrollBy for a fuller carousel; native scroll already gives touch/keyboard support."
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .snap {
+      display: flex; gap: 1rem; width: 320px; padding: 1rem; overflow-x: auto;
+      scroll-snap-type: x mandatory; scrollbar-width: thin;
+    }
+    .slide {
+      flex: 0 0 80%; height: 200px; border-radius: 16px; scroll-snap-align: center;
+      display: grid; place-items: center; color: #fff; font-size: 2rem; font-weight: 800;
+    }
+    .s1 { background: linear-gradient(135deg,#7c5cff,#5b3ee0); }
+    .s2 { background: linear-gradient(135deg,#2dd4bf,#0ea5a5); }
+    .s3 { background: linear-gradient(135deg,#f0abfc,#c026d3); }
+    .s4 { background: linear-gradient(135deg,#fb7185,#e11d48); }
+  </style>
+</head>
+<body>
+  <div class="snap">
+    <div class="slide s1">1</div>
+    <div class="slide s2">2</div>
+    <div class="slide s3">3</div>
+    <div class="slide s4">4</div>
+  </div>
+</body>
+</html>

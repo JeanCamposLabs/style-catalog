@@ -1,0 +1,50 @@
+{
+  "id": "dropdown-menu",
+  "title": "Animated Dropdown Menu",
+  "summary": "A dropdown that fades and slides down from its trigger, toggled accessibly on click.",
+  "description": "A button toggles a menu that animates from a slightly-raised, transparent state into place. Click-outside and Escape close it; aria-expanded is kept in sync.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu",
+    "dropdown"
+  ],
+  "tags": [
+    "dropdown",
+    "menu",
+    "popover",
+    "toggle",
+    "fade",
+    "accessible"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "timeless",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Transform/opacity transition on a small element; trivial.",
+  "accessibility_notes": "Trigger is a button with aria-haspopup + aria-expanded; menu items are focusable; Escape closes and returns focus to the trigger; clicking outside closes. For full menu semantics add role=menu/menuitem and arrow-key navigation.",
+  "customization": [
+    {
+      "name": "--menu-bg",
+      "description": "Menu surface",
+      "default": "#151925"
+    }
+  ],
+  "variations": [
+    "Hover-open on desktop (with intent delay)",
+    "Right-aligned menu",
+    "Nested submenu"
+  ],
+  "related": [
+    "hamburger-morph",
+    "sliding-tab-indicator"
+  ],
+  "ai_usage": "Use for account/overflow menus and selects. Toggle a hidden menu from a button; sync aria-expanded and animate opacity + translateY for the open transition (use visibility/display to keep it out of the tab order when closed). MUST handle: click-outside to close, Escape to close + refocus the trigger, and keyboard access to items. Add role=menu/menuitem and arrow navigation for a true menu widget.",
+  "path": "effects/navigation-menus/dropdown-menu.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Animated Dropdown Menu</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dropdown-menu\",\n    \"title\": \"Animated Dropdown Menu\",\n    \"summary\": \"A dropdown that fades and slides down from its trigger, toggled accessibly on click.\",\n    \"description\": \"A button toggles a menu that animates from a slightly-raised, transparent state into place. Click-outside and Escape close it; aria-expanded is kept in sync.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\", \"dropdown\"],\n    \"tags\": [\"dropdown\", \"menu\", \"popover\", \"toggle\", \"fade\", \"accessible\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Transform/opacity transition on a small element; trivial.\",\n    \"accessibility_notes\": \"Trigger is a button with aria-haspopup + aria-expanded; menu items are focusable; Escape closes and returns focus to the trigger; clicking outside closes. For full menu semantics add role=menu/menuitem and arrow-key navigation.\",\n    \"customization\": [\n      { \"name\": \"--menu-bg\", \"description\": \"Menu surface\", \"default\": \"#151925\" }\n    ],\n    \"variations\": [\"Hover-open on desktop (with intent delay)\", \"Right-aligned menu\", \"Nested submenu\"],\n    \"related\": [\"hamburger-morph\", \"sliding-tab-indicator\"],\n    \"ai_usage\": \"Use for account/overflow menus and selects. Toggle a hidden menu from a button; sync aria-expanded and animate opacity + translateY for the open transition (use visibility/display to keep it out of the tab order when closed). MUST handle: click-outside to close, Escape to close + refocus the trigger, and keyboard access to items. Add role=menu/menuitem and arrow navigation for a true menu widget.\"\n  }\n  </script>\n  <style>\n    :root { --menu-bg: #151925; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .dd { position: relative; }\n    .dd__trigger { background: #7c5cff; color: #fff; border: none; border-radius: 10px; padding: .65rem 1.2rem; font-weight: 600; cursor: pointer; }\n    .dd__menu {\n      position: absolute; top: calc(100% + 8px); left: 0; min-width: 180px; background: var(--menu-bg);\n      border: 1px solid #262c3d; border-radius: 12px; padding: .4rem; box-shadow: 0 16px 40px rgba(0,0,0,.5);\n      opacity: 0; transform: translateY(-8px); visibility: hidden; transition: opacity .2s, transform .2s, visibility .2s;\n    }\n    .dd.open .dd__menu { opacity: 1; transform: translateY(0); visibility: visible; }\n    .dd__menu a { display: block; padding: .55rem .7rem; border-radius: 8px; color: #e7ebf3; text-decoration: none; }\n    .dd__menu a:hover, .dd__menu a:focus-visible { background: #232a3d; outline: none; }\n    @media (prefers-reduced-motion: reduce) { .dd__menu { transition: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"dd\" id=\"dd\">\n    <button class=\"dd__trigger\" id=\"trigger\" aria-haspopup=\"true\" aria-expanded=\"false\">Account ▾</button>\n    <div class=\"dd__menu\" id=\"menu\">\n      <a href=\"#\">Profile</a><a href=\"#\">Billing</a><a href=\"#\">Settings</a><a href=\"#\">Sign out</a>\n    </div>\n  </div>\n  <script>\n    var dd = document.getElementById(\"dd\"), trigger = document.getElementById(\"trigger\");\n    function setOpen(open) { dd.classList.toggle(\"open\", open); trigger.setAttribute(\"aria-expanded\", String(open)); }\n    trigger.addEventListener(\"click\", function (e) { e.stopPropagation(); setOpen(!dd.classList.contains(\"open\")); });\n    document.addEventListener(\"click\", function () { setOpen(false); });\n    document.addEventListener(\"keydown\", function (e) { if (e.key === \"Escape\") { setOpen(false); trigger.focus(); } });\n    document.getElementById(\"menu\").addEventListener(\"click\", function (e) { e.stopPropagation(); });\n  </script>\n</body>\n</html>\n"
+}

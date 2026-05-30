@@ -1,0 +1,55 @@
+{
+  "id": "svg-turbulence-distortion",
+  "title": "SVG Turbulence Distortion",
+  "summary": "A wavy, liquid distortion driven by feTurbulence + feDisplacementMap, animated.",
+  "description": "feTurbulence generates Perlin-style noise that feDisplacementMap uses to push pixels around, creating a rippling/heat-haze/liquid warp. An animated baseFrequency makes the distortion flow.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "filter",
+    "distortion"
+  ],
+  "tags": [
+    "svg",
+    "feturbulence",
+    "displacement",
+    "distortion",
+    "ripple",
+    "liquid",
+    "noise"
+  ],
+  "tech": [
+    "svg"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers support the filter primitives. Animating baseFrequency via SMIL works broadly.",
+  "performance_notes": "Displacement filters are GPU-heavy at large sizes — keep the filtered region modest and the scale low. Static distortion is much cheaper than animated.",
+  "accessibility_notes": "Decorative. SMIL ignores reduced-motion; the script pauses animation when requested. Avoid distorting readable text.",
+  "customization": [
+    {
+      "name": "feDisplacementMap scale",
+      "description": "Distortion strength",
+      "default": "18"
+    },
+    {
+      "name": "baseFrequency",
+      "description": "Noise scale (smaller = larger waves)",
+      "default": "0.012"
+    }
+  ],
+  "variations": [
+    "Heat-haze on a hero image (low scale)",
+    "Flag wave on text/logo",
+    "Hover-only distortion via JS toggling the filter"
+  ],
+  "related": [
+    "svg-noise-texture",
+    "blob-morph"
+  ],
+  "ai_usage": "Use for liquid/wavy/heat-haze treatments on shapes, images, or logos. Pipeline: feTurbulence(type='fractalNoise', baseFrequency=low) → feDisplacementMap(in='SourceGraphic', scale=N). Increase scale for stronger warp; animate baseFrequency (SMIL) to make it flow. Keep scale modest on text or it becomes unreadable, and keep the area small for performance. Pause via svg.pauseAnimations() under reduced motion (shown).",
+  "path": "effects/svg-effects/svg-turbulence-distortion.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Turbulence Distortion</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-turbulence-distortion\",\n    \"title\": \"SVG Turbulence Distortion\",\n    \"summary\": \"A wavy, liquid distortion driven by feTurbulence + feDisplacementMap, animated.\",\n    \"description\": \"feTurbulence generates Perlin-style noise that feDisplacementMap uses to push pixels around, creating a rippling/heat-haze/liquid warp. An animated baseFrequency makes the distortion flow.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"filter\", \"distortion\"],\n    \"tags\": [\"svg\", \"feturbulence\", \"displacement\", \"distortion\", \"ripple\", \"liquid\", \"noise\"],\n    \"tech\": [\"svg\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers support the filter primitives. Animating baseFrequency via SMIL works broadly.\",\n    \"performance_notes\": \"Displacement filters are GPU-heavy at large sizes — keep the filtered region modest and the scale low. Static distortion is much cheaper than animated.\",\n    \"accessibility_notes\": \"Decorative. SMIL ignores reduced-motion; the script pauses animation when requested. Avoid distorting readable text.\",\n    \"customization\": [\n      { \"name\": \"feDisplacementMap scale\", \"description\": \"Distortion strength\", \"default\": \"18\" },\n      { \"name\": \"baseFrequency\", \"description\": \"Noise scale (smaller = larger waves)\", \"default\": \"0.012\" }\n    ],\n    \"variations\": [\"Heat-haze on a hero image (low scale)\", \"Flag wave on text/logo\", \"Hover-only distortion via JS toggling the filter\"],\n    \"related\": [\"svg-noise-texture\", \"blob-morph\"],\n    \"ai_usage\": \"Use for liquid/wavy/heat-haze treatments on shapes, images, or logos. Pipeline: feTurbulence(type='fractalNoise', baseFrequency=low) → feDisplacementMap(in='SourceGraphic', scale=N). Increase scale for stronger warp; animate baseFrequency (SMIL) to make it flow. Keep scale modest on text or it becomes unreadable, and keep the area small for performance. Pause via svg.pauseAnimations() under reduced motion (shown).\"\n  }\n  </script>\n  <style>\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #06060c; font-family: system-ui, sans-serif; }\n  </style>\n</head>\n<body>\n  <svg width=\"300\" height=\"200\" viewBox=\"0 0 300 200\" role=\"img\" aria-label=\"Distorted shape\">\n    <defs>\n      <filter id=\"warp\">\n        <feTurbulence type=\"fractalNoise\" baseFrequency=\"0.012 0.02\" numOctaves=\"2\" seed=\"7\" result=\"noise\">\n          <animate attributeName=\"baseFrequency\" dur=\"14s\" repeatCount=\"indefinite\"\n            values=\"0.012 0.02; 0.02 0.012; 0.012 0.02\" />\n        </feTurbulence>\n        <feDisplacementMap in=\"SourceGraphic\" in2=\"noise\" scale=\"18\" xChannelSelector=\"R\" yChannelSelector=\"G\" />\n      </filter>\n      <linearGradient id=\"wg\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n        <stop offset=\"0%\" stop-color=\"#7c5cff\" /><stop offset=\"100%\" stop-color=\"#2dd4bf\" />\n      </linearGradient>\n    </defs>\n    <g filter=\"url(#warp)\">\n      <rect x=\"40\" y=\"40\" width=\"220\" height=\"120\" rx=\"20\" fill=\"url(#wg)\" />\n      <text x=\"150\" y=\"112\" text-anchor=\"middle\" font-size=\"40\" font-weight=\"800\" fill=\"#fff\" font-family=\"system-ui, sans-serif\">LIQUID</text>\n    </g>\n  </svg>\n  <script>\n    if (matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      document.querySelectorAll(\"svg\").forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });\n    }\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "neumorphism-card",
+  "title": "Neumorphism Card",
+  "summary": "A soft, extruded 'soft UI' surface made from twin light and dark shadows.",
+  "description": "Uses two box-shadows — a light one top-left and a dark one bottom-right, both the same hue as the background — so elements look pressed out of (or into) the surface. Includes a pressed (inset) variant.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "surface",
+    "neumorphism",
+    "card"
+  ],
+  "tags": [
+    "neumorphism",
+    "soft-ui",
+    "shadow",
+    "extruded",
+    "skeuomorphic",
+    "monochrome"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Static dual shadows; trivial. The :active inset swap is cheap.",
+  "accessibility_notes": "Notorious for poor contrast — the trend's biggest weakness. Ensure text and interactive states have sufficient contrast; don't rely on shadow alone to convey affordance.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Surface color (everything derives from this)",
+      "default": "#e0e5ec"
+    },
+    {
+      "name": "--dist",
+      "description": "Shadow offset",
+      "default": "10px"
+    }
+  ],
+  "variations": [
+    "Inset/pressed state for inputs & toggles",
+    "Dark-mode neumorphism",
+    "Circular neumorphic buttons"
+  ],
+  "related": [
+    "glassmorphism-card",
+    "press-3d-button"
+  ],
+  "ai_usage": "Use for calm, tactile dashboards/players — but audit contrast carefully (this is the trend's main risk). The element and its container MUST share the same --bg. Raised: box-shadow: dist dist blur darkShade, -dist -dist blur lightShade. Pressed/input: same offsets but inset. Derive light/dark shades from --bg. Keep distances modest.",
+  "path": "effects/glass-neumorphism/neumorphism-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neumorphism Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neumorphism-card\",\n    \"title\": \"Neumorphism Card\",\n    \"summary\": \"A soft, extruded 'soft UI' surface made from twin light and dark shadows.\",\n    \"description\": \"Uses two box-shadows — a light one top-left and a dark one bottom-right, both the same hue as the background — so elements look pressed out of (or into) the surface. Includes a pressed (inset) variant.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"surface\", \"neumorphism\", \"card\"],\n    \"tags\": [\"neumorphism\", \"soft-ui\", \"shadow\", \"extruded\", \"skeuomorphic\", \"monochrome\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Static dual shadows; trivial. The :active inset swap is cheap.\",\n    \"accessibility_notes\": \"Notorious for poor contrast — the trend's biggest weakness. Ensure text and interactive states have sufficient contrast; don't rely on shadow alone to convey affordance.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Surface color (everything derives from this)\", \"default\": \"#e0e5ec\" },\n      { \"name\": \"--dist\", \"description\": \"Shadow offset\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Inset/pressed state for inputs & toggles\", \"Dark-mode neumorphism\", \"Circular neumorphic buttons\"],\n    \"related\": [\"glassmorphism-card\", \"press-3d-button\"],\n    \"ai_usage\": \"Use for calm, tactile dashboards/players — but audit contrast carefully (this is the trend's main risk). The element and its container MUST share the same --bg. Raised: box-shadow: dist dist blur darkShade, -dist -dist blur lightShade. Pressed/input: same offsets but inset. Derive light/dark shades from --bg. Keep distances modest.\"\n  }\n  </script>\n  <style>\n    :root { --bg: #e0e5ec; --dist: 10px; --light: #ffffff; --dark: #a3b1c6; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; gap: 1.4rem; grid-auto-flow: column; background: var(--bg); font-family: system-ui, sans-serif; color: #4a5568; }\n    .neu {\n      width: 150px; height: 150px; border-radius: 28px; background: var(--bg);\n      display: grid; place-items: center; font-weight: 700;\n      box-shadow: var(--dist) var(--dist) calc(var(--dist) * 2) var(--dark),\n                  calc(-1 * var(--dist)) calc(-1 * var(--dist)) calc(var(--dist) * 2) var(--light);\n    }\n    .neu--pressed {\n      box-shadow: inset var(--dist) var(--dist) calc(var(--dist) * 2) var(--dark),\n                  inset calc(-1 * var(--dist)) calc(-1 * var(--dist)) calc(var(--dist) * 2) var(--light);\n    }\n  </style>\n</head>\n<body>\n  <div class=\"neu\">Raised</div>\n  <div class=\"neu neu--pressed\">Pressed</div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "gradient-border",
+  "title": "Gradient Border",
+  "summary": "A crisp gradient outline on a rounded element using the double-background trick.",
+  "description": "Layers a solid background (padding-box) over a gradient background (border-box) with a transparent border, so the gradient shows only in the border area — the reliable way to get gradient borders with border-radius.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border",
+    "gradient"
+  ],
+  "tags": [
+    "gradient",
+    "border",
+    "border-box",
+    "outline",
+    "rounded"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers. (border-image can't do rounded corners, hence this technique.)",
+  "performance_notes": "Static; free.",
+  "accessibility_notes": "Decorative border; keep inner content contrast independent of the border.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Inner fill",
+      "default": "#11141c"
+    },
+    {
+      "name": "--grad",
+      "description": "Border gradient",
+      "default": "linear-gradient(135deg,#7c5cff,#2dd4bf)"
+    },
+    {
+      "name": "--bw",
+      "description": "Border width",
+      "default": "2px"
+    }
+  ],
+  "variations": [
+    "Animate the gradient angle (see gradient-border-button)",
+    "Conic rainbow border",
+    "Thicker frame for hero images"
+  ],
+  "related": [
+    "gradient-border-button",
+    "glow-shadow"
+  ],
+  "ai_usage": "The go-to for gradient borders WITH rounded corners. Set background: linear-gradient(var(--bg),var(--bg)) padding-box, var(--grad) border-box; with a transparent border of width --bw and your border-radius. Works on any element. For animation, register an @property angle and animate a conic-gradient. Don't use border-image if you need rounded corners.",
+  "path": "effects/borders-shadows/gradient-border.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Gradient Border</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"gradient-border\",\n    \"title\": \"Gradient Border\",\n    \"summary\": \"A crisp gradient outline on a rounded element using the double-background trick.\",\n    \"description\": \"Layers a solid background (padding-box) over a gradient background (border-box) with a transparent border, so the gradient shows only in the border area — the reliable way to get gradient borders with border-radius.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\", \"gradient\"],\n    \"tags\": [\"gradient\", \"border\", \"border-box\", \"outline\", \"rounded\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers. (border-image can't do rounded corners, hence this technique.)\",\n    \"performance_notes\": \"Static; free.\",\n    \"accessibility_notes\": \"Decorative border; keep inner content contrast independent of the border.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Inner fill\", \"default\": \"#11141c\" },\n      { \"name\": \"--grad\", \"description\": \"Border gradient\", \"default\": \"linear-gradient(135deg,#7c5cff,#2dd4bf)\" },\n      { \"name\": \"--bw\", \"description\": \"Border width\", \"default\": \"2px\" }\n    ],\n    \"variations\": [\"Animate the gradient angle (see gradient-border-button)\", \"Conic rainbow border\", \"Thicker frame for hero images\"],\n    \"related\": [\"gradient-border-button\", \"glow-shadow\"],\n    \"ai_usage\": \"The go-to for gradient borders WITH rounded corners. Set background: linear-gradient(var(--bg),var(--bg)) padding-box, var(--grad) border-box; with a transparent border of width --bw and your border-radius. Works on any element. For animation, register an @property angle and animate a conic-gradient. Don't use border-image if you need rounded corners.\"\n  }\n  </script>\n  <style>\n    :root { --bg: #11141c; --grad: linear-gradient(135deg,#7c5cff,#2dd4bf); --bw: 2px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .grad-border {\n      width: 240px; padding: 1.6rem; border-radius: 18px; color: #e7ebf3;\n      border: var(--bw) solid transparent;\n      background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--grad) border-box;\n    }\n    .grad-border h3 { margin: 0 0 .4rem; } .grad-border p { margin: 0; color: #8b93a7; }\n  </style>\n</head>\n<body>\n  <div class=\"grad-border\">\n    <h3>Gradient Border</h3>\n    <p>Rounded corners, crisp gradient edge.</p>\n  </div>\n</body>\n</html>\n"
+}

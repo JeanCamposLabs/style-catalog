@@ -1,0 +1,49 @@
+{
+  "id": "duotone-image",
+  "title": "Duotone Image",
+  "summary": "Recolor any photo into a two-tone gradient using blend modes.",
+  "description": "Desaturates the image and overlays a two-color gradient with mix-blend-mode so shadows take one color and highlights another — the Spotify-style duotone, done in CSS.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "color",
+    "filter"
+  ],
+  "tags": [
+    "duotone",
+    "blend-mode",
+    "filter",
+    "grayscale",
+    "recolor",
+    "spotify"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2010s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (mix-blend-mode, filter). For pixel-perfect duotone use SVG feColorMatrix.",
+  "performance_notes": "Blend modes + grayscale filter are GPU-accelerated; fine for hero images, avoid on large galleries.",
+  "accessibility_notes": "Heavy recoloring can hurt recognizability and contrast of any text baked into the image; keep alt text accurate.",
+  "customization": [
+    {
+      "name": "--shadow / --highlight",
+      "description": "The two duotone colors",
+      "default": "#311b92 / #2dd4bf"
+    }
+  ],
+  "variations": [
+    "SVG feColorMatrix for exact duotone",
+    "Hover to reveal full color",
+    "Animated gradient duotone"
+  ],
+  "related": [
+    "image-zoom-reveal",
+    "image-glitch-hover"
+  ],
+  "ai_usage": "Brand-consistent photo treatment for heroes and cards. Wrap the image; apply filter:grayscale(1) contrast(1.1) to the <img>; overlay a ::after with linear-gradient(var(--shadow),var(--highlight)) and mix-blend-mode: screen (plus a multiply layer for richer results). Pick two brand colors (dark shadow, light highlight). For exact control, switch to an SVG feColorMatrix/feComponentTransfer filter.",
+  "path": "effects/images-media/duotone-image.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Duotone Image</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"duotone-image\",\n    \"title\": \"Duotone Image\",\n    \"summary\": \"Recolor any photo into a two-tone gradient using blend modes.\",\n    \"description\": \"Desaturates the image and overlays a two-color gradient with mix-blend-mode so shadows take one color and highlights another — the Spotify-style duotone, done in CSS.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"color\", \"filter\"],\n    \"tags\": [\"duotone\", \"blend-mode\", \"filter\", \"grayscale\", \"recolor\", \"spotify\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (mix-blend-mode, filter). For pixel-perfect duotone use SVG feColorMatrix.\",\n    \"performance_notes\": \"Blend modes + grayscale filter are GPU-accelerated; fine for hero images, avoid on large galleries.\",\n    \"accessibility_notes\": \"Heavy recoloring can hurt recognizability and contrast of any text baked into the image; keep alt text accurate.\",\n    \"customization\": [\n      { \"name\": \"--shadow / --highlight\", \"description\": \"The two duotone colors\", \"default\": \"#311b92 / #2dd4bf\" }\n    ],\n    \"variations\": [\"SVG feColorMatrix for exact duotone\", \"Hover to reveal full color\", \"Animated gradient duotone\"],\n    \"related\": [\"image-zoom-reveal\", \"image-glitch-hover\"],\n    \"ai_usage\": \"Brand-consistent photo treatment for heroes and cards. Wrap the image; apply filter:grayscale(1) contrast(1.1) to the <img>; overlay a ::after with linear-gradient(var(--shadow),var(--highlight)) and mix-blend-mode: screen (plus a multiply layer for richer results). Pick two brand colors (dark shadow, light highlight). For exact control, switch to an SVG feColorMatrix/feComponentTransfer filter.\"\n  }\n  </script>\n  <style>\n    :root { --shadow: #311b92; --highlight: #2dd4bf; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    .duotone { position: relative; width: 300px; height: 220px; border-radius: 14px; overflow: hidden; }\n    .duotone__img {\n      position: absolute; inset: 0; filter: grayscale(1) contrast(1.15);\n      background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='220'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='30%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff'/%3E%3Cstop offset='60%25' stop-color='%23888'/%3E%3Cstop offset='100%25' stop-color='%23111'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='300' height='220' fill='url(%23g)'/%3E%3Ccircle cx='210' cy='150' r='50' fill='%23bbb'/%3E%3C/svg%3E\") center/cover;\n    }\n    .duotone::after {\n      content: \"\"; position: absolute; inset: 0;\n      background: linear-gradient(135deg, var(--shadow), var(--highlight));\n      mix-blend-mode: screen;\n    }\n    .duotone::before {\n      content: \"\"; position: absolute; inset: 0; z-index: 1;\n      background: linear-gradient(135deg, var(--shadow), var(--highlight));\n      mix-blend-mode: multiply; opacity: .6;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"duotone\"><div class=\"duotone__img\"></div></div>\n</body>\n</html>\n"
+}

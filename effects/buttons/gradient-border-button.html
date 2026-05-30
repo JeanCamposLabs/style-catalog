@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animated Gradient Border Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gradient-border-button",
+    "title": "Animated Gradient Border Button",
+    "summary": "A conic gradient rotates around the button edge as a glowing animated border.",
+    "description": "Uses an animated @property angle driving a conic-gradient background, with a mask/inset technique so only the border shows. Falls back gracefully where @property is unsupported.",
+    "theme": "buttons",
+    "categories": ["button", "border", "gradient"],
+    "tags": ["gradient", "border", "conic", "glow", "animated-border", "outline"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "Best in Chromium/Safari/Firefox 2023+. @property animation of the angle degrades to a static gradient in older browsers.",
+    "performance_notes": "Animating a registered custom property (angle) is compositor-friendly. One element + one pseudo.",
+    "accessibility_notes": "Real <button>; focus-visible ring retained. Border rotation stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--bg", "description": "Inner fill color", "default": "#11141c" },
+      { "name": "--g1 / --g2", "description": "Gradient colors", "default": "#7c5cff / #2dd4bf" }
+    ],
+    "variations": ["Static gradient border (drop the animation)", "Thicker border for a frame", "Pause rotation, spin on hover only"],
+    "related": ["ripple-button", "glow-pulse-button"],
+    "ai_usage": "Use for premium CTAs. Technique: the button background is a conic-gradient(from var(--angle), ...); a ::before with the solid --bg color is inset by the border width to reveal only the ring. Register @property --angle as <angle> and animate it 0→360deg. If you can't use @property, replace with a static linear-gradient border via the border-image or padding-box/border-box double-background trick."
+  }
+  </script>
+  <style>
+    @property --angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+    :root { --bg: #11141c; --g1: #7c5cff; --g2: #2dd4bf; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .grad-border-btn {
+      position: relative; border: none; cursor: pointer; isolation: isolate;
+      padding: 0.95rem 2.4rem; border-radius: 14px; font-size: 1rem; font-weight: 600; color: #fff;
+      background: conic-gradient(from var(--angle), var(--g1), var(--g2), var(--g1));
+      animation: spin 4s linear infinite;
+    }
+    .grad-border-btn::before {
+      content: ""; position: absolute; inset: 3px; border-radius: 11px; background: var(--bg); z-index: -1;
+    }
+    .grad-border-btn:hover { filter: brightness(1.15); }
+    @keyframes spin { to { --angle: 360deg; } }
+    @media (prefers-reduced-motion: reduce) { .grad-border-btn { animation: none; } }
+  </style>
+</head>
+<body>
+  <button class="grad-border-btn">Get started</button>
+</body>
+</html>

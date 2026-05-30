@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Grain / Noise Texture</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-noise-texture",
+    "title": "SVG Grain / Noise Texture",
+    "summary": "A subtle film-grain overlay generated entirely by feTurbulence — no image asset.",
+    "description": "feTurbulence produces fractal noise rendered to a rect, used as a low-opacity overlay to add tactile grain over flat colors and gradients (the trendy 'noise' texture), with zero network cost.",
+    "theme": "svg-effects",
+    "categories": ["svg", "filter", "texture"],
+    "tags": ["svg", "noise", "grain", "feturbulence", "texture", "film"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (feTurbulence).",
+    "performance_notes": "Generating noise once is cheap; do NOT animate it (re-rendering noise every frame is expensive). Reuse one noise layer as a fixed overlay.",
+    "accessibility_notes": "Purely decorative; keep opacity low so it never reduces text contrast. No motion.",
+    "customization": [
+      { "name": "baseFrequency", "description": "Grain size (higher = finer)", "default": "0.8" },
+      { "name": "overlay opacity", "description": "Grain intensity", "default": "0.06" }
+    ],
+    "variations": ["Colored grain (skip the desaturating matrix)", "Heavier grain for a poster look", "Scope the overlay to one card"],
+    "related": ["svg-turbulence-distortion", "mesh-gradient", "aurora-background"],
+    "ai_usage": "Use to add tactile grain over flat fills, gradients, and mesh backgrounds (kills banding, adds a premium analog feel). Generate noise with feTurbulence(type='fractalNoise', baseFrequency ~0.8, numOctaves~3); render it to a full-size rect; place that as a position:fixed/absolute overlay at low opacity (0.04-0.08), pointer-events:none, above the background but below text. Do NOT animate the turbulence (costly) — a static layer is enough. Optionally desaturate it with feColorMatrix."
+  }
+  </script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { position: relative; background: linear-gradient(135deg, #7c5cff, #2dd4bf 60%, #f0abfc); font-family: system-ui, sans-serif; }
+    .stage { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; text-align: center; }
+    .stage h1 { font-size: 2.4rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,.3); }
+    .grain {
+      position: absolute; inset: 0; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+    }
+  </style>
+</head>
+<body>
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noise)" />
+  </svg>
+  <div class="stage"><h1>Grain over gradient</h1></div>
+</body>
+</html>

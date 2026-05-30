@@ -1,0 +1,52 @@
+{
+  "id": "marching-ants-border",
+  "title": "Marching Ants Border",
+  "summary": "An animated dashed outline that crawls around the element, like a selection marquee.",
+  "description": "Draws a dashed border using a repeating-linear-gradient background on each edge and animates background-position so the dashes appear to march — the classic selection/'cut here' marquee.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border",
+    "animation"
+  ],
+  "tags": [
+    "marching-ants",
+    "dashed",
+    "marquee",
+    "selection",
+    "animated-border",
+    "dotted"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Animates background-position on 4 gradients; cheap. (Animating border-style dashes is not smooth, hence the gradient approach.)",
+  "accessibility_notes": "Decorative selection cue; pause under prefers-reduced-motion. Don't rely on motion alone to indicate selection — pair with a label/state.",
+  "customization": [
+    {
+      "name": "--ant",
+      "description": "Dash color",
+      "default": "#fff"
+    },
+    {
+      "name": "--dash",
+      "description": "Dash + gap length",
+      "default": "10px"
+    }
+  ],
+  "variations": [
+    "Two-color barber-pole",
+    "Reverse direction on the opposite edges",
+    "Use as a focus indicator for drop zones"
+  ],
+  "related": [
+    "gradient-border"
+  ],
+  "ai_usage": "Use for selected items, crop/cut UI, and active drop zones. Build four edge gradients (top/right/bottom/left) with repeating-linear-gradient of dash+gap, sized 1px thick on their axis, and animate background-position to march. Pause under reduced motion. Combine with a real state class so selection isn't conveyed by motion alone.",
+  "path": "effects/borders-shadows/marching-ants-border.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Marching Ants Border</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"marching-ants-border\",\n    \"title\": \"Marching Ants Border\",\n    \"summary\": \"An animated dashed outline that crawls around the element, like a selection marquee.\",\n    \"description\": \"Draws a dashed border using a repeating-linear-gradient background on each edge and animates background-position so the dashes appear to march — the classic selection/'cut here' marquee.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\", \"animation\"],\n    \"tags\": [\"marching-ants\", \"dashed\", \"marquee\", \"selection\", \"animated-border\", \"dotted\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Animates background-position on 4 gradients; cheap. (Animating border-style dashes is not smooth, hence the gradient approach.)\",\n    \"accessibility_notes\": \"Decorative selection cue; pause under prefers-reduced-motion. Don't rely on motion alone to indicate selection — pair with a label/state.\",\n    \"customization\": [\n      { \"name\": \"--ant\", \"description\": \"Dash color\", \"default\": \"#fff\" },\n      { \"name\": \"--dash\", \"description\": \"Dash + gap length\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Two-color barber-pole\", \"Reverse direction on the opposite edges\", \"Use as a focus indicator for drop zones\"],\n    \"related\": [\"gradient-border\"],\n    \"ai_usage\": \"Use for selected items, crop/cut UI, and active drop zones. Build four edge gradients (top/right/bottom/left) with repeating-linear-gradient of dash+gap, sized 1px thick on their axis, and animate background-position to march. Pause under reduced motion. Combine with a real state class so selection isn't conveyed by motion alone.\"\n  }\n  </script>\n  <style>\n    :root { --ant: #ffffff; --dash: 10px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .ants {\n      width: 220px; height: 140px; border-radius: 6px; display: grid; place-items: center; color: #e7ebf3;\n      background-image:\n        repeating-linear-gradient(90deg, var(--ant) 0 var(--dash), transparent var(--dash) calc(2 * var(--dash))),\n        repeating-linear-gradient(90deg, var(--ant) 0 var(--dash), transparent var(--dash) calc(2 * var(--dash))),\n        repeating-linear-gradient(0deg, var(--ant) 0 var(--dash), transparent var(--dash) calc(2 * var(--dash))),\n        repeating-linear-gradient(0deg, var(--ant) 0 var(--dash), transparent var(--dash) calc(2 * var(--dash)));\n      background-size: 100% 2px, 100% 2px, 2px 100%, 2px 100%;\n      background-position: 0 0, 0 100%, 0 0, 100% 0;\n      background-repeat: no-repeat;\n      animation: march 0.6s linear infinite;\n    }\n    @keyframes march {\n      to {\n        background-position: calc(2 * var(--dash)) 0, calc(-2 * var(--dash)) 100%,\n                             0 calc(-2 * var(--dash)), 100% calc(2 * var(--dash));\n      }\n    }\n    @media (prefers-reduced-motion: reduce) { .ants { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"ants\">Selected</div>\n</body>\n</html>\n"
+}

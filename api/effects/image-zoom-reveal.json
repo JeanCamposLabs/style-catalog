@@ -1,0 +1,49 @@
+{
+  "id": "image-zoom-reveal",
+  "title": "Image Zoom & Caption Reveal",
+  "summary": "On hover the image zooms within its frame while a caption slides up from below.",
+  "description": "An overflow-hidden frame clips an image that scales on hover; a caption bar translates up into view simultaneously — the staple gallery/portfolio thumbnail interaction.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "image",
+    "reveal"
+  ],
+  "tags": [
+    "image",
+    "zoom",
+    "caption",
+    "overlay",
+    "gallery",
+    "portfolio"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Animates transform on the image and caption — GPU-friendly. Uses a CSS gradient as a stand-in image so the specimen needs no asset.",
+  "accessibility_notes": "Caption content should also be available without hover (e.g. visible on focus); transitions reduce under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--zoom",
+      "description": "Hover scale factor",
+      "default": "1.12"
+    }
+  ],
+  "variations": [
+    "Caption fade instead of slide",
+    "Grayscale-to-color on hover",
+    "Reveal a 'View' button"
+  ],
+  "related": [
+    "card-lift",
+    "duotone-image"
+  ],
+  "ai_usage": "Portfolio/gallery thumbnails. Structure: a position:relative, overflow:hidden frame containing the <img> (object-fit:cover) and an absolutely-positioned caption translated 100% down. On frame hover, scale the image and translate the caption to 0. Make the caption keyboard-focusable/visible-on-focus for a11y. Replace the gradient placeholder with a real <img>.",
+  "path": "effects/hover-interactions/image-zoom-reveal.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Image Zoom &amp; Caption Reveal</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"image-zoom-reveal\",\n    \"title\": \"Image Zoom & Caption Reveal\",\n    \"summary\": \"On hover the image zooms within its frame while a caption slides up from below.\",\n    \"description\": \"An overflow-hidden frame clips an image that scales on hover; a caption bar translates up into view simultaneously — the staple gallery/portfolio thumbnail interaction.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"image\", \"reveal\"],\n    \"tags\": [\"image\", \"zoom\", \"caption\", \"overlay\", \"gallery\", \"portfolio\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Animates transform on the image and caption — GPU-friendly. Uses a CSS gradient as a stand-in image so the specimen needs no asset.\",\n    \"accessibility_notes\": \"Caption content should also be available without hover (e.g. visible on focus); transitions reduce under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--zoom\", \"description\": \"Hover scale factor\", \"default\": \"1.12\" }\n    ],\n    \"variations\": [\"Caption fade instead of slide\", \"Grayscale-to-color on hover\", \"Reveal a 'View' button\"],\n    \"related\": [\"card-lift\", \"duotone-image\"],\n    \"ai_usage\": \"Portfolio/gallery thumbnails. Structure: a position:relative, overflow:hidden frame containing the <img> (object-fit:cover) and an absolutely-positioned caption translated 100% down. On frame hover, scale the image and translate the caption to 0. Make the caption keyboard-focusable/visible-on-focus for a11y. Replace the gradient placeholder with a real <img>.\"\n  }\n  </script>\n  <style>\n    :root { --zoom: 1.12; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .thumb { position: relative; width: 300px; height: 220px; border-radius: 14px; overflow: hidden; cursor: pointer; }\n    .thumb__img {\n      position: absolute; inset: 0;\n      background: linear-gradient(135deg, #7c5cff, #2dd4bf 60%, #f0abfc);\n      transition: transform .5s ease;\n    }\n    .thumb__cap {\n      position: absolute; left: 0; right: 0; bottom: 0; padding: 1rem;\n      background: linear-gradient(transparent, rgba(0,0,0,.8));\n      color: #fff; transform: translateY(100%); transition: transform .4s ease;\n    }\n    .thumb:hover .thumb__img { transform: scale(var(--zoom)); }\n    .thumb:hover .thumb__cap { transform: translateY(0); }\n    @media (prefers-reduced-motion: reduce) { .thumb__img, .thumb__cap { transition: none; } .thumb__cap { transform: translateY(0); } }\n  </style>\n</head>\n<body>\n  <figure class=\"thumb\" style=\"margin:0\">\n    <div class=\"thumb__img\"></div>\n    <figcaption class=\"thumb__cap\"><strong>Aurora No. 4</strong><br><small>Mixed media, 2026</small></figcaption>\n  </figure>\n</body>\n</html>\n"
+}

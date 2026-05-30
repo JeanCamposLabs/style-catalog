@@ -1,0 +1,54 @@
+{
+  "id": "masonry-grid",
+  "title": "Masonry Grid (CSS columns)",
+  "summary": "A Pinterest-style staggered masonry layout using CSS multi-columns — no JS.",
+  "description": "Uses the CSS columns property with break-inside: avoid to flow items into balanced vertical columns of varying heights, the simplest dependency-free masonry.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "masonry",
+    "reference"
+  ],
+  "tags": [
+    "masonry",
+    "columns",
+    "pinterest",
+    "staggered",
+    "gallery",
+    "break-inside"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers (CSS columns). Note: items flow top-to-bottom THEN across, so reading order differs from Grid.",
+  "performance_notes": "Pure CSS; free. (Native CSS Grid masonry is emerging but not yet widely shipped.)",
+  "accessibility_notes": "Column flow means visual order is column-by-column, which can differ from DOM order expectations — fine for galleries, less ideal for sequential content.",
+  "customization": [
+    {
+      "name": "column-count / column-width",
+      "description": "Number/width of columns",
+      "default": "column-width: 180px"
+    },
+    {
+      "name": "column-gap",
+      "description": "Gutter",
+      "default": "1rem"
+    }
+  ],
+  "variations": [
+    "Fixed column-count vs fluid column-width",
+    "Native grid masonry (grid-template-rows: masonry) where supported",
+    "JS libraries for exact left-to-right order"
+  ],
+  "related": [
+    "responsive-card-grid",
+    "bento-grid"
+  ],
+  "ai_usage": "Use for image galleries and pin boards where item heights vary and exact order doesn't matter. Set columns: column-width Npx (fluid) or N (fixed) on the container, column-gap for gutters, and break-inside: avoid + margin-bottom on each item. Caveat: items fill top-to-bottom per column, so it's not left-to-right reading order — use a JS lib or future native grid masonry if order matters.",
+  "path": "effects/layout-archetypes/masonry-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Masonry Grid (CSS columns)</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"masonry-grid\",\n    \"title\": \"Masonry Grid (CSS columns)\",\n    \"summary\": \"A Pinterest-style staggered masonry layout using CSS multi-columns — no JS.\",\n    \"description\": \"Uses the CSS columns property with break-inside: avoid to flow items into balanced vertical columns of varying heights, the simplest dependency-free masonry.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"masonry\", \"reference\"],\n    \"tags\": [\"masonry\", \"columns\", \"pinterest\", \"staggered\", \"gallery\", \"break-inside\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers (CSS columns). Note: items flow top-to-bottom THEN across, so reading order differs from Grid.\",\n    \"performance_notes\": \"Pure CSS; free. (Native CSS Grid masonry is emerging but not yet widely shipped.)\",\n    \"accessibility_notes\": \"Column flow means visual order is column-by-column, which can differ from DOM order expectations — fine for galleries, less ideal for sequential content.\",\n    \"customization\": [\n      { \"name\": \"column-count / column-width\", \"description\": \"Number/width of columns\", \"default\": \"column-width: 180px\" },\n      { \"name\": \"column-gap\", \"description\": \"Gutter\", \"default\": \"1rem\" }\n    ],\n    \"variations\": [\"Fixed column-count vs fluid column-width\", \"Native grid masonry (grid-template-rows: masonry) where supported\", \"JS libraries for exact left-to-right order\"],\n    \"related\": [\"responsive-card-grid\", \"bento-grid\"],\n    \"ai_usage\": \"Use for image galleries and pin boards where item heights vary and exact order doesn't matter. Set columns: column-width Npx (fluid) or N (fixed) on the container, column-gap for gutters, and break-inside: avoid + margin-bottom on each item. Caveat: items fill top-to-bottom per column, so it's not left-to-right reading order — use a JS lib or future native grid masonry if order matters.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; padding: 1rem; overflow: auto; font-family: system-ui, sans-serif; }\n    .masonry { columns: 160px; column-gap: 1rem; }\n    .item { break-inside: avoid; margin-bottom: 1rem; border-radius: 12px; color: #fff; font-weight: 700;\n      display: flex; align-items: flex-end; padding: .8rem; }\n    .h1 { height: 120px; background: linear-gradient(135deg,#7c5cff,#5b3ee0); }\n    .h2 { height: 80px; background: linear-gradient(135deg,#2dd4bf,#0ea5a5); }\n    .h3 { height: 160px; background: linear-gradient(135deg,#f0abfc,#c026d3); }\n    .h4 { height: 100px; background: linear-gradient(135deg,#fb7185,#e11d48); }\n    .h5 { height: 140px; background: linear-gradient(135deg,#38bdf8,#0369a1); }\n  </style>\n</head>\n<body>\n  <div class=\"masonry\">\n    <div class=\"item h3\">1</div>\n    <div class=\"item h1\">2</div>\n    <div class=\"item h2\">3</div>\n    <div class=\"item h5\">4</div>\n    <div class=\"item h4\">5</div>\n    <div class=\"item h1\">6</div>\n    <div class=\"item h2\">7</div>\n    <div class=\"item h3\">8</div>\n  </div>\n</body>\n</html>\n"
+}

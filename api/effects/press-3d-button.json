@@ -1,0 +1,58 @@
+{
+  "id": "press-3d-button",
+  "title": "3D Press Button",
+  "summary": "A chunky button with a solid bottom edge that depresses satisfyingly when clicked.",
+  "description": "A box-shadow acts as the button's 3D side; on :active the button translates down and the shadow shrinks, simulating a physical key press.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "3d",
+    "skeuomorphic"
+  ],
+  "tags": [
+    "3d",
+    "press",
+    "tactile",
+    "box-shadow",
+    "playful",
+    "skeuomorphic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Animates transform + box-shadow on :active; trivial cost.",
+  "accessibility_notes": "Real <button>; the press also triggers on keyboard activation focus state. Transition is short and not motion-sickness inducing, but is reduced under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--face",
+      "description": "Top face color",
+      "default": "#22d3ee"
+    },
+    {
+      "name": "--edge",
+      "description": "Bottom edge color (darker)",
+      "default": "#0e7490"
+    },
+    {
+      "name": "--depth",
+      "description": "How thick the 3D edge is",
+      "default": "6px"
+    }
+  ],
+  "variations": [
+    "Pill radius for a candy button",
+    "Larger --depth for arcade buttons",
+    "Color-shift the face on hover"
+  ],
+  "related": [
+    "ripple-button"
+  ],
+  "ai_usage": "Use for playful, game-like, or kid-friendly UIs. The 3D edge is a single box-shadow of height --depth in the --edge color. On :active, translateY(--depth) and remove the shadow so the button 'sinks'. Keep the transition fast (~60ms) for tactile feel. Pair --edge as a darker shade of --face.",
+  "path": "effects/buttons/press-3d-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>3D Press Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"press-3d-button\",\n    \"title\": \"3D Press Button\",\n    \"summary\": \"A chunky button with a solid bottom edge that depresses satisfyingly when clicked.\",\n    \"description\": \"A box-shadow acts as the button's 3D side; on :active the button translates down and the shadow shrinks, simulating a physical key press.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"3d\", \"skeuomorphic\"],\n    \"tags\": [\"3d\", \"press\", \"tactile\", \"box-shadow\", \"playful\", \"skeuomorphic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Animates transform + box-shadow on :active; trivial cost.\",\n    \"accessibility_notes\": \"Real <button>; the press also triggers on keyboard activation focus state. Transition is short and not motion-sickness inducing, but is reduced under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--face\", \"description\": \"Top face color\", \"default\": \"#22d3ee\" },\n      { \"name\": \"--edge\", \"description\": \"Bottom edge color (darker)\", \"default\": \"#0e7490\" },\n      { \"name\": \"--depth\", \"description\": \"How thick the 3D edge is\", \"default\": \"6px\" }\n    ],\n    \"variations\": [\"Pill radius for a candy button\", \"Larger --depth for arcade buttons\", \"Color-shift the face on hover\"],\n    \"related\": [\"ripple-button\"],\n    \"ai_usage\": \"Use for playful, game-like, or kid-friendly UIs. The 3D edge is a single box-shadow of height --depth in the --edge color. On :active, translateY(--depth) and remove the shadow so the button 'sinks'. Keep the transition fast (~60ms) for tactile feel. Pair --edge as a darker shade of --face.\"\n  }\n  </script>\n  <style>\n    :root { --face: #22d3ee; --edge: #0e7490; --depth: 6px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .press-btn {\n      border: none; cursor: pointer; color: #042f3a; font-weight: 800; font-size: 1.05rem;\n      padding: 0.85rem 2.2rem; border-radius: 12px; background: var(--face);\n      box-shadow: 0 var(--depth) 0 var(--edge);\n      transform: translateY(0); transition: transform .06s ease, box-shadow .06s ease;\n    }\n    .press-btn:hover { filter: brightness(1.05); }\n    .press-btn:active { transform: translateY(var(--depth)); box-shadow: 0 0 0 var(--edge); }\n    @media (prefers-reduced-motion: reduce) { .press-btn { transition: none; } }\n  </style>\n</head>\n<body>\n  <button class=\"press-btn\">Press</button>\n</body>\n</html>\n"
+}

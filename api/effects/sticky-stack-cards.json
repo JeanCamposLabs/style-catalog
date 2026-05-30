@@ -1,0 +1,54 @@
+{
+  "id": "sticky-stack-cards",
+  "title": "Sticky Stacking Cards",
+  "summary": "Cards stick to the top and stack on one another as you scroll past them.",
+  "description": "Each card uses position: sticky with the same top offset so successive cards pin and overlap, building a layered stack — a trendy storytelling/section pattern requiring no JS.",
+  "theme": "scroll-effects",
+  "themeTitle": "Scroll Effects",
+  "categories": [
+    "scroll",
+    "sticky",
+    "layout"
+  ],
+  "tags": [
+    "sticky",
+    "stack",
+    "scroll",
+    "cards",
+    "pin",
+    "storytelling"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (position: sticky).",
+  "performance_notes": "Pure layout/paint; very efficient, no scroll JS.",
+  "accessibility_notes": "Content remains in natural reading order; safe under reduced-motion (no autonomous animation).",
+  "customization": [
+    {
+      "name": "top offset",
+      "description": "Where cards pin",
+      "default": "20px"
+    },
+    {
+      "name": "card height",
+      "description": "Determines overlap",
+      "default": "auto"
+    }
+  ],
+  "variations": [
+    "Scale/rotate each card slightly as it stacks (scroll-driven)",
+    "Offset top per card for a fanned stack",
+    "Horizontal sticky stack"
+  ],
+  "related": [
+    "scroll-progress-bar",
+    "parallax-layers"
+  ],
+  "ai_usage": "Use for feature walkthroughs and editorial sections. Give each card position:sticky; top:<offset>; the cards naturally pin and overlap as you scroll. Add a slight scale-down via scroll-driven animation for the 'deck' feel. Ensure enough scroll distance between cards. The demo auto-scrolls to show the stacking in the catalog frame.",
+  "path": "effects/scroll-effects/sticky-stack-cards.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sticky Stacking Cards</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"sticky-stack-cards\",\n    \"title\": \"Sticky Stacking Cards\",\n    \"summary\": \"Cards stick to the top and stack on one another as you scroll past them.\",\n    \"description\": \"Each card uses position: sticky with the same top offset so successive cards pin and overlap, building a layered stack — a trendy storytelling/section pattern requiring no JS.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"sticky\", \"layout\"],\n    \"tags\": [\"sticky\", \"stack\", \"scroll\", \"cards\", \"pin\", \"storytelling\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (position: sticky).\",\n    \"performance_notes\": \"Pure layout/paint; very efficient, no scroll JS.\",\n    \"accessibility_notes\": \"Content remains in natural reading order; safe under reduced-motion (no autonomous animation).\",\n    \"customization\": [\n      { \"name\": \"top offset\", \"description\": \"Where cards pin\", \"default\": \"20px\" },\n      { \"name\": \"card height\", \"description\": \"Determines overlap\", \"default\": \"auto\" }\n    ],\n    \"variations\": [\"Scale/rotate each card slightly as it stacks (scroll-driven)\", \"Offset top per card for a fanned stack\", \"Horizontal sticky stack\"],\n    \"related\": [\"scroll-progress-bar\", \"parallax-layers\"],\n    \"ai_usage\": \"Use for feature walkthroughs and editorial sections. Give each card position:sticky; top:<offset>; the cards naturally pin and overlap as you scroll. Add a slight scale-down via scroll-driven animation for the 'deck' feel. Ensure enough scroll distance between cards. The demo auto-scrolls to show the stacking in the catalog frame.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; font-family: system-ui, sans-serif; }\n    .stack { height: 100vh; overflow-y: auto; padding: 1rem; }\n    .scard {\n      position: sticky; top: 16px; height: 150px; margin-bottom: 26px; border-radius: 16px;\n      display: grid; place-items: center; color: #fff; font-size: 1.4rem; font-weight: 800;\n      box-shadow: 0 12px 30px rgba(0,0,0,.4);\n    }\n    .scard:nth-child(1) { background: linear-gradient(135deg,#7c5cff,#5b3ee0); }\n    .scard:nth-child(2) { background: linear-gradient(135deg,#2dd4bf,#0ea5a5); }\n    .scard:nth-child(3) { background: linear-gradient(135deg,#f0abfc,#c026d3); }\n    .scard:nth-child(4) { background: linear-gradient(135deg,#fb7185,#e11d48); }\n    .tail { height: 60vh; }\n  </style>\n</head>\n<body>\n  <div class=\"stack\" id=\"stack\">\n    <div class=\"scard\">Card 1</div>\n    <div class=\"scard\">Card 2</div>\n    <div class=\"scard\">Card 3</div>\n    <div class=\"scard\">Card 4</div>\n    <div class=\"tail\"></div>\n  </div>\n  <script>\n    if (!matchMedia(\"(prefers-reduced-motion: reduce)\").matches) {\n      var s = document.getElementById(\"stack\"), dir = 1;\n      setInterval(function () {\n        s.scrollTop += dir * 2;\n        if (s.scrollTop + s.clientHeight >= s.scrollHeight - 2) dir = -1;\n        if (s.scrollTop <= 0) dir = 1;\n      }, 16);\n    }\n  </script>\n</body>\n</html>\n"
+}

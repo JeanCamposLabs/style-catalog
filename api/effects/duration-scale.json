@@ -1,0 +1,49 @@
+{
+  "id": "duration-scale",
+  "title": "Motion Duration Scale",
+  "summary": "A small set of duration tokens (instant→slow) mapped to UI scenarios, demonstrated live.",
+  "description": "Defines --dur-fast/base/slow tokens and shows the same animation at each speed, with guidance on which to use where — the timing half of a motion system.",
+  "theme": "motion-principles",
+  "themeTitle": "Motion Principles",
+  "categories": [
+    "motion",
+    "duration",
+    "design-tokens",
+    "reference"
+  ],
+  "tags": [
+    "duration",
+    "timing",
+    "tokens",
+    "motion",
+    "speed",
+    "animation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Trivial.",
+  "accessibility_notes": "Keep UI transitions short (<300ms) to feel responsive; long durations frustrate. All motion respects prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur-fast/base/slow",
+      "description": "Duration tokens",
+      "default": "120ms / 240ms / 400ms"
+    }
+  ],
+  "variations": [
+    "Add --dur-instant (80ms) for micro-feedback",
+    "Scale durations with distance/size traveled",
+    "Pair each duration with a default easing"
+  ],
+  "related": [
+    "easing-showcase"
+  ],
+  "ai_usage": "The timing half of a motion system. Store --dur-fast (~120ms, hovers/toggles/micro-feedback), --dur-base (~240ms, most transitions, dropdowns), --dur-slow (~400ms, larger surfaces/modals/page-level). Larger/farther-moving elements get longer durations; small UI feedback stays fast. Reference tokens in all transitions for consistency, and combine with the easing tokens. Keep everything under ~400ms for UI.",
+  "path": "effects/motion-principles/duration-scale.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Motion Duration Scale</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"duration-scale\",\n    \"title\": \"Motion Duration Scale\",\n    \"summary\": \"A small set of duration tokens (instant→slow) mapped to UI scenarios, demonstrated live.\",\n    \"description\": \"Defines --dur-fast/base/slow tokens and shows the same animation at each speed, with guidance on which to use where — the timing half of a motion system.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"duration\", \"design-tokens\", \"reference\"],\n    \"tags\": [\"duration\", \"timing\", \"tokens\", \"motion\", \"speed\", \"animation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Trivial.\",\n    \"accessibility_notes\": \"Keep UI transitions short (<300ms) to feel responsive; long durations frustrate. All motion respects prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur-fast/base/slow\", \"description\": \"Duration tokens\", \"default\": \"120ms / 240ms / 400ms\" }\n    ],\n    \"variations\": [\"Add --dur-instant (80ms) for micro-feedback\", \"Scale durations with distance/size traveled\", \"Pair each duration with a default easing\"],\n    \"related\": [\"easing-showcase\"],\n    \"ai_usage\": \"The timing half of a motion system. Store --dur-fast (~120ms, hovers/toggles/micro-feedback), --dur-base (~240ms, most transitions, dropdowns), --dur-slow (~400ms, larger surfaces/modals/page-level). Larger/farther-moving elements get longer durations; small UI feedback stays fast. Reference tokens in all transitions for consistency, and combine with the easing tokens. Keep everything under ~400ms for UI.\"\n  }\n  </script>\n  <style>\n    :root { --dur-fast: 120ms; --dur-base: 240ms; --dur-slow: 400ms; --ease: cubic-bezier(.22,1,.36,1); }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; padding: 1.2rem; display: grid; align-content: center; gap: 1rem; }\n    .lane { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: .8rem; }\n    .lane span { font-family: ui-monospace, monospace; font-size: .72rem; color: #8b93a7; }\n    .track { height: 26px; background: #151925; border: 1px solid #262c3d; border-radius: 999px; position: relative; overflow: hidden; }\n    .bar { position: absolute; inset: 3px auto 3px 3px; width: 20px; border-radius: 999px; background: linear-gradient(135deg,#7c5cff,#2dd4bf); }\n    .d1 { animation: slide var(--dur-fast) var(--ease) infinite alternate; }\n    .d2 { animation: slide var(--dur-base) var(--ease) infinite alternate; }\n    .d3 { animation: slide var(--dur-slow) var(--ease) infinite alternate; }\n    @keyframes slide { to { transform: translateX(calc(100% + 200px)); } }\n    @media (prefers-reduced-motion: reduce) { .bar { animation: none; } }\n    .note { color: #b7bdcc; font-size: .8rem; }\n  </style>\n</head>\n<body>\n  <div class=\"lane\"><span>--dur-fast 120ms</span><div class=\"track\"><div class=\"bar d1\"></div></div></div>\n  <div class=\"lane\"><span>--dur-base 240ms</span><div class=\"track\"><div class=\"bar d2\"></div></div></div>\n  <div class=\"lane\"><span>--dur-slow 400ms</span><div class=\"track\"><div class=\"bar d3\"></div></div></div>\n  <p class=\"note\">fast = hovers/toggles · base = dropdowns/most transitions · slow = modals/page-level</p>\n</body>\n</html>\n"
+}

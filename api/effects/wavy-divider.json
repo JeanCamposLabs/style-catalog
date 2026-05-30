@@ -1,0 +1,55 @@
+{
+  "id": "wavy-divider",
+  "title": "Animated Wave Divider",
+  "summary": "A gently rolling SVG wave that separates two sections.",
+  "description": "An inline SVG wave path sits at a section boundary; a duplicated path translates horizontally on a loop to make the crest roll — the popular section-divider flourish.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "divider",
+    "svg"
+  ],
+  "tags": [
+    "wave",
+    "divider",
+    "svg",
+    "section",
+    "rolling",
+    "separator"
+  ],
+  "tech": [
+    "css",
+    "svg"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Animating translateX on an SVG path is cheap. Use a wide path (≥200% width) and shift by one wavelength for a seamless loop.",
+  "accessibility_notes": "Decorative (SVG aria-hidden). Motion stops under prefers-reduced-motion (static wave).",
+  "customization": [
+    {
+      "name": "--wave",
+      "description": "Wave fill color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Roll duration",
+      "default": "8s"
+    }
+  ],
+  "variations": [
+    "Layer two waves at different speeds/opacity for depth",
+    "Flip vertically for a top divider",
+    "Static wave (no animation)"
+  ],
+  "related": [
+    "clip-path-shapes",
+    "animated-gradient"
+  ],
+  "ai_usage": "Use to transition between two colored sections. Place an SVG wave (path filled with --wave) at the boundary; make the path wider than the viewport and animate translateX by exactly one wavelength for a seamless roll. Layer 2-3 waves with different speeds/opacities for parallax depth. Mark the SVG aria-hidden and disable motion under reduced-motion. Match --wave to the next section's background.",
+  "path": "effects/backgrounds/wavy-divider.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Animated Wave Divider</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"wavy-divider\",\n    \"title\": \"Animated Wave Divider\",\n    \"summary\": \"A gently rolling SVG wave that separates two sections.\",\n    \"description\": \"An inline SVG wave path sits at a section boundary; a duplicated path translates horizontally on a loop to make the crest roll — the popular section-divider flourish.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"divider\", \"svg\"],\n    \"tags\": [\"wave\", \"divider\", \"svg\", \"section\", \"rolling\", \"separator\"],\n    \"tech\": [\"css\", \"svg\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Animating translateX on an SVG path is cheap. Use a wide path (≥200% width) and shift by one wavelength for a seamless loop.\",\n    \"accessibility_notes\": \"Decorative (SVG aria-hidden). Motion stops under prefers-reduced-motion (static wave).\",\n    \"customization\": [\n      { \"name\": \"--wave\", \"description\": \"Wave fill color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Roll duration\", \"default\": \"8s\" }\n    ],\n    \"variations\": [\"Layer two waves at different speeds/opacity for depth\", \"Flip vertically for a top divider\", \"Static wave (no animation)\"],\n    \"related\": [\"clip-path-shapes\", \"animated-gradient\"],\n    \"ai_usage\": \"Use to transition between two colored sections. Place an SVG wave (path filled with --wave) at the boundary; make the path wider than the viewport and animate translateX by exactly one wavelength for a seamless roll. Layer 2-3 waves with different speeds/opacities for parallax depth. Mark the SVG aria-hidden and disable motion under reduced-motion. Match --wave to the next section's background.\"\n  }\n  </script>\n  <style>\n    :root { --wave: #7c5cff; --dur: 8s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; grid-template-rows: 1fr auto 1fr; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .top { background: #11141c; }\n    .bottom { background: var(--wave); }\n    .wave-wrap { line-height: 0; background: var(--wave); }\n    .wave-wrap svg { display: block; width: 200%; height: 80px; animation: roll var(--dur) linear infinite; }\n    .wave-wrap path { fill: #11141c; }\n    @keyframes roll { to { transform: translateX(-50%); } }\n    @media (prefers-reduced-motion: reduce) { .wave-wrap svg { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"top\"></div>\n  <div class=\"wave-wrap\">\n    <svg viewBox=\"0 0 1440 80\" preserveAspectRatio=\"none\" aria-hidden=\"true\">\n      <path d=\"M0,40 C180,80 360,0 720,40 C1080,80 1260,0 1440,40 L1440,0 L0,0 Z\"></path>\n    </svg>\n  </div>\n  <div class=\"bottom\"></div>\n</body>\n</html>\n"
+}

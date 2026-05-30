@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Starfield Warp</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "starfield",
+    "title": "Starfield Warp",
+    "summary": "Stars streaking toward the viewer — the screensaver/space-warp staple, on canvas.",
+    "description": "A canvas animation projects randomized 3D star points toward the camera and resets them when they pass, producing the classic flying-through-space starfield.",
+    "theme": "retro-web",
+    "categories": ["retro", "canvas", "background"],
+    "tags": ["starfield", "warp", "canvas", "space", "screensaver", "particles"],
+    "tech": ["canvas", "js"],
+    "era": "2000s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (canvas 2D).",
+    "performance_notes": "Canvas with a few hundred points at 60fps is light. Cap star count and use a single clear per frame. Stop the rAF loop when offscreen in production.",
+    "accessibility_notes": "Decorative full-screen motion; halt the loop and show a static frame under prefers-reduced-motion. Keep foreground text on a contrasted surface.",
+    "customization": [
+      { "name": "STAR_COUNT", "description": "Number of stars", "default": "400" },
+      { "name": "SPEED", "description": "Warp speed", "default": "0.02" }
+    ],
+    "variations": ["Colored/hyperspace streaks (draw trails)", "Slower drift for an ambient sky", "Mouse-steerable camera"],
+    "related": ["floating-particles"],
+    "ai_usage": "Hero/space-themed backgrounds and intros. Canvas sized to the container; each star has x,y in [-1,1] and z depth; per frame decrease z (move toward camera), project to screen as x/z, y/z, draw a dot whose size grows as z shrinks; respawn at far z when it passes. Use canvas (not DOM) for hundreds of points. Stop the loop / show static under reduced motion and when offscreen."
+  }
+  </script>
+  <style>
+    html, body { height: 100%; margin: 0; overflow: hidden; background: #000; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <script>
+    var c = document.getElementById("c"), ctx = c.getContext("2d");
+    var STAR_COUNT = 400, SPEED = 0.02, stars = [];
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function resize() { c.width = innerWidth; c.height = innerHeight; }
+    resize(); addEventListener("resize", resize);
+    function spawn() { return { x: Math.random() * 2 - 1, y: Math.random() * 2 - 1, z: Math.random() }; }
+    for (var i = 0; i < STAR_COUNT; i++) stars.push(spawn());
+    function draw() {
+      ctx.fillStyle = "#000"; ctx.fillRect(0, 0, c.width, c.height);
+      var cx = c.width / 2, cy = c.height / 2;
+      for (var i = 0; i < stars.length; i++) {
+        var s = stars[i];
+        if (!reduce) { s.z -= SPEED; if (s.z <= 0.01) stars[i] = spawn(); }
+        var sx = cx + (s.x / s.z) * cx, sy = cy + (s.y / s.z) * cy;
+        var r = (1 - s.z) * 2.5;
+        ctx.fillStyle = "rgba(255,255,255," + (1 - s.z) + ")";
+        ctx.beginPath(); ctx.arc(sx, sy, r, 0, Math.PI * 2); ctx.fill();
+      }
+      if (!reduce) requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>

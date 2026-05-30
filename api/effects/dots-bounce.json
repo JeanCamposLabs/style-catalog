@@ -1,0 +1,53 @@
+{
+  "id": "dots-bounce",
+  "title": "Bouncing Dots",
+  "summary": "Three dots bounce in sequence — the friendly 'typing…' / loading indicator.",
+  "description": "Three dots share one bounce keyframe with staggered animation-delays so they rise and fall in a wave, evoking chat 'typing' indicators and lightweight loaders.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "dots"
+  ],
+  "tags": [
+    "dots",
+    "bounce",
+    "typing",
+    "loading",
+    "stagger",
+    "chat"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Three nodes animating translateY — trivial.",
+  "accessibility_notes": "Wrap with role=status + a label. Under prefers-reduced-motion, replace bounce with a gentle opacity pulse.",
+  "customization": [
+    {
+      "name": "--dot",
+      "description": "Dot color",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--gap",
+      "description": "Spacing between dots",
+      "default": "8px"
+    }
+  ],
+  "variations": [
+    "Opacity fade instead of bounce",
+    "Color-cycle the dots",
+    "More dots for a longer wave"
+  ],
+  "related": [
+    "ring-spinner",
+    "progress-bar-indeterminate"
+  ],
+  "ai_usage": "Use for chat 'typing' states and small inline loaders. Three .dot spans share a bounce animation with delays of 0, 0.16s, 0.32s. Tune --dot color and size. For reduced motion, swap the translateY bounce for an opacity pulse so it still signals activity without movement.",
+  "path": "effects/loaders-spinners/dots-bounce.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Bouncing Dots</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dots-bounce\",\n    \"title\": \"Bouncing Dots\",\n    \"summary\": \"Three dots bounce in sequence — the friendly 'typing…' / loading indicator.\",\n    \"description\": \"Three dots share one bounce keyframe with staggered animation-delays so they rise and fall in a wave, evoking chat 'typing' indicators and lightweight loaders.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"dots\"],\n    \"tags\": [\"dots\", \"bounce\", \"typing\", \"loading\", \"stagger\", \"chat\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Three nodes animating translateY — trivial.\",\n    \"accessibility_notes\": \"Wrap with role=status + a label. Under prefers-reduced-motion, replace bounce with a gentle opacity pulse.\",\n    \"customization\": [\n      { \"name\": \"--dot\", \"description\": \"Dot color\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--gap\", \"description\": \"Spacing between dots\", \"default\": \"8px\" }\n    ],\n    \"variations\": [\"Opacity fade instead of bounce\", \"Color-cycle the dots\", \"More dots for a longer wave\"],\n    \"related\": [\"ring-spinner\", \"progress-bar-indeterminate\"],\n    \"ai_usage\": \"Use for chat 'typing' states and small inline loaders. Three .dot spans share a bounce animation with delays of 0, 0.16s, 0.32s. Tune --dot color and size. For reduced motion, swap the translateY bounce for an opacity pulse so it still signals activity without movement.\"\n  }\n  </script>\n  <style>\n    :root { --dot: #2dd4bf; --gap: 8px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    .dots { display: flex; gap: var(--gap); }\n    .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--dot); animation: bounce 1.2s ease-in-out infinite; }\n    .dot:nth-child(2) { animation-delay: .16s; }\n    .dot:nth-child(3) { animation-delay: .32s; }\n    @keyframes bounce { 0%, 80%, 100% { transform: translateY(0); opacity: .6; } 40% { transform: translateY(-14px); opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      .dot { animation: fade 1.2s ease-in-out infinite; }\n      @keyframes fade { 0%,100% { opacity:.3 } 50% { opacity:1 } }\n    }\n    .visually-hidden { position: absolute; width: 1px; height: 1px; clip: rect(0 0 0 0); overflow: hidden; }\n  </style>\n</head>\n<body>\n  <div class=\"dots\" role=\"status\">\n    <span class=\"dot\"></span><span class=\"dot\"></span><span class=\"dot\"></span>\n    <span class=\"visually-hidden\">Loading…</span>\n  </div>\n</body>\n</html>\n"
+}

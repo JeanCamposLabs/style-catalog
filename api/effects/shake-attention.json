@@ -1,0 +1,49 @@
+{
+  "id": "shake-attention",
+  "title": "Shake (Attention / Error)",
+  "summary": "A quick horizontal shake to flag an error or invalid input.",
+  "description": "A short keyframe wobbles translateX left/right a few times then settles — the universal 'wrong password' / validation-error cue. Demo re-triggers on a timer (and on click).",
+  "theme": "transitions-animations",
+  "themeTitle": "Transitions & Animations",
+  "categories": [
+    "animation",
+    "feedback",
+    "attention"
+  ],
+  "tags": [
+    "shake",
+    "error",
+    "validation",
+    "attention",
+    "wobble",
+    "feedback"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Single short transform animation; negligible.",
+  "accessibility_notes": "Motion is brief but should be paired with a text error message and aria-live, not used alone. Reduce-motion users get a static color flash instead of shaking.",
+  "customization": [
+    {
+      "name": "--dist",
+      "description": "Shake distance",
+      "default": "8px"
+    }
+  ],
+  "variations": [
+    "Vertical shake",
+    "Single 'head-shake' (no)",
+    "Combine with a red border flash"
+  ],
+  "related": [
+    "glow-pulse-button"
+  ],
+  "ai_usage": "Trigger on form validation failure by toggling a .shake class (remove then re-add on the next frame to restart the animation, or listen for animationend to clean up). Always accompany with a visible, aria-live error message — motion alone is not accessible. Under reduced motion, flash the border/background color instead of translating.",
+  "path": "effects/transitions-animations/shake-attention.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Shake (Attention / Error)</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"shake-attention\",\n    \"title\": \"Shake (Attention / Error)\",\n    \"summary\": \"A quick horizontal shake to flag an error or invalid input.\",\n    \"description\": \"A short keyframe wobbles translateX left/right a few times then settles — the universal 'wrong password' / validation-error cue. Demo re-triggers on a timer (and on click).\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"feedback\", \"attention\"],\n    \"tags\": [\"shake\", \"error\", \"validation\", \"attention\", \"wobble\", \"feedback\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Single short transform animation; negligible.\",\n    \"accessibility_notes\": \"Motion is brief but should be paired with a text error message and aria-live, not used alone. Reduce-motion users get a static color flash instead of shaking.\",\n    \"customization\": [\n      { \"name\": \"--dist\", \"description\": \"Shake distance\", \"default\": \"8px\" }\n    ],\n    \"variations\": [\"Vertical shake\", \"Single 'head-shake' (no)\", \"Combine with a red border flash\"],\n    \"related\": [\"glow-pulse-button\"],\n    \"ai_usage\": \"Trigger on form validation failure by toggling a .shake class (remove then re-add on the next frame to restart the animation, or listen for animationend to clean up). Always accompany with a visible, aria-live error message — motion alone is not accessible. Under reduced motion, flash the border/background color instead of translating.\"\n  }\n  </script>\n  <style>\n    :root { --dist: 8px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .field {\n      padding: .9rem 1.1rem; border-radius: 10px; background: #151925; color: #e7ebf3;\n      border: 2px solid #ef4444; font-size: 1rem; cursor: pointer; user-select: none;\n    }\n    .shake { animation: shake .4s ease; }\n    @keyframes shake {\n      10%, 90% { transform: translateX(calc(-1 * var(--dist) * .25)); }\n      20%, 80% { transform: translateX(calc(var(--dist) * .5)); }\n      30%, 50%, 70% { transform: translateX(calc(-1 * var(--dist))); }\n      40%, 60% { transform: translateX(var(--dist)); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      .shake { animation: flash .5s ease; }\n      @keyframes flash { 50% { background: #7f1d1d; } }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"field\" id=\"field\">Invalid — click or wait to shake</div>\n  <script>\n    var f = document.getElementById(\"field\");\n    function go() { f.classList.remove(\"shake\"); void f.offsetWidth; f.classList.add(\"shake\"); }\n    f.addEventListener(\"click\", go);\n    setInterval(go, 2200);\n  </script>\n</body>\n</html>\n"
+}

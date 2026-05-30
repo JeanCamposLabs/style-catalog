@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gradient Library</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gradient-library",
+    "title": "Gradient Library",
+    "summary": "A curated board of reusable linear/radial/conic gradients with their exact CSS.",
+    "description": "A reference palette of production-ready gradients (sunsets, brand blends, mesh, conic) you can copy directly. Each tile shows the gradient and is annotated with its declaration.",
+    "theme": "color-systems",
+    "categories": ["color", "gradient", "reference"],
+    "tags": ["gradient", "library", "linear", "radial", "conic", "palette", "reference"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers; conic-gradient is widely supported.",
+    "performance_notes": "Static backgrounds; free.",
+    "accessibility_notes": "When placing text over a gradient, check contrast against the lightest stop, or add a scrim.",
+    "customization": [
+      { "name": "stops & angle", "description": "Edit colors/angle per gradient", "default": "see each tile" }
+    ],
+    "variations": ["Save as CSS custom properties (--grad-sunset, …)", "Animate via background-position (see animated-gradient)", "Use as text fills (background-clip: text)"],
+    "related": ["animated-gradient", "mesh-gradient", "gradient-text", "semantic-color-tokens"],
+    "ai_usage": "A copy-paste gradient reference. Pick a tile and lift its background declaration, or store the whole set as tokens (--grad-sunset: linear-gradient(...)). Linear for directional washes, radial for spotlights/blobs, conic for rings/loaders/color wheels. For text, combine with -webkit-background-clip: text. Always scrim text over gradients for contrast."
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; padding: 1rem; overflow: auto; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: .8rem; }
+    .tile { border-radius: 12px; overflow: hidden; border: 1px solid #262c3d; }
+    .tile .preview { height: 90px; }
+    .tile code { display: block; font-size: .62rem; padding: .5rem; color: #b7bdcc; font-family: ui-monospace, monospace; word-break: break-all; background: #11141c; }
+    .g1 { background: linear-gradient(135deg,#7c5cff,#2dd4bf); }
+    .g2 { background: linear-gradient(135deg,#fa709a,#fee140); }
+    .g3 { background: linear-gradient(120deg,#30cfd0,#330867); }
+    .g4 { background: radial-gradient(circle at 30% 30%,#ff6ec4,#7873f5); }
+    .g5 { background: conic-gradient(from 180deg,#f0abfc,#7c5cff,#2dd4bf,#f0abfc); }
+    .g6 { background: linear-gradient(135deg,#0f172a,#334155); }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="tile"><div class="preview g1"></div><code>linear-gradient(135deg,#7c5cff,#2dd4bf)</code></div>
+    <div class="tile"><div class="preview g2"></div><code>linear-gradient(135deg,#fa709a,#fee140)</code></div>
+    <div class="tile"><div class="preview g3"></div><code>linear-gradient(120deg,#30cfd0,#330867)</code></div>
+    <div class="tile"><div class="preview g4"></div><code>radial-gradient(circle at 30% 30%,#ff6ec4,#7873f5)</code></div>
+    <div class="tile"><div class="preview g5"></div><code>conic-gradient(from 180deg,#f0abfc,#7c5cff,#2dd4bf,#f0abfc)</code></div>
+    <div class="tile"><div class="preview g6"></div><code>linear-gradient(135deg,#0f172a,#334155)</code></div>
+  </div>
+</body>
+</html>

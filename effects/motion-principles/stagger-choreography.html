@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stagger Choreography</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "stagger-choreography",
+    "title": "Stagger Choreography",
+    "summary": "A list whose items animate in one after another with an incremental delay.",
+    "description": "Demonstrates staggering: the same entrance animation applied to siblings with animation-delay derived from each item's index, so they cascade rather than appear at once — a core motion-design principle.",
+    "theme": "motion-principles",
+    "categories": ["motion", "stagger", "reference"],
+    "tags": ["stagger", "choreography", "delay", "cascade", "list", "entrance"],
+    "tech": ["css"],
+    "era": "timeless",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "Transform/opacity per item; cheap. The delay is set via an --i custom property * a step.",
+    "accessibility_notes": "Keep the total stagger short so content isn't withheld too long. Disable (show all at once) under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--step", "description": "Delay added per item", "default": "80ms" },
+      { "name": "--i", "description": "Item index (set inline or via nth-child)", "default": "0..n" }
+    ],
+    "variations": ["Reverse stagger (last first)", "Stagger by distance from a focal point", "Combine with scroll-reveal so it triggers on entry"],
+    "related": ["scroll-reveal-fade", "easing-showcase", "text-reveal-mask"],
+    "ai_usage": "Use whenever multiple siblings enter together (menus, lists, grids) — staggering reads as intentional and guides the eye. Apply one entrance animation to all items and set animation-delay: calc(var(--i) * var(--step)) where --i is the item index (inline style or :nth-child). Keep --step small (50-100ms) and the total under ~600ms. Combine with IntersectionObserver to trigger on scroll. Disable under reduced motion. The demo replays on a loop."
+  }
+  </script>
+  <style>
+    :root { --step: 80ms; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .list { display: grid; gap: .6rem; width: 240px; }
+    .row {
+      background: #151925; border: 1px solid #262c3d; border-radius: 10px; padding: .8rem 1rem; color: #e7ebf3;
+      opacity: 0; transform: translateX(-16px);
+      animation: enter .5s cubic-bezier(.22,1,.36,1) both;
+      animation-delay: calc(var(--i) * var(--step));
+    }
+    @keyframes enter { to { opacity: 1; transform: translateX(0); } }
+    @media (prefers-reduced-motion: reduce) { .row { animation: none; opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <div class="list" id="list">
+    <div class="row" style="--i:0">Item one</div>
+    <div class="row" style="--i:1">Item two</div>
+    <div class="row" style="--i:2">Item three</div>
+    <div class="row" style="--i:3">Item four</div>
+    <div class="row" style="--i:4">Item five</div>
+  </div>
+  <script>
+    // Replay the stagger on a loop so it's visible in the catalog frame.
+    var list = document.getElementById("list");
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setInterval(function () {
+        var rows = list.querySelectorAll(".row");
+        rows.forEach(function (r) { r.style.animation = "none"; });
+        void list.offsetWidth;
+        rows.forEach(function (r) { r.style.animation = ""; });
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

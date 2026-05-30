@@ -1,0 +1,59 @@
+{
+  "id": "readable-measure",
+  "title": "Readable Measure & Rhythm",
+  "summary": "Reference for line length (measure), line-height, and line-clamp — the rules that make body text readable.",
+  "description": "A specimen demonstrating the readability fundamentals: a 60-75 character measure via max-width: Nch, a comfortable line-height, and multi-line truncation with -webkit-line-clamp.",
+  "theme": "typography-systems",
+  "themeTitle": "Typography Systems",
+  "categories": [
+    "typography",
+    "readability",
+    "reference"
+  ],
+  "tags": [
+    "measure",
+    "line-length",
+    "line-height",
+    "line-clamp",
+    "ch",
+    "readability"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers; line-clamp uses -webkit-line-clamp (cross-browser despite the prefix).",
+  "performance_notes": "Static; free.",
+  "accessibility_notes": "A 60-75ch measure and ~1.5 line-height materially improve readability for everyone, especially users with dyslexia/low vision. Don't clamp essential content without a way to read the rest.",
+  "customization": [
+    {
+      "name": "max-width",
+      "description": "Measure in ch units",
+      "default": "66ch"
+    },
+    {
+      "name": "line-height",
+      "description": "Body leading",
+      "default": "1.6"
+    },
+    {
+      "name": "-webkit-line-clamp",
+      "description": "Max visible lines before ellipsis",
+      "default": "3"
+    }
+  ],
+  "variations": [
+    "Single-line ellipsis (text-overflow: ellipsis)",
+    "Wider measure for large type",
+    "Tighter line-height for headings"
+  ],
+  "related": [
+    "type-scale",
+    "fluid-typography"
+  ],
+  "ai_usage": "Apply these readability defaults to all body copy: set the text container max-width to ~60-75ch (the 'measure'); use line-height ~1.5-1.65 for body; for card excerpts, clamp with display:-webkit-box; -webkit-line-clamp:N; -webkit-box-orient:vertical; overflow:hidden. Never let body text run the full width of a wide viewport. Don't clamp content that has no 'read more' path.",
+  "path": "effects/typography-systems/readable-measure.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Readable Measure &amp; Rhythm</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"readable-measure\",\n    \"title\": \"Readable Measure & Rhythm\",\n    \"summary\": \"Reference for line length (measure), line-height, and line-clamp — the rules that make body text readable.\",\n    \"description\": \"A specimen demonstrating the readability fundamentals: a 60-75 character measure via max-width: Nch, a comfortable line-height, and multi-line truncation with -webkit-line-clamp.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"readability\", \"reference\"],\n    \"tags\": [\"measure\", \"line-length\", \"line-height\", \"line-clamp\", \"ch\", \"readability\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; line-clamp uses -webkit-line-clamp (cross-browser despite the prefix).\",\n    \"performance_notes\": \"Static; free.\",\n    \"accessibility_notes\": \"A 60-75ch measure and ~1.5 line-height materially improve readability for everyone, especially users with dyslexia/low vision. Don't clamp essential content without a way to read the rest.\",\n    \"customization\": [\n      { \"name\": \"max-width\", \"description\": \"Measure in ch units\", \"default\": \"66ch\" },\n      { \"name\": \"line-height\", \"description\": \"Body leading\", \"default\": \"1.6\" },\n      { \"name\": \"-webkit-line-clamp\", \"description\": \"Max visible lines before ellipsis\", \"default\": \"3\" }\n    ],\n    \"variations\": [\"Single-line ellipsis (text-overflow: ellipsis)\", \"Wider measure for large type\", \"Tighter line-height for headings\"],\n    \"related\": [\"type-scale\", \"fluid-typography\"],\n    \"ai_usage\": \"Apply these readability defaults to all body copy: set the text container max-width to ~60-75ch (the 'measure'); use line-height ~1.5-1.65 for body; for card excerpts, clamp with display:-webkit-box; -webkit-line-clamp:N; -webkit-box-orient:vertical; overflow:hidden. Never let body text run the full width of a wide viewport. Don't clamp content that has no 'read more' path.\"\n  }\n  </script>\n  <style>\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: Georgia, serif; padding: 1.4rem; overflow: auto; }\n    .prose { max-width: 60ch; line-height: 1.6; }\n    .prose h3 { font-family: system-ui, sans-serif; }\n    .label { font-family: ui-monospace, monospace; font-size: .7rem; color: #2dd4bf; }\n    .clamp { max-width: 40ch; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: #b7bdcc; }\n  </style>\n</head>\n<body>\n  <div class=\"prose\">\n    <p class=\"label\">max-width: 60ch · line-height: 1.6</p>\n    <h3>A comfortable measure</h3>\n    <p>Lines of 60 to 75 characters are easiest to read: the eye tracks from the end of one line to the start of the next without losing its place. Constrain body text with a ch-based max-width instead of letting it span the whole viewport.</p>\n    <p class=\"label\">-webkit-line-clamp: 2</p>\n    <p class=\"clamp\">This excerpt is clamped to two lines and ends with an ellipsis, which is perfect for card summaries and list previews where space is limited and the full text lives elsewhere.</p>\n  </div>\n</body>\n</html>\n"
+}

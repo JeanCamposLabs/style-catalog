@@ -1,0 +1,53 @@
+{
+  "id": "glow-shadow",
+  "title": "Colored Glow Shadow",
+  "summary": "A soft colored halo under an element, echoing its own color for a premium glow.",
+  "description": "A large, blurred, low-opacity box-shadow tinted to match the element creates the 'colored shadow' look common on modern product cards and CTAs.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "shadow",
+    "glow"
+  ],
+  "tags": [
+    "glow",
+    "shadow",
+    "colored-shadow",
+    "halo",
+    "premium",
+    "depth"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All browsers.",
+  "performance_notes": "Static shadow; trivial. If animated on hover, prefer transform/opacity changes.",
+  "accessibility_notes": "Purely decorative depth cue.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Glow color (match the element)",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--spread",
+      "description": "Halo size",
+      "default": "40px"
+    }
+  ],
+  "variations": [
+    "Layer two shadows (tight + wide) for realism",
+    "Brighten glow on hover",
+    "Multi-color glow for gradients"
+  ],
+  "related": [
+    "gradient-border",
+    "neon-glow-text"
+  ],
+  "ai_usage": "Adds a premium feel to cards, buttons, and product imagery. Use a colored shadow tinted like the element: box-shadow: 0 20px var(--spread) color-mix(in srgb, var(--c) 50%, transparent). Stack a smaller tighter shadow under a larger softer one for realism. Keep opacity low. Tint the shadow to match the element's dominant color.",
+  "path": "effects/borders-shadows/glow-shadow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Colored Glow Shadow</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glow-shadow\",\n    \"title\": \"Colored Glow Shadow\",\n    \"summary\": \"A soft colored halo under an element, echoing its own color for a premium glow.\",\n    \"description\": \"A large, blurred, low-opacity box-shadow tinted to match the element creates the 'colored shadow' look common on modern product cards and CTAs.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"shadow\", \"glow\"],\n    \"tags\": [\"glow\", \"shadow\", \"colored-shadow\", \"halo\", \"premium\", \"depth\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Static shadow; trivial. If animated on hover, prefer transform/opacity changes.\",\n    \"accessibility_notes\": \"Purely decorative depth cue.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Glow color (match the element)\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--spread\", \"description\": \"Halo size\", \"default\": \"40px\" }\n    ],\n    \"variations\": [\"Layer two shadows (tight + wide) for realism\", \"Brighten glow on hover\", \"Multi-color glow for gradients\"],\n    \"related\": [\"gradient-border\", \"neon-glow-text\"],\n    \"ai_usage\": \"Adds a premium feel to cards, buttons, and product imagery. Use a colored shadow tinted like the element: box-shadow: 0 20px var(--spread) color-mix(in srgb, var(--c) 50%, transparent). Stack a smaller tighter shadow under a larger softer one for realism. Keep opacity low. Tint the shadow to match the element's dominant color.\"\n  }\n  </script>\n  <style>\n    :root { --c: #7c5cff; --spread: 45px; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; }\n    .glow-box {\n      width: 180px; height: 180px; border-radius: 26px;\n      background: linear-gradient(145deg, #7c5cff, #2dd4bf);\n      box-shadow:\n        0 8px 20px color-mix(in srgb, var(--c) 35%, transparent),\n        0 24px var(--spread) color-mix(in srgb, var(--c) 45%, transparent);\n    }\n  </style>\n</head>\n<body>\n  <div class=\"glow-box\"></div>\n</body>\n</html>\n"
+}

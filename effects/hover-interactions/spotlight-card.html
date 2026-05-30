@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spotlight Hover Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "spotlight-card",
+    "title": "Spotlight Hover Card",
+    "summary": "A soft radial spotlight follows the cursor across the card surface.",
+    "description": "Tracks the pointer and updates CSS variables for a radial-gradient glow that reveals as the cursor moves — the interactive card look popularized by modern dev-tool landing pages.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "card", "glow"],
+    "tags": ["spotlight", "cursor", "glow", "radial", "card", "reveal"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Only updates two CSS variables on pointermove; very cheap. Scales to a grid with one delegated handler.",
+    "accessibility_notes": "Decorative enhancement; content fully readable without it. No motion concerns (no looping animation).",
+    "customization": [
+      { "name": "--spot", "description": "Spotlight color", "default": "rgba(124,92,255,.25)" },
+      { "name": "--spot-size", "description": "Spotlight radius", "default": "200px" }
+    ],
+    "variations": ["Border-only spotlight (mask the glow to the edge)", "Group hover: highlight only the hovered card in a grid", "Pair with the tilt-card effect"],
+    "related": ["tilt-card", "card-lift"],
+    "ai_usage": "Excellent for feature/pricing card grids. Set --x/--y from the cursor position on pointermove and paint a radial-gradient at (var(--x), var(--y)). For a grid, attach the listener to the container and read event.target to update the right card, or update each card from the shared mouse position to get the 'group spotlight' effect. No reduced-motion concern but keep it subtle."
+  }
+  </script>
+  <style>
+    :root { --spot: rgba(124,92,255,.35); --spot-size: 220px; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .spotlight {
+      position: relative; width: 260px; height: 320px; border-radius: 18px; overflow: hidden;
+      background: #14182360; border: 1px solid #262c3d; color: #e7ebf3;
+      display: grid; place-items: center; padding: 1.2rem; text-align: center;
+    }
+    .spotlight::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
+      background: radial-gradient(var(--spot-size) circle at var(--x,50%) var(--y,50%), var(--spot), transparent 60%);
+    }
+    .spotlight:hover::before { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="spotlight" id="card">
+    <div>
+      <h3 style="margin:.3rem">Spotlight</h3>
+      <p style="margin:.3rem;color:#8b93a7">Hover to light it up</p>
+    </div>
+  </div>
+  <script>
+    var card = document.getElementById("card");
+    card.addEventListener("pointermove", function (e) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty("--x", (e.clientX - r.left) + "px");
+      card.style.setProperty("--y", (e.clientY - r.top) + "px");
+    });
+  </script>
+</body>
+</html>
