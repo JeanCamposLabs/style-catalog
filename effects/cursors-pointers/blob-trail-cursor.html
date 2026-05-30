@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gooey Blob Trail Cursor</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "blob-trail-cursor",
+    "title": "Gooey Blob Trail Cursor",
+    "summary": "A soft blurred blob chases the cursor with easing, leaving a liquid trailing feel.",
+    "description": "A blurred radial blob is eased toward the pointer each frame (lerp), so it lags and stretches subtly — a playful, organic cursor companion.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "pointer", "ambient"],
+    "tags": ["cursor", "blob", "trail", "gooey", "lerp", "blur"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "Pointer devices; modern browsers. No-ops on touch.",
+    "performance_notes": "One rAF loop moving a single blurred element via transform; cheap. Blur is the main cost — keep it moderate.",
+    "accessibility_notes": "Decorative only; does NOT replace the system cursor here (kept visible), so usability is preserved. Stop the lag/motion under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--blob", "description": "Blob color", "default": "#7c5cff" },
+      { "name": "ease", "description": "Follow lag (0-1)", "default": "0.12" }
+    ],
+    "variations": ["Color-shift the blob over time", "Scale the blob on click", "mix-blend-mode: difference over content"],
+    "related": ["follow-dot-cursor", "spotlight-cursor"],
+    "ai_usage": "Playful decorative cursor companion (keep the real cursor visible for usability). Render a fixed blurred radial blob; store the pointer target on pointermove and lerp the blob toward it in a rAF loop (current += (target-current)*ease) using transform: translate. Lower ease = more lag/trail. Skip the animation under reduced motion and on touch. Keep blur moderate for perf."
+  }
+  </script>
+  <style>
+    :root { --blob: #7c5cff; }
+    html, body { height: 100%; margin: 0; overflow: hidden; }
+    body { display: grid; place-items: center; background: #06060c; color: #8b93a7; font-family: system-ui, sans-serif; }
+    .blob {
+      position: fixed; top: 0; left: 0; width: 60px; height: 60px; border-radius: 50%; pointer-events: none; z-index: 5;
+      background: radial-gradient(circle, var(--blob), transparent 70%); filter: blur(8px); transform: translate(-50%,-50%);
+    }
+  </style>
+</head>
+<body>
+  <p>Move your cursor around</p>
+  <div class="blob" id="blob"></div>
+  <script>
+    var blob = document.getElementById("blob");
+    var tx = innerWidth/2, ty = innerHeight/2, x = tx, y = ty;
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    addEventListener("pointermove", function (e) { tx = e.clientX; ty = e.clientY; });
+    function frame() {
+      var ease = reduce ? 1 : 0.12;
+      x += (tx - x) * ease; y += (ty - y) * ease;
+      blob.style.transform = "translate(" + x + "px," + y + "px) translate(-50%,-50%)";
+      requestAnimationFrame(frame);
+    }
+    frame();
+  </script>
+</body>
+</html>

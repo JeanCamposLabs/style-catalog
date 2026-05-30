@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loading Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "loading-button",
+    "title": "Loading Button",
+    "summary": "A submit button that swaps its label for an inline spinner and locks during async work.",
+    "description": "Toggling a loading state hides the label, shows a spinner, disables the button, and sets aria-busy — the correct pattern for form submits and async actions.",
+    "theme": "buttons",
+    "categories": ["button", "loading", "feedback"],
+    "tags": ["loading", "spinner", "submit", "async", "disabled", "aria-busy"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers.",
+    "performance_notes": "One spinner rotation while loading; trivial.",
+    "accessibility_notes": "Set disabled + aria-busy='true' during loading so it can't be double-submitted and assistive tech knows it's working. Keep the button width stable to avoid layout shift. Restore state on completion/error.",
+    "customization": [
+      { "name": "--bg", "description": "Button color", "default": "#7c5cff" }
+    ],
+    "variations": ["Success checkmark on completion", "Progress percentage label", "Disable the whole form during submit"],
+    "related": ["ring-spinner", "glow-pulse-button"],
+    "ai_usage": "Use for any button that triggers async work (submit, save, pay). On action: add the loading class, set button.disabled=true and aria-busy='true', swap label for a spinner; on resolve/reject, revert and optionally show success/error. Reserve a fixed min-width so the button doesn't resize. NEVER leave it stuck loading — always restore on both success and failure paths. The demo auto-toggles to show both states."
+  }
+  </script>
+  <style>
+    :root { --bg: #7c5cff; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .load-btn {
+      position: relative; min-width: 160px; border: none; cursor: pointer; color: #fff; font-weight: 700; font-size: 1rem;
+      padding: .85rem 1.6rem; border-radius: 12px; background: var(--bg);
+    }
+    .load-btn[disabled] { cursor: progress; opacity: .85; }
+    .load-btn .label { transition: opacity .15s; }
+    .load-btn.loading .label { opacity: 0; }
+    .load-btn .spin {
+      position: absolute; top: 50%; left: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px; opacity: 0;
+      border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%;
+    }
+    .load-btn.loading .spin { opacity: 1; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .load-btn.loading .spin { animation-duration: 2s; } }
+  </style>
+</head>
+<body>
+  <button class="load-btn" id="btn"><span class="label">Save changes</span><span class="spin" aria-hidden="true"></span></button>
+  <script>
+    var btn = document.getElementById("btn");
+    function setLoading(on) {
+      btn.classList.toggle("loading", on);
+      btn.disabled = on; btn.setAttribute("aria-busy", String(on));
+    }
+    btn.addEventListener("click", function () { setLoading(true); setTimeout(function () { setLoading(false); }, 1800); });
+    // Auto-demo so both states are visible in the catalog frame.
+    setInterval(function () { if (!btn.classList.contains("loading")) { setLoading(true); setTimeout(function () { setLoading(false); }, 1800); } }, 3600);
+  </script>
+</body>
+</html>

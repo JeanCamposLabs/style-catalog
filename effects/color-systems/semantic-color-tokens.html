@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Semantic Color Tokens</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "semantic-color-tokens",
+    "title": "Semantic Color Tokens",
+    "summary": "A two-tier color token system (primitive scale → semantic roles) as copy-ready CSS custom properties.",
+    "description": "A reference specimen, not an animation: defines a primitive color scale (--blue-50…900 etc.) and maps it to semantic roles (--color-bg, --color-text, --color-primary, --color-danger…). This is the backbone of a themeable design system.",
+    "theme": "color-systems",
+    "categories": ["design-tokens", "color", "theming", "reference"],
+    "tags": ["tokens", "design-system", "palette", "semantic", "css-variables", "theming"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All browsers (CSS custom properties).",
+    "performance_notes": "Variables only; no runtime cost.",
+    "accessibility_notes": "Token pairs are chosen for WCAG contrast (text-on-bg, text-on-primary). When adding tokens, verify contrast ratios (>=4.5:1 for body text).",
+    "customization": [
+      { "name": "primitive scale", "description": "Raw hues with numeric steps (50-900)", "default": "see :root" },
+      { "name": "semantic roles", "description": "Intent-named vars mapping to primitives", "default": "see :root" }
+    ],
+    "variations": ["Add a [data-theme=light] override block", "Extend with success/warning/info roles", "Generate the scale with oklch() for perceptual uniformity"],
+    "related": ["gradient-library", "dark-mode-tokens", "type-scale"],
+    "ai_usage": "This is a copy-paste DESIGN TOKEN foundation, not a visual effect. Lift the :root block into your project. Use the TWO-TIER pattern: primitives (--blue-500) hold raw values; semantic tokens (--color-primary: var(--blue-500)) express intent and are what components reference. Never hardcode hex in components — reference semantic tokens so themes/dark-mode swap cleanly. Verify contrast for every text/bg pairing you introduce."
+  }
+  </script>
+  <style>
+    :root {
+      /* primitives */
+      --gray-50:#f8fafc; --gray-100:#eef1f6; --gray-300:#cbd3e1; --gray-500:#64748b; --gray-700:#334155; --gray-900:#0f172a;
+      --violet-300:#c4b5fd; --violet-500:#7c5cff; --violet-700:#5b3ee0;
+      --teal-500:#2dd4bf; --red-500:#ef4444; --amber-500:#f59e0b; --green-500:#22c55e;
+      /* semantic roles (dark theme) */
+      --color-bg: var(--gray-900); --color-surface:#151925; --color-border:#262c3d;
+      --color-text: var(--gray-50); --color-text-muted: var(--gray-500);
+      --color-primary: var(--violet-500); --color-primary-text:#fff;
+      --color-danger: var(--red-500); --color-warning: var(--amber-500); --color-success: var(--green-500);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { background: var(--color-bg); color: var(--color-text); font-family: system-ui, sans-serif; padding: 1.2rem; overflow:auto; }
+    h2 { margin: 0 0 1rem; font-size: 1.1rem; }
+    .group { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted); margin: 1rem 0 .4rem; }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px,1fr)); gap: .5rem; }
+    .sw { border-radius: 10px; padding: .7rem; border: 1px solid var(--color-border); font-size: .72rem; }
+    .sw b { display: block; font-size: .8rem; }
+    .chip { height: 26px; border-radius: 6px; margin-bottom: .4rem; border: 1px solid rgba(255,255,255,.1); }
+  </style>
+</head>
+<body>
+  <h2>Semantic tokens (dark theme)</h2>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:var(--color-bg)"></div><b>bg</b>gray-900</div>
+    <div class="sw"><div class="chip" style="background:var(--color-surface)"></div><b>surface</b></div>
+    <div class="sw"><div class="chip" style="background:var(--color-primary)"></div><b>primary</b>violet-500</div>
+    <div class="sw"><div class="chip" style="background:var(--color-success)"></div><b>success</b></div>
+    <div class="sw"><div class="chip" style="background:var(--color-warning)"></div><b>warning</b></div>
+    <div class="sw"><div class="chip" style="background:var(--color-danger)"></div><b>danger</b></div>
+  </div>
+  <p class="group">Primitive scale (excerpt)</p>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:var(--violet-300)"></div><b>violet-300</b></div>
+    <div class="sw"><div class="chip" style="background:var(--violet-500)"></div><b>violet-500</b></div>
+    <div class="sw"><div class="chip" style="background:var(--violet-700)"></div><b>violet-700</b></div>
+    <div class="sw"><div class="chip" style="background:var(--teal-500)"></div><b>teal-500</b></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animated Dropdown Menu</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "dropdown-menu",
+    "title": "Animated Dropdown Menu",
+    "summary": "A dropdown that fades and slides down from its trigger, toggled accessibly on click.",
+    "description": "A button toggles a menu that animates from a slightly-raised, transparent state into place. Click-outside and Escape close it; aria-expanded is kept in sync.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "menu", "dropdown"],
+    "tags": ["dropdown", "menu", "popover", "toggle", "fade", "accessible"],
+    "tech": ["css", "js"],
+    "era": "timeless",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Transform/opacity transition on a small element; trivial.",
+    "accessibility_notes": "Trigger is a button with aria-haspopup + aria-expanded; menu items are focusable; Escape closes and returns focus to the trigger; clicking outside closes. For full menu semantics add role=menu/menuitem and arrow-key navigation.",
+    "customization": [
+      { "name": "--menu-bg", "description": "Menu surface", "default": "#151925" }
+    ],
+    "variations": ["Hover-open on desktop (with intent delay)", "Right-aligned menu", "Nested submenu"],
+    "related": ["hamburger-morph", "sliding-tab-indicator"],
+    "ai_usage": "Use for account/overflow menus and selects. Toggle a hidden menu from a button; sync aria-expanded and animate opacity + translateY for the open transition (use visibility/display to keep it out of the tab order when closed). MUST handle: click-outside to close, Escape to close + refocus the trigger, and keyboard access to items. Add role=menu/menuitem and arrow navigation for a true menu widget."
+  }
+  </script>
+  <style>
+    :root { --menu-bg: #151925; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .dd { position: relative; }
+    .dd__trigger { background: #7c5cff; color: #fff; border: none; border-radius: 10px; padding: .65rem 1.2rem; font-weight: 600; cursor: pointer; }
+    .dd__menu {
+      position: absolute; top: calc(100% + 8px); left: 0; min-width: 180px; background: var(--menu-bg);
+      border: 1px solid #262c3d; border-radius: 12px; padding: .4rem; box-shadow: 0 16px 40px rgba(0,0,0,.5);
+      opacity: 0; transform: translateY(-8px); visibility: hidden; transition: opacity .2s, transform .2s, visibility .2s;
+    }
+    .dd.open .dd__menu { opacity: 1; transform: translateY(0); visibility: visible; }
+    .dd__menu a { display: block; padding: .55rem .7rem; border-radius: 8px; color: #e7ebf3; text-decoration: none; }
+    .dd__menu a:hover, .dd__menu a:focus-visible { background: #232a3d; outline: none; }
+    @media (prefers-reduced-motion: reduce) { .dd__menu { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="dd" id="dd">
+    <button class="dd__trigger" id="trigger" aria-haspopup="true" aria-expanded="false">Account ▾</button>
+    <div class="dd__menu" id="menu">
+      <a href="#">Profile</a><a href="#">Billing</a><a href="#">Settings</a><a href="#">Sign out</a>
+    </div>
+  </div>
+  <script>
+    var dd = document.getElementById("dd"), trigger = document.getElementById("trigger");
+    function setOpen(open) { dd.classList.toggle("open", open); trigger.setAttribute("aria-expanded", String(open)); }
+    trigger.addEventListener("click", function (e) { e.stopPropagation(); setOpen(!dd.classList.contains("open")); });
+    document.addEventListener("click", function () { setOpen(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") { setOpen(false); trigger.focus(); } });
+    document.getElementById("menu").addEventListener("click", function (e) { e.stopPropagation(); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing Card (composed)</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "pricing-card",
+    "title": "Pricing Card (composed)",
+    "summary": "A 'featured' pricing card combining a gradient border, hover lift, colored glow, and a fill-sweep button.",
+    "description": "Composes gradient-border + card-lift + glow-shadow + fill-sweep-button into a polished, highlight-worthy pricing tier card.",
+    "theme": "combos-recipes",
+    "categories": ["recipe", "pricing", "card"],
+    "tags": ["pricing", "card", "gradient-border", "lift", "glow", "cta", "composition"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (uses the padding-box/border-box gradient-border trick).",
+    "performance_notes": "Static gradient border + transform/shadow on hover. Cheap.",
+    "accessibility_notes": "Real list + button with focus ring. Hover lift also triggers on :focus-within. Contrast preserved.",
+    "customization": [
+      { "name": "--accent / --accent-2", "description": "Brand gradient", "default": "#7c5cff / #2dd4bf" },
+      { "name": "content", "description": "Plan name, price, features", "default": "edit markup" }
+    ],
+    "variations": ["Three-up pricing row with the middle one featured", "Monthly/annual toggle", "Add a 'Most popular' ribbon"],
+    "related": ["gradient-border", "card-lift", "glow-shadow", "fill-sweep-button"],
+    "ai_usage": "A ready 'featured plan' card. The gradient edge uses background: solid padding-box, gradient border-box with a transparent border. On hover/focus-within it lifts (translateY) and deepens its colored glow. The CTA is a ghost button that fills on hover. For a full pricing section, render three of these and only give the middle one the gradient border + glow to mark it as recommended."
+  }
+  </script>
+  <style>
+    :root { --accent: #7c5cff; --accent-2: #2dd4bf; --bg: #11141c; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; padding: 1rem; }
+    .price-card {
+      width: 300px; padding: 2rem; border-radius: 20px; color: #e7ebf3;
+      border: 2px solid transparent;
+      background: linear-gradient(var(--bg), var(--bg)) padding-box,
+                  linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+      box-shadow: 0 10px 30px rgba(124,92,255,.18);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .price-card:hover, .price-card:focus-within {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+    .badge { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent-2)); padding: .25rem .6rem; border-radius: 999px; }
+    .price { font-size: 3rem; font-weight: 900; margin: .8rem 0 0; }
+    .price small { font-size: 1rem; color: #8b93a7; font-weight: 500; }
+    ul { list-style: none; padding: 0; margin: 1.2rem 0; }
+    li { padding: .4rem 0; color: #b7bdcc; } li::before { content: "✓ "; color: var(--accent-2); font-weight: 800; }
+    .buy {
+      position: relative; overflow: hidden; width: 100%; cursor: pointer; isolation: isolate;
+      background: transparent; border: 2px solid var(--accent); color: #fff;
+      padding: .8rem; border-radius: 12px; font-size: 1rem; font-weight: 700; transition: color .3s;
+    }
+    .buy::before { content: ""; position: absolute; inset: 0; z-index: -1; transform: scaleX(0); transform-origin: left;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2)); transition: transform .3s; }
+    .buy:hover::before, .buy:focus-visible::before { transform: scaleX(1); }
+    .buy:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { .price-card, .buy, .buy::before { transition: none; } }
+  </style>
+</head>
+<body>
+  <article class="price-card">
+    <span class="badge">Most popular</span>
+    <p class="price">$29<small>/mo</small></p>
+    <ul>
+      <li>Unlimited projects</li>
+      <li>Priority support</li>
+      <li>Advanced analytics</li>
+      <li>Team collaboration</li>
+    </ul>
+    <button class="buy">Choose Pro</button>
+  </article>
+</body>
+</html>

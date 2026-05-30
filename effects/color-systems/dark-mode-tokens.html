@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dark / Light Mode Tokens</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "dark-mode-tokens",
+    "title": "Dark / Light Mode Tokens",
+    "summary": "A theming pattern where semantic tokens flip between light and dark via a data-attribute — live toggle.",
+    "description": "Demonstrates the standard themeable token setup: semantic CSS variables defined for the default theme and overridden under [data-theme='light'] / prefers-color-scheme, with a working toggle button.",
+    "theme": "color-systems",
+    "categories": ["design-tokens", "color", "theming", "dark-mode"],
+    "tags": ["dark-mode", "light-mode", "theme", "tokens", "prefers-color-scheme", "toggle"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Swapping a data attribute re-resolves variables instantly; negligible.",
+    "accessibility_notes": "Respect prefers-color-scheme as the default; let users override via the toggle and persist their choice. Maintain contrast in BOTH themes. The toggle is a real button with aria-pressed.",
+    "customization": [
+      { "name": ":root tokens", "description": "Default (dark) semantic colors", "default": "see source" },
+      { "name": "[data-theme=light]", "description": "Light overrides", "default": "see source" }
+    ],
+    "variations": ["System-default + manual override with localStorage", "Multiple brand themes", "Per-component theme scopes"],
+    "related": ["semantic-color-tokens"],
+    "ai_usage": "The canonical dark/light theming pattern. Define semantic tokens on :root for one theme and override the SAME token names under [data-theme='...'] (and/or @media (prefers-color-scheme)). Components only reference semantic tokens, so theme switching is a single attribute change on <html>. Default to the system preference, allow a toggle (button with aria-pressed), and persist the choice in localStorage. Verify contrast in every theme."
+  }
+  </script>
+  <style>
+    :root {
+      --bg:#0b0d12; --surface:#151925; --border:#262c3d; --text:#e7ebf3; --muted:#8b93a7; --primary:#7c5cff;
+    }
+    [data-theme="light"] {
+      --bg:#f6f7fb; --surface:#ffffff; --border:#e2e6ef; --text:#0f172a; --muted:#64748b; --primary:#5b3ee0;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; display: grid; place-items: center; transition: background .3s, color .3s; }
+    .demo { width: 300px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; transition: background .3s, border-color .3s; }
+    .demo h3 { margin: 0 0 .3rem; } .demo p { color: var(--muted); margin: 0 0 1rem; }
+    .toggle { border: 1px solid var(--border); background: var(--primary); color: #fff; border-radius: 10px; padding: .6rem 1rem; cursor: pointer; font-weight: 600; }
+    @media (prefers-reduced-motion: reduce) { body, .demo { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <h3>Themeable surface</h3>
+    <p>Same tokens, two themes.</p>
+    <button class="toggle" id="t" aria-pressed="false">Toggle theme</button>
+  </div>
+  <script>
+    var t = document.getElementById("t");
+    t.addEventListener("click", function () {
+      var light = document.documentElement.getAttribute("data-theme") === "light";
+      document.documentElement.setAttribute("data-theme", light ? "dark" : "light");
+      t.setAttribute("aria-pressed", String(!light));
+    });
+  </script>
+</body>
+</html>

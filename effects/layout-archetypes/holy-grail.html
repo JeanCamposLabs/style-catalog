@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Holy Grail Layout</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "holy-grail",
+    "title": "Holy Grail Layout",
+    "summary": "Header, footer, fluid main content, and two fixed sidebars — the classic app shell, in CSS Grid.",
+    "description": "The famously-hard-in-the-old-days 'holy grail' layout (sticky header/footer, flexible center, fixed-width side rails) expressed cleanly with grid-template-areas.",
+    "theme": "layout-archetypes",
+    "categories": ["layout", "grid", "app-shell", "reference"],
+    "tags": ["holy-grail", "grid-template-areas", "app-shell", "sidebar", "layout", "dashboard"],
+    "tech": ["css"],
+    "era": "timeless",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Grid + template-areas).",
+    "performance_notes": "Pure layout; free.",
+    "accessibility_notes": "Use landmark elements (header/nav/main/aside/footer). Keep DOM order sensible (main content early) for screen readers even if visually centered.",
+    "customization": [
+      { "name": "grid-template-columns", "description": "Side rail widths + flexible center", "default": "200px 1fr 200px" },
+      { "name": "grid-template-areas", "description": "The named region map", "default": "see source" }
+    ],
+    "variations": ["Collapse rails to a single column on mobile", "Sticky header + scrollable main", "Replace a rail with a collapsible drawer"],
+    "related": ["sticky-sidebar", "bento-grid"],
+    "ai_usage": "The default app/dashboard/blog shell. Use grid-template-areas to name header/nav/main/aside/footer regions and grid-template-columns/rows to size them (fixed rails + 1fr center). Assign each landmark element to its area. On mobile, redefine the areas to stack into one column inside a media/container query. Keep semantic landmarks for accessibility."
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { font-family: system-ui, sans-serif; }
+    .hg {
+      height: 100vh; display: grid; gap: .5rem; padding: .5rem; background: #0b0d12;
+      grid-template-columns: 150px 1fr 150px;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas: "header header header" "nav main aside" "footer footer footer";
+    }
+    .hg > * { border-radius: 10px; padding: .8rem; color: #e7ebf3; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+    header { grid-area: header; background: linear-gradient(90deg,#7c5cff,#2dd4bf); color: #fff; }
+    nav { grid-area: nav; background: #151925; border: 1px solid #262c3d; }
+    main { grid-area: main; background: #11141c; border: 1px solid #262c3d; }
+    aside { grid-area: aside; background: #151925; border: 1px solid #262c3d; }
+    footer { grid-area: footer; background: #151925; border: 1px solid #262c3d; color: #8b93a7; }
+  </style>
+</head>
+<body>
+  <div class="hg">
+    <header>Header</header>
+    <nav>Nav</nav>
+    <main>Main content</main>
+    <aside>Aside</aside>
+    <footer>Footer</footer>
+  </div>
+</body>
+</html>

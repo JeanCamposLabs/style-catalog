@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Circular Progress Ring</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "progress-ring",
+    "title": "Circular Progress Ring",
+    "summary": "A determinate SVG ring that fills to a percentage via stroke-dashoffset, with a live label.",
+    "description": "An SVG circle whose stroke-dasharray equals its circumference; animating stroke-dashoffset reveals the arc proportional to a percentage — the standard circular progress meter.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "progress"],
+    "tags": ["progress", "ring", "circular", "svg", "stroke-dashoffset", "percentage"],
+    "tech": ["css", "svg", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (SVG).",
+    "performance_notes": "Animating stroke-dashoffset is cheap. For pure decoration use CSS; for real values update from JS.",
+    "accessibility_notes": "Add role=progressbar with aria-valuenow/min/max and keep the numeric label as text so the value is announced. Not just color — the number conveys the state.",
+    "customization": [
+      { "name": "--track / --fill", "description": "Ring colors", "default": "#262c3d / #7c5cff" },
+      { "name": "r", "description": "Circle radius (drives circumference)", "default": "52" }
+    ],
+    "variations": ["Gradient stroke", "Rounded line caps", "Countdown timer ring"],
+    "related": ["ring-spinner", "progress-bar-indeterminate"],
+    "ai_usage": "Use for upload/download progress, scores, and timers. circumference = 2*pi*r; set the circle's stroke-dasharray to that, and stroke-dashoffset = circumference * (1 - pct). Rotate the circle -90deg so it starts at top. Update offset + the text label + aria-valuenow from JS as progress changes. The demo animates 0→100% on a loop."
+  }
+  </script>
+  <style>
+    :root { --track: #262c3d; --fill: #7c5cff; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }
+    .ring-wrap { position: relative; width: 130px; height: 130px; }
+    svg { transform: rotate(-90deg); }
+    .track { fill: none; stroke: var(--track); stroke-width: 12; }
+    .fill { fill: none; stroke: var(--fill); stroke-width: 12; stroke-linecap: round; transition: stroke-dashoffset .3s ease; }
+    .pct { position: absolute; inset: 0; display: grid; place-items: center; color: #e7ebf3; font-size: 1.6rem; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <div class="ring-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pb">
+    <svg width="130" height="130" viewBox="0 0 130 130">
+      <circle class="track" cx="65" cy="65" r="52"></circle>
+      <circle class="fill" cx="65" cy="65" r="52" id="fill"></circle>
+    </svg>
+    <div class="pct" id="label">0%</div>
+  </div>
+  <script>
+    var r = 52, C = 2 * Math.PI * r;
+    var fill = document.getElementById("fill"), label = document.getElementById("label"), pb = document.getElementById("pb");
+    fill.style.strokeDasharray = C;
+    function set(pct) {
+      fill.style.strokeDashoffset = C * (1 - pct / 100);
+      label.textContent = Math.round(pct) + "%";
+      pb.setAttribute("aria-valuenow", String(Math.round(pct)));
+    }
+    set(0);
+    var p = 0;
+    setInterval(function () { p = (p + 1) % 101; set(p); }, 40);
+  </script>
+</body>
+</html>

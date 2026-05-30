@@ -3,6 +3,30 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.2.0] — 2026-05-30
+
+### Changed
+- Build output is now **deterministic** (dropped the volatile `generatedAt`
+  timestamp from the committed artifacts) so the CI staleness check passes.
+
+### Added — Expansion to 85 effects across 20 themes
+- **Combination Recipes** (new, 4): full composed UI blocks — hero section,
+  pricing card, glass navbar, login card. Demonstrates composing primitives.
+- **Forms & Inputs** (new, 4): floating-label input, toggle switch, animated
+  checkbox, custom range slider — all built on real, accessible controls.
+- **First "beyond HTML/CSS" design-system domains** (roadmap v2):
+  - **Color Systems** (3): semantic color tokens, gradient library, dark/light
+    mode tokens.
+  - **Typography Systems** (3): modular type scale, fluid typography, font
+    pairings.
+  - **Layout Archetypes** (4): bento grid, responsive card grid, holy grail,
+    masonry.
+  - **Motion Principles** (2): easing curve showcase, duration scale.
+- Grew existing themes: text-effects (+outline), buttons (+arrow-slide,
+  +loading), backgrounds (+wavy-divider), loaders (+progress-ring), images
+  (+ken-burns), cursors (+blob-trail), 3d (+carousel), navigation
+  (+sliding-tab-indicator, +dropdown-menu).
+
 ## [0.1.0] — 2026-05-29
 
 ### Added — Foundation

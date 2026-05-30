@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bento Grid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bento-grid",
+    "title": "Bento Grid",
+    "summary": "The modern 'bento box' feature grid — tiles of varying sizes in a tidy CSS Grid.",
+    "description": "Uses CSS Grid with explicit column/row spans so feature tiles form an asymmetric-but-aligned bento layout, the dominant marketing/feature-section pattern of the 2020s.",
+    "theme": "layout-archetypes",
+    "categories": ["layout", "grid", "reference"],
+    "tags": ["bento", "grid", "css-grid", "feature", "masonry-like", "spans"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (CSS Grid).",
+    "performance_notes": "Pure layout; free.",
+    "accessibility_notes": "Source order should match reading order; use grid placement, not visual reordering that breaks DOM order for keyboard/screen-reader users.",
+    "customization": [
+      { "name": "grid-template-columns", "description": "Base column count", "default": "repeat(4, 1fr)" },
+      { "name": "tile spans", "description": "grid-column / grid-row span per tile", "default": "see source" }
+    ],
+    "variations": ["Collapse to single column on mobile", "Auto-fit tracks with minmax", "Mix media + stat + quote tiles"],
+    "related": ["responsive-card-grid", "masonry-grid"],
+    "ai_usage": "Use for feature/overview sections and dashboards. Define a grid (e.g. repeat(4,1fr) with auto rows) and give standout tiles grid-column: span N / grid-row: span M. Keep DOM order = reading order. On small screens, drop to one or two columns (the spans should gracefully reflow — set them in a min-width media query). Replace placeholder tiles with real feature content."
+  }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { background: #0b0d12; padding: 1rem; font-family: system-ui, sans-serif; }
+    .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 90px; gap: .8rem; height: 100%; }
+    .tile { border-radius: 14px; padding: 1rem; color: #fff; font-weight: 700; display: flex; align-items: flex-end; }
+    .t1 { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg,#7c5cff,#5b3ee0); }
+    .t2 { grid-column: span 2; background: linear-gradient(135deg,#2dd4bf,#0ea5a5); }
+    .t3 { background: linear-gradient(135deg,#f0abfc,#c026d3); }
+    .t4 { background: linear-gradient(135deg,#fb7185,#e11d48); }
+    .t5 { grid-column: span 2; background: #151925; border: 1px solid #262c3d; }
+    .t6 { grid-column: span 2; background: #151925; border: 1px solid #262c3d; }
+  </style>
+</head>
+<body>
+  <div class="bento">
+    <div class="tile t1">Hero feature</div>
+    <div class="tile t2">Analytics</div>
+    <div class="tile t3">Fast</div>
+    <div class="tile t4">Secure</div>
+    <div class="tile t5">Integrations</div>
+    <div class="tile t6">Testimonial</div>
+  </div>
+</body>
+</html>
