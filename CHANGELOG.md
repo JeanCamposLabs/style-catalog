@@ -3,6 +3,22 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.17.0] — 2026-05-31
+
+### Fixed — Auto-reload actually works now (real root cause)
+- The v0.14 cache-busting rewrite had a regex bug: `build.js` also matched
+  **inside `build.json`** in the live-reload fetch, corrupting it to
+  `assets/build.js?v=Non?t=…`. The fetch failed every time, so the page never
+  auto-refreshed after a deploy. Added a `(?=["'?])` lookahead so only true
+  filename refs are versioned. (Clients still on the broken build need one manual
+  refresh to pick up this fix; auto-reload is permanent thereafter.)
+
+### Added
+- **Shareable palette links**: “🔗 Copy link” copies a `#palette=…` URL that
+  reopens your exact colors (and applies them) for anyone — teammate or agent.
+- **WCAG contrast badge**: live Text-on-Background contrast ratio + AA/AAA rating
+  in the palette panel, so you can tell at a glance if a palette is readable.
+
 ## [0.16.0] — 2026-05-31
 
 ### Changed — Much better randomizer (perceptual OKLCH generation)

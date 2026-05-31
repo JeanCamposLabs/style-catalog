@@ -467,6 +467,10 @@ a { color: var(--accent-2); }
 .pb__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--line); }
 .pb__apply { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-top: 0.7rem; }
 .pb__hintnote { color: var(--muted); font-size: 0.74rem; }
+.pb__contrast { font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 999px; border: 1px solid var(--line); font-family: var(--mono); }
+.pb__contrast.is-pass { color: #6ee7b7; border-color: rgba(110, 231, 183, 0.4); }
+.pb__contrast.is-warn { color: #fcd34d; border-color: rgba(252, 211, 77, 0.4); }
+.pb__contrast.is-fail { color: #fca5a5; border-color: rgba(252, 165, 165, 0.45); }
 .pb__btn.is-applied { color: var(--accent-2); border-color: var(--accent-2); background: transparent; cursor: default; }
 .pb__spacer { flex: 1; }
 .pb__btn { background: var(--panel-2); border: 1px solid var(--line); color: var(--text); border-radius: 10px; padding: 0.5rem 0.8rem; cursor: pointer; font-size: 0.82rem; white-space: nowrap; transition: border-color 0.15s, background 0.15s; }

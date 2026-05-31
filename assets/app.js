@@ -467,6 +467,30 @@
       "  --muted: " + work.muted + ";      /* secondary text */\n" +
       "  --radius: " + (work.radius || "14px") + ";\n}";
   }
+  // WCAG contrast of text-on-background (the pair that matters for readability)
+  function relLum(hex) { var c = _rgb(hex).map(function (v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; }
+  function contrastRatio(a, b) { var L1 = relLum(a), L2 = relLum(b), hi = Math.max(L1, L2), lo = Math.min(L1, L2); return (hi + 0.05) / (lo + 0.05); }
+  function renderContrast() {
+    var el = $("#pb-contrast"); if (!el) return;
+    var c = contrastRatio(work.text, work.bg);
+    var lvl = c >= 7 ? "AAA" : c >= 4.5 ? "AA" : c >= 3 ? "AA large" : "low";
+    el.textContent = "Aa " + c.toFixed(1) + ":1 · " + lvl;
+    el.className = "pb__contrast " + (c >= 4.5 ? "is-pass" : c >= 3 ? "is-warn" : "is-fail");
+    el.title = "WCAG contrast of Text on Background";
+  }
+  // ---- shareable palette link (#palette=hex-…-mode) ----
+  function encodePalette() {
+    return COLORS.map(function (k) { return String(work[k] || "").replace("#", ""); }).join("-") + "-" + (work.mode === "light" ? "l" : "d");
+  }
+  function shareUrl() { return location.origin + location.pathname + "#palette=" + encodePalette(); }
+  function decodePalette(str) {
+    var parts = String(str).split("-"); if (parts.length < 6) return null;
+    var o = {}, ok = 0;
+    COLORS.forEach(function (k, i) { if (/^[0-9a-f]{6}$/i.test(parts[i])) { o[k] = "#" + parts[i].toLowerCase(); ok++; } });
+    if (ok < 6) return null;
+    o.mode = parts[6] === "l" ? "light" : "dark";
+    return o;
+  }
   function updateApplyState() {
     var changed = isDirty();              // working palette differs from what's applied
     var dirty = changed || !brand.applied; // panel button also nudges before first apply
@@ -507,7 +531,7 @@
     });
     var prev = $("#pb-preview");
     if (prev) prev.innerHTML = PAL_ROLES.map(function (r) { return '<i style="background:' + esc(work[r.key] || r.def) + '"></i>'; }).join("");
-    updateApplyState(); renderBundlePalette();
+    updateApplyState(); renderContrast(); renderBundlePalette();
   }
   function renderBundlePalette() {
     var host = $("#bp-swatches"); if (!host) return;
@@ -588,6 +612,13 @@
     delete brand.on; saveBrand();
     work = cloneColors(brand); work.harmony = brand.harmony; work.mode = brand.mode; work.locks = JSON.parse(JSON.stringify(brand.locks || {}));
     work._hue = (brand._hue != null) ? brand._hue : hexToHsl(brand.accent).h;
+    // a shared #palette=… link wins: load it into the applied palette
+    var pm = location.hash.match(/palette=([0-9a-fA-F-]+)/);
+    if (pm) { var dp = decodePalette(pm[1]); if (dp) {
+      COLORS.forEach(function (k) { work[k] = dp[k]; brand[k] = dp[k]; });
+      work.mode = brand.mode = dp.mode; work._hue = hexToHsl(dp.accent).h; brand._hue = work._hue;
+      brand.applied = true; saveBrand();
+    } }
     if ($("#pb-harmony")) $("#pb-harmony").value = work.harmony;
     setMode(work.mode);
     if ($("#pb-site")) $("#pb-site").checked = !!brand.site;
@@ -632,6 +663,13 @@
       });
     });
     $("#pb-editdone").addEventListener("click", function () { $("#pb-editor").hidden = true; });
+    var share = $("#pb-share");
+    if (share) share.addEventListener("click", function () {
+      writeClipboard(shareUrl()).then(function () {
+        var s = $("#pb-status"); s.textContent = "🔗 Shareable palette link copied — anyone who opens it gets these exact colors.";
+        setTimeout(function () { s.textContent = ""; }, 4000);
+      });
+    });
     var w = $("#pb-wheel");
     w.addEventListener("pointerdown", function (ev) { w.setPointerCapture(ev.pointerId); edWheelPick(ev); });
     w.addEventListener("pointermove", function (ev) { if (ev.buttons) edWheelPick(ev); });

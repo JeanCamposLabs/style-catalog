@@ -92,8 +92,12 @@ writeFileSync(
 // lives solely in the uploaded Pages artifact.
 if (process.env.SC_DEPLOY) {
   const idxPath = join(ROOT, "index.html");
+  // The trailing (?=["'?]) lookahead is essential: without it, `build.js` also
+  // matches inside `build.json` (the reloader's fetch URL) and corrupts it to
+  // `build.js?v=Non?t=`, which silently breaks auto-reload. Only rewrite a
+  // filename that's immediately followed by a quote or query separator.
   const html = readFileSync(idxPath, "utf8").replace(
-    /(assets\/(?:app\.css|catalog\.js|build\.js|app\.js))(\?v=[^"']*)?/g,
+    /(assets\/(?:app\.css|catalog\.js|build\.js|app\.js))(\?v=[^"'?]*)?(?=["'?])/g,
     `$1?v=${stamp.build}`,
   );
   writeFileSync(idxPath, html, "utf8");
