@@ -3,6 +3,25 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.15.0] — 2026-05-31
+
+### Added — Apply-on-demand + the catalog themes itself to your palette
+- **Apply button**: shuffling, presets, the wheel and lightness now only update
+  the palette **bar** (a working copy) — the gallery no longer re-skins on every
+  change. Hit **Apply** to commit the palette in one go. This kills the page
+  glitch from rapidly mashing 🎲, and lets you audition palettes freely. The
+  button reads **“Applied ✓”** until you make another change.
+- **“Restyle this site too”** toggle: Apply also maps your palette onto the
+  catalog’s own theme — masthead, cards, modal, the palette bar itself — so the
+  whole site (an app about design) becomes *your* design. Toggle off to keep the
+  site’s default chrome; Reset restores everything.
+
+### Notes on coverage
+- Effects that use CSS variables (~135/172) follow the palette via an injected
+  `:root` override; ~37 samples use no variables (and many hard-coded colors
+  remain), so those can’t follow without per-sample rework. SVGs in the catalog
+  don’t use `currentColor`/`var()` fills, so there was nothing to remap there.
+
 ## [0.14.1] — 2026-05-31
 
 ### Changed — Palette generator redesigned (collapsed by default)

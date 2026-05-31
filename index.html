@@ -61,7 +61,7 @@
         </div>
       </div>
       <div class="pb__controls">
-        <button id="pb-shuffle" class="pb__btn pb__btn--primary" type="button" title="Shuffle (Spacebar)">🎲 Shuffle</button>
+        <button id="pb-shuffle" class="pb__btn" type="button" title="Shuffle (Spacebar)">🎲 Shuffle</button>
         <label class="pb__field">Harmony
           <select id="pb-harmony">
             <option value="complementary">Complementary</option>
@@ -74,7 +74,11 @@
           <button type="button" data-mode="dark" class="is-on">Dark</button><button type="button" data-mode="light">Light</button>
         </div>
         <div class="pb__presets" id="pb-presets" aria-label="Preset palettes"></div>
-        <label class="pb__adapt"><input type="checkbox" id="pb-adapt" /> <span class="pb__switch"></span> Adapt gallery</label>
+      </div>
+      <div class="pb__apply">
+        <button id="pb-apply" class="pb__btn pb__btn--primary" type="button" title="Apply this palette to the gallery (and this site)">Apply</button>
+        <label class="pb__adapt"><input type="checkbox" id="pb-site" checked /> <span class="pb__switch"></span> Restyle this site too</label>
+        <span class="pb__hintnote">Shuffle &amp; tweak freely — nothing changes until you hit Apply.</span>
         <span class="pb__spacer"></span>
         <button id="pb-copy" class="pb__btn" type="button">📋 Copy tokens</button>
         <button id="pb-reset" class="pb__btn pb__btn--ghost" type="button">Reset</button>

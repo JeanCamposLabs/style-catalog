@@ -224,7 +224,7 @@
   function splitLen(v) { var m = String(v).match(/^(-?[\d.]+)(px|rem|em|%|vw|vh|vmin|vmax)?$/); return m ? { num: parseFloat(m[1]), unit: m[2] || "" } : null; }
   function effectiveTokens(id, tokens) {
     var eff = {};
-    if (brand.on) {
+    if (brand.applied) {
       BRAND_ROLES.forEach(function (role) {
         var val = brand[role.key]; if (!val) return;
         tokens.forEach(function (t) {
@@ -369,12 +369,22 @@
       muted: dark ? hslToHex(h, 10, 62) : hslToHex(h, 15, 42)
     };
   }
-  // ---- apply the palette onto every gallery iframe (and the modal preview) ----
-  // Rather than detect each sample's token names, we inject one <style> that
-  // blanket-defines every brand-role alias on :root with !important. It overrides
-  // whatever subset of those names the sample actually uses (and harmlessly
-  // defines the rest) — far more robust across 172 hand-built samples than
-  // sniffing computed values (which also misses rgb()/hsl()/gradient tokens).
+  // ---- working palette (the bar) vs applied palette (`brand`) ----
+  // Shuffle / edit / presets only mutate `work` and repaint the small bar — the
+  // gallery + this site re-skin ONLY when Apply is pressed, so rapid shuffling
+  // never glitches the page.
+  var COLORS = ["accent", "accent2", "bg", "surface", "text", "muted"];
+  var work = { harmony: "complementary", mode: "dark", locks: {} };
+  function cloneColors(src) { var o = {}; COLORS.forEach(function (k) { o[k] = src[k]; }); o.radius = src.radius || "14px"; return o; }
+  function isDirty() {
+    if ((work.radius || "14px") !== (brand.radius || "14px")) return true;
+    return COLORS.some(function (k) { return work[k] !== brand[k]; });
+  }
+
+  // Inject one <style> per gallery iframe that blanket-defines every brand-role
+  // alias on :root with !important — overrides whatever subset of those names the
+  // sample uses (robust across 172 hand-built samples). Samples that use no CSS
+  // variables, or hard-coded colors, can't follow without per-sample rework.
   function paletteStyleText() {
     var rules = [];
     BRAND_ROLES.forEach(function (role) {
@@ -387,31 +397,57 @@
     var doc; try { doc = fr.contentDocument; } catch (e) { return; }
     if (!doc || !doc.head) return;
     var st = doc.getElementById("sc-pal");
-    if (!brand.on) { if (st) st.parentNode.removeChild(st); return; }
+    if (!brand.applied) { if (st) st.parentNode.removeChild(st); return; }
     if (!st) { st = doc.createElement("style"); st.id = "sc-pal"; doc.head.appendChild(st); }
     st.textContent = paletteStyleText();
+  }
+  function _rgb(h) { h = String(h).replace("#", ""); if (h.length === 3) h = h.split("").map(function (c) { return c + c; }).join(""); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; }
+  function mix(a, b, t) { var x = _rgb(a), y = _rgb(b), h = function (v) { return ("0" + Math.round(v).toString(16)).slice(-2); }; return "#" + h(x[0] + (y[0] - x[0]) * t) + h(x[1] + (y[1] - x[1]) * t) + h(x[2] + (y[2] - x[2]) * t); }
+  // Map the applied palette onto the catalog's OWN :root vars → the whole site
+  // (masthead, cards, modal, this bar…) adopts the user's palette.
+  function applySiteTheme() {
+    var r = document.documentElement.style;
+    var keys = ["--accent", "--accent-2", "--accent-grad", "--bg", "--bg-2", "--panel", "--panel-2", "--line", "--text", "--muted", "--radius"];
+    if (!(brand.applied && brand.site)) { keys.forEach(function (k) { r.removeProperty(k); }); return; }
+    r.setProperty("--accent", brand.accent);
+    r.setProperty("--accent-2", brand.accent2);
+    r.setProperty("--accent-grad", "linear-gradient(120deg," + brand.accent + "," + brand.accent2 + ")");
+    r.setProperty("--bg", brand.bg);
+    r.setProperty("--bg-2", mix(brand.bg, brand.surface, 0.5));
+    r.setProperty("--panel", brand.surface);
+    r.setProperty("--panel-2", mix(brand.surface, brand.text, 0.08));
+    r.setProperty("--line", mix(brand.surface, brand.text, 0.16));
+    r.setProperty("--text", brand.text);
+    r.setProperty("--muted", brand.muted);
+    r.setProperty("--radius", brand.radius || "14px");
   }
   function applyBrandEverywhere() {
     $$(".card__frame iframe").forEach(applyFrame);
     applyAllToPreview();
+    applySiteTheme();
   }
-  var _palRaf = null;
-  function scheduleApply() { if (_palRaf) return; _palRaf = requestAnimationFrame(function () { _palRaf = null; applyBrandEverywhere(); }); }
   function paletteCss() {
     return ":root {\n" +
-      "  --accent: " + brand.accent + ";     /* primary actions, links */\n" +
-      "  --accent-2: " + brand.accent2 + ";  /* secondary accent */\n" +
-      "  --bg: " + brand.bg + ";         /* page background */\n" +
-      "  --surface: " + brand.surface + ";    /* cards & panels */\n" +
-      "  --text: " + brand.text + ";       /* body text */\n" +
-      "  --muted: " + brand.muted + ";      /* secondary text */\n" +
-      "  --radius: " + (brand.radius || "14px") + ";\n}";
+      "  --accent: " + work.accent + ";     /* primary actions, links */\n" +
+      "  --accent-2: " + work.accent2 + ";  /* secondary accent */\n" +
+      "  --bg: " + work.bg + ";         /* page background */\n" +
+      "  --surface: " + work.surface + ";    /* cards & panels */\n" +
+      "  --text: " + work.text + ";       /* body text */\n" +
+      "  --muted: " + work.muted + ";      /* secondary text */\n" +
+      "  --radius: " + (work.radius || "14px") + ";\n}";
+  }
+  function updateApplyState() {
+    var btn = $("#pb-apply"); if (!btn) return;
+    var dirty = isDirty() || !brand.applied;
+    btn.classList.toggle("pb__btn--primary", dirty);
+    btn.classList.toggle("is-applied", !dirty);
+    btn.textContent = dirty ? "Apply" : "Applied ✓";
   }
   function renderPaletteBar() {
     var host = $("#pb-swatches"); if (!host) return;
     host.innerHTML = "";
     PAL_ROLES.forEach(function (role) {
-      var val = brand[role.key] || role.def, locked = brand.locks && brand.locks[role.key];
+      var val = work[role.key] || role.def, locked = work.locks && work.locks[role.key];
       var sw = document.createElement("div"); sw.className = "pb__sw";
       sw.innerHTML =
         '<button class="pb__chip" data-role="' + role.key + '" style="background:' + esc(val) + '" title="Edit ' + role.label + '" aria-label="Edit ' + role.label + '"></button>' +
@@ -429,44 +465,53 @@
     });
     $$(".pb__lock", host).forEach(function (b) {
       b.addEventListener("click", function () {
-        var k = b.getAttribute("data-lock"); brand.locks = brand.locks || {}; brand.locks[k] = !brand.locks[k];
-        saveBrand(); renderPaletteBar();
+        var k = b.getAttribute("data-lock"); work.locks = work.locks || {}; work.locks[k] = !work.locks[k];
+        renderPaletteBar();
       });
     });
     var prev = $("#pb-preview");
-    if (prev) prev.innerHTML = PAL_ROLES.map(function (r) { return '<i style="background:' + esc(brand[r.key] || r.def) + '"></i>'; }).join("");
-    var ad = $("#pb-adapt"); if (ad) ad.checked = !!brand.on;
-    renderBundlePalette();
+    if (prev) prev.innerHTML = PAL_ROLES.map(function (r) { return '<i style="background:' + esc(work[r.key] || r.def) + '"></i>'; }).join("");
+    updateApplyState(); renderBundlePalette();
   }
   function renderBundlePalette() {
     var host = $("#bp-swatches"); if (!host) return;
     host.innerHTML = PAL_ROLES.map(function (r) {
       var v = brand[r.key] || r.def; return '<span class="bp__sw" title="' + r.label + " " + esc(v) + '"><i style="background:' + esc(v) + '"></i></span>';
-    }).join("") + '<span class="bp__state">' + (brand.on ? "baked into this bundle’s code ✓" : "not applied — turn on “Adapt gallery” up top") + "</span>";
+    }).join("") + '<span class="bp__state">' + (brand.applied ? "baked into this bundle’s code ✓" : "not applied — set a palette & hit Apply up top") + "</span>";
   }
-  function persistPalette() { saveBrand(); renderPaletteBar(); scheduleApply(); renderSourcePane(); }
+  // ---- mutate the WORKING palette (bar only; never re-skins the page) ----
+  function commitWork() { renderPaletteBar(); }
   function regenFromAccent() {
-    var hsl = hexToHsl(brand.accent || "#7c5cff"), gen = genPalette(hsl.h, hsl.s, hsl.l, brand.harmony, brand.mode);
-    PAL_ROLES.forEach(function (role) { if (role.key !== "accent" && !(brand.locks && brand.locks[role.key])) brand[role.key] = gen[role.key]; });
-    brand.on = true; persistPalette();
+    var hsl = hexToHsl(work.accent || "#7c5cff"), gen = genPalette(hsl.h, hsl.s, hsl.l, work.harmony, work.mode);
+    COLORS.forEach(function (k) { if (k !== "accent" && !(work.locks && work.locks[k])) work[k] = gen[k]; });
+    commitWork();
   }
   function shuffle() {
-    var h = (brand.locks && brand.locks.accent && brand.accent) ? hexToHsl(brand.accent).h : Math.floor(Math.random() * 360);
+    var h = (work.locks && work.locks.accent && work.accent) ? hexToHsl(work.accent).h : Math.floor(Math.random() * 360);
     var s = 62 + Math.floor(Math.random() * 28), l = 52 + Math.floor(Math.random() * 12);
-    var gen = genPalette(h, s, l, brand.harmony || "complementary", brand.mode || "dark");
-    PAL_ROLES.forEach(function (role) { if (!(brand.locks && brand.locks[role.key])) brand[role.key] = gen[role.key]; });
-    brand.on = true; persistPalette();
+    var gen = genPalette(h, s, l, work.harmony || "complementary", work.mode || "dark");
+    COLORS.forEach(function (k) { if (!(work.locks && work.locks[k])) work[k] = gen[k]; });
+    commitWork();
   }
-  function setMode(m) { brand.mode = m; $$("#pb-mode button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-mode") === m); }); }
+  function setMode(m) { work.mode = m; $$("#pb-mode button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-mode") === m); }); }
+  // ---- commit: apply the working palette to the gallery + (optionally) site ----
+  function applyPalette() {
+    COLORS.forEach(function (k) { brand[k] = work[k]; });
+    brand.radius = work.radius || "14px"; brand.harmony = work.harmony; brand.mode = work.mode;
+    brand.locks = JSON.parse(JSON.stringify(work.locks || {})); brand.applied = true;
+    saveBrand(); applyBrandEverywhere(); renderSourcePane(); updateApplyState(); renderBundlePalette();
+    var s = $("#pb-status"); if (s) { s.textContent = "✓ Applied" + (brand.site ? " to the gallery + this site." : " to the gallery."); setTimeout(function () { s.textContent = ""; }, 2600); }
+  }
   function resetPalette() {
     var g = genPalette(262, 85, 58, "complementary", "dark");
-    brand = { on: false, harmony: "complementary", mode: "dark", locks: {}, radius: "14px" };
-    PAL_ROLES.forEach(function (r) { brand[r.key] = g[r.key]; });
+    brand = { applied: false, site: brand.site !== false, harmony: "complementary", mode: "dark", locks: {}, radius: "14px" };
+    COLORS.forEach(function (k) { brand[k] = g[k]; });
+    work = cloneColors(brand); work.harmony = "complementary"; work.mode = "dark"; work.locks = {};
     setMode("dark"); if ($("#pb-harmony")) $("#pb-harmony").value = "complementary";
-    saveBrand(); renderPaletteBar(); applyBrandEverywhere(); renderSourcePane();
+    saveBrand(); applyBrandEverywhere(); renderSourcePane(); renderPaletteBar();
     $("#pb-editor").hidden = true;
   }
-  // ---- per-swatch wheel editor ----
+  // ---- per-swatch wheel editor (edits the working palette) ----
   var ed = { role: "accent", h: 262, s: 85, l: 58 };
   function placeEdMark() {
     var w = $("#pb-wheel"), mk = $("#pb-mark"); if (!w || !mk) return;
@@ -475,15 +520,15 @@
     mk.style.background = hslToHex(ed.h, ed.s, ed.l);
   }
   function setEditColor() {
-    brand[ed.role] = hslToHex(ed.h, ed.s, ed.l); brand.on = true;
-    if ($("#pb-hex")) $("#pb-hex").value = brand[ed.role];
-    placeEdMark(); persistPalette();
+    work[ed.role] = hslToHex(ed.h, ed.s, ed.l);
+    if ($("#pb-hex")) $("#pb-hex").value = work[ed.role];
+    placeEdMark(); commitWork();
   }
   function openEditor(role) {
-    ed.role = role; var hsl = hexToHsl(brand[role] || "#888888"); ed.h = hsl.h; ed.s = hsl.s; ed.l = hsl.l;
+    ed.role = role; var hsl = hexToHsl(work[role] || "#888888"); ed.h = hsl.h; ed.s = hsl.s; ed.l = hsl.l;
     var roleObj = PAL_ROLES.filter(function (r) { return r.key === role; })[0];
     $("#pb-editrole").textContent = roleObj ? roleObj.label : role;
-    $("#pb-light").value = hsl.l; $("#pb-hex").value = brand[role] || "";
+    $("#pb-light").value = hsl.l; $("#pb-hex").value = work[role] || "";
     $("#pb-editor").hidden = false; placeEdMark();
   }
   function edWheelPick(ev) {
@@ -494,13 +539,18 @@
   }
   function initPaletteBar() {
     if (!$("#palettebar")) return;
-    if (!brand.accent) { var g = genPalette(262, 85, 58, "complementary", "dark"); PAL_ROLES.forEach(function (r) { brand[r.key] = g[r.key]; }); brand.on = false; }
-    PAL_ROLES.forEach(function (r) { if (!brand[r.key]) brand[r.key] = r.def; });
+    // seed / migrate the applied palette (defaults mirror the site's own theme)
+    if (!brand.accent) { var g = genPalette(262, 85, 58, "complementary", "dark"); COLORS.forEach(function (k) { brand[k] = g[k]; }); }
+    COLORS.forEach(function (k) { if (!brand[k]) { var role = PAL_ROLES.filter(function (r) { return r.key === k; })[0]; brand[k] = role ? role.def : "#888888"; } });
     brand.radius = brand.radius || "14px"; brand.harmony = brand.harmony || "complementary";
     brand.mode = brand.mode || "dark"; brand.locks = brand.locks || {};
-    saveBrand();
-    if ($("#pb-harmony")) $("#pb-harmony").value = brand.harmony;
-    setMode(brand.mode);
+    if (brand.applied === undefined) brand.applied = !!brand.on; // migrate v0.14 `on`
+    if (brand.site === undefined) brand.site = true;
+    delete brand.on; saveBrand();
+    work = cloneColors(brand); work.harmony = brand.harmony; work.mode = brand.mode; work.locks = JSON.parse(JSON.stringify(brand.locks || {}));
+    if ($("#pb-harmony")) $("#pb-harmony").value = work.harmony;
+    setMode(work.mode);
+    if ($("#pb-site")) $("#pb-site").checked = !!brand.site;
     renderPaletteBar();
     var ph = $("#pb-presets");
     if (ph) PRESETS.forEach(function (pre) {
@@ -508,9 +558,9 @@
       b.title = pre.n + " palette"; b.setAttribute("aria-label", pre.n + " palette");
       b.style.background = hslToHex(pre.h, pre.s, pre.l);
       b.addEventListener("click", function () {
-        var gen = genPalette(pre.h, pre.s, pre.l, brand.harmony || "complementary", pre.mode);
-        PAL_ROLES.forEach(function (r) { brand[r.key] = gen[r.key]; });
-        setMode(pre.mode); brand.on = true; persistPalette();
+        var gen = genPalette(pre.h, pre.s, pre.l, work.harmony || "complementary", pre.mode);
+        COLORS.forEach(function (k) { work[k] = gen[k]; });
+        setMode(pre.mode); commitWork();
       });
       ph.appendChild(b);
     });
@@ -525,13 +575,14 @@
       $("#palettebar").classList.toggle("is-open", open);
       var cta = $("#pb-cta"); if (cta && cta.firstChild) cta.firstChild.nodeValue = open ? "Close" : "Customize";
     });
-    $("#pb-harmony").addEventListener("change", function () { brand.harmony = this.value; regenFromAccent(); });
+    $("#pb-harmony").addEventListener("change", function () { work.harmony = this.value; regenFromAccent(); });
     $$("#pb-mode button").forEach(function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); regenFromAccent(); }); });
-    $("#pb-adapt").addEventListener("change", function () { brand.on = this.checked; saveBrand(); applyBrandEverywhere(); renderSourcePane(); renderBundlePalette(); });
+    $("#pb-apply").addEventListener("click", applyPalette);
+    $("#pb-site").addEventListener("change", function () { brand.site = this.checked; saveBrand(); applySiteTheme(); });
     $("#pb-reset").addEventListener("click", resetPalette);
     $("#pb-copy").addEventListener("click", function () {
       var note = "\n\n/* Apply across the UI: accent = primary buttons/links, accent-2 = secondary emphasis, " +
-        "bg = page, surface = cards, text/muted = copy. Palette: " + brand.harmony + " harmony, " + brand.mode + " UI. */";
+        "bg = page, surface = cards, text/muted = copy. Palette: " + work.harmony + " harmony, " + work.mode + " UI. */";
       writeClipboard(paletteCss() + note).then(function () {
         var s = $("#pb-status"); s.textContent = "✓ Palette tokens copied — paste into your agent.";
         setTimeout(function () { s.textContent = ""; }, 4000);
@@ -549,11 +600,11 @@
     $("#pb-light").addEventListener("input", function () { ed.l = +this.value; setEditColor(); });
     $("#pb-hex").addEventListener("change", function () {
       if (/^#([0-9a-f]{3,8})$/i.test(this.value)) {
-        brand[ed.role] = toHex6(this.value); var hsl = hexToHsl(brand[ed.role]); ed.h = hsl.h; ed.s = hsl.s; ed.l = hsl.l;
-        $("#pb-light").value = hsl.l; placeEdMark(); brand.on = true; persistPalette();
+        work[ed.role] = toHex6(this.value); var hsl = hexToHsl(work[ed.role]); ed.h = hsl.h; ed.s = hsl.s; ed.l = hsl.l;
+        $("#pb-light").value = hsl.l; placeEdMark(); commitWork();
       }
     });
-    // Spacebar = shuffle (unless typing or an overlay is open)
+    // Spacebar = shuffle (unless typing or an overlay is open) — bar-only, no glitch
     document.addEventListener("keydown", function (e) {
       if (e.code !== "Space" && e.key !== " ") return;
       var a = document.activeElement, tag = a && a.tagName;
@@ -561,6 +612,7 @@
       if (!$("#modal").hidden || !$("#cart").hidden) return;
       e.preventDefault(); shuffle();
     });
+    // re-skin whatever was applied on a previous visit
     applyBrandEverywhere();
   }
   function openModal(id) {
