@@ -98,7 +98,40 @@
   }
   function paintFilters() {
     Object.keys(facetEls).forEach(function (k) { if (facetEls[k]._paint) facetEls[k]._paint(); });
+    paintQuickChips();
     renderActive();
+  }
+
+  /* ---------- quick theme chips (toolbar, one-tap) ---------- */
+  var quickChips = [];
+  function buildQuickChips() {
+    var bar = $("#quickbar"); if (!bar) return;
+    var themes = CATALOG.facets.themes.slice()
+      .sort(function (a, b) { return b.count - a.count; }).slice(0, 6);
+    var lbl = document.createElement("span");
+    lbl.className = "quickbar__label"; lbl.textContent = "Quick filter";
+    bar.appendChild(lbl);
+    themes.forEach(function (t) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "quickchip"; b.dataset.theme = t.slug;
+      b.innerHTML = esc(t.title) + ' <span class="quickchip__count">' + t.count + "</span>";
+      b.addEventListener("click", function () {
+        var s = state.filters.theme;
+        if (s.has(t.slug)) s.delete(t.slug); else s.add(t.slug);
+        syncHash(); render(); paintFilters();
+      });
+      quickChips.push(b); bar.appendChild(b);
+    });
+    var more = document.createElement("button");
+    more.type = "button"; more.className = "quickchip quickchip--more";
+    more.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3 5h18l-7 8v6l-4 2v-8L3 5z"/></svg> All filters';
+    more.addEventListener("click", function () { openFilters(); });
+    bar.appendChild(more);
+  }
+  function paintQuickChips() {
+    quickChips.forEach(function (b) {
+      b.classList.toggle("is-on", state.filters.theme.has(b.dataset.theme));
+    });
   }
 
   /* ---------- matching ---------- */
@@ -137,7 +170,7 @@
     var added = inBundle(e.id);
     el.innerHTML =
       '<div class="card__frame">' +
-        '<iframe loading="lazy" sandbox="allow-scripts allow-same-origin" title="' + esc(e.title) + '" src="' + esc(e.path) + '"></iframe>' +
+        '<iframe loading="lazy" sandbox="allow-scripts allow-same-origin" title="' + esc(e.title) + '" data-src="' + esc(e.path) + '"></iframe>' +
         '<div class="card__scrim"></div>' +
         '<button class="card__add' + (added ? " is-in" : "") + '" data-bundle-add data-id="' + esc(e.id) +
           '" type="button" aria-pressed="' + added + '" title="Add to bundle" aria-label="Add ' + esc(e.title) + ' to bundle">' +
@@ -165,16 +198,47 @@
     return el;
   }
 
+  /* Build every card once and lazy-mount its iframe when it nears the viewport.
+     Filtering/sorting then only toggles visibility + CSS `order`, so iframes
+     are never destroyed and re-fetched (the old render() rebuilt all 172). */
+  var cardEls = {};
+  var frameObserver = ("IntersectionObserver" in window)
+    ? new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { mountFrame(en.target); frameObserver.unobserve(en.target); }
+        });
+      }, { rootMargin: "400px 0px" })
+    : null;
+  function mountFrame(el) {
+    var ifr = el.querySelector("iframe");
+    if (ifr && !ifr.getAttribute("src") && ifr.dataset.src) ifr.setAttribute("src", ifr.dataset.src);
+  }
+  function buildGrid() {
+    var grid = $("#grid"), frag = document.createDocumentFragment();
+    CATALOG.effects.forEach(function (e) {
+      var el = card(e); cardEls[e.id] = el; frag.appendChild(el);
+    });
+    grid.appendChild(frag);
+    if (frameObserver) Object.keys(cardEls).forEach(function (id) { frameObserver.observe(cardEls[id]); });
+    else Object.keys(cardEls).forEach(function (id) { mountFrame(cardEls[id]); });
+  }
+
   function render() {
     var list = sortEffects(CATALOG.effects.filter(matches));
-    var grid = $("#grid");
-    grid.innerHTML = "";
-    list.forEach(function (e) { grid.appendChild(card(e)); });
+    var shown = {};
+    list.forEach(function (e, i) {
+      var el = cardEls[e.id];
+      if (el) { el.style.order = i; el.hidden = false; shown[e.id] = 1; }
+    });
+    CATALOG.effects.forEach(function (e) {
+      if (!shown[e.id]) { var el = cardEls[e.id]; if (el) el.hidden = true; }
+    });
     $("#result-count").textContent = list.length + (list.length === 1 ? " effect" : " effects");
     $("#empty").hidden = list.length !== 0;
     renderActive();
   }
 
+  var lastFilterCount = -1;
   function renderActive() {
     var parts = [], n = 0;
     Object.keys(state.filters).forEach(function (k) {
@@ -182,7 +246,13 @@
     });
     if (state.search) parts.unshift('“' + state.search + '”');
     $("#active-filters").textContent = parts.length ? "· " + parts.join(", ") : "";
-    var fc = $("#filters-count"); if (fc) { fc.textContent = n; fc.hidden = n === 0; }
+    var fc = $("#filters-count"), fab = $("#filters-fab");
+    if (fc) { fc.textContent = n; fc.hidden = n === 0; }
+    if (fab) {
+      fab.classList.toggle("has-active", n > 0);
+      if (n !== lastFilterCount && n > 0) { fab.classList.remove("bump"); void fab.offsetWidth; fab.classList.add("bump"); }
+    }
+    lastFilterCount = n;
   }
 
   /* ---------- modal ---------- */
@@ -426,6 +496,7 @@
     return ":root{" + rules.join("") + "}";
   }
   function applyFrame(fr) {
+    if (!fr.getAttribute("src")) return; // skip iframes not yet lazy-mounted
     var doc; try { doc = fr.contentDocument; } catch (e) { return; }
     if (!doc || !doc.head) return;
     var st = doc.getElementById("sc-pal");
@@ -938,6 +1009,8 @@
   function init() {
     renderStats();
     buildFilters();
+    buildQuickChips();
+    buildGrid();
     applyHash();
     render();
     paintFilters();

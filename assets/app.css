@@ -131,7 +131,11 @@ a { color: var(--accent-2); }
   display: flex;
   flex-direction: column;
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  /* skip rendering/layout for offscreen cards (172 in the DOM at once) */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
 }
+.card[hidden] { display: none; }
 .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow); }
 .card__frame { position: relative; aspect-ratio: 16 / 10; background: #000; overflow: hidden; }
 .card__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
@@ -270,19 +274,51 @@ a { color: var(--accent-2); }
 }
 .filters-fab__count[hidden] { display: none; }
 .filters-fab.is-open { border-color: var(--accent); }
+.filters-fab.has-active { border-color: var(--accent); box-shadow: 0 10px 30px rgba(124, 92, 255, 0.35); }
+.filters-fab.bump { animation: cart-bump 0.3s ease; }
+
+/* tail pointing down toward the launcher */
+.filters-panel::after {
+  content: ""; position: absolute; left: 22px; bottom: -8px; width: 14px; height: 14px;
+  background: var(--panel); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  transform: rotate(45deg);
+}
+
+/* ---------- Quick theme chips (toolbar, one-tap) ---------- */
+.quickbar {
+  display: flex; align-items: center; gap: 0.45rem; flex-wrap: nowrap; overflow-x: auto;
+  padding: 0 clamp(1rem, 4vw, 2.5rem) 0.2rem; scrollbar-width: thin;
+}
+.quickbar:empty { display: none; }
+.quickbar__label { color: var(--muted); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; white-space: nowrap; margin-right: 0.15rem; }
+.quickchip {
+  display: inline-flex; align-items: center; gap: 0.35rem; white-space: nowrap; cursor: pointer;
+  background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 999px;
+  padding: 0.32rem 0.7rem; font-size: 0.82rem; font-family: var(--sans);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.quickchip:hover { border-color: var(--accent); }
+.quickchip.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.quickchip__count { font-variant-numeric: tabular-nums; opacity: 0.7; font-size: 0.75rem; }
+.quickchip.is-on .quickchip__count { opacity: 0.85; }
+.quickchip--more { font-weight: 700; color: var(--accent-2); }
+.quickchip--more svg { vertical-align: -2px; }
 
 .filters-scrim { position: fixed; inset: 0; z-index: 56; background: transparent; }
 .filters-scrim[hidden] { display: none; }
 .filters-panel {
   position: fixed; left: 0.9rem; bottom: 4.6rem; z-index: 57;
-  width: min(330px, calc(100vw - 1.8rem)); max-height: min(72vh, 620px); overflow-y: auto;
+  width: min(330px, calc(100vw - 1.8rem)); max-height: min(72vh, 620px);
+  display: flex; flex-direction: column;
   background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
   box-shadow: var(--shadow); padding: 0.9rem 1rem 1rem;
   animation: fp-in 0.18s ease;
 }
 .filters-panel[hidden] { display: none; }
+/* inner list scrolls; the panel itself stays overflow:visible so the tail shows */
+.filters-panel > .filters { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-right: 2px; }
 @keyframes fp-in { from { opacity: 0; transform: translateY(8px) scale(0.99); } to { opacity: 1; transform: none; } }
-.filters-panel__head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; position: sticky; top: 0; }
+.filters-panel__head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; flex: 0 0 auto; }
 .filters-panel__head strong { font-size: 0.95rem; }
 .filters-panel__clear { margin-left: auto; background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 8px; padding: 0.28rem 0.6rem; font-size: 0.75rem; cursor: pointer; }
 .filters-panel__clear:hover { color: var(--text); border-color: var(--accent); }

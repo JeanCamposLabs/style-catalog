@@ -3,6 +3,24 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.19.0] — 2026-05-31
+
+### Added — Quick filters + polished launcher
+- **Quick theme chips** under the toolbar: the six biggest themes as one-tap
+  toggles (with counts) plus an “All filters” shortcut that opens the popover.
+  Chips stay in sync with the popover and the active-filter count.
+- The floating **Filters launcher now reacts to active filters** — accent glow
+  + a count pill that pulses when the count changes.
+- The filters popover gained a **tail** pointing down to its launcher.
+
+### Performance — gallery no longer rebuilds on every filter
+- **Cards are built once and reused.** Filtering/sorting now toggles visibility
+  and CSS `order` instead of `grid.innerHTML = ""` + recreating all 172 cards,
+  so the effect **iframes are never destroyed and re-fetched** on a filter/sort.
+- **Iframes lazy-mount via `IntersectionObserver`** (≈12 load up front instead
+  of 172) and offscreen cards skip layout via `content-visibility: auto`.
+- Palette application now **skips iframes that haven’t mounted yet**.
+
 ## [0.18.0] — 2026-05-31
 
 ### Changed — Full-width gallery + floating Filters launcher
