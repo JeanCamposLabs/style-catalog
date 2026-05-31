@@ -3,6 +3,17 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.18.0] — 2026-05-31
+
+### Changed — Full-width gallery + floating Filters launcher
+- Removed the fixed left filters sidebar so the effect grid spans the **full
+  width** (≈4 cards/row instead of 3). The catalogue is the star.
+- Filters now live behind a **floating “Filters” button (lower-left)** that pops
+  up the theme/technology/difficulty/era/tags list as a popover — with a live
+  **active-filter count** badge, “Clear all”, click-outside / ✕ / Esc to close.
+- Moved the **bundle button to the lower-right** and tucked the **version badge**
+  just above the Filters launcher on the left.
+
 ## [0.17.0] — 2026-05-31
 
 ### Fixed — Auto-reload actually works now (real root cause)

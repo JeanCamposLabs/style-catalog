@@ -90,7 +90,6 @@
   </div>
 
   <div class="layout">
-    <aside class="filters" id="filters" aria-label="Filters"></aside>
     <main class="results">
       <div class="results__head">
         <span id="result-count" class="results__count"></span>
@@ -102,6 +101,22 @@
         <button class="btn" id="empty-reset">Clear everything</button>
       </div>
     </main>
+  </div>
+
+  <!-- Floating filters launcher (lower-left) + popover -->
+  <button id="filters-fab" class="filters-fab" type="button" aria-haspopup="dialog" aria-controls="filters-panel" aria-expanded="false" title="Filter effects">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M3 5h18l-7 8v6l-4 2v-8L3 5z"/></svg>
+    <span>Filters</span>
+    <span class="filters-fab__count" id="filters-count" hidden>0</span>
+  </button>
+  <div id="filters-scrim" class="filters-scrim" hidden></div>
+  <div id="filters-panel" class="filters-panel" role="dialog" aria-label="Filter effects" hidden>
+    <div class="filters-panel__head">
+      <strong>Filter effects</strong>
+      <button class="filters-panel__clear" id="filters-clear" type="button">Clear all</button>
+      <button class="filters-panel__close" id="filters-panel-close" type="button" aria-label="Close filters">✕</button>
+    </div>
+    <div class="filters" id="filters" aria-label="Filters"></div>
   </div>
 
   <div id="modal" class="modal" hidden>

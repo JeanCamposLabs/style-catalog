@@ -176,12 +176,13 @@
   }
 
   function renderActive() {
-    var parts = [];
+    var parts = [], n = 0;
     Object.keys(state.filters).forEach(function (k) {
-      state.filters[k].forEach(function (v) { parts.push(v); });
+      state.filters[k].forEach(function (v) { parts.push(v); n++; });
     });
     if (state.search) parts.unshift('“' + state.search + '”');
     $("#active-filters").textContent = parts.length ? "· " + parts.join(", ") : "";
+    var fc = $("#filters-count"); if (fc) { fc.textContent = n; fc.hidden = n === 0; }
   }
 
   /* ---------- modal ---------- */
@@ -799,6 +800,21 @@
     syncHash(); render(); paintFilters();
   }
 
+  /* ---------- floating filters popover ---------- */
+  function openFilters() {
+    $("#filters-panel").hidden = false; $("#filters-scrim").hidden = false;
+    var f = $("#filters-fab"); f.setAttribute("aria-expanded", "true"); f.classList.add("is-open");
+  }
+  function closeFilters() {
+    $("#filters-panel").hidden = true; $("#filters-scrim").hidden = true;
+    var f = $("#filters-fab"); f.setAttribute("aria-expanded", "false"); f.classList.remove("is-open");
+  }
+  function toggleFilters() { if ($("#filters-panel").hidden) openFilters(); else closeFilters(); }
+  function clearFilters() {
+    Object.keys(state.filters).forEach(function (k) { state.filters[k].clear(); });
+    syncHash(); render(); paintFilters();
+  }
+
   /* ---------- bundle (cart) ---------- */
   var BKEY = "sc_bundle";
   var bundle = (function () {
@@ -938,11 +954,18 @@
     $("#reset").addEventListener("click", reset);
     $("#empty-reset").addEventListener("click", reset);
 
+    // Floating filters popover
+    $("#filters-fab").addEventListener("click", toggleFilters);
+    $("#filters-panel-close").addEventListener("click", closeFilters);
+    $("#filters-scrim").addEventListener("click", closeFilters);
+    $("#filters-clear").addEventListener("click", clearFilters);
+
     $$("[data-close]").forEach(function (el) { el.addEventListener("click", closeModal); });
     $("#tabs").addEventListener("click", function (e) {
       var t = e.target.closest(".tab"); if (t) switchTab(t.dataset.tab);
     });
     document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !$("#filters-panel").hidden) { closeFilters(); return; }
       if (e.key === "Escape" && !$("#cart").hidden) { closeCart(); return; }
       if (e.key === "Escape" && !$("#modal").hidden) closeModal();
       if (e.key === "/" && document.activeElement !== $("#search")) { e.preventDefault(); $("#search").focus(); }
