@@ -40,6 +40,42 @@
     </div>
   </div>
 
+  <div class="palettebar" id="palettebar" aria-label="Project color palette">
+    <div class="pb__lead">
+      <span class="pb__title">🎨 Palette</span>
+      <span class="pb__hint">tap a swatch to edit · 🔒 lock to keep · 🎲 shuffle for ideas — the whole gallery adapts</span>
+    </div>
+    <div class="pb__swatches" id="pb-swatches"></div>
+    <div class="pb__controls">
+      <button id="pb-shuffle" class="pb__btn pb__btn--primary" type="button" title="Shuffle (Spacebar)">🎲 Shuffle</button>
+      <label class="pb__field">Harmony
+        <select id="pb-harmony">
+          <option value="complementary">Complementary</option>
+          <option value="analogous">Analogous</option>
+          <option value="triadic">Triadic</option>
+          <option value="monochrome">Monochrome</option>
+        </select>
+      </label>
+      <div class="pb__mode" id="pb-mode" role="group" aria-label="UI mode">
+        <button type="button" data-mode="dark" class="is-on">Dark</button><button type="button" data-mode="light">Light</button>
+      </div>
+      <div class="pb__presets" id="pb-presets" aria-label="Preset palettes"></div>
+      <label class="pb__adapt"><input type="checkbox" id="pb-adapt" /> Adapt gallery</label>
+      <button id="pb-copy" class="pb__btn" type="button">📋 Copy tokens</button>
+      <button id="pb-reset" class="pb__btn pb__btn--ghost" type="button">Reset</button>
+    </div>
+    <div class="pb__editor" id="pb-editor" hidden>
+      <div class="wheel" id="pb-wheel" role="slider" tabindex="0" aria-label="Color wheel"><span class="wheel__mark" id="pb-mark"></span></div>
+      <div class="pb__editopts">
+        <span class="pb__editrole" id="pb-editrole">Accent</span>
+        <label class="pb__field">Lightness <input type="range" id="pb-light" min="6" max="96" value="58" /></label>
+        <label class="pb__field">Hex <input type="text" id="pb-hex" class="tune__hex" /></label>
+        <button id="pb-editdone" class="pb__btn" type="button">Done</button>
+      </div>
+    </div>
+    <p id="pb-status" class="pb__statusline" aria-live="polite"></p>
+  </div>
+
   <div class="layout">
     <aside class="filters" id="filters" aria-label="Filters"></aside>
     <main class="results">
@@ -122,34 +158,10 @@
         <button class="cart__close" data-cart-close title="Close" aria-label="Close bundle">✕</button>
       </header>
       <div class="cart__body">
-        <details class="brand" id="brand-panel">
-          <summary>🎨 Brand palette <span class="brand__hint">— generate &amp; apply across the bundle</span></summary>
-          <label class="brand__toggle"><input type="checkbox" id="brand-on" /> Apply my brand to every item</label>
-          <div class="palette" id="palette-studio">
-            <div class="palette__top">
-              <div class="wheel" id="wheel" role="slider" tabindex="0" aria-label="Color wheel — pick a base hue and saturation"><span class="wheel__mark" id="wheel-mark"></span></div>
-              <div class="palette__opts">
-                <label class="palette__opt">Harmony
-                  <select id="harmony">
-                    <option value="complementary">Complementary</option>
-                    <option value="analogous">Analogous</option>
-                    <option value="triadic">Triadic</option>
-                    <option value="monochrome">Monochrome</option>
-                  </select>
-                </label>
-                <label class="palette__opt">Lightness <input type="range" id="pal-light" min="30" max="72" value="58" aria-label="Accent lightness" /></label>
-                <div class="palette__mode" role="group" aria-label="UI mode">
-                  <button type="button" data-mode="dark" class="is-on">Dark UI</button><button type="button" data-mode="light">Light UI</button>
-                </div>
-              </div>
-            </div>
-            <div class="palette__presets" id="presets" aria-label="Preset palettes"></div>
-            <div class="palette__swatches" id="pal-swatches"></div>
-            <button id="pal-copy" class="btn btn--ghost" type="button">📋 Copy palette tokens</button>
-            <p id="pal-status" class="cart__status"></p>
-          </div>
-          <div class="brand__grid" id="brand-grid"></div>
-        </details>
+        <div class="bundle-palette" id="bundle-palette">
+          <div class="bp__head">🎨 Active palette <span class="brand__hint">— edit it in the bar at the top of the page</span></div>
+          <div class="bp__swatches" id="bp-swatches"></div>
+        </div>
         <div id="cart-list"></div>
       </div>
       <footer class="cart__foot">
@@ -218,7 +230,12 @@
             if (latest.build <= tried) return;
             sessionStorage.setItem("sc_reloaded_for", String(latest.build));
             showToast("New version v" + latest.version + " deployed — refreshing…");
-            setTimeout(function () { location.reload(); }, 1600);
+            // Reload to a fresh document URL (not location.reload()) so the cached
+            // HTML — and the versioned asset refs inside it — is bypassed; a plain
+            // reload can re-serve stale cached JS/CSS within the CDN max-age window.
+            setTimeout(function () {
+              location.replace(location.pathname + "?v=" + latest.build + location.hash);
+            }, 1600);
           })
           .catch(function () {});
       }

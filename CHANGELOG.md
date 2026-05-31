@@ -3,6 +3,31 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.14.0] — 2026-05-31
+
+### Added — Standalone Palette bar (coolors-style) that re-skins the whole gallery
+- A prominent **Palette bar at the top of the page** with six lockable role
+  swatches (Accent, Accent 2, Background, Surface, Text, Muted): tap a swatch to
+  edit it on a **color wheel**, 🔒 **lock** to keep it, click a **hex to copy** it.
+- **🎲 Shuffle** (button or Spacebar) generates a fresh coherent palette for the
+  unlocked roles; **Harmony** (complementary/analogous/triadic/monochrome),
+  **Dark/Light** mode, and **8 presets**.
+- **Adapt gallery** (on by default once you pick): the chosen palette is applied
+  **live to every gallery card** — and the modal preview — so you can see your
+  brand across all 172 components. Done by injecting a `<style>` that maps the
+  palette onto each sample's `:root` tokens (robust across the real token
+  vocabulary), and cleanly removed when you turn Adapt off.
+- **📋 Copy tokens** emits an agent-ready `:root { … }` block. The bundle drawer
+  now shows a compact read-only summary of the active palette.
+- Replaces the palette studio that previously lived inside the Bundle drawer.
+
+### Fixed — Auto-reload after a deploy (no more manual hard refresh)
+- The deploy now pins `?v=<build>` onto the asset URLs in the published
+  `index.html` (only at deploy, via `SC_DEPLOY=1`; the committed file stays
+  query-free), and the live-reload check navigates to a fresh document URL
+  instead of `location.reload()`. Together these bypass the CDN/browser cache so
+  a new version loads fresh JS/CSS automatically.
+
 ## [0.13.0] — 2026-05-31
 
 ### Added — Palette Studio (color wheel) in the Brand panel

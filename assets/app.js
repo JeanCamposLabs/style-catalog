@@ -160,6 +160,8 @@
     el.querySelector(".card__add").addEventListener("click", function (ev) {
       ev.stopPropagation(); toggleBundle(e.id);
     });
+    var ifr = el.querySelector(".card__frame iframe");
+    if (ifr) ifr.addEventListener("load", function () { applyFrame(ifr); });
     return el;
   }
 
@@ -196,10 +198,12 @@
   function saveOverrides() { try { localStorage.setItem(OKEY, JSON.stringify(overrides)); } catch (e) {} }
   function saveBrand() { try { localStorage.setItem(BRKEY, JSON.stringify(brand)); } catch (e) {} }
   var BRAND_ROLES = [
-    { key: "accent", label: "Accent", type: "color", def: "#7c5cff", aliases: ["accent", "a", "c1", "primary", "brand", "accent1", "g1", "neon", "led", "sun", "leaf"] },
-    { key: "accent2", label: "Accent 2", type: "color", def: "#2dd4bf", aliases: ["accent-2", "accent2", "b", "c2", "secondary", "g2", "neon2", "accent_2"] },
+    { key: "accent", label: "Accent", type: "color", def: "#7c5cff", aliases: ["accent", "a", "c1", "primary", "brand", "accent1", "g1", "neon", "led", "sun", "leaf", "gold", "color-primary"] },
+    { key: "accent2", label: "Accent 2", type: "color", def: "#2dd4bf", aliases: ["accent-2", "accent2", "b", "c2", "secondary", "g2", "neon2", "accent_2", "color-secondary"] },
     { key: "bg", label: "Background", type: "color", def: "#0b0d12", aliases: ["bg", "background", "paper", "cream", "page", "bg-1"] },
+    { key: "surface", label: "Surface", type: "color", def: "#12151f", aliases: ["surface", "panel", "card", "paper2", "surface-1", "elevated", "tile", "bg-2", "c3"] },
     { key: "text", label: "Text", type: "color", def: "#e8ecf6", aliases: ["text", "ink", "fg", "foreground"] },
+    { key: "muted", label: "Muted", type: "color", def: "#8b93a7", aliases: ["muted", "sub", "dim", "subtle", "text-2", "muted-1"] },
     { key: "radius", label: "Radius", type: "length", def: "14px", aliases: ["r", "radius", "rad", "radii"] }
   ];
   function parseRootTokens(src) {
@@ -287,7 +291,7 @@
   function resetSample(id) { delete overrides[id]; saveOverrides(); renderTune(); applyAllToPreview(); renderSourcePane(); }
   function renderTune() {
     var host = $("#modal-tune"); if (!host) return;
-    if (!T.tokens.length) { host.innerHTML = '<p class="tune__empty">This sample has no <code>:root</code> CSS variables to tune — edit the source directly, or use the global Brand palette in the Bundle.</p>'; return; }
+    if (!T.tokens.length) { host.innerHTML = '<p class="tune__empty">This sample has no <code>:root</code> CSS variables to tune — edit the source directly, or use the Palette bar at the top of the page.</p>'; return; }
     var ordered = [], seen = {};
     Object.keys(T.custom).forEach(function (n) { var t = T.tokens.filter(function (x) { return x.name === n; })[0]; if (t) { ordered.push(t); seen[n] = 1; } });
     T.tokens.forEach(function (t) { if (!seen[t.name]) ordered.push(t); });
@@ -326,29 +330,7 @@
     });
     $("#tune-reset").addEventListener("click", function () { resetSample(T.id); });
   }
-  function renderBrand() {
-    var grid = $("#brand-grid"); if (!grid) return;
-    $("#brand-on").checked = !!brand.on;
-    grid.innerHTML = "";
-    BRAND_ROLES.forEach(function (role) {
-      var val = brand[role.key] || role.def, row = document.createElement("div"); row.className = "brand__row";
-      if (role.type === "color") {
-        row.innerHTML = "<label>" + role.label + '</label><span class="tune__color"><input type="color" value="' + esc(toHex6(val)) + '" aria-label="' + role.label + '" /><input type="text" class="tune__hex" value="' + esc(val) + '" /></span>';
-        var col = row.querySelector("input[type=color]"), hex = row.querySelector(".tune__hex");
-        col.addEventListener("input", function () { hex.value = col.value; brand[role.key] = col.value; commitBrand(); });
-        hex.addEventListener("change", function () { if (/^#([0-9a-f]{3,8})$/i.test(hex.value)) { col.value = toHex6(hex.value); brand[role.key] = hex.value; commitBrand(); } });
-      } else {
-        var sp = splitLen(val) || { num: 14, unit: "px" };
-        row.innerHTML = "<label>" + role.label + '</label><span class="tune__len"><input type="range" min="0" max="40" step="1" value="' + sp.num + '" aria-label="' + role.label + '" /><output>' + esc(val) + "</output></span>";
-        var rng = row.querySelector("input[type=range]"), out = row.querySelector("output");
-        rng.addEventListener("input", function () { var v = rng.value + "px"; out.textContent = v; brand[role.key] = v; commitBrand(); });
-      }
-      grid.appendChild(row);
-    });
-  }
-  function commitBrand() { saveBrand(); applyAllToPreview(); renderSourcePane(); }
-
-  /* ---------- palette studio (color wheel) ---------- */
+  /* ---------- color helpers (shared by the palette bar) ---------- */
   function hslToHex(h, s, l) {
     s /= 100; l /= 100;
     var a = s * Math.min(l, 1 - l), k = function (n) { return (n + h / 30) % 12; };
@@ -373,95 +355,201 @@
     { n: "Slate", h: 220, s: 10, l: 55, mode: "dark" }, { n: "Candy", h: 330, s: 88, l: 64, mode: "light" },
     { n: "Citrus", h: 45, s: 95, l: 56, mode: "light" }, { n: "Royal", h: 250, s: 70, l: 60, mode: "light" }
   ];
-  var palState = { h: 262, s: 85, l: 58, harmony: "complementary", mode: "dark" };
-  function paletteSpec() {
-    var h = palState.h, s = palState.s, l = palState.l, dark = palState.mode === "dark", hm = palState.harmony;
-    var h2 = hm === "complementary" ? h + 180 : hm === "analogous" ? h + 30 : hm === "triadic" ? h + 120 : h;
+  var PAL_ROLES = BRAND_ROLES.filter(function (r) { return r.type === "color"; }); // accent..muted
+  function genPalette(h, s, l, harmony, mode) {
+    var dark = mode !== "light";
+    var h2 = harmony === "complementary" ? h + 180 : harmony === "analogous" ? h + 30 : harmony === "triadic" ? h + 120 : h;
     h2 = (h2 % 360 + 360) % 360;
-    var l2 = hm === "monochrome" ? Math.min(85, l + 16) : l;
+    var l2 = harmony === "monochrome" ? Math.min(86, l + 16) : l;
     return {
       accent: hslToHex(h, s, l), accent2: hslToHex(h2, Math.max(40, s - 5), l2),
       bg: dark ? hslToHex(h, 18, 8) : hslToHex(h, 40, 97),
       surface: dark ? hslToHex(h, 16, 13) : hslToHex(h, 30, 93),
       text: dark ? hslToHex(h, 12, 93) : hslToHex(h, 25, 12),
-      muted: dark ? hslToHex(h, 10, 62) : hslToHex(h, 15, 42),
-      radius: brand.radius || "14px"
+      muted: dark ? hslToHex(h, 10, 62) : hslToHex(h, 15, 42)
     };
   }
-  function placeMark() {
-    var w = $("#wheel"), mk = $("#wheel-mark"); if (!w || !mk) return;
-    var R = w.clientWidth / 2, rr = (palState.s / 100) * R, rad = palState.h * Math.PI / 180;
-    mk.style.left = (R + rr * Math.sin(rad)) + "px";
-    mk.style.top = (R - rr * Math.cos(rad)) + "px";
-    mk.style.background = hslToHex(palState.h, palState.s, palState.l);
-  }
-  function renderPalSwatches() {
-    var host = $("#pal-swatches"); if (!host) return;
-    var sp = paletteSpec();
-    var roles = [["Accent", sp.accent], ["Accent2", sp.accent2], ["BG", sp.bg], ["Surface", sp.surface], ["Text", sp.text], ["Muted", sp.muted]];
-    host.innerHTML = roles.map(function (r) { return '<span class="sw" title="' + r[0] + " " + r[1] + '"><i style="background:' + r[1] + '"></i><small>' + r[1] + "</small></span>"; }).join("");
-  }
-  function generatePalette() {
-    var sp = paletteSpec();
-    brand.accent = sp.accent; brand.accent2 = sp.accent2; brand.bg = sp.bg; brand.text = sp.text; brand.radius = sp.radius; brand.on = true;
-    saveBrand();
-    if ($("#brand-on")) $("#brand-on").checked = true;
-    placeMark(); renderBrand(); renderPalSwatches(); applyAllToPreview(); renderSourcePane();
-  }
-  function setMode(m) { palState.mode = m; $$(".palette__mode button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-mode") === m); }); }
-  function renderPresets() {
-    var host = $("#presets"); if (!host) return; host.innerHTML = "";
-    PRESETS.forEach(function (pre) {
-      var b = document.createElement("button"); b.className = "preset"; b.title = pre.n + " palette"; b.setAttribute("aria-label", pre.n + " palette");
-      b.style.background = hslToHex(pre.h, pre.s, pre.l);
-      b.addEventListener("click", function () { palState.h = pre.h; palState.s = pre.s; palState.l = pre.l; $("#pal-light").value = pre.l; setMode(pre.mode); generatePalette(); });
-      host.appendChild(b);
+  // ---- apply the palette onto every gallery iframe (and the modal preview) ----
+  // Rather than detect each sample's token names, we inject one <style> that
+  // blanket-defines every brand-role alias on :root with !important. It overrides
+  // whatever subset of those names the sample actually uses (and harmlessly
+  // defines the rest) — far more robust across 172 hand-built samples than
+  // sniffing computed values (which also misses rgb()/hsl()/gradient tokens).
+  function paletteStyleText() {
+    var rules = [];
+    BRAND_ROLES.forEach(function (role) {
+      var v = brand[role.key]; if (!v) return;
+      role.aliases.forEach(function (al) { rules.push("--" + al + ":" + v + " !important;"); });
     });
+    return ":root{" + rules.join("") + "}";
   }
-  function wheelPick(ev) {
-    var w = $("#wheel"), r = w.getBoundingClientRect(), R = r.width / 2;
-    var dx = ev.clientX - (r.left + R), dy = ev.clientY - (r.top + R);
-    var dist = Math.min(Math.hypot(dx, dy), R);
-    palState.h = (Math.atan2(dx, -dy) * 180 / Math.PI + 360) % 360;
-    palState.s = Math.round(dist / R * 100);
-    generatePalette();
+  function applyFrame(fr) {
+    var doc; try { doc = fr.contentDocument; } catch (e) { return; }
+    if (!doc || !doc.head) return;
+    var st = doc.getElementById("sc-pal");
+    if (!brand.on) { if (st) st.parentNode.removeChild(st); return; }
+    if (!st) { st = doc.createElement("style"); st.id = "sc-pal"; doc.head.appendChild(st); }
+    st.textContent = paletteStyleText();
   }
-  function initPalette() {
-    if (!$("#wheel")) return;
-    // reflect a persisted brand on the wheel
-    if (brand.accent) { var hsl = hexToHsl(brand.accent); palState.h = hsl.h; palState.s = hsl.s; palState.l = hsl.l; if ($("#pal-light")) $("#pal-light").value = hsl.l; }
-    if (brand.bg) { setMode(hexToHsl(brand.bg).l < 50 ? "dark" : "light"); }
-    renderPresets(); placeMark(); renderPalSwatches();
-    var w = $("#wheel");
-    w.addEventListener("pointerdown", function (ev) { w.setPointerCapture(ev.pointerId); wheelPick(ev); });
-    w.addEventListener("pointermove", function (ev) { if (ev.buttons) wheelPick(ev); });
-    w.addEventListener("keydown", function (ev) {
-      if (ev.key === "ArrowRight") { palState.h = (palState.h + 6) % 360; generatePalette(); }
-      else if (ev.key === "ArrowLeft") { palState.h = (palState.h + 354) % 360; generatePalette(); }
-      else if (ev.key === "ArrowUp") { palState.s = Math.min(100, palState.s + 5); generatePalette(); }
-      else if (ev.key === "ArrowDown") { palState.s = Math.max(0, palState.s - 5); generatePalette(); }
-      else return; ev.preventDefault();
+  function applyBrandEverywhere() {
+    $$(".card__frame iframe").forEach(applyFrame);
+    applyAllToPreview();
+  }
+  var _palRaf = null;
+  function scheduleApply() { if (_palRaf) return; _palRaf = requestAnimationFrame(function () { _palRaf = null; applyBrandEverywhere(); }); }
+  function paletteCss() {
+    return ":root {\n" +
+      "  --accent: " + brand.accent + ";     /* primary actions, links */\n" +
+      "  --accent-2: " + brand.accent2 + ";  /* secondary accent */\n" +
+      "  --bg: " + brand.bg + ";         /* page background */\n" +
+      "  --surface: " + brand.surface + ";    /* cards & panels */\n" +
+      "  --text: " + brand.text + ";       /* body text */\n" +
+      "  --muted: " + brand.muted + ";      /* secondary text */\n" +
+      "  --radius: " + (brand.radius || "14px") + ";\n}";
+  }
+  function renderPaletteBar() {
+    var host = $("#pb-swatches"); if (!host) return;
+    host.innerHTML = "";
+    PAL_ROLES.forEach(function (role) {
+      var val = brand[role.key] || role.def, locked = brand.locks && brand.locks[role.key];
+      var sw = document.createElement("div"); sw.className = "pb__sw";
+      sw.innerHTML =
+        '<button class="pb__chip" data-role="' + role.key + '" style="background:' + esc(val) + '" title="Edit ' + role.label + '" aria-label="Edit ' + role.label + '"></button>' +
+        '<div class="pb__info"><span class="pb__role">' + role.label + "</span>" +
+        '<button class="pb__hex" data-hex="' + esc(val) + '" title="Copy ' + esc(val) + '">' + esc(val) + "</button></div>" +
+        '<button class="pb__lock' + (locked ? " is-on" : "") + '" data-lock="' + role.key + '" aria-pressed="' + (!!locked) + '" title="' + (locked ? "Locked — click to unlock" : "Lock this color") + '">' + (locked ? "🔒" : "🔓") + "</button>";
+      host.appendChild(sw);
     });
-    $("#harmony").addEventListener("change", function () { palState.harmony = this.value; generatePalette(); });
-    $("#pal-light").addEventListener("input", function () { palState.l = +this.value; generatePalette(); });
-    $$(".palette__mode button").forEach(function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); generatePalette(); }); });
-    $("#pal-copy").addEventListener("click", function () {
-      var sp = paletteSpec();
-      var css = ":root {\n" +
-        "  --accent: " + sp.accent + ";     /* primary actions, links */\n" +
-        "  --accent-2: " + sp.accent2 + ";  /* secondary accent */\n" +
-        "  --bg: " + sp.bg + ";         /* page background */\n" +
-        "  --surface: " + sp.surface + ";    /* cards & panels */\n" +
-        "  --text: " + sp.text + ";       /* body text */\n" +
-        "  --muted: " + sp.muted + ";      /* secondary text */\n" +
-        "  --radius: " + sp.radius + ";\n}";
-      var note = "\n\n/* Apply across the UI: accent = primary buttons/links, accent-2 = secondary emphasis, " +
-        "bg = page, surface = cards, text/muted = copy. Palette: " + palState.harmony + " harmony, " + palState.mode + " UI. */";
-      writeClipboard(css + note).then(function () {
-        $("#pal-status").textContent = "✓ Palette copied — paste into your agent.";
-        setTimeout(function () { $("#pal-status").textContent = ""; }, 4000);
+    $$(".pb__chip", host).forEach(function (b) { b.addEventListener("click", function () { openEditor(b.getAttribute("data-role")); }); });
+    $$(".pb__hex", host).forEach(function (b) {
+      b.addEventListener("click", function () {
+        writeClipboard(b.getAttribute("data-hex")); var o = b.textContent; b.textContent = "copied!";
+        setTimeout(function () { b.textContent = o; }, 900);
       });
     });
+    $$(".pb__lock", host).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-lock"); brand.locks = brand.locks || {}; brand.locks[k] = !brand.locks[k];
+        saveBrand(); renderPaletteBar();
+      });
+    });
+    var ad = $("#pb-adapt"); if (ad) ad.checked = !!brand.on;
+    renderBundlePalette();
+  }
+  function renderBundlePalette() {
+    var host = $("#bp-swatches"); if (!host) return;
+    host.innerHTML = PAL_ROLES.map(function (r) {
+      var v = brand[r.key] || r.def; return '<span class="bp__sw" title="' + r.label + " " + esc(v) + '"><i style="background:' + esc(v) + '"></i></span>';
+    }).join("") + '<span class="bp__state">' + (brand.on ? "baked into this bundle’s code ✓" : "not applied — turn on “Adapt gallery” up top") + "</span>";
+  }
+  function persistPalette() { saveBrand(); renderPaletteBar(); scheduleApply(); renderSourcePane(); }
+  function regenFromAccent() {
+    var hsl = hexToHsl(brand.accent || "#7c5cff"), gen = genPalette(hsl.h, hsl.s, hsl.l, brand.harmony, brand.mode);
+    PAL_ROLES.forEach(function (role) { if (role.key !== "accent" && !(brand.locks && brand.locks[role.key])) brand[role.key] = gen[role.key]; });
+    brand.on = true; persistPalette();
+  }
+  function shuffle() {
+    var h = (brand.locks && brand.locks.accent && brand.accent) ? hexToHsl(brand.accent).h : Math.floor(Math.random() * 360);
+    var s = 62 + Math.floor(Math.random() * 28), l = 52 + Math.floor(Math.random() * 12);
+    var gen = genPalette(h, s, l, brand.harmony || "complementary", brand.mode || "dark");
+    PAL_ROLES.forEach(function (role) { if (!(brand.locks && brand.locks[role.key])) brand[role.key] = gen[role.key]; });
+    brand.on = true; persistPalette();
+  }
+  function setMode(m) { brand.mode = m; $$("#pb-mode button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-mode") === m); }); }
+  function resetPalette() {
+    var g = genPalette(262, 85, 58, "complementary", "dark");
+    brand = { on: false, harmony: "complementary", mode: "dark", locks: {}, radius: "14px" };
+    PAL_ROLES.forEach(function (r) { brand[r.key] = g[r.key]; });
+    setMode("dark"); if ($("#pb-harmony")) $("#pb-harmony").value = "complementary";
+    saveBrand(); renderPaletteBar(); applyBrandEverywhere(); renderSourcePane();
+    $("#pb-editor").hidden = true;
+  }
+  // ---- per-swatch wheel editor ----
+  var ed = { role: "accent", h: 262, s: 85, l: 58 };
+  function placeEdMark() {
+    var w = $("#pb-wheel"), mk = $("#pb-mark"); if (!w || !mk) return;
+    var R = w.clientWidth / 2, rr = (ed.s / 100) * R, rad = ed.h * Math.PI / 180;
+    mk.style.left = (R + rr * Math.sin(rad)) + "px"; mk.style.top = (R - rr * Math.cos(rad)) + "px";
+    mk.style.background = hslToHex(ed.h, ed.s, ed.l);
+  }
+  function setEditColor() {
+    brand[ed.role] = hslToHex(ed.h, ed.s, ed.l); brand.on = true;
+    if ($("#pb-hex")) $("#pb-hex").value = brand[ed.role];
+    placeEdMark(); persistPalette();
+  }
+  function openEditor(role) {
+    ed.role = role; var hsl = hexToHsl(brand[role] || "#888888"); ed.h = hsl.h; ed.s = hsl.s; ed.l = hsl.l;
+    var roleObj = PAL_ROLES.filter(function (r) { return r.key === role; })[0];
+    $("#pb-editrole").textContent = roleObj ? roleObj.label : role;
+    $("#pb-light").value = hsl.l; $("#pb-hex").value = brand[role] || "";
+    $("#pb-editor").hidden = false; placeEdMark();
+  }
+  function edWheelPick(ev) {
+    var w = $("#pb-wheel"), r = w.getBoundingClientRect(), R = r.width / 2;
+    var dx = ev.clientX - (r.left + R), dy = ev.clientY - (r.top + R), dist = Math.min(Math.hypot(dx, dy), R);
+    ed.h = (Math.atan2(dx, -dy) * 180 / Math.PI + 360) % 360; ed.s = Math.round(dist / R * 100);
+    setEditColor();
+  }
+  function initPaletteBar() {
+    if (!$("#palettebar")) return;
+    if (!brand.accent) { var g = genPalette(262, 85, 58, "complementary", "dark"); PAL_ROLES.forEach(function (r) { brand[r.key] = g[r.key]; }); brand.on = false; }
+    PAL_ROLES.forEach(function (r) { if (!brand[r.key]) brand[r.key] = r.def; });
+    brand.radius = brand.radius || "14px"; brand.harmony = brand.harmony || "complementary";
+    brand.mode = brand.mode || "dark"; brand.locks = brand.locks || {};
+    saveBrand();
+    if ($("#pb-harmony")) $("#pb-harmony").value = brand.harmony;
+    setMode(brand.mode);
+    renderPaletteBar();
+    var ph = $("#pb-presets");
+    if (ph) PRESETS.forEach(function (pre) {
+      var b = document.createElement("button"); b.className = "pb__preset"; b.type = "button";
+      b.title = pre.n + " palette"; b.setAttribute("aria-label", pre.n + " palette");
+      b.style.background = hslToHex(pre.h, pre.s, pre.l);
+      b.addEventListener("click", function () {
+        var gen = genPalette(pre.h, pre.s, pre.l, brand.harmony || "complementary", pre.mode);
+        PAL_ROLES.forEach(function (r) { brand[r.key] = gen[r.key]; });
+        setMode(pre.mode); brand.on = true; persistPalette();
+      });
+      ph.appendChild(b);
+    });
+    $("#pb-shuffle").addEventListener("click", shuffle);
+    $("#pb-harmony").addEventListener("change", function () { brand.harmony = this.value; regenFromAccent(); });
+    $$("#pb-mode button").forEach(function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); regenFromAccent(); }); });
+    $("#pb-adapt").addEventListener("change", function () { brand.on = this.checked; saveBrand(); applyBrandEverywhere(); renderSourcePane(); renderBundlePalette(); });
+    $("#pb-reset").addEventListener("click", resetPalette);
+    $("#pb-copy").addEventListener("click", function () {
+      var note = "\n\n/* Apply across the UI: accent = primary buttons/links, accent-2 = secondary emphasis, " +
+        "bg = page, surface = cards, text/muted = copy. Palette: " + brand.harmony + " harmony, " + brand.mode + " UI. */";
+      writeClipboard(paletteCss() + note).then(function () {
+        var s = $("#pb-status"); s.textContent = "✓ Palette tokens copied — paste into your agent.";
+        setTimeout(function () { s.textContent = ""; }, 4000);
+      });
+    });
+    $("#pb-editdone").addEventListener("click", function () { $("#pb-editor").hidden = true; });
+    var w = $("#pb-wheel");
+    w.addEventListener("pointerdown", function (ev) { w.setPointerCapture(ev.pointerId); edWheelPick(ev); });
+    w.addEventListener("pointermove", function (ev) { if (ev.buttons) edWheelPick(ev); });
+    w.addEventListener("keydown", function (ev) {
+      if (ev.key === "ArrowRight") ed.h = (ed.h + 6) % 360; else if (ev.key === "ArrowLeft") ed.h = (ed.h + 354) % 360;
+      else if (ev.key === "ArrowUp") ed.s = Math.min(100, ed.s + 5); else if (ev.key === "ArrowDown") ed.s = Math.max(0, ed.s - 5);
+      else return; ev.preventDefault(); setEditColor();
+    });
+    $("#pb-light").addEventListener("input", function () { ed.l = +this.value; setEditColor(); });
+    $("#pb-hex").addEventListener("change", function () {
+      if (/^#([0-9a-f]{3,8})$/i.test(this.value)) {
+        brand[ed.role] = toHex6(this.value); var hsl = hexToHsl(brand[ed.role]); ed.h = hsl.h; ed.s = hsl.s; ed.l = hsl.l;
+        $("#pb-light").value = hsl.l; placeEdMark(); brand.on = true; persistPalette();
+      }
+    });
+    // Spacebar = shuffle (unless typing or an overlay is open)
+    document.addEventListener("keydown", function (e) {
+      if (e.code !== "Space" && e.key !== " ") return;
+      var a = document.activeElement, tag = a && a.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || (a && a.isContentEditable)) return;
+      if (!$("#modal").hidden || !$("#cart").hidden) return;
+      e.preventDefault(); shuffle();
+    });
+    applyBrandEverywhere();
   }
   function openModal(id) {
     var e = findEffect(id);
@@ -611,6 +699,7 @@
   }
   function openCart() {
     renderCartList();
+    renderBundlePalette();
     var c = $("#cart"); c.hidden = false;
     requestAnimationFrame(function () { c.classList.add("is-open"); });
     document.body.style.overflow = "hidden";
@@ -723,14 +812,8 @@
     $("#modal-bundle").addEventListener("click", function () {
       var id = $("#modal").getAttribute("data-eid"); if (id) toggleBundle(id);
     });
-    // Brand palette (global tuning)
-    renderBrand();
-    $("#brand-on").addEventListener("change", function () {
-      brand.on = this.checked;
-      if (brand.on) BRAND_ROLES.forEach(function (r) { if (!brand[r.key]) brand[r.key] = r.def; });
-      saveBrand(); renderBrand(); applyAllToPreview(); renderSourcePane();
-    });
-    initPalette();
+    // Standalone palette bar (coolors-style) — re-skins the whole gallery live.
+    initPaletteBar();
     updateBundleUI();
     $("#copy-source").addEventListener("click", function () {
       var text = $("#modal-source").textContent;

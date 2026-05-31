@@ -7,7 +7,7 @@
 //
 // Usage: node scripts/build.mjs
 
-import { writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
+import { writeFileSync, readFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { join } from "node:path";
 import { scanCatalog, ROOT } from "./lib/catalog.mjs";
@@ -83,6 +83,22 @@ writeFileSync(
   JSON.stringify(stamp) + "\n",
   "utf8",
 );
+
+// Cache-bust the deployed entry point: pin a ?v=<build> query onto the asset
+// refs so a post-deploy reload pulls fresh JS/CSS instead of stale cached
+// copies (GitHub Pages serves assets with max-age, so an unversioned reload can
+// re-serve the old bundle — the bug that forced a manual hard refresh). Only at
+// deploy (SC_DEPLOY=1) so the committed index.html stays query-free; the rewrite
+// lives solely in the uploaded Pages artifact.
+if (process.env.SC_DEPLOY) {
+  const idxPath = join(ROOT, "index.html");
+  const html = readFileSync(idxPath, "utf8").replace(
+    /(assets\/(?:app\.css|catalog\.js|build\.js|app\.js))(\?v=[^"']*)?/g,
+    `$1?v=${stamp.build}`,
+  );
+  writeFileSync(idxPath, html, "utf8");
+  console.log(`  → index.html asset refs pinned to ?v=${stamp.build}`);
+}
 
 // ---- Split, fetchable API (v3 programmatic access) ----
 // Regenerate the api/ tree from scratch so deleted effects don't leave stragglers.
