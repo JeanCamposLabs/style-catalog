@@ -356,18 +356,49 @@
     { n: "Citrus", h: 45, s: 95, l: 56, mode: "light" }, { n: "Royal", h: 250, s: 70, l: 60, mode: "light" }
   ];
   var PAL_ROLES = BRAND_ROLES.filter(function (r) { return r.type === "color"; }); // accent..muted
-  function genPalette(h, s, l, harmony, mode) {
-    var dark = mode !== "light";
-    var h2 = harmony === "complementary" ? h + 180 : harmony === "analogous" ? h + 30 : harmony === "triadic" ? h + 120 : h;
-    h2 = (h2 % 360 + 360) % 360;
-    var l2 = harmony === "monochrome" ? Math.min(86, l + 16) : l;
+  // Perceptual palette generation (OKLCH, via Ottosson's OKLab) — far cleaner
+  // than random HSL: equal *perceived* lightness across hues (no muddy yellows
+  // or blown-out cyans) with automatic in-gamut chroma. Hue stays in degrees for
+  // parity with the HSL wheel editor.
+  function _oklchLin(L, C, Hdeg) {
+    var h = Hdeg * Math.PI / 180, a = C * Math.cos(h), b = C * Math.sin(h);
+    var l_ = L + 0.3963377774 * a + 0.2158037573 * b;
+    var m_ = L - 0.1055613458 * a - 0.0638541728 * b;
+    var s_ = L - 0.0894841775 * a - 1.2914855480 * b;
+    var l = l_ * l_ * l_, m = m_ * m_ * m_, s = s_ * s_ * s_;
+    return [4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+      -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+      -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s];
+  }
+  function oklchHex(L, C, H) {
+    var rgb = _oklchLin(L, C, H), t = 0;
+    // shrink chroma until in sRGB gamut → clean colors, never clipped mush
+    while (t < 18 && rgb.some(function (c) { return c < -0.0015 || c > 1.0015; })) { C -= 0.012; rgb = _oklchLin(L, C, H); t++; }
+    var g = function (c) { c = Math.max(0, Math.min(1, c)); c = c <= 0.0031308 ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - 0.055; return ("0" + Math.round(Math.max(0, Math.min(1, c)) * 255).toString(16)).slice(-2); };
+    return "#" + g(rgb[0]) + g(rgb[1]) + g(rgb[2]);
+  }
+  function harmonyHue(h, harmony) {
+    var off = harmony === "analogous" ? 32 : harmony === "triadic" ? 120 : harmony === "monochrome" ? 0 : 180;
+    return (h + off + 360) % 360;
+  }
+  // neutrals + accent-2 derived from a base hue (accent supplied by genFull)
+  function genRest(h, harmony, mode) {
+    var dark = mode !== "light", h2 = harmonyHue(h, harmony);
     return {
-      accent: hslToHex(h, s, l), accent2: hslToHex(h2, Math.max(40, s - 5), l2),
-      bg: dark ? hslToHex(h, 18, 8) : hslToHex(h, 40, 97),
-      surface: dark ? hslToHex(h, 16, 13) : hslToHex(h, 30, 93),
-      text: dark ? hslToHex(h, 12, 93) : hslToHex(h, 25, 12),
-      muted: dark ? hslToHex(h, 10, 62) : hslToHex(h, 15, 42)
+      accent2: harmony === "monochrome" ? oklchHex(0.80, 0.12, h) : oklchHex(0.72, 0.15, h2),
+      bg: dark ? oklchHex(0.17, 0.018, h) : oklchHex(0.975, 0.012, h),
+      surface: dark ? oklchHex(0.225, 0.025, h) : oklchHex(0.935, 0.02, h),
+      text: dark ? oklchHex(0.95, 0.012, h) : oklchHex(0.25, 0.02, h),
+      muted: dark ? oklchHex(0.67, 0.02, h) : oklchHex(0.52, 0.022, h)
     };
+  }
+  function genFull(h, harmony, mode, rand) {
+    var aL = rand ? 0.60 + Math.random() * 0.10 : 0.66;
+    var aC = rand ? 0.13 + Math.random() * 0.06 : 0.16;
+    var rest = genRest(h, harmony, mode);
+    rest.accent = oklchHex(aL, aC, h);
+    rest._hue = h;
+    return rest;
   }
   // ---- working palette (the bar) vs applied palette (`brand`) ----
   // Shuffle / edit / presets only mutate `work` and repaint the small bar — the
@@ -437,11 +468,16 @@
       "  --radius: " + (work.radius || "14px") + ";\n}";
   }
   function updateApplyState() {
-    var btn = $("#pb-apply"); if (!btn) return;
-    var dirty = isDirty() || !brand.applied;
-    btn.classList.toggle("pb__btn--primary", dirty);
-    btn.classList.toggle("is-applied", !dirty);
-    btn.textContent = dirty ? "Apply" : "Applied ✓";
+    var changed = isDirty();              // working palette differs from what's applied
+    var dirty = changed || !brand.applied; // panel button also nudges before first apply
+    var btn = $("#pb-apply");
+    if (btn) {
+      btn.classList.toggle("pb__btn--primary", dirty);
+      btn.classList.toggle("is-applied", !dirty);
+      btn.textContent = dirty ? "Apply" : "Applied ✓";
+    }
+    // header CTA pulses only when there's an actual pending change (not on first load)
+    var bar = $("#pb-apply-bar"); if (bar) bar.hidden = !changed;
   }
   function renderPaletteBar() {
     var host = $("#pb-swatches"); if (!host) return;
@@ -482,15 +518,17 @@
   // ---- mutate the WORKING palette (bar only; never re-skins the page) ----
   function commitWork() { renderPaletteBar(); }
   function regenFromAccent() {
-    var hsl = hexToHsl(work.accent || "#7c5cff"), gen = genPalette(hsl.h, hsl.s, hsl.l, work.harmony, work.mode);
-    COLORS.forEach(function (k) { if (k !== "accent" && !(work.locks && work.locks[k])) work[k] = gen[k]; });
+    var h = (work._hue != null) ? work._hue : hexToHsl(work.accent || "#7c5cff").h;
+    var rest = genRest(h, work.harmony, work.mode);
+    COLORS.forEach(function (k) { if (k !== "accent" && !(work.locks && work.locks[k])) work[k] = rest[k]; });
     commitWork();
   }
   function shuffle() {
-    var h = (work.locks && work.locks.accent && work.accent) ? hexToHsl(work.accent).h : Math.floor(Math.random() * 360);
-    var s = 62 + Math.floor(Math.random() * 28), l = 52 + Math.floor(Math.random() * 12);
-    var gen = genPalette(h, s, l, work.harmony || "complementary", work.mode || "dark");
+    var lockAcc = work.locks && work.locks.accent;
+    var h = lockAcc ? (work._hue != null ? work._hue : hexToHsl(work.accent || "#7c5cff").h) : Math.floor(Math.random() * 360);
+    var gen = genFull(h, work.harmony || "complementary", work.mode || "dark", true);
     COLORS.forEach(function (k) { if (!(work.locks && work.locks[k])) work[k] = gen[k]; });
+    work._hue = h;
     commitWork();
   }
   function setMode(m) { work.mode = m; $$("#pb-mode button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-mode") === m); }); }
@@ -498,15 +536,15 @@
   function applyPalette() {
     COLORS.forEach(function (k) { brand[k] = work[k]; });
     brand.radius = work.radius || "14px"; brand.harmony = work.harmony; brand.mode = work.mode;
-    brand.locks = JSON.parse(JSON.stringify(work.locks || {})); brand.applied = true;
+    brand._hue = work._hue; brand.locks = JSON.parse(JSON.stringify(work.locks || {})); brand.applied = true;
     saveBrand(); applyBrandEverywhere(); renderSourcePane(); updateApplyState(); renderBundlePalette();
     var s = $("#pb-status"); if (s) { s.textContent = "✓ Applied" + (brand.site ? " to the gallery + this site." : " to the gallery."); setTimeout(function () { s.textContent = ""; }, 2600); }
   }
   function resetPalette() {
-    var g = genPalette(262, 85, 58, "complementary", "dark");
-    brand = { applied: false, site: brand.site !== false, harmony: "complementary", mode: "dark", locks: {}, radius: "14px" };
+    var g = genFull(262, "complementary", "dark", false);
+    brand = { applied: false, site: brand.site !== false, harmony: "complementary", mode: "dark", locks: {}, radius: "14px", _hue: 262 };
     COLORS.forEach(function (k) { brand[k] = g[k]; });
-    work = cloneColors(brand); work.harmony = "complementary"; work.mode = "dark"; work.locks = {};
+    work = cloneColors(brand); work.harmony = "complementary"; work.mode = "dark"; work.locks = {}; work._hue = 262;
     setMode("dark"); if ($("#pb-harmony")) $("#pb-harmony").value = "complementary";
     saveBrand(); applyBrandEverywhere(); renderSourcePane(); renderPaletteBar();
     $("#pb-editor").hidden = true;
@@ -521,6 +559,7 @@
   }
   function setEditColor() {
     work[ed.role] = hslToHex(ed.h, ed.s, ed.l);
+    if (ed.role === "accent") work._hue = ed.h;
     if ($("#pb-hex")) $("#pb-hex").value = work[ed.role];
     placeEdMark(); commitWork();
   }
@@ -540,7 +579,7 @@
   function initPaletteBar() {
     if (!$("#palettebar")) return;
     // seed / migrate the applied palette (defaults mirror the site's own theme)
-    if (!brand.accent) { var g = genPalette(262, 85, 58, "complementary", "dark"); COLORS.forEach(function (k) { brand[k] = g[k]; }); }
+    if (!brand.accent) { var g = genFull(262, "complementary", "dark", false); COLORS.forEach(function (k) { brand[k] = g[k]; }); brand._hue = 262; }
     COLORS.forEach(function (k) { if (!brand[k]) { var role = PAL_ROLES.filter(function (r) { return r.key === k; })[0]; brand[k] = role ? role.def : "#888888"; } });
     brand.radius = brand.radius || "14px"; brand.harmony = brand.harmony || "complementary";
     brand.mode = brand.mode || "dark"; brand.locks = brand.locks || {};
@@ -548,6 +587,7 @@
     if (brand.site === undefined) brand.site = true;
     delete brand.on; saveBrand();
     work = cloneColors(brand); work.harmony = brand.harmony; work.mode = brand.mode; work.locks = JSON.parse(JSON.stringify(brand.locks || {}));
+    work._hue = (brand._hue != null) ? brand._hue : hexToHsl(brand.accent).h;
     if ($("#pb-harmony")) $("#pb-harmony").value = work.harmony;
     setMode(work.mode);
     if ($("#pb-site")) $("#pb-site").checked = !!brand.site;
@@ -556,25 +596,28 @@
     if (ph) PRESETS.forEach(function (pre) {
       var b = document.createElement("button"); b.className = "pb__preset"; b.type = "button";
       b.title = pre.n + " palette"; b.setAttribute("aria-label", pre.n + " palette");
-      b.style.background = hslToHex(pre.h, pre.s, pre.l);
+      b.style.background = oklchHex(0.66, 0.16, pre.h);
       b.addEventListener("click", function () {
-        var gen = genPalette(pre.h, pre.s, pre.l, work.harmony || "complementary", pre.mode);
+        var gen = genFull(pre.h, work.harmony || "complementary", pre.mode, false);
         COLORS.forEach(function (k) { work[k] = gen[k]; });
-        setMode(pre.mode); commitWork();
+        work._hue = pre.h; setMode(pre.mode); commitWork();
       });
       ph.appendChild(b);
     });
     $("#pb-shuffle").addEventListener("click", shuffle);
     $("#pb-quick-shuffle").addEventListener("click", shuffle);
-    // collapsed by default — expand the panel on click
+    $("#pb-apply-bar").addEventListener("click", applyPalette);
+    // panel open/closed — persisted across visits
     var toggle = $("#pb-toggle"), panel = $("#pb-panel");
-    toggle.addEventListener("click", function () {
-      var open = panel.hidden;
+    function setPanelOpen(open) {
       panel.hidden = !open;
       toggle.setAttribute("aria-expanded", String(open));
       $("#palettebar").classList.toggle("is-open", open);
       var cta = $("#pb-cta"); if (cta && cta.firstChild) cta.firstChild.nodeValue = open ? "Close" : "Customize";
-    });
+      try { localStorage.setItem("sc_pal_open", open ? "1" : "0"); } catch (e) {}
+    }
+    toggle.addEventListener("click", function () { setPanelOpen(panel.hidden); });
+    try { if (localStorage.getItem("sc_pal_open") === "1") setPanelOpen(true); } catch (e) {}
     $("#pb-harmony").addEventListener("change", function () { work.harmony = this.value; regenFromAccent(); });
     $$("#pb-mode button").forEach(function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); regenFromAccent(); }); });
     $("#pb-apply").addEventListener("click", applyPalette);

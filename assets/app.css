@@ -416,6 +416,13 @@ a { color: var(--accent-2); }
 }
 .pb__quick:hover { border-color: var(--accent); transform: rotate(-18deg) scale(1.06); }
 .pb__quick:active { transform: rotate(-40deg) scale(0.96); }
+/* header-level Apply CTA — appears only when there are unapplied changes */
+.pb__applybar { border: 0; border-radius: 999px; padding: 0.55rem 1.05rem; font-weight: 800; font-size: 0.85rem; cursor: pointer; color: #fff; background: var(--accent-grad); box-shadow: 0 4px 16px rgba(124, 92, 255, 0.4); animation: pb-pulse 1.9s ease-in-out infinite; }
+.pb__applybar::before { content: "✓ "; }
+.pb__applybar[hidden] { display: none; }
+.pb__applybar:hover { filter: brightness(1.08); }
+@keyframes pb-pulse { 0%, 100% { box-shadow: 0 4px 14px rgba(124, 92, 255, 0.3); } 50% { box-shadow: 0 6px 24px rgba(124, 92, 255, 0.6); } }
+@media (prefers-reduced-motion: reduce) { .pb__applybar { animation: none; } }
 
 /* ---- expanded panel ---- */
 .pb__panel {

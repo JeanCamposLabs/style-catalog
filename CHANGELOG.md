@@ -3,6 +3,22 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.16.0] — 2026-05-31
+
+### Changed — Much better randomizer (perceptual OKLCH generation)
+- The palette generator now works in **OKLCH** (Ottosson's OKLab) instead of raw
+  HSL, with automatic in-gamut chroma. Equal *perceived* lightness across hues
+  means no more muddy yellow-greens or blown-out cyans — shuffles look balanced
+  and intentional, and backgrounds/text stay consistently dark/light whatever the
+  hue. (Researched against coolors/HSLuv/golden-ratio write-ups.)
+
+### Added
+- **Evident Apply**: a pulsing **“✓ Apply palette”** button now appears in the
+  bar (header level, next to 🎲) the moment you have unapplied changes — so it's
+  obvious how to push the palette to everything. Hides once applied.
+- **Persisted panel state**: the palette panel remembers open/closed across
+  visits.
+
 ## [0.15.0] — 2026-05-31
 
 ### Added — Apply-on-demand + the catalog themes itself to your palette
