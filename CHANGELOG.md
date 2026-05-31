@@ -3,6 +3,23 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.11.0] — 2026-05-31
+
+### Added — Bundle (cart): collect components → copy an agent-ready brief
+- Every card gets a **＋ Add** button (and the modal a toggle) to add components
+  to a **Bundle**. A floating bundle button shows the count and opens a drawer.
+- **Copy for your agent** assembles all selected components into one Markdown
+  document — each with its summary, **how-to-apply** notes, tech/deps, customize
+  hints, and the full source in a fenced block — ready to paste into a coding
+  agent. Also **Download .md**.
+- Bundle persists in `localStorage` (survives the auto-reload), the FAB hides
+  when empty, Esc closes the drawer, and controls are keyboard/ARIA-friendly.
+- Source is fetched on demand from `api/effects/<id>.json` (keeps the eager
+  payload small). Verified end-to-end: add, list, copy (8.8 KB brief), persist,
+  zero console errors.
+
+_Next: in-sample color/size tuning so copied code comes pre-fine-tuned._
+
 ## [0.10.0] — 2026-05-31
 
 ### Added — round 4: +16 hand-crafted specimens (now 172 effects)

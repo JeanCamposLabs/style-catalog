@@ -78,6 +78,7 @@
             <iframe id="modal-iframe" title="Live preview" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe>
           </div>
           <div class="preview-actions">
+            <button id="modal-bundle" class="btn" type="button">＋ Add to bundle</button>
             <a id="open-new" class="btn btn--ghost" target="_blank" rel="noopener">Open standalone ↗</a>
           </div>
         </section>
@@ -101,6 +102,33 @@
   <footer class="colophon">
     <p>Style Catalog · MIT · The catalogue lives in <code>catalog.json</code>. Add effects under <code>effects/&lt;theme&gt;/</code> and run <code>npm run build</code>.</p>
   </footer>
+
+  <!-- Bundle (cart): collect components, then copy them as one agent-ready brief -->
+  <button id="cart-fab" class="cart-fab" aria-haspopup="dialog" aria-controls="cart" hidden>
+    <span class="cart-fab__ic" aria-hidden="true">🧺</span>
+    <span>Bundle</span>
+    <span class="cart-fab__count" id="cart-count">0</span>
+  </button>
+
+  <div id="cart" class="cart" hidden>
+    <div class="cart__backdrop" data-cart-close></div>
+    <aside class="cart__panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <header class="cart__head">
+        <h2 id="cart-title">Your bundle <span id="cart-n" class="cart__n"></span></h2>
+        <button class="cart__close" data-cart-close title="Close" aria-label="Close bundle">✕</button>
+      </header>
+      <div class="cart__body" id="cart-list"></div>
+      <footer class="cart__foot">
+        <p class="cart__hint">Copy everything as one document — each item includes its code <em>and</em> how to apply it. Paste straight into your coding agent.</p>
+        <div class="cart__actions">
+          <button id="cart-copy" class="btn">📋 Copy for your agent</button>
+          <button id="cart-download" class="btn btn--ghost">⬇ .md</button>
+        </div>
+        <button id="cart-clear" class="cart__clear" type="button">Clear all</button>
+        <p id="cart-status" class="cart__status" role="status" aria-live="polite"></p>
+      </footer>
+    </aside>
+  </div>
 
   <a id="version-badge" class="version-badge" target="_blank" rel="noopener" title="Deploy build">v0.5.0</a>
 

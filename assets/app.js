@@ -134,10 +134,14 @@
     el.className = "card";
     el.tabIndex = 0;
     el.setAttribute("role", "button");
+    var added = inBundle(e.id);
     el.innerHTML =
       '<div class="card__frame">' +
         '<iframe loading="lazy" sandbox="allow-scripts allow-same-origin" title="' + esc(e.title) + '" src="' + esc(e.path) + '"></iframe>' +
         '<div class="card__scrim"></div>' +
+        '<button class="card__add' + (added ? " is-in" : "") + '" data-bundle-add data-id="' + esc(e.id) +
+          '" type="button" aria-pressed="' + added + '" title="Add to bundle" aria-label="Add ' + esc(e.title) + ' to bundle">' +
+          (added ? "✓" : "＋") + "</button>" +
       "</div>" +
       '<div class="card__body">' +
         '<h3 class="card__title">' + esc(e.title) + "</h3>" +
@@ -150,7 +154,12 @@
       "</div>";
     function open() { openModal(e.id); }
     el.addEventListener("click", open);
-    el.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); open(); } });
+    el.addEventListener("keydown", function (ev) {
+      if ((ev.key === "Enter" || ev.key === " ") && ev.target === el) { ev.preventDefault(); open(); }
+    });
+    el.querySelector(".card__add").addEventListener("click", function (ev) {
+      ev.stopPropagation(); toggleBundle(e.id);
+    });
     return el;
   }
 
@@ -213,6 +222,7 @@
     switchTab("preview");
     $("#modal").hidden = false;
     document.body.style.overflow = "hidden";
+    updateBundleUI();
     setHash({ effect: e.id });
     $(".modal__close").focus();
   }
@@ -298,6 +308,122 @@
     syncHash(); render(); paintFilters();
   }
 
+  /* ---------- bundle (cart) ---------- */
+  var BKEY = "sc_bundle";
+  var bundle = (function () {
+    try { return new Set(JSON.parse(localStorage.getItem(BKEY) || "[]")); } catch (e) { return new Set(); }
+  })();
+  function saveBundle() { try { localStorage.setItem(BKEY, JSON.stringify(Array.from(bundle))); } catch (e) {} }
+  function inBundle(id) { return bundle.has(id); }
+  function toggleBundle(id) {
+    if (bundle.has(id)) bundle.delete(id); else bundle.add(id);
+    saveBundle(); updateBundleUI(true);
+  }
+  function updateBundleUI(bump) {
+    var n = bundle.size;
+    var fab = $("#cart-fab");
+    $("#cart-count").textContent = n;
+    fab.hidden = n === 0;
+    if (bump && n) { fab.classList.remove("bump"); void fab.offsetWidth; fab.classList.add("bump"); }
+    $("#cart-n").textContent = n ? "(" + n + ")" : "";
+    $$("[data-bundle-add]").forEach(function (b) {
+      var on = inBundle(b.getAttribute("data-id"));
+      b.classList.toggle("is-in", on); b.setAttribute("aria-pressed", on); b.textContent = on ? "✓" : "＋";
+    });
+    var mb = $("#modal-bundle"), eid = $("#modal").getAttribute("data-eid");
+    if (mb && eid) {
+      var on = inBundle(eid);
+      mb.classList.toggle("is-in", on); mb.setAttribute("aria-pressed", on);
+      mb.textContent = on ? "✓ In bundle" : "＋ Add to bundle";
+    }
+    if (!$("#cart").hidden) renderCartList();
+  }
+  function renderCartList() {
+    var list = $("#cart-list"); list.innerHTML = "";
+    if (!bundle.size) { list.innerHTML = '<p class="cart__empty">Your bundle is empty.<br>Hover any card and hit <b>＋</b> to add components.</p>'; return; }
+    Array.from(bundle).forEach(function (id) {
+      var e = findEffect(id); if (!e) return;
+      var row = document.createElement("div"); row.className = "cart__item";
+      row.innerHTML = '<span class="thumb"></span><span class="meta"><b>' + esc(e.title) + "</b><span>" +
+        esc(e.themeTitle) + " · " + esc((e.tech || []).join(", ")) + "</span></span>" +
+        '<button class="rm" title="Remove" aria-label="Remove ' + esc(e.title) + ' from bundle">✕</button>';
+      row.querySelector(".rm").addEventListener("click", function () { toggleBundle(id); });
+      list.appendChild(row);
+    });
+  }
+  function openCart() {
+    renderCartList();
+    var c = $("#cart"); c.hidden = false;
+    requestAnimationFrame(function () { c.classList.add("is-open"); });
+    document.body.style.overflow = "hidden";
+    $(".cart__close").focus();
+  }
+  function closeCart() {
+    var c = $("#cart"); c.classList.remove("is-open");
+    setTimeout(function () { c.hidden = true; }, 300);
+    if ($("#modal").hidden) document.body.style.overflow = "";
+  }
+  function fetchFull(id) {
+    return fetch("api/effects/" + encodeURIComponent(id) + ".json", { cache: "force-cache" })
+      .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+  }
+  function buildBundleMarkdown() {
+    return Promise.all(Array.from(bundle).map(fetchFull)).then(function (items) {
+      items = items.filter(Boolean);
+      var L = [];
+      L.push("# Style Catalog — Component Bundle (" + items.length + " item" + (items.length !== 1 ? "s" : "") + ")");
+      L.push("");
+      L.push("> Paste this whole document into your coding agent. Each component below is self-contained (HTML + CSS + a little vanilla JS, no build step or dependencies) and includes how to apply it. Swap placeholder text/colors as noted per item.");
+      L.push("> Source: " + location.origin + location.pathname.replace(/index\.html$/, ""));
+      items.forEach(function (e, i) {
+        L.push(""); L.push("---"); L.push("");
+        L.push("## " + (i + 1) + ". " + e.title + "  —  " + (e.themeTitle || e.theme));
+        L.push("");
+        if (e.summary) L.push(e.summary);
+        if (e.ai_usage) { L.push(""); L.push("**How to apply:** " + e.ai_usage); }
+        var deps = (e.dependencies && e.dependencies.length) ? e.dependencies.join(", ") : "none (vanilla)";
+        L.push(""); L.push("**Tech:** " + (e.tech || []).join(", ") + " · **Dependencies:** " + deps + (e.browser_support ? " · **Support:** " + e.browser_support : ""));
+        if (e.customization && e.customization.length) {
+          L.push(""); L.push("**Customize:** " + e.customization.map(function (c) {
+            return "`" + c.name + "`" + (c.default ? " (" + c.default + ")" : "") + " — " + c.description;
+          }).join("; "));
+        }
+        L.push(""); L.push("```html"); L.push(e.source || "<!-- source unavailable -->"); L.push("```");
+      });
+      L.push(""); L.push("---"); L.push("");
+      L.push("_" + items.length + " component" + (items.length !== 1 ? "s" : "") + " bundled from the Style Catalog._");
+      return L.join("\n");
+    });
+  }
+  function writeClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    return new Promise(function (res, rej) {
+      var ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); res(); } catch (e) { rej(e); } document.body.removeChild(ta);
+    });
+  }
+  function copyBundle() {
+    if (!bundle.size) return;
+    var btn = $("#cart-copy"), status = $("#cart-status");
+    btn.disabled = true;
+    status.textContent = "Preparing " + bundle.size + " component" + (bundle.size !== 1 ? "s" : "") + "…";
+    buildBundleMarkdown().then(function (md) {
+      return writeClipboard(md).then(function () { status.textContent = "✓ Copied! Paste it into your agent."; });
+    }).catch(function () { status.textContent = "Couldn't copy — try the .md download."; })
+      .then(function () { btn.disabled = false; setTimeout(function () { status.textContent = ""; }, 5000); });
+  }
+  function downloadBundle() {
+    if (!bundle.size) return;
+    var status = $("#cart-status"); status.textContent = "Building file…";
+    buildBundleMarkdown().then(function (md) {
+      var blob = new Blob([md], { type: "text/markdown" }), url = URL.createObjectURL(blob);
+      var a = document.createElement("a"); a.href = url; a.download = "style-catalog-bundle.md";
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      status.textContent = "✓ Downloaded style-catalog-bundle.md";
+      setTimeout(function () { status.textContent = ""; }, 5000);
+    });
+  }
+
   /* ---------- wire up ---------- */
   function init() {
     renderStats();
@@ -323,9 +449,21 @@
       var t = e.target.closest(".tab"); if (t) switchTab(t.dataset.tab);
     });
     document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !$("#cart").hidden) { closeCart(); return; }
       if (e.key === "Escape" && !$("#modal").hidden) closeModal();
       if (e.key === "/" && document.activeElement !== $("#search")) { e.preventDefault(); $("#search").focus(); }
     });
+
+    // Bundle (cart) wiring
+    $("#cart-fab").addEventListener("click", openCart);
+    $$("[data-cart-close]").forEach(function (el) { el.addEventListener("click", closeCart); });
+    $("#cart-copy").addEventListener("click", copyBundle);
+    $("#cart-download").addEventListener("click", downloadBundle);
+    $("#cart-clear").addEventListener("click", function () { bundle.clear(); saveBundle(); updateBundleUI(); });
+    $("#modal-bundle").addEventListener("click", function () {
+      var id = $("#modal").getAttribute("data-eid"); if (id) toggleBundle(id);
+    });
+    updateBundleUI();
     $("#copy-source").addEventListener("click", function () {
       var text = $("#modal-source").textContent;
       var done = function () { var s = $("#copy-status"); s.textContent = "Copied!"; setTimeout(function () { s.textContent = ""; }, 1600); };
