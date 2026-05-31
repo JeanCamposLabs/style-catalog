@@ -3,6 +3,23 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.12.0] — 2026-05-31
+
+### Added — Phase 2: live color & size tuning (pre-fine-tuned copy)
+- New **🎚 Tune** tab in each component's modal: auto-generates controls from the
+  sample's `:root` variables — color pickers for colors, sliders for lengths,
+  text inputs for the rest — with the documented `customization` tokens shown
+  first. Editing updates the **live preview** instantly.
+- **Global Brand palette** in the Bundle drawer (Accent / Accent 2 / Background /
+  Text / Radius) that maps onto each sample's tokens by role aliases — reskin the
+  whole bundle in one place; per-sample tweaks override it.
+- Tweaks are **rewritten into each sample's `:root` in place**, so the copied
+  source and the bundle export come out **pre-fine-tuned** (the bundle also lists
+  the customized token values per item).
+- Overrides + brand persist in `localStorage` (survive the auto-reload).
+- Verified: per-sample edit → live preview + source rewrite + copy + persistence;
+  global brand mapping into samples; zero console errors.
+
 ## [0.11.0] — 2026-05-31
 
 ### Added — Bundle (cart): collect components → copy an agent-ready brief

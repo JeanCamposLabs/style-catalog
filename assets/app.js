@@ -189,23 +189,164 @@
     return null;
   }
   // Source is not in the eager catalog (to keep it small); fetch it on demand.
+  // Phase 2: tuning — parse :root tokens, expose controls, rewrite :root in place.
+  var OKEY = "sc_overrides", BRKEY = "sc_brand";
+  var overrides = (function () { try { return JSON.parse(localStorage.getItem(OKEY) || "{}"); } catch (e) { return {}; } })();
+  var brand = (function () { try { return JSON.parse(localStorage.getItem(BRKEY) || "{}"); } catch (e) { return {}; } })();
+  function saveOverrides() { try { localStorage.setItem(OKEY, JSON.stringify(overrides)); } catch (e) {} }
+  function saveBrand() { try { localStorage.setItem(BRKEY, JSON.stringify(brand)); } catch (e) {} }
+  var BRAND_ROLES = [
+    { key: "accent", label: "Accent", type: "color", def: "#7c5cff", aliases: ["accent", "a", "c1", "primary", "brand", "accent1", "g1", "neon", "led", "sun", "leaf"] },
+    { key: "accent2", label: "Accent 2", type: "color", def: "#2dd4bf", aliases: ["accent-2", "accent2", "b", "c2", "secondary", "g2", "neon2", "accent_2"] },
+    { key: "bg", label: "Background", type: "color", def: "#0b0d12", aliases: ["bg", "background", "paper", "cream", "page", "bg-1"] },
+    { key: "text", label: "Text", type: "color", def: "#e8ecf6", aliases: ["text", "ink", "fg", "foreground"] },
+    { key: "radius", label: "Radius", type: "length", def: "14px", aliases: ["r", "radius", "rad", "radii"] }
+  ];
+  function parseRootTokens(src) {
+    if (!src) return [];
+    var m = src.match(/:root\s*\{([\s\S]*?)\}/i); if (!m) return [];
+    var re = /(--[\w-]+)\s*:\s*([^;]+);/g, out = [], mm;
+    while ((mm = re.exec(m[1]))) out.push({ name: mm[1].trim(), value: mm[2].trim() });
+    return out;
+  }
+  function classify(v) {
+    v = String(v).trim();
+    if (/^#([0-9a-f]{3,8})$/i.test(v)) return "color";
+    if (/^-?[\d.]+(px|rem|em|%|vw|vh|vmin|vmax)$/.test(v)) return "length";
+    if (/^-?[\d.]+$/.test(v)) return "number";
+    return "text";
+  }
+  function toHex6(v) { var s = String(v).replace("#", ""); if (s.length === 3) s = s.split("").map(function (c) { return c + c; }).join(""); return "#" + s.slice(0, 6).toLowerCase(); }
+  function splitLen(v) { var m = String(v).match(/^(-?[\d.]+)(px|rem|em|%|vw|vh|vmin|vmax)?$/); return m ? { num: parseFloat(m[1]), unit: m[2] || "" } : null; }
+  function effectiveTokens(id, tokens) {
+    var eff = {};
+    if (brand.on) {
+      BRAND_ROLES.forEach(function (role) {
+        var val = brand[role.key]; if (!val) return;
+        tokens.forEach(function (t) {
+          var bare = t.name.replace(/^--/, "").toLowerCase();
+          if (role.aliases.indexOf(bare) > -1 && classify(t.value) === role.type) eff[t.name] = val;
+        });
+      });
+    }
+    var ov = overrides[id] || {};
+    Object.keys(ov).forEach(function (k) { eff[k] = ov[k]; });
+    return eff;
+  }
+  function applyTuned(src, eff) {
+    var keys = Object.keys(eff); if (!keys.length || !src) return src;
+    return src.replace(/(:root\s*\{)([\s\S]*?)(\})/i, function (_, a, body, c) {
+      keys.forEach(function (name) {
+        var re = new RegExp("(" + name.replace(/-/g, "\\-") + "\\s*:\\s*)([^;]+)(;)");
+        var nv = String(eff[name]).replace(/\$/g, "$$$$");
+        if (re.test(body)) body = body.replace(re, "$1" + nv + "$3"); else body = body + "\n  " + name + ": " + eff[name] + ";";
+      });
+      return a + body + c;
+    });
+  }
+
+  var T = { id: null, source: "", tokens: [], custom: {} };
   function loadSource(e) {
-    var pre = $("#modal-source");
-    if (e.source) { pre.textContent = e.source; return; }
-    pre.textContent = "Loading source…";
+    $("#modal-source").textContent = "Loading source…";
+    var host = $("#modal-tune"); if (host) host.innerHTML = '<p class="tune__empty">Loading…</p>';
+    T.id = e.id; T.source = ""; T.tokens = []; T.custom = {};
+    (e.customization || []).forEach(function (c) { if (c.name && c.name.indexOf("--") === 0) T.custom[c.name] = c.description; });
     var want = e.id;
+    function have(src) {
+      if (T.id !== want) return;
+      T.source = src || ""; T.tokens = parseRootTokens(src);
+      renderSourcePane(); renderTune(); applyAllToPreview();
+    }
+    if (e.source) { have(e.source); return; }
     fetch("api/effects/" + encodeURIComponent(e.id) + ".json", { cache: "force-cache" })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (full) {
-        if ($("#modal").getAttribute("data-eid") !== want) return; // modal changed
-        pre.textContent = (full && full.source) ? full.source :
-          "// Source unavailable here — open the standalone page to view it.";
+        if (T.id !== want) return;
+        if (full && full.source) have(full.source);
+        else { $("#modal-source").textContent = "// Source unavailable — open the standalone page."; renderTune(); }
       })
-      .catch(function () {
-        if ($("#modal").getAttribute("data-eid") === want)
-          pre.textContent = "// Could not load source (offline?). Open the standalone page.";
-      });
+      .catch(function () { if (T.id === want) $("#modal-source").textContent = "// Could not load source (offline?)."; });
   }
+  function renderSourcePane() {
+    $("#modal-source").textContent = applyTuned(T.source, effectiveTokens(T.id, T.tokens));
+  }
+  function applyAllToPreview() {
+    var fr = $("#modal-iframe");
+    try {
+      var doc = fr.contentDocument; if (!doc || !doc.documentElement) return;
+      var eff = effectiveTokens(T.id, T.tokens);
+      T.tokens.forEach(function (t) { doc.documentElement.style.setProperty(t.name, eff[t.name] !== undefined ? eff[t.name] : t.value); });
+    } catch (e) {}
+  }
+  function setOverride(id, name, val, orig) {
+    overrides[id] = overrides[id] || {};
+    if (val === orig) { delete overrides[id][name]; if (!Object.keys(overrides[id]).length) delete overrides[id]; }
+    else overrides[id][name] = val;
+    saveOverrides(); applyAllToPreview(); renderSourcePane();
+  }
+  function resetSample(id) { delete overrides[id]; saveOverrides(); renderTune(); applyAllToPreview(); renderSourcePane(); }
+  function renderTune() {
+    var host = $("#modal-tune"); if (!host) return;
+    if (!T.tokens.length) { host.innerHTML = '<p class="tune__empty">This sample has no <code>:root</code> CSS variables to tune — edit the source directly, or use the global Brand palette in the Bundle.</p>'; return; }
+    var ordered = [], seen = {};
+    Object.keys(T.custom).forEach(function (n) { var t = T.tokens.filter(function (x) { return x.name === n; })[0]; if (t) { ordered.push(t); seen[n] = 1; } });
+    T.tokens.forEach(function (t) { if (!seen[t.name]) ordered.push(t); });
+    var ov = overrides[T.id] || {};
+    var html = '<div class="tune__bar"><span>Adjust this sample — the preview updates live, and your values are baked into the copied code.</span><button class="tune__reset" id="tune-reset" type="button">Reset</button></div><div class="tune__grid">';
+    ordered.forEach(function (t) {
+      var cur = ov[t.name] !== undefined ? ov[t.name] : t.value, kind = classify(t.value), desc = T.custom[t.name] || "";
+      html += '<div class="tune__row" data-token="' + esc(t.name) + '" data-orig="' + esc(t.value) + '" data-kind="' + kind + '">';
+      html += '<label><code>' + esc(t.name) + "</code>" + (desc ? " <small>" + esc(desc) + "</small>" : "") + "</label>";
+      if (kind === "color") {
+        html += '<span class="tune__color"><input type="color" value="' + esc(toHex6(cur)) + '" aria-label="' + esc(t.name) + '" /><input type="text" class="tune__hex" value="' + esc(cur) + '" aria-label="' + esc(t.name) + ' hex" /></span>';
+      } else if (kind === "length") {
+        var sp = splitLen(cur) || { num: 0, unit: "px" }, max = 64, step = 1;
+        if (sp.unit === "rem" || sp.unit === "em") { max = Math.max(4, Math.abs(sp.num) * 3); step = 0.05; }
+        else if (sp.unit === "%") { max = 100; } else { max = Math.max(64, Math.abs(sp.num) * 3); }
+        html += '<span class="tune__len"><input type="range" min="0" max="' + max + '" step="' + step + '" value="' + sp.num + '" aria-label="' + esc(t.name) + '" /><output>' + esc(cur) + "</output></span>";
+      } else {
+        html += '<input type="text" class="tune__text" value="' + esc(cur) + '" aria-label="' + esc(t.name) + '" />';
+      }
+      html += "</div>";
+    });
+    host.innerHTML = html + "</div>";
+    $$(".tune__row", host).forEach(function (row) {
+      var name = row.getAttribute("data-token"), kind = row.getAttribute("data-kind"), orig = row.getAttribute("data-orig");
+      if (kind === "color") {
+        var col = row.querySelector("input[type=color]"), hex = row.querySelector(".tune__hex");
+        col.addEventListener("input", function () { hex.value = col.value; setOverride(T.id, name, col.value, orig); });
+        hex.addEventListener("change", function () { if (/^#([0-9a-f]{3,8})$/i.test(hex.value)) { col.value = toHex6(hex.value); setOverride(T.id, name, hex.value, orig); } });
+      } else if (kind === "length") {
+        var rng = row.querySelector("input[type=range]"), out = row.querySelector("output"), unit = (splitLen(orig) || { unit: "px" }).unit;
+        rng.addEventListener("input", function () { var v = rng.value + unit; out.textContent = v; setOverride(T.id, name, v, orig); });
+      } else {
+        var tx = row.querySelector(".tune__text");
+        tx.addEventListener("change", function () { setOverride(T.id, name, tx.value, orig); });
+      }
+    });
+    $("#tune-reset").addEventListener("click", function () { resetSample(T.id); });
+  }
+  function renderBrand() {
+    var grid = $("#brand-grid"); if (!grid) return;
+    $("#brand-on").checked = !!brand.on;
+    grid.innerHTML = "";
+    BRAND_ROLES.forEach(function (role) {
+      var val = brand[role.key] || role.def, row = document.createElement("div"); row.className = "brand__row";
+      if (role.type === "color") {
+        row.innerHTML = "<label>" + role.label + '</label><span class="tune__color"><input type="color" value="' + esc(toHex6(val)) + '" aria-label="' + role.label + '" /><input type="text" class="tune__hex" value="' + esc(val) + '" /></span>';
+        var col = row.querySelector("input[type=color]"), hex = row.querySelector(".tune__hex");
+        col.addEventListener("input", function () { hex.value = col.value; brand[role.key] = col.value; commitBrand(); });
+        hex.addEventListener("change", function () { if (/^#([0-9a-f]{3,8})$/i.test(hex.value)) { col.value = toHex6(hex.value); brand[role.key] = hex.value; commitBrand(); } });
+      } else {
+        var sp = splitLen(val) || { num: 14, unit: "px" };
+        row.innerHTML = "<label>" + role.label + '</label><span class="tune__len"><input type="range" min="0" max="40" step="1" value="' + sp.num + '" aria-label="' + role.label + '" /><output>' + esc(val) + "</output></span>";
+        var rng = row.querySelector("input[type=range]"), out = row.querySelector("output");
+        rng.addEventListener("input", function () { var v = rng.value + "px"; out.textContent = v; brand[role.key] = v; commitBrand(); });
+      }
+      grid.appendChild(row);
+    });
+  }
+  function commitBrand() { saveBrand(); applyAllToPreview(); renderSourcePane(); }
   function openModal(id) {
     var e = findEffect(id);
     if (!e) return;
@@ -214,6 +355,7 @@
     $("#modal-theme").textContent = e.themeTitle;
     $("#modal-title").textContent = e.title;
     $("#modal-summary").textContent = e.summary;
+    $("#modal-iframe").onload = applyAllToPreview;
     $("#modal-iframe").src = e.path;
     $("#open-new").href = e.path;
     loadSource(e);
@@ -388,7 +530,9 @@
             return "`" + c.name + "`" + (c.default ? " (" + c.default + ")" : "") + " — " + c.description;
           }).join("; "));
         }
-        L.push(""); L.push("```html"); L.push(e.source || "<!-- source unavailable -->"); L.push("```");
+        var eff = effectiveTokens(e.id, parseRootTokens(e.source));
+        if (Object.keys(eff).length) L.push("\n_Customized tokens:_ " + Object.keys(eff).map(function (k) { return "`" + k + ": " + eff[k] + "`"; }).join(", "));
+        L.push(""); L.push("```html"); L.push(applyTuned(e.source || "", eff) || "<!-- source unavailable -->"); L.push("```");
       });
       L.push(""); L.push("---"); L.push("");
       L.push("_" + items.length + " component" + (items.length !== 1 ? "s" : "") + " bundled from the Style Catalog._");
@@ -462,6 +606,13 @@
     $("#cart-clear").addEventListener("click", function () { bundle.clear(); saveBundle(); updateBundleUI(); });
     $("#modal-bundle").addEventListener("click", function () {
       var id = $("#modal").getAttribute("data-eid"); if (id) toggleBundle(id);
+    });
+    // Brand palette (global tuning)
+    renderBrand();
+    $("#brand-on").addEventListener("change", function () {
+      brand.on = this.checked;
+      if (brand.on) BRAND_ROLES.forEach(function (r) { if (!brand[r.key]) brand[r.key] = r.def; });
+      saveBrand(); renderBrand(); applyAllToPreview(); renderSourcePane();
     });
     updateBundleUI();
     $("#copy-source").addEventListener("click", function () {

@@ -291,6 +291,39 @@ a { color: var(--accent-2); }
 .cart__status { color: var(--accent-2); font-size: 0.85rem; min-height: 1.2em; margin: 0.6rem 0 0; font-weight: 600; }
 .cart__foot .btn:disabled { opacity: 0.6; cursor: progress; }
 
+/* ---------- Phase 2: tuning panel ---------- */
+.tune { padding: 0.2rem; }
+.tune__empty { color: var(--muted); padding: 1.4rem; }
+.tune__empty code { background: var(--panel); padding: 0.05rem 0.3rem; border-radius: 4px; }
+.tune__bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+.tune__reset { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 8px; padding: 0.3rem 0.7rem; cursor: pointer; font-size: 0.8rem; flex: none; }
+.tune__reset:hover { color: var(--text); border-color: var(--accent); }
+.tune__grid { display: grid; gap: 0.7rem; }
+.tune__row { display: grid; grid-template-columns: 1fr auto; gap: 0.6rem 1rem; align-items: center; }
+.tune__row label { min-width: 0; }
+.tune__row label code { font-size: 0.85rem; color: var(--text); }
+.tune__row label small { display: block; color: var(--muted); font-size: 0.74rem; }
+.tune__color { display: inline-flex; align-items: center; gap: 0.4rem; }
+.tune__color input[type="color"] { width: 34px; height: 30px; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: none; cursor: pointer; }
+.tune__hex { width: 92px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; color: var(--text); padding: 0.35rem 0.5rem; font-family: var(--mono); font-size: 0.8rem; }
+.tune__len { display: inline-flex; align-items: center; gap: 0.6rem; }
+.tune__len input[type="range"] { width: 130px; accent-color: var(--accent); }
+.tune__len output { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); min-width: 52px; text-align: right; }
+.tune__text { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; color: var(--text); padding: 0.4rem 0.6rem; font-family: var(--mono); font-size: 0.8rem; min-width: 160px; }
+.tune__row input:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+/* ---------- Phase 2: brand palette in the bundle drawer ---------- */
+.brand { border: 1px solid var(--line); border-radius: 12px; margin-bottom: 0.9rem; background: var(--panel); overflow: hidden; }
+.brand > summary { cursor: pointer; padding: 0.7rem 0.9rem; font-weight: 700; font-size: 0.9rem; list-style: none; }
+.brand > summary::-webkit-details-marker { display: none; }
+.brand > summary::before { content: "▸ "; color: var(--muted); }
+.brand[open] > summary::before { content: "▾ "; }
+.brand__hint { color: var(--muted); font-weight: 400; font-size: 0.8rem; }
+.brand__toggle { display: flex; align-items: center; gap: 0.5rem; padding: 0 0.9rem 0.6rem; font-size: 0.85rem; color: var(--muted); }
+.brand__toggle input { accent-color: var(--accent); }
+.brand__grid { display: grid; gap: 0.55rem; padding: 0 0.9rem 0.9rem; }
+.brand__row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0.6rem; font-size: 0.85rem; }
+
 /* ---------- Live-reload toast ---------- */
 .update-toast {
   position: fixed;

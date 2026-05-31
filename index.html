@@ -68,6 +68,7 @@
       </header>
       <nav class="tabs" id="tabs">
         <button class="tab is-active" data-tab="preview">Preview</button>
+        <button class="tab" data-tab="tune">🎚 Tune</button>
         <button class="tab" data-tab="source">Source</button>
         <button class="tab" data-tab="ai">AI Notes</button>
         <button class="tab" data-tab="details">Details</button>
@@ -81,6 +82,9 @@
             <button id="modal-bundle" class="btn" type="button">＋ Add to bundle</button>
             <a id="open-new" class="btn btn--ghost" target="_blank" rel="noopener">Open standalone ↗</a>
           </div>
+        </section>
+        <section class="tabpane" data-pane="tune">
+          <div id="modal-tune" class="tune"></div>
         </section>
         <section class="tabpane" data-pane="source">
           <div class="source-actions">
@@ -117,7 +121,14 @@
         <h2 id="cart-title">Your bundle <span id="cart-n" class="cart__n"></span></h2>
         <button class="cart__close" data-cart-close title="Close" aria-label="Close bundle">✕</button>
       </header>
-      <div class="cart__body" id="cart-list"></div>
+      <div class="cart__body">
+        <details class="brand" id="brand-panel">
+          <summary>🎨 Brand palette <span class="brand__hint">— apply across the whole bundle</span></summary>
+          <label class="brand__toggle"><input type="checkbox" id="brand-on" /> Apply my brand to every item</label>
+          <div class="brand__grid" id="brand-grid"></div>
+        </details>
+        <div id="cart-list"></div>
+      </div>
       <footer class="cart__foot">
         <p class="cart__hint">Copy everything as one document — each item includes its code <em>and</em> how to apply it. Paste straight into your coding agent.</p>
         <div class="cart__actions">
