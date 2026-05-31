@@ -3,6 +3,20 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.14.1] — 2026-05-31
+
+### Changed — Palette generator redesigned (collapsed by default)
+- The palette is now a compact **pill** (icon + live preview swatches + “Customize”
+  chevron, plus a quick 🎲 shuffle) that **expands on click** into a polished panel
+  — no longer always-open and cramped.
+- Expanded panel: large rounded **swatch cards** (role + hex), a wheel **editor that
+  opens only when you tap a swatch**, and a tidy controls row with a gradient
+  Shuffle, styled Harmony select, segmented Dark/Light, preset chips, an
+  **Adapt-gallery toggle switch**, Copy tokens, and Reset.
+- Fixed: the editor panel previously ignored its `hidden` attribute (author
+  `display:flex` beat the UA `[hidden]` rule) so it always showed; now hidden
+  until a swatch is selected.
+
 ## [0.14.0] — 2026-05-31
 
 ### Added — Standalone Palette bar (coolors-style) that re-skins the whole gallery

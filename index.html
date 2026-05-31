@@ -41,39 +41,46 @@
   </div>
 
   <div class="palettebar" id="palettebar" aria-label="Project color palette">
-    <div class="pb__lead">
-      <span class="pb__title">🎨 Palette</span>
-      <span class="pb__hint">tap a swatch to edit · 🔒 lock to keep · 🎲 shuffle for ideas — the whole gallery adapts</span>
+    <div class="pb__bar">
+      <button class="pb__toggle" id="pb-toggle" type="button" aria-expanded="false" aria-controls="pb-panel">
+        <span class="pb__brand"><span class="pb__icon">🎨</span> Palette</span>
+        <span class="pb__preview" id="pb-preview" aria-hidden="true"></span>
+        <span class="pb__cta" id="pb-cta">Customize<svg class="pb__chev" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M7.4 8.6 12 13.2l4.6-4.6L18 10l-6 6-6-6z"/></svg></span>
+      </button>
+      <button class="pb__quick" id="pb-quick-shuffle" type="button" title="Shuffle (Spacebar)" aria-label="Shuffle palette">🎲</button>
     </div>
-    <div class="pb__swatches" id="pb-swatches"></div>
-    <div class="pb__controls">
-      <button id="pb-shuffle" class="pb__btn pb__btn--primary" type="button" title="Shuffle (Spacebar)">🎲 Shuffle</button>
-      <label class="pb__field">Harmony
-        <select id="pb-harmony">
-          <option value="complementary">Complementary</option>
-          <option value="analogous">Analogous</option>
-          <option value="triadic">Triadic</option>
-          <option value="monochrome">Monochrome</option>
-        </select>
-      </label>
-      <div class="pb__mode" id="pb-mode" role="group" aria-label="UI mode">
-        <button type="button" data-mode="dark" class="is-on">Dark</button><button type="button" data-mode="light">Light</button>
+    <div class="pb__panel" id="pb-panel" hidden>
+      <div class="pb__swatches" id="pb-swatches"></div>
+      <div class="pb__editor" id="pb-editor" hidden>
+        <div class="wheel" id="pb-wheel" role="slider" tabindex="0" aria-label="Color wheel"><span class="wheel__mark" id="pb-mark"></span></div>
+        <div class="pb__editopts">
+          <span class="pb__editrole" id="pb-editrole">Accent</span>
+          <label class="pb__field">Lightness <input type="range" id="pb-light" min="6" max="96" value="58" /></label>
+          <label class="pb__field">Hex <input type="text" id="pb-hex" class="tune__hex" /></label>
+          <button id="pb-editdone" class="pb__btn" type="button">Done</button>
+        </div>
       </div>
-      <div class="pb__presets" id="pb-presets" aria-label="Preset palettes"></div>
-      <label class="pb__adapt"><input type="checkbox" id="pb-adapt" /> Adapt gallery</label>
-      <button id="pb-copy" class="pb__btn" type="button">📋 Copy tokens</button>
-      <button id="pb-reset" class="pb__btn pb__btn--ghost" type="button">Reset</button>
-    </div>
-    <div class="pb__editor" id="pb-editor" hidden>
-      <div class="wheel" id="pb-wheel" role="slider" tabindex="0" aria-label="Color wheel"><span class="wheel__mark" id="pb-mark"></span></div>
-      <div class="pb__editopts">
-        <span class="pb__editrole" id="pb-editrole">Accent</span>
-        <label class="pb__field">Lightness <input type="range" id="pb-light" min="6" max="96" value="58" /></label>
-        <label class="pb__field">Hex <input type="text" id="pb-hex" class="tune__hex" /></label>
-        <button id="pb-editdone" class="pb__btn" type="button">Done</button>
+      <div class="pb__controls">
+        <button id="pb-shuffle" class="pb__btn pb__btn--primary" type="button" title="Shuffle (Spacebar)">🎲 Shuffle</button>
+        <label class="pb__field">Harmony
+          <select id="pb-harmony">
+            <option value="complementary">Complementary</option>
+            <option value="analogous">Analogous</option>
+            <option value="triadic">Triadic</option>
+            <option value="monochrome">Monochrome</option>
+          </select>
+        </label>
+        <div class="pb__mode" id="pb-mode" role="group" aria-label="UI mode">
+          <button type="button" data-mode="dark" class="is-on">Dark</button><button type="button" data-mode="light">Light</button>
+        </div>
+        <div class="pb__presets" id="pb-presets" aria-label="Preset palettes"></div>
+        <label class="pb__adapt"><input type="checkbox" id="pb-adapt" /> <span class="pb__switch"></span> Adapt gallery</label>
+        <span class="pb__spacer"></span>
+        <button id="pb-copy" class="pb__btn" type="button">📋 Copy tokens</button>
+        <button id="pb-reset" class="pb__btn pb__btn--ghost" type="button">Reset</button>
       </div>
+      <p id="pb-status" class="pb__statusline" aria-live="polite"></p>
     </div>
-    <p id="pb-status" class="pb__statusline" aria-live="polite"></p>
   </div>
 
   <div class="layout">

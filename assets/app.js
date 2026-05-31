@@ -433,6 +433,8 @@
         saveBrand(); renderPaletteBar();
       });
     });
+    var prev = $("#pb-preview");
+    if (prev) prev.innerHTML = PAL_ROLES.map(function (r) { return '<i style="background:' + esc(brand[r.key] || r.def) + '"></i>'; }).join("");
     var ad = $("#pb-adapt"); if (ad) ad.checked = !!brand.on;
     renderBundlePalette();
   }
@@ -513,6 +515,16 @@
       ph.appendChild(b);
     });
     $("#pb-shuffle").addEventListener("click", shuffle);
+    $("#pb-quick-shuffle").addEventListener("click", shuffle);
+    // collapsed by default — expand the panel on click
+    var toggle = $("#pb-toggle"), panel = $("#pb-panel");
+    toggle.addEventListener("click", function () {
+      var open = panel.hidden;
+      panel.hidden = !open;
+      toggle.setAttribute("aria-expanded", String(open));
+      $("#palettebar").classList.toggle("is-open", open);
+      var cta = $("#pb-cta"); if (cta && cta.firstChild) cta.firstChild.nodeValue = open ? "Close" : "Customize";
+    });
     $("#pb-harmony").addEventListener("change", function () { brand.harmony = this.value; regenFromAccent(); });
     $$("#pb-mode button").forEach(function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); regenFromAccent(); }); });
     $("#pb-adapt").addEventListener("change", function () { brand.on = this.checked; saveBrand(); applyBrandEverywhere(); renderSourcePane(); renderBundlePalette(); });
