@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wave Bars Loader</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "wave-bars",
+    "title": "Wave Bars Loader",
+    "summary": "A row of bars that rise and fall in a travelling wave — an audio-equalizer-style loading / 'now playing' indicator.",
+    "description": "Several bars scale on the Y axis with staggered delays so a wave ripples across them. Doubles as a music 'now playing' indicator and a lightweight loading state.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "audio", "animation"],
+    "tags": ["equalizer", "bars", "wave", "audio", "loader", "now-playing"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "One keyframe reused with per-bar animation-delay; transform: scaleY only — GPU-friendly. Pure CSS.",
+    "accessibility_notes": "As a loader, wrap with role='status' + a visually-hidden 'Loading…' label; as a decorative 'now playing' indicator, mark aria-hidden. Stops to a static row under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Bar color/gradient", "default": "violet→teal" },
+      { "name": "count / --speed", "description": "Number of bars and cycle time", "default": "5 / 1s" }
+    ],
+    "variations": ["Mirror vertically for a symmetric EQ", "Color bars by index", "Randomize delays for organic motion"],
+    "related": ["dots-bounce", "orbit-loader", "podcast-show"],
+    "ai_usage": "Use as a loading indicator or a music 'now playing' badge. Render N bars; animate transform: scaleY with one keyframe and stagger each bar's animation-delay so a wave travels across. For loading, wrap in role='status' with a hidden label; for decoration, aria-hide. Freeze to a static row under prefers-reduced-motion."
+  }
+  </script>
+  <style>
+    :root{--speed:1s;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12}
+    .eq{display:flex;align-items:center;gap:7px;height:70px}
+    .eq span{width:9px;height:100%;border-radius:6px;background:linear-gradient(180deg,#7c5cff,#2dd4bf);transform:scaleY(.2);transform-origin:center;
+      animation:wave var(--speed) ease-in-out infinite}
+    .eq span:nth-child(1){animation-delay:0s}.eq span:nth-child(2){animation-delay:.12s}.eq span:nth-child(3){animation-delay:.24s}
+    .eq span:nth-child(4){animation-delay:.36s}.eq span:nth-child(5){animation-delay:.48s}.eq span:nth-child(6){animation-delay:.6s}.eq span:nth-child(7){animation-delay:.72s}
+    @keyframes wave{0%,100%{transform:scaleY(.2)}50%{transform:scaleY(1)}}
+    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    @media(prefers-reduced-motion:reduce){.eq span{animation:none;transform:scaleY(.6)}}
+  </style>
+</head>
+<body>
+  <div role="status">
+    <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <span class="sr">Loading…</span>
+  </div>
+</body>
+</html>

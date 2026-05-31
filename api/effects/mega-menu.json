@@ -1,0 +1,55 @@
+{
+  "id": "mega-menu",
+  "title": "Mega Menu",
+  "summary": "A full-width dropdown panel with multiple columns of grouped links and a featured promo — the navigation for content-heavy sites.",
+  "description": "Hovering (or focusing) a top-level nav item opens a wide panel organized into titled columns, plus a highlighted feature card. Reveals smoothly and is keyboard-accessible — the standard pattern for large product/marketing sites.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu",
+    "dropdown"
+  ],
+  "tags": [
+    "mega-menu",
+    "dropdown",
+    "columns",
+    "header",
+    "navigation"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Opacity/transform reveal on a single panel; a tiny JS toggle for focus/escape. No libraries.",
+  "accessibility_notes": "Trigger is a real button with aria-expanded; opens on hover AND keyboard focus; Escape closes; links are reachable in order. Panel hidden from AT when closed.",
+  "customization": [
+    {
+      "name": "columns",
+      "description": "Grouped link sections",
+      "default": "3 + feature card"
+    },
+    {
+      "name": "--accent",
+      "description": "Headings/links accent",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Multiple mega-menu triggers in a bar",
+    "Icons per link",
+    "Two-row layout with recent posts"
+  ],
+  "related": [
+    "dropdown-menu",
+    "command-palette",
+    "sliding-tab-indicator"
+  ],
+  "ai_usage": "Use for content-heavy product/marketing headers. A nav button with aria-expanded toggles a full-width panel of titled link columns + a feature card; open on hover and on focus-within, close on Escape and outside click. Keep links in logical DOM order, hide the panel from assistive tech when closed, and ensure it's fully keyboard-operable (not hover-only).",
+  "path": "effects/navigation-menus/mega-menu.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Mega Menu</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"mega-menu\",\n    \"title\": \"Mega Menu\",\n    \"summary\": \"A full-width dropdown panel with multiple columns of grouped links and a featured promo — the navigation for content-heavy sites.\",\n    \"description\": \"Hovering (or focusing) a top-level nav item opens a wide panel organized into titled columns, plus a highlighted feature card. Reveals smoothly and is keyboard-accessible — the standard pattern for large product/marketing sites.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\", \"dropdown\"],\n    \"tags\": [\"mega-menu\", \"dropdown\", \"columns\", \"header\", \"navigation\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Opacity/transform reveal on a single panel; a tiny JS toggle for focus/escape. No libraries.\",\n    \"accessibility_notes\": \"Trigger is a real button with aria-expanded; opens on hover AND keyboard focus; Escape closes; links are reachable in order. Panel hidden from AT when closed.\",\n    \"customization\": [\n      { \"name\": \"columns\", \"description\": \"Grouped link sections\", \"default\": \"3 + feature card\" },\n      { \"name\": \"--accent\", \"description\": \"Headings/links accent\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Multiple mega-menu triggers in a bar\", \"Icons per link\", \"Two-row layout with recent posts\"],\n    \"related\": [\"dropdown-menu\", \"command-palette\", \"sliding-tab-indicator\"],\n    \"ai_usage\": \"Use for content-heavy product/marketing headers. A nav button with aria-expanded toggles a full-width panel of titled link columns + a feature card; open on hover and on focus-within, close on Escape and outside click. Keep links in logical DOM order, hide the panel from assistive tech when closed, and ensure it's fully keyboard-operable (not hover-only).\"\n  }\n  </script>\n  <style>\n    :root{--bg:#0b0d12;--panel:#12151f;--line:#242a3b;--text:#e8ecf6;--muted:#8b93a7;--accent:#7c5cff;}\n    *{box-sizing:border-box}\n    html,body{margin:0;height:100%}\n    body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif}\n    .bar{display:flex;align-items:center;gap:1.5rem;height:62px;padding:0 1.4rem;border-bottom:1px solid var(--line);background:var(--panel)}\n    .brand{font-weight:800}\n    .nav{display:flex;gap:.4rem;margin-left:1rem}\n    .nav .item{position:relative}\n    .nav button{background:none;border:none;color:var(--muted);font:inherit;font-weight:600;padding:.5rem .8rem;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:.3rem}\n    .nav button:hover,.nav .item:focus-within button{color:var(--text);background:rgba(255,255,255,.05)}\n    .nav button .ar{transition:transform .2s}\n    .item:hover button .ar,.item:focus-within button .ar{transform:rotate(180deg)}\n    .panel{position:absolute;top:calc(100% + 10px);left:0;width:620px;max-width:92vw;background:var(--panel);border:1px solid var(--line);\n      border-radius:16px;box-shadow:0 30px 70px rgba(0,0,0,.6);padding:1.4rem;display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:1.4rem;\n      opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s}\n    .item:hover .panel,.item:focus-within .panel{opacity:1;visibility:visible;transform:none}\n    .col h4{margin:0 0 .6rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}\n    .col a{display:block;color:var(--text);text-decoration:none;padding:.4rem 0;font-size:.92rem}\n    .col a:hover{color:var(--accent)}.col a small{display:block;color:var(--muted);font-size:.78rem;font-weight:400}\n    .feature{background:linear-gradient(160deg,rgba(124,92,255,.25),var(--bg));border:1px solid var(--line);border-radius:12px;padding:1rem;text-decoration:none;color:var(--text)}\n    .feature .tag{font-size:.7rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.1em}\n    .feature h5{margin:.3rem 0}.feature p{margin:0;color:var(--muted);font-size:.82rem}\n    .hint{padding:2rem 1.4rem;color:#5b6377;font-size:.9rem}\n    .nav button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}\n  </style>\n</head>\n<body>\n  <header class=\"bar\">\n    <span class=\"brand\">◆ Nimbus</span>\n    <nav class=\"nav\">\n      <div class=\"item\">\n        <button aria-expanded=\"false\" aria-haspopup=\"true\" id=\"t1\">Products <span class=\"ar\">▾</span></button>\n        <div class=\"panel\" role=\"menu\" aria-label=\"Products\">\n          <div class=\"col\"><h4>Build</h4>\n            <a href=\"#\" role=\"menuitem\">Editor<small>Design visually</small></a>\n            <a href=\"#\" role=\"menuitem\">CLI<small>Ship from the terminal</small></a>\n            <a href=\"#\" role=\"menuitem\">API<small>Automate anything</small></a>\n          </div>\n          <div class=\"col\"><h4>Scale</h4>\n            <a href=\"#\" role=\"menuitem\">Analytics<small>Realtime insight</small></a>\n            <a href=\"#\" role=\"menuitem\">Edge<small>Global by default</small></a>\n            <a href=\"#\" role=\"menuitem\">Security<small>SOC2-ready</small></a>\n          </div>\n          <a class=\"feature\" href=\"#\" role=\"menuitem\"><span class=\"tag\">New</span><h5>Agents 2.0</h5><p>Build autonomous workflows in plain language.</p></a>\n        </div>\n      </div>\n      <div class=\"item\"><button>Solutions <span class=\"ar\">▾</span></button></div>\n      <div class=\"item\"><button>Pricing</button></div>\n    </nav>\n  </header>\n  <p class=\"hint\">Hover or tab to “Products” to open the mega menu.</p>\n  <script>\n    document.querySelectorAll('.nav .item').forEach(function(item){\n      var btn=item.querySelector('button[aria-expanded]');if(!btn)return;\n      function set(v){btn.setAttribute('aria-expanded',v);}\n      item.addEventListener('pointerenter',function(){set(true)});\n      item.addEventListener('pointerleave',function(){set(false)});\n      item.addEventListener('focusin',function(){set(true)});\n      item.addEventListener('focusout',function(){if(!item.contains(document.activeElement))set(false)});\n    });\n    document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('[aria-expanded]').forEach(function(b){b.setAttribute('aria-expanded','false');b.blur();});}});\n  </script>\n</body>\n</html>\n"
+}

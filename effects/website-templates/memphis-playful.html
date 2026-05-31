@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Memphis Style — Playful Brand</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "memphis-playful",
+  "title": "Memphis Style — Playful Brand",
+  "summary": "An 80s-Memphis brand page: primary colors on cream, scattered geometric confetti (squiggles, circles, triangles, zig-zags) with bold black outlines.",
+  "description": "The Memphis Group aesthetic — bold primaries, black outlines, and a confetti of geometric shapes (dots, squiggles, triangles, arches) floating behind chunky type. Playful and energetic; great for kids' brands, festivals, creative studios, and events.",
+  "theme": "website-templates",
+  "categories": ["template", "brand", "experimental"],
+  "tags": ["memphis", "80s", "geometric", "playful", "primary-colors", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "All shapes are CSS (borders/gradients/clip-paths); a gentle float on a few. No images. Light.",
+  "accessibility_notes": "Decorative shapes are aria-hidden; text keeps strong contrast on solid blocks; real buttons/links with focus-visible. Float stops under reduced-motion.",
+  "customization": [
+    { "name": "--red/--blue/--yellow", "description": "Memphis primaries", "default": "coral/cobalt/lemon" },
+    { "name": "shape positions", "description": "Scatter of confetti", "default": "edit markup" }
+  ],
+  "variations": ["Pastel-Memphis palette", "Add terrazzo speckle texture", "Squiggle dividers between sections"],
+  "related": ["dopamine-brand", "neubrutalist-landing", "anti-design"],
+  "ai_usage": "Use for playful brands, kids, festivals, and creative studios. The recipe: cream canvas, bold primaries, thick black outlines, and a scatter of geometric 'confetti' (dots, squiggles, triangles, arches) behind chunky type — built as CSS shapes. Mark shapes aria-hidden, keep text on solid blocks for contrast, and stop the float under reduced motion."
+}
+</script>
+<style>
+  :root{--cream:#fdf6e3;--ink:#15140f;--red:#ff5a5f;--blue:#3a5bff;--yellow:#ffd23f;--teal:#2ec4b6;--pink:#ff6ec7;}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:"Poppins","Trebuchet MS",system-ui,sans-serif;line-height:1.5;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 1.4rem;position:relative;z-index:2}
+  nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{font-weight:900;font-size:1.5rem;letter-spacing:-.02em}
+  .links{display:flex;gap:1.2rem;align-items:center;font-weight:700}
+  .btn{display:inline-block;background:var(--ink);color:var(--yellow);border:3px solid var(--ink);border-radius:999px;padding:.6rem 1.3rem;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--red);transition:transform .12s,box-shadow .12s}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--red)}
+  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--red)}
+  .btn.blue{box-shadow:4px 4px 0 var(--blue)}.btn.blue:hover{box-shadow:6px 6px 0 var(--blue)}
+  a:focus-visible,.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  .hero{position:relative;text-align:center;padding:4rem 0 5rem}
+  h1{font-size:clamp(2.8rem,9vw,6rem);font-weight:900;letter-spacing:-.03em;line-height:.95;margin:0 0 1rem}
+  h1 .r{color:var(--red)}h1 .b{color:var(--blue)}h1 .y{background:var(--yellow);padding:0 .12em;border:3px solid var(--ink);display:inline-block;transform:rotate(-2deg)}
+  .hero p{font-size:1.25rem;font-weight:600;max-width:34ch;margin:0 auto 1.8rem}
+  .ctas{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+  /* memphis shapes */
+  .shape{position:absolute;z-index:0;border:3px solid var(--ink)}
+  .dot{border-radius:50%}
+  .s-circle{width:70px;height:70px;background:var(--yellow);border-radius:50%;left:6%;top:18%;animation:bob 6s ease-in-out infinite}
+  .s-tri{width:0;height:0;border-left:34px solid transparent;border-right:34px solid transparent;border-bottom:60px solid var(--red);border-top:none;right:9%;top:14%;animation:spin 18s linear infinite}
+  .s-arch{width:90px;height:45px;border-bottom:none;border-radius:90px 90px 0 0;background:var(--blue);left:12%;bottom:16%;animation:bob 7s ease-in-out infinite .5s}
+  .s-zig{right:12%;bottom:18%;width:90px;height:24px;border:none;background:
+    repeating-linear-gradient(135deg,var(--teal) 0 8px,transparent 8px 16px);border-top:3px solid var(--ink);transform:rotate(-8deg)}
+  .s-dotgrid{left:46%;top:10%;width:60px;height:60px;border:none;background:radial-gradient(var(--ink) 2px,transparent 2px);background-size:14px 14px}
+  .s-sq{width:46px;height:46px;background:var(--pink);right:30%;bottom:8%;transform:rotate(12deg)}
+  @keyframes bob{50%{transform:translateY(-16px)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  section{padding:3.5rem 0;position:relative}
+  h2{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-.02em;text-align:center;margin:0 0 2rem}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .card{border:3px solid var(--ink);border-radius:20px;padding:1.6rem;box-shadow:6px 6px 0 var(--ink);background:#fff}
+  .card:nth-child(1){background:#fff}.card:nth-child(2){background:var(--yellow)}.card:nth-child(3){background:var(--teal);color:#04211d}
+  .card .ic{font-size:2rem}.card h3{margin:.4rem 0 .3rem;font-weight:900}.card p{margin:0;font-weight:600}
+  .band{background:var(--blue);color:#fff;border:3px solid var(--ink);border-radius:28px;padding:3rem 1.5rem;text-align:center;box-shadow:8px 8px 0 var(--ink)}
+  .band h2{color:#fff}
+  footer{text-align:center;padding:2.5rem 0 3rem;font-weight:700}
+  .reveal{opacity:0;transform:translateY(22px) rotate(-1deg);transition:opacity .6s,transform .6s cubic-bezier(.2,.9,.3,1)}.reveal.in{opacity:1;transform:none}
+  @media(max-width:820px){.cards{grid-template-columns:1fr}.links a:not(.btn){display:none}.shape{display:none}}
+  @media(prefers-reduced-motion:reduce){.s-circle,.s-arch,.s-tri{animation:none}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="brand">◑ WIGGLE</div>
+      <div class="links"><a href="#">Work</a><a href="#">Play</a><a href="#">About</a><a class="btn blue" href="#">Say hi</a></div>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <span class="shape s-circle dot" aria-hidden="true"></span>
+    <span class="shape s-tri" aria-hidden="true"></span>
+    <span class="shape s-arch" aria-hidden="true"></span>
+    <span class="shape s-zig" aria-hidden="true"></span>
+    <span class="shape s-dotgrid" aria-hidden="true"></span>
+    <span class="shape s-sq" aria-hidden="true"></span>
+    <div class="wrap">
+      <h1>Make it <span class="r">weird</span>,<br>make it <span class="y">work</span>, <span class="b">repeat.</span></h1>
+      <p>A creative studio for brands that refuse to be boring.</p>
+      <div class="ctas"><a class="btn" href="#">See our play →</a><a class="btn blue" href="#">Start a project</a></div>
+    </div>
+  </header>
+
+  <section class="wrap">
+    <h2 class="reveal">What we make</h2>
+    <div class="cards">
+      <div class="card reveal"><div class="ic">🎨</div><h3>Identity</h3><p>Logos and systems with serious personality.</p></div>
+      <div class="card reveal"><div class="ic">🕹️</div><h3>Web &amp; motion</h3><p>Sites that wiggle, bounce, and convert.</p></div>
+      <div class="card reveal"><div class="ic">📦</div><h3>Packaging</h3><p>Shelf-stopping, shareable, unmistakable.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap"><div class="band reveal">
+    <h2>Let's make something loud.</h2>
+    <p style="font-weight:600;max-width:38ch;margin:0 auto 1.4rem">We take on a few wild projects a season. Yours could be next.</p>
+    <a class="btn" href="#">Book a chat →</a>
+  </div></section>
+
+  <footer>© <span id="yr"></span> WIGGLE Studio · made with too much coffee &amp; primary colors</footer>
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  </script>
+</body>
+</html>

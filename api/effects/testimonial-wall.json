@@ -1,0 +1,57 @@
+{
+  "id": "testimonial-wall",
+  "title": "Testimonial Wall — Social Proof",
+  "summary": "A social-proof page: a headline stat, a logo strip, and a masonry wall of testimonial cards with ratings, avatars, and a featured quote.",
+  "description": "The dedicated proof/wall-of-love page — an aggregate rating headline, trusted-by logos, one large featured testimonial, and a masonry grid of varied-length quote cards with star ratings and author chips. Built to convert skeptics.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "saas",
+    "social-proof"
+  ],
+  "tags": [
+    "testimonials",
+    "social-proof",
+    "reviews",
+    "masonry",
+    "wall-of-love",
+    "full-page"
+  ],
+  "tech": [
+    "html",
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (CSS columns for masonry).",
+  "performance_notes": "CSS multi-column masonry + reveals. No images (avatar gradients). Light.",
+  "accessibility_notes": "Testimonials are <figure>/<blockquote> with <figcaption>; star ratings include text (e.g. '5 out of 5'); logos are labeled; focus-visible. Reduced-motion safe.",
+  "customization": [
+    {
+      "name": "--accent",
+      "description": "Brand accent + stars",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "quotes",
+      "description": "Testimonial cards",
+      "default": "edit markup"
+    }
+  ],
+  "variations": [
+    "Filter by role/industry",
+    "Marquee logo row",
+    "Pull tweets/cards from an API"
+  ],
+  "related": [
+    "pricing-page",
+    "saas-landing",
+    "aurora-saas"
+  ],
+  "ai_usage": "Use as a standalone proof page or a section. Lead with an aggregate rating + trusted-by logos, then a masonry wall of testimonial <figure>s (blockquote + figcaption with avatar/name/role) and star ratings that include text alternatives. Use CSS columns for the masonry, keep it real semantic quotes, and recolor via --accent.",
+  "path": "effects/website-templates/testimonial-wall.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>Testimonial Wall — Social Proof</title>\n<script type=\"application/json\" id=\"effect-meta\">\n{\n  \"id\": \"testimonial-wall\",\n  \"title\": \"Testimonial Wall — Social Proof\",\n  \"summary\": \"A social-proof page: a headline stat, a logo strip, and a masonry wall of testimonial cards with ratings, avatars, and a featured quote.\",\n  \"description\": \"The dedicated proof/wall-of-love page — an aggregate rating headline, trusted-by logos, one large featured testimonial, and a masonry grid of varied-length quote cards with star ratings and author chips. Built to convert skeptics.\",\n  \"theme\": \"website-templates\",\n  \"categories\": [\"template\", \"saas\", \"social-proof\"],\n  \"tags\": [\"testimonials\", \"social-proof\", \"reviews\", \"masonry\", \"wall-of-love\", \"full-page\"],\n  \"tech\": [\"html\", \"css\", \"js\"],\n  \"era\": \"2020s\",\n  \"difficulty\": \"beginner\",\n  \"dependencies\": [],\n  \"browser_support\": \"All modern browsers (CSS columns for masonry).\",\n  \"performance_notes\": \"CSS multi-column masonry + reveals. No images (avatar gradients). Light.\",\n  \"accessibility_notes\": \"Testimonials are <figure>/<blockquote> with <figcaption>; star ratings include text (e.g. '5 out of 5'); logos are labeled; focus-visible. Reduced-motion safe.\",\n  \"customization\": [\n    { \"name\": \"--accent\", \"description\": \"Brand accent + stars\", \"default\": \"#7c5cff\" },\n    { \"name\": \"quotes\", \"description\": \"Testimonial cards\", \"default\": \"edit markup\" }\n  ],\n  \"variations\": [\"Filter by role/industry\", \"Marquee logo row\", \"Pull tweets/cards from an API\"],\n  \"related\": [\"pricing-page\", \"saas-landing\", \"aurora-saas\"],\n  \"ai_usage\": \"Use as a standalone proof page or a section. Lead with an aggregate rating + trusted-by logos, then a masonry wall of testimonial <figure>s (blockquote + figcaption with avatar/name/role) and star ratings that include text alternatives. Use CSS columns for the masonry, keep it real semantic quotes, and recolor via --accent.\"\n}\n</script>\n<style>\n  :root{--bg:#0b0d12;--surface:#12151f;--line:#242a3b;--text:#e8ecf6;--muted:#8b93a7;--accent:#7c5cff;--star:#fbbf24;--r:16px;}\n  *{box-sizing:border-box}html{scroll-behavior:smooth}\n  body{margin:0;background:var(--bg);color:var(--text);font-family:\"Inter\",system-ui,sans-serif;line-height:1.6}\n  a{color:inherit;text-decoration:none}\n  .wrap{max-width:1080px;margin:0 auto;padding:0 1.4rem}\n  nav{display:flex;align-items:center;justify-content:space-between;height:64px}\n  .brand{font-weight:800}.btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:.55rem 1.1rem;font-weight:700;cursor:pointer}\n  .head{text-align:center;padding:3.5rem 0 1rem}\n  .stars-big{color:var(--star);font-size:1.3rem;letter-spacing:2px}\n  .head h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-.02em;margin:.6rem 0 .3rem}\n  .head p{color:var(--muted);font-size:1.1rem}\n  .logos{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;opacity:.6;font-weight:800;color:var(--muted);padding:1.6rem 0 2rem}\n  .feature{background:linear-gradient(160deg,rgba(124,92,255,.18),var(--surface));border:1px solid var(--line);border-radius:20px;padding:2rem;text-align:center;max-width:720px;margin:0 auto 2rem}\n  .feature blockquote{margin:0;font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:600;line-height:1.4}\n  .feature .who{display:flex;gap:.7rem;align-items:center;justify-content:center;margin-top:1.2rem;color:var(--muted)}\n  .av{width:42px;height:42px;border-radius:50%}\n  .wall{columns:3;column-gap:1.1rem;padding-bottom:3rem}\n  .card{break-inside:avoid;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem;margin-bottom:1.1rem}\n  .card .rate{color:var(--star);font-size:.9rem;letter-spacing:1px}\n  .card blockquote{margin:.5rem 0 1rem;font-size:.98rem}\n  .card figcaption{display:flex;gap:.6rem;align-items:center;color:var(--muted);font-size:.85rem}\n  .card figcaption b{color:var(--text);display:block}\n  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}\n  footer{border-top:1px solid var(--line);color:var(--muted);text-align:center;padding:2.2rem 0;font-size:.9rem}\n  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s ease}.reveal.in{opacity:1;transform:none}\n  @media(max-width:860px){.wall{columns:2}}@media(max-width:560px){.wall{columns:1}}\n  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}\n</style>\n</head>\n<body>\n  <div class=\"wrap\">\n    <nav><div class=\"brand\">◆ Nimbus</div><a class=\"btn\" href=\"#\">Start free</a></nav>\n    <header class=\"head\">\n      <div class=\"stars-big\" aria-hidden=\"true\">★★★★★</div>\n      <h1>Loved by 12,000+ teams</h1>\n      <p>4.9 / 5 average across 3,400 reviews <span class=\"sr\">— rated 4.9 out of 5</span></p>\n    </header>\n    <div class=\"logos\"><span>ACME</span><span>Globex</span><span>Vertex</span><span>Initech</span><span>Hooli</span><span>Stark</span></div>\n\n    <figure class=\"feature reveal\">\n      <div class=\"stars-big\" aria-hidden=\"true\">★★★★★</div>\n      <blockquote>“We replaced four tools with Nimbus and shipped our roadmap a quarter early. It's the rare product the whole team actually fights to use.”</blockquote>\n      <figcaption class=\"who\"><span class=\"av\" style=\"background:linear-gradient(135deg,#7c5cff,#22d3ee)\"></span><span><b style=\"color:var(--text)\">Priya Nair</b> · VP Engineering, Vertex</span></figcaption>\n    </figure>\n\n    <div class=\"wall\">\n      <figure class=\"card reveal\"><div class=\"rate\" aria-label=\"5 out of 5\">★★★★★</div><blockquote>Setup took ten minutes and paid for itself in a week.</blockquote><figcaption><span class=\"av\" style=\"background:linear-gradient(135deg,#ff6ec7,#ffb454)\"></span><span><b>Sam Lee</b>Founder, Drift</span></figcaption></figure>\n      <figure class=\"card reveal\"><div class=\"rate\" aria-label=\"5 out of 5\">★★★★★</div><blockquote>The analytics alone are worth it. We finally see what's happening in real time, and the team rallied around the dashboards instantly.</blockquote><figcaption><span class=\"av\" style=\"background:linear-gradient(135deg,#34d399,#0ea5e9)\"></span><span><b>Mara Cho</b>Head of Growth</span></figcaption></figure>\n      <figure class=\"card reveal\"><div class=\"rate\" aria-label=\"5 out of 5\">★★★★★</div><blockquote>Support replies in minutes, not days.</blockquote><figcaption><span class=\"av\" style=\"background:linear-gradient(135deg,#a78bff,#7c5cff)\"></span><span><b>Theo Ruiz</b>CTO, Relay</span></figcaption></figure>\n      <figure class=\"card reveal\"><div class=\"rate\" aria-label=\"5 out of 5\">★★★★★</div><blockquote>Honestly the smoothest migration we've ever done — zero downtime and our data just appeared.</blockquote><figcaption><span class=\"av\" style=\"background:linear-gradient(135deg,#fb7185,#f97316)\"></span><span><b>Nora Vance</b>Ops Lead</span></figcaption></figure>\n      <figure class=\"card reveal\"><div class=\"rate\" aria-label=\"5 out of 5\">★★★★★</div><blockquote>It feels like it was built by people who actually do the work.</blockquote><figcaption><span class=\"av\" style=\"background:linear-gradient(135deg,#2dd4bf,#7c5cff)\"></span><span><b>Kojo Mensah</b>PM, Stark</span></figcaption></figure>\n      <figure class=\"card reveal\"><div class=\"rate\" aria-label=\"5 out of 5\">★★★★★</div><blockquote>Our NPS jumped 18 points the quarter after we switched. The team loves it and so do our customers.</blockquote><figcaption><span class=\"av\" style=\"background:linear-gradient(135deg,#fbbf24,#f472b6)\"></span><span><b>Aria Lund</b>VP Product</span></figcaption></figure>\n    </div>\n\n    <footer>© <span id=\"yr\"></span> Nimbus, Inc. · Join 12,000+ happy teams.</footer>\n  </div>\n  <script>\n    document.getElementById('yr').textContent=new Date().getFullYear();\n    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});\n    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Stroke-to-Fill Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-stroke-text",
+    "title": "SVG Stroke-to-Fill Text",
+    "summary": "Big SVG text writes itself as an outline (stroke), then floods with a gradient fill — a premium headline/intro reveal.",
+    "description": "SVG <text> with a gradient stroke animates its stroke-dashoffset so the letters appear hand-written, then a gradient fill fades in. The outline-then-fill technique scaled to a wordmark or hero headline.",
+    "theme": "svg-effects",
+    "categories": ["svg", "text", "animation"],
+    "tags": ["svg", "text", "stroke", "outline", "fill", "draw", "headline"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (SVG text stroke + dasharray).",
+    "performance_notes": "stroke-dashoffset draw + a fill-opacity fade. One-shot then static.",
+    "accessibility_notes": "Give the <svg> role='img' and an <title> with the words so it has an accessible name. Show the filled text immediately under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c1/--c2", "description": "Stroke & fill gradient", "default": "violet/teal" },
+      { "name": "dash length", "description": "Tune to glyph perimeter", "default": "per font/size" }
+    ],
+    "variations": ["Outline-only (skip the fill)", "Loop as an attention loader", "Draw on scroll into view"],
+    "related": ["svg-line-draw", "svg-animated-logo", "outline-text"],
+    "ai_usage": "Use for hero wordmarks and intros. Render SVG <text> with fill:none and a gradient stroke; set stroke-dasharray large and animate stroke-dashoffset to 0 to 'write' it, then transition fill-opacity 0→1 (delayed) for the flood. Add role='img' + <title> for a11y, tune dasharray to the glyph perimeter, and show final state instantly under reduced motion."
+  }
+  </script>
+  <style>
+    :root{--c1:#7c5cff;--c2:#2dd4bf;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12}
+    svg{width:min(90vw,640px)}
+    .t{font-family:"Arial Black",Helvetica,sans-serif;font-weight:900;font-size:96px;letter-spacing:-2px;
+      fill:url(#fill);fill-opacity:0;stroke:url(#stroke);stroke-width:1.4;
+      stroke-dasharray:1100;stroke-dashoffset:1100;animation:draw 2s ease forwards}
+    .fill{animation:fillin .8s ease 1.6s forwards}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    @keyframes fillin{to{fill-opacity:1}}
+    @media(prefers-reduced-motion:reduce){.t{animation:none;stroke-dashoffset:0;fill-opacity:1}}
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 640 140" role="img"><title>CREATE</title>
+    <defs>
+      <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#2dd4bf"/></linearGradient>
+      <linearGradient id="fill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#2dd4bf"/></linearGradient>
+    </defs>
+    <text class="t fill" x="320" y="104" text-anchor="middle">CREATE</text>
+  </svg>
+</body>
+</html>

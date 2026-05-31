@@ -1,0 +1,56 @@
+{
+  "id": "tag-input",
+  "title": "Tag / Chips Input",
+  "summary": "Type and press Enter (or comma) to add a chip; click ✕ or press Backspace to remove — the multi-value input for tags, recipients, and filters.",
+  "description": "An input that converts entries into removable chips: Enter/comma commits a tag, Backspace on an empty field deletes the last one, duplicates are ignored, and each chip has a remove button. Used for tags, email recipients, skills, and filters.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input",
+    "interaction"
+  ],
+  "tags": [
+    "tags",
+    "chips",
+    "tokens",
+    "multi-value",
+    "input",
+    "2026-trend"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "DOM updates per add/remove; trivial.",
+  "accessibility_notes": "The container is labeled; each chip's remove control is a real button with an explicit label ('Remove X'); additions are announced via aria-live; focus stays in the text field. Keyboard: Enter/comma add, Backspace removes last.",
+  "customization": [
+    {
+      "name": "--accent",
+      "description": "Chip + focus color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "separators",
+      "description": "Keys that commit a tag",
+      "default": "Enter, comma"
+    }
+  ],
+  "variations": [
+    "Autocomplete suggestions",
+    "Max-tags limit",
+    "Validate emails before adding"
+  ],
+  "related": [
+    "floating-label-input",
+    "otp-input",
+    "custom-range-slider"
+  ],
+  "ai_usage": "Use for tags, email recipients, skills, and filter inputs. Commit a chip on Enter/comma, dedupe, remove the last on Backspace when the field is empty, and give each chip a labeled ✕ button. Wrap in a labeled container, announce changes via aria-live, keep focus in the text input, and store values in a hidden field for form submit.",
+  "path": "effects/forms-inputs/tag-input.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tag / Chips Input</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"tag-input\",\n    \"title\": \"Tag / Chips Input\",\n    \"summary\": \"Type and press Enter (or comma) to add a chip; click ✕ or press Backspace to remove — the multi-value input for tags, recipients, and filters.\",\n    \"description\": \"An input that converts entries into removable chips: Enter/comma commits a tag, Backspace on an empty field deletes the last one, duplicates are ignored, and each chip has a remove button. Used for tags, email recipients, skills, and filters.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\", \"interaction\"],\n    \"tags\": [\"tags\", \"chips\", \"tokens\", \"multi-value\", \"input\", \"2026-trend\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"DOM updates per add/remove; trivial.\",\n    \"accessibility_notes\": \"The container is labeled; each chip's remove control is a real button with an explicit label ('Remove X'); additions are announced via aria-live; focus stays in the text field. Keyboard: Enter/comma add, Backspace removes last.\",\n    \"customization\": [\n      { \"name\": \"--accent\", \"description\": \"Chip + focus color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"separators\", \"description\": \"Keys that commit a tag\", \"default\": \"Enter, comma\" }\n    ],\n    \"variations\": [\"Autocomplete suggestions\", \"Max-tags limit\", \"Validate emails before adding\"],\n    \"related\": [\"floating-label-input\", \"otp-input\", \"custom-range-slider\"],\n    \"ai_usage\": \"Use for tags, email recipients, skills, and filter inputs. Commit a chip on Enter/comma, dedupe, remove the last on Backspace when the field is empty, and give each chip a labeled ✕ button. Wrap in a labeled container, announce changes via aria-live, keep focus in the text input, and store values in a hidden field for form submit.\"\n  }\n  </script>\n  <style>\n    :root{--accent:#7c5cff;--bg:#11131b;--line:#2a3040;--text:#e8ecf6;--muted:#8b93a7;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;color:var(--text);font-family:system-ui,sans-serif}\n    .field{width:min(420px,90vw)}\n    label{display:block;font-weight:600;margin-bottom:.5rem}\n    .box{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:.5rem;cursor:text}\n    .box:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px rgba(124,92,255,.2)}\n    .chip{display:inline-flex;align-items:center;gap:.4rem;background:rgba(124,92,255,.18);border:1px solid rgba(124,92,255,.4);color:#cdbcff;\n      border-radius:999px;padding:.25rem .3rem .25rem .7rem;font-size:.88rem}\n    .chip button{background:none;border:none;color:inherit;cursor:pointer;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:.8rem}\n    .chip button:hover{background:rgba(255,255,255,.15)}\n    .box input{flex:1;min-width:80px;border:none;outline:none;background:transparent;color:var(--text);font-size:.95rem;padding:.3rem}\n    .hint{color:var(--muted);font-size:.8rem;margin-top:.5rem}\n    .chip button:focus-visible{outline:2px solid #fff;outline-offset:1px}\n  </style>\n</head>\n<body>\n  <div class=\"field\">\n    <label id=\"lbl\" for=\"tagfield\">Add skills</label>\n    <div class=\"box\" id=\"box\" role=\"group\" aria-labelledby=\"lbl\">\n      <input id=\"tagfield\" type=\"text\" placeholder=\"Type and press Enter…\" autocomplete=\"off\" aria-describedby=\"hint\" />\n    </div>\n    <p class=\"hint\" id=\"hint\">Enter or comma to add · Backspace to remove the last</p>\n    <p class=\"hint\" id=\"live\" role=\"status\" aria-live=\"polite\" style=\"position:absolute;left:-9999px\"></p>\n  </div>\n  <script>\n    var box=document.getElementById('box'),input=document.getElementById('tagfield'),live=document.getElementById('live');\n    var tags=['Design','TypeScript'];\n    function render(){\n      box.querySelectorAll('.chip').forEach(function(c){c.remove();});\n      tags.forEach(function(t){\n        var chip=document.createElement('span');chip.className='chip';\n        chip.innerHTML=t.replace(/</g,'&lt;')+' <button type=\"button\" aria-label=\"Remove '+t.replace(/\"/g,'')+'\">✕</button>';\n        chip.querySelector('button').addEventListener('click',function(){remove(t);});\n        box.insertBefore(chip,input);\n      });\n    }\n    function add(v){v=v.trim();if(!v)return;if(tags.some(function(t){return t.toLowerCase()===v.toLowerCase();})){input.value='';return;}tags.push(v);input.value='';render();live.textContent='Added '+v;input.focus();}\n    function remove(t){tags=tags.filter(function(x){return x!==t;});render();live.textContent='Removed '+t;input.focus();}\n    input.addEventListener('keydown',function(e){\n      if(e.key==='Enter'||e.key===','){e.preventDefault();add(input.value);}\n      else if(e.key==='Backspace'&&input.value===''&&tags.length){remove(tags[tags.length-1]);}\n    });\n    box.addEventListener('click',function(){input.focus();});\n    render();\n  </script>\n</body>\n</html>\n"
+}

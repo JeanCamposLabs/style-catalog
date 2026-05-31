@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image Trail</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "image-trail",
+    "title": "Image Trail",
+    "summary": "Move across the area and a trail of images flings out behind the cursor, each scaling and fading away — the Awwwards hero flourish.",
+    "description": "As the pointer travels, images are spawned at intervals at the cursor position, then animate out (scale + fade), cycling through a set. Creates a playful, kinetic gallery trail beloved by portfolio and studio sites.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "cursor", "gallery"],
+    "tags": ["image-trail", "cursor", "awwwards", "kinetic", "gallery", "2026-trend"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (pointer events).",
+    "performance_notes": "Spawns a capped number of absolutely-positioned elements on a distance threshold (not every event); each removes itself after its animation. transform/opacity only.",
+    "accessibility_notes": "Purely decorative and pointer-driven; underlying content/links stay accessible. Disabled on coarse pointers and under prefers-reduced-motion.",
+    "customization": [
+      { "name": "images", "description": "The image set cycled through", "default": "gradient tiles" },
+      { "name": "threshold", "description": "Min pointer travel before a new image", "default": "60px" }
+    ],
+    "variations": ["Real photos for a portfolio", "Rotate each spawn randomly", "Trail of words instead of images"],
+    "related": ["cursor-text-label", "blob-trail-cursor", "kinetic-portfolio"],
+    "ai_usage": "Use on creative/portfolio hero areas. Track pointer movement; once it has traveled a threshold distance, spawn the next image from a cycling set at the cursor and animate it out (scale down + fade) then remove it. Throttle by distance (not per event), cap concurrent nodes, keep it decorative over accessible content, and disable on touch / reduced-motion."
+  }
+  </script>
+  <style>
+    html,body{height:100%;margin:0;overflow:hidden}
+    body{background:#0b0d12;color:#e8ecf6;font-family:system-ui,sans-serif}
+    .stage{position:fixed;inset:0;display:grid;place-items:center;cursor:crosshair}
+    .stage h1{font-size:clamp(2rem,7vw,4.5rem);font-weight:800;letter-spacing:-.03em;pointer-events:none;z-index:1;text-align:center}
+    .stage .hint{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);color:#5b6377;font-size:.85rem}
+    .trail{position:fixed;width:140px;height:100px;border-radius:14px;pointer-events:none;transform:translate(-50%,-50%);
+      animation:out .8s ease forwards;will-change:transform,opacity}
+    @keyframes out{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.4)}}
+    @media(prefers-reduced-motion:reduce){.stage{cursor:auto}}
+  </style>
+</head>
+<body>
+  <div class="stage" id="stage">
+    <h1>Move your cursor.</h1>
+    <p class="hint">a trail of images follows ✦</p>
+  </div>
+  <script>
+    var stage=document.getElementById('stage');
+    var grads=['linear-gradient(135deg,#7c5cff,#22d3ee)','linear-gradient(135deg,#ff6ec7,#ffb454)','linear-gradient(135deg,#34d399,#0ea5e9)','linear-gradient(135deg,#f472b6,#7c5cff)','linear-gradient(135deg,#fbbf24,#f97316)'];
+    var i=0,lastX=null,lastY=null,THRESH=60;
+    var fine=matchMedia('(pointer:fine)').matches, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(fine && !reduce){
+      stage.addEventListener('pointermove',function(e){
+        if(lastX!==null){var d=Math.hypot(e.clientX-lastX,e.clientY-lastY);if(d<THRESH)return;}
+        lastX=e.clientX;lastY=e.clientY;
+        var el=document.createElement('div');el.className='trail';el.style.left=e.clientX+'px';el.style.top=e.clientY+'px';
+        el.style.backgroundImage=grads[i%grads.length];i++;
+        stage.appendChild(el);
+        el.addEventListener('animationend',function(){el.remove();});
+      });
+    }
+  </script>
+</body>
+</html>

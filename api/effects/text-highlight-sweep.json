@@ -1,0 +1,56 @@
+{
+  "id": "text-highlight-sweep",
+  "title": "Highlighter Sweep",
+  "summary": "A marker-pen highlight sweeps in behind key words when they scroll into view — drawing the eye to the phrase that matters.",
+  "description": "A skewed highlight band animates its width from 0 to full behind emphasized words as they enter the viewport (or on hover), mimicking a highlighter stroke. A favorite editorial / landing emphasis device.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "animation",
+    "emphasis"
+  ],
+  "tags": [
+    "highlight",
+    "marker",
+    "sweep",
+    "emphasis",
+    "scroll",
+    "2026-trend"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "A background-size transition triggered once by IntersectionObserver. transform/size only.",
+  "accessibility_notes": "The word stays normal readable text; the highlight is a decorative background. Reduced-motion shows the highlight already filled (no sweep).",
+  "customization": [
+    {
+      "name": "--marker",
+      "description": "Highlight color",
+      "default": "#fce96a"
+    },
+    {
+      "name": "skew/thickness",
+      "description": "Band angle and height",
+      "default": "slight skew"
+    }
+  ],
+  "variations": [
+    "Underline-only variant",
+    "Multiple colors per phrase",
+    "Sweep on hover instead of scroll"
+  ],
+  "related": [
+    "text-reveal-mask",
+    "svg-squiggle-underline",
+    "gradient-text"
+  ],
+  "ai_usage": "Use to emphasize a key phrase in a headline or paragraph. Wrap the word in a span with a linear-gradient background sized 0% width; when it scrolls into view (IntersectionObserver) transition background-size to 100%. Keep the text color readable over the marker, keep it real text, and show it pre-filled under prefers-reduced-motion.",
+  "path": "effects/text-effects/text-highlight-sweep.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Highlighter Sweep</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"text-highlight-sweep\",\n    \"title\": \"Highlighter Sweep\",\n    \"summary\": \"A marker-pen highlight sweeps in behind key words when they scroll into view — drawing the eye to the phrase that matters.\",\n    \"description\": \"A skewed highlight band animates its width from 0 to full behind emphasized words as they enter the viewport (or on hover), mimicking a highlighter stroke. A favorite editorial / landing emphasis device.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"animation\", \"emphasis\"],\n    \"tags\": [\"highlight\", \"marker\", \"sweep\", \"emphasis\", \"scroll\", \"2026-trend\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"A background-size transition triggered once by IntersectionObserver. transform/size only.\",\n    \"accessibility_notes\": \"The word stays normal readable text; the highlight is a decorative background. Reduced-motion shows the highlight already filled (no sweep).\",\n    \"customization\": [\n      { \"name\": \"--marker\", \"description\": \"Highlight color\", \"default\": \"#fce96a\" },\n      { \"name\": \"skew/thickness\", \"description\": \"Band angle and height\", \"default\": \"slight skew\" }\n    ],\n    \"variations\": [\"Underline-only variant\", \"Multiple colors per phrase\", \"Sweep on hover instead of scroll\"],\n    \"related\": [\"text-reveal-mask\", \"svg-squiggle-underline\", \"gradient-text\"],\n    \"ai_usage\": \"Use to emphasize a key phrase in a headline or paragraph. Wrap the word in a span with a linear-gradient background sized 0% width; when it scrolls into view (IntersectionObserver) transition background-size to 100%. Keep the text color readable over the marker, keep it real text, and show it pre-filled under prefers-reduced-motion.\"\n  }\n  </script>\n  <style>\n    :root{--marker:#fce96a;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;color:#e8ecf6;font-family:Georgia,serif;padding:2rem}\n    p{font-size:clamp(1.6rem,5vw,3rem);line-height:1.6;max-width:18ch;text-align:center;font-weight:600}\n    .hl{position:relative;color:#0b0d12;padding:0 .15em;background-image:linear-gradient(var(--marker),var(--marker));\n      background-repeat:no-repeat;background-position:left center;background-size:0% 78%;\n      transition:background-size .6s cubic-bezier(.5,0,.1,1);transform:skewX(-3deg)}\n    .hl.in{background-size:100% 78%}\n    @media(prefers-reduced-motion:reduce){.hl{transition:none;background-size:100% 78%}}\n  </style>\n</head>\n<body>\n  <p>We don't just build websites — we build <span class=\"hl\">unfair advantages</span>.</p>\n  <script>\n    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('in')},250);io.unobserve(e.target);}})},{threshold:.6});\n    document.querySelectorAll('.hl').forEach(function(el){io.observe(el)});\n  </script>\n</body>\n</html>\n"
+}

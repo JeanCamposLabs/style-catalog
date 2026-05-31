@@ -1,0 +1,57 @@
+{
+  "id": "waitlist-referral",
+  "title": "Waitlist with Referrals",
+  "summary": "A beta waitlist: join with your email, then see your queue position and a referral link to jump the line — the viral pre-launch loop.",
+  "description": "A pre-launch growth page: a focused signup that, on submit, reveals the user's place in line, a shareable referral link with a copy button, and 'invite to move up' incentives. Animated gradient backdrop, single-column focus.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "landing",
+    "pre-launch"
+  ],
+  "tags": [
+    "waitlist",
+    "referral",
+    "beta",
+    "viral",
+    "pre-launch",
+    "full-page"
+  ],
+  "tech": [
+    "html",
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "An animated gradient + a form that swaps to a success state and copies a link. No backend (wire your own).",
+  "accessibility_notes": "Labeled email form, success announced via aria-live, copy button labeled with status, focus moves to the result. Gradient animation stops under reduced-motion.",
+  "customization": [
+    {
+      "name": "--g1/--g2",
+      "description": "Background gradient",
+      "default": "violet / cyan"
+    },
+    {
+      "name": "perks",
+      "description": "Referral incentives",
+      "default": "edit markup"
+    }
+  ],
+  "variations": [
+    "Show a live signup counter",
+    "Leaderboard of top referrers",
+    "Unlock tiers by invites"
+  ],
+  "related": [
+    "coming-soon",
+    "link-in-bio",
+    "animated-gradient"
+  ],
+  "ai_usage": "Use for beta/pre-launch growth. Capture email, then reveal queue position + a unique referral link (copy button) and 'invite N friends to move up' perks. Wire submit + referral params to your backend; announce the result via aria-live, move focus to it, and pause the gradient under reduced motion. The viral loop is the point — make sharing one tap.",
+  "path": "effects/website-templates/waitlist-referral.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>Waitlist with Referrals</title>\n<script type=\"application/json\" id=\"effect-meta\">\n{\n  \"id\": \"waitlist-referral\",\n  \"title\": \"Waitlist with Referrals\",\n  \"summary\": \"A beta waitlist: join with your email, then see your queue position and a referral link to jump the line — the viral pre-launch loop.\",\n  \"description\": \"A pre-launch growth page: a focused signup that, on submit, reveals the user's place in line, a shareable referral link with a copy button, and 'invite to move up' incentives. Animated gradient backdrop, single-column focus.\",\n  \"theme\": \"website-templates\",\n  \"categories\": [\"template\", \"landing\", \"pre-launch\"],\n  \"tags\": [\"waitlist\", \"referral\", \"beta\", \"viral\", \"pre-launch\", \"full-page\"],\n  \"tech\": [\"html\", \"css\", \"js\"],\n  \"era\": \"2020s\",\n  \"difficulty\": \"beginner\",\n  \"dependencies\": [],\n  \"browser_support\": \"All modern browsers.\",\n  \"performance_notes\": \"An animated gradient + a form that swaps to a success state and copies a link. No backend (wire your own).\",\n  \"accessibility_notes\": \"Labeled email form, success announced via aria-live, copy button labeled with status, focus moves to the result. Gradient animation stops under reduced-motion.\",\n  \"customization\": [\n    { \"name\": \"--g1/--g2\", \"description\": \"Background gradient\", \"default\": \"violet / cyan\" },\n    { \"name\": \"perks\", \"description\": \"Referral incentives\", \"default\": \"edit markup\" }\n  ],\n  \"variations\": [\"Show a live signup counter\", \"Leaderboard of top referrers\", \"Unlock tiers by invites\"],\n  \"related\": [\"coming-soon\", \"link-in-bio\", \"animated-gradient\"],\n  \"ai_usage\": \"Use for beta/pre-launch growth. Capture email, then reveal queue position + a unique referral link (copy button) and 'invite N friends to move up' perks. Wire submit + referral params to your backend; announce the result via aria-live, move focus to it, and pause the gradient under reduced motion. The viral loop is the point — make sharing one tap.\"\n}\n</script>\n<style>\n  :root{--g1:#7c5cff;--g2:#22d3ee;--g3:#ff6ec7;--card:rgba(255,255,255,.1);--line:rgba(255,255,255,.22);}\n  *{box-sizing:border-box}\n  body{margin:0;min-height:100vh;color:#fff;font-family:\"Inter\",system-ui,sans-serif;display:grid;place-items:center;padding:2rem;text-align:center;\n    background:linear-gradient(-45deg,var(--g1),var(--g2),var(--g3),var(--g1));background-size:400% 400%;animation:bg 20s ease infinite}\n  @keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}\n  .card{width:min(480px,94vw);background:rgba(10,10,25,.4);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:24px;padding:2.4rem;box-shadow:0 30px 80px rgba(0,0,0,.4)}\n  .pill{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.35rem .9rem;font-size:.8rem}\n  h1{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin:1rem 0 .4rem}\n  .sub{opacity:.85;margin:0 auto 1.6rem;max-width:34ch}\n  form{display:flex;gap:.5rem;flex-wrap:wrap}\n  input{flex:1;min-width:200px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;color:#fff;font-size:1rem}\n  input::placeholder{color:rgba(255,255,255,.7)}\n  button{background:#fff;color:#16121f;border:none;border-radius:12px;padding:.85rem 1.4rem;font-weight:800;cursor:pointer}\n  input:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:3px}\n  .result{display:none}\n  .result.show{display:block}\n  .pos{font-size:3rem;font-weight:900;letter-spacing:-.02em;margin:.4rem 0}\n  .ref{display:flex;gap:.5rem;margin:1.2rem 0 .6rem}\n  .ref input{font-family:ui-monospace,monospace;font-size:.85rem}\n  .perks{list-style:none;padding:0;margin:1rem 0 0;text-align:left;opacity:.9;font-size:.92rem}\n  .perks li{padding:.3rem 0}.perks li::before{content:\"🎁 \";}\n  .form-wrap.hide{display:none}\n</style>\n</head>\n<body>\n  <main class=\"card\">\n    <span class=\"pill\">🚀 Private beta · Summer 2026</span>\n    <h1>Be first in line.</h1>\n    <p class=\"sub\">Join the waitlist for early access — and invite friends to move up the queue.</p>\n\n    <div class=\"form-wrap\" id=\"formWrap\">\n      <form id=\"form\">\n        <input type=\"email\" placeholder=\"you@example.com\" aria-label=\"Email address\" required />\n        <button type=\"submit\">Join waitlist</button>\n      </form>\n    </div>\n\n    <div class=\"result\" id=\"result\" role=\"status\" aria-live=\"polite\" tabindex=\"-1\">\n      <div>You're on the list — your spot:</div>\n      <div class=\"pos\">#<span id=\"num\">1,284</span></div>\n      <div style=\"opacity:.85;font-size:.9rem\">Share your link to jump ahead 👇</div>\n      <div class=\"ref\">\n        <input id=\"link\" readonly value=\"https://nimbus.app/?ref=ava-3f9\" aria-label=\"Your referral link\" />\n        <button id=\"copy\" type=\"button\" aria-label=\"Copy referral link\">Copy</button>\n      </div>\n      <p id=\"copied\" aria-live=\"polite\" style=\"min-height:1.1em;font-size:.85rem;opacity:.9\"></p>\n      <ul class=\"perks\">\n        <li>Invite 3 friends → skip 500 spots</li>\n        <li>Invite 10 → instant access + swag</li>\n      </ul>\n    </div>\n  </main>\n  <script>\n    var form=document.getElementById('form'),formWrap=document.getElementById('formWrap'),result=document.getElementById('result');\n    form.addEventListener('submit',function(e){\n      e.preventDefault();\n      document.getElementById('num').textContent=(1000+Math.floor(Math.random()*900)).toLocaleString();\n      formWrap.classList.add('hide');result.classList.add('show');result.focus();\n    });\n    document.getElementById('copy').addEventListener('click',function(){\n      var l=document.getElementById('link');l.select();navigator.clipboard.writeText(l.value).then(function(){document.getElementById('copied').textContent='✓ Copied! Now go share it.';});\n    });\n  </script>\n</body>\n</html>\n"
+}

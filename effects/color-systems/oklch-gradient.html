@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OKLCH vs sRGB Gradients</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "oklch-gradient",
+    "title": "OKLCH vs sRGB Gradients",
+    "summary": "The same two colors interpolated in sRGB versus OKLCH — OKLCH stays vivid and even, sRGB muddies through grey. A 2026 color-space upgrade.",
+    "description": "CSS now lets you choose the gradient interpolation color space. This side-by-side shows why OKLCH (perceptually uniform) beats the default sRGB: no dead grey midpoints, even lightness, punchier results — using `linear-gradient(in oklch, …)`.",
+    "theme": "color-systems",
+    "categories": ["color", "gradient", "css"],
+    "tags": ["oklch", "color-space", "gradient", "interpolation", "perceptual", "2026-trend"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "Interpolation hints (in oklch) in all current browsers; falls back to sRGB where unsupported.",
+    "performance_notes": "Static gradients — zero runtime cost.",
+    "accessibility_notes": "Educational/decorative. Labels describe each bar so the comparison isn't color-only.",
+    "customization": [
+      { "name": "stops", "description": "The two endpoint colors", "default": "blue → yellow" },
+      { "name": "space", "description": "oklch / oklab / hsl / srgb", "default": "oklch vs srgb" }
+    ],
+    "variations": ["Compare oklch vs hsl", "Three-stop gradients", "Use longer/shorter hue paths"],
+    "related": ["gradient-library", "animated-gradient", "semantic-color-tokens"],
+    "ai_usage": "Use to choose better gradients and to teach color-space interpolation. Default CSS gradients interpolate in sRGB, which can pass through muddy grey between distant hues; add `in oklch` (perceptually uniform) for even, vivid transitions: `linear-gradient(in oklch, blue, yellow)`. Prefer oklch/oklab for brand gradients; provide an sRGB fallback for old browsers. Pick oklch for even lightness, hsl 'longer hue' for rainbows."
+  }
+  </script>
+  <style>
+    :root{--a:#1b4dff;--b:#ffd400;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12;color:#e8ecf6;font-family:system-ui,sans-serif;padding:2rem}
+    .panel{width:min(560px,92vw)}
+    h1{font-size:1.4rem;font-weight:800;margin:0 0 .3rem;text-align:center}
+    .sub{color:#8b93a7;text-align:center;margin:0 0 1.6rem;font-size:.95rem}
+    .row{margin-bottom:1.2rem}
+    .row .label{display:flex;justify-content:space-between;font-size:.8rem;color:#8b93a7;margin-bottom:.4rem;font-family:ui-monospace,monospace}
+    .bar{height:64px;border-radius:12px;border:1px solid #242a3b}
+    .srgb{background:linear-gradient(90deg,var(--a),var(--b))}
+    .oklch{background:linear-gradient(90deg in oklch,var(--a),var(--b))}
+    .swatches{display:flex;gap:.5rem;justify-content:center;margin-top:.5rem}
+    .sw{width:28px;height:28px;border-radius:8px;border:1px solid #242a3b}
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>Gradient interpolation: sRGB vs OKLCH</h1>
+    <p class="sub">Same two colors. Notice the muddy middle on top, the vivid even blend below.</p>
+    <div class="row">
+      <div class="label"><span>linear-gradient(90deg, …)</span><span>sRGB (default)</span></div>
+      <div class="bar srgb"></div>
+    </div>
+    <div class="row">
+      <div class="label"><span>linear-gradient(90deg in oklch, …)</span><span>OKLCH ✓</span></div>
+      <div class="bar oklch"></div>
+    </div>
+    <div class="swatches"><span class="sw" style="background:var(--a)"></span><span class="sw" style="background:var(--b)"></span></div>
+  </div>
+</body>
+</html>

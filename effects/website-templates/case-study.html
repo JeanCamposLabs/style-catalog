@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Case Study</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "case-study",
+  "title": "Case Study",
+  "summary": "A B2B case study: client hero with a headline result, an at-a-glance metrics band, challenge/approach/results sections, and a pull quote.",
+  "description": "The structured proof piece agencies and SaaS use to close deals — a client/industry hero leading with the standout outcome, a row of result metrics, a readable narrative (Challenge → Approach → Results), a client pull-quote, and a next-CTA. Editorial and credible.",
+  "theme": "website-templates",
+  "categories": ["template", "agency", "content"],
+  "tags": ["case-study", "b2b", "results", "metrics", "narrative", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Type + layout + reveals. No images (gradient placeholders). Light.",
+  "accessibility_notes": "Logical heading order, readable measure for prose, real <blockquote>, metrics labeled in text, focus-visible. Reduced-motion safe.",
+  "customization": [
+    { "name": "--accent", "description": "Brand accent", "default": "#0e7c66" },
+    { "name": "sections", "description": "Challenge / Approach / Results copy", "default": "edit markup" }
+  ],
+  "variations": ["Add a results chart", "Sticky metrics sidebar", "Video testimonial block"],
+  "related": ["swiss-editorial", "testimonial-wall", "blog-article"],
+  "ai_usage": "Use for B2B/agency case studies. Lead the hero with the single best result; add an at-a-glance metrics band; tell the story in Challenge → Approach → Results at a readable measure; include a client pull-quote and a next-step CTA. Keep heading order logical, metrics text-labeled, and prose ≤72ch. Recolor via --accent."
+}
+</script>
+<style>
+  :root{--bg:#0c100e;--surface:#121a16;--line:#21302a;--text:#e9f1ec;--muted:#8ba398;--accent:#3ddc97;--gold:#d9b25c;--r:16px;
+    --serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif;}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:880px;margin:0 auto;padding:0 1.4rem}
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800}.btn{background:var(--accent);color:#06150f;border:none;border-radius:10px;padding:.55rem 1.1rem;font-weight:800;cursor:pointer}
+  .hero{padding:3rem 0 2rem;border-bottom:1px solid var(--line)}
+  .client{display:flex;align-items:center;gap:.7rem;color:var(--muted);font-weight:700;letter-spacing:.04em}
+  .client .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--gold))}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:1rem 0}
+  .hero .big{font-size:clamp(2.4rem,7vw,4.5rem);font-weight:800;letter-spacing:-.03em;color:var(--accent)}
+  .hero p{color:var(--muted);max-width:52ch}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center;padding:2rem 0;border-bottom:1px solid var(--line)}
+  .metrics .n{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:var(--accent)}.metrics .l{color:var(--muted);font-size:.85rem}
+  article{padding:2.5rem 0}
+  article h2{font-family:var(--serif);font-weight:500;font-size:1.7rem;margin:2rem 0 .6rem}
+  article p{color:#cdd9d3;max-width:68ch}
+  .ph{aspect-ratio:16/8;border-radius:var(--r);background:linear-gradient(135deg,var(--accent),#0e7c66);margin:1.4rem 0}
+  blockquote{margin:2.4rem 0;padding:1.6rem 1.8rem;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 var(--r) var(--r) 0;font-family:var(--serif);font-size:1.3rem;font-style:italic}
+  blockquote footer{font-family:var(--sans);font-style:normal;color:var(--muted);font-size:.9rem;margin-top:.7rem}
+  .cta{text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:2.6rem 1.5rem;margin:1rem 0 3rem}
+  .cta h2{font-family:var(--serif);font-weight:500;margin:0 0 .4rem;font-size:1.8rem}
+  .btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s ease}.reveal.in{opacity:1;transform:none}
+  @media(max-width:680px){.metrics{grid-template-columns:1fr 1fr}}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav><div class="brand">Studio Form</div><a class="btn" href="#">Start a project</a></nav>
+    <header class="hero">
+      <div class="client"><span class="logo"></span> VERTEX · Fintech</div>
+      <h1>How Vertex cut onboarding from 9 days to <span class="big">under an hour</span>.</h1>
+      <p>A six-week engagement to redesign the account-opening flow, rebuild the front end, and instrument everything.</p>
+    </header>
+
+    <div class="metrics">
+      <div><div class="n">−92%</div><div class="l">onboarding time</div></div>
+      <div><div class="n">+38%</div><div class="l">activation rate</div></div>
+      <div><div class="n">4.9★</div><div class="l">app rating</div></div>
+      <div><div class="n">6 wks</div><div class="l">to ship</div></div>
+    </div>
+
+    <article>
+      <div class="ph reveal" role="img" aria-label="Project visual"></div>
+      <h2 class="reveal">The challenge</h2>
+      <p class="reveal">Vertex's account opening spanned nine days and five disconnected tools. Drop-off was brutal, support was drowning in status questions, and the team had no visibility into where users stalled.</p>
+      <h2 class="reveal">The approach</h2>
+      <p class="reveal">We mapped the entire journey, collapsed it into a single guided flow, and rebuilt the front end as a fast, resumable experience. Every step emitted events so the team could finally see the funnel in real time, and we shipped behind flags to de-risk the rollout.</p>
+      <blockquote class="reveal">“They didn't just redesign a screen — they rethought the whole experience. Activation is up, support tickets are down, and the team can actually see what's happening.”<footer>— Priya Nair, VP Product at Vertex</footer></blockquote>
+      <h2 class="reveal">The results</h2>
+      <p class="reveal">Within a month of launch, onboarding dropped below an hour for most users, activation climbed 38%, and the app rating reached 4.9. The new analytics layer now guides Vertex's roadmap quarter over quarter.</p>
+    </article>
+
+    <div class="cta reveal">
+      <h2>Want results like these?</h2>
+      <p style="color:var(--muted);max-width:40ch;margin:0 auto 1.4rem">We take on a handful of partners each quarter. Let's talk about yours.</p>
+      <a class="btn" href="#">Book an intro call →</a>
+    </div>
+  </div>
+  <script>
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  </script>
+</body>
+</html>

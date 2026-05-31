@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Highlighter Sweep</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "text-highlight-sweep",
+    "title": "Highlighter Sweep",
+    "summary": "A marker-pen highlight sweeps in behind key words when they scroll into view — drawing the eye to the phrase that matters.",
+    "description": "A skewed highlight band animates its width from 0 to full behind emphasized words as they enter the viewport (or on hover), mimicking a highlighter stroke. A favorite editorial / landing emphasis device.",
+    "theme": "text-effects",
+    "categories": ["text", "animation", "emphasis"],
+    "tags": ["highlight", "marker", "sweep", "emphasis", "scroll", "2026-trend"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "A background-size transition triggered once by IntersectionObserver. transform/size only.",
+    "accessibility_notes": "The word stays normal readable text; the highlight is a decorative background. Reduced-motion shows the highlight already filled (no sweep).",
+    "customization": [
+      { "name": "--marker", "description": "Highlight color", "default": "#fce96a" },
+      { "name": "skew/thickness", "description": "Band angle and height", "default": "slight skew" }
+    ],
+    "variations": ["Underline-only variant", "Multiple colors per phrase", "Sweep on hover instead of scroll"],
+    "related": ["text-reveal-mask", "svg-squiggle-underline", "gradient-text"],
+    "ai_usage": "Use to emphasize a key phrase in a headline or paragraph. Wrap the word in a span with a linear-gradient background sized 0% width; when it scrolls into view (IntersectionObserver) transition background-size to 100%. Keep the text color readable over the marker, keep it real text, and show it pre-filled under prefers-reduced-motion."
+  }
+  </script>
+  <style>
+    :root{--marker:#fce96a;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12;color:#e8ecf6;font-family:Georgia,serif;padding:2rem}
+    p{font-size:clamp(1.6rem,5vw,3rem);line-height:1.6;max-width:18ch;text-align:center;font-weight:600}
+    .hl{position:relative;color:#0b0d12;padding:0 .15em;background-image:linear-gradient(var(--marker),var(--marker));
+      background-repeat:no-repeat;background-position:left center;background-size:0% 78%;
+      transition:background-size .6s cubic-bezier(.5,0,.1,1);transform:skewX(-3deg)}
+    .hl.in{background-size:100% 78%}
+    @media(prefers-reduced-motion:reduce){.hl{transition:none;background-size:100% 78%}}
+  </style>
+</head>
+<body>
+  <p>We don't just build websites — we build <span class="hl">unfair advantages</span>.</p>
+  <script>
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('in')},250);io.unobserve(e.target);}})},{threshold:.6});
+    document.querySelectorAll('.hl').forEach(function(el){io.observe(el)});
+  </script>
+</body>
+</html>

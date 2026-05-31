@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Sun / Moon Toggle</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-theme-toggle",
+    "title": "SVG Sun / Moon Toggle",
+    "summary": "A dark-mode switch where the sun morphs into a crescent moon — rays retract, a mask carves the crescent, the whole mark rotates.",
+    "description": "The beloved theme-toggle micro-interaction built in SVG: clicking morphs a rayed sun into a crescent moon (and flips the demo's theme). The crescent is made by a moving mask circle; rays scale/rotate out. Smooth, reversible, satisfying.",
+    "theme": "svg-effects",
+    "categories": ["svg", "toggle", "micro-interaction"],
+    "tags": ["svg", "theme-toggle", "dark-mode", "sun", "moon", "morph", "2026-trend"],
+    "tech": ["svg", "css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (SVG mask, CSS transitions).",
+    "performance_notes": "Transitions on transform/r/cx and ray scale — no per-frame JS. The mask carves the crescent without extra DOM.",
+    "accessibility_notes": "It's a real <button> with role inferred, aria-pressed reflecting dark state, and a label that updates (Switch to dark/light). Honors prefers-reduced-motion (instant swap) and persists nothing here (wire to your theme).",
+    "customization": [
+      { "name": "--sun / --moon", "description": "Icon colors per state", "default": "amber / slate" },
+      { "name": "size", "description": "SVG viewport size", "default": "compact" }
+    ],
+    "variations": ["Add a sky-color crossfade", "Star sparkles in moon state", "Slider track behind the icon"],
+    "related": ["toggle-switch", "dark-mode-tokens", "svg-path-morph"],
+    "ai_usage": "Use as a dark-mode toggle. Build a sun = central circle + rays; to make the moon, transition a mask circle over the main circle to carve a crescent while scaling rays to 0 and rotating the group. Make it a real <button> with aria-pressed + an updating label, wire the click to your theme switch (e.g. data-theme + persisted preference), and swap instantly under prefers-reduced-motion."
+  }
+  </script>
+  <style>
+    :root{--sun:#f7b733;--moon:#cdd5e0;}
+    html,body{height:100%;margin:0;transition:background .4s,color .4s}
+    body{display:grid;place-items:center;background:#0b0d12;color:#e8ecf6;font-family:system-ui,sans-serif}
+    body.light{background:#f3f4f6;color:#1a1c22}
+    .toggle{background:none;border:1px solid currentColor;border-radius:999px;padding:.7rem;cursor:pointer;color:inherit;display:grid;place-items:center;
+      width:64px;height:64px;opacity:.85;transition:opacity .2s}
+    .toggle:hover{opacity:1}
+    .toggle:focus-visible{outline:3px solid #7c5cff;outline-offset:3px}
+    .icon{width:30px;height:30px;overflow:visible}
+    .core{fill:var(--moon);transition:fill .4s}
+    body.light .core{fill:var(--sun)}
+    .icon{transform:rotate(40deg);transition:transform .5s cubic-bezier(.5,0,.2,1)}
+    body.light .icon{transform:rotate(0deg)}
+    .rays line{stroke:var(--sun);stroke-width:2.5;stroke-linecap:round;transform-origin:center;transform:scale(0);opacity:0;transition:transform .4s,opacity .3s}
+    body.light .rays line{transform:scale(1);opacity:1}
+    .mask-c{transition:cx .5s cubic-bezier(.5,0,.2,1),cy .5s}
+    @media(prefers-reduced-motion:reduce){html,body,.icon,.rays line,.core,.mask-c{transition:none}}
+  </style>
+</head>
+<body>
+  <button class="toggle" id="t" aria-pressed="true" aria-label="Switch to light mode">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <defs><mask id="moon"><rect width="24" height="24" fill="#fff"/><circle class="mask-c" id="mc" cx="24" cy="2" r="8" fill="#000"/></mask></defs>
+      <g class="rays"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4" y1="4" x2="5.5" y2="5.5"/><line x1="18.5" y1="18.5" x2="20" y2="20"/><line x1="4" y1="20" x2="5.5" y2="18.5"/><line x1="18.5" y1="5.5" x2="20" y2="4"/></g>
+      <circle class="core" cx="12" cy="12" r="6" mask="url(#moon)"/>
+    </svg>
+  </button>
+  <script>
+    var t=document.getElementById('t'),mc=document.getElementById('mc');
+    function apply(dark){
+      document.body.classList.toggle('light',!dark);
+      t.setAttribute('aria-pressed',dark);
+      t.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
+      // move mask circle: dark = crescent (mask over), light = sun (mask off-screen)
+      mc.setAttribute('cx',dark?'17':'24');mc.setAttribute('cy',dark?'7':'2');
+    }
+    apply(true);
+    t.addEventListener('click',function(){apply(t.getAttribute('aria-pressed')!=='true');});
+  </script>
+</body>
+</html>

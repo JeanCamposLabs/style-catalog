@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Changelog / Release Notes</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "changelog-page",
+  "title": "Changelog / Release Notes",
+  "summary": "A product changelog: a vertical timeline of releases, each with a version, date, category tags (New / Improved / Fixed), and bullet points.",
+  "description": "The 'what's new' page modern products keep — a timeline rail with dated version entries, color-coded change tags, concise bullets, and a subscribe prompt. Sticky version markers and reveal-on-scroll keep it scannable.",
+  "theme": "website-templates",
+  "categories": ["template", "saas", "content"],
+  "tags": ["changelog", "release-notes", "timeline", "updates", "versions", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "A CSS timeline (pseudo-element rail) + reveals. No libraries.",
+  "accessibility_notes": "Entries are <article>s with real <time datetime>; tags include text; heading order is logical; the subscribe form is labeled. Reduced-motion safe.",
+  "customization": [
+    { "name": "tag colors", "description": "New / Improved / Fixed", "default": "green / violet / amber" },
+    { "name": "entries", "description": "Release blocks", "default": "edit markup" }
+  ],
+  "variations": ["Filter by tag", "RSS/email subscribe", "Group by month"],
+  "related": ["docs-portal", "blog-article", "pricing-page"],
+  "ai_usage": "Use for product changelogs / release notes. Render a vertical timeline of <article> entries, each with version, a real <time datetime>, category tags (New/Improved/Fixed) with text, and short bullets. Add a subscribe prompt. Keep heading order logical, tags text-labeled (not color-only), and animate entries in on scroll with a reduced-motion guard."
+}
+</script>
+<style>
+  :root{--bg:#0b0d12;--surface:#12151f;--line:#242a3b;--text:#e8ecf6;--muted:#8b93a7;--accent:#7c5cff;
+    --new:#34d399;--imp:#a78bff;--fix:#fbbf24;--r:14px;}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:"Inter",system-ui,sans-serif;line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 1.4rem}
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800}.links{color:var(--muted);display:flex;gap:1.2rem;font-size:.92rem}.links a:hover{color:var(--text)}
+  header.hero{text-align:center;padding:3rem 0 1rem}
+  header.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;letter-spacing:-.02em;margin:0 0 .4rem}
+  header.hero p{color:var(--muted)}
+  .sub{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1.2rem 0 .5rem}
+  .sub input{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.6rem .9rem;color:var(--text);min-width:220px}
+  .sub button{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:.6rem 1.1rem;font-weight:700;cursor:pointer}
+  .timeline{position:relative;padding:2rem 0 3rem;margin-left:8px}
+  .timeline::before{content:"";position:absolute;left:7px;top:0;bottom:0;width:2px;background:var(--line)}
+  .entry{position:relative;padding-left:2.4rem;margin-bottom:2.6rem}
+  .entry::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--bg)}
+  .ver{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+  .ver h2{font-size:1.3rem;margin:0}.ver time{color:var(--muted);font-size:.85rem}
+  .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin:.6rem 0 .4rem}
+  .tag{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.15rem .55rem;border-radius:999px}
+  .t-new{background:rgba(52,211,153,.15);color:var(--new)}.t-imp{background:rgba(167,139,255,.15);color:var(--imp)}.t-fix{background:rgba(251,191,36,.15);color:var(--fix)}
+  ul{margin:.4rem 0 0;padding-left:1.1rem;color:var(--muted)}li{margin:.25rem 0}li b{color:var(--text)}
+  button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  footer{border-top:1px solid var(--line);color:var(--muted);text-align:center;padding:2rem 0;font-size:.9rem}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s ease}.reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav><div class="brand">◆ Nimbus</div><div class="links"><a href="#">Docs</a><a href="#">Blog</a><a href="#">App ↗</a></div></nav>
+    <header class="hero">
+      <h1>Changelog</h1>
+      <p>New features, improvements, and fixes — shipped continuously.</p>
+      <form class="sub" onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓'">
+        <input type="email" placeholder="you@example.com" aria-label="Email for updates" required>
+        <button type="submit">Get updates</button>
+      </form>
+    </header>
+
+    <div class="timeline">
+      <article class="entry reveal">
+        <div class="ver"><h2>v3.2</h2><time datetime="2026-05-28">May 28, 2026</time></div>
+        <div class="tags"><span class="tag t-new">New</span><span class="tag t-imp">Improved</span></div>
+        <ul><li><b>Agents 2.0:</b> build autonomous workflows in plain language.</li><li>Search is now <b>3× faster</b> on large workspaces.</li><li>Added keyboard shortcuts for every primary action.</li></ul>
+      </article>
+      <article class="entry reveal">
+        <div class="ver"><h2>v3.1</h2><time datetime="2026-05-14">May 14, 2026</time></div>
+        <div class="tags"><span class="tag t-new">New</span><span class="tag t-fix">Fixed</span></div>
+        <ul><li><b>Slack integration</b> with two-way sync.</li><li>Fixed a rare data-export timeout on huge projects.</li><li>Dark mode now respects per-document overrides.</li></ul>
+      </article>
+      <article class="entry reveal">
+        <div class="ver"><h2>v3.0</h2><time datetime="2026-04-30">Apr 30, 2026</time></div>
+        <div class="tags"><span class="tag t-new">New</span><span class="tag t-imp">Improved</span><span class="tag t-fix">Fixed</span></div>
+        <ul><li>Completely <b>redesigned editor</b> with live collaboration.</li><li>Rebuilt the API — 40% smaller payloads.</li><li>Squashed 60+ bugs from the beta.</li></ul>
+      </article>
+    </div>
+
+    <footer>© <span id="yr"></span> Nimbus, Inc. · Follow along on the changelog.</footer>
+  </div>
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  </script>
+</body>
+</html>

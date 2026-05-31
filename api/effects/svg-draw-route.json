@@ -1,0 +1,57 @@
+{
+  "id": "svg-draw-route",
+  "title": "SVG Map Route Draw",
+  "summary": "A dashed travel route draws itself across a stylized map between two pins, then a marker glides along the path.",
+  "description": "Combines a self-drawing path (stroke-dashoffset) with a marker that travels the same path via SMIL animateMotion — the 'journey' / delivery-tracking / trip-planner graphic. Start and end pins drop in, the route draws, then the dot rides it.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "map",
+    "animation"
+  ],
+  "tags": [
+    "svg",
+    "map",
+    "route",
+    "path",
+    "journey",
+    "animatemotion",
+    "tracking"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All current browsers (stroke-dasharray + SMIL animateMotion).",
+  "performance_notes": "One dashoffset draw + one animateMotion along an mpath. Lightweight; loops.",
+  "accessibility_notes": "Decorative; describe the journey ('A → B') in adjacent text. The marker motion stops under prefers-reduced-motion (show the drawn route).",
+  "customization": [
+    {
+      "name": "--route",
+      "description": "Route stroke color",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "path d",
+      "description": "The route shape between pins",
+      "default": "edit d"
+    }
+  ],
+  "variations": [
+    "Plane/car emoji as the marker",
+    "Multiple legs with waypoints",
+    "Dashed 'flight path' style"
+  ],
+  "related": [
+    "svg-dashed-connector",
+    "svg-line-draw",
+    "travel"
+  ],
+  "ai_usage": "Use for trip planners, delivery tracking, and 'how it works' journeys. Draw the route path with stroke-dashoffset, then move a marker along the SAME path using <animateMotion><mpath href='#route'/>. Drop start/end pins, describe the route in text for a11y, and pause the marker (show the finished route) under prefers-reduced-motion.",
+  "path": "effects/svg-effects/svg-draw-route.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Map Route Draw</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-draw-route\",\n    \"title\": \"SVG Map Route Draw\",\n    \"summary\": \"A dashed travel route draws itself across a stylized map between two pins, then a marker glides along the path.\",\n    \"description\": \"Combines a self-drawing path (stroke-dashoffset) with a marker that travels the same path via SMIL animateMotion — the 'journey' / delivery-tracking / trip-planner graphic. Start and end pins drop in, the route draws, then the dot rides it.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"map\", \"animation\"],\n    \"tags\": [\"svg\", \"map\", \"route\", \"path\", \"journey\", \"animatemotion\", \"tracking\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All current browsers (stroke-dasharray + SMIL animateMotion).\",\n    \"performance_notes\": \"One dashoffset draw + one animateMotion along an mpath. Lightweight; loops.\",\n    \"accessibility_notes\": \"Decorative; describe the journey ('A → B') in adjacent text. The marker motion stops under prefers-reduced-motion (show the drawn route).\",\n    \"customization\": [\n      { \"name\": \"--route\", \"description\": \"Route stroke color\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"path d\", \"description\": \"The route shape between pins\", \"default\": \"edit d\" }\n    ],\n    \"variations\": [\"Plane/car emoji as the marker\", \"Multiple legs with waypoints\", \"Dashed 'flight path' style\"],\n    \"related\": [\"svg-dashed-connector\", \"svg-line-draw\", \"travel\"],\n    \"ai_usage\": \"Use for trip planners, delivery tracking, and 'how it works' journeys. Draw the route path with stroke-dashoffset, then move a marker along the SAME path using <animateMotion><mpath href='#route'/>. Drop start/end pins, describe the route in text for a11y, and pause the marker (show the finished route) under prefers-reduced-motion.\"\n  }\n  </script>\n  <style>\n    :root{--route:#2dd4bf;--land:#11161f;--pin:#7c5cff;}\n    html,body{height:100%;margin:0}\n    body{display:grid;place-items:center;background:#0b0d12;font-family:system-ui,sans-serif;color:#e8ecf6}\n    .card{background:var(--land);border:1px solid #222a38;border-radius:18px;padding:1rem;box-shadow:0 30px 60px rgba(0,0,0,.5)}\n    svg{display:block;width:min(86vw,460px);height:auto}\n    .grid{stroke:#1d2535;stroke-width:1}\n    .route{fill:none;stroke:var(--route);stroke-width:3;stroke-linecap:round;stroke-dasharray:520;stroke-dashoffset:520;\n      animation:draw 1.6s ease forwards;filter:drop-shadow(0 0 6px var(--route))}\n    @keyframes draw{to{stroke-dashoffset:0}}\n    .pin{fill:var(--pin)}.pin.end{fill:var(--route)}\n    .marker{fill:#fff;stroke:var(--route);stroke-width:2}\n    .cap{display:flex;justify-content:space-between;color:#8b93a7;font-size:.85rem;padding:.6rem .4rem 0}\n    @media(prefers-reduced-motion:reduce){.route{animation:none;stroke-dashoffset:0}.marker animateMotion{display:none}}\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <svg viewBox=\"0 0 460 260\" aria-hidden=\"true\">\n      <g class=\"grid\"><line x1=\"0\" y1=\"65\" x2=\"460\" y2=\"65\"/><line x1=\"0\" y1=\"130\" x2=\"460\" y2=\"130\"/><line x1=\"0\" y1=\"195\" x2=\"460\" y2=\"195\"/><line x1=\"115\" y1=\"0\" x2=\"115\" y2=\"260\"/><line x1=\"230\" y1=\"0\" x2=\"230\" y2=\"260\"/><line x1=\"345\" y1=\"0\" x2=\"345\" y2=\"260\"/></g>\n      <path id=\"route\" class=\"route\" d=\"M60,200 C120,120 160,210 230,140 C290,80 320,170 400,70\"/>\n      <g class=\"pin\"><circle cx=\"60\" cy=\"200\" r=\"7\"/></g>\n      <g class=\"pin end\"><circle cx=\"400\" cy=\"70\" r=\"7\"/></g>\n      <circle class=\"marker\" r=\"6\">\n        <animateMotion dur=\"1.8s\" begin=\"1.6s\" repeatCount=\"indefinite\" rotate=\"auto\"><mpath href=\"#route\"/></animateMotion>\n      </circle>\n    </svg>\n    <div class=\"cap\"><span>◍ Old Town</span><span>Harbor Pier ◍</span></div>\n  </div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tag / Chips Input</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "tag-input",
+    "title": "Tag / Chips Input",
+    "summary": "Type and press Enter (or comma) to add a chip; click ✕ or press Backspace to remove — the multi-value input for tags, recipients, and filters.",
+    "description": "An input that converts entries into removable chips: Enter/comma commits a tag, Backspace on an empty field deletes the last one, duplicates are ignored, and each chip has a remove button. Used for tags, email recipients, skills, and filters.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input", "interaction"],
+    "tags": ["tags", "chips", "tokens", "multi-value", "input", "2026-trend"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "DOM updates per add/remove; trivial.",
+    "accessibility_notes": "The container is labeled; each chip's remove control is a real button with an explicit label ('Remove X'); additions are announced via aria-live; focus stays in the text field. Keyboard: Enter/comma add, Backspace removes last.",
+    "customization": [
+      { "name": "--accent", "description": "Chip + focus color", "default": "#7c5cff" },
+      { "name": "separators", "description": "Keys that commit a tag", "default": "Enter, comma" }
+    ],
+    "variations": ["Autocomplete suggestions", "Max-tags limit", "Validate emails before adding"],
+    "related": ["floating-label-input", "otp-input", "custom-range-slider"],
+    "ai_usage": "Use for tags, email recipients, skills, and filter inputs. Commit a chip on Enter/comma, dedupe, remove the last on Backspace when the field is empty, and give each chip a labeled ✕ button. Wrap in a labeled container, announce changes via aria-live, keep focus in the text input, and store values in a hidden field for form submit."
+  }
+  </script>
+  <style>
+    :root{--accent:#7c5cff;--bg:#11131b;--line:#2a3040;--text:#e8ecf6;--muted:#8b93a7;}
+    html,body{height:100%;margin:0}
+    body{display:grid;place-items:center;background:#0b0d12;color:var(--text);font-family:system-ui,sans-serif}
+    .field{width:min(420px,90vw)}
+    label{display:block;font-weight:600;margin-bottom:.5rem}
+    .box{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:.5rem;cursor:text}
+    .box:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px rgba(124,92,255,.2)}
+    .chip{display:inline-flex;align-items:center;gap:.4rem;background:rgba(124,92,255,.18);border:1px solid rgba(124,92,255,.4);color:#cdbcff;
+      border-radius:999px;padding:.25rem .3rem .25rem .7rem;font-size:.88rem}
+    .chip button{background:none;border:none;color:inherit;cursor:pointer;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:.8rem}
+    .chip button:hover{background:rgba(255,255,255,.15)}
+    .box input{flex:1;min-width:80px;border:none;outline:none;background:transparent;color:var(--text);font-size:.95rem;padding:.3rem}
+    .hint{color:var(--muted);font-size:.8rem;margin-top:.5rem}
+    .chip button:focus-visible{outline:2px solid #fff;outline-offset:1px}
+  </style>
+</head>
+<body>
+  <div class="field">
+    <label id="lbl" for="tagfield">Add skills</label>
+    <div class="box" id="box" role="group" aria-labelledby="lbl">
+      <input id="tagfield" type="text" placeholder="Type and press Enter…" autocomplete="off" aria-describedby="hint" />
+    </div>
+    <p class="hint" id="hint">Enter or comma to add · Backspace to remove the last</p>
+    <p class="hint" id="live" role="status" aria-live="polite" style="position:absolute;left:-9999px"></p>
+  </div>
+  <script>
+    var box=document.getElementById('box'),input=document.getElementById('tagfield'),live=document.getElementById('live');
+    var tags=['Design','TypeScript'];
+    function render(){
+      box.querySelectorAll('.chip').forEach(function(c){c.remove();});
+      tags.forEach(function(t){
+        var chip=document.createElement('span');chip.className='chip';
+        chip.innerHTML=t.replace(/</g,'&lt;')+' <button type="button" aria-label="Remove '+t.replace(/"/g,'')+'">✕</button>';
+        chip.querySelector('button').addEventListener('click',function(){remove(t);});
+        box.insertBefore(chip,input);
+      });
+    }
+    function add(v){v=v.trim();if(!v)return;if(tags.some(function(t){return t.toLowerCase()===v.toLowerCase();})){input.value='';return;}tags.push(v);input.value='';render();live.textContent='Added '+v;input.focus();}
+    function remove(t){tags=tags.filter(function(x){return x!==t;});render();live.textContent='Removed '+t;input.focus();}
+    input.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===','){e.preventDefault();add(input.value);}
+      else if(e.key==='Backspace'&&input.value===''&&tags.length){remove(tags[tags.length-1]);}
+    });
+    box.addEventListener('click',function(){input.focus();});
+    render();
+  </script>
+</body>
+</html>

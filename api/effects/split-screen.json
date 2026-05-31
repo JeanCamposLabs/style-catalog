@@ -1,0 +1,55 @@
+{
+  "id": "split-screen",
+  "title": "Split-Screen Layout",
+  "summary": "A 50/50 split: a fixed visual panel on one side, scrollable content on the other — collapsing to stacked on mobile.",
+  "description": "The split-screen archetype: a full-height visual (image/brand) pinned on one half while the other half holds scrollable content. Common for auth screens, product intros, and editorial. Includes the responsive collapse and a tasteful sticky behavior.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "responsive",
+    "archetype"
+  ],
+  "tags": [
+    "split-screen",
+    "50-50",
+    "sticky",
+    "auth",
+    "responsive",
+    "layout"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Grid, position: sticky).",
+  "performance_notes": "Pure CSS Grid + sticky. No JS.",
+  "accessibility_notes": "Source order = reading order (content first is fine); landmarks used; the visual panel is decorative. Stacks to a single column at small widths so nothing is cut off.",
+  "customization": [
+    {
+      "name": "ratio",
+      "description": "grid-template-columns split",
+      "default": "1fr 1fr"
+    },
+    {
+      "name": "side",
+      "description": "Which half is the visual",
+      "default": "right"
+    }
+  ],
+  "variations": [
+    "Sticky form, scrolling testimonials",
+    "60/40 split",
+    "Visual on the left for auth"
+  ],
+  "related": [
+    "holy-grail",
+    "bento-grid",
+    "responsive-card-grid"
+  ],
+  "ai_usage": "Use for auth pages, product intros, and editorial layouts. Two-column grid: one half a full-height visual (sticky if the other side scrolls), the other half content. Keep DOM order sensible for reading/SR, make the visual decorative, and collapse to one stacked column on small screens. Adjust the ratio via grid-template-columns.",
+  "path": "effects/layout-archetypes/split-screen.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Split-Screen Layout</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"split-screen\",\n    \"title\": \"Split-Screen Layout\",\n    \"summary\": \"A 50/50 split: a fixed visual panel on one side, scrollable content on the other — collapsing to stacked on mobile.\",\n    \"description\": \"The split-screen archetype: a full-height visual (image/brand) pinned on one half while the other half holds scrollable content. Common for auth screens, product intros, and editorial. Includes the responsive collapse and a tasteful sticky behavior.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"responsive\", \"archetype\"],\n    \"tags\": [\"split-screen\", \"50-50\", \"sticky\", \"auth\", \"responsive\", \"layout\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Grid, position: sticky).\",\n    \"performance_notes\": \"Pure CSS Grid + sticky. No JS.\",\n    \"accessibility_notes\": \"Source order = reading order (content first is fine); landmarks used; the visual panel is decorative. Stacks to a single column at small widths so nothing is cut off.\",\n    \"customization\": [\n      { \"name\": \"ratio\", \"description\": \"grid-template-columns split\", \"default\": \"1fr 1fr\" },\n      { \"name\": \"side\", \"description\": \"Which half is the visual\", \"default\": \"right\" }\n    ],\n    \"variations\": [\"Sticky form, scrolling testimonials\", \"60/40 split\", \"Visual on the left for auth\"],\n    \"related\": [\"holy-grail\", \"bento-grid\", \"responsive-card-grid\"],\n    \"ai_usage\": \"Use for auth pages, product intros, and editorial layouts. Two-column grid: one half a full-height visual (sticky if the other side scrolls), the other half content. Keep DOM order sensible for reading/SR, make the visual decorative, and collapse to one stacked column on small screens. Adjust the ratio via grid-template-columns.\"\n  }\n  </script>\n  <style>\n    *{box-sizing:border-box}html{scroll-behavior:smooth}\n    body{margin:0;font-family:system-ui,sans-serif;color:#e8ecf6;background:#0b0d12}\n    .split{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}\n    .visual{position:sticky;top:0;height:100vh;background:linear-gradient(150deg,#7c5cff,#2dd4bf);display:grid;place-items:center;color:#fff;padding:2rem}\n    .visual .mark{font-size:2rem;font-weight:900;letter-spacing:-.02em;text-align:center}\n    .content{padding:clamp(2rem,6vw,5rem)}\n    .content .step{min-height:70vh;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid #1c2230}\n    .content .step:last-child{border:none}\n    .eyebrow{color:#2dd4bf;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.74rem}\n    h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin:.4rem 0}\n    p{color:#8b93a7;max-width:42ch}\n    @media(max-width:760px){.split{grid-template-columns:1fr}.visual{position:relative;height:46vh}.content .step{min-height:auto;padding:2.5rem 0}}\n  </style>\n</head>\n<body>\n  <div class=\"split\">\n    <aside class=\"visual\"><div class=\"mark\">◑ Split-screen<br>archetype</div></aside>\n    <main class=\"content\">\n      <section class=\"step\"><p class=\"eyebrow\">Step 01</p><h2>Pinned visual, scrolling story</h2><p>The left panel stays put while this side scrolls — ideal for guiding attention through a narrative.</p></section>\n      <section class=\"step\"><p class=\"eyebrow\">Step 02</p><h2>Great for auth &amp; onboarding</h2><p>Brand or imagery on one side, the form or content on the other. Calm and focused.</p></section>\n      <section class=\"step\"><p class=\"eyebrow\">Step 03</p><h2>Collapses gracefully</h2><p>On small screens it stacks into a single column so nothing gets squeezed.</p></section>\n    </main>\n  </div>\n</body>\n</html>\n"
+}

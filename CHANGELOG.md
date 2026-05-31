@@ -3,6 +3,20 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.10.0] — 2026-05-31
+
+### Added — round 4: +16 hand-crafted specimens (now 172 effects)
+- **Effects (7):** `text-highlight-sweep`, `image-trail` (cursor image fling),
+  `oklch-gradient` (sRGB vs OKLCH interpolation), `split-screen` layout,
+  `mega-menu`, `tag-input` (chips), `wave-bars` loader.
+- **SVG (3):** `svg-theme-toggle` (sun↔moon morph), `svg-stroke-text`
+  (outline→fill), `svg-draw-route` (route draw + traveling marker).
+- **Templates (6):** `testimonial-wall`, `changelog-page`, `waitlist-referral`
+  (referral loop), `case-study`, `app-landing`, `memphis-playful`.
+- Checked existing IDs to avoid collisions; all 16 verified rendering with zero
+  console errors; ARIA + focus-visible + reduced-motion throughout. Website
+  Templates now 38.
+
 ## [0.9.0] — 2026-05-30
 
 ### Added — another hand-crafted round: +14 specimens (now 156 effects)

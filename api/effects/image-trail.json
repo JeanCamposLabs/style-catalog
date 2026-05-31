@@ -1,0 +1,56 @@
+{
+  "id": "image-trail",
+  "title": "Image Trail",
+  "summary": "Move across the area and a trail of images flings out behind the cursor, each scaling and fading away — the Awwwards hero flourish.",
+  "description": "As the pointer travels, images are spawned at intervals at the cursor position, then animate out (scale + fade), cycling through a set. Creates a playful, kinetic gallery trail beloved by portfolio and studio sites.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "cursor",
+    "gallery"
+  ],
+  "tags": [
+    "image-trail",
+    "cursor",
+    "awwwards",
+    "kinetic",
+    "gallery",
+    "2026-trend"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (pointer events).",
+  "performance_notes": "Spawns a capped number of absolutely-positioned elements on a distance threshold (not every event); each removes itself after its animation. transform/opacity only.",
+  "accessibility_notes": "Purely decorative and pointer-driven; underlying content/links stay accessible. Disabled on coarse pointers and under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "images",
+      "description": "The image set cycled through",
+      "default": "gradient tiles"
+    },
+    {
+      "name": "threshold",
+      "description": "Min pointer travel before a new image",
+      "default": "60px"
+    }
+  ],
+  "variations": [
+    "Real photos for a portfolio",
+    "Rotate each spawn randomly",
+    "Trail of words instead of images"
+  ],
+  "related": [
+    "cursor-text-label",
+    "blob-trail-cursor",
+    "kinetic-portfolio"
+  ],
+  "ai_usage": "Use on creative/portfolio hero areas. Track pointer movement; once it has traveled a threshold distance, spawn the next image from a cycling set at the cursor and animate it out (scale down + fade) then remove it. Throttle by distance (not per event), cap concurrent nodes, keep it decorative over accessible content, and disable on touch / reduced-motion.",
+  "path": "effects/hover-interactions/image-trail.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Image Trail</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"image-trail\",\n    \"title\": \"Image Trail\",\n    \"summary\": \"Move across the area and a trail of images flings out behind the cursor, each scaling and fading away — the Awwwards hero flourish.\",\n    \"description\": \"As the pointer travels, images are spawned at intervals at the cursor position, then animate out (scale + fade), cycling through a set. Creates a playful, kinetic gallery trail beloved by portfolio and studio sites.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"cursor\", \"gallery\"],\n    \"tags\": [\"image-trail\", \"cursor\", \"awwwards\", \"kinetic\", \"gallery\", \"2026-trend\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (pointer events).\",\n    \"performance_notes\": \"Spawns a capped number of absolutely-positioned elements on a distance threshold (not every event); each removes itself after its animation. transform/opacity only.\",\n    \"accessibility_notes\": \"Purely decorative and pointer-driven; underlying content/links stay accessible. Disabled on coarse pointers and under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"images\", \"description\": \"The image set cycled through\", \"default\": \"gradient tiles\" },\n      { \"name\": \"threshold\", \"description\": \"Min pointer travel before a new image\", \"default\": \"60px\" }\n    ],\n    \"variations\": [\"Real photos for a portfolio\", \"Rotate each spawn randomly\", \"Trail of words instead of images\"],\n    \"related\": [\"cursor-text-label\", \"blob-trail-cursor\", \"kinetic-portfolio\"],\n    \"ai_usage\": \"Use on creative/portfolio hero areas. Track pointer movement; once it has traveled a threshold distance, spawn the next image from a cycling set at the cursor and animate it out (scale down + fade) then remove it. Throttle by distance (not per event), cap concurrent nodes, keep it decorative over accessible content, and disable on touch / reduced-motion.\"\n  }\n  </script>\n  <style>\n    html,body{height:100%;margin:0;overflow:hidden}\n    body{background:#0b0d12;color:#e8ecf6;font-family:system-ui,sans-serif}\n    .stage{position:fixed;inset:0;display:grid;place-items:center;cursor:crosshair}\n    .stage h1{font-size:clamp(2rem,7vw,4.5rem);font-weight:800;letter-spacing:-.03em;pointer-events:none;z-index:1;text-align:center}\n    .stage .hint{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);color:#5b6377;font-size:.85rem}\n    .trail{position:fixed;width:140px;height:100px;border-radius:14px;pointer-events:none;transform:translate(-50%,-50%);\n      animation:out .8s ease forwards;will-change:transform,opacity}\n    @keyframes out{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.4)}}\n    @media(prefers-reduced-motion:reduce){.stage{cursor:auto}}\n  </style>\n</head>\n<body>\n  <div class=\"stage\" id=\"stage\">\n    <h1>Move your cursor.</h1>\n    <p class=\"hint\">a trail of images follows ✦</p>\n  </div>\n  <script>\n    var stage=document.getElementById('stage');\n    var grads=['linear-gradient(135deg,#7c5cff,#22d3ee)','linear-gradient(135deg,#ff6ec7,#ffb454)','linear-gradient(135deg,#34d399,#0ea5e9)','linear-gradient(135deg,#f472b6,#7c5cff)','linear-gradient(135deg,#fbbf24,#f97316)'];\n    var i=0,lastX=null,lastY=null,THRESH=60;\n    var fine=matchMedia('(pointer:fine)').matches, reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;\n    if(fine && !reduce){\n      stage.addEventListener('pointermove',function(e){\n        if(lastX!==null){var d=Math.hypot(e.clientX-lastX,e.clientY-lastY);if(d<THRESH)return;}\n        lastX=e.clientX;lastY=e.clientY;\n        var el=document.createElement('div');el.className='trail';el.style.left=e.clientX+'px';el.style.top=e.clientY+'px';\n        el.style.backgroundImage=grads[i%grads.length];i++;\n        stage.appendChild(el);\n        el.addEventListener('animationend',function(){el.remove();});\n      });\n    }\n  </script>\n</body>\n</html>\n"
+}

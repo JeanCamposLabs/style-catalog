@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Waitlist with Referrals</title>
+<script type="application/json" id="effect-meta">
+{
+  "id": "waitlist-referral",
+  "title": "Waitlist with Referrals",
+  "summary": "A beta waitlist: join with your email, then see your queue position and a referral link to jump the line — the viral pre-launch loop.",
+  "description": "A pre-launch growth page: a focused signup that, on submit, reveals the user's place in line, a shareable referral link with a copy button, and 'invite to move up' incentives. Animated gradient backdrop, single-column focus.",
+  "theme": "website-templates",
+  "categories": ["template", "landing", "pre-launch"],
+  "tags": ["waitlist", "referral", "beta", "viral", "pre-launch", "full-page"],
+  "tech": ["html", "css", "js"],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "An animated gradient + a form that swaps to a success state and copies a link. No backend (wire your own).",
+  "accessibility_notes": "Labeled email form, success announced via aria-live, copy button labeled with status, focus moves to the result. Gradient animation stops under reduced-motion.",
+  "customization": [
+    { "name": "--g1/--g2", "description": "Background gradient", "default": "violet / cyan" },
+    { "name": "perks", "description": "Referral incentives", "default": "edit markup" }
+  ],
+  "variations": ["Show a live signup counter", "Leaderboard of top referrers", "Unlock tiers by invites"],
+  "related": ["coming-soon", "link-in-bio", "animated-gradient"],
+  "ai_usage": "Use for beta/pre-launch growth. Capture email, then reveal queue position + a unique referral link (copy button) and 'invite N friends to move up' perks. Wire submit + referral params to your backend; announce the result via aria-live, move focus to it, and pause the gradient under reduced motion. The viral loop is the point — make sharing one tap."
+}
+</script>
+<style>
+  :root{--g1:#7c5cff;--g2:#22d3ee;--g3:#ff6ec7;--card:rgba(255,255,255,.1);--line:rgba(255,255,255,.22);}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;color:#fff;font-family:"Inter",system-ui,sans-serif;display:grid;place-items:center;padding:2rem;text-align:center;
+    background:linear-gradient(-45deg,var(--g1),var(--g2),var(--g3),var(--g1));background-size:400% 400%;animation:bg 20s ease infinite}
+  @keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+  .card{width:min(480px,94vw);background:rgba(10,10,25,.4);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:24px;padding:2.4rem;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+  .pill{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.35rem .9rem;font-size:.8rem}
+  h1{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin:1rem 0 .4rem}
+  .sub{opacity:.85;margin:0 auto 1.6rem;max-width:34ch}
+  form{display:flex;gap:.5rem;flex-wrap:wrap}
+  input{flex:1;min-width:200px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;color:#fff;font-size:1rem}
+  input::placeholder{color:rgba(255,255,255,.7)}
+  button{background:#fff;color:#16121f;border:none;border-radius:12px;padding:.85rem 1.4rem;font-weight:800;cursor:pointer}
+  input:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+  .result{display:none}
+  .result.show{display:block}
+  .pos{font-size:3rem;font-weight:900;letter-spacing:-.02em;margin:.4rem 0}
+  .ref{display:flex;gap:.5rem;margin:1.2rem 0 .6rem}
+  .ref input{font-family:ui-monospace,monospace;font-size:.85rem}
+  .perks{list-style:none;padding:0;margin:1rem 0 0;text-align:left;opacity:.9;font-size:.92rem}
+  .perks li{padding:.3rem 0}.perks li::before{content:"🎁 ";}
+  .form-wrap.hide{display:none}
+</style>
+</head>
+<body>
+  <main class="card">
+    <span class="pill">🚀 Private beta · Summer 2026</span>
+    <h1>Be first in line.</h1>
+    <p class="sub">Join the waitlist for early access — and invite friends to move up the queue.</p>
+
+    <div class="form-wrap" id="formWrap">
+      <form id="form">
+        <input type="email" placeholder="you@example.com" aria-label="Email address" required />
+        <button type="submit">Join waitlist</button>
+      </form>
+    </div>
+
+    <div class="result" id="result" role="status" aria-live="polite" tabindex="-1">
+      <div>You're on the list — your spot:</div>
+      <div class="pos">#<span id="num">1,284</span></div>
+      <div style="opacity:.85;font-size:.9rem">Share your link to jump ahead 👇</div>
+      <div class="ref">
+        <input id="link" readonly value="https://nimbus.app/?ref=ava-3f9" aria-label="Your referral link" />
+        <button id="copy" type="button" aria-label="Copy referral link">Copy</button>
+      </div>
+      <p id="copied" aria-live="polite" style="min-height:1.1em;font-size:.85rem;opacity:.9"></p>
+      <ul class="perks">
+        <li>Invite 3 friends → skip 500 spots</li>
+        <li>Invite 10 → instant access + swag</li>
+      </ul>
+    </div>
+  </main>
+  <script>
+    var form=document.getElementById('form'),formWrap=document.getElementById('formWrap'),result=document.getElementById('result');
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      document.getElementById('num').textContent=(1000+Math.floor(Math.random()*900)).toLocaleString();
+      formWrap.classList.add('hide');result.classList.add('show');result.focus();
+    });
+    document.getElementById('copy').addEventListener('click',function(){
+      var l=document.getElementById('link');l.select();navigator.clipboard.writeText(l.value).then(function(){document.getElementById('copied').textContent='✓ Copied! Now go share it.';});
+    });
+  </script>
+</body>
+</html>

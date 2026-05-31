@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "counts": {
     "themes": 22,
-    "effects": 156
+    "effects": 172
   },
   "effectEndpoint": "api/effects/{id}.json",
   "effects": [
@@ -737,6 +737,32 @@
       "path": "effects/color-systems/gradient-library.html"
     },
     {
+      "id": "oklch-gradient",
+      "title": "OKLCH vs sRGB Gradients",
+      "summary": "The same two colors interpolated in sRGB versus OKLCH — OKLCH stays vivid and even, sRGB muddies through grey. A 2026 color-space upgrade.",
+      "theme": "color-systems",
+      "themeTitle": "Color Systems",
+      "categories": [
+        "color",
+        "gradient",
+        "css"
+      ],
+      "tags": [
+        "oklch",
+        "color-space",
+        "gradient",
+        "interpolation",
+        "perceptual",
+        "2026-trend"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/color-systems/oklch-gradient.html"
+    },
+    {
       "id": "semantic-color-tokens",
       "title": "Semantic Color Tokens",
       "summary": "A two-tier color token system (primitive scale → semantic roles) as copy-ready CSS custom properties.",
@@ -1113,6 +1139,33 @@
       "path": "effects/forms-inputs/password-strength.html"
     },
     {
+      "id": "tag-input",
+      "title": "Tag / Chips Input",
+      "summary": "Type and press Enter (or comma) to add a chip; click ✕ or press Backspace to remove — the multi-value input for tags, recipients, and filters.",
+      "theme": "forms-inputs",
+      "themeTitle": "Forms & Inputs",
+      "categories": [
+        "form",
+        "input",
+        "interaction"
+      ],
+      "tags": [
+        "tags",
+        "chips",
+        "tokens",
+        "multi-value",
+        "input",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/forms-inputs/tag-input.html"
+    },
+    {
       "id": "toggle-switch",
       "title": "Toggle Switch",
       "summary": "An iOS-style on/off switch built on a real checkbox for full accessibility.",
@@ -1345,6 +1398,33 @@
       "era": "timeless",
       "difficulty": "beginner",
       "path": "effects/hover-interactions/grayscale-to-color.html"
+    },
+    {
+      "id": "image-trail",
+      "title": "Image Trail",
+      "summary": "Move across the area and a trail of images flings out behind the cursor, each scaling and fading away — the Awwwards hero flourish.",
+      "theme": "hover-interactions",
+      "themeTitle": "Hover Interactions",
+      "categories": [
+        "hover",
+        "cursor",
+        "gallery"
+      ],
+      "tags": [
+        "image-trail",
+        "cursor",
+        "awwwards",
+        "kinetic",
+        "gallery",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/hover-interactions/image-trail.html"
     },
     {
       "id": "image-zoom-reveal",
@@ -1693,6 +1773,32 @@
       "path": "effects/layout-archetypes/responsive-card-grid.html"
     },
     {
+      "id": "split-screen",
+      "title": "Split-Screen Layout",
+      "summary": "A 50/50 split: a fixed visual panel on one side, scrollable content on the other — collapsing to stacked on mobile.",
+      "theme": "layout-archetypes",
+      "themeTitle": "Layout Archetypes",
+      "categories": [
+        "layout",
+        "responsive",
+        "archetype"
+      ],
+      "tags": [
+        "split-screen",
+        "50-50",
+        "sticky",
+        "auth",
+        "responsive",
+        "layout"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/layout-archetypes/split-screen.html"
+    },
+    {
       "id": "dots-bounce",
       "title": "Bouncing Dots",
       "summary": "Three dots bounce in sequence — the friendly 'typing…' / loading indicator.",
@@ -1869,6 +1975,32 @@
       "era": "2020s",
       "difficulty": "beginner",
       "path": "effects/loaders-spinners/skeleton-loader.html"
+    },
+    {
+      "id": "wave-bars",
+      "title": "Wave Bars Loader",
+      "summary": "A row of bars that rise and fall in a travelling wave — an audio-equalizer-style loading / 'now playing' indicator.",
+      "theme": "loaders-spinners",
+      "themeTitle": "Loaders & Spinners",
+      "categories": [
+        "loader",
+        "audio",
+        "animation"
+      ],
+      "tags": [
+        "equalizer",
+        "bars",
+        "wave",
+        "audio",
+        "loader",
+        "now-playing"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/loaders-spinners/wave-bars.html"
     },
     {
       "id": "easing-showcase",
@@ -2056,6 +2188,32 @@
       "era": "2010s",
       "difficulty": "beginner",
       "path": "effects/navigation-menus/hamburger-morph.html"
+    },
+    {
+      "id": "mega-menu",
+      "title": "Mega Menu",
+      "summary": "A full-width dropdown panel with multiple columns of grouped links and a featured promo — the navigation for content-heavy sites.",
+      "theme": "navigation-menus",
+      "themeTitle": "Navigation & Menus",
+      "categories": [
+        "navigation",
+        "menu",
+        "dropdown"
+      ],
+      "tags": [
+        "mega-menu",
+        "dropdown",
+        "columns",
+        "header",
+        "navigation"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/navigation-menus/mega-menu.html"
     },
     {
       "id": "sliding-tab-indicator",
@@ -2592,6 +2750,34 @@
       "path": "effects/svg-effects/svg-line-draw.html"
     },
     {
+      "id": "svg-draw-route",
+      "title": "SVG Map Route Draw",
+      "summary": "A dashed travel route draws itself across a stylized map between two pins, then a marker glides along the path.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "map",
+        "animation"
+      ],
+      "tags": [
+        "svg",
+        "map",
+        "route",
+        "path",
+        "journey",
+        "animatemotion",
+        "tracking"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-draw-route.html"
+    },
+    {
       "id": "svg-blob-spinner",
       "title": "SVG Morphing Blob Loader",
       "summary": "A gradient blob that endlessly morphs between organic shapes while slowly rotating — a friendlier alternative to a spinner.",
@@ -2702,6 +2888,34 @@
       "path": "effects/svg-effects/svg-squiggle-underline.html"
     },
     {
+      "id": "svg-stroke-text",
+      "title": "SVG Stroke-to-Fill Text",
+      "summary": "Big SVG text writes itself as an outline (stroke), then floods with a gradient fill — a premium headline/intro reveal.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "text",
+        "animation"
+      ],
+      "tags": [
+        "svg",
+        "text",
+        "stroke",
+        "outline",
+        "fill",
+        "draw",
+        "headline"
+      ],
+      "tech": [
+        "svg",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-stroke-text.html"
+    },
+    {
       "id": "svg-animated-checkmark",
       "title": "SVG Success Checkmark",
       "summary": "A success animation: the circle draws around, then the tick strokes in, with a pop.",
@@ -2727,6 +2941,35 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/svg-effects/svg-animated-checkmark.html"
+    },
+    {
+      "id": "svg-theme-toggle",
+      "title": "SVG Sun / Moon Toggle",
+      "summary": "A dark-mode switch where the sun morphs into a crescent moon — rays retract, a mask carves the crescent, the whole mark rotates.",
+      "theme": "svg-effects",
+      "themeTitle": "SVG Effects",
+      "categories": [
+        "svg",
+        "toggle",
+        "micro-interaction"
+      ],
+      "tags": [
+        "svg",
+        "theme-toggle",
+        "dark-mode",
+        "sun",
+        "moon",
+        "morph",
+        "2026-trend"
+      ],
+      "tech": [
+        "svg",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/svg-effects/svg-theme-toggle.html"
     },
     {
       "id": "svg-text-on-path",
@@ -2828,6 +3071,33 @@
       "era": "2010s",
       "difficulty": "intermediate",
       "path": "effects/text-effects/glitch-text.html"
+    },
+    {
+      "id": "text-highlight-sweep",
+      "title": "Highlighter Sweep",
+      "summary": "A marker-pen highlight sweeps in behind key words when they scroll into view — drawing the eye to the phrase that matters.",
+      "theme": "text-effects",
+      "themeTitle": "Text Effects",
+      "categories": [
+        "text",
+        "animation",
+        "emphasis"
+      ],
+      "tags": [
+        "highlight",
+        "marker",
+        "sweep",
+        "emphasis",
+        "scroll",
+        "2026-trend"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/text-effects/text-highlight-sweep.html"
     },
     {
       "id": "neon-glow-text",
@@ -3471,6 +3741,62 @@
       "path": "effects/website-templates/blog-article.html"
     },
     {
+      "id": "case-study",
+      "title": "Case Study",
+      "summary": "A B2B case study: client hero with a headline result, an at-a-glance metrics band, challenge/approach/results sections, and a pull quote.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "agency",
+        "content"
+      ],
+      "tags": [
+        "case-study",
+        "b2b",
+        "results",
+        "metrics",
+        "narrative",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/case-study.html"
+    },
+    {
+      "id": "changelog-page",
+      "title": "Changelog / Release Notes",
+      "summary": "A product changelog: a vertical timeline of releases, each with a version, date, category tags (New / Improved / Fixed), and bullet points.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas",
+        "content"
+      ],
+      "tags": [
+        "changelog",
+        "release-notes",
+        "timeline",
+        "updates",
+        "versions",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/changelog-page.html"
+    },
+    {
       "id": "clay-app",
       "title": "Claymorphism — Friendly App",
       "summary": "A warm consumer-app landing in the claymorphism trend: soft, puffy 3D shapes with inner + outer shadows, rounded everything, pastel palette.",
@@ -3731,6 +4057,34 @@
       "path": "effects/website-templates/link-in-bio.html"
     },
     {
+      "id": "memphis-playful",
+      "title": "Memphis Style — Playful Brand",
+      "summary": "An 80s-Memphis brand page: primary colors on cream, scattered geometric confetti (squiggles, circles, triangles, zig-zags) with bold black outlines.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "brand",
+        "experimental"
+      ],
+      "tags": [
+        "memphis",
+        "80s",
+        "geometric",
+        "playful",
+        "primary-colors",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/memphis-playful.html"
+    },
+    {
       "id": "portfolio-minimal",
       "title": "Minimal Portfolio",
       "summary": "A clean personal/creative portfolio: intro header, selected-work grid, about, and contact.",
@@ -3756,6 +4110,34 @@
       "era": "2020s",
       "difficulty": "beginner",
       "path": "effects/website-templates/portfolio-minimal.html"
+    },
+    {
+      "id": "app-landing",
+      "title": "Mobile App Landing",
+      "summary": "A mobile-app landing: phone mock hero with App Store / Google Play badges and a rating, alternating feature rows, a screenshot strip, and a download CTA.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "landing",
+        "app"
+      ],
+      "tags": [
+        "mobile-app",
+        "app-store",
+        "download",
+        "phone-mock",
+        "ratings",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/website-templates/app-landing.html"
     },
     {
       "id": "neubrutalist-landing",
@@ -4155,6 +4537,62 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/website-templates/terminal-devtool.html"
+    },
+    {
+      "id": "testimonial-wall",
+      "title": "Testimonial Wall — Social Proof",
+      "summary": "A social-proof page: a headline stat, a logo strip, and a masonry wall of testimonial cards with ratings, avatars, and a featured quote.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "saas",
+        "social-proof"
+      ],
+      "tags": [
+        "testimonials",
+        "social-proof",
+        "reviews",
+        "masonry",
+        "wall-of-love",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/testimonial-wall.html"
+    },
+    {
+      "id": "waitlist-referral",
+      "title": "Waitlist with Referrals",
+      "summary": "A beta waitlist: join with your email, then see your queue position and a referral link to jump the line — the viral pre-launch loop.",
+      "theme": "website-templates",
+      "themeTitle": "Website Templates",
+      "categories": [
+        "template",
+        "landing",
+        "pre-launch"
+      ],
+      "tags": [
+        "waitlist",
+        "referral",
+        "beta",
+        "viral",
+        "pre-launch",
+        "full-page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "js"
+      ],
+      "era": "2020s",
+      "difficulty": "beginner",
+      "path": "effects/website-templates/waitlist-referral.html"
     },
     {
       "id": "web2-glossy",
