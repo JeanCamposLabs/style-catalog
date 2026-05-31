@@ -180,7 +180,7 @@ export function scanCatalog() {
 
   const catalog = {
     name: "style-catalog",
-    version: "0.12.0",
+    version: "0.13.0",
     // NOTE: intentionally no build timestamp here — the generated artifacts
     // (catalog.json / assets/catalog.js) are committed and verified for
     // staleness in CI, so the output must be deterministic from the inputs.

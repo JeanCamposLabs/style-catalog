@@ -123,8 +123,31 @@
       </header>
       <div class="cart__body">
         <details class="brand" id="brand-panel">
-          <summary>🎨 Brand palette <span class="brand__hint">— apply across the whole bundle</span></summary>
+          <summary>🎨 Brand palette <span class="brand__hint">— generate &amp; apply across the bundle</span></summary>
           <label class="brand__toggle"><input type="checkbox" id="brand-on" /> Apply my brand to every item</label>
+          <div class="palette" id="palette-studio">
+            <div class="palette__top">
+              <div class="wheel" id="wheel" role="slider" tabindex="0" aria-label="Color wheel — pick a base hue and saturation"><span class="wheel__mark" id="wheel-mark"></span></div>
+              <div class="palette__opts">
+                <label class="palette__opt">Harmony
+                  <select id="harmony">
+                    <option value="complementary">Complementary</option>
+                    <option value="analogous">Analogous</option>
+                    <option value="triadic">Triadic</option>
+                    <option value="monochrome">Monochrome</option>
+                  </select>
+                </label>
+                <label class="palette__opt">Lightness <input type="range" id="pal-light" min="30" max="72" value="58" aria-label="Accent lightness" /></label>
+                <div class="palette__mode" role="group" aria-label="UI mode">
+                  <button type="button" data-mode="dark" class="is-on">Dark UI</button><button type="button" data-mode="light">Light UI</button>
+                </div>
+              </div>
+            </div>
+            <div class="palette__presets" id="presets" aria-label="Preset palettes"></div>
+            <div class="palette__swatches" id="pal-swatches"></div>
+            <button id="pal-copy" class="btn btn--ghost" type="button">📋 Copy palette tokens</button>
+            <p id="pal-status" class="cart__status"></p>
+          </div>
           <div class="brand__grid" id="brand-grid"></div>
         </details>
         <div id="cart-list"></div>

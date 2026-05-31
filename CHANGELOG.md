@@ -3,6 +3,22 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.13.0] — 2026-05-31
+
+### Added — Palette Studio (color wheel) in the Brand panel
+- An interactive **HSL color wheel** (pick hue + saturation; keyboard-operable)
+  plus a **Lightness** slider, **Harmony** selector (complementary / analogous /
+  triadic / monochrome), and a **Dark/Light UI** toggle that generates a coherent
+  palette — accent, accent-2, background, surface, text, muted.
+- **8 preset palettes** (Nebula, Ocean, Ember, Forest, Slate, Candy, Citrus,
+  Royal) as one-click swatches; a live 6-swatch preview with hex labels.
+- Generating applies to the global Brand palette (maps across the bundle + live
+  preview) and fills the per-role controls.
+- **Copy palette tokens** outputs a clean `:root { … }` block (with role comments
+  + a usage note) — agent-ready. Wheel state reflects a persisted brand on load.
+- Verified: wheel/preset/harmony/mode → brand update + sample mapping + copy
+  output; zero console errors.
+
 ## [0.12.0] — 2026-05-31
 
 ### Added — Phase 2: live color & size tuning (pre-fine-tuned copy)

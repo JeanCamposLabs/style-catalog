@@ -347,6 +347,122 @@
     });
   }
   function commitBrand() { saveBrand(); applyAllToPreview(); renderSourcePane(); }
+
+  /* ---------- palette studio (color wheel) ---------- */
+  function hslToHex(h, s, l) {
+    s /= 100; l /= 100;
+    var a = s * Math.min(l, 1 - l), k = function (n) { return (n + h / 30) % 12; };
+    var f = function (n) { return Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1))))); };
+    var hx = function (x) { return ("0" + x.toString(16)).slice(-2); };
+    return "#" + hx(f(0)) + hx(f(8)) + hx(f(4));
+  }
+  function hexToHsl(hex) {
+    var s2 = String(hex).replace("#", ""); if (s2.length === 3) s2 = s2.split("").map(function (c) { return c + c; }).join("");
+    var r = parseInt(s2.slice(0, 2), 16) / 255, g = parseInt(s2.slice(2, 4), 16) / 255, b = parseInt(s2.slice(4, 6), 16) / 255;
+    var mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn, h = 0, l = (mx + mn) / 2, sat = 0;
+    if (d) {
+      sat = d / (1 - Math.abs(2 * l - 1));
+      if (mx === r) h = ((g - b) / d) % 6; else if (mx === g) h = (b - r) / d + 2; else h = (r - g) / d + 4;
+      h *= 60; if (h < 0) h += 360;
+    }
+    return { h: Math.round(h), s: Math.round(sat * 100), l: Math.round(l * 100) };
+  }
+  var PRESETS = [
+    { n: "Nebula", h: 262, s: 85, l: 60, mode: "dark" }, { n: "Ocean", h: 196, s: 82, l: 55, mode: "dark" },
+    { n: "Ember", h: 18, s: 88, l: 60, mode: "dark" }, { n: "Forest", h: 150, s: 52, l: 48, mode: "dark" },
+    { n: "Slate", h: 220, s: 10, l: 55, mode: "dark" }, { n: "Candy", h: 330, s: 88, l: 64, mode: "light" },
+    { n: "Citrus", h: 45, s: 95, l: 56, mode: "light" }, { n: "Royal", h: 250, s: 70, l: 60, mode: "light" }
+  ];
+  var palState = { h: 262, s: 85, l: 58, harmony: "complementary", mode: "dark" };
+  function paletteSpec() {
+    var h = palState.h, s = palState.s, l = palState.l, dark = palState.mode === "dark", hm = palState.harmony;
+    var h2 = hm === "complementary" ? h + 180 : hm === "analogous" ? h + 30 : hm === "triadic" ? h + 120 : h;
+    h2 = (h2 % 360 + 360) % 360;
+    var l2 = hm === "monochrome" ? Math.min(85, l + 16) : l;
+    return {
+      accent: hslToHex(h, s, l), accent2: hslToHex(h2, Math.max(40, s - 5), l2),
+      bg: dark ? hslToHex(h, 18, 8) : hslToHex(h, 40, 97),
+      surface: dark ? hslToHex(h, 16, 13) : hslToHex(h, 30, 93),
+      text: dark ? hslToHex(h, 12, 93) : hslToHex(h, 25, 12),
+      muted: dark ? hslToHex(h, 10, 62) : hslToHex(h, 15, 42),
+      radius: brand.radius || "14px"
+    };
+  }
+  function placeMark() {
+    var w = $("#wheel"), mk = $("#wheel-mark"); if (!w || !mk) return;
+    var R = w.clientWidth / 2, rr = (palState.s / 100) * R, rad = palState.h * Math.PI / 180;
+    mk.style.left = (R + rr * Math.sin(rad)) + "px";
+    mk.style.top = (R - rr * Math.cos(rad)) + "px";
+    mk.style.background = hslToHex(palState.h, palState.s, palState.l);
+  }
+  function renderPalSwatches() {
+    var host = $("#pal-swatches"); if (!host) return;
+    var sp = paletteSpec();
+    var roles = [["Accent", sp.accent], ["Accent2", sp.accent2], ["BG", sp.bg], ["Surface", sp.surface], ["Text", sp.text], ["Muted", sp.muted]];
+    host.innerHTML = roles.map(function (r) { return '<span class="sw" title="' + r[0] + " " + r[1] + '"><i style="background:' + r[1] + '"></i><small>' + r[1] + "</small></span>"; }).join("");
+  }
+  function generatePalette() {
+    var sp = paletteSpec();
+    brand.accent = sp.accent; brand.accent2 = sp.accent2; brand.bg = sp.bg; brand.text = sp.text; brand.radius = sp.radius; brand.on = true;
+    saveBrand();
+    if ($("#brand-on")) $("#brand-on").checked = true;
+    placeMark(); renderBrand(); renderPalSwatches(); applyAllToPreview(); renderSourcePane();
+  }
+  function setMode(m) { palState.mode = m; $$(".palette__mode button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-mode") === m); }); }
+  function renderPresets() {
+    var host = $("#presets"); if (!host) return; host.innerHTML = "";
+    PRESETS.forEach(function (pre) {
+      var b = document.createElement("button"); b.className = "preset"; b.title = pre.n + " palette"; b.setAttribute("aria-label", pre.n + " palette");
+      b.style.background = hslToHex(pre.h, pre.s, pre.l);
+      b.addEventListener("click", function () { palState.h = pre.h; palState.s = pre.s; palState.l = pre.l; $("#pal-light").value = pre.l; setMode(pre.mode); generatePalette(); });
+      host.appendChild(b);
+    });
+  }
+  function wheelPick(ev) {
+    var w = $("#wheel"), r = w.getBoundingClientRect(), R = r.width / 2;
+    var dx = ev.clientX - (r.left + R), dy = ev.clientY - (r.top + R);
+    var dist = Math.min(Math.hypot(dx, dy), R);
+    palState.h = (Math.atan2(dx, -dy) * 180 / Math.PI + 360) % 360;
+    palState.s = Math.round(dist / R * 100);
+    generatePalette();
+  }
+  function initPalette() {
+    if (!$("#wheel")) return;
+    // reflect a persisted brand on the wheel
+    if (brand.accent) { var hsl = hexToHsl(brand.accent); palState.h = hsl.h; palState.s = hsl.s; palState.l = hsl.l; if ($("#pal-light")) $("#pal-light").value = hsl.l; }
+    if (brand.bg) { setMode(hexToHsl(brand.bg).l < 50 ? "dark" : "light"); }
+    renderPresets(); placeMark(); renderPalSwatches();
+    var w = $("#wheel");
+    w.addEventListener("pointerdown", function (ev) { w.setPointerCapture(ev.pointerId); wheelPick(ev); });
+    w.addEventListener("pointermove", function (ev) { if (ev.buttons) wheelPick(ev); });
+    w.addEventListener("keydown", function (ev) {
+      if (ev.key === "ArrowRight") { palState.h = (palState.h + 6) % 360; generatePalette(); }
+      else if (ev.key === "ArrowLeft") { palState.h = (palState.h + 354) % 360; generatePalette(); }
+      else if (ev.key === "ArrowUp") { palState.s = Math.min(100, palState.s + 5); generatePalette(); }
+      else if (ev.key === "ArrowDown") { palState.s = Math.max(0, palState.s - 5); generatePalette(); }
+      else return; ev.preventDefault();
+    });
+    $("#harmony").addEventListener("change", function () { palState.harmony = this.value; generatePalette(); });
+    $("#pal-light").addEventListener("input", function () { palState.l = +this.value; generatePalette(); });
+    $$(".palette__mode button").forEach(function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); generatePalette(); }); });
+    $("#pal-copy").addEventListener("click", function () {
+      var sp = paletteSpec();
+      var css = ":root {\n" +
+        "  --accent: " + sp.accent + ";     /* primary actions, links */\n" +
+        "  --accent-2: " + sp.accent2 + ";  /* secondary accent */\n" +
+        "  --bg: " + sp.bg + ";         /* page background */\n" +
+        "  --surface: " + sp.surface + ";    /* cards & panels */\n" +
+        "  --text: " + sp.text + ";       /* body text */\n" +
+        "  --muted: " + sp.muted + ";      /* secondary text */\n" +
+        "  --radius: " + sp.radius + ";\n}";
+      var note = "\n\n/* Apply across the UI: accent = primary buttons/links, accent-2 = secondary emphasis, " +
+        "bg = page, surface = cards, text/muted = copy. Palette: " + palState.harmony + " harmony, " + palState.mode + " UI. */";
+      writeClipboard(css + note).then(function () {
+        $("#pal-status").textContent = "✓ Palette copied — paste into your agent.";
+        setTimeout(function () { $("#pal-status").textContent = ""; }, 4000);
+      });
+    });
+  }
   function openModal(id) {
     var e = findEffect(id);
     if (!e) return;
@@ -614,6 +730,7 @@
       if (brand.on) BRAND_ROLES.forEach(function (r) { if (!brand[r.key]) brand[r.key] = r.def; });
       saveBrand(); renderBrand(); applyAllToPreview(); renderSourcePane();
     });
+    initPalette();
     updateBundleUI();
     $("#copy-source").addEventListener("click", function () {
       var text = $("#modal-source").textContent;
