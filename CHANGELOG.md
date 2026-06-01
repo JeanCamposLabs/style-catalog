@@ -3,6 +3,19 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.9] — 2026-06-01
+
+### Added
+- **Related effects** — the modal's Details tab now lists each effect's related
+  specimens as clickable chips that jump straight to them (stale ids that no
+  longer exist are filtered out).
+- **Copy for AI** — a button on the AI Notes tab copies a single, paste-ready
+  prompt for that effect: summary, how-to-apply, tech/deps, customizable tokens,
+  and the (tuned) source in a fenced block.
+- **Social cards** — Open Graph / Twitter meta tags plus a generated 1200×630
+  cover image (`assets/og-cover.png`) so the museum link unfurls nicely when
+  shared.
+
 ## [0.20.8] — 2026-06-01
 
 ### Added — curated hero row

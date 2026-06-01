@@ -954,6 +954,13 @@
         e.variations.map(function (v) { return "<li>" + esc(v) + "</li>"; }).join("") + "</ul></dd>";
     }
     if (e.description) dl += row("Description", esc(e.description));
+    var rel = (e.related || []).map(findEffect).filter(Boolean);
+    if (rel.length) {
+      dl += "<dt>Related</dt><dd><div class='tag-list'>" +
+        rel.map(function (r) {
+          return "<button type='button' class='badge badge--link' data-related='" + esc(r.id) + "'>" + esc(r.title) + "</button>";
+        }).join("") + "</div></dd>";
+    }
     dl += "</dl>";
     return dl;
   }
@@ -1092,6 +1099,27 @@
     return fetch("api/effects/" + encodeURIComponent(id) + ".json", { cache: "force-cache" })
       .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
   }
+  // Paste-ready prompt for a single effect, using the source/tokens already
+  // loaded into the modal (T) so no extra fetch is needed.
+  function buildEffectMarkdown(e) {
+    var L = [];
+    L.push("# " + e.title + "  —  " + (e.themeTitle || e.theme));
+    L.push("");
+    L.push("> Drop this self-contained component (HTML + CSS + a little vanilla JS, no build step or dependencies) into your project. Swap placeholder text/colors as noted.");
+    if (e.summary) { L.push(""); L.push(e.summary); }
+    if (e.ai_usage) { L.push(""); L.push("**How to apply:** " + e.ai_usage); }
+    var deps = (e.dependencies && e.dependencies.length) ? e.dependencies.join(", ") : "none (vanilla)";
+    L.push(""); L.push("**Tech:** " + (e.tech || []).join(", ") + " · **Dependencies:** " + deps + (e.browser_support ? " · **Support:** " + e.browser_support : ""));
+    if (e.customization && e.customization.length) {
+      L.push(""); L.push("**Customize:** " + e.customization.map(function (c) {
+        return "`" + c.name + "`" + (c.default ? " (" + c.default + ")" : "") + " — " + c.description;
+      }).join("; "));
+    }
+    var eff = effectiveTokens(T.id, T.tokens);
+    if (Object.keys(eff).length) L.push("\n_Customized tokens:_ " + Object.keys(eff).map(function (k) { return "`" + k + ": " + eff[k] + "`"; }).join(", "));
+    L.push(""); L.push("```html"); L.push(applyTuned(T.source || "", eff) || "<!-- source unavailable — open the standalone page -->"); L.push("```");
+    return L.join("\n");
+  }
   function buildBundleMarkdown() {
     return Promise.all(Array.from(bundle).map(fetchFull)).then(function (items) {
       items = items.filter(Boolean);
@@ -1220,6 +1248,18 @@
         var ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta);
         ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} document.body.removeChild(ta);
       }
+    });
+    $("#copy-ai").addEventListener("click", function () {
+      var e = findEffect($("#modal").getAttribute("data-eid")); if (!e) return;
+      var status = $("#copy-ai-status");
+      writeClipboard(buildEffectMarkdown(e))
+        .then(function () { status.textContent = "✓ Copied! Paste it into your agent."; })
+        .catch(function () { status.textContent = "Couldn't copy — use the Source tab."; });
+      setTimeout(function () { status.textContent = ""; }, 2400);
+    });
+    // Related-effect chips inside the Details tab open that effect.
+    $("#modal-details").addEventListener("click", function (ev) {
+      var b = ev.target.closest("[data-related]"); if (b) openModal(b.getAttribute("data-related"));
     });
   }
 

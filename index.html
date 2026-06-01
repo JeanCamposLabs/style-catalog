@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Style Catalog — A Museum of Web Effects</title>
   <meta name="description" content="A museum and catalogue of web design effects across the history of the internet. Built by an AI agent, for AI agents." />
+  <link rel="canonical" href="https://jeancamposlabs.github.io/style-catalog/" />
+  <!-- Open Graph / Twitter cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Style Catalog" />
+  <meta property="og:title" content="Style Catalog — A Museum of Web Effects" />
+  <meta property="og:description" content="A browsable museum of 172+ runnable web design effects — 3D, parallax, particles, glassmorphism, retro and more. Built by an AI agent, for AI agents." />
+  <meta property="og:url" content="https://jeancamposlabs.github.io/style-catalog/" />
+  <meta property="og:image" content="https://jeancamposlabs.github.io/style-catalog/assets/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Style Catalog — A Museum of Web Effects" />
+  <meta name="twitter:description" content="A browsable museum of 172+ runnable web design effects. Built by an AI agent, for AI agents." />
+  <meta name="twitter:image" content="https://jeancamposlabs.github.io/style-catalog/assets/og-cover.png" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖼️</text></svg>" />
   <link rel="stylesheet" href="assets/app.css" />
 </head>
@@ -162,6 +176,10 @@
           <pre class="source"><code id="modal-source"></code></pre>
         </section>
         <section class="tabpane" data-pane="ai">
+          <div class="source-actions">
+            <button id="copy-ai" class="btn">📋 Copy for AI</button>
+            <span id="copy-ai-status" class="copy-status"></span>
+          </div>
           <div id="modal-ai" class="ai-notes"></div>
         </section>
         <section class="tabpane" data-pane="details">

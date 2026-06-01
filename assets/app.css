@@ -156,6 +156,8 @@ a { color: var(--accent-2); }
   font-size: 0.68rem; padding: 0.15rem 0.5rem; border-radius: 999px;
   background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
 }
+.badge--link { cursor: pointer; font: inherit; font-size: 0.68rem; transition: color .15s, border-color .15s, background .15s; }
+.badge--link:hover, .badge--link:focus-visible { color: #c3b6ff; border-color: #7c5cff; background: rgba(124,92,255,.16); outline: none; }
 .badge--theme { background: rgba(124,92,255,.16); color: #c3b6ff; border-color: transparent; }
 .badge--beginner { color: #6ee7b7; }
 .badge--intermediate { color: #fcd34d; }
