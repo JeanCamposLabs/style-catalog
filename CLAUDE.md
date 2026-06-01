@@ -29,8 +29,9 @@ push to `main`.
 | `assets/catalog.js` | `window.__CATALOG__` for `file://` use (no `source`) | ⚙️ generated |
 | `api/*.json` | Split index: `index.json`, `themes.json`, `effects/<id>.json` | ⚙️ generated |
 | `assets/build.js` / `build.json` | Deploy stamp (version/build/sha) | ⚙️ generated |
-| `scripts/` | Build, validate, scaffold, serve, posters tooling | ✅ yes |
-| `scripts/lib/catalog.mjs` | Catalog scanner + **the hand-set `version`** | ✅ yes |
+| `scripts/` | Build, validate, scaffold, serve, posters, syntax-check tooling | ✅ yes |
+| `scripts/lib/catalog.mjs` | Catalog scanner + validator (reads `version` from `package.json`) | ✅ yes |
+| `test/*.test.mjs` | Zero-dep tests (`node --test`): catalog validator + MCP server | ✅ yes |
 | `schema/effect-meta.schema.json` | JSON Schema for an effect's metadata | ✅ yes |
 | `mcp/server.mjs` | Zero-dep MCP stdio server over the catalog | ✅ yes |
 | `docs/GLOSSARY.md` | Taxonomy + key terms | ✅ yes |
@@ -42,8 +43,10 @@ and emits `catalog.json`, `assets/catalog.js`, the `api/` tree, and the deploy
 stamp. If any effect fails validation the build aborts — so a green build means
 a valid library. `npm run validate` runs the same checks without writing.
 
-CI (`.github/workflows/ci.yml`) runs `validate` + `build` and **fails if the
-generated files aren't committed and up to date** — always `npm run build` and
+CI (`.github/workflows/ci.yml`) runs two install-free jobs: **quality**
+(`npm run lint` = zero-dep syntax gate, `npm test` = Node's built-in runner over
+`test/*.test.mjs`) and **validate** (`validate` + `build`, failing if the
+generated files aren't committed and up to date). Always `npm run build` and
 commit the result alongside any change to effects or `scripts/lib/catalog.mjs`.
 
 ## Gallery architecture (`assets/app.js`)
@@ -95,10 +98,11 @@ npm run posters    # writes assets/posters/<id>.jpg — commit them
 Pushing to `main` auto-deploys to Pages (`.github/workflows/pages.yml`). When
 shipping a change:
 
-1. Bump the **hand-set version in two places** — `package.json` `version` and
-   `scripts/lib/catalog.mjs` `version:` — keep them identical.
+1. Bump `version` in **`package.json`** (the single source of truth —
+   `scripts/lib/catalog.mjs` reads it via the exported `VERSION`).
 2. Add a `CHANGELOG.md` entry.
-3. `npm run build` and commit the regenerated files (CI enforces this).
+3. `npm run lint && npm test && npm run build` — commit the regenerated files
+   (CI enforces lint, tests, and that generated files are up to date).
 4. Push to `main`; Pages rebuilds.
 
 Note the version model: the deploy stamp shows `major.minor.<git-commit-count>`

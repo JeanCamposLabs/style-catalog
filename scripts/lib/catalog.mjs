@@ -10,6 +10,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export const ROOT = join(__dirname, "..", "..");
 export const EFFECTS_DIR = join(ROOT, "effects");
 
+// Single source of truth for the semantic version: package.json. (The deploy
+// stamp derives the visible major.minor.<commit-count> from this — see
+// scripts/build.mjs.) Reading it here avoids the old two-places-to-bump drift.
+export const VERSION = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8")).version;
+
 const REQUIRED_FIELDS = [
   "id",
   "title",
@@ -25,6 +30,22 @@ const DIFFICULTIES = ["beginner", "intermediate", "advanced"];
 const ERAS = ["1990s", "2000s", "2010s", "2020s", "timeless"];
 const TECHS = ["css", "js", "html", "svg", "canvas", "webgl"];
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+
+// Every field the schema permits. Unknown keys are almost always typos
+// (e.g. "discription") that would otherwise be silently dropped, so we reject
+// them. Keep in sync with schema/effect-meta.schema.json.
+const ALLOWED_FIELDS = new Set([
+  ...REQUIRED_FIELDS,
+  "description",
+  "era",
+  "dependencies",
+  "browser_support",
+  "performance_notes",
+  "accessibility_notes",
+  "customization",
+  "variations",
+  "related",
+]);
 
 const META_RE =
   /<script[^>]*type=["']application\/json["'][^>]*id=["']effect-meta["'][^>]*>([\s\S]*?)<\/script>/i;
@@ -48,7 +69,7 @@ function extractTitle(source) {
   return m ? m[1].trim() : "";
 }
 
-function validateMeta(meta, ctx, errors) {
+export function validateMeta(meta, ctx, errors) {
   const where = ctx.rel;
   for (const field of REQUIRED_FIELDS) {
     const v = meta[field];
@@ -77,6 +98,25 @@ function validateMeta(meta, ctx, errors) {
     for (const t of meta.tech)
       if (!TECHS.includes(t))
         errors.push(`${where}: tech "${t}" is not one of ${TECHS.join(", ")}`);
+  }
+  // Reject unknown top-level fields (typo guard).
+  for (const key of Object.keys(meta))
+    if (!ALLOWED_FIELDS.has(key))
+      errors.push(`${where}: unknown field "${key}" (typo? not in schema)`);
+  // Customization entries must be { name, description, default? }.
+  if (meta.customization !== undefined) {
+    if (!Array.isArray(meta.customization)) {
+      errors.push(`${where}: "customization" must be an array`);
+    } else {
+      meta.customization.forEach((c, i) => {
+        if (!c || typeof c !== "object" || Array.isArray(c))
+          errors.push(`${where}: customization[${i}] must be an object`);
+        else if (typeof c.name !== "string" || !c.name.trim())
+          errors.push(`${where}: customization[${i}] missing "name"`);
+        else if (typeof c.description !== "string" || !c.description.trim())
+          errors.push(`${where}: customization[${i}] ("${c.name}") missing "description"`);
+      });
+    }
   }
 }
 
@@ -165,6 +205,14 @@ export function scanCatalog() {
     });
   }
 
+  // Cross-reference pass: every `related` id must resolve to a real effect, or
+  // the catalog ships dead links (broken for the gallery, the API, and agents).
+  const allIds = new Set(effects.map((e) => e.id));
+  for (const e of effects)
+    for (const rid of e.related)
+      if (!allIds.has(rid))
+        errors.push(`${e.path}: related id "${rid}" does not exist`);
+
   themes.sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
   effects.sort((a, b) => a.theme.localeCompare(b.theme) || a.title.localeCompare(b.title));
 
@@ -180,7 +228,7 @@ export function scanCatalog() {
 
   const catalog = {
     name: "style-catalog",
-    version: "0.20.14",
+    version: VERSION,
     // NOTE: intentionally no build timestamp here — the generated artifacts
     // (catalog.json / assets/catalog.js) are committed and verified for
     // staleness in CI, so the output must be deterministic from the inputs.

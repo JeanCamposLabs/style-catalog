@@ -195,8 +195,9 @@ A single-page, dependency-free gallery (`index.html`):
 - **v4: Community.** Submission flow, screenshots/thumbnails generation,
   versioned releases.
 
-> Status as of v0.3.0: **94 effects across 20 themes**, plus the API + MCP
-> access layer.
+> Status as of v0.20: **172 effects across 22 themes**, plus the API + MCP
+> access layer, static poster thumbnails, live palette theming, and a test +
+> lint CI gate. See [`ROADMAP.md`](ROADMAP.md) for the growth plan.
 
 ## 9. How work proceeds (for the agent following this plan)
 

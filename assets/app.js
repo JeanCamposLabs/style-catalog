@@ -33,6 +33,16 @@
   function debounce(fn, ms) {
     var t; return function () { var a = arguments, c = this; clearTimeout(t); t = setTimeout(function () { fn.apply(c, a); }, ms); };
   }
+  // Keep Tab focus inside an open dialog (modal / cart / filters). Only counts
+  // currently-visible controls, so hidden tab panes don't become focus holes.
+  var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  function trapFocus(container, e) {
+    var nodes = $$(FOCUSABLE, container).filter(function (n) { return n.offsetParent !== null; });
+    if (!nodes.length) return;
+    var first = nodes[0], last = nodes[nodes.length - 1], a = document.activeElement;
+    if (e.shiftKey && (a === first || !container.contains(a))) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && (a === last || !container.contains(a))) { e.preventDefault(); first.focus(); }
+  }
 
   /* ---------- stats ---------- */
   function renderStats() {
@@ -1226,6 +1236,12 @@
       if (e.key === "Escape" && !$("#cart").hidden) { closeCart(); return; }
       if (e.key === "Escape" && !$("#modal").hidden) closeModal();
       if (e.key === "/" && document.activeElement !== $("#search")) { e.preventDefault(); $("#search").focus(); }
+      if (e.key === "Tab") {
+        var panel = !$("#modal").hidden ? $(".modal__panel")
+          : !$("#cart").hidden ? $(".cart__panel")
+            : !$("#filters-panel").hidden ? $("#filters-panel") : null;
+        if (panel) trapFocus(panel, e);
+      }
     });
 
     // Bundle (cart) wiring
