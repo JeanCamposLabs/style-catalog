@@ -3,6 +3,17 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.14] — 2026-06-01
+
+### Docs
+- Added **`CLAUDE.md`** — orientation for an agent developing the repo: repo
+  map (what's hand-edited vs generated), the build pipeline, a tour of
+  `assets/app.js` by section, the dev workflow, the release/deploy ritual
+  (incl. the `major.minor.<commit-count>` version model), and conventions.
+- Refreshed `README.md` for today's features: the **Copy for AI** button,
+  **Related** effects, the **bundle** export, the `npm run posters` script, and
+  the `assets/posters/` + `CLAUDE.md` entries in the layout table.
+
 ## [0.20.13] — 2026-06-01
 
 ### Fixed

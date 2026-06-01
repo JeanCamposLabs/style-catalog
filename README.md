@@ -35,16 +35,23 @@ browser.
 | `effects/<theme>/*.html` | The collection — one self-contained specimen per file |
 | `catalog.json` | **Generated** canonical machine-readable index (the public API) |
 | `assets/catalog.js` | **Generated** `window.__CATALOG__` for the `file://`-safe gallery |
+| `assets/posters/` | **Generated** static card thumbnails (`npm run posters`) |
 | `schema/effect-meta.schema.json` | JSON Schema for an effect's metadata |
-| `scripts/` | Build, validate, scaffold, and serve tooling (no deps) |
+| `scripts/` | Build, validate, scaffold, serve, and poster tooling (no runtime deps) |
+| `CLAUDE.md` | Orientation for agents working *on* the repo |
 
 ## Using an effect in your project
 
 1. Browse the gallery, find an effect, open it.
-2. Read its **AI Notes** (when/how to use) and **Details** (knobs, support).
-3. Hit **Copy source** — you get a complete, working HTML file.
+2. Read its **AI Notes** (when/how to use) and **Details** (knobs, support,
+   plus clickable **Related** effects).
+3. Hit **Copy source** for the raw HTML, or **📋 Copy for AI** for a paste-ready
+   prompt (summary + how-to-apply + tuned source) to hand to an agent.
 4. Lift the `<style>`, markup, and any `<script>` into your project and tweak
    the documented customization variables.
+
+> Tip: select several effects into the **bundle** to copy one combined,
+> agent-ready document covering all of them at once.
 
 Or, programmatically: read `catalog.json` and pull the `source` and `ai_usage`
 fields for any effect `id`.
@@ -58,8 +65,10 @@ npm run build        # regenerate the index
 npm run validate     # confirm it passes
 ```
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full authoring guide and
-[`AGENTS.md`](AGENTS.md) for the AI-agent contract.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full authoring guide,
+[`AGENTS.md`](AGENTS.md) for the AI-agent *consumer* contract, and
+[`CLAUDE.md`](CLAUDE.md) for orientation when *developing* the project itself
+(repo map, gallery architecture, release ritual).
 
 ## Scripts
 
@@ -69,6 +78,7 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full authoring guide and
 | `npm run validate` | Validate the library (CI-friendly, no writes) |
 | `npm run new` | Scaffold a new effect file |
 | `npm run serve` | Serve the museum locally |
+| `npm run posters` | Regenerate gallery poster thumbnails (needs dev-only Playwright) |
 | `npm run mcp` | Start the MCP server (query the catalog over stdio) |
 | `npm run dev` | Build, then serve |
 
