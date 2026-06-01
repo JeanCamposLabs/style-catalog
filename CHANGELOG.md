@@ -3,6 +3,17 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.11] — 2026-06-01
+
+### Added
+- **Spaceship cursor** — on the museum chrome the pointer becomes a little ship
+  that glides toward the real cursor with a touch of lag, banks its nose toward
+  the direction of travel, fires a brighter thruster the faster you move, and
+  leaves a fading exhaust trail on a full-screen canvas. The hull picks up the
+  live brand accent colors, and it flashes a boost glow over interactive
+  targets. Fine-pointer + motion only — touch devices and `prefers-reduced-motion`
+  keep the native cursor, and the text caret is preserved inside inputs.
+
 ## [0.20.10] — 2026-06-01
 
 ### Added — poster thumbnails

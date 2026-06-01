@@ -1263,6 +1263,124 @@
     $("#modal-details").addEventListener("click", function (ev) {
       var b = ev.target.closest("[data-related]"); if (b) openModal(b.getAttribute("data-related"));
     });
+    initShipCursor();
+  }
+
+  /* ---------- spaceship cursor ----------
+     A little ship replaces the pointer on the museum chrome: it glides toward
+     the real cursor (a touch of lag for a flying feel), banks its nose toward
+     the direction of travel, and leaves a fading thruster trail on a full-screen
+     canvas. Fine-pointer + motion only — touch and reduced-motion keep the
+     native cursor untouched. The hull is tinted with the live brand accents. */
+  function initShipCursor() {
+    var fine = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fine || reduce) return;
+
+    var canvas = document.createElement("canvas");
+    canvas.id = "ship-fx";
+    var ship = document.createElement("div");
+    ship.id = "ship-cursor";
+    // Nose points up (-Y); the wrapper is rotated to face travel direction.
+    ship.innerHTML =
+      '<svg viewBox="-14 -18 28 36" width="34" height="44" aria-hidden="true">' +
+        '<defs>' +
+          '<linearGradient id="shipHull" x1="0" y1="-18" x2="0" y2="14" gradientUnits="userSpaceOnUse">' +
+            '<stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="var(--accent,#7c5cff)"/>' +
+            '<stop offset="1" stop-color="var(--accent-2,#2dd4bf)"/>' +
+          '</linearGradient>' +
+        '</defs>' +
+        // exhaust flame (animated via CSS)
+        '<polygon class="ship__flame" points="-4,11 0,26 4,11"/>' +
+        // hull
+        '<path class="ship__hull" d="M0,-17 L9,9 L4,13 L0,9 L-4,13 L-9,9 Z" fill="url(#shipHull)"/>' +
+        // cockpit
+        '<ellipse class="ship__glass" cx="0" cy="-3" rx="3.1" ry="5"/>' +
+      "</svg>";
+
+    var ctx = canvas.getContext("2d"), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      canvas.width = innerWidth * dpr; canvas.height = innerHeight * dpr;
+      canvas.style.width = innerWidth + "px"; canvas.style.height = innerHeight + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener("resize", resize); resize();
+
+    document.body.appendChild(canvas);
+    document.body.appendChild(ship);
+    document.documentElement.classList.add("has-ship-cursor");
+
+    var tx = innerWidth / 2, ty = innerHeight / 2;   // target (real pointer)
+    var sx = tx, sy = ty;                             // ship (eased)
+    var angle = -Math.PI / 2, vx = 0, vy = 0;
+    var particles = [], seen = false, raf = null;
+
+    function accent(varName, fallback) {
+      var v = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+      return v || fallback;
+    }
+
+    function onMove(e) {
+      tx = e.clientX; ty = e.clientY;
+      if (!seen) { seen = true; sx = tx; sy = ty; document.documentElement.classList.add("ship-awake"); }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+    function onLeave() { document.documentElement.classList.remove("ship-awake"); }
+    function onEnter() { if (seen) document.documentElement.classList.add("ship-awake"); }
+    window.addEventListener("pointermove", onMove, { passive: true });
+    document.addEventListener("pointerleave", onLeave);
+    document.addEventListener("pointerenter", onEnter);
+    // Ships salute interactive targets with a little boost glow.
+    window.addEventListener("pointerover", function (e) {
+      ship.classList.toggle("ship--boost", !!e.target.closest && !!e.target.closest("a,button,input,select,.card,.chip,[role=button]"));
+    }, { passive: true });
+
+    function tick() {
+      var dx = tx - sx, dy = ty - sy;
+      vx = dx * 0.18; vy = dy * 0.18;
+      sx += vx; sy += vy;
+      var speed = Math.hypot(vx, vy);
+
+      // Bank the nose toward travel; idle, drift back to pointing up.
+      var target = speed > 0.4 ? Math.atan2(vy, vx) + Math.PI / 2 : angle;
+      var da = ((target - angle + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
+      angle += da * 0.25;
+      ship.style.transform = "translate(" + sx + "px," + sy + "px) rotate(" + angle + "rad)";
+      ship.style.setProperty("--thrust", Math.min(1, speed / 9).toFixed(2));
+
+      // Emit exhaust from the tail, opposite the nose.
+      if (speed > 0.6) {
+        var tailA = angle + Math.PI / 2; // nose-up offset → tail direction
+        var ex = sx + Math.cos(tailA) * 16, ey = sy + Math.sin(tailA) * 16;
+        var n = Math.min(3, 1 + (speed / 5) | 0);
+        for (var i = 0; i < n; i++) {
+          particles.push({
+            x: ex, y: ey,
+            vx: -vx * 0.25 + (Math.random() - 0.5) * 1.2,
+            vy: -vy * 0.25 + (Math.random() - 0.5) * 1.2,
+            life: 1, r: 1.5 + Math.random() * 2.5,
+          });
+        }
+      }
+      if (particles.length > 240) particles.splice(0, particles.length - 240);
+
+      var a1 = accent("--accent", "#7c5cff"), a2 = accent("--accent-2", "#2dd4bf");
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      ctx.globalCompositeOperation = "lighter";
+      for (var j = particles.length - 1; j >= 0; j--) {
+        var p = particles[j];
+        p.x += p.vx; p.y += p.vy; p.vx *= 0.94; p.vy *= 0.94; p.life -= 0.035;
+        if (p.life <= 0) { particles.splice(j, 1); continue; }
+        ctx.globalAlpha = Math.max(0, p.life) * 0.7;
+        ctx.fillStyle = p.life > 0.6 ? "#fff" : (p.life > 0.3 ? a2 : a1);
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r * (0.4 + p.life), 0, 7); ctx.fill();
+      }
+      ctx.globalAlpha = 1; ctx.globalCompositeOperation = "source-over";
+
+      // Keep animating while moving or while exhaust lingers; otherwise idle.
+      if (speed > 0.05 || particles.length) raf = requestAnimationFrame(tick);
+      else raf = null;
+    }
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

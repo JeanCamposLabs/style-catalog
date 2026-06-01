@@ -597,3 +597,48 @@ a { color: var(--accent-2); }
   .pb__cta { display: none; }
   .pb__editor { flex-direction: column; align-items: flex-start; }
 }
+
+/* ---------- spaceship cursor ---------- */
+/* Hide the native arrow once the ship is flying; keep the text caret in inputs
+   so typing still feels normal, and never hide it on touch (the JS gates this). */
+.has-ship-cursor,
+.has-ship-cursor a,
+.has-ship-cursor button,
+.has-ship-cursor .card,
+.has-ship-cursor .chip,
+.has-ship-cursor [role="button"] { cursor: none; }
+.has-ship-cursor input,
+.has-ship-cursor textarea,
+.has-ship-cursor select { cursor: text; }
+
+#ship-fx {
+  position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+  opacity: 0; transition: opacity .25s ease;
+}
+#ship-cursor {
+  position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
+  margin: -22px 0 0 -17px;            /* center the 34x44 svg on the pointer */
+  opacity: 0; transition: opacity .25s ease;
+  will-change: transform;
+  filter: drop-shadow(0 0 6px rgba(124, 92, 255, .55));
+}
+.ship-awake #ship-fx, .ship-awake #ship-cursor { opacity: 1; }
+
+#ship-cursor svg { display: block; overflow: visible; }
+.ship__hull { stroke: rgba(255, 255, 255, .85); stroke-width: 1; stroke-linejoin: round; }
+.ship__glass { fill: var(--accent-2, #2dd4bf); opacity: .9; }
+.ship__flame {
+  fill: var(--accent-2, #2dd4bf);
+  transform-origin: 0 11px;
+  transform: scaleY(calc(.35 + var(--thrust, 0) * 1.1));
+  opacity: calc(.45 + var(--thrust, 0) * .55);
+  filter: drop-shadow(0 0 5px var(--accent-2, #2dd4bf));
+  animation: ship-flicker .12s steps(2) infinite;
+}
+#ship-cursor.ship--boost { filter: drop-shadow(0 0 11px var(--accent-2, #2dd4bf)); }
+#ship-cursor.ship--boost svg { transform: scale(1.18); transition: transform .15s ease; }
+@keyframes ship-flicker { from { opacity: .85; } to { opacity: 1; } }
+
+@media (hover: none), (pointer: coarse) {
+  #ship-fx, #ship-cursor { display: none; }
+}
