@@ -99,7 +99,8 @@ a { color: var(--accent-2); }
 .btn--ghost { background: transparent; }
 
 /* ---------- Layout (full-width gallery; filters live in a floating popover) ---------- */
-.layout { display: block; padding: 1.5rem clamp(1rem, 4vw, 2.5rem); }
+/* generous bottom padding so the last row clears the floating corner buttons */
+.layout { display: block; padding: 1.5rem clamp(1rem, 4vw, 2.5rem) 5.5rem; }
 .filters { display: flex; flex-direction: column; gap: 0.2rem; }
 .facet { margin-bottom: 1.3rem; }
 .facet__title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 0.5rem; }

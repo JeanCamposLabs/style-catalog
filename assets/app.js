@@ -872,13 +872,19 @@
   }
 
   /* ---------- floating filters popover ---------- */
+  var filtersLastFocus = null;
   function openFilters() {
+    if (!$("#filters-panel").hidden) return;
+    filtersLastFocus = document.activeElement;
     $("#filters-panel").hidden = false; $("#filters-scrim").hidden = false;
     var f = $("#filters-fab"); f.setAttribute("aria-expanded", "true"); f.classList.add("is-open");
+    var close = $("#filters-panel-close"); if (close) close.focus();
   }
   function closeFilters() {
+    if ($("#filters-panel").hidden) return;
     $("#filters-panel").hidden = true; $("#filters-scrim").hidden = true;
     var f = $("#filters-fab"); f.setAttribute("aria-expanded", "false"); f.classList.remove("is-open");
+    if (filtersLastFocus && document.contains(filtersLastFocus)) filtersLastFocus.focus(); else f.focus();
   }
   function toggleFilters() { if ($("#filters-panel").hidden) openFilters(); else closeFilters(); }
   function clearFilters() {

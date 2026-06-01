@@ -3,6 +3,18 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.19.1] — 2026-06-01
+
+### Accessibility & polish
+- The floating filters popover now **manages focus**: opening moves focus to its
+  close button; closing (✕, Esc, or click-outside) **restores focus** to the
+  launcher (or the “All filters” chip that opened it).
+- Moved the polite **live region to the result count** ("38 effects") and removed
+  the now-defunct `aria-live` from the grid — filtering no longer rebuilds the
+  grid, so the count is the right thing to announce.
+- Added bottom padding to the gallery so the **last row of cards clears the
+  floating corner buttons**.
+
 ## [0.19.0] — 2026-05-31
 
 ### Added — Quick filters + polished launcher
