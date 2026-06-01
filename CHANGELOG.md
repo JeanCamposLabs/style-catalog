@@ -3,6 +3,16 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.2] — 2026-06-01
+
+### Fixed
+- **Definitive fix for the hover blink / stray teal layer.** The previous
+  attempt (pinning iframes to their own GPU layer) backfired — force-promoting
+  172 iframes made Chrome paint a ghost layer off the right edge. Reverted that,
+  and **removed the `translateY` lift on card hover entirely**, so no element
+  above any `<iframe>` ever transforms. Hover feedback is now border + shadow
+  only, which never re-rasterizes the iframe.
+
 ## [0.20.1] — 2026-06-01
 
 ### Fixed
