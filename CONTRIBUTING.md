@@ -35,7 +35,16 @@ npm run validate
 
 # preview
 npm run serve   # http://localhost:4321
+
+# regenerate gallery poster thumbnails (after adding/changing effects)
+npm i -D playwright && npx playwright install chromium
+npm run posters   # writes assets/posters/<id>.jpg
 ```
+
+> Posters are the static images each gallery card rests on; the live iframe only
+> mounts on hover/focus. A new effect works without a poster (the card falls
+> back to the frozen live iframe), but running `npm run posters` gives it a
+> proper thumbnail. Commit the generated `assets/posters/*.jpg`.
 
 ## Metadata field reference
 

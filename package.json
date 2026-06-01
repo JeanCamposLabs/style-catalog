@@ -1,6 +1,6 @@
 {
   "name": "style-catalog",
-  "version": "0.20.9",
+  "version": "0.20.10",
   "description": "A museum and catalogue of web design effects across the history of the internet — built by an AI agent, for AI agents.",
   "type": "module",
   "private": true,
@@ -10,6 +10,7 @@
     "validate": "node scripts/validate.mjs",
     "new": "node scripts/new-effect.mjs",
     "serve": "node scripts/serve.mjs",
+    "posters": "node scripts/posters.mjs",
     "mcp": "node mcp/server.mjs",
     "dev": "node scripts/build.mjs && node scripts/serve.mjs",
     "prepublishOnly": "node scripts/validate.mjs"
@@ -26,5 +27,8 @@
     "ai-agents",
     "ui",
     "animations"
-  ]
+  ],
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
 }

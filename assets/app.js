@@ -236,7 +236,9 @@
     var added = inBundle(e.id);
     el.innerHTML =
       '<div class="card__frame">' +
-        '<iframe loading="lazy" sandbox="allow-scripts allow-same-origin" title="' + esc(e.title) + '" data-src="' + esc(e.path) + '"></iframe>' +
+        // iframe first (beneath); the poster sits on top and fades out on hover.
+        '<iframe sandbox="allow-scripts allow-same-origin" title="' + esc(e.title) + '" data-src="' + esc(e.path) + '"></iframe>' +
+        '<img class="card__poster" loading="lazy" alt="" src="assets/posters/' + esc(e.id) + '.jpg" />' +
         '<div class="card__scrim"></div>' +
         '<button class="card__add' + (added ? " is-in" : "") + '" data-bundle-add data-id="' + esc(e.id) +
           '" type="button" aria-pressed="' + added + '" title="Add to bundle" aria-label="Add ' + esc(e.title) + ' to bundle">' +
@@ -259,35 +261,37 @@
     el.querySelector(".card__add").addEventListener("click", function (ev) {
       ev.stopPropagation(); toggleBundle(e.id);
     });
+    // Cards rest on a static poster image (cheap, no compositing). The live
+    // iframe is mounted only on hover/focus and animates just that one card —
+    // far under the count that overwhelmed Chrome's compositor. If a poster is
+    // missing, the frozen iframe is revealed as the resting visual instead.
     var ifr = el.querySelector(".card__frame iframe");
+    var poster = el.querySelector(".card__poster");
     if (ifr) {
-      ifr.addEventListener("load", function () { applyFrame(ifr); freezeFrame(ifr); });
-      // Animate only the hovered/focused card — one live preview at a time stays
-      // well under the count that overwhelmed Chrome's compositor. Honour
-      // reduced-motion: those users keep the static frame.
+      ifr.addEventListener("load", function () {
+        applyFrame(ifr); freezeFrame(ifr); ifr._loaded = true;
+        if (el.classList.contains("is-hover")) goLive();
+      });
+      poster.addEventListener("error", function () { el.classList.add("no-poster"); mountFrame(el); });
+      var goLive = function () { el.classList.add("is-live"); playFrame(ifr); };
       var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
       if (!(reduce && reduce.matches)) {
-        var play = function () { playFrame(ifr); }, pause = function () { pauseFrame(ifr); };
-        el.addEventListener("mouseenter", play);
-        el.addEventListener("mouseleave", pause);
-        el.addEventListener("focusin", play);
-        el.addEventListener("focusout", pause);
+        var enter = function () { el.classList.add("is-hover"); if (!ifr.getAttribute("src")) mountFrame(el); if (ifr._loaded) goLive(); };
+        var leave = function () { el.classList.remove("is-hover", "is-live"); pauseFrame(ifr); };
+        el.addEventListener("mouseenter", enter);
+        el.addEventListener("mouseleave", leave);
+        el.addEventListener("focusin", enter);
+        el.addEventListener("focusout", leave);
       }
     }
     return el;
   }
 
-  /* Build every card once and lazy-mount its iframe when it nears the viewport.
-     Filtering/sorting then only toggles visibility + CSS `order`, so iframes
-     are never destroyed and re-fetched (the old render() rebuilt all 172). */
+  /* Build every card once. The live iframe is mounted on demand (hover/focus,
+     or as a fallback when a poster is missing) rather than eagerly, so the grid
+     rests on lightweight images. Filtering/sorting only toggles visibility +
+     CSS `order`, so a mounted iframe is never destroyed and re-fetched. */
   var cardEls = {};
-  var frameObserver = ("IntersectionObserver" in window)
-    ? new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { mountFrame(en.target); frameObserver.unobserve(en.target); }
-        });
-      }, { rootMargin: "400px 0px" })
-    : null;
   function mountFrame(el) {
     var ifr = el.querySelector("iframe");
     if (ifr && !ifr.getAttribute("src") && ifr.dataset.src) ifr.setAttribute("src", ifr.dataset.src);
@@ -298,8 +302,6 @@
       var el = card(e); cardEls[e.id] = el; frag.appendChild(el);
     });
     grid.appendChild(frag);
-    if (frameObserver) Object.keys(cardEls).forEach(function (id) { frameObserver.observe(cardEls[id]); });
-    else Object.keys(cardEls).forEach(function (id) { mountFrame(cardEls[id]); });
   }
 
   var visibleCards = []; // matched cards in visual order, for arrow-key nav
