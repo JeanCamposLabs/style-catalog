@@ -3,6 +3,26 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.0] — 2026-06-01
+
+### Fixed
+- **Removed `content-visibility: auto` from cards**, which was causing a
+  flickering paint artifact that tracked the mouse across the page (a known
+  Chrome bug). The big perf wins (no grid rebuild + lazy-mounted iframes) stand
+  on their own without it.
+
+### Added
+- **Dynamic facet counts** — every filter value now shows how many results it
+  would yield given the *other* active filters (and the search), and values
+  that would yield nothing are dimmed. Quick chips update live too.
+- **Arrow-key navigation** across the gallery — focus a card and use
+  ←/→/↑/↓ to move through the grid.
+- **🎲 Surprise me** — opens a random effect (respecting the current filters).
+
+### Performance
+- Precompute a lowercased search haystack per effect so filtering/counting
+  doesn't rebuild strings on every keystroke.
+
 ## [0.19.1] — 2026-06-01
 
 ### Accessibility & polish

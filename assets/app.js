@@ -61,9 +61,11 @@
       shown.forEach(function (it) {
         var value = it.value !== undefined ? it.value : it.slug;
         var label = it.title !== undefined ? it.title : value;
+        var on = state.filters[key].has(value);
+        var cnt = facetCount(key, value);
         var b = document.createElement("button");
-        b.className = "chip" + (state.filters[key].has(value) ? " is-on" : "");
-        b.innerHTML = esc(label) + ' <span class="chip__count">' + it.count + "</span>";
+        b.className = "chip" + (on ? " is-on" : "") + (cnt === 0 && !on ? " is-empty" : "");
+        b.innerHTML = esc(label) + ' <span class="chip__count">' + cnt + "</span>";
         b.addEventListener("click", function () {
           if (state.filters[key].has(value)) state.filters[key].delete(value);
           else state.filters[key].add(value);
@@ -97,6 +99,7 @@
       .forEach(function (el) { container.appendChild(el); });
   }
   function paintFilters() {
+    computeFacetCounts();
     Object.keys(facetEls).forEach(function (k) { if (facetEls[k]._paint) facetEls[k]._paint(); });
     paintQuickChips();
     renderActive();
@@ -115,6 +118,7 @@
       var b = document.createElement("button");
       b.type = "button"; b.className = "quickchip"; b.dataset.theme = t.slug;
       b.innerHTML = esc(t.title) + ' <span class="quickchip__count">' + t.count + "</span>";
+      b._count = b.querySelector(".quickchip__count");
       b.addEventListener("click", function () {
         var s = state.filters.theme;
         if (s.has(t.slug)) s.delete(t.slug); else s.add(t.slug);
@@ -130,25 +134,47 @@
   }
   function paintQuickChips() {
     quickChips.forEach(function (b) {
-      b.classList.toggle("is-on", state.filters.theme.has(b.dataset.theme));
+      var on = state.filters.theme.has(b.dataset.theme);
+      b.classList.toggle("is-on", on);
+      var cnt = facetCount("theme", b.dataset.theme);
+      if (b._count) b._count.textContent = cnt;
+      b.classList.toggle("is-empty", cnt === 0 && !on);
     });
   }
 
   /* ---------- matching ---------- */
-  function matches(e) {
+  // matchesExcept ignores one facet's own selection, so each facet can show how
+  // many results its values would yield given the *other* active filters.
+  function matchesExcept(e, except) {
     var f = state.filters;
-    if (f.theme.size && !f.theme.has(e.theme)) return false;
-    if (f.difficulty.size && !f.difficulty.has(e.difficulty)) return false;
-    if (f.era.size && !f.era.has(e.era)) return false;
-    if (f.tech.size && !e.tech.some(function (t) { return f.tech.has(t); })) return false;
-    if (f.tags.size && !e.tags.some(function (t) { return f.tags.has(t); })) return false;
-    if (state.search) {
-      var q = state.search.toLowerCase();
-      var hay = (e.title + " " + e.summary + " " + e.description + " " +
-        e.tags.join(" ") + " " + e.categories.join(" ") + " " + e.themeTitle).toLowerCase();
-      if (hay.indexOf(q) === -1) return false;
-    }
+    if (except !== "theme" && f.theme.size && !f.theme.has(e.theme)) return false;
+    if (except !== "difficulty" && f.difficulty.size && !f.difficulty.has(e.difficulty)) return false;
+    if (except !== "era" && f.era.size && !f.era.has(e.era)) return false;
+    if (except !== "tech" && f.tech.size && !e.tech.some(function (t) { return f.tech.has(t); })) return false;
+    if (except !== "tags" && f.tags.size && !e.tags.some(function (t) { return f.tags.has(t); })) return false;
+    if (state.search && e._hay.indexOf(state.search.toLowerCase()) === -1) return false;
     return true;
+  }
+  function matches(e) { return matchesExcept(e, null); }
+
+  // Dynamic per-value counts for every facet, honouring the other filters.
+  var FACET_KEYS = ["theme", "tech", "difficulty", "era", "tags"];
+  var facetCounts = {};
+  function computeFacetCounts() {
+    FACET_KEYS.forEach(function (k) { facetCounts[k] = {}; });
+    FACET_KEYS.forEach(function (k) {
+      var bucket = facetCounts[k];
+      CATALOG.effects.forEach(function (e) {
+        if (!matchesExcept(e, k)) return;
+        if (k === "tech") e.tech.forEach(function (t) { bucket[t] = (bucket[t] || 0) + 1; });
+        else if (k === "tags") e.tags.forEach(function (t) { bucket[t] = (bucket[t] || 0) + 1; });
+        else { var v = e[k]; bucket[v] = (bucket[v] || 0) + 1; }
+      });
+    });
+  }
+  function facetCount(key, value) {
+    var b = facetCounts[key];
+    return b && b[value] != null ? b[value] : 0;
   }
 
   function sortEffects(list) {
@@ -223,12 +249,14 @@
     else Object.keys(cardEls).forEach(function (id) { mountFrame(cardEls[id]); });
   }
 
+  var visibleCards = []; // matched cards in visual order, for arrow-key nav
   function render() {
     var list = sortEffects(CATALOG.effects.filter(matches));
     var shown = {};
+    visibleCards = [];
     list.forEach(function (e, i) {
       var el = cardEls[e.id];
-      if (el) { el.style.order = i; el.hidden = false; shown[e.id] = 1; }
+      if (el) { el.style.order = i; el.hidden = false; shown[e.id] = 1; visibleCards.push(el); }
     });
     CATALOG.effects.forEach(function (e) {
       if (!shown[e.id]) { var el = cardEls[e.id]; if (el) el.hidden = true; }
@@ -236,6 +264,27 @@
     $("#result-count").textContent = list.length + (list.length === 1 ? " effect" : " effects");
     $("#empty").hidden = list.length !== 0;
     renderActive();
+  }
+
+  // Arrow-key navigation across the visible grid (cards are focusable).
+  function gridColumns() {
+    if (!visibleCards.length) return 1;
+    var top = visibleCards[0].getBoundingClientRect().top, c = 0;
+    for (var i = 0; i < visibleCards.length; i++) {
+      if (Math.abs(visibleCards[i].getBoundingClientRect().top - top) < 2) c++; else break;
+    }
+    return c || 1;
+  }
+  function gridKeydown(ev) {
+    if (ev.key.indexOf("Arrow") !== 0) return;
+    var idx = visibleCards.indexOf(document.activeElement);
+    if (idx < 0) return;
+    var cols = gridColumns(), next = idx;
+    if (ev.key === "ArrowRight") next = idx + 1;
+    else if (ev.key === "ArrowLeft") next = idx - 1;
+    else if (ev.key === "ArrowDown") next = idx + cols;
+    else if (ev.key === "ArrowUp") next = idx - cols;
+    if (next >= 0 && next < visibleCards.length) { ev.preventDefault(); visibleCards[next].focus(); }
   }
 
   var lastFilterCount = -1;
@@ -871,6 +920,13 @@
     syncHash(); render(); paintFilters();
   }
 
+  /* ---------- surprise me (random effect, honouring filters) ---------- */
+  function surprise() {
+    var pool = CATALOG.effects.filter(matches);
+    if (!pool.length) pool = CATALOG.effects;
+    openModal(pool[Math.floor(Math.random() * pool.length)].id);
+  }
+
   /* ---------- floating filters popover ---------- */
   var filtersLastFocus = null;
   function openFilters() {
@@ -1013,6 +1069,11 @@
 
   /* ---------- wire up ---------- */
   function init() {
+    // Precompute a lowercased search haystack per effect (used by matchesExcept).
+    CATALOG.effects.forEach(function (e) {
+      e._hay = (e.title + " " + e.summary + " " + e.description + " " +
+        e.tags.join(" ") + " " + e.categories.join(" ") + " " + e.themeTitle).toLowerCase();
+    });
     renderStats();
     buildFilters();
     buildQuickChips();
@@ -1021,13 +1082,16 @@
     render();
     paintFilters();
 
+    $("#grid").addEventListener("keydown", gridKeydown);
+    $("#surprise").addEventListener("click", surprise);
+
     $("#search").addEventListener("input", debounce(function (e) {
       state.search = e.target.value.trim();
       $("#clear-search").hidden = !state.search;
-      syncHash(); render();
+      syncHash(); render(); paintFilters();
     }, 120));
     $("#clear-search").addEventListener("click", function () {
-      state.search = ""; $("#search").value = ""; this.hidden = true; syncHash(); render();
+      state.search = ""; $("#search").value = ""; this.hidden = true; syncHash(); render(); paintFilters();
     });
     $("#sort").addEventListener("change", function (e) { state.sort = e.target.value; render(); });
     $("#reset").addEventListener("click", reset);
