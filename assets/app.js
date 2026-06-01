@@ -220,7 +220,7 @@
       ev.stopPropagation(); toggleBundle(e.id);
     });
     var ifr = el.querySelector(".card__frame iframe");
-    if (ifr) ifr.addEventListener("load", function () { applyFrame(ifr); });
+    if (ifr) ifr.addEventListener("load", function () { applyFrame(ifr); freezeFrame(ifr); });
     return el;
   }
 
@@ -552,6 +552,20 @@
     if (!brand.applied) { if (st) st.parentNode.removeChild(st); return; }
     if (!st) { st = doc.createElement("style"); st.id = "sc-pal"; doc.head.appendChild(st); }
     st.textContent = paletteStyleText();
+  }
+  // Freeze a grid preview: pause CSS animations and stop its rAF loop. Running
+  // ~10 animated iframes at once overwhelmed Chrome's compositor and produced a
+  // flickering stale-tile band. The full animation still plays in the modal.
+  function freezeFrame(fr) {
+    try {
+      var doc = fr.contentDocument, win = fr.contentWindow;
+      if (doc && doc.head) {
+        var st = doc.getElementById("sc-freeze");
+        if (!st) { st = doc.createElement("style"); st.id = "sc-freeze"; doc.head.appendChild(st); }
+        st.textContent = "*,*::before,*::after{animation-play-state:paused!important}";
+      }
+      if (win) win.requestAnimationFrame = function () { return 0; };
+    } catch (e) {}
   }
   function _rgb(h) { h = String(h).replace("#", ""); if (h.length === 3) h = h.split("").map(function (c) { return c + c; }).join(""); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; }
   function mix(a, b, t) { var x = _rgb(a), y = _rgb(b), h = function (v) { return ("0" + Math.round(v).toString(16)).slice(-2); }; return "#" + h(x[0] + (y[0] - x[0]) * t) + h(x[1] + (y[1] - x[1]) * t) + h(x[2] + (y[2] - x[2]) * t); }

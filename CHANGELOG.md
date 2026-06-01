@@ -3,6 +3,18 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.5] — 2026-06-01
+
+### Fixed — the blinking glitch, for real this time
+- Diagnosis (via incognito + empty-grid + cross-browser tests): the flicker was
+  Chrome's compositor struggling with **~10+ effect iframes all animating at
+  once** — not the chrome around them. Empty grid = no flicker; previews on =
+  flicker; only in that Chrome/GPU.
+- **Grid previews are now frozen to a static frame** — on load, each preview
+  iframe gets its CSS animations paused and its `requestAnimationFrame` loop
+  stopped. No continuous compositing, no flicker. The **full animation still
+  plays in the modal** when you open a card.
+
 ## [0.20.4] — 2026-06-01
 
 ### Fixed
