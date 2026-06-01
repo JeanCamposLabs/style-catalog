@@ -17,7 +17,7 @@
 
   var state = {
     search: "",
-    sort: "theme",
+    sort: "featured",
     filters: { theme: new Set(), tech: new Set(), difficulty: new Set(), era: new Set(), tags: new Set() },
   };
 
@@ -177,9 +177,37 @@
     return b && b[value] != null ? b[value] : 0;
   }
 
+  // "Featured" order leads with the showiest, most kinetic effects to hook a
+  // first-time visitor — 3D, parallax, particles, cursor/spotlight, morphs —
+  // and sinks static reference material (tokens, type scales, form fields).
+  // Score is a weighted sum over tags + categories + tech, memoised per effect.
+  var WOW_WEIGHTS = {
+    particles: 7, particle: 7, "3d": 6, webgl: 6, cube: 5, coverflow: 5, parallax: 5,
+    aurora: 5, glitch: 5, distortion: 5, fluid: 5, orbit: 5, cinematic: 5, morph: 4,
+    blob: 4, wave: 4, marquee: 4, ticker: 4, carousel: 4, flip: 4, rotate: 4, rotatey: 4,
+    cursor: 4, pointer: 4, spotlight: 4, gallery: 3, glow: 3, ambient: 3, spinner: 3,
+    loader: 3, loading: 3, draw: 3, stroke: 3, reveal: 3, stagger: 3, scroll: 3, depth: 3,
+    ring: 3, translatez: 3, motion: 3, audio: 3, showcase: 3, "2026-trend": 3, dots: 2,
+    hover: 2, interactive: 2, animation: 2, "full-page": 2, hero: 2, landing: 1,
+    typography: -3, reference: -4, "design-tokens": -4, tokens: -3, docs: -4, form: -3,
+    input: -3, checkbox: -3, slider: -2, label: -3, validation: -3, color: -2, border: -2,
+    layout: -2, utility: -3, minimal: -2, "flat-design": -2, comparison: -3, pricing: -2,
+    accessible: -1,
+  };
+  var TECH_WEIGHTS = { webgl: 6, canvas: 4, js: 2 };
+  function wowScore(e) {
+    if (e._wow != null) return e._wow;
+    var sc = 0;
+    (e.tags || []).concat(e.categories || []).forEach(function (t) {
+      var w = WOW_WEIGHTS[String(t).toLowerCase()]; if (w) sc += w;
+    });
+    (e.tech || []).forEach(function (t) { sc += TECH_WEIGHTS[String(t).toLowerCase()] || 0; });
+    return (e._wow = sc);
+  }
   function sortEffects(list) {
     var s = state.sort;
     return list.slice().sort(function (a, b) {
+      if (s === "featured") return (wowScore(b) - wowScore(a)) || a.title.localeCompare(b.title);
       if (s === "title") return a.title.localeCompare(b.title);
       if (s === "difficulty") return (DIFF_ORDER[a.difficulty] - DIFF_ORDER[b.difficulty]) || a.title.localeCompare(b.title);
       if (s === "era") return (ERA_ORDER[a.era] - ERA_ORDER[b.era]) || a.title.localeCompare(b.title);

@@ -3,6 +3,16 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.7] — 2026-06-01
+
+### Added — "Featured" sort, now the default
+- The grid opens with the showiest, most kinetic effects first — 3D carousels,
+  parallax, particles, cursor/spotlight, morphs — to hook a first-time visitor,
+  while static reference pages (tokens, type scales, form fields) sink to the
+  bottom. Score is a weighted sum over each effect's tags, categories, and tech.
+- "Featured" is the new first option in the sort dropdown and the default; the
+  previous theme/A–Z/difficulty/era sorts remain.
+
 ## [0.20.6] — 2026-06-01
 
 ### Added — hover-to-play previews
