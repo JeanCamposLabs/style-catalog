@@ -617,27 +617,26 @@ a { color: var(--accent-2); }
 }
 #ship-cursor {
   position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
-  margin: -22px 0 0 -17px;            /* center the 34x44 svg on the pointer */
+  margin: -28px 0 0 -26px;            /* center the 52x56 svg origin on the pointer */
   opacity: 0; transition: opacity .25s ease;
   will-change: transform;
-  filter: drop-shadow(0 0 6px rgba(124, 92, 255, .55));
 }
 .ship-awake #ship-fx, .ship-awake #ship-cursor { opacity: 1; }
 
+/* No CSS `filter` anywhere: a drop-shadow on an element that rotates/rescales
+   every frame forces a full re-rasterization each frame (the choppiness). The
+   glow is baked into the SVG as a radial gradient instead — rasterized once and
+   transformed on the GPU for free. */
 #ship-cursor svg { display: block; overflow: visible; }
-.ship__hull { stroke: rgba(255, 255, 255, .85); stroke-width: 1; stroke-linejoin: round; }
-.ship__glass { fill: var(--accent-2, #2dd4bf); opacity: .9; }
+.ship__hull { stroke: rgba(255, 255, 255, .9); stroke-width: 1; stroke-linejoin: round; }
+.ship__glass { fill: #fff; opacity: .9; }
 .ship__flame {
   fill: var(--accent-2, #2dd4bf);
   transform-origin: 0 11px;
   transform: scaleY(calc(.35 + var(--thrust, 0) * 1.1));
-  opacity: calc(.45 + var(--thrust, 0) * .55);
-  filter: drop-shadow(0 0 5px var(--accent-2, #2dd4bf));
-  animation: ship-flicker .12s steps(2) infinite;
+  opacity: calc(.5 + var(--thrust, 0) * .5);
 }
-#ship-cursor.ship--boost { filter: drop-shadow(0 0 11px var(--accent-2, #2dd4bf)); }
 #ship-cursor.ship--boost svg { transform: scale(1.18); transition: transform .15s ease; }
-@keyframes ship-flicker { from { opacity: .85; } to { opacity: 1; } }
 
 @media (hover: none), (pointer: coarse) {
   #ship-fx, #ship-cursor { display: none; }

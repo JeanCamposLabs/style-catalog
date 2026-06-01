@@ -3,6 +3,19 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.13] — 2026-06-01
+
+### Fixed
+- **Spaceship cursor frame-rate.** Removed every CSS `filter: drop-shadow` from
+  the ship and its flame — a drop-shadow on an element that rotates and rescales
+  each frame forces the browser to re-rasterize that glowing layer every frame,
+  which capped the frame rate and made the motion look stepped/choppy even on
+  fast machines. The glow is now baked into the SVG as a radial gradient
+  (rasterized once, transformed on the GPU for free), and the exhaust-trail
+  canvas renders at 1× density instead of 2× (a full-screen retina layer cleared
+  and composited every frame was the other big cost). The cursor now flows at
+  full refresh rate.
+
 ## [0.20.12] — 2026-06-01
 
 ### Changed

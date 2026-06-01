@@ -1283,14 +1283,20 @@
     ship.id = "ship-cursor";
     // Nose points up (-Y); the wrapper is rotated to face travel direction.
     ship.innerHTML =
-      '<svg viewBox="-14 -18 28 36" width="34" height="44" aria-hidden="true">' +
+      '<svg viewBox="-26 -28 52 56" width="52" height="56" aria-hidden="true">' +
         '<defs>' +
           '<linearGradient id="shipHull" x1="0" y1="-18" x2="0" y2="14" gradientUnits="userSpaceOnUse">' +
             '<stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="var(--accent,#7c5cff)"/>' +
             '<stop offset="1" stop-color="var(--accent-2,#2dd4bf)"/>' +
           '</linearGradient>' +
+          // Glow baked as a gradient (no CSS filter → no per-frame re-raster).
+          '<radialGradient id="shipGlow">' +
+            '<stop offset="0" stop-color="var(--accent-2,#2dd4bf)" stop-opacity=".5"/>' +
+            '<stop offset="1" stop-color="var(--accent-2,#2dd4bf)" stop-opacity="0"/>' +
+          '</radialGradient>' +
         '</defs>' +
-        // exhaust flame (animated via CSS)
+        '<circle class="ship__glow" cx="0" cy="0" r="24" fill="url(#shipGlow)"/>' +
+        // exhaust flame
         '<polygon class="ship__flame" points="-4,11 0,26 4,11"/>' +
         // hull
         '<path class="ship__hull" d="M0,-17 L9,9 L4,13 L0,9 L-4,13 L-9,9 Z" fill="url(#shipHull)"/>' +
@@ -1298,7 +1304,9 @@
         '<ellipse class="ship__glass" cx="0" cy="-3" rx="3.1" ry="5"/>' +
       "</svg>";
 
-    var ctx = canvas.getContext("2d"), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // dpr 1 for the trail canvas: soft particles don't need retina density, and
+    // clearing/compositing a full-screen 2× layer every frame is what drops FPS.
+    var ctx = canvas.getContext("2d"), dpr = 1;
     function resize() {
       canvas.width = innerWidth * dpr; canvas.height = innerHeight * dpr;
       canvas.style.width = innerWidth + "px"; canvas.style.height = innerHeight + "px";
