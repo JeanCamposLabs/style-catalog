@@ -220,7 +220,20 @@
       ev.stopPropagation(); toggleBundle(e.id);
     });
     var ifr = el.querySelector(".card__frame iframe");
-    if (ifr) ifr.addEventListener("load", function () { applyFrame(ifr); freezeFrame(ifr); });
+    if (ifr) {
+      ifr.addEventListener("load", function () { applyFrame(ifr); freezeFrame(ifr); });
+      // Animate only the hovered/focused card — one live preview at a time stays
+      // well under the count that overwhelmed Chrome's compositor. Honour
+      // reduced-motion: those users keep the static frame.
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (!(reduce && reduce.matches)) {
+        var play = function () { playFrame(ifr); }, pause = function () { pauseFrame(ifr); };
+        el.addEventListener("mouseenter", play);
+        el.addEventListener("mouseleave", pause);
+        el.addEventListener("focusin", play);
+        el.addEventListener("focusout", pause);
+      }
+    }
     return el;
   }
 
@@ -553,20 +566,37 @@
     if (!st) { st = doc.createElement("style"); st.id = "sc-pal"; doc.head.appendChild(st); }
     st.textContent = paletteStyleText();
   }
-  // Freeze a grid preview: pause CSS animations and stop its rAF loop. Running
-  // ~10 animated iframes at once overwhelmed Chrome's compositor and produced a
-  // flickering stale-tile band. The full animation still plays in the modal.
+  // Freeze a grid preview: pause CSS animations and suspend its rAF loop.
+  // Running ~10 animated iframes at once overwhelmed Chrome's compositor and
+  // produced a flickering stale-tile band, so previews stay frozen at rest and
+  // only the hovered/focused card plays (see playFrame/pauseFrame). The rAF
+  // wrapper *holds* pending callbacks rather than dropping them, so the loop can
+  // be resumed later — killing rAF outright would be one-way.
   function freezeFrame(fr) {
+    if (!fr.getAttribute("src")) return; // skip the initial about:blank load
     try {
       var doc = fr.contentDocument, win = fr.contentWindow;
-      if (doc && doc.head) {
-        var st = doc.getElementById("sc-freeze");
-        if (!st) { st = doc.createElement("style"); st.id = "sc-freeze"; doc.head.appendChild(st); }
-        st.textContent = "*,*::before,*::after{animation-play-state:paused!important}";
+      if (!win) return;
+      if (!fr._sc) {
+        var origRAF = (win.requestAnimationFrame || win.webkitRequestAnimationFrame).bind(win);
+        var held = [], paused = true;
+        win.requestAnimationFrame = function (cb) { if (paused) { held.push(cb); return -1; } return origRAF(cb); };
+        var setCss = function (on) {
+          if (!doc || !doc.head) return;
+          var st = doc.getElementById("sc-freeze");
+          if (!st) { st = doc.createElement("style"); st.id = "sc-freeze"; doc.head.appendChild(st); }
+          st.textContent = on ? "*,*::before,*::after{animation-play-state:paused!important}" : "";
+        };
+        fr._sc = {
+          play: function () { setCss(false); if (!paused) return; paused = false; var q = held; held = []; q.forEach(function (cb) { origRAF(cb); }); },
+          pause: function () { setCss(true); paused = true; }
+        };
       }
-      if (win) win.requestAnimationFrame = function () { return 0; };
+      fr._sc.pause();
     } catch (e) {}
   }
+  function playFrame(fr) { try { if (fr && fr._sc) fr._sc.play(); } catch (e) {} }
+  function pauseFrame(fr) { try { if (fr && fr._sc) fr._sc.pause(); } catch (e) {} }
   function _rgb(h) { h = String(h).replace("#", ""); if (h.length === 3) h = h.split("").map(function (c) { return c + c; }).join(""); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; }
   function mix(a, b, t) { var x = _rgb(a), y = _rgb(b), h = function (v) { return ("0" + Math.round(v).toString(16)).slice(-2); }; return "#" + h(x[0] + (y[0] - x[0]) * t) + h(x[1] + (y[1] - x[1]) * t) + h(x[2] + (y[2] - x[2]) * t); }
   // Map the applied palette onto the catalog's OWN :root vars → the whole site

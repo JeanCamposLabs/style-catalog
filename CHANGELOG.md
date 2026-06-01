@@ -3,6 +3,16 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.6] — 2026-06-01
+
+### Added — hover-to-play previews
+- The grid is alive again without the flicker: previews stay frozen at rest, and
+  the card you **hover or focus** plays its animation live. Only one preview
+  animates at a time — far below the count that overwhelmed Chrome's compositor.
+- The rAF freeze is now reversible (pending callbacks are held and replayed on
+  resume) so animations can pause/resume cleanly instead of being killed.
+- Respects `prefers-reduced-motion`: those users keep the static frame on hover.
+
 ## [0.20.5] — 2026-06-01
 
 ### Fixed — the blinking glitch, for real this time
