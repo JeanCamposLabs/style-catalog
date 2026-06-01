@@ -195,6 +195,14 @@
     accessible: -1,
   };
   var TECH_WEIGHTS = { webgl: 6, canvas: 4, js: 2 };
+  // Hand-picked hero row, pinned to the very front of "Featured" regardless of
+  // score — a deliberately varied opening (3D, parallax, particles, cursor,
+  // morph, tilt) so the first impression shows range. Edit/reorder freely; ids
+  // that don't match the active filter simply don't appear.
+  var FEATURED_PINS = [
+    "carousel-3d", "spatial-depth", "floating-particles",
+    "blob-trail-cursor", "svg-blob-spinner", "tilt-spotlight-card",
+  ];
   function wowScore(e) {
     if (e._wow != null) return e._wow;
     var sc = 0;
@@ -207,7 +215,11 @@
   function sortEffects(list) {
     var s = state.sort;
     return list.slice().sort(function (a, b) {
-      if (s === "featured") return (wowScore(b) - wowScore(a)) || a.title.localeCompare(b.title);
+      if (s === "featured") {
+        var pa = FEATURED_PINS.indexOf(a.id), pb = FEATURED_PINS.indexOf(b.id);
+        if (pa !== -1 || pb !== -1) return pa === -1 ? 1 : pb === -1 ? -1 : pa - pb;
+        return (wowScore(b) - wowScore(a)) || a.title.localeCompare(b.title);
+      }
       if (s === "title") return a.title.localeCompare(b.title);
       if (s === "difficulty") return (DIFF_ORDER[a.difficulty] - DIFF_ORDER[b.difficulty]) || a.title.localeCompare(b.title);
       if (s === "era") return (ERA_ORDER[a.era] - ERA_ORDER[b.era]) || a.title.localeCompare(b.title);

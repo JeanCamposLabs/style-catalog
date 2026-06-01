@@ -3,6 +3,16 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.8] — 2026-06-01
+
+### Added — curated hero row
+- A hand-picked set of six effects is now pinned to the very front of the
+  "Featured" sort, chosen for variety so the opening shows range: 3D Coverflow
+  Carousel, Spatial Depth (parallax), Floating Particles, Gooey Blob Trail
+  Cursor, SVG Morphing Blob Loader, Tilt + Spotlight Card. The score-ranked
+  effects follow. Pins only reorder within the active filter — they don't
+  force-show items the visitor has filtered out.
+
 ## [0.20.7] — 2026-06-01
 
 ### Added — "Featured" sort, now the default
