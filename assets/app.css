@@ -140,7 +140,12 @@ a { color: var(--accent-2); }
 }
 .card[hidden] { display: none; }
 .card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
-.card__frame { position: relative; aspect-ratio: 16 / 10; background: #000; overflow: hidden; }
+/* Hard-clip the iframe to the frame box. overflow:hidden does NOT clip a
+   composited/3D iframe layer in Chrome, so 3D effects (cube, coverflow) could
+   ghost a strip outside the card; contain:paint stops that at the compositor.
+   (Unlike content-visibility:auto, this only clips — it never skips rendering,
+   so there's no pop-in flicker.) */
+.card__frame { position: relative; aspect-ratio: 16 / 10; background: #000; overflow: hidden; contain: paint; }
 .card__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
 .card__scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.35), transparent 40%); pointer-events: none; }
 .card__body { padding: 0.85rem 1rem 1rem; }

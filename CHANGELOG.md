@@ -3,6 +3,16 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.3] — 2026-06-01
+
+### Fixed
+- **Teal strip ghosting off the right edge / blinking.** The 3D effects (cube,
+  coverflow) render with `perspective`/`preserve-3d`; their composited iframe
+  layer can paint outside the card because `overflow: hidden` doesn't clip a
+  composited child in Chrome. Added `contain: paint` to `.card__frame`, which
+  forces the compositor to clip the iframe to the card box — no ghost can appear
+  outside a card. (Only clips; never skips rendering, so no pop-in flicker.)
+
 ## [0.20.2] — 2026-06-01
 
 ### Fixed
