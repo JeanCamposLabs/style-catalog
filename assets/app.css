@@ -134,11 +134,20 @@ a { color: var(--accent-2); }
   display: flex;
   flex-direction: column;
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .card[hidden] { display: none; }
 .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow); }
 .card__frame { position: relative; aspect-ratio: 16 / 10; background: #000; overflow: hidden; }
-.card__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+/* Pin the iframe to its own GPU layer so the card's hover transform repositions
+   it on the compositor instead of re-rasterizing it (fixes the hover blink). */
+.card__frame iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
 .card__scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.35), transparent 40%); pointer-events: none; }
 .card__body { padding: 0.85rem 1rem 1rem; }
 .card__title { margin: 0 0 0.25rem; font-size: 1rem; }
@@ -227,8 +236,7 @@ a { color: var(--accent-2); }
   position: absolute; top: 0.6rem; right: 0.6rem; z-index: 3;
   width: 34px; height: 34px; border-radius: 10px; cursor: pointer;
   border: 1px solid var(--line);
-  background: rgba(11, 13, 18, 0.7); color: var(--text);
-  backdrop-filter: blur(6px);
+  background: rgba(11, 13, 18, 0.88); color: var(--text);
   font-size: 1.1rem; line-height: 1; display: grid; place-items: center;
   opacity: 0; transform: translateY(-4px); transition: opacity 0.18s, transform 0.18s, background 0.18s;
 }

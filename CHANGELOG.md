@@ -3,6 +3,17 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.1] — 2026-06-01
+
+### Fixed
+- **Hover blink that followed the mouse across the gallery.** The `.card:hover`
+  lift transforms the card, and Chrome re-rasterizes the `<iframe>` inside a
+  transformed ancestor, which flashed. Each iframe is now pinned to its own GPU
+  layer (`transform: translateZ(0)` + `backface-visibility: hidden`) so the
+  hover transform repositions it on the compositor instead of repainting it.
+- Dropped the `backdrop-filter: blur()` on the card "+" button (a second
+  flicker source when sampling a live iframe behind it) for a solid background.
+
 ## [0.20.0] — 2026-06-01
 
 ### Fixed
