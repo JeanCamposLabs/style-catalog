@@ -3,6 +3,18 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.4] — 2026-06-01
+
+### Fixed
+- **The blinking band that followed the mouse — root cause found.** It was a
+  GPU compositing artifact from `backdrop-filter: blur()` on elements layered
+  over the animating effect iframes — chiefly the **sticky toolbar** (a
+  full-width frosted bar over the moving grid) and the **fixed version badge**.
+  Chrome fails to invalidate the backdrop region, leaving a stale color band
+  (teal/purple) that flickers and tracks repaints. Removed `backdrop-filter`
+  everywhere (toolbar, version badge, modal backdrop, palette lock) and bumped
+  the backgrounds to near-opaque so the look is unchanged.
+
 ## [0.20.3] — 2026-06-01
 
 ### Fixed
