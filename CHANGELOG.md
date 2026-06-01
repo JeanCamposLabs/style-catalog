@@ -3,6 +3,18 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.20.12] — 2026-06-01
+
+### Changed
+- **Spaceship cursor — much smoother.** Switched the follow/banking to
+  frame-rate-independent (time-constant) easing so it feels identical and fluid
+  at 60 / 120 / 144 Hz, and tightened the follow so the ship sits right on the
+  pointer instead of trailing behind. Stopped reading the brand accents via
+  `getComputedStyle` every frame (it forced a style recalc each tick — the main
+  source of micro-stutter); the colors are cached and refreshed periodically.
+  The ship now renders on its own GPU layer (`translate3d`), and the exhaust
+  trail fades at a consistent wall-clock rate regardless of refresh rate.
+
 ## [0.20.11] — 2026-06-01
 
 ### Added

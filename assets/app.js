@@ -1312,18 +1312,23 @@
 
     var tx = innerWidth / 2, ty = innerHeight / 2;   // target (real pointer)
     var sx = tx, sy = ty;                             // ship (eased)
-    var angle = -Math.PI / 2, vx = 0, vy = 0;
-    var particles = [], seen = false, raf = null;
+    var angle = -Math.PI / 2;
+    var particles = [], seen = false, raf = null, last = 0;
 
-    function accent(varName, fallback) {
-      var v = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
-      return v || fallback;
+    // Cache the brand accents instead of reading them (getComputedStyle forces a
+    // style flush) every frame — refresh occasionally so palette changes apply.
+    var colA = "#7c5cff", colB = "#2dd4bf", colFrame = 0;
+    function refreshColors() {
+      var cs = getComputedStyle(document.documentElement);
+      colA = (cs.getPropertyValue("--accent").trim()) || colA;
+      colB = (cs.getPropertyValue("--accent-2").trim()) || colB;
     }
+    refreshColors();
 
     function onMove(e) {
       tx = e.clientX; ty = e.clientY;
       if (!seen) { seen = true; sx = tx; sy = ty; document.documentElement.classList.add("ship-awake"); }
-      if (!raf) raf = requestAnimationFrame(tick);
+      if (!raf) { last = 0; raf = requestAnimationFrame(tick); }
     }
     function onLeave() { document.documentElement.classList.remove("ship-awake"); }
     function onEnter() { if (seen) document.documentElement.classList.add("ship-awake"); }
@@ -1335,50 +1340,63 @@
       ship.classList.toggle("ship--boost", !!e.target.closest && !!e.target.closest("a,button,input,select,.card,.chip,[role=button]"));
     }, { passive: true });
 
-    function tick() {
-      var dx = tx - sx, dy = ty - sy;
-      vx = dx * 0.18; vy = dy * 0.18;
-      sx += vx; sy += vy;
-      var speed = Math.hypot(vx, vy);
+    function tick(now) {
+      // Frame-rate-independent smoothing: ease a *time* constant, not a fixed
+      // per-frame fraction, so it feels identical at 60 / 120 / 144 Hz and never
+      // stutters. dt clamped so a long pause (tab blur) can't teleport the ship.
+      var dt = last ? Math.min(64, now - last) : 16; last = now;
+      var kPos = 1 - Math.exp(-dt / 34);   // ~34 ms follow → snappy, slight glide
+      var kRot = 1 - Math.exp(-dt / 60);   // banking a touch lazier than position
 
-      // Bank the nose toward travel; idle, drift back to pointing up.
-      var target = speed > 0.4 ? Math.atan2(vy, vx) + Math.PI / 2 : angle;
-      var da = ((target - angle + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
-      angle += da * 0.25;
-      ship.style.transform = "translate(" + sx + "px," + sy + "px) rotate(" + angle + "rad)";
+      var dx = tx - sx, dy = ty - sy;
+      var gap = Math.hypot(dx, dy);
+      sx += dx * kPos; sy += dy * kPos;
+      // px/frame-equivalent speed (for thrust + trail), independent of dt.
+      var speed = gap * kPos * (16.67 / dt);
+
+      // Bank the nose toward travel; when nearly still, hold the last heading.
+      if (gap > 1.5) {
+        var target = Math.atan2(dy, dx) + Math.PI / 2;
+        var da = ((target - angle + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
+        angle += da * kRot;
+      }
+      ship.style.transform = "translate3d(" + sx.toFixed(2) + "px," + sy.toFixed(2) + "px,0) rotate(" + angle.toFixed(4) + "rad)";
       ship.style.setProperty("--thrust", Math.min(1, speed / 9).toFixed(2));
 
-      // Emit exhaust from the tail, opposite the nose.
+      // Emit exhaust from the tail, opposite the nose, scaled by speed and dt.
       if (speed > 0.6) {
         var tailA = angle + Math.PI / 2; // nose-up offset → tail direction
         var ex = sx + Math.cos(tailA) * 16, ey = sy + Math.sin(tailA) * 16;
-        var n = Math.min(3, 1 + (speed / 5) | 0);
+        var n = Math.min(4, Math.round((1 + speed / 5) * (dt / 16.67)));
+        var bvx = -dx * kPos * 0.25, bvy = -dy * kPos * 0.25;
         for (var i = 0; i < n; i++) {
           particles.push({
             x: ex, y: ey,
-            vx: -vx * 0.25 + (Math.random() - 0.5) * 1.2,
-            vy: -vy * 0.25 + (Math.random() - 0.5) * 1.2,
+            vx: bvx + (Math.random() - 0.5) * 1.2,
+            vy: bvy + (Math.random() - 0.5) * 1.2,
             life: 1, r: 1.5 + Math.random() * 2.5,
           });
         }
       }
       if (particles.length > 240) particles.splice(0, particles.length - 240);
+      if ((colFrame = (colFrame + 1) % 20) === 0) refreshColors();
 
-      var a1 = accent("--accent", "#7c5cff"), a2 = accent("--accent-2", "#2dd4bf");
+      // Decay scaled to dt so the trail fades at a consistent wall-clock rate.
+      var decay = 0.035 * (dt / 16.67), fric = Math.pow(0.94, dt / 16.67);
       ctx.clearRect(0, 0, innerWidth, innerHeight);
       ctx.globalCompositeOperation = "lighter";
       for (var j = particles.length - 1; j >= 0; j--) {
         var p = particles[j];
-        p.x += p.vx; p.y += p.vy; p.vx *= 0.94; p.vy *= 0.94; p.life -= 0.035;
+        p.x += p.vx; p.y += p.vy; p.vx *= fric; p.vy *= fric; p.life -= decay;
         if (p.life <= 0) { particles.splice(j, 1); continue; }
-        ctx.globalAlpha = Math.max(0, p.life) * 0.7;
-        ctx.fillStyle = p.life > 0.6 ? "#fff" : (p.life > 0.3 ? a2 : a1);
+        ctx.globalAlpha = p.life * 0.7;
+        ctx.fillStyle = p.life > 0.6 ? "#fff" : (p.life > 0.3 ? colB : colA);
         ctx.beginPath(); ctx.arc(p.x, p.y, p.r * (0.4 + p.life), 0, 7); ctx.fill();
       }
       ctx.globalAlpha = 1; ctx.globalCompositeOperation = "source-over";
 
       // Keep animating while moving or while exhaust lingers; otherwise idle.
-      if (speed > 0.05 || particles.length) raf = requestAnimationFrame(tick);
+      if (gap > 0.3 || particles.length) raf = requestAnimationFrame(tick);
       else raf = null;
     }
   }
