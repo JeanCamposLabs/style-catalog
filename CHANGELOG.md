@@ -23,6 +23,9 @@ hardening. No user-facing behaviour changes beyond the accessibility win.
   isn't installed.
 - **MCP `search_effects`:** `limit` is clamped to `1..100` (a negative value
   previously returned the wrong rows; an unbounded one could dump the catalog).
+- **Spaceship cursor hotspot:** the click point is now the ship's **nose tip**
+  (it banks around the nose so it stays under the pointer), instead of the
+  ship's middle — matching a normal cursor's clickable tip.
 
 ### Added
 - **Test suite** (`npm test`, Node's built-in runner, zero deps): catalog

@@ -1390,7 +1390,8 @@
       // Emit exhaust from the tail, opposite the nose, scaled by speed and dt.
       if (speed > 0.6) {
         var tailA = angle + Math.PI / 2; // nose-up offset → tail direction
-        var ex = sx + Math.cos(tailA) * 16, ey = sy + Math.sin(tailA) * 16;
+        // Anchor is the nose now, so emit from the tail ~33px behind it.
+        var ex = sx + Math.cos(tailA) * 33, ey = sy + Math.sin(tailA) * 33;
         var n = Math.min(4, Math.round((1 + speed / 5) * (dt / 16.67)));
         var bvx = -dx * kPos * 0.25, bvy = -dy * kPos * 0.25;
         for (var i = 0; i < n; i++) {
