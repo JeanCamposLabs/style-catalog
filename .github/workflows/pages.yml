@@ -38,7 +38,7 @@ jobs:
           # Pin ?v=<build> onto asset URLs in the deployed index.html so a
           # post-deploy auto-reload fetches fresh JS/CSS (no manual hard refresh).
           SC_DEPLOY: "1"
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
         with:
           enablement: true
       - uses: actions/upload-pages-artifact@v3
