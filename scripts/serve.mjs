@@ -26,7 +26,13 @@ const TYPES = {
 
 const server = createServer(async (req, res) => {
   try {
-    let urlPath = decodeURIComponent((req.url || "/").split("?")[0]);
+    let urlPath;
+    try {
+      urlPath = decodeURIComponent((req.url || "/").split("?")[0]);
+    } catch {
+      res.writeHead(400).end("Bad Request");
+      return;
+    }
     if (urlPath.endsWith("/")) urlPath += "index.html";
     const filePath = normalize(join(ROOT, urlPath));
     if (!filePath.startsWith(ROOT)) {
@@ -45,7 +51,9 @@ const server = createServer(async (req, res) => {
     });
     res.end(body);
   } catch (e) {
-    res.writeHead(500).end("Server error: " + e.message);
+    // Log server-side; don't leak filesystem paths / stack to the client.
+    console.error("serve error:", e.message);
+    res.writeHead(500).end("Internal Server Error");
   }
 });
 

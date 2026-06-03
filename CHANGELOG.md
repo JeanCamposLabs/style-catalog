@@ -3,6 +3,44 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.21.0] — 2026-06-01 — Enterprise-readiness pass
+
+A deep audit (frontend, tooling, MCP/data, repo/CI) followed by fixes and
+hardening. No user-facing behaviour changes beyond the accessibility win.
+
+### Fixed
+- **Data integrity:** removed **35 dangling `related` references** across 22
+  effects (they pointed at ids that don't exist). The build now **validates**
+  that every `related` id resolves — dead links can no longer ship.
+- **Validation parity with the schema:** unknown metadata fields are rejected
+  (typo guard), `customization` entries are checked for `name`/`description`,
+  alongside the existing enum/uniqueness/agreement checks.
+- **Accessibility:** Tab/Shift+Tab focus is now **trapped** inside open dialogs
+  (modal, cart, filters).
+- **Dev server:** no longer leaks filesystem paths in errors; returns `400` on
+  malformed URLs instead of a `500`.
+- **Poster script:** fails with a clear message (and cleans up) if Chromium
+  isn't installed.
+- **MCP `search_effects`:** `limit` is clamped to `1..100` (a negative value
+  previously returned the wrong rows; an unbounded one could dump the catalog).
+- **Spaceship cursor hotspot:** the click point is now the ship's **nose tip**
+  (it banks around the nose so it stays under the pointer), instead of the
+  ship's middle — matching a normal cursor's clickable tip.
+
+### Added
+- **Test suite** (`npm test`, Node's built-in runner, zero deps): catalog
+  validator unit tests + MCP server protocol/tool integration tests.
+- **CI quality gate:** install-free `lint` (syntax check) + `test` jobs, plus
+  least-privilege `permissions`.
+- **Repo hygiene:** `SECURITY.md`, `CODE_OF_CONDUCT.md`, `CODEOWNERS`,
+  Dependabot, issue/PR templates, `.editorconfig`.
+- **[`ROADMAP.md`](ROADMAP.md):** the growth + hardening plan.
+
+### Changed
+- **Single source of truth for the version:** `scripts/lib/catalog.mjs` now
+  reads `version` from `package.json` (no more two-place bumping).
+
+
 ## [0.20.14] — 2026-06-01
 
 ### Docs

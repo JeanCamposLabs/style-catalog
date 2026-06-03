@@ -1,0 +1,16 @@
+# Keep CI Actions and the dev-only toolchain patched. The runtime gallery has
+# zero dependencies, so the npm ecosystem here only covers devDependencies.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "ci"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore(deps)"

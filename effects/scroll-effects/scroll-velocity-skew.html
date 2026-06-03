@@ -25,7 +25,7 @@
       { "name": "ease factor", "description": "How fast it springs back (lerp)", "default": "0.85 decay" }
     ],
     "variations": ["Skew only images, not text", "Map velocity to letter-spacing instead", "Horizontal skewX for sideways scrollers"],
-    "related": ["parallax-layers", "sticky-stack-cards", "reveal-on-scroll"],
+    "related": ["parallax-layers","sticky-stack-cards"],
     "ai_usage": "Use for premium/creative sites to add tactile momentum. Each frame, compute velocity = scrollY − lastScrollY, smooth it toward 0 with a decay (lerp), clamp to ±--max-skew, and write transform: skewY(v) (optionally scaleY). Apply to a wrapper, not body. Clamp so text stays legible and disable under prefers-reduced-motion. Use one rAF loop, not a scroll listener per event."
   }
   </script>

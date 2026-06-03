@@ -76,6 +76,8 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full authoring guide,
 |---|---|
 | `npm run build` | Scan `effects/`, validate, emit `catalog.json`, `assets/catalog.js`, and the `api/` tree |
 | `npm run validate` | Validate the library (CI-friendly, no writes) |
+| `npm test` | Run the test suite (Node's built-in runner — zero deps) |
+| `npm run lint` | Syntax-check every first-party JS/MJS file |
 | `npm run new` | Scaffold a new effect file |
 | `npm run serve` | Serve the museum locally |
 | `npm run posters` | Regenerate gallery poster thumbnails (needs dev-only Playwright) |

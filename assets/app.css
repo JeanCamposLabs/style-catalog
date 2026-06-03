@@ -617,7 +617,11 @@ a { color: var(--accent-2); }
 }
 #ship-cursor {
   position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
-  margin: -28px 0 0 -26px;            /* center the 52x56 svg origin on the pointer */
+  /* The nose tip is the hotspot: anchor it on the pointer and bank around it
+     (transform-origin = the nose pixel) so it stays put while the ship rotates,
+     just like a normal cursor's clickable tip. */
+  margin: -11px 0 0 -26px;
+  transform-origin: 26px 11px;
   opacity: 0; transition: opacity .25s ease;
   will-change: transform;
 }

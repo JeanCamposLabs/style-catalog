@@ -48,7 +48,18 @@ mkdirSync(OUT, { recursive: true });
 
 const srv = await staticServer(ROOT);
 const port = srv.address().port;
-const browser = await chromium.launch({ args: ["--no-sandbox"] });
+let browser;
+try {
+  browser = await chromium.launch({ args: ["--no-sandbox"] });
+} catch (err) {
+  srv.close();
+  console.error(
+    "\n✗ Could not launch Chromium. Install the dev dependency first:\n" +
+      "    npm i -D playwright && npx playwright install chromium\n\n" +
+      String(err).split("\n")[0],
+  );
+  process.exit(1);
+}
 
 let done = 0, failed = [];
 async function shoot(e) {
@@ -68,11 +79,13 @@ async function shoot(e) {
 
 // simple concurrency pool
 const queue = effects.slice();
-await Promise.all(Array.from({ length: CONCURRENCY }, async () => {
-  while (queue.length) await shoot(queue.shift());
-}));
-
-await browser.close();
-srv.close();
+try {
+  await Promise.all(Array.from({ length: CONCURRENCY }, async () => {
+    while (queue.length) await shoot(queue.shift());
+  }));
+} finally {
+  await browser.close();
+  srv.close();
+}
 console.log(`\n✓ Generated ${done - failed.length}/${effects.length} posters into assets/posters/`);
 if (failed.length) { console.log(`⚠ ${failed.length} failed:`); failed.forEach((f) => console.log("  " + f)); }
