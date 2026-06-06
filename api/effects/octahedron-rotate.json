@@ -1,0 +1,55 @@
+{
+  "id": "octahedron-rotate",
+  "title": "Rotating Octahedron",
+  "summary": "A regular octahedron (eight equilateral triangles) spins in pure-CSS 3D.",
+  "description": "Two four-sided pyramids share an equator square — eight clip-path triangles inside a preserve-3d scene, spun on a loop. No libraries.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "polyhedron",
+    "loop"
+  ],
+  "tags": [
+    "octahedron",
+    "3d",
+    "rotate",
+    "preserve-3d",
+    "clip-path",
+    "showcase"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2010s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Eight layers + continuous rotation; cheap standalone.",
+  "accessibility_notes": "Decorative; pauses to a static pose under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--s",
+      "description": "Edge length (scales the whole solid)",
+      "default": "150px"
+    },
+    {
+      "name": "--dur",
+      "description": "Rotation period",
+      "default": "15s"
+    }
+  ],
+  "variations": [
+    "Glass faces (lower alpha)",
+    "Wireframe",
+    "Two-tone top/bottom"
+  ],
+  "related": [
+    "cube-rotate",
+    "pyramid-rotate",
+    "tetrahedron-rotate"
+  ],
+  "ai_usage": "Regular octahedron = two square-based pyramids sharing an equator. Build a top cap of four equilateral faces (clip-path polygon(50% 0,100% 100%,0 100%)) hinged at the equator: rotateY(k*90deg) translateZ(--s/2) rotateX(--beta) with --beta = 90deg - atan(sqrt(2)) ≈ 35.264deg (so --L*sin(--beta)=--s/2, --L≈0.866*--s). Mirror it with a second group set to rotateX(180deg) for the bottom cap. Scale with --s. Wrap in a perspective preserve-3d scene, animate rotateY, pause under reduced motion.",
+  "path": "effects/3d-transforms/octahedron-rotate.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rotating Octahedron</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"octahedron-rotate\",\n    \"title\": \"Rotating Octahedron\",\n    \"summary\": \"A regular octahedron (eight equilateral triangles) spins in pure-CSS 3D.\",\n    \"description\": \"Two four-sided pyramids share an equator square — eight clip-path triangles inside a preserve-3d scene, spun on a loop. No libraries.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"polyhedron\", \"loop\"],\n    \"tags\": [\"octahedron\", \"3d\", \"rotate\", \"preserve-3d\", \"clip-path\", \"showcase\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Eight layers + continuous rotation; cheap standalone.\",\n    \"accessibility_notes\": \"Decorative; pauses to a static pose under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--s\", \"description\": \"Edge length (scales the whole solid)\", \"default\": \"150px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"15s\" }\n    ],\n    \"variations\": [\"Glass faces (lower alpha)\", \"Wireframe\", \"Two-tone top/bottom\"],\n    \"related\": [\"cube-rotate\", \"pyramid-rotate\", \"tetrahedron-rotate\"],\n    \"ai_usage\": \"Regular octahedron = two square-based pyramids sharing an equator. Build a top cap of four equilateral faces (clip-path polygon(50% 0,100% 100%,0 100%)) hinged at the equator: rotateY(k*90deg) translateZ(--s/2) rotateX(--beta) with --beta = 90deg - atan(sqrt(2)) ≈ 35.264deg (so --L*sin(--beta)=--s/2, --L≈0.866*--s). Mirror it with a second group set to rotateX(180deg) for the bottom cap. Scale with --s. Wrap in a perspective preserve-3d scene, animate rotateY, pause under reduced motion.\"\n  }\n  </script>\n  <style>\n    /* Regular octahedron = two square pyramids sharing an equator square.\n         face height L    = (√3/2)·s ≈ 0.8660·s\n         fold tilt   beta = 90° − atan(√2) ≈ 35.264°   (so L·sin(beta)=s/2) */\n    :root {\n      --s: 150px;\n      --dur: 15s;\n      --half: calc(var(--s) / 2);\n      --L: calc(var(--s) * 0.8660);\n      --beta: 35.264deg;\n    }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #2a1040, #06060c); perspective: 880px; }\n    .scene { transform-style: preserve-3d; transform: rotateX(-12deg); }\n    .solid { position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: spin var(--dur) linear infinite; }\n    .cap { position: absolute; inset: 0; transform-style: preserve-3d; }\n    .cap.bottom { transform: rotateX(180deg); }\n\n    .face {\n      position: absolute; left: 50%; top: 50%;\n      width: var(--s); height: var(--L);\n      margin-left: calc(var(--s) / -2); margin-top: calc(var(--L) * -1);\n      background: linear-gradient(150deg, rgba(124,92,255,.8), rgba(45,212,191,.8));\n      border: 1px solid rgba(255,255,255,.45);\n      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);\n      transform-origin: 50% 100%;\n      backface-visibility: visible;\n    }\n    .f1 { transform: rotateY(0deg)   translateZ(var(--half)) rotateX(var(--beta)); }\n    .f2 { transform: rotateY(90deg)  translateZ(var(--half)) rotateX(var(--beta)); filter: brightness(.9); }\n    .f3 { transform: rotateY(180deg) translateZ(var(--half)) rotateX(var(--beta)); filter: brightness(.82); }\n    .f4 { transform: rotateY(270deg) translateZ(var(--half)) rotateX(var(--beta)); filter: brightness(.9); }\n\n    @keyframes spin { to { transform: rotateY(360deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      .solid { animation: none; transform: rotateY(32deg); }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"scene\">\n    <div class=\"solid\">\n      <div class=\"cap top\">\n        <div class=\"face f1\"></div><div class=\"face f2\"></div>\n        <div class=\"face f3\"></div><div class=\"face f4\"></div>\n      </div>\n      <div class=\"cap bottom\">\n        <div class=\"face f1\"></div><div class=\"face f2\"></div>\n        <div class=\"face f3\"></div><div class=\"face f4\"></div>\n      </div>\n    </div>\n  </div>\n</body>\n</html>\n"
+}

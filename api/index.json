@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "counts": {
     "themes": 22,
-    "effects": 172
+    "effects": 175
   },
   "effectEndpoint": "api/effects/{id}.json",
   "effects": [
@@ -112,6 +112,84 @@
       "era": "2010s",
       "difficulty": "advanced",
       "path": "effects/3d-transforms/cube-rotate.html"
+    },
+    {
+      "id": "pyramid-rotate",
+      "title": "Rotating 3D Pyramid",
+      "summary": "A square-based pyramid spins in 3D space, built from four triangular CSS faces.",
+      "theme": "3d-transforms",
+      "themeTitle": "3D Transforms",
+      "categories": [
+        "3d",
+        "pyramid",
+        "loop"
+      ],
+      "tags": [
+        "pyramid",
+        "3d",
+        "rotate",
+        "preserve-3d",
+        "clip-path",
+        "showcase"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "path": "effects/3d-transforms/pyramid-rotate.html"
+    },
+    {
+      "id": "octahedron-rotate",
+      "title": "Rotating Octahedron",
+      "summary": "A regular octahedron (eight equilateral triangles) spins in pure-CSS 3D.",
+      "theme": "3d-transforms",
+      "themeTitle": "3D Transforms",
+      "categories": [
+        "3d",
+        "polyhedron",
+        "loop"
+      ],
+      "tags": [
+        "octahedron",
+        "3d",
+        "rotate",
+        "preserve-3d",
+        "clip-path",
+        "showcase"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "path": "effects/3d-transforms/octahedron-rotate.html"
+    },
+    {
+      "id": "tetrahedron-rotate",
+      "title": "Rotating Tetrahedron",
+      "summary": "A regular tetrahedron (four equilateral triangles) spins in pure-CSS 3D.",
+      "theme": "3d-transforms",
+      "themeTitle": "3D Transforms",
+      "categories": [
+        "3d",
+        "polyhedron",
+        "loop"
+      ],
+      "tags": [
+        "tetrahedron",
+        "3d",
+        "rotate",
+        "preserve-3d",
+        "clip-path",
+        "showcase"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "path": "effects/3d-transforms/tetrahedron-rotate.html"
     },
     {
       "id": "animated-gradient",
