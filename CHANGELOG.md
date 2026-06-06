@@ -3,6 +3,14 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.22.1] — 2026-06-06
+
+### Changed
+- **Copy-for-AI / bundle exports** now tell the receiving agent the component is
+  self-contained and to **not open, fetch, or verify any URL** — agents were
+  burning turns trying to browse the (browser-only) gallery and stalling. The
+  origin is kept as attribution but explicitly marked "do not fetch."
+
 ## [0.22.0] — 2026-06-06
 
 ### Added — more rotating 3D solids

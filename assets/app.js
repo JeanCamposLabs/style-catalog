@@ -1118,6 +1118,7 @@
     L.push("# " + e.title + "  —  " + (e.themeTitle || e.theme));
     L.push("");
     L.push("> Drop this self-contained component (HTML + CSS + a little vanilla JS, no build step or dependencies) into your project. Swap placeholder text/colors as noted.");
+    L.push("> Everything you need is in the code block below — do **not** open, fetch, or try to verify any URL (the catalog is a browser-only gallery and will only stall an agent).");
     if (e.summary) { L.push(""); L.push(e.summary); }
     if (e.ai_usage) { L.push(""); L.push("**How to apply:** " + e.ai_usage); }
     var deps = (e.dependencies && e.dependencies.length) ? e.dependencies.join(", ") : "none (vanilla)";
@@ -1139,7 +1140,8 @@
       L.push("# Style Catalog — Component Bundle (" + items.length + " item" + (items.length !== 1 ? "s" : "") + ")");
       L.push("");
       L.push("> Paste this whole document into your coding agent. Each component below is self-contained (HTML + CSS + a little vanilla JS, no build step or dependencies) and includes how to apply it. Swap placeholder text/colors as noted per item.");
-      L.push("> Source: " + location.origin + location.pathname.replace(/index\.html$/, ""));
+      L.push("> Everything you need is inline below — do **not** open, fetch, or try to verify any URL (the catalog is a browser-only gallery and will only stall an agent).");
+      L.push("> Source (attribution only — do not fetch): " + location.origin + location.pathname.replace(/index\.html$/, ""));
       items.forEach(function (e, i) {
         L.push(""); L.push("---"); L.push("");
         L.push("## " + (i + 1) + ". " + e.title + "  —  " + (e.themeTitle || e.theme));
