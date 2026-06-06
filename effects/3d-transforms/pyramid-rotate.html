@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotating 3D Pyramid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "pyramid-rotate",
+    "title": "Rotating 3D Pyramid",
+    "summary": "A square-based pyramid spins in 3D space, built from four triangular CSS faces.",
+    "description": "Four clip-path triangles are hinged at a square base and folded up to a shared apex inside a preserve-3d scene, then spun on a loop — pure-CSS 3D, no libraries.",
+    "theme": "3d-transforms",
+    "categories": ["3d", "pyramid", "loop"],
+    "tags": ["pyramid", "3d", "rotate", "preserve-3d", "clip-path", "showcase"],
+    "tech": ["css"],
+    "era": "2010s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers.",
+    "performance_notes": "Five layers + continuous rotation; cheap standalone. Avoid many at once.",
+    "accessibility_notes": "Decorative; pauses to a static pose under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--s", "description": "Base edge length (scales the whole solid)", "default": "150px" },
+      { "name": "--dur", "description": "Rotation period", "default": "14s" }
+    ],
+    "variations": ["Glass faces (lower face alpha)", "Map a texture onto each face", "Tip-down / inverted"],
+    "related": ["cube-rotate", "tetrahedron-rotate", "octahedron-rotate"],
+    "ai_usage": "Eye-catching hero/showcase element. Each triangular face is clip-path polygon(50% 0,100% 100%,0 100%) with transform-origin at its bottom-centre, placed with rotateY(k*90deg) translateZ(--s/2) rotateX(--beta). For all four apexes to meet on the axis, --beta must satisfy --L*sin(--beta) = --s/2; here the proportions are fixed (height ≈ 0.85*edge) so the slant --L ≈ 0.986*--s and --beta ≈ 30.47deg are precomputed constants — scale the solid with --s alone. Wrap in a perspective scene with transform-style:preserve-3d and animate rotateY. Pause under reduced motion."
+  }
+  </script>
+  <style>
+    /* Fixed proportions (height ≈ 0.85·edge) so the geometry is constant and
+       needs no CSS trig — scale the whole solid with --s.
+         apothem  a = s/2
+         slant    L = sqrt(h² + a²) ≈ 0.9862·s
+         tilt     beta = 90° − atan(h/a) ≈ 30.466°   (so L·sin(beta) = a) */
+    :root {
+      --s: 150px;
+      --dur: 14s;
+      --a: calc(var(--s) / 2);
+      --L: calc(var(--s) * 0.9862);
+      --beta: 30.466deg;
+    }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 35%, #1a1040, #06060c); perspective: 820px; }
+    .scene { transform-style: preserve-3d; transform: rotateX(-18deg); }
+    .solid { position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: spin var(--dur) linear infinite; }
+
+    .face, .base {
+      position: absolute; left: 50%; top: 50%;
+      background: linear-gradient(150deg, rgba(124,92,255,.82), rgba(45,212,191,.82));
+      border: 1px solid rgba(255,255,255,.45);
+      backface-visibility: visible;
+    }
+    /* Triangular sides: base at the bottom of the box, apex at top-centre. */
+    .face {
+      width: var(--s); height: var(--L);
+      margin-left: calc(var(--s) / -2); margin-top: calc(var(--L) * -1);
+      transform-origin: 50% 100%;
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    }
+    .f1 { transform: rotateY(0deg)   translateZ(var(--a)) rotateX(var(--beta)); }
+    .f2 { transform: rotateY(90deg)  translateZ(var(--a)) rotateX(var(--beta)); filter: brightness(.92); }
+    .f3 { transform: rotateY(180deg) translateZ(var(--a)) rotateX(var(--beta)); filter: brightness(.84); }
+    .f4 { transform: rotateY(270deg) translateZ(var(--a)) rotateX(var(--beta)); filter: brightness(.92); }
+    /* Square base, flat at the bottom. */
+    .base {
+      width: var(--s); height: var(--s);
+      margin-left: calc(var(--s) / -2); margin-top: calc(var(--s) / -2);
+      transform: rotateX(90deg);
+      background: linear-gradient(150deg, rgba(124,92,255,.6), rgba(45,212,191,.6));
+    }
+
+    @keyframes spin { to { transform: rotateY(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .solid { animation: none; transform: rotateY(38deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="solid">
+      <div class="face f1"></div>
+      <div class="face f2"></div>
+      <div class="face f3"></div>
+      <div class="face f4"></div>
+      <div class="base"></div>
+    </div>
+  </div>
+</body>
+</html>

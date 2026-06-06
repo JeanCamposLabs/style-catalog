@@ -1,0 +1,55 @@
+{
+  "id": "tetrahedron-rotate",
+  "title": "Rotating Tetrahedron",
+  "summary": "A regular tetrahedron (four equilateral triangles) spins in pure-CSS 3D.",
+  "description": "Three clip-path triangles are hinged at a triangular base and folded up to a shared apex inside a preserve-3d scene, closed by a flat base face and spun on a loop.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "polyhedron",
+    "loop"
+  ],
+  "tags": [
+    "tetrahedron",
+    "3d",
+    "rotate",
+    "preserve-3d",
+    "clip-path",
+    "showcase"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2010s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers.",
+  "performance_notes": "Four layers + continuous rotation; cheap standalone.",
+  "accessibility_notes": "Decorative; pauses to a static pose under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--s",
+      "description": "Edge length (scales the whole solid)",
+      "default": "170px"
+    },
+    {
+      "name": "--dur",
+      "description": "Rotation period",
+      "default": "13s"
+    }
+  ],
+  "variations": [
+    "Glass faces (lower alpha)",
+    "Wireframe (transparent fill + borders)",
+    "Tip-down"
+  ],
+  "related": [
+    "cube-rotate",
+    "pyramid-rotate",
+    "octahedron-rotate"
+  ],
+  "ai_usage": "Regular tetrahedron in pure CSS. Three equilateral side faces (clip-path polygon(50% 0,100% 100%,0 100%)) hinge at their bottom edge: rotateY(k*120deg) translateZ(--r) rotateX(--beta) with --r = inradius of the base triangle ≈ 0.2887*--s and --beta ≈ 19.471deg (so --L*sin(--beta)=--r, --L≈0.866*--s). The base is the same triangle laid flat with rotateX(90deg) about its centroid (transform-origin 50% 66.67%). Scale with --s. Wrap in a perspective preserve-3d scene, animate rotateY, pause under reduced motion.",
+  "path": "effects/3d-transforms/tetrahedron-rotate.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rotating Tetrahedron</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"tetrahedron-rotate\",\n    \"title\": \"Rotating Tetrahedron\",\n    \"summary\": \"A regular tetrahedron (four equilateral triangles) spins in pure-CSS 3D.\",\n    \"description\": \"Three clip-path triangles are hinged at a triangular base and folded up to a shared apex inside a preserve-3d scene, closed by a flat base face and spun on a loop.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"polyhedron\", \"loop\"],\n    \"tags\": [\"tetrahedron\", \"3d\", \"rotate\", \"preserve-3d\", \"clip-path\", \"showcase\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Four layers + continuous rotation; cheap standalone.\",\n    \"accessibility_notes\": \"Decorative; pauses to a static pose under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--s\", \"description\": \"Edge length (scales the whole solid)\", \"default\": \"170px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"13s\" }\n    ],\n    \"variations\": [\"Glass faces (lower alpha)\", \"Wireframe (transparent fill + borders)\", \"Tip-down\"],\n    \"related\": [\"cube-rotate\", \"pyramid-rotate\", \"octahedron-rotate\"],\n    \"ai_usage\": \"Regular tetrahedron in pure CSS. Three equilateral side faces (clip-path polygon(50% 0,100% 100%,0 100%)) hinge at their bottom edge: rotateY(k*120deg) translateZ(--r) rotateX(--beta) with --r = inradius of the base triangle ≈ 0.2887*--s and --beta ≈ 19.471deg (so --L*sin(--beta)=--r, --L≈0.866*--s). The base is the same triangle laid flat with rotateX(90deg) about its centroid (transform-origin 50% 66.67%). Scale with --s. Wrap in a perspective preserve-3d scene, animate rotateY, pause under reduced motion.\"\n  }\n  </script>\n  <style>\n    /* Regular tetrahedron, fixed geometry (no CSS trig needed):\n         face height   L     = (√3/2)·s ≈ 0.8660·s\n         base inradius r      = s/(2√3) ≈ 0.2887·s\n         fold tilt     beta   = 90° − acos(1/3) ≈ 19.471°  (so L·sin(beta)=r) */\n    :root {\n      --s: 170px;\n      --dur: 13s;\n      --L: calc(var(--s) * 0.8660);\n      --r: calc(var(--s) * 0.2887);\n      --beta: 19.471deg;\n    }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 38%, #102a40, #06060c); perspective: 820px; }\n    .scene { transform-style: preserve-3d; transform: rotateX(-14deg); }\n    .solid { position: relative; width: var(--s); height: var(--L); transform-style: preserve-3d; animation: spin var(--dur) linear infinite; }\n\n    .face {\n      position: absolute; left: 50%; top: 50%;\n      width: var(--s); height: var(--L);\n      margin-left: calc(var(--s) / -2); margin-top: calc(var(--L) * -1);\n      background: linear-gradient(150deg, rgba(45,212,191,.82), rgba(124,92,255,.82));\n      border: 1px solid rgba(255,255,255,.45);\n      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);\n      transform-origin: 50% 100%;\n      backface-visibility: visible;\n    }\n    .f1 { transform: rotateY(0deg)   translateZ(var(--r)) rotateX(var(--beta)); }\n    .f2 { transform: rotateY(120deg) translateZ(var(--r)) rotateX(var(--beta)); filter: brightness(.9); }\n    .f3 { transform: rotateY(240deg) translateZ(var(--r)) rotateX(var(--beta)); filter: brightness(.8); }\n    /* Base: the same triangle laid flat about its centroid (1/3 up from base). */\n    .base {\n      position: absolute; left: 50%; top: 50%;\n      width: var(--s); height: var(--L);\n      margin-left: calc(var(--s) / -2); margin-top: calc(var(--L) * -0.6667);\n      background: linear-gradient(150deg, rgba(45,212,191,.6), rgba(124,92,255,.6));\n      border: 1px solid rgba(255,255,255,.4);\n      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);\n      transform-origin: 50% 66.667%;\n      transform: rotateX(90deg);\n      backface-visibility: visible;\n    }\n\n    @keyframes spin { to { transform: rotateY(360deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      .solid { animation: none; transform: rotateY(40deg); }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"scene\">\n    <div class=\"solid\">\n      <div class=\"face f1\"></div>\n      <div class=\"face f2\"></div>\n      <div class=\"face f3\"></div>\n      <div class=\"base\"></div>\n    </div>\n  </div>\n</body>\n</html>\n"
+}

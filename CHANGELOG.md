@@ -3,6 +3,17 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.22.0] — 2026-06-06
+
+### Added — more rotating 3D solids
+- Three new pure-CSS specimens in **3D Transforms**, companions to the cube:
+  **Rotating 3D Pyramid** (`pyramid-rotate`), **Rotating Tetrahedron**
+  (`tetrahedron-rotate`), and **Rotating Octahedron** (`octahedron-rotate`).
+- Each folds clip-path triangles up to a shared apex inside a `preserve-3d`
+  scene and spins on a loop; geometry uses precomputed ratio constants (no CSS
+  trig), so a single `--s` scales the whole solid. All pause to a static pose
+  under `prefers-reduced-motion`. The cube now cross-links to all three.
+
 ## [0.21.0] — 2026-06-01 — Enterprise-readiness pass
 
 A deep audit (frontend, tooling, MCP/data, repo/CI) followed by fixes and

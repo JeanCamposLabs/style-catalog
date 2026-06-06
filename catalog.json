@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "counts": {
     "themes": 22,
-    "effects": 172
+    "effects": 175
   },
   "themes": [
     {
@@ -84,7 +84,7 @@
       "description": "Perspective-driven effects — card flips, rotating cubes, and depth layering with transform-style: preserve-3d.",
       "icon": "🧊",
       "order": 70,
-      "count": 4
+      "count": 7
     },
     {
       "slug": "glass-neumorphism",
@@ -233,7 +233,7 @@
       {
         "slug": "3d-transforms",
         "title": "3D Transforms",
-        "count": 4
+        "count": 7
       },
       {
         "slug": "glass-neumorphism",
@@ -299,7 +299,7 @@
     "tech": [
       {
         "value": "css",
-        "count": 168
+        "count": 171
       },
       {
         "value": "js",
@@ -329,7 +329,7 @@
       },
       {
         "value": "advanced",
-        "count": 10
+        "count": 13
       }
     ],
     "era": [
@@ -343,7 +343,7 @@
       },
       {
         "value": "2010s",
-        "count": 18
+        "count": 21
       },
       {
         "value": "1990s",
@@ -384,6 +384,10 @@
         "count": 13
       },
       {
+        "value": "3d",
+        "count": 11
+      },
+      {
         "value": "button",
         "count": 11
       },
@@ -402,10 +406,6 @@
       {
         "value": "loader",
         "count": 10
-      },
-      {
-        "value": "3d",
-        "count": 8
       },
       {
         "value": "form",
@@ -465,6 +465,10 @@
       },
       {
         "value": "interaction",
+        "count": 5
+      },
+      {
+        "value": "loop",
         "count": 5
       },
       {
@@ -620,10 +624,6 @@
         "count": 2
       },
       {
-        "value": "loop",
-        "count": 2
-      },
-      {
         "value": "neumorphism",
         "count": 2
       },
@@ -645,6 +645,10 @@
       },
       {
         "value": "pointer",
+        "count": 2
+      },
+      {
+        "value": "polyhedron",
         "count": 2
       },
       {
@@ -900,6 +904,10 @@
         "count": 1
       },
       {
+        "value": "pyramid",
+        "count": 1
+      },
+      {
         "value": "readability",
         "count": 1
       },
@@ -979,7 +987,7 @@
       },
       {
         "value": "3d",
-        "count": 10
+        "count": 13
       },
       {
         "value": "cursor",
@@ -1014,7 +1022,15 @@
         "count": 7
       },
       {
+        "value": "clip-path",
+        "count": 6
+      },
+      {
         "value": "parallax",
+        "count": 6
+      },
+      {
+        "value": "rotate",
         "count": 6
       },
       {
@@ -1055,6 +1071,10 @@
       },
       {
         "value": "playful",
+        "count": 5
+      },
+      {
+        "value": "preserve-3d",
         "count": 5
       },
       {
@@ -1130,6 +1150,10 @@
         "count": 4
       },
       {
+        "value": "showcase",
+        "count": 4
+      },
+      {
         "value": "spotlight",
         "count": 4
       },
@@ -1167,10 +1191,6 @@
       },
       {
         "value": "circular",
-        "count": 3
-      },
-      {
-        "value": "clip-path",
         "count": 3
       },
       {
@@ -1267,10 +1287,6 @@
       },
       {
         "value": "retro",
-        "count": 3
-      },
-      {
-        "value": "rotate",
         "count": 3
       },
       {
@@ -1639,10 +1655,6 @@
       },
       {
         "value": "placeholder",
-        "count": 2
-      },
-      {
-        "value": "preserve-3d",
         "count": 2
       },
       {
@@ -2726,6 +2738,10 @@
         "count": 1
       },
       {
+        "value": "octahedron",
+        "count": 1
+      },
+      {
         "value": "oklch",
         "count": 1
       },
@@ -2867,6 +2883,10 @@
       },
       {
         "value": "pulse",
+        "count": 1
+      },
+      {
+        "value": "pyramid",
         "count": 1
       },
       {
@@ -3058,10 +3078,6 @@
         "count": 1
       },
       {
-        "value": "showcase",
-        "count": 1
-      },
-      {
         "value": "signature",
         "count": 1
       },
@@ -3223,6 +3239,10 @@
       },
       {
         "value": "testimonials",
+        "count": 1
+      },
+      {
+        "value": "tetrahedron",
         "count": 1
       },
       {
@@ -3607,11 +3627,179 @@
         "Map images onto faces"
       ],
       "related": [
-        "flip-card"
+        "flip-card",
+        "pyramid-rotate",
+        "tetrahedron-rotate",
+        "octahedron-rotate"
       ],
       "ai_usage": "Eye-catching hero/showcase element. Each face is translated out by half the edge: e.g. front translateZ(s/2), back rotateY(180deg) translateZ(s/2), etc. The wrapper uses transform-style:preserve-3d and animates rotateX+rotateY. Half the edge length must equal translateZ. Wrap in a perspective scene. Pause under reduced motion.",
       "path": "effects/3d-transforms/cube-rotate.html",
-      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rotating 3D Cube</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cube-rotate\",\n    \"title\": \"Rotating 3D Cube\",\n    \"summary\": \"A six-faced cube continuously rotates in 3D space, built from divs.\",\n    \"description\": \"Six faces are positioned with rotateX/rotateY + translateZ inside a preserve-3d container, which spins on a loop — a showcase of pure-CSS 3D.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"cube\", \"loop\"],\n    \"tags\": [\"cube\", \"3d\", \"rotate\", \"preserve-3d\", \"translateZ\", \"showcase\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Six layers + continuous rotation; fine standalone. Avoid many cubes at once.\",\n    \"accessibility_notes\": \"Decorative; pause under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--s\", \"description\": \"Cube edge length\", \"default\": \"120px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"12s\" }\n    ],\n    \"variations\": [\"Rotate on drag (JS)\", \"Glass faces (semi-transparent)\", \"Map images onto faces\"],\n    \"related\": [\"flip-card\"],\n    \"ai_usage\": \"Eye-catching hero/showcase element. Each face is translated out by half the edge: e.g. front translateZ(s/2), back rotateY(180deg) translateZ(s/2), etc. The wrapper uses transform-style:preserve-3d and animates rotateX+rotateY. Half the edge length must equal translateZ. Wrap in a perspective scene. Pause under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root { --s: 120px; --dur: 12s; --half: calc(var(--s) / 2); }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #1a1040, #06060c); perspective: 800px; }\n    .cube { position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: rot var(--dur) linear infinite; }\n    .face {\n      position: absolute; width: var(--s); height: var(--s);\n      background: linear-gradient(135deg, rgba(124,92,255,.85), rgba(45,212,191,.85));\n      border: 1px solid rgba(255,255,255,.4); display: grid; place-items: center;\n      color: #fff; font-weight: 700; font-family: system-ui, sans-serif;\n    }\n    .f1 { transform: rotateY(0deg) translateZ(var(--half)); }\n    .f2 { transform: rotateY(90deg) translateZ(var(--half)); }\n    .f3 { transform: rotateY(180deg) translateZ(var(--half)); }\n    .f4 { transform: rotateY(-90deg) translateZ(var(--half)); }\n    .f5 { transform: rotateX(90deg) translateZ(var(--half)); }\n    .f6 { transform: rotateX(-90deg) translateZ(var(--half)); }\n    @keyframes rot { to { transform: rotateX(360deg) rotateY(360deg); } }\n    @media (prefers-reduced-motion: reduce) { .cube { animation: none; transform: rotateX(-25deg) rotateY(35deg); } }\n  </style>\n</head>\n<body>\n  <div class=\"cube\">\n    <div class=\"face f1\">1</div><div class=\"face f2\">2</div><div class=\"face f3\">3</div>\n    <div class=\"face f4\">4</div><div class=\"face f5\">5</div><div class=\"face f6\">6</div>\n  </div>\n</body>\n</html>\n"
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rotating 3D Cube</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cube-rotate\",\n    \"title\": \"Rotating 3D Cube\",\n    \"summary\": \"A six-faced cube continuously rotates in 3D space, built from divs.\",\n    \"description\": \"Six faces are positioned with rotateX/rotateY + translateZ inside a preserve-3d container, which spins on a loop — a showcase of pure-CSS 3D.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"cube\", \"loop\"],\n    \"tags\": [\"cube\", \"3d\", \"rotate\", \"preserve-3d\", \"translateZ\", \"showcase\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Six layers + continuous rotation; fine standalone. Avoid many cubes at once.\",\n    \"accessibility_notes\": \"Decorative; pause under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--s\", \"description\": \"Cube edge length\", \"default\": \"120px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"12s\" }\n    ],\n    \"variations\": [\"Rotate on drag (JS)\", \"Glass faces (semi-transparent)\", \"Map images onto faces\"],\n    \"related\": [\"flip-card\", \"pyramid-rotate\", \"tetrahedron-rotate\", \"octahedron-rotate\"],\n    \"ai_usage\": \"Eye-catching hero/showcase element. Each face is translated out by half the edge: e.g. front translateZ(s/2), back rotateY(180deg) translateZ(s/2), etc. The wrapper uses transform-style:preserve-3d and animates rotateX+rotateY. Half the edge length must equal translateZ. Wrap in a perspective scene. Pause under reduced motion.\"\n  }\n  </script>\n  <style>\n    :root { --s: 120px; --dur: 12s; --half: calc(var(--s) / 2); }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #1a1040, #06060c); perspective: 800px; }\n    .cube { position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: rot var(--dur) linear infinite; }\n    .face {\n      position: absolute; width: var(--s); height: var(--s);\n      background: linear-gradient(135deg, rgba(124,92,255,.85), rgba(45,212,191,.85));\n      border: 1px solid rgba(255,255,255,.4); display: grid; place-items: center;\n      color: #fff; font-weight: 700; font-family: system-ui, sans-serif;\n    }\n    .f1 { transform: rotateY(0deg) translateZ(var(--half)); }\n    .f2 { transform: rotateY(90deg) translateZ(var(--half)); }\n    .f3 { transform: rotateY(180deg) translateZ(var(--half)); }\n    .f4 { transform: rotateY(-90deg) translateZ(var(--half)); }\n    .f5 { transform: rotateX(90deg) translateZ(var(--half)); }\n    .f6 { transform: rotateX(-90deg) translateZ(var(--half)); }\n    @keyframes rot { to { transform: rotateX(360deg) rotateY(360deg); } }\n    @media (prefers-reduced-motion: reduce) { .cube { animation: none; transform: rotateX(-25deg) rotateY(35deg); } }\n  </style>\n</head>\n<body>\n  <div class=\"cube\">\n    <div class=\"face f1\">1</div><div class=\"face f2\">2</div><div class=\"face f3\">3</div>\n    <div class=\"face f4\">4</div><div class=\"face f5\">5</div><div class=\"face f6\">6</div>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "pyramid-rotate",
+      "title": "Rotating 3D Pyramid",
+      "summary": "A square-based pyramid spins in 3D space, built from four triangular CSS faces.",
+      "description": "Four clip-path triangles are hinged at a square base and folded up to a shared apex inside a preserve-3d scene, then spun on a loop — pure-CSS 3D, no libraries.",
+      "theme": "3d-transforms",
+      "themeTitle": "3D Transforms",
+      "categories": [
+        "3d",
+        "pyramid",
+        "loop"
+      ],
+      "tags": [
+        "pyramid",
+        "3d",
+        "rotate",
+        "preserve-3d",
+        "clip-path",
+        "showcase"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "dependencies": [],
+      "browser_support": "All modern browsers.",
+      "performance_notes": "Five layers + continuous rotation; cheap standalone. Avoid many at once.",
+      "accessibility_notes": "Decorative; pauses to a static pose under prefers-reduced-motion.",
+      "customization": [
+        {
+          "name": "--s",
+          "description": "Base edge length (scales the whole solid)",
+          "default": "150px"
+        },
+        {
+          "name": "--dur",
+          "description": "Rotation period",
+          "default": "14s"
+        }
+      ],
+      "variations": [
+        "Glass faces (lower face alpha)",
+        "Map a texture onto each face",
+        "Tip-down / inverted"
+      ],
+      "related": [
+        "cube-rotate",
+        "tetrahedron-rotate",
+        "octahedron-rotate"
+      ],
+      "ai_usage": "Eye-catching hero/showcase element. Each triangular face is clip-path polygon(50% 0,100% 100%,0 100%) with transform-origin at its bottom-centre, placed with rotateY(k*90deg) translateZ(--s/2) rotateX(--beta). For all four apexes to meet on the axis, --beta must satisfy --L*sin(--beta) = --s/2; here the proportions are fixed (height ≈ 0.85*edge) so the slant --L ≈ 0.986*--s and --beta ≈ 30.47deg are precomputed constants — scale the solid with --s alone. Wrap in a perspective scene with transform-style:preserve-3d and animate rotateY. Pause under reduced motion.",
+      "path": "effects/3d-transforms/pyramid-rotate.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rotating 3D Pyramid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"pyramid-rotate\",\n    \"title\": \"Rotating 3D Pyramid\",\n    \"summary\": \"A square-based pyramid spins in 3D space, built from four triangular CSS faces.\",\n    \"description\": \"Four clip-path triangles are hinged at a square base and folded up to a shared apex inside a preserve-3d scene, then spun on a loop — pure-CSS 3D, no libraries.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"pyramid\", \"loop\"],\n    \"tags\": [\"pyramid\", \"3d\", \"rotate\", \"preserve-3d\", \"clip-path\", \"showcase\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Five layers + continuous rotation; cheap standalone. Avoid many at once.\",\n    \"accessibility_notes\": \"Decorative; pauses to a static pose under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--s\", \"description\": \"Base edge length (scales the whole solid)\", \"default\": \"150px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"14s\" }\n    ],\n    \"variations\": [\"Glass faces (lower face alpha)\", \"Map a texture onto each face\", \"Tip-down / inverted\"],\n    \"related\": [\"cube-rotate\", \"tetrahedron-rotate\", \"octahedron-rotate\"],\n    \"ai_usage\": \"Eye-catching hero/showcase element. Each triangular face is clip-path polygon(50% 0,100% 100%,0 100%) with transform-origin at its bottom-centre, placed with rotateY(k*90deg) translateZ(--s/2) rotateX(--beta). For all four apexes to meet on the axis, --beta must satisfy --L*sin(--beta) = --s/2; here the proportions are fixed (height ≈ 0.85*edge) so the slant --L ≈ 0.986*--s and --beta ≈ 30.47deg are precomputed constants — scale the solid with --s alone. Wrap in a perspective scene with transform-style:preserve-3d and animate rotateY. Pause under reduced motion.\"\n  }\n  </script>\n  <style>\n    /* Fixed proportions (height ≈ 0.85·edge) so the geometry is constant and\n       needs no CSS trig — scale the whole solid with --s.\n         apothem  a = s/2\n         slant    L = sqrt(h² + a²) ≈ 0.9862·s\n         tilt     beta = 90° − atan(h/a) ≈ 30.466°   (so L·sin(beta) = a) */\n    :root {\n      --s: 150px;\n      --dur: 14s;\n      --a: calc(var(--s) / 2);\n      --L: calc(var(--s) * 0.9862);\n      --beta: 30.466deg;\n    }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 35%, #1a1040, #06060c); perspective: 820px; }\n    .scene { transform-style: preserve-3d; transform: rotateX(-18deg); }\n    .solid { position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: spin var(--dur) linear infinite; }\n\n    .face, .base {\n      position: absolute; left: 50%; top: 50%;\n      background: linear-gradient(150deg, rgba(124,92,255,.82), rgba(45,212,191,.82));\n      border: 1px solid rgba(255,255,255,.45);\n      backface-visibility: visible;\n    }\n    /* Triangular sides: base at the bottom of the box, apex at top-centre. */\n    .face {\n      width: var(--s); height: var(--L);\n      margin-left: calc(var(--s) / -2); margin-top: calc(var(--L) * -1);\n      transform-origin: 50% 100%;\n      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);\n    }\n    .f1 { transform: rotateY(0deg)   translateZ(var(--a)) rotateX(var(--beta)); }\n    .f2 { transform: rotateY(90deg)  translateZ(var(--a)) rotateX(var(--beta)); filter: brightness(.92); }\n    .f3 { transform: rotateY(180deg) translateZ(var(--a)) rotateX(var(--beta)); filter: brightness(.84); }\n    .f4 { transform: rotateY(270deg) translateZ(var(--a)) rotateX(var(--beta)); filter: brightness(.92); }\n    /* Square base, flat at the bottom. */\n    .base {\n      width: var(--s); height: var(--s);\n      margin-left: calc(var(--s) / -2); margin-top: calc(var(--s) / -2);\n      transform: rotateX(90deg);\n      background: linear-gradient(150deg, rgba(124,92,255,.6), rgba(45,212,191,.6));\n    }\n\n    @keyframes spin { to { transform: rotateY(360deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      .solid { animation: none; transform: rotateY(38deg); }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"scene\">\n    <div class=\"solid\">\n      <div class=\"face f1\"></div>\n      <div class=\"face f2\"></div>\n      <div class=\"face f3\"></div>\n      <div class=\"face f4\"></div>\n      <div class=\"base\"></div>\n    </div>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "octahedron-rotate",
+      "title": "Rotating Octahedron",
+      "summary": "A regular octahedron (eight equilateral triangles) spins in pure-CSS 3D.",
+      "description": "Two four-sided pyramids share an equator square — eight clip-path triangles inside a preserve-3d scene, spun on a loop. No libraries.",
+      "theme": "3d-transforms",
+      "themeTitle": "3D Transforms",
+      "categories": [
+        "3d",
+        "polyhedron",
+        "loop"
+      ],
+      "tags": [
+        "octahedron",
+        "3d",
+        "rotate",
+        "preserve-3d",
+        "clip-path",
+        "showcase"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "dependencies": [],
+      "browser_support": "All modern browsers.",
+      "performance_notes": "Eight layers + continuous rotation; cheap standalone.",
+      "accessibility_notes": "Decorative; pauses to a static pose under prefers-reduced-motion.",
+      "customization": [
+        {
+          "name": "--s",
+          "description": "Edge length (scales the whole solid)",
+          "default": "150px"
+        },
+        {
+          "name": "--dur",
+          "description": "Rotation period",
+          "default": "15s"
+        }
+      ],
+      "variations": [
+        "Glass faces (lower alpha)",
+        "Wireframe",
+        "Two-tone top/bottom"
+      ],
+      "related": [
+        "cube-rotate",
+        "pyramid-rotate",
+        "tetrahedron-rotate"
+      ],
+      "ai_usage": "Regular octahedron = two square-based pyramids sharing an equator. Build a top cap of four equilateral faces (clip-path polygon(50% 0,100% 100%,0 100%)) hinged at the equator: rotateY(k*90deg) translateZ(--s/2) rotateX(--beta) with --beta = 90deg - atan(sqrt(2)) ≈ 35.264deg (so --L*sin(--beta)=--s/2, --L≈0.866*--s). Mirror it with a second group set to rotateX(180deg) for the bottom cap. Scale with --s. Wrap in a perspective preserve-3d scene, animate rotateY, pause under reduced motion.",
+      "path": "effects/3d-transforms/octahedron-rotate.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rotating Octahedron</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"octahedron-rotate\",\n    \"title\": \"Rotating Octahedron\",\n    \"summary\": \"A regular octahedron (eight equilateral triangles) spins in pure-CSS 3D.\",\n    \"description\": \"Two four-sided pyramids share an equator square — eight clip-path triangles inside a preserve-3d scene, spun on a loop. No libraries.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"polyhedron\", \"loop\"],\n    \"tags\": [\"octahedron\", \"3d\", \"rotate\", \"preserve-3d\", \"clip-path\", \"showcase\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Eight layers + continuous rotation; cheap standalone.\",\n    \"accessibility_notes\": \"Decorative; pauses to a static pose under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--s\", \"description\": \"Edge length (scales the whole solid)\", \"default\": \"150px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"15s\" }\n    ],\n    \"variations\": [\"Glass faces (lower alpha)\", \"Wireframe\", \"Two-tone top/bottom\"],\n    \"related\": [\"cube-rotate\", \"pyramid-rotate\", \"tetrahedron-rotate\"],\n    \"ai_usage\": \"Regular octahedron = two square-based pyramids sharing an equator. Build a top cap of four equilateral faces (clip-path polygon(50% 0,100% 100%,0 100%)) hinged at the equator: rotateY(k*90deg) translateZ(--s/2) rotateX(--beta) with --beta = 90deg - atan(sqrt(2)) ≈ 35.264deg (so --L*sin(--beta)=--s/2, --L≈0.866*--s). Mirror it with a second group set to rotateX(180deg) for the bottom cap. Scale with --s. Wrap in a perspective preserve-3d scene, animate rotateY, pause under reduced motion.\"\n  }\n  </script>\n  <style>\n    /* Regular octahedron = two square pyramids sharing an equator square.\n         face height L    = (√3/2)·s ≈ 0.8660·s\n         fold tilt   beta = 90° − atan(√2) ≈ 35.264°   (so L·sin(beta)=s/2) */\n    :root {\n      --s: 150px;\n      --dur: 15s;\n      --half: calc(var(--s) / 2);\n      --L: calc(var(--s) * 0.8660);\n      --beta: 35.264deg;\n    }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #2a1040, #06060c); perspective: 880px; }\n    .scene { transform-style: preserve-3d; transform: rotateX(-12deg); }\n    .solid { position: relative; width: var(--s); height: var(--s); transform-style: preserve-3d; animation: spin var(--dur) linear infinite; }\n    .cap { position: absolute; inset: 0; transform-style: preserve-3d; }\n    .cap.bottom { transform: rotateX(180deg); }\n\n    .face {\n      position: absolute; left: 50%; top: 50%;\n      width: var(--s); height: var(--L);\n      margin-left: calc(var(--s) / -2); margin-top: calc(var(--L) * -1);\n      background: linear-gradient(150deg, rgba(124,92,255,.8), rgba(45,212,191,.8));\n      border: 1px solid rgba(255,255,255,.45);\n      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);\n      transform-origin: 50% 100%;\n      backface-visibility: visible;\n    }\n    .f1 { transform: rotateY(0deg)   translateZ(var(--half)) rotateX(var(--beta)); }\n    .f2 { transform: rotateY(90deg)  translateZ(var(--half)) rotateX(var(--beta)); filter: brightness(.9); }\n    .f3 { transform: rotateY(180deg) translateZ(var(--half)) rotateX(var(--beta)); filter: brightness(.82); }\n    .f4 { transform: rotateY(270deg) translateZ(var(--half)) rotateX(var(--beta)); filter: brightness(.9); }\n\n    @keyframes spin { to { transform: rotateY(360deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      .solid { animation: none; transform: rotateY(32deg); }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"scene\">\n    <div class=\"solid\">\n      <div class=\"cap top\">\n        <div class=\"face f1\"></div><div class=\"face f2\"></div>\n        <div class=\"face f3\"></div><div class=\"face f4\"></div>\n      </div>\n      <div class=\"cap bottom\">\n        <div class=\"face f1\"></div><div class=\"face f2\"></div>\n        <div class=\"face f3\"></div><div class=\"face f4\"></div>\n      </div>\n    </div>\n  </div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "tetrahedron-rotate",
+      "title": "Rotating Tetrahedron",
+      "summary": "A regular tetrahedron (four equilateral triangles) spins in pure-CSS 3D.",
+      "description": "Three clip-path triangles are hinged at a triangular base and folded up to a shared apex inside a preserve-3d scene, closed by a flat base face and spun on a loop.",
+      "theme": "3d-transforms",
+      "themeTitle": "3D Transforms",
+      "categories": [
+        "3d",
+        "polyhedron",
+        "loop"
+      ],
+      "tags": [
+        "tetrahedron",
+        "3d",
+        "rotate",
+        "preserve-3d",
+        "clip-path",
+        "showcase"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2010s",
+      "difficulty": "advanced",
+      "dependencies": [],
+      "browser_support": "All modern browsers.",
+      "performance_notes": "Four layers + continuous rotation; cheap standalone.",
+      "accessibility_notes": "Decorative; pauses to a static pose under prefers-reduced-motion.",
+      "customization": [
+        {
+          "name": "--s",
+          "description": "Edge length (scales the whole solid)",
+          "default": "170px"
+        },
+        {
+          "name": "--dur",
+          "description": "Rotation period",
+          "default": "13s"
+        }
+      ],
+      "variations": [
+        "Glass faces (lower alpha)",
+        "Wireframe (transparent fill + borders)",
+        "Tip-down"
+      ],
+      "related": [
+        "cube-rotate",
+        "pyramid-rotate",
+        "octahedron-rotate"
+      ],
+      "ai_usage": "Regular tetrahedron in pure CSS. Three equilateral side faces (clip-path polygon(50% 0,100% 100%,0 100%)) hinge at their bottom edge: rotateY(k*120deg) translateZ(--r) rotateX(--beta) with --r = inradius of the base triangle ≈ 0.2887*--s and --beta ≈ 19.471deg (so --L*sin(--beta)=--r, --L≈0.866*--s). The base is the same triangle laid flat with rotateX(90deg) about its centroid (transform-origin 50% 66.67%). Scale with --s. Wrap in a perspective preserve-3d scene, animate rotateY, pause under reduced motion.",
+      "path": "effects/3d-transforms/tetrahedron-rotate.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rotating Tetrahedron</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"tetrahedron-rotate\",\n    \"title\": \"Rotating Tetrahedron\",\n    \"summary\": \"A regular tetrahedron (four equilateral triangles) spins in pure-CSS 3D.\",\n    \"description\": \"Three clip-path triangles are hinged at a triangular base and folded up to a shared apex inside a preserve-3d scene, closed by a flat base face and spun on a loop.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"polyhedron\", \"loop\"],\n    \"tags\": [\"tetrahedron\", \"3d\", \"rotate\", \"preserve-3d\", \"clip-path\", \"showcase\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers.\",\n    \"performance_notes\": \"Four layers + continuous rotation; cheap standalone.\",\n    \"accessibility_notes\": \"Decorative; pauses to a static pose under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--s\", \"description\": \"Edge length (scales the whole solid)\", \"default\": \"170px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"13s\" }\n    ],\n    \"variations\": [\"Glass faces (lower alpha)\", \"Wireframe (transparent fill + borders)\", \"Tip-down\"],\n    \"related\": [\"cube-rotate\", \"pyramid-rotate\", \"octahedron-rotate\"],\n    \"ai_usage\": \"Regular tetrahedron in pure CSS. Three equilateral side faces (clip-path polygon(50% 0,100% 100%,0 100%)) hinge at their bottom edge: rotateY(k*120deg) translateZ(--r) rotateX(--beta) with --r = inradius of the base triangle ≈ 0.2887*--s and --beta ≈ 19.471deg (so --L*sin(--beta)=--r, --L≈0.866*--s). The base is the same triangle laid flat with rotateX(90deg) about its centroid (transform-origin 50% 66.67%). Scale with --s. Wrap in a perspective preserve-3d scene, animate rotateY, pause under reduced motion.\"\n  }\n  </script>\n  <style>\n    /* Regular tetrahedron, fixed geometry (no CSS trig needed):\n         face height   L     = (√3/2)·s ≈ 0.8660·s\n         base inradius r      = s/(2√3) ≈ 0.2887·s\n         fold tilt     beta   = 90° − acos(1/3) ≈ 19.471°  (so L·sin(beta)=r) */\n    :root {\n      --s: 170px;\n      --dur: 13s;\n      --L: calc(var(--s) * 0.8660);\n      --r: calc(var(--s) * 0.2887);\n      --beta: 19.471deg;\n    }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: radial-gradient(circle at 50% 38%, #102a40, #06060c); perspective: 820px; }\n    .scene { transform-style: preserve-3d; transform: rotateX(-14deg); }\n    .solid { position: relative; width: var(--s); height: var(--L); transform-style: preserve-3d; animation: spin var(--dur) linear infinite; }\n\n    .face {\n      position: absolute; left: 50%; top: 50%;\n      width: var(--s); height: var(--L);\n      margin-left: calc(var(--s) / -2); margin-top: calc(var(--L) * -1);\n      background: linear-gradient(150deg, rgba(45,212,191,.82), rgba(124,92,255,.82));\n      border: 1px solid rgba(255,255,255,.45);\n      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);\n      transform-origin: 50% 100%;\n      backface-visibility: visible;\n    }\n    .f1 { transform: rotateY(0deg)   translateZ(var(--r)) rotateX(var(--beta)); }\n    .f2 { transform: rotateY(120deg) translateZ(var(--r)) rotateX(var(--beta)); filter: brightness(.9); }\n    .f3 { transform: rotateY(240deg) translateZ(var(--r)) rotateX(var(--beta)); filter: brightness(.8); }\n    /* Base: the same triangle laid flat about its centroid (1/3 up from base). */\n    .base {\n      position: absolute; left: 50%; top: 50%;\n      width: var(--s); height: var(--L);\n      margin-left: calc(var(--s) / -2); margin-top: calc(var(--L) * -0.6667);\n      background: linear-gradient(150deg, rgba(45,212,191,.6), rgba(124,92,255,.6));\n      border: 1px solid rgba(255,255,255,.4);\n      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);\n      transform-origin: 50% 66.667%;\n      transform: rotateX(90deg);\n      backface-visibility: visible;\n    }\n\n    @keyframes spin { to { transform: rotateY(360deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      .solid { animation: none; transform: rotateY(40deg); }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"scene\">\n    <div class=\"solid\">\n      <div class=\"face f1\"></div>\n      <div class=\"face f2\"></div>\n      <div class=\"face f3\"></div>\n      <div class=\"base\"></div>\n    </div>\n  </div>\n</body>\n</html>\n"
     },
     {
       "id": "animated-gradient",
