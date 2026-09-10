@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Result List</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "search-results-list",
+    "title": "Result List",
+    "summary": "Results with matched-term highlighting and metadata.",
+    "description": "Results with matched-term highlighting and metadata.",
+    "theme": "search-ui",
+    "categories": ["search", "filter"],
+    "tags": ["search", "find", "results", "highlight", "metadata", "list"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+    "customization": [
+      { "name": "--hl", "description": "Highlight colour", "default": "#b9a5ff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Search results. Highlight the matched substring so users see why each result appeared, and escape the query before injecting it as markup."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; }
+    .fx .count { font-size: .78rem; color: #8b93a7; margin-bottom: .7rem; }
+    .fx .r { padding: .6rem .8rem; border-radius: 10px; margin-bottom: 6px; background: #151b2a; border: 1px solid #263149; }
+    .fx .r:hover { border-color: #7c5cff; }
+    .fx b { display: block; font-size: .9rem; }
+    .fx mark { background: transparent; color: #b9a5ff; font-weight: 700; }
+    .fx p { margin: .15rem 0 .3rem; color: #8b93a7; font-size: .8rem; line-height: 1.4; }
+    .fx .meta { display: flex; gap: .5rem; font-size: .72rem; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="count" role="status">14 results for “ripple”</div>
+  <div class="r"><b><mark>Ripple</mark> Button</b><p>A material-style <mark>ripple</mark> that starts at the pointer.</p>
+  <div class="meta"><span>Buttons</span><span>CSS + JS</span></div></div>
+  <div class="r"><b>Water <mark>Ripple</mark>s</b><p>Expanding rings on a dark pool.</p>
+  <div class="meta"><span>Backgrounds</span><span>CSS</span></div></div></div>
+</body>
+</html>

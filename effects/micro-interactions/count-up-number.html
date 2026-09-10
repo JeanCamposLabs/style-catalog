@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Counting Number</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "count-up-number",
+    "title": "Counting Number",
+    "summary": "A figure that counts up when it appears.",
+    "description": "A figure that counts up when it appears.",
+    "theme": "micro-interactions",
+    "categories": ["micro-interaction", "feedback"],
+    "tags": ["micro-interaction", "feedback", "count-up", "number", "stat", "reveal"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+    "customization": [
+      { "name": "--dur", "description": "Count duration", "default": "1.2s" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Stat reveals. Ease the count so it decelerates into the final value, and keep the duration under a second — long counters delay the information they exist to show."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { text-align: center; }
+    .fx .n { font-size: 2.6rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+    .fx .l { color: #8b93a7; font-size: .82rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="n" id="cu">0</div><div class="l">specimens catalogued</div></div>
+  <script>
+    (function () {
+      var el = document.getElementById("cu"), target = 1181, t0 = null;
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = target.toLocaleString(); return; }
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / 1200, 1), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * e).toLocaleString();
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    })();
+  </script>
+</body>
+</html>

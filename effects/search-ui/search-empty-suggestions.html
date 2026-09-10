@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search Landing</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "search-empty-suggestions",
+    "title": "Search Landing",
+    "summary": "A pre-query state with browsable categories.",
+    "description": "A pre-query state with browsable categories.",
+    "theme": "search-ui",
+    "categories": ["search", "filter"],
+    "tags": ["search", "find", "landing", "browse", "categories", "pre-query"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+    "customization": [
+      { "name": "--bg", "description": "Tile background", "default": "#1c2437" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "The state before anyone types. Offer browsable entry points — a blank search page wastes the most valuable moment of the interaction."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; padding: 1.2rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }
+    .fx h4 { margin: 0 0 .8rem; font-size: .9rem; }
+    .fx .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .fx .c { padding: .6rem .7rem; border-radius: 10px; background: #1c2437; color: #cbd5e1; font-size: .82rem; }
+    .fx .c span { display: block; color: #64748b; font-size: .72rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><h4>Browse by theme</h4><div class="grid">
+    <div class="c">Buttons<span>29 specimens</span></div><div class="c">Loaders<span>32 specimens</span></div>
+    <div class="c">Patterns<span>43 specimens</span></div><div class="c">Text<span>36 specimens</span></div></div></div>
+</body>
+</html>

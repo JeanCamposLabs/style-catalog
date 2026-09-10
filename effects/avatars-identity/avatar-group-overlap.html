@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avatar Group</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "avatar-group-overlap",
+    "title": "Avatar Group",
+    "summary": "Overlapping avatars with an overflow count.",
+    "description": "Overlapping avatars with an overflow count.",
+    "theme": "avatars-identity",
+    "categories": ["avatar", "identity"],
+    "tags": ["avatar", "identity", "group", "overlap", "team", "stack"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+    "customization": [
+      { "name": "--overlap", "description": "Overlap", "default": "12px" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Collaborator rows. Give the whole group one accessible label ('5 collaborators') instead of announcing each initial; cap at four plus a count."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; }
+    .fx span { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #0b0d12; margin-left: -12px;
+      display: grid; place-items: center; font-weight: 800; font-size: .8rem; color: #0b0d12; }
+    .fx span:first-child { margin-left: 0; }
+    .fx .more { background: #2b3450; color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="img" aria-label="5 collaborators: Jean, Ada, Max and 2 more">
+    <span style="background:#7c5cff">JC</span><span style="background:#10a894">AL</span>
+    <span style="background:#c2891a">MR</span><span class="more">+2</span></div>
+</body>
+</html>

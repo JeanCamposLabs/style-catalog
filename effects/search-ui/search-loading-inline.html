@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Searching State</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "search-loading-inline",
+    "title": "Searching State",
+    "summary": "An inline spinner inside the search field.",
+    "description": "An inline spinner inside the search field.",
+    "theme": "search-ui",
+    "categories": ["search", "filter"],
+    "tags": ["search", "find", "loading", "inline", "spinner", "async"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+    "customization": [
+      { "name": "--c", "description": "Spinner colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Async search. Keep the spinner inside the field so the results area can hold the previous results — blanking results on every keystroke is disorienting."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 290px; }
+    .fx input { width: 100%; padding: .75rem 2.6rem .75rem .9rem; border-radius: 12px; border: 1px solid #7c5cff;
+      background: #151b2a; color: #e7ebf3; font: inherit; }
+    .fx .sp { position: absolute; right: .9rem; top: 50%; translate: 0 -50%; width: 16px; height: 16px;
+      border: 2px solid rgba(124,92,255,.3); border-top-color: #7c5cff; border-radius: 50%; animation: sp .8s linear infinite; }
+    .fx .hint { margin-top: .5rem; font-size: .78rem; color: #8b93a7; }
+    @keyframes sp { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><input type="search" value="gradient" aria-label="Search" /><span class="sp" aria-hidden="true"></span>
+  <p class="hint" role="status">Searching…</p></div>
+</body>
+</html>

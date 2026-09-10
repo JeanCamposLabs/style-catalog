@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Query Builder</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "advanced-search-builder",
+    "title": "Query Builder",
+    "summary": "Structured filter rows building a query.",
+    "description": "Structured filter rows building a query.",
+    "theme": "search-ui",
+    "categories": ["search", "filter"],
+    "tags": ["search", "find", "query", "builder", "advanced", "structured"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+    "customization": [
+      { "name": "--bg", "description": "Field background", "default": "#10141f" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Power-user filtering. Show the generated query string so users can learn the syntax and eventually skip the builder entirely."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }
+    .fx .row { display: flex; gap: .4rem; margin-bottom: .5rem; }
+    .fx select, .fx input { padding: .4rem .5rem; border-radius: 8px; border: 1px solid #2b3450; background: #10141f;
+      color: #cbd5e1; font: inherit; font-size: .8rem; min-width: 0; }
+    .fx input { flex: 1; }
+    .fx .add { border: 1px dashed #2b3450; background: transparent; color: #8b93a7; border-radius: 8px;
+      padding: .35rem .7rem; font: inherit; font-size: .78rem; cursor: pointer; }
+    .fx .q { margin-top: .7rem; padding: .5rem .6rem; border-radius: 8px; background: #10141f; color: #64748b;
+      font-family: ui-monospace, monospace; font-size: .72rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="row"><select aria-label="Field"><option>tech</option><option>theme</option></select>
+  <select aria-label="Operator"><option>is</option><option>is not</option></select>
+  <input type="text" value="svg" aria-label="Value" /></div>
+  <div class="row"><select aria-label="Field"><option>difficulty</option></select>
+  <select aria-label="Operator"><option>is</option></select><input type="text" value="advanced" aria-label="Value" /></div>
+  <button class="add" type="button">+ Add condition</button>
+  <div class="q">tech:svg AND difficulty:advanced</div></div>
+</body>
+</html>

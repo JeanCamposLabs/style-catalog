@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recent Searches</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "recent-searches-dropdown",
+    "title": "Recent Searches",
+    "summary": "A dropdown of recent and suggested queries.",
+    "description": "A dropdown of recent and suggested queries.",
+    "theme": "search-ui",
+    "categories": ["search", "filter"],
+    "tags": ["search", "find", "recent", "history", "suggestions", "dropdown"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+    "customization": [
+      { "name": "--bg", "description": "Panel background", "default": "#141a28" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Empty-query state of a search field. Recent queries are the highest-value suggestion you can offer; let users remove individual entries."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; }
+    .fx input { width: 100%; padding: .75rem .9rem; border-radius: 12px 12px 0 0; border: 1px solid #2b3450; border-bottom: 0;
+      background: #151b2a; color: #e7ebf3; font: inherit; }
+    .fx .panel { border: 1px solid #2b3450; border-radius: 0 0 12px 12px; background: #141a28; padding: .4rem; }
+    .fx .grp { padding: .3rem .6rem; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }
+    .fx .it { display: flex; align-items: center; gap: .5rem; padding: .4rem .6rem; border-radius: 8px; color: #cbd5e1; font-size: .85rem; }
+    .fx .it:hover { background: #22304a; }
+    .fx .it .x { margin-left: auto; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div class="fx"><input type="search" aria-label="Search" placeholder="Search specimens" />
+  <div class="panel"><div class="grp">Recent</div>
+  <div class="it">⏱ gradient border <span class="x">×</span></div><div class="it">⏱ skeleton loader <span class="x">×</span></div>
+  <div class="grp">Trending</div><div class="it">↗ glassmorphism</div><div class="it">↗ scroll reveal</div></div></div>
+</body>
+</html>

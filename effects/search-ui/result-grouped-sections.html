@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grouped Results</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "result-grouped-sections",
+    "title": "Grouped Results",
+    "summary": "Results grouped by type with counts.",
+    "description": "Results grouped by type with counts.",
+    "theme": "search-ui",
+    "categories": ["search", "filter"],
+    "tags": ["search", "find", "grouped", "sections", "types", "results"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+    "customization": [
+      { "name": "--bg", "description": "Icon background", "default": "#1e2740" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Universal search across entity types. Group by type with a count per group and cap each group — a flat list of mixed types is much harder to scan."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; }
+    .fx .g { margin-bottom: .9rem; }
+    .fx .h { display: flex; justify-content: space-between; font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #64748b; margin-bottom: .35rem; }
+    .fx .r { display: flex; align-items: center; gap: .6rem; padding: .45rem .6rem; border-radius: 8px; color: #cbd5e1; font-size: .85rem; }
+    .fx .r:hover { background: #151b2a; }
+    .fx .ic { width: 24px; height: 24px; border-radius: 7px; background: #1e2740; display: grid; place-items: center; font-size: .8rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="g"><div class="h"><span>Effects</span><span>12</span></div>
+  <div class="r"><span class="ic">◆</span>Gradient Border Card</div><div class="r"><span class="ic">◆</span>Gradient Shift Text</div></div>
+  <div class="g"><div class="h"><span>Themes</span><span>2</span></div>
+  <div class="r"><span class="ic">▣</span>Backgrounds</div><div class="r"><span class="ic">▣</span>Color Systems</div></div></div>
+</body>
+</html>

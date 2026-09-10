@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avatar Sizes</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "avatar-size-scale",
+    "title": "Avatar Sizes",
+    "summary": "A size scale from 24 to 96 pixels.",
+    "description": "A size scale from 24 to 96 pixels.",
+    "theme": "avatars-identity",
+    "categories": ["avatar", "identity"],
+    "tags": ["avatar", "identity", "sizes", "scale", "tokens", "system"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+    "customization": [
+      { "name": "--xs", "description": "Smallest", "default": "24px" },
+      { "name": "--xl", "description": "Largest", "default": "96px" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Design-system reference. Scale the font size with the avatar (roughly 38% of the diameter) or the initials look wrong at the extremes."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: flex-end; gap: 12px; }
+    .a { border-radius: 50%; background: linear-gradient(150deg, #7c5cff, #2dd4bf); display: grid; place-items: center;
+      font-weight: 800; color: #0b0d12; }
+    .w { display: grid; justify-items: center; gap: .35rem; font-size: .68rem; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="w"><span class="a" style="width:24px;height:24px;font-size:.6rem">J</span>24</div>
+  <div class="w"><span class="a" style="width:36px;height:36px;font-size:.8rem">JC</span>36</div>
+  <div class="w"><span class="a" style="width:56px;height:56px;font-size:1.1rem">JC</span>56</div>
+  <div class="w"><span class="a" style="width:96px;height:96px;font-size:1.9rem">JC</span>96</div></div>
+</body>
+</html>

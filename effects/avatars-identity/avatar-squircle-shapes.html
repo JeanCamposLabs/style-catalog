@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avatar Shapes</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "avatar-squircle-shapes",
+    "title": "Avatar Shapes",
+    "summary": "Circle, squircle, and rounded-square variants.",
+    "description": "Circle, squircle, and rounded-square variants.",
+    "theme": "avatars-identity",
+    "categories": ["avatar", "identity"],
+    "tags": ["avatar", "identity", "shapes", "squircle", "circle", "variants"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+    "customization": [
+      { "name": "--r", "description": "Rounded radius", "default": "16px" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Brand-level choice. Pick one shape and use it everywhere; mixed avatar shapes in one product read as an unfinished design system."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 12px; }
+    .a { width: 60px; height: 60px; background: linear-gradient(150deg, #7c5cff, #2dd4bf); display: grid;
+      place-items: center; font-weight: 800; color: #0b0d12; }
+    .circle { border-radius: 50%; }
+    .squircle { clip-path: path("M30 0 C48 0 60 12 60 30 C60 48 48 60 30 60 C12 60 0 48 0 30 C0 12 12 0 30 0 Z"); }
+    .rounded { border-radius: 16px; }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="a circle" role="img" aria-label="Circle avatar">JC</span>
+  <span class="a squircle" role="img" aria-label="Squircle avatar">JC</span>
+  <span class="a rounded" role="img" aria-label="Rounded square avatar">JC</span></div>
+</body>
+</html>

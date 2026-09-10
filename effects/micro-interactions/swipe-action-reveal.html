@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swipe Actions</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "swipe-action-reveal",
+    "title": "Swipe Actions",
+    "summary": "A row revealing actions when dragged aside.",
+    "description": "A row revealing actions when dragged aside.",
+    "theme": "micro-interactions",
+    "categories": ["micro-interaction", "feedback"],
+    "tags": ["micro-interaction", "feedback", "swipe", "actions", "mobile", "reveal"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+    "customization": [
+      { "name": "--c", "description": "Action colour", "default": "#d1478c" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Mobile list rows. Swipe must never be the only path to an action — provide the same options in a menu for keyboard and assistive-tech users."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; border-radius: 12px; overflow: hidden; position: relative; background: #d1478c; }
+    .fx .acts { position: absolute; inset: 0; display: flex; justify-content: flex-end; align-items: center; padding-right: 1rem;
+      color: #2a0d1c; font-weight: 700; font-size: .85rem; }
+    .fx .row { position: relative; padding: .9rem 1rem; background: #151b2a; color: #cbd5e1; font-size: .88rem;
+      transform: translateX(-88px); transition: transform .3s cubic-bezier(.7,0,.2,1); }
+    .fx:hover .row { transform: translateX(0); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="acts">Delete</div><div class="row">Draft: aurora-background.html</div></div>
+</body>
+</html>
