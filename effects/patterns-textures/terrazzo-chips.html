@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terrazzo</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "terrazzo-chips",
+    "title": "Terrazzo",
+    "summary": "Scattered stone chips on a pale ground.",
+    "description": "Scattered stone chips on a pale ground. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "terrazzo", "chips", "memphis", "playful"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--tile", "description": "Tile size", "default": "130px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Playful and Memphis-adjacent design. Use an odd tile size and irregular chip positions so the repeat is hard to spot."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background-color: #1c2130;
+      background-image: radial-gradient(circle at 12% 22%, #f472b6 0 5px, transparent 6px),
+        radial-gradient(circle at 68% 14%, #2dd4bf 0 4px, transparent 5px),
+        radial-gradient(circle at 33% 62%, #fbbf24 0 6px, transparent 7px),
+        radial-gradient(circle at 82% 71%, #7c5cff 0 4px, transparent 5px),
+        radial-gradient(circle at 52% 88%, #38bdf8 0 5px, transparent 6px);
+      background-size: 130px 130px; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

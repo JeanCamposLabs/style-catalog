@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bauhaus Blocks</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bauhaus-blocks",
+    "title": "Bauhaus Blocks",
+    "summary": "Primary-coloured geometric blocks.",
+    "description": "Primary-coloured geometric blocks. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "bauhaus", "geometric", "primary", "modernist"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--scale", "description": "Block scale", "default": "110px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Modernist and editorial design. Three gradient layers at different tile sizes produce a composition that never obviously repeats."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background-color: #0b0d12;
+      background-image: linear-gradient(45deg, #e63946 0 25%, transparent 25%),
+        linear-gradient(-45deg, #457b9d 0 25%, transparent 25%),
+        linear-gradient(135deg, #f4a261 0 25%, transparent 25%);
+      background-size: 110px 110px, 90px 90px, 70px 70px; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

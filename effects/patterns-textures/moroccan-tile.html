@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moroccan Tile</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "moroccan-tile",
+    "title": "Moroccan Tile",
+    "summary": "Interlaced quatrefoil tilework.",
+    "description": "Interlaced quatrefoil tilework. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "moroccan", "tile", "quatrefoil", "ornament"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Line colour", "default": "#2dd4bf" },
+      { "name": "--s", "description": "Tile size", "default": "52px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Decorative headers and hospitality design. Four corner-anchored arcs per tile interlace into the classic quatrefoil."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: #2dd4bf; --s: 52px; }
+    .bg { background-color: #0d1b23;
+      background-image: radial-gradient(circle at 0 0, transparent 0 18px, var(--c) 18px 20px, transparent 20px),
+        radial-gradient(circle at 100% 0, transparent 0 18px, var(--c) 18px 20px, transparent 20px),
+        radial-gradient(circle at 0 100%, transparent 0 18px, var(--c) 18px 20px, transparent 20px),
+        radial-gradient(circle at 100% 100%, transparent 0 18px, var(--c) 18px 20px, transparent 20px);
+      background-size: var(--s) var(--s); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

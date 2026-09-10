@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plus Sign Grid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "grid-plus",
+    "title": "Plus Sign Grid",
+    "summary": "A field of small plus marks.",
+    "description": "A field of small plus marks. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "plus", "crosses", "grid", "technical"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Mark colour", "default": "rgba(148,163,184,.28)" },
+      { "name": "--s", "description": "Grid pitch", "default": "34px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Design-tool canvases and technical backdrops. The mask cuts the continuous grid lines into short crosses at each intersection."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(148,163,184,.28); --s: 34px; }
+    .bg { background-color: #0b0d12;
+      background-image: linear-gradient(var(--c) 2px, transparent 2px), linear-gradient(90deg, var(--c) 2px, transparent 2px);
+      background-size: var(--s) var(--s); background-position: center;
+      -webkit-mask-image: repeating-linear-gradient(0deg, #000 0 8px, transparent 8px 34px), repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 34px);
+      mask-image: repeating-linear-gradient(0deg, #000 0 8px, transparent 8px 34px), repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 34px); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

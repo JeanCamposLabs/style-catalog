@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Camouflage</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "camouflage-blobs",
+    "title": "Camouflage",
+    "summary": "Overlapping organic patches.",
+    "description": "Overlapping organic patches. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "camouflage", "military", "organic", "patches"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--tile", "description": "Patch scale", "default": "180px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Outdoor and tactical themes. Use four or more patch layers with different ellipse ratios; fewer layers make the tile obvious."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background-color: #2f3a2a;
+      background-image: radial-gradient(ellipse at 20% 30%, #1f2a1c 0 18%, transparent 19%),
+        radial-gradient(ellipse at 70% 20%, #4a5a3c 0 15%, transparent 16%),
+        radial-gradient(ellipse at 40% 75%, #1b2118 0 20%, transparent 21%),
+        radial-gradient(ellipse at 85% 65%, #3e4a32 0 14%, transparent 15%);
+      background-size: 180px 180px; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

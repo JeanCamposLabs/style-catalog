@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diamond Lattice</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "diamond-lattice",
+    "title": "Diamond Lattice",
+    "summary": "An open diamond trellis.",
+    "description": "An open diamond trellis. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "diamond", "lattice", "trellis", "geometric"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Lattice colour", "default": "rgba(251,191,36,.35)" },
+      { "name": "--s", "description": "Lattice pitch", "default": "46px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Art-deco and luxury framing. Increase the line weight and tighten the spacing for a metallic grille look."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(251,191,36,.35); --s: 46px; }
+    .bg { background-color: #0b0d12;
+      background-image: repeating-linear-gradient(45deg, var(--c) 0 1.5px, transparent 1.5px var(--s)),
+        repeating-linear-gradient(-45deg, var(--c) 0 1.5px, transparent 1.5px var(--s)); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

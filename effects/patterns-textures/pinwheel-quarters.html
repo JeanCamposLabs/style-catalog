@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pinwheel</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "pinwheel-quarters",
+    "title": "Pinwheel",
+    "summary": "Four rotating colour quarters.",
+    "description": "Four rotating colour quarters. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "pinwheel", "conic", "quarters", "toy"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--a", "description": "Colour A", "default": "#7c5cff" },
+      { "name": "--b", "description": "Colour B", "default": "#2dd4bf" },
+      { "name": "--s", "description": "Tile size", "default": "90px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Playful, childlike surfaces. One conic-gradient tile; swapping in four colours instead of two makes it a colour wheel."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: #7c5cff; --b: #2dd4bf; --s: 90px; }
+    .bg { background-color: #0b0d12;
+      background-image: conic-gradient(var(--a) 0 25%, var(--b) 0 50%, var(--a) 0 75%, var(--b) 0);
+      background-size: var(--s) var(--s); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Op Art Squares</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "op-art-squares",
+    "title": "Op Art Squares",
+    "summary": "Squares that shrink toward the centre.",
+    "description": "Squares that shrink toward the centre. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "op-art", "optical", "squares", "vasarely"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--tile", "description": "Tile size", "default": "60px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Optical-art and experimental sections. A radial mask over a hard checker gives the perceptual bulge without any warp."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background-color: #0b0d12;
+      background-image: repeating-conic-gradient(from 0deg at 50% 50%, #e7ebf3 0 25%, #0b0d12 0 50%);
+      background-size: 60px 60px; }
+    .bg::after { content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle, #0b0d12 0 12%, transparent 45%); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Art Deco Fans</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "art-deco-fan",
+    "title": "Art Deco Fans",
+    "summary": "Repeating fan arcs in gold.",
+    "description": "Repeating fan arcs in gold. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "art-deco", "fan", "gatsby", "luxury"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Arc colour", "default": "rgba(251,191,36,.4)" },
+      { "name": "--s", "description": "Fan size", "default": "60px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "1920s and luxury themes. Anchor the radial gradient at a tile corner so each tile shows a quarter fan."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(251,191,36,.4); --s: 60px; }
+    .bg { background-color: #12101c;
+      background-image: repeating-radial-gradient(circle at 0 100%, transparent 0 14px, var(--c) 14px 16px, transparent 16px 30px);
+      background-size: var(--s) var(--s); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

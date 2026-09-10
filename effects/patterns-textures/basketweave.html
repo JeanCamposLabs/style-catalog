@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Basket Weave</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "basketweave",
+    "title": "Basket Weave",
+    "summary": "Interlaced horizontal and vertical bands.",
+    "description": "Interlaced horizontal and vertical bands. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "basketweave", "weave", "craft", "texture"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--a", "description": "Band colour", "default": "#26314a" },
+      { "name": "--b", "description": "Ground", "default": "#131a28" },
+      { "name": "--s", "description": "Weave size", "default": "32px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Craft and material themes. The half-tile offset between the horizontal and vertical layers creates the over-under illusion."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: #26314a; --b: #131a28; --s: 32px; }
+    .bg { background-color: var(--b);
+      background-image: linear-gradient(90deg, var(--a) 50%, transparent 50%), linear-gradient(var(--a) 50%, transparent 50%);
+      background-size: var(--s) var(--s);
+      background-position: 0 0, calc(var(--s) / 2) calc(var(--s) / 2); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

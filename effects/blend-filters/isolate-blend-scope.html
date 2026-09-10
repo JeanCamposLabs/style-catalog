@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blend Isolation</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "isolate-blend-scope",
+    "title": "Blend Isolation",
+    "summary": "Two identical overlays, one escaping its parent and one contained.",
+    "description": "Two identical overlays, one escaping its parent and one contained. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.",
+    "theme": "blend-filters",
+    "categories": ["filter", "color"],
+    "tags": ["filter", "css", "isolation", "blend-mode", "stacking-context", "debug"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.",
+    "customization": [
+      { "name": "--iso", "description": "Isolation", "default": "isolate" }
+    ],
+    "variations": ["Animate the filter value on hover", "Apply to a whole section with backdrop-filter"],
+    "ai_usage": "The fix for a blend mode that affects the whole page: isolation:isolate creates a stacking context so the blend only sees its own parent."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; height: 170px; border-radius: 16px; overflow: hidden; position: relative;
+      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }
+    .label { margin-top: .8rem; text-align: center; color: #8b93a7; font-size: .82rem; }
+    .row { display: flex; gap: 14px; }
+    .box { width: 122px; height: 150px; border-radius: 14px; background: linear-gradient(135deg, #7c5cff, #2dd4bf); position: relative; }
+    .box.iso { isolation: isolate; }
+    .box::after { content: ""; position: absolute; inset: 20px; background: #fbbf24; mix-blend-mode: difference; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <div><div class="row"><div class="box"></div><div class="box iso"></div></div><p class="label">Right box is isolated</p></div>
+</body>
+</html>

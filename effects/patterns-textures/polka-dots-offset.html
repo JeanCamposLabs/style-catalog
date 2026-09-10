@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offset Polka Dots</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "polka-dots-offset",
+    "title": "Offset Polka Dots",
+    "summary": "Staggered dots in a diamond layout.",
+    "description": "Staggered dots in a diamond layout. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "dots", "polka", "offset", "diamond"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Dot colour", "default": "#7c5cff" },
+      { "name": "--s", "description": "Grid pitch", "default": "40px" },
+      { "name": "--r", "description": "Dot radius", "default": "5px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Playful and retro surfaces. Two dot layers offset by half a tile give the diamond arrangement a single layer cannot."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: #7c5cff; --s: 40px; --r: 5px; }
+    .bg { background-color: #0b0d12;
+      background-image: radial-gradient(var(--c) var(--r), transparent calc(var(--r) + 1px)),
+        radial-gradient(var(--c) var(--r), transparent calc(var(--r) + 1px));
+      background-size: var(--s) var(--s);
+      background-position: 0 0, calc(var(--s) / 2) calc(var(--s) / 2); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

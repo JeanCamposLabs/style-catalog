@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Concrete</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "concrete-surface",
+    "title": "Concrete",
+    "summary": "A mottled cast-concrete surface.",
+    "description": "A mottled cast-concrete surface. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "concrete", "brutalist", "stone", "material"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--tint", "description": "Base colour", "default": "#23262c" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Brutalist and industrial designs. Blotchy radial gradients plus a noise overlay is the cheapest convincing concrete recipe."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background-color: #23262c;
+      background-image: radial-gradient(circle at 15% 25%, rgba(255,255,255,.05) 0 12%, transparent 13%),
+        radial-gradient(circle at 70% 60%, rgba(0,0,0,.3) 0 9%, transparent 10%),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,.04) 0 14%, transparent 15%),
+        radial-gradient(circle at 85% 15%, rgba(0,0,0,.25) 0 11%, transparent 12%); }
+    .bg::after { content: ""; position: absolute; inset: 0; opacity: .35; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

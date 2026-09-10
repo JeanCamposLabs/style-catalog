@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luminosity Blend</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "luminosity-blend-demo",
+    "title": "Luminosity Blend",
+    "summary": "Keeps the base colour but takes the overlay's brightness.",
+    "description": "Keeps the base colour but takes the overlay's brightness. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.",
+    "theme": "blend-filters",
+    "categories": ["filter", "color"],
+    "tags": ["filter", "css", "luminosity", "blend-mode", "shading", "gradient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.",
+    "customization": [
+      { "name": "--g", "description": "Luminance source", "default": "linear-gradient(#fff,#000)" }
+    ],
+    "variations": ["Animate the filter value on hover", "Apply to a whole section with backdrop-filter"],
+    "ai_usage": "Applying shading or a texture while preserving brand colour. Pair with a gradient overlay for cheap volumetric lighting."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; height: 170px; border-radius: 16px; overflow: hidden; position: relative;
+      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }
+    .label { margin-top: .8rem; text-align: center; color: #8b93a7; font-size: .82rem; }
+    .fx::after { content: ""; position: absolute; inset: 0; background: linear-gradient(#fff, #000); mix-blend-mode: luminosity; }
+  </style>
+</head>
+<body>
+  <div><div class="demo fx"></div><p class="label">Luminosity Blend</p></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graph Paper</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "graph-paper",
+    "title": "Graph Paper",
+    "summary": "Fine squares with a heavier major grid.",
+    "description": "Fine squares with a heavier major grid. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "graph-paper", "grid", "maths", "technical"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--minor", "description": "Minor line", "default": "rgba(148,163,184,.14)" },
+      { "name": "--major", "description": "Major line", "default": "rgba(148,163,184,.3)" },
+      { "name": "--s", "description": "Minor cell", "default": "16px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Data, engineering, and note-taking surfaces. The 5:1 major-to-minor ratio matches real graph paper and reads correctly at any zoom."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --minor: rgba(148,163,184,.14); --major: rgba(148,163,184,.3); --s: 16px; }
+    .bg { background-color: #0d1016;
+      background-image: linear-gradient(var(--minor) 1px, transparent 1px), linear-gradient(90deg, var(--minor) 1px, transparent 1px),
+        linear-gradient(var(--major) 1px, transparent 1px), linear-gradient(90deg, var(--major) 1px, transparent 1px);
+      background-size: var(--s) var(--s), var(--s) var(--s), calc(var(--s) * 5) calc(var(--s) * 5), calc(var(--s) * 5) calc(var(--s) * 5); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>
