@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Highlighted Code Block</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "code-block-highlight",
+    "title": "Highlighted Code Block",
+    "summary": "A code sample with a highlighted line and copy affordance.",
+    "description": "A code sample with a highlighted line and copy affordance.",
+    "theme": "terminal-cli",
+    "categories": ["terminal", "code"],
+    "tags": ["terminal", "monospace", "code", "syntax", "highlight", "docs"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Terminal output should live in a real text element (not an image) so it can be selected, searched, and read aloud.",
+    "customization": [
+      { "name": "--hl", "description": "Highlight colour", "default": "rgba(88,166,255,.12)" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Documentation. Highlight the changed line with a background and a left rule so the emphasis survives greyscale printing."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 300px; border-radius: 10px; overflow: hidden; background: #0d1117; border: 1px solid #21262d;
+      font-family: ui-monospace, monospace; font-size: .78rem; }
+    .fx pre { margin: 0; padding: .9rem 0; line-height: 1.8; }
+    .fx .ln { display: block; padding: 0 .9rem; color: #c9d1d9; }
+    .fx .ln.on { background: rgba(88,166,255,.12); border-left: 2px solid #58a6ff; padding-left: calc(.9rem - 2px); }
+    .fx .k { color: #ff7b72; } .fx .s { color: #a5d6ff; } .fx .c { color: #8b949e; }
+    .fx button { position: absolute; top: 8px; right: 8px; padding: .2rem .5rem; border-radius: 6px; border: 1px solid #30363d;
+      background: #161b22; color: #8b949e; font: inherit; font-size: .7rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="fx"><button type="button">Copy</button><pre><code><span class="ln"><span class="c">// scan the library</span></span>
+  <span class="ln"><span class="k">const</span> { catalog } = <span class="k">await</span> scan();</span>
+  <span class="ln on">catalog.effects.length; <span class="c">// 1181</span></span></code></pre></div>
+</body>
+</html>

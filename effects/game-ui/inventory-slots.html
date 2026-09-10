@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inventory Grid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "inventory-slots",
+    "title": "Inventory Grid",
+    "summary": "A grid of item slots with rarity borders.",
+    "description": "A grid of item slots with rarity borders.",
+    "theme": "game-ui",
+    "categories": ["game", "ui"],
+    "tags": ["game", "hud", "inventory", "slots", "grid", "rarity"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+    "customization": [
+      { "name": "--slot", "description": "Slot colour", "default": "#1c2333" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Inventory and loadout screens. Rarity must be encoded by border colour plus glow plus a label — colour alone fails for a large share of players."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template-columns: repeat(4, 54px); gap: 6px; padding: 8px; border-radius: 10px;
+      background: #14161f; border: 2px solid #2b3450; }
+    .fx .slot { width: 54px; height: 54px; border-radius: 7px; background: #1c2333; border: 2px solid #2b3450;
+      display: grid; place-items: center; font-size: 1.3rem; cursor: pointer; }
+    .fx .slot:hover { border-color: #7c5cff; }
+    .fx .rare { border-color: #38bdf8; box-shadow: inset 0 0 12px rgba(56,189,248,.35); }
+    .fx .epic { border-color: #a855f7; box-shadow: inset 0 0 12px rgba(168,85,247,.35); }
+    .fx .count { position: relative; }
+    .fx .count::after { content: attr(data-n); position: absolute; right: 2px; bottom: 0; font-size: .65rem; color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="group" aria-label="Inventory">
+    <button class="slot rare" aria-label="Frost blade, rare">🗡</button>
+    <button class="slot" aria-label="Empty slot"></button>
+    <button class="slot epic" aria-label="Void orb, epic">🔮</button>
+    <button class="slot count" data-n="12" aria-label="Potion, 12">🧪</button>
+    <button class="slot" aria-label="Empty slot"></button><button class="slot" aria-label="Shield">🛡</button>
+    <button class="slot" aria-label="Empty slot"></button><button class="slot" aria-label="Empty slot"></button>
+  </div>
+</body>
+</html>

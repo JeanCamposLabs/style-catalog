@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spinning Vinyl</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "vinyl-record-spin",
+    "title": "Spinning Vinyl",
+    "summary": "A record turning under a tonearm.",
+    "description": "A record turning under a tonearm.",
+    "theme": "audio-music-ui",
+    "categories": ["audio", "music"],
+    "tags": ["audio", "player", "vinyl", "record", "spin", "turntable"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Audio controls need real button semantics and state labels; a play/pause icon swap must also swap the accessible name.",
+    "customization": [
+      { "name": "--dur", "description": "Rotation period", "default": "3s" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Music players and DJ tools. Pause the rotation when playback stops — a spinning record over paused audio is a state lie."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 170px; height: 170px; }
+    .fx .disc { width: 100%; height: 100%; border-radius: 50%; animation: spin 3s linear infinite;
+      background: repeating-radial-gradient(circle, #111 0 3px, #1c1c1c 3px 5px); }
+    .fx .disc::after { content: ""; position: absolute; inset: 38%; border-radius: 50%;
+      background: linear-gradient(160deg, #f472b6, #7c3aed); }
+    .fx .arm { position: absolute; top: 8px; right: -6px; width: 78px; height: 6px; border-radius: 3px; background: #cbd5e1;
+      transform-origin: right center; rotate: 26deg; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="disc"></div><div class="arm"></div></div>
+</body>
+</html>

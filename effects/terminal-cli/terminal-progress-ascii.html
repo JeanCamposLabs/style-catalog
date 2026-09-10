@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ASCII Progress Bar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "terminal-progress-ascii",
+    "title": "ASCII Progress Bar",
+    "summary": "A block-character progress bar with a percentage.",
+    "description": "A block-character progress bar with a percentage.",
+    "theme": "terminal-cli",
+    "categories": ["terminal", "code"],
+    "tags": ["terminal", "monospace", "progress", "ascii", "blocks", "cli"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Terminal output should live in a real text element (not an image) so it can be selected, searched, and read aloud.",
+    "customization": [
+      { "name": "--c", "description": "Bar colour", "default": "#4ade80" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "CLI-styled progress. Use full and light block characters (█ ░) rather than a styled div when the surrounding UI is text — it keeps copy-paste meaningful."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { padding: .9rem 1rem; border-radius: 8px; background: #05070d; border: 1px solid #1f2937;
+      font-family: ui-monospace, monospace; font-size: .85rem; color: #4ade80; }
+    .fx .bar { letter-spacing: -.05em; }
+    .fx .dim { color: #1f4d33; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+  building <span class="bar">████████████<span class="dim">░░░░░░</span></span> 65%</div>
+</body>
+</html>

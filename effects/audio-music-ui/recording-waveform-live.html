@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Recording</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "recording-waveform-live",
+    "title": "Live Recording",
+    "summary": "A live input meter with a recording indicator.",
+    "description": "A live input meter with a recording indicator.",
+    "theme": "audio-music-ui",
+    "categories": ["audio", "music"],
+    "tags": ["audio", "player", "recording", "meter", "live", "input"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Audio controls need real button semantics and state labels; a play/pause icon swap must also swap the accessible name.",
+    "customization": [
+      { "name": "--c", "description": "Level colour", "default": "#ef4444" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Voice recorders and meetings. The blinking dot plus a running timer is the minimum honest recording indicator — never hide it."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: center; gap: .9rem; width: 290px; padding: .9rem 1rem; border-radius: 14px;
+      background: #151b2a; border: 1px solid #3a2530; }
+    .fx .rec { width: 12px; height: 12px; border-radius: 50%; background: #ef4444; animation: blink 1.4s ease-in-out infinite; }
+    .fx .bars { flex: 1; display: flex; align-items: center; gap: 3px; height: 34px; }
+    .fx .bars i { flex: 1; border-radius: 2px; background: #ef4444; animation: live var(--d) ease-in-out infinite alternate; }
+    .fx .time { font-family: ui-monospace, monospace; font-size: .82rem; color: #cbd5e1; font-variant-numeric: tabular-nums; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+    @keyframes live { from { height: 15%; } to { height: 100%; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx" role="status" aria-label="Recording, 1 minute 24 seconds"><span class="rec"></span>
+  <span class="bars" aria-hidden="true"><i style="--d:.4s"></i><i style="--d:.6s"></i><i style="--d:.5s"></i><i style="--d:.75s"></i>
+  <i style="--d:.45s"></i><i style="--d:.65s"></i><i style="--d:.55s"></i><i style="--d:.7s"></i></span>
+  <span class="time">01:24</span></div>
+</body>
+</html>

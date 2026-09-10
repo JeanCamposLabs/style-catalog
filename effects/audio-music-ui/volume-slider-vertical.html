@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Volume Fader</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "volume-slider-vertical",
+    "title": "Volume Fader",
+    "summary": "A vertical fader with a level scale.",
+    "description": "A vertical fader with a level scale.",
+    "theme": "audio-music-ui",
+    "categories": ["audio", "music"],
+    "tags": ["audio", "player", "volume", "fader", "vertical", "mixer"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Audio controls need real button semantics and state labels; a play/pause icon swap must also swap the accessible name.",
+    "customization": [
+      { "name": "--v", "description": "Level percent", "default": "68" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Mixers and settings. Back it with a real range input rotated with writing-mode so keyboard and screen-reader support come free."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: .8rem; align-items: flex-end; }
+    .fader { position: relative; width: 40px; height: 160px; border-radius: 10px; background: #151b2a; border: 1px solid #263149; }
+    .fader .fill { position: absolute; inset: auto 0 0 0; height: calc(var(--v) * 1%); border-radius: 0 0 9px 9px;
+      background: linear-gradient(180deg, #2dd4bf, #0f766e); }
+    .fader .knob { position: absolute; left: 50%; translate: -50% 50%; bottom: calc(var(--v) * 1%); width: 34px; height: 12px;
+      border-radius: 4px; background: #e2e8f0; box-shadow: 0 2px 5px rgba(0,0,0,.5); }
+    .scale { display: grid; gap: .35rem; font-size: .68rem; color: #64748b; font-family: ui-monospace, monospace; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="fader" style="--v:68" role="slider" aria-label="Volume" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100">
+    <div class="fill"></div><div class="knob"></div></div>
+  <div class="scale"><span>+6</span><span>0</span><span>-12</span><span>-∞</span></div></div>
+</body>
+</html>

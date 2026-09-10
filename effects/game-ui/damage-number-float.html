@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Floating Damage</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "damage-number-float",
+    "title": "Floating Damage",
+    "summary": "Damage numbers rising and fading over a target.",
+    "description": "Damage numbers rising and fading over a target.",
+    "theme": "game-ui",
+    "categories": ["game", "ui"],
+    "tags": ["game", "hud", "damage", "numbers", "float", "combat"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+    "customization": [
+      { "name": "--c", "description": "Damage colour", "default": "#fbbf24" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Combat feedback. Stagger the delays and offsets so simultaneous hits do not stack into an unreadable pile."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 160px; height: 150px; display: grid; place-items: center; }
+    .fx .t { width: 70px; height: 70px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #64748b, #1e293b); }
+    .fx i { position: absolute; font-weight: 900; font-family: ui-monospace, monospace; color: #fbbf24;
+      text-shadow: 0 2px 0 #7c2d12; animation: pop 2s ease-out infinite; animation-delay: var(--dl); opacity: 0; }
+    .fx .crit { color: #f87171; font-size: 1.4rem; }
+    @keyframes pop {
+      0% { transform: translate(var(--dx), 10px) scale(.6); opacity: 0; }
+      15% { transform: translate(var(--dx), 0) scale(1.15); opacity: 1; }
+      100% { transform: translate(var(--dx), -60px) scale(1); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="t"></span><i style="--dx:-26px;--dl:0s">-12</i><i class="crit" style="--dx:14px;--dl:.6s">-48!</i>
+  <i style="--dx:32px;--dl:1.2s">-9</i></div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Circular Visualizer</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "audio-visualizer-circular",
+    "title": "Circular Visualizer",
+    "summary": "Bars radiating from a central disc.",
+    "description": "Bars radiating from a central disc.",
+    "theme": "audio-music-ui",
+    "categories": ["audio", "music"],
+    "tags": ["audio", "player", "visualizer", "circular", "radial", "bars"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Audio controls need real button semantics and state labels; a play/pause icon swap must also swap the accessible name.",
+    "customization": [
+      { "name": "--c", "description": "Bar colour", "default": "#a855f7" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Music and voice UIs. Rotate then translate each bar so it points outward; give each its own duration or the ring pulses as one."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 180px; height: 180px; display: grid; place-items: center; }
+    .fx i { position: absolute; bottom: 50%; left: 50%; width: 4px; border-radius: 2px; background: #a855f7;
+      transform-origin: 50% 100%; transform: rotate(var(--a)) translateY(-42px);
+      animation: bar var(--d) ease-in-out infinite alternate; }
+    .fx .core { width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(160deg, #7c5cff, #2dd4bf); }
+    @keyframes bar { from { height: 10px; } to { height: 34px; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="--a:0deg;--d:.5s"></i><i style="--a:30deg;--d:.7s"></i><i style="--a:60deg;--d:.6s"></i>
+  <i style="--a:90deg;--d:.8s"></i><i style="--a:120deg;--d:.55s"></i><i style="--a:150deg;--d:.75s"></i>
+  <i style="--a:180deg;--d:.65s"></i><i style="--a:210deg;--d:.5s"></i><i style="--a:240deg;--d:.85s"></i>
+  <i style="--a:270deg;--d:.6s"></i><i style="--a:300deg;--d:.7s"></i><i style="--a:330deg;--d:.55s"></i>
+  <span class="core"></span></div>
+</body>
+</html>
