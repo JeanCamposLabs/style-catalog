@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Circle Reveal</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "clip-circle-reveal",
+    "title": "Circle Reveal",
+    "summary": "A circular window that opens on hover.",
+    "description": "A circular window that opens on hover. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.",
+    "theme": "masks-clipping",
+    "categories": ["mask", "shape"],
+    "tags": ["clip-path", "mask", "circle", "reveal", "hover", "transition"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.",
+    "customization": [
+      { "name": "--r", "description": "Resting radius", "default": "30%" }
+    ],
+    "variations": ["Animate the shape on hover", "Combine with a gradient fill"],
+    "ai_usage": "Image reveals and theme toggles. clip-path animates smoothly only between shapes of the same type — circle to circle, polygon to polygon with equal point counts."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .art { width: 210px; height: 210px; background: conic-gradient(from 210deg at 40% 35%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }
+    .label { margin-top: .9rem; text-align: center; color: #8b93a7; font-size: .82rem; }
+    .shape { clip-path: circle(30% at 50% 50%); transition: clip-path .5s cubic-bezier(.7,0,.2,1); }
+    .shape:hover { clip-path: circle(72% at 50% 50%); }
+  </style>
+</head>
+<body>
+  <div><div class="art shape"></div><p class="label">Circle Reveal</p></div>
+</body>
+</html>

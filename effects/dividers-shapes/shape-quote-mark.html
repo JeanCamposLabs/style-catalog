@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oversized Quote Mark</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shape-quote-mark",
+    "title": "Oversized Quote Mark",
+    "summary": "A large decorative quotation mark behind a pull quote.",
+    "description": "A large decorative quotation mark behind a pull quote. Purely decorative and self-contained, so it drops between any two sections.",
+    "theme": "dividers-shapes",
+    "categories": ["divider", "shape"],
+    "tags": ["divider", "separator", "quote", "pullquote", "editorial", "typography"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+    "customization": [
+      { "name": "--c", "description": "Mark colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Flip vertically for the opposite section", "Recolour to match the next section"],
+    "ai_usage": "Testimonials and pull quotes. Use the typographic character in a pseudo-element and mark it decorative — screen readers should not announce a stray quote mark."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }
+    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }
+    .stage { width: min(92vw, 340px); }
+    .stage { position: relative; width: min(92vw, 320px); padding: 2rem 1.4rem; }
+    .stage::before { content: "\201C"; position: absolute; top: -18px; left: 0; font-size: 7rem; line-height: 1; color: #7c5cff; opacity: .28; }
+    .q { position: relative; font-size: 1.1rem; line-height: 1.6; color: #e7ebf3; }
+    .who { margin-top: .8rem; color: #8b93a7; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <div class="stage"><p class="q">The best interface is the one you never notice.</p><p class="who">— Anonymous</p></div>
+</body>
+</html>

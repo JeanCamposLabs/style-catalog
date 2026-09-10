@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Price Tag</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shape-price-tag",
+    "title": "Price Tag",
+    "summary": "A tag shape with a punched hole.",
+    "description": "A tag shape with a punched hole. Purely decorative and self-contained, so it drops between any two sections.",
+    "theme": "dividers-shapes",
+    "categories": ["divider", "shape"],
+    "tags": ["divider", "separator", "price", "tag", "ecommerce", "label"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+    "customization": [
+      { "name": "--c", "description": "Tag colour", "default": "#34d399" }
+    ],
+    "variations": ["Flip vertically for the opposite section", "Recolour to match the next section"],
+    "ai_usage": "Pricing and sale labels. The punched hole must sit clear of the clipped point, or it disappears into the notch."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }
+    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }
+    .stage { width: min(92vw, 340px); }
+    .stage { display: grid; place-items: center; padding: 1.4rem 0; }
+    .tag { position: relative; padding: .8rem 1.4rem .8rem 2.2rem; background: #34d399; color: #052e2b; font-weight: 800;
+      clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%); }
+    .tag::before { content: ""; position: absolute; left: 18px; top: 50%; translate: 0 -50%; width: 8px; height: 8px;
+      border-radius: 50%; background: #0b0d12; }
+  </style>
+</head>
+<body>
+  <div class="stage"><span class="tag">$29</span></div>
+</body>
+</html>

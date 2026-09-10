@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Text-Shaped Mask</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "mask-text-image",
+    "title": "Text-Shaped Mask",
+    "summary": "An image visible only inside letterforms.",
+    "description": "An image visible only inside letterforms. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.",
+    "theme": "masks-clipping",
+    "categories": ["mask", "shape"],
+    "tags": ["clip-path", "mask", "text", "mask", "svg", "typography"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.",
+    "customization": [
+      { "name": "--font", "description": "Mask font size", "default": "84" }
+    ],
+    "variations": ["Animate the shape on hover", "Combine with a gradient fill"],
+    "ai_usage": "Headline treatments where background-clip:text is not enough (for example masking video). Keep the real text in the DOM and mark the masked layer aria-hidden."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .art { width: 210px; height: 210px; background: conic-gradient(from 210deg at 40% 35%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }
+    .label { margin-top: .9rem; text-align: center; color: #8b93a7; font-size: .82rem; }
+    .shape { width: 300px; height: 120px; -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 120'%3E%3Ctext x='150' y='88' font-family='system-ui' font-size='84' font-weight='900' text-anchor='middle' fill='%23fff'%3EMASK%3C/text%3E%3C/svg%3E");
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 120'%3E%3Ctext x='150' y='88' font-family='system-ui' font-size='84' font-weight='900' text-anchor='middle' fill='%23fff'%3EMASK%3C/text%3E%3C/svg%3E");
+      -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+  </style>
+</head>
+<body>
+  <div><div class="art shape"></div><p class="label">Text-Shaped Mask</p></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Speech Bubble Clip</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "clip-speech-bubble",
+    "title": "Speech Bubble Clip",
+    "summary": "A rounded bubble with a tail cut from one element.",
+    "description": "A rounded bubble with a tail cut from one element. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.",
+    "theme": "masks-clipping",
+    "categories": ["mask", "shape"],
+    "tags": ["clip-path", "mask", "speech-bubble", "chat", "tail", "message"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.",
+    "customization": [
+      { "name": "--r", "description": "Bubble radius", "default": "18px" }
+    ],
+    "variations": ["Animate the shape on hover", "Combine with a gradient fill"],
+    "ai_usage": "Chat and comment UIs. Give the tail background:inherit so it always matches a gradient bubble, which a border-based triangle cannot do."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .art { width: 210px; height: 210px; background: conic-gradient(from 210deg at 40% 35%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }
+    .label { margin-top: .9rem; text-align: center; color: #8b93a7; font-size: .82rem; }
+    .shape { width: 230px; height: 150px; border-radius: 18px; position: relative; }
+    .shape::after { content: ""; position: absolute; left: 26px; top: 100%; width: 26px; height: 20px;
+      background: inherit; clip-path: polygon(0 0, 100% 0, 20% 100%); }
+  </style>
+</head>
+<body>
+  <div><div class="art shape"></div><p class="label">Speech Bubble Clip</p></div>
+</body>
+</html>
