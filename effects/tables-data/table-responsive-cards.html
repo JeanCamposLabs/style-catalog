@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Table</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "table-responsive-cards",
+    "title": "Responsive Table",
+    "summary": "Rows that become stacked cards on narrow screens.",
+    "description": "Rows that become stacked cards on narrow screens.",
+    "theme": "tables-data",
+    "categories": ["table", "data"],
+    "tags": ["table", "data", "responsive", "stacked", "mobile", "cards"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+    "customization": [
+      { "name": "--bp", "description": "Breakpoint", "default": "560px" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Tables on phones. Keep the real table markup and switch display modes in a media query; data-l attributes supply the labels in stacked mode without duplicating text in the DOM."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; }
+    .fx table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    .fx th { display: none; }
+    .fx tr { display: block; margin-bottom: 8px; border-radius: 12px; background: #151b2a; border: 1px solid #263149; padding: .6rem .8rem; }
+    .fx td { display: flex; justify-content: space-between; gap: 1rem; padding: .2rem 0; color: #cbd5e1; }
+    .fx td::before { content: attr(data-l); color: #8b93a7; font-size: .74rem; }
+    @media (min-width: 560px) {
+      .fx th { display: table-cell; }
+      .fx tr { display: table-row; }
+      .fx td { display: table-cell; }
+      .fx td::before { content: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><table><caption class="sr" style="position:absolute;left:-9999px">Plans</caption>
+  <thead><tr><th scope="col">Plan</th><th scope="col">Seats</th><th scope="col">Price</th></tr></thead>
+  <tbody><tr><td data-l="Plan">Starter</td><td data-l="Seats">3</td><td data-l="Price">$12</td></tr>
+  <tr><td data-l="Plan">Studio</td><td data-l="Seats">10</td><td data-l="Price">$24</td></tr></tbody></table></div>
+</body>
+</html>

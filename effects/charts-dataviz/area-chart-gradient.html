@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Area Chart</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "area-chart-gradient",
+    "title": "Area Chart",
+    "summary": "A single-series area with a soft fill under the line.",
+    "description": "A single-series area with a soft fill under the line.",
+    "theme": "charts-dataviz",
+    "categories": ["chart", "dataviz"],
+    "tags": ["chart", "data", "area", "fill", "trend", "single-series"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+    "customization": [
+      { "name": "--c1", "description": "Series colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "One series where the volume under the curve is meaningful. Keep the fill low-opacity so the line stays the primary mark, and never stack more than two areas — overlapping translucent fills become unreadable fast."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;
+      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; width: 300px; }
+    .fx h4 { margin: 0 0 .1rem; font-size: .95rem; color: var(--ink); }
+    .fx .sub { margin: 0 0 .8rem; font-size: .78rem; color: var(--ink-2); }
+    .fx svg { width: 100%; display: block; }
+    .fx .line { fill: none; stroke: var(--c1); stroke-width: 2; stroke-linejoin: round; }
+    .fx .fill { fill: url(#ag); }
+    .fx .base { stroke: var(--grid); stroke-width: 1; }
+  </style>
+</head>
+<body>
+  <figure class="fx" style="margin:0"><h4>Catalogue size</h4><p class="sub">Cumulative specimens</p>
+  <svg viewBox="0 0 300 120" role="img" aria-label="Area chart of cumulative specimens rising from 180 to 1181">
+    <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity=".45"/><stop offset="1" stop-color="#7c5cff" stop-opacity="0"/></linearGradient></defs>
+    <path class="fill" d="M0 100 L60 88 L120 66 L180 44 L240 26 L300 10 L300 120 L0 120 Z"/>
+    <path class="line" d="M0 100 L60 88 L120 66 L180 44 L240 26 L300 10"/>
+    <line class="base" x1="0" y1="119" x2="300" y2="119"/>
+  </svg></figure>
+</body>
+</html>

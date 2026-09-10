@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gantt Bars</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gantt-timeline-bars",
+    "title": "Gantt Bars",
+    "summary": "Overlapping task bars across a shared timeline.",
+    "description": "Overlapping task bars across a shared timeline.",
+    "theme": "charts-dataviz",
+    "categories": ["chart", "dataviz"],
+    "tags": ["chart", "data", "gantt", "timeline", "schedule", "project"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+    "customization": [
+      { "name": "--c1", "description": "Track one", "default": "#7c5cff" },
+      { "name": "--c2", "description": "Track two", "default": "#10a894" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Project schedules. Colour by workstream (categorical, fixed order), not by status — status belongs in a separate icon or label so the two encodings do not collide."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;
+      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; width: 300px; font-size: .78rem; }
+    .fx h4 { margin: 0 0 .8rem; font-size: .95rem; color: var(--ink); }
+    .fx .row { display: grid; grid-template-columns: 68px 1fr; align-items: center; gap: .6rem; margin-bottom: .5rem; color: var(--ink-2); }
+    .fx .track { position: relative; height: 16px; border-radius: 4px;
+      background: repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 38px); }
+    .fx .track i { position: absolute; top: 2px; height: 12px; border-radius: 4px; left: calc(var(--s) * 1%); width: calc(var(--w) * 1%); }
+    .fx .axis { display: flex; justify-content: space-between; margin-top: .4rem; font-size: .68rem; color: var(--ink-2); }
+  </style>
+</head>
+<body>
+  <figure class="fx" style="margin:0"><h4>Release plan</h4>
+  <div class="row"><span>Design</span><span class="track"><i style="--s:0;--w:38;background:var(--c1)"></i></span></div>
+  <div class="row"><span>Build</span><span class="track"><i style="--s:22;--w:52;background:var(--c2)"></i></span></div>
+  <div class="row"><span>QA</span><span class="track"><i style="--s:58;--w:28;background:var(--c3)"></i></span></div>
+  <div class="row"><span>Launch</span><span class="track"><i style="--s:82;--w:16;background:var(--c5)"></i></span></div>
+  <div class="axis"><span>W1</span><span>W3</span><span>W5</span><span>W7</span></div></figure>
+</body>
+</html>

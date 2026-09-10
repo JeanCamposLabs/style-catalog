@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pinned First Column</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "table-pinned-column",
+    "title": "Pinned First Column",
+    "summary": "A horizontally scrolling table with a frozen first column.",
+    "description": "A horizontally scrolling table with a frozen first column.",
+    "theme": "tables-data",
+    "categories": ["table", "data"],
+    "tags": ["table", "data", "pinned", "frozen", "scroll", "wide"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+    "customization": [
+      { "name": "--pin", "description": "Pinned background", "default": "#151b2a" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Wide tables. Freeze the row header with position:sticky left plus an opaque background and an edge shadow, or scrolled cells will bleed under it."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; overflow-x: auto; border-radius: 12px; border: 1px solid #263149; }
+    .fx table { border-collapse: separate; border-spacing: 0; font-size: .8rem; min-width: 460px; }
+    .fx th, .fx td { padding: .5rem .8rem; border-bottom: 1px solid #1e2740; white-space: nowrap; color: #cbd5e1; }
+    .fx thead th { background: #1c2437; color: #8b93a7; font-size: .68rem; text-transform: uppercase; text-align: left; }
+    .fx tbody th { position: sticky; left: 0; background: #151b2a; text-align: left; font-weight: 600; z-index: 1;
+      box-shadow: 1px 0 0 #263149; }
+  </style>
+</head>
+<body>
+  <div class="fx"><table><caption class="sr" style="position:absolute;left:-9999px">Monthly counts</caption>
+  <thead><tr><th scope="col">Theme</th><th scope="col">Jun</th><th scope="col">Jul</th><th scope="col">Aug</th><th scope="col">Sep</th></tr></thead>
+  <tbody><tr><th scope="row">Buttons</th><td>18</td><td>21</td><td>24</td><td>29</td></tr>
+  <tr><th scope="row">Loaders</th><td>12</td><td>16</td><td>22</td><td>32</td></tr>
+  <tr><th scope="row">Patterns</th><td>0</td><td>4</td><td>18</td><td>43</td></tr></tbody></table></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Status Column</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "table-status-column",
+    "title": "Status Column",
+    "summary": "A status cell with icon, colour, and label.",
+    "description": "A status cell with icon, colour, and label.",
+    "theme": "tables-data",
+    "categories": ["table", "data"],
+    "tags": ["table", "data", "status", "state", "semantic", "column"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+    "customization": [
+      { "name": "--ok", "description": "Healthy colour", "default": "#10a894" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Operational tables. Status colours are reserved and always ship with an icon plus a word — a coloured dot alone fails colour-vision, greyscale printing, and forced-colours mode."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; border-radius: 12px; overflow: hidden; border: 1px solid #263149; }
+    .fx table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    .fx th { background: #1c2437; color: #8b93a7; text-align: left; padding: .5rem .8rem; font-size: .68rem; text-transform: uppercase; }
+    .fx td { padding: .5rem .8rem; border-top: 1px solid #1e2740; color: #cbd5e1; }
+    .fx .s { display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; font-weight: 600; }
+    .fx .ok { color: #10a894; } .fx .warn { color: #c2891a; } .fx .bad { color: #d1478c; }
+  </style>
+</head>
+<body>
+  <div class="fx"><table><caption class="sr" style="position:absolute;left:-9999px">Service status</caption>
+  <thead><tr><th scope="col">Service</th><th scope="col">Status</th></tr></thead>
+  <tbody><tr><td>Gallery</td><td><span class="s ok">✓ Operational</span></td></tr>
+  <tr><td>API</td><td><span class="s warn">▲ Degraded</span></td></tr>
+  <tr><td>Posters</td><td><span class="s bad">■ Failing</span></td></tr></tbody></table></div>
+</body>
+</html>

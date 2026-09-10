@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heatmap</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "heatmap-sequential",
+    "title": "Heatmap",
+    "summary": "A calendar-style grid on a single-hue sequential ramp.",
+    "description": "A calendar-style grid on a single-hue sequential ramp.",
+    "theme": "charts-dataviz",
+    "categories": ["chart", "dataviz"],
+    "tags": ["chart", "data", "heatmap", "sequential", "density", "calendar"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+    "customization": [
+      { "name": "--s4", "description": "Ramp end", "default": "#7c5cff" },
+      { "name": "--s0", "description": "Ramp start", "default": "#1b2231" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Magnitude across two categorical axes. A sequential scale is one hue from light to dark — never a rainbow, which has no perceptual order. Always ship the legend key; without it the shades are unreadable as quantities."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;
+      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; }
+    .fx h4 { margin: 0 0 .8rem; font-size: .95rem; color: var(--ink); }
+    .fx .g { display: grid; grid-template-columns: repeat(12, 16px); gap: 3px; }
+    .fx .g i { width: 16px; height: 16px; border-radius: 4px; background: var(--s0); }
+    .fx .l1 { background: var(--s1); } .fx .l2 { background: var(--s2); } .fx .l3 { background: var(--s3); } .fx .l4 { background: var(--s4); }
+    .fx .key { display: flex; align-items: center; gap: .35rem; margin-top: .8rem; font-size: .7rem; color: var(--ink-2); }
+    .fx .key i { width: 13px; height: 13px; border-radius: 3px; }
+    :root { --s0: #1b2231; --s1: #33265e; --s2: #4c3490; --s3: #6446c4; --s4: #7c5cff; }
+  </style>
+</head>
+<body>
+  <figure class="fx" style="margin:0"><h4>Commits per day</h4>
+  <div class="g" role="img" aria-label="Heatmap of commit density over twelve days across two rows">
+    <i></i><i class="l1"></i><i class="l3"></i><i class="l2"></i><i class="l4"></i><i class="l1"></i>
+    <i></i><i class="l2"></i><i class="l4"></i><i class="l3"></i><i class="l1"></i><i></i>
+    <i class="l1"></i><i class="l3"></i><i class="l4"></i><i class="l4"></i><i class="l2"></i><i></i>
+    <i class="l2"></i><i class="l1"></i><i class="l3"></i><i class="l2"></i><i></i><i class="l1"></i></div>
+  <div class="key">Less <i style="background:var(--s0)"></i><i style="background:var(--s1)"></i><i style="background:var(--s2)"></i><i style="background:var(--s3)"></i><i style="background:var(--s4)"></i> More</div></figure>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empty Table</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "table-empty-state",
+    "title": "Empty Table",
+    "summary": "A table with no rows and a clear next action.",
+    "description": "A table with no rows and a clear next action.",
+    "theme": "tables-data",
+    "categories": ["table", "data"],
+    "tags": ["table", "data", "empty", "zero-state", "onboarding", "table"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+    "customization": [
+      { "name": "--c", "description": "Action colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Zero-row tables. Keep the header visible so the shape of the data is clear, and give one specific action — an empty table with no next step is a dead end."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; border-radius: 12px; border: 1px solid #263149; overflow: hidden; }
+    .fx .hd { display: flex; gap: 1rem; padding: .5rem .8rem; background: #1c2437; color: #8b93a7;
+      font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; }
+    .fx .body { padding: 2rem 1.2rem; text-align: center; }
+    .fx .ic { font-size: 1.8rem; opacity: .5; }
+    .fx b { display: block; margin: .6rem 0 .3rem; color: #e7ebf3; font-size: .92rem; }
+    .fx p { margin: 0 0 1rem; color: #8b93a7; font-size: .82rem; }
+    .fx button { padding: .5rem 1.1rem; border: 0; border-radius: 9px; background: #7c5cff; color: #fff; font: inherit; font-size: .82rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="hd"><span>Name</span><span>Theme</span><span>Updated</span></div>
+  <div class="body"><div class="ic" aria-hidden="true">🗂</div><b>No effects yet</b><p>Scaffold your first specimen to see it here.</p>
+  <button type="button">New effect</button></div></div>
+</body>
+</html>

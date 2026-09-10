@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Row Selection</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "table-row-selection",
+    "title": "Row Selection",
+    "summary": "Checkbox selection with a bulk-action bar.",
+    "description": "Checkbox selection with a bulk-action bar.",
+    "theme": "tables-data",
+    "categories": ["table", "data"],
+    "tags": ["table", "data", "selection", "checkbox", "bulk", "actions"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+    "customization": [
+      { "name": "--sel", "description": "Selected tint", "default": "#171d33" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Bulk-edit tables. The header checkbox needs an indeterminate state when only some rows are selected, and the action bar should announce the count via aria-live."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; border-radius: 12px; overflow: hidden; border: 1px solid #263149; }
+    .fx .bulk { display: flex; justify-content: space-between; align-items: center; padding: .5rem .8rem;
+      background: #1e1740; color: #cbd5e1; font-size: .78rem; }
+    .fx .bulk button { padding: .25rem .7rem; border: 0; border-radius: 7px; background: #7c5cff; color: #fff; font: inherit; font-size: .74rem; cursor: pointer; }
+    .fx table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    .fx th { background: #1c2437; color: #8b93a7; text-align: left; padding: .5rem .8rem; font-size: .68rem; text-transform: uppercase; }
+    .fx td { padding: .5rem .8rem; border-top: 1px solid #1e2740; color: #cbd5e1; }
+    .fx tr.on td { background: #171d33; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="bulk"><span>2 selected</span><button type="button">Export</button></div>
+  <table><caption class="sr" style="position:absolute;left:-9999px">Effects</caption>
+  <thead><tr><th scope="col"><input type="checkbox" aria-label="Select all" /></th><th scope="col">Effect</th><th scope="col">Theme</th></tr></thead>
+  <tbody><tr class="on"><td><input type="checkbox" checked aria-label="Select Ripple Button" /></td><td>Ripple Button</td><td>Buttons</td></tr>
+  <tr class="on"><td><input type="checkbox" checked aria-label="Select Aurora" /></td><td>Aurora</td><td>Backgrounds</td></tr>
+  <tr><td><input type="checkbox" aria-label="Select Tilt Card" /></td><td>Tilt Card</td><td>Hover</td></tr></tbody></table></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Table with Sparklines</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "table-inline-sparkline",
+    "title": "Table with Sparklines",
+    "summary": "A trend column inside a data table.",
+    "description": "A trend column inside a data table.",
+    "theme": "tables-data",
+    "categories": ["table", "data"],
+    "tags": ["table", "data", "sparkline", "trend", "table", "inline"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+    "customization": [
+      { "name": "--up", "description": "Rising colour", "default": "#10a894" },
+      { "name": "--down", "description": "Falling colour", "default": "#d1478c" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Dashboards that need trend and value together. Sparklines have no axis, so they show shape only — always keep the numeric column beside them."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; border-radius: 12px; overflow: hidden; border: 1px solid #263149; }
+    .fx table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    .fx th { background: #1c2437; color: #8b93a7; text-align: left; padding: .5rem .8rem; font-size: .68rem; text-transform: uppercase; }
+    .fx td { padding: .45rem .8rem; border-top: 1px solid #1e2740; color: #cbd5e1; font-variant-numeric: tabular-nums; }
+    .fx svg { width: 64px; height: 20px; }
+    .fx path { fill: none; stroke: #10a894; stroke-width: 2; stroke-linecap: round; }
+    .fx .down path { stroke: #d1478c; }
+  </style>
+</head>
+<body>
+  <div class="fx"><table><caption class="sr" style="position:absolute;left:-9999px">Theme traffic</caption>
+  <thead><tr><th scope="col">Theme</th><th scope="col">Views</th><th scope="col">Trend</th></tr></thead>
+  <tbody><tr><td>Buttons</td><td>8,410</td><td><svg viewBox="0 0 64 20" role="img" aria-label="Rising"><path d="M2 16 L16 12 L30 14 L44 6 L62 3"/></svg></td></tr>
+  <tr class="down"><td>Retro</td><td>2,180</td><td><svg viewBox="0 0 64 20" role="img" aria-label="Falling"><path d="M2 4 L16 8 L30 6 L44 14 L62 17"/></svg></td></tr></tbody></table></div>
+</body>
+</html>
