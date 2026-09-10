@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glyph Field</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glyph-field",
+    "title": "Glyph Field",
+    "summary": "A canvas grid of ASCII glyphs ignites under the pointer, pointing the way you moved and heating up as you go faster.",
+    "description": "A full-bleed monospace grid sits behind the page. Pointer movement stamps a capsule of intensity along the segment travelled, so fast flicks paint continuous ribbons instead of dotted samples. Each lit cell renders a glyph chosen from one of eight direction sets (>, \\, v, /, <, ^ …), so the field reads as an arrow map of your gesture. Cursor speed drives a separate heat channel that ramps the glyph color from a cold ink tone to a hot accent, and a click launches an expanding ring whose glyphs face outward from the impact. Cells decay and cool on their own, so the trail dissolves a moment after you stop.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "pointer", "ambient", "background"],
+    "tags": ["cursor", "trail", "canvas", "ascii", "glyph", "matrix", "monospace", "particles", "heatmap", "click-wave", "typed-arrays"],
+    "tech": ["canvas", "js", "css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "Any browser with Canvas 2D and Pointer Events (Chrome/Edge/Firefox/Safari). Gracefully renders a single static frame when reduced motion is requested or no fine pointer is present.",
+    "performance_notes": "State lives in Float32Array/Uint8Array grids indexed by cell, never per-cell objects. Only lit cells are visited (a compacted active list), draws are bucketed by font size x color band so fillStyle/font change at most SIZES*BANDS times per frame, and clearRect covers only the dirty rectangle rather than the full canvas. Device pixel ratio is capped at 1.5, the loop halves its rate while idle and stops entirely once the field is dark. Cost scales with the lit area, not the viewport.",
+    "accessibility_notes": "Purely decorative: the canvas is aria-hidden, has pointer-events: none, and never replaces the system cursor. Under prefers-reduced-motion: reduce (or on coarse/no-hover pointers) the animation loop and pointer listeners are skipped entirely and one still frame is painted instead. Nothing is conveyed by the glyphs alone, and page content sits in a positioned layer above with normal contrast.",
+    "customization": [
+      { "name": "--glyph-field-cold", "description": "Glyph color at rest / low speed", "default": "var(--ink)" },
+      { "name": "--glyph-field-hot", "description": "Glyph color at full speed and at the click wave crest", "default": "var(--accent)" },
+      { "name": "FONT", "description": "Base glyph size in px; also sets cell width/height with LEADING", "default": "13" },
+      { "name": "R_BASE / R_FAST", "description": "Trail radius at rest and the extra radius added at full speed", "default": "58 / 34" },
+      { "name": "SPEED_DIV / SPEED_REF", "description": "How much pointer velocity counts as \"full heat\"; normalized against viewport size so a small hero box behaves like a large one", "default": "2.2 / 900" },
+      { "name": "DECAY / COOL", "description": "Per-frame multipliers for intensity and heat — lower fades faster", "default": "0.972 / 0.955" },
+      { "name": "SETS", "description": "Eight arrays of glyphs, one per 45 degree direction bucket", "default": "ASCII arrows" },
+      { "name": "WAVE_SPEED / WAVE_WIDTH / WAVE_MAX", "description": "Click ring expansion px/s, band thickness, and travel before it dies", "default": "780 / 46 / 820" }
+    ],
+    "variations": [
+      "Swap SETS for katakana, braille (⠁⠂⠄⡀), or box-drawing characters for a different alphabet",
+      "Drop the direction buckets and always use one glyph set for a plain heat trail",
+      "Drive the field from scroll velocity instead of the pointer",
+      "Constrain the canvas to a hero section (position: absolute inside a relative parent) instead of the viewport",
+      "Emit a wave on route change or form submit rather than on click"
+    ],
+    "related": ["blob-trail-cursor", "follow-dot-cursor", "spotlight-cursor"],
+    "ai_usage": "Use for a decorative, tech-flavoured pointer trail behind a hero or landing page — terminal, developer-tool, AI, or cyber aesthetics. Do NOT use it as a cursor replacement (keep the native cursor) or on content-dense/text-heavy pages, where it competes with reading.\n\nIntegrate: put <canvas data-glyph-field aria-hidden=\"true\"></canvas> first in <body>, style it position: fixed; inset: 0; z-index: 0; pointer-events: none, and give your content wrapper position: relative; z-index: 1 — without that the content sits at the same layer and the glyphs draw over it. The script self-initializes on DOM ready; window.GlyphField.init(canvas), .destroy(), and .refreshColors() are also exposed. In React/Vue/Next call init(ref.current) from an effect after mount and destroy() on unmount, and never call it during server rendering (it needs window). Only one instance is active at a time; init on a new canvas replaces the previous one.\n\nTune: set --glyph-field-cold and --glyph-field-hot on :root (they fall back to --ink/--accent, then built-in values) — cold should be close to your body text color and hot to your accent, or the trail turns into confetti. Root data-theme/class/style changes refresh automatically; call refreshColors() when theme state lives elsewhere. Raise R_BASE for a broader wash, lower DECAY for a snappier fade, and edit SETS to change the alphabet.\n\nAvoid: giving the canvas pointer events or a positive z-index above content; removing the reduced-motion and fine-pointer gate; running one instance per component render; replacing the typed arrays with per-cell objects, clearing the whole canvas each frame, or removing the idle throttle and the 1.5 DPR cap — those four are what keep it cheap. Because it paints the full viewport behind everything, verify text contrast with the hot color at full intensity."
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d0d15;
+      --ink: #ececf3;
+      --accent: #c79bff;
+      --muted: #6a6a85;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      /* The two knobs the effect actually reads; they alias your theme tokens. */
+      --glyph-field-cold: var(--ink);
+      --glyph-field-hot: var(--accent);
+    }
+    html, body { height: 100%; margin: 0; overflow: hidden; }
+    body { background: var(--bg); color: var(--muted); font-family: var(--mono); }
+
+    /* Decorative, viewport-sized, never interactive. Content goes above it. */
+    canvas[data-glyph-field] {
+      position: fixed; inset: 0; display: block;
+      width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+    }
+
+    /* Content layer — must be positioned with z-index >= 1. */
+    .stage {
+      position: relative; z-index: 1;
+      height: 100%; display: grid; place-content: center;
+      text-align: center; padding: 1rem; pointer-events: none;
+    }
+    .stage h1 {
+      margin: 0; font-size: clamp(1.4rem, 5.6vw, 2.8rem); line-height: 1;
+      letter-spacing: -0.03em; color: var(--ink); font-weight: 600;
+    }
+    .stage p { margin: 0.9rem 0 0; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <canvas data-glyph-field aria-hidden="true"></canvas>
+
+  <div class="stage">
+    <h1>Glyph field</h1>
+    <p>move · click</p>
+  </div>
+
+  <script>
+  (function (window, document) {
+    "use strict";
+
+    var instance = null, readyHandler = null, API = window.GlyphField || {};
+
+    function create(canvas) {
+      canvas = canvas || document.querySelector("[data-glyph-field]") || document.getElementById("glyphfield");
+      if (!canvas || !canvas.getContext) return null;
+      var ctx = canvas.getContext("2d", { alpha: true });
+      if (!ctx) return null;
+
+      // Gate: reduced motion or a device without a fine hover pointer gets one
+      // still frame instead of a live loop (and instead of a blank box).
+      var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+      var fine = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)");
+      var still = (reduced && reduced.matches) || (fine && !fine.matches);
+
+      var FONT = 13, LEADING = 1.26, R_BASE = 58, R_FAST = 34, PEAK = 0.85;
+      var SIZES = 4, DECAY = 0.972, COOL = 0.955, SCRAMBLE = 90, BANDS = 6;
+      var WAVE_SPEED = 780, WAVE_WIDTH = 46, WAVE_MAX = 820;
+      var SPEED_DIV = 2.2, SPEED_REF = 900;
+      var IDLE_MS = 2600, DEMO_WAVE_MS = 6500, DEMO_WAVE_0 = 3400;
+      var STROKE_MS = 2400, STROKE_LEAD = 1000, STROKE_RUN = 800;
+      // One glyph set per 45-degree direction bucket, starting at "east".
+      var SETS = [
+        [">", ">", ">", "›", "»", "-"], ["\\", "\\", "\\", ">", "·"],
+        ["v", "v", "|", "·", "↓"], ["/", "/", "/", "<", "·"],
+        ["<", "<", "<", "‹", "«", "-"], ["\\", "\\", "\\", "<", "·"],
+        ["^", "^", "|", "·", "↑"], ["/", "/", "/", ">", "·"]
+      ];
+
+      var cw = 7.2, ch = 15, cols = 0, rows = 0, n = 0, dpr = 1, cssW = 0, cssH = 0, vDiv = SPEED_DIV;
+      var inten, heat, dirOf, seedOf, activeArr, inActive, activeCount = 0;
+      var waves = [], raf = 0, resizeTimer = null, dead = false;
+      var lastX = null, lastY = null, lastT = 0, prevX = null, prevY = null, dir = 0, speed = 0;
+      var movedAt = -1e9, drawnAt = -1e9, userAt = -1e9, demo = !still;
+      var demoWave = DEMO_WAVE_0 - DEMO_WAVE_MS;
+      var dx0 = 0, dy0 = 0, dx1 = 0, dy1 = 0, dirty = false;
+      var ramp = [], fontAt = [];
+      var SLOTS = SIZES * BANDS, bucket = [], bucketLen = new Int32Array(SLOTS);
+      var SIN = new Float32Array(256), q, k;
+      for (q = 0; q < 256; q++) SIN[q] = Math.sin(q / 256 * Math.PI * 2);
+      for (k = 0; k < SLOTS; k++) bucket.push([]);
+
+      /* ---------- helpers ---------- */
+
+      function hash(v) {
+        v = (v ^ 61) ^ (v >>> 16); v += v << 3; v ^= v >>> 4;
+        v = Math.imul(v, 0x27d4eb2d); return (v ^ (v >>> 15)) >>> 0;
+      }
+      function rgbOf(value, fallback) {
+        var str = (value || fallback).trim();
+        if (str.charAt(0) === "#") {
+          if (str.length === 4) str = "#" + str[1] + str[1] + str[2] + str[2] + str[3] + str[3];
+          var num = parseInt(str.slice(1), 16);
+          if (!isNaN(num)) return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
+        }
+        var m = str.match(/(\d+(?:\.\d+)?)/g);
+        return m && m.length >= 3 ? [+m[0], +m[1], +m[2]] : rgbOf(fallback, "#888888");
+      }
+      // Precompute the cold -> hot ramp once per theme change, not per glyph.
+      function refreshColors() {
+        if (dead) return;
+        var st = window.getComputedStyle(document.documentElement);
+        var cold = rgbOf(st.getPropertyValue("--glyph-field-cold") || st.getPropertyValue("--glyph") || st.getPropertyValue("--ink"), "#ececf3");
+        var hot = rgbOf(st.getPropertyValue("--glyph-field-hot") || st.getPropertyValue("--glow") || st.getPropertyValue("--accent"), "#c79bff");
+        ramp.length = 0;
+        for (var b = 0; b < BANDS; b++) {
+          var t = b / (BANDS - 1);
+          ramp.push("rgb(" + Math.round(cold[0] + (hot[0] - cold[0]) * t) + "," +
+            Math.round(cold[1] + (hot[1] - cold[1]) * t) + "," +
+            Math.round(cold[2] + (hot[2] - cold[2]) * t) + ")");
+        }
+        if (still) requestFrame();
+      }
+      function resize() {
+        if (dead) return;
+        dpr = Math.min(window.devicePixelRatio || 1, 1.5); // cap: 2x costs 1.8x fill for no visible gain
+        var w = window.innerWidth, h = window.innerHeight;
+        cssW = w; cssH = h;
+        // Normalize "fast" against the viewport, not raw px/ms: the same gesture
+        // should read equally hot in a 600px hero box and on a 1600px display.
+        vDiv = SPEED_DIV * Math.max(0.5, Math.min(Math.min(w, h) / SPEED_REF, 1.35));
+        canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+        canvas.style.width = w + "px"; canvas.style.height = h + "px";
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        var family = window.getComputedStyle(document.body).getPropertyValue("--mono") || "monospace";
+        ctx.font = FONT + "px " + family;
+        cw = ctx.measureText("M").width || FONT * 0.6;
+        fontAt.length = 0;
+        for (var z = 0; z < SIZES; z++) fontAt.push((FONT * (0.55 + 0.45 * z / (SIZES - 1))).toFixed(2) + "px " + family);
+        ch = Math.round(FONT * LEADING);
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        cols = Math.ceil(w / cw) + 1; rows = Math.ceil(h / ch) + 1; n = cols * rows;
+        inten = new Float32Array(n); heat = new Float32Array(n); dirOf = new Uint8Array(n);
+        seedOf = new Uint8Array(n); activeArr = new Int32Array(n); inActive = new Uint8Array(n);
+        activeCount = 0; dirty = false; waves.length = 0;
+        for (var i = 0; i < n; i++) seedOf[i] = hash(i) & 255;
+        if (still) paintStill(); else requestFrame();
+      }
+
+      /* ---------- field ---------- */
+
+      function light(i, value, direction, warmth) {
+        if (value > inten[i]) {
+          inten[i] = value; dirOf[i] = direction;
+          if (!inActive[i]) { inActive[i] = 1; activeArr[activeCount++] = i; }
+        }
+        if (warmth > heat[i]) heat[i] = warmth;
+      }
+      // Stamp a capsule along the segment travelled since the last sample, so a
+      // fast flick paints a ribbon instead of disconnected blobs.
+      function stamp(ax, ay, bx, by, radius) {
+        var rsq = radius * radius, abx = bx - ax, aby = by - ay, abLen = abx * abx + aby * aby;
+        var c0 = Math.max(0, Math.floor((Math.min(ax, bx) - radius) / cw));
+        var c1 = Math.min(cols, Math.ceil((Math.max(ax, bx) + radius) / cw));
+        var r0 = Math.max(0, Math.floor((Math.min(ay, by) - radius) / ch));
+        var r1 = Math.min(rows, Math.ceil((Math.max(ay, by) + radius) / ch));
+        for (var r = r0; r < r1; r++) for (var c = c0; c < c1; c++) {
+          var px = c * cw + cw * 0.5, py = r * ch + ch * 0.5, along = 0;
+          if (abLen > 0) { along = ((px - ax) * abx + (py - ay) * aby) / abLen; along = Math.max(0, Math.min(1, along)); }
+          var x = px - (ax + abx * along), y = py - (ay + aby * along), dsq = x * x + y * y;
+          if (dsq > rsq) continue;
+          var i = r * cols + c, t = 1 - Math.sqrt(dsq) / radius;
+          var value = t * (0.55 + t * 0.45) * (0.90 + (seedOf[i] % 100) / 1000) * (0.78 + speed * 0.35);
+          if (value > 0.02) light(i, value, dir, Math.min(t * (0.30 + speed * 1.15), 1));
+        }
+      }
+      // One pointer sample — real or synthesized by the idle demo.
+      function feed(mx, my, now) {
+        if (lastX !== null) {
+          var vx = mx - lastX, vy = my - lastY, dist = Math.sqrt(vx * vx + vy * vy);
+          if (dist > 2.5) {
+            dir = ((Math.round(Math.atan2(vy, vx) / (Math.PI / 4)) % 8) + 8) % 8;
+            speed = Math.min(dist / Math.max(now - lastT, 8) / vDiv, 1);
+          } else speed *= 0.9;
+        }
+        lastX = mx; lastY = my; lastT = now; movedAt = now;
+        if (prevX === null) { prevX = mx; prevY = my; }
+        if (Math.abs(mx - prevX) + Math.abs(my - prevY) > 400) { prevX = mx; prevY = my; }
+        stamp(prevX, prevY, mx, my, R_BASE + R_FAST * speed);
+        prevX = mx; prevY = my;
+      }
+      function splash(x, y, ts) {
+        if (waves.length > 3) waves.shift();
+        waves.push({ x: x, y: y, t0: ts });
+      }
+      function stepWaves(ts) {
+        for (var w = waves.length - 1; w >= 0; w--) {
+          var wave = waves[w], rad = (ts - wave.t0) / 1000 * WAVE_SPEED;
+          if (rad > WAVE_MAX) { waves.splice(w, 1); continue; }
+          var outer = rad + WAVE_WIDTH, inner = Math.max(rad - WAVE_WIDTH, 0);
+          var outerSq = outer * outer, innerSq = inner * inner, fade = 1 - rad / WAVE_MAX;
+          var c0 = Math.max(0, Math.floor((wave.x - outer) / cw)), c1 = Math.min(cols, Math.ceil((wave.x + outer) / cw));
+          var r0 = Math.max(0, Math.floor((wave.y - outer) / ch)), r1 = Math.min(rows, Math.ceil((wave.y + outer) / ch));
+          for (var r = r0; r < r1; r++) for (var c = c0; c < c1; c++) {
+            var x = c * cw + cw * 0.5 - wave.x, y = r * ch + ch * 0.5 - wave.y, dsq = x * x + y * y;
+            if (dsq < innerSq || dsq > outerSq) continue;
+            var edge = 1 - Math.abs(Math.sqrt(dsq) - rad) / WAVE_WIDTH;
+            if (edge > 0) light(r * cols + c, edge * fade * 0.95, ((Math.round(Math.atan2(y, x) / (Math.PI / 4)) % 8) + 8) % 8, edge * fade);
+          }
+        }
+      }
+
+      /* ---------- draw ---------- */
+
+      // Bucket lit cells by (size, color band) so font/fillStyle are set at most
+      // SIZES*BANDS times per frame instead of once per glyph.
+      function paint(ts, animate) {
+        if (dirty) ctx.clearRect(dx0, dy0, dx1 - dx0, dy1 - dy0);
+        var nx0 = 1e9, ny0 = 1e9, nx1 = -1e9, ny1 = -1e9;
+        var tick = (ts / SCRAMBLE) | 0, phase = (ts * 0.17) | 0, b;
+        for (b = 0; b < SLOTS; b++) bucketLen[b] = 0;
+        var write = 0;
+        for (var a = 0; a < activeCount; a++) {
+          var idx = activeArr[a], value = animate ? inten[idx] * DECAY : inten[idx];
+          if (value < 0.012) { inten[idx] = heat[idx] = inActive[idx] = 0; continue; }
+          inten[idx] = value; if (animate) heat[idx] *= COOL;
+          activeArr[write++] = idx;
+          var band = Math.min(BANDS - 1, (heat[idx] * (BANDS - 1) + 0.5) | 0);
+          var size = Math.max(0, Math.min(SIZES - 1, (value * SIZES) | 0));
+          var slot = size * BANDS + band; bucket[slot][bucketLen[slot]++] = idx;
+        }
+        activeCount = write;
+        for (b = 0; b < SLOTS; b++) {
+          var len = bucketLen[b]; if (!len) continue;
+          ctx.font = fontAt[(b / BANDS) | 0]; ctx.fillStyle = ramp[b % BANDS];
+          for (k = 0; k < len; k++) {
+            var i2 = bucket[b][k], v2 = inten[i2], set = SETS[dirOf[i2]];
+            var pick = v2 > 0.5 ? hash(i2 + tick * 7919) : hash(i2 + (tick >> 2) * 104729);
+            var shimmer = animate ? 0.80 + 0.20 * SIN[(phase + seedOf[i2]) & 255] : 0.9;
+            var c2 = i2 % cols, r2 = (i2 - c2) / cols;
+            var px = c2 * cw + cw * 0.5, py = r2 * ch + ch * 0.5;
+            nx0 = Math.min(nx0, px); nx1 = Math.max(nx1, px);
+            ny0 = Math.min(ny0, py); ny1 = Math.max(ny1, py);
+            ctx.globalAlpha = Math.min(v2, 1) * PEAK * shimmer;
+            ctx.fillText(set[(pick + seedOf[i2]) % set.length], px, py);
+          }
+        }
+        ctx.globalAlpha = 1;
+        if (nx1 > -1e8) {
+          dx0 = Math.max(0, nx0 - cw * 2); dy0 = Math.max(0, ny0 - ch * 2);
+          dx1 = Math.min(cssW, nx1 + cw * 2); dy1 = Math.min(cssH, ny1 + ch * 2); dirty = true;
+        } else dirty = false;
+      }
+
+      // Reduced motion / no fine pointer: one frozen sweep, no loop, no listeners.
+      function paintStill() {
+        if (!cols || !ramp.length) return;
+        // light() only ever raises a cell, so the grid must be wiped or a repeat
+        // call stamps nothing and the full clear below leaves an empty canvas.
+        inten.fill(0); heat.fill(0); inActive.fill(0);
+        activeCount = 0; dirty = false;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, cssW, cssH);
+        lastX = null; prevX = null; speed = 0.62; dir = 0;
+        // A short arc, sampled by hand so the segments join into one ribbon.
+        for (var st = 0; st <= 26; st++) {
+          var u = st / 26;
+          speed = 0.62;
+          dir = 0;
+          feed(cssW * (0.10 + 0.80 * u), cssH * (0.72 - 0.44 * u * u), st * 24);
+        }
+        paint(0, false);
+      }
+
+      // Idle demo: synthesize a pointer so the specimen shows itself, and hand
+      // control back the moment a real pointer arrives. Discrete eased strokes
+      // rather than a continuous orbit — an orbit re-crosses its own trail and
+      // washes the whole viewport, while a stroke reads as one gesture and its
+      // smoothstep velocity runs cold at the ends and hot through the middle.
+      function driveDemo(ts) {
+        var local = ts % STROKE_MS, k = (ts / STROKE_MS) | 0;
+        if (local < STROKE_LEAD || local > STROKE_LEAD + STROKE_RUN) {
+          lastX = null; prevX = null; return;   // resting between strokes
+        }
+        var h1 = hash(k * 2654435761), h2 = hash(k * 40503 + 7);
+        var ax = 0.10 + 0.20 * ((h1 & 255) / 255), ay = 0.16 + 0.68 * (((h1 >>> 8) & 255) / 255);
+        var bx = 0.70 + 0.22 * ((h2 & 255) / 255), by = 0.16 + 0.68 * (((h2 >>> 8) & 255) / 255);
+        if (k & 1) { var sx = ax; ax = bx; bx = sx; var sy = ay; ay = by; by = sy; }
+        var u = (local - STROKE_LEAD) / STROKE_RUN, e = u * u * (3 - 2 * u);
+        feed(cssW * (ax + (bx - ax) * e), cssH * (ay + (by - ay) * e), ts);
+      }
+
+      function requestFrame() { if (!raf && !dead) raf = window.requestAnimationFrame(frame); }
+      function frame(ts) {
+        raf = 0; if (dead) return;
+        if (still) { paintStill(); return; }
+        if (!demo && ts - userAt > IDLE_MS) { demo = true; demoWave = ts; lastX = null; prevX = null; }
+        if (demo && ts - demoWave > DEMO_WAVE_MS) { demoWave = ts; splash(lastX === null ? cssW * 0.5 : lastX, lastY === null ? cssH * 0.5 : lastY, ts); }
+        if (demo) driveDemo(ts);
+        // Idle: run at half rate rather than a full 60fps of pure decay.
+        if (!demo && ts - movedAt > 140 && !waves.length && ts - drawnAt < 30) { requestFrame(); return; }
+        drawnAt = ts;
+        if (waves.length) stepWaves(ts);
+        paint(ts, true);
+        if (activeCount || waves.length || demo) requestFrame();
+      }
+
+      /* ---------- wiring ---------- */
+
+      function onMove(e) {
+        demo = false; userAt = e.timeStamp || window.performance.now();
+        feed(e.clientX, e.clientY, userAt); requestFrame();
+      }
+      function onDown(e) {
+        demo = false; userAt = e.timeStamp || window.performance.now();
+        splash(e.clientX, e.clientY, window.performance.now()); requestFrame();
+      }
+      function onLeave() { speed = 0; lastX = null; prevX = null; }
+      function onResize() { window.clearTimeout(resizeTimer); resizeTimer = window.setTimeout(resize, 150); }
+
+      // Root attributes cover theme toggles; head mutations cover stylesheets
+      // swapped in at runtime (the gallery re-skins previews that way).
+      var rootObs = new MutationObserver(refreshColors);
+      var headObs = new MutationObserver(refreshColors);
+      refreshColors(); resize();
+      rootObs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class", "style"] });
+      headObs.observe(document.head, { childList: true, subtree: true, characterData: true });
+      window.addEventListener("resize", onResize);
+      if (!still) {
+        window.addEventListener("pointermove", onMove, { passive: true });
+        window.addEventListener("pointerdown", onDown, { passive: true });
+        window.addEventListener("pointerleave", onLeave);
+      }
+
+      return {
+        canvas: canvas,
+        refreshColors: refreshColors,
+        destroy: function () {
+          if (dead) return; dead = true;
+          if (raf) window.cancelAnimationFrame(raf);
+          window.clearTimeout(resizeTimer);
+          rootObs.disconnect(); headObs.disconnect();
+          window.removeEventListener("resize", onResize);
+          window.removeEventListener("pointermove", onMove);
+          window.removeEventListener("pointerdown", onDown);
+          window.removeEventListener("pointerleave", onLeave);
+          ctx.setTransform(1, 0, 0, 1, 0, 0);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          if (instance && instance.canvas === canvas) instance = null;
+        }
+      };
+    }
+
+    API.init = function (canvas) {
+      if (instance && (!canvas || canvas === instance.canvas)) return instance;
+      if (instance) instance.destroy();
+      instance = create(canvas); return instance;
+    };
+    API.destroy = function () {
+      if (readyHandler) { document.removeEventListener("DOMContentLoaded", readyHandler); readyHandler = null; }
+      if (instance) instance.destroy();
+      instance = null;
+    };
+    API.refreshColors = function () { if (instance) instance.refreshColors(); };
+    window.GlyphField = API;
+
+    function autoInit() { readyHandler = null; API.init(); }
+    if (document.readyState === "loading") {
+      readyHandler = autoInit; document.addEventListener("DOMContentLoaded", readyHandler, { once: true });
+    } else autoInit();
+  })(window, document);
+  </script>
+</body>
+</html>

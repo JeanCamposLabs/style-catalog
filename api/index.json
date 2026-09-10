@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.22.1",
+  "version": "0.23.0",
   "counts": {
     "themes": 22,
-    "effects": 175
+    "effects": 176
   },
   "effectEndpoint": "api/effects/{id}.json",
   "effects": [
@@ -1053,6 +1053,40 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/cursors-pointers/follow-dot-cursor.html"
+    },
+    {
+      "id": "glyph-field",
+      "title": "Glyph Field",
+      "summary": "A canvas grid of ASCII glyphs ignites under the pointer, pointing the way you moved and heating up as you go faster.",
+      "theme": "cursors-pointers",
+      "themeTitle": "Cursors & Pointers",
+      "categories": [
+        "cursor",
+        "pointer",
+        "ambient",
+        "background"
+      ],
+      "tags": [
+        "cursor",
+        "trail",
+        "canvas",
+        "ascii",
+        "glyph",
+        "matrix",
+        "monospace",
+        "particles",
+        "heatmap",
+        "click-wave",
+        "typed-arrays"
+      ],
+      "tech": [
+        "canvas",
+        "js",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "advanced",
+      "path": "effects/cursors-pointers/glyph-field.html"
     },
     {
       "id": "blob-trail-cursor",

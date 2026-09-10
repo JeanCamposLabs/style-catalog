@@ -3,6 +3,27 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.23.0] — 2026-09-10
+
+### Added — Glyph Field
+- **Glyph Field** (`glyph-field`) in **Cursors & Pointers**: a full-bleed canvas
+  grid of monospace glyphs that ignites under the pointer. Movement stamps a
+  capsule along the segment travelled (so fast flicks paint continuous ribbons,
+  not dotted samples), each lit cell picks a glyph from one of eight direction
+  sets so the trail reads as an arrow map of the gesture, pointer speed drives a
+  separate heat channel ramping cold ink → hot accent, and a click launches an
+  expanding ring whose glyphs face outward.
+- State lives in typed arrays indexed by cell, draws are bucketed by
+  size × colour band, `clearRect` covers only the dirty rectangle, DPR is capped
+  at 1.5, and the loop halves its rate when idle and stops when the field is dark.
+- Speed is normalised against viewport size, so the same gesture reads equally
+  hot in a small hero box and on a large display.
+- Under `prefers-reduced-motion` (or without a fine pointer) the loop and pointer
+  listeners are skipped entirely and a single still frame is painted instead of
+  leaving an empty canvas.
+- Colours come from `--glyph-field-cold` / `--glyph-field-hot`, which alias
+  `--ink` / `--accent`, so the specimen follows the gallery palette bar.
+
 ## [0.22.1] — 2026-06-06
 
 ### Changed
