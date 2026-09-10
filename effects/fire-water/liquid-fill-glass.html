@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Filling Glass</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "liquid-fill-glass",
+    "title": "Filling Glass",
+    "summary": "A glass filling with liquid and a wavy surface.",
+    "description": "A glass filling with liquid and a wavy surface.",
+    "theme": "fire-water",
+    "categories": ["elemental", "animation"],
+    "tags": ["elemental", "animated", "liquid", "fill", "glass", "water"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Liquid colour", "default": "#38bdf8" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Hydration, capacity, and pour animations. The rotating oversized ellipse is what makes the surface look like liquid rather than a moving bar."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 110px; height: 160px; border: 3px solid rgba(226,232,240,.45); border-top: 0;
+      border-radius: 6px 6px 22px 22px; overflow: hidden; }
+    .fx .liq { position: absolute; inset: auto 0 0 0; height: 0; background: #38bdf8; animation: fill 5s ease-in-out infinite; }
+    .fx .liq::before { content: ""; position: absolute; top: -10px; left: -20%; right: -20%; height: 20px; border-radius: 45%;
+      background: #38bdf8; animation: spin 3s linear infinite; }
+    @keyframes fill { 0%, 10% { height: 0; } 55%, 85% { height: 78%; } 100% { height: 0; } }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="liq"></span></div>
+</body>
+</html>

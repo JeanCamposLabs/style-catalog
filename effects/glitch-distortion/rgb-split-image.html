@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RGB Split</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "rgb-split-image",
+    "title": "RGB Split",
+    "summary": "Red and cyan channels pulled apart.",
+    "description": "Red and cyan channels pulled apart.",
+    "theme": "glitch-distortion",
+    "categories": ["glitch", "distortion"],
+    "tags": ["glitch", "distortion", "rgb-split", "chroma", "channels", "aberration"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+    "customization": [
+      { "name": "--split", "description": "Split distance", "default": "5px" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Glitch and lens effects. Isolate channels with feColorMatrix and screen-blend them back — a coloured overlay cannot separate channels."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 230px; height: 150px; border-radius: 10px;
+      background: conic-gradient(from 180deg at 40% 35%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }
+    .fx::before, .fx::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: inherit;
+      mix-blend-mode: screen; }
+    .fx::before { filter: url(#rch); animation: sh 3s ease-in-out infinite alternate; }
+    .fx::after { filter: url(#cch); animation: sh 3s ease-in-out infinite alternate-reverse; }
+    svg.defs { position: absolute; width: 0; height: 0; }
+    @keyframes sh { from { transform: translateX(-5px); } to { transform: translateX(5px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true">
+    <filter id="rch"><feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
+    <filter id="cch"><feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/></filter>
+  </svg>
+  <div class="fx"></div>
+</body>
+</html>

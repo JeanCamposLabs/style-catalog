@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bubble Column</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bubble-column",
+    "title": "Bubble Column",
+    "summary": "Bubbles rising and wobbling in water.",
+    "description": "Bubbles rising and wobbling in water.",
+    "theme": "fire-water",
+    "categories": ["elemental", "animation"],
+    "tags": ["elemental", "animated", "bubbles", "water", "rise", "underwater"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Bubble tint", "default": "rgba(255,255,255,.14)" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Underwater and carbonation effects. Larger bubbles should rise faster; equal speeds across sizes break the illusion immediately."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 130px; height: 180px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(180deg, #075985, #0c4a6e); }
+    .fx i { position: absolute; bottom: -20px; border-radius: 50%; border: 1px solid rgba(255,255,255,.6);
+      background: rgba(255,255,255,.14); animation: up var(--d) linear infinite; animation-delay: var(--dl); }
+    @keyframes up {
+      0% { transform: translate(0, 0); opacity: 0; }
+      15% { opacity: 1; }
+      100% { transform: translate(var(--dx), -200px); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="left:20%;width:14px;height:14px;--d:3s;--dl:0s;--dx:10px"></i>
+  <i style="left:48%;width:9px;height:9px;--d:4s;--dl:-1.2s;--dx:-8px"></i>
+  <i style="left:70%;width:18px;height:18px;--d:2.4s;--dl:-2s;--dx:6px"></i></div>
+</body>
+</html>

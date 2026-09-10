@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signal Loss</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "signal-noise-bars",
+    "title": "Signal Loss",
+    "summary": "Colour bars with rolling static.",
+    "description": "Colour bars with rolling static.",
+    "theme": "glitch-distortion",
+    "categories": ["glitch", "distortion"],
+    "tags": ["glitch", "distortion", "test-card", "bars", "signal", "broadcast"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Roll period", "default": "2.4s" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Error and offline states. Broadcast colour bars are instantly legible as 'no signal' — pair with text so the meaning is not purely visual."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 250px; height: 160px; border-radius: 8px; overflow: hidden;
+      background: linear-gradient(90deg, #e2e8f0 0 14%, #fbbf24 0 28%, #22d3ee 0 42%, #22c55e 0 57%, #f472b6 0 71%, #ef4444 0 85%, #1d4ed8 0); }
+    .fx::after { content: ""; position: absolute; left: 0; right: 0; height: 22px; background: rgba(255,255,255,.35);
+      filter: blur(3px); animation: roll 2.4s linear infinite; }
+    @keyframes roll { from { top: -22px; } to { top: 100%; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"></div>
+</body>
+</html>

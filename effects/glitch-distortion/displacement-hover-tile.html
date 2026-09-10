@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Distort on Hover</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "displacement-hover-tile",
+    "title": "Distort on Hover",
+    "summary": "A tile that warps while the pointer is over it.",
+    "description": "A tile that warps while the pointer is over it.",
+    "theme": "glitch-distortion",
+    "categories": ["glitch", "distortion"],
+    "tags": ["glitch", "distortion", "hover", "displacement", "warp", "interactive"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+    "customization": [
+      { "name": "--scale", "description": "Warp strength", "default": "24" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Interactive gallery tiles. Apply the SVG filter only on hover — leaving a displacement filter permanently active forces a repaint of the layer on every frame."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 200px; height: 140px; border-radius: 12px; transition: filter .3s;
+      background: conic-gradient(from 90deg at 40% 40%, #f472b6, #fbbf24, #22d3ee, #f472b6); }
+    .fx:hover { filter: url(#dist); }
+    svg.defs { position: absolute; width: 0; height: 0; }
+  </style>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true"><filter id="dist">
+    <feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="24"/>
+  </filter></svg>
+  <div class="fx"></div>
+</body>
+</html>

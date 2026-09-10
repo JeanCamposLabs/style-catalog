@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Index Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "index-card-lines",
+    "title": "Index Card",
+    "summary": "A ruled index card with a red header line.",
+    "description": "A ruled index card with a red header line.",
+    "theme": "paper-print",
+    "categories": ["paper", "print"],
+    "tags": ["paper", "print", "index-card", "ruled", "notes", "stationery"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+    "customization": [
+      { "name": "--paper", "description": "Card colour", "default": "#fffdf7" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Note-taking and kanban cards. Layer the red header rule over the blue rule pattern with separate background-position values."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 230px; height: 150px; padding: 1.6rem 1rem 1rem; background: #fffdf7; color: #1c1917;
+      border-radius: 3px; box-shadow: 0 8px 20px rgba(0,0,0,.35);
+      background-image: linear-gradient(#ef4444 0 2px, transparent 2px), repeating-linear-gradient(#fffdf7 0 21px, #bfdbfe 21px 22px);
+      background-size: 100% 100%, 100% 22px; background-position: 0 26px, 0 28px; background-repeat: no-repeat, repeat;
+      font-family: "Comic Sans MS", "Segoe Script", cursive; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <div class="fx">Ship the catalogue<br>Regenerate posters</div>
+</body>
+</html>

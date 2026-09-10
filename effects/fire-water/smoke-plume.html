@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smoke Plume</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "smoke-plume",
+    "title": "Smoke Plume",
+    "summary": "Soft smoke curling upward and dissipating.",
+    "description": "Soft smoke curling upward and dissipating.",
+    "theme": "fire-water",
+    "categories": ["elemental", "animation"],
+    "tags": ["elemental", "animated", "smoke", "plume", "blur", "dissipate"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Smoke colour", "default": "rgba(203,213,225,.3)" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Extinguished, cooling, or idle states. Scale up as opacity falls — smoke that keeps its size while fading reads as a ghost."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 180px; height: 190px; overflow: hidden; }
+    .fx i { position: absolute; bottom: 0; left: 50%; width: 54px; height: 54px; border-radius: 50%; filter: blur(14px);
+      background: rgba(203,213,225,.3); animation: rise var(--d) ease-out infinite; animation-delay: var(--dl); }
+    @keyframes rise {
+      0% { transform: translate(-50%, 0) scale(.4); opacity: .7; }
+      100% { transform: translate(calc(-50% + var(--dx)), -170px) scale(1.8); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="--d:4s;--dl:0s;--dx:-18px"></i><i style="--d:5s;--dl:-1.6s;--dx:22px"></i><i style="--d:4.5s;--dl:-3s;--dx:-6px"></i></div>
+</body>
+</html>

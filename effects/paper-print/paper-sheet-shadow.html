@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paper Sheet</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "paper-sheet-shadow",
+    "title": "Paper Sheet",
+    "summary": "A sheet with a soft curl shadow at its base.",
+    "description": "A sheet with a soft curl shadow at its base.",
+    "theme": "paper-print",
+    "categories": ["paper", "print"],
+    "tags": ["paper", "print", "sheet", "shadow", "curl", "stock"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+    "customization": [
+      { "name": "--stock", "description": "Paper colour", "default": "#f8f5ee" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Documents and print previews. The curl comes from a second blurred shadow behind the sheet's lower edge, not from a rotation."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 230px; padding: 1.4rem; background: #f8f5ee; color: #1f2937;
+      box-shadow: 0 1px 1px rgba(0,0,0,.15), 0 10px 20px -8px rgba(0,0,0,.4); border-radius: 2px; }
+    .fx::after { content: ""; position: absolute; left: 8%; right: 8%; bottom: 2px; height: 12px; border-radius: 50%;
+      box-shadow: 0 12px 14px rgba(0,0,0,.4); z-index: -1; }
+    .fx h3 { margin: 0 0 .4rem; font-size: 1rem; }
+    .fx p { margin: 0; font-size: .85rem; color: #4b5563; }
+  </style>
+</head>
+<body>
+  <div class="fx"><h3>Memo</h3><p>A single sheet with a curled shadow.</p></div>
+</body>
+</html>
