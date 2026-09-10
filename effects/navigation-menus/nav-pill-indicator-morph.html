@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morphing Pill Nav</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "nav-pill-indicator-morph",
+    "title": "Morphing Pill Nav",
+    "summary": "A pill that resizes as it moves between links.",
+    "description": "A pill that resizes as it moves between links.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "menu"],
+    "tags": ["navigation", "menu", "pill", "indicator", "morph", "tabs"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+    "customization": [
+      { "name": "--c", "description": "Indicator colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Compact navigation. Measure offsetLeft and offsetWidth of the active link and re-measure on resize; a fixed-width indicator drifts as soon as labels change."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; display: inline-flex; gap: .2rem; padding: 4px; border-radius: 999px; background: #151b2a;
+      border: 1px solid #263149; }
+    .fx .pill { position: absolute; top: 4px; bottom: 4px; border-radius: 999px; background: #7c5cff;
+      transition: transform .3s cubic-bezier(.7,0,.2,1), width .3s cubic-bezier(.7,0,.2,1); }
+    .fx a { position: relative; z-index: 1; padding: .5rem 1rem; border-radius: 999px; color: #8b93a7; text-decoration: none;
+      font-size: .86rem; font-weight: 600; transition: color .25s; }
+    .fx a[aria-current] { color: #fff; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="fx" id="pn" aria-label="Views"><span class="pill" aria-hidden="true"></span>
+  <a href="#" aria-current="page">Gallery</a><a href="#">Themes</a><a href="#">API</a></nav>
+  <script>
+    (function () {
+      var nav = document.getElementById("pn"), pill = nav.querySelector(".pill");
+      var links = [].slice.call(nav.querySelectorAll("a"));
+      function move(a) { pill.style.width = a.offsetWidth + "px"; pill.style.transform = "translateX(" + (a.offsetLeft - 4) + "px)"; }
+      links.forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          links.forEach(function (o) { o.removeAttribute("aria-current"); });
+          a.setAttribute("aria-current", "page"); move(a);
+        });
+      });
+      move(links[0]);
+    })();
+  </script>
+</body>
+</html>

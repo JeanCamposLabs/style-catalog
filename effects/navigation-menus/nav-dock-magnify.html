@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magnifying Dock</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "nav-dock-magnify",
+    "title": "Magnifying Dock",
+    "summary": "Icons that scale by proximity to the pointer.",
+    "description": "Icons that scale by proximity to the pointer.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "menu"],
+    "tags": ["navigation", "menu", "dock", "magnify", "proximity", "macos"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+    "customization": [
+      { "name": "--max", "description": "Maximum scale", "default": "1.6" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Toolbars and app docks. Scale by distance from the pointer with a falloff, and always keep the untouched size a comfortable hit target — magnification is not a substitute for size."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: flex-end; gap: 8px; padding: 8px 12px; border-radius: 18px; background: #151b2a;
+      border: 1px solid #263149; }
+    .fx button { width: 42px; height: 42px; border: 0; border-radius: 12px; background: #1e2740; color: #cbd5e1;
+      font-size: 1.1rem; cursor: pointer; transition: transform .18s cubic-bezier(.2,.8,.3,1); transform-origin: bottom; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx" id="dk" role="toolbar" aria-label="Dock">
+    <button type="button" aria-label="Home">⌂</button><button type="button" aria-label="Search">⌕</button>
+    <button type="button" aria-label="Library">▣</button><button type="button" aria-label="Settings">⚙</button></div>
+  <script>
+    (function () {
+      var d = document.getElementById("dk"), bs = [].slice.call(d.querySelectorAll("button"));
+      d.addEventListener("pointermove", function (e) {
+        bs.forEach(function (b) {
+          var r = b.getBoundingClientRect(), c = r.left + r.width / 2;
+          var f = Math.max(0, 1 - Math.abs(e.clientX - c) / 110);
+          b.style.transform = "scale(" + (1 + f * .6) + ")";
+        });
+      });
+      d.addEventListener("pointerleave", function () { bs.forEach(function (b) { b.style.transform = ""; }); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Footer Navigation</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "nav-footer-columns",
+    "title": "Footer Navigation",
+    "summary": "A multi-column footer with grouped links.",
+    "description": "A multi-column footer with grouped links.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "menu"],
+    "tags": ["navigation", "menu", "footer", "columns", "grouped", "sitemap"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+    "customization": [
+      { "name": "--cols", "description": "Column count", "default": "3" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Site footers. Wrap each column in its own <nav> with an aria-label, so screen-reader users can jump straight to the group they want."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; width: 300px; padding: 1.2rem;
+      border-radius: 14px; background: #10141f; border: 1px solid #263149; }
+    .fx h4 { margin: 0 0 .5rem; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }
+    .fx a { display: block; padding: .18rem 0; color: #cbd5e1; text-decoration: none; font-size: .82rem; }
+    .fx a:hover { color: #b9a5ff; }
+  </style>
+</head>
+<body>
+  <footer class="fx"><nav aria-label="Product"><h4>Product</h4><a href="#">Gallery</a><a href="#">API</a><a href="#">MCP</a></nav>
+  <nav aria-label="Resources"><h4>Resources</h4><a href="#">Docs</a><a href="#">Guides</a><a href="#">Changelog</a></nav>
+  <nav aria-label="Company"><h4>Company</h4><a href="#">About</a><a href="#">Licence</a></nav></footer>
+</body>
+</html>

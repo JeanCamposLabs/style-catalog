@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Growing Cursor</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-hover-grow-target",
+    "title": "Growing Cursor",
+    "summary": "The follower expands over interactive targets.",
+    "description": "The follower expands over interactive targets.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "pointer"],
+    "tags": ["cursor", "pointer", "follower", "grow", "target", "hover"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--c", "description": "Cursor colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Portfolio sites. Grow the follower over interactive elements to reinforce affordance, and always keep a native cursor fallback for pointer:coarse."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { cursor: none; }
+    .fx { display: flex; gap: 12px; }
+    .fx div { width: 84px; height: 84px; border-radius: 14px; background: #151b2a; border: 1px solid #263149;
+      display: grid; place-items: center; color: #8b93a7; font-size: .78rem; }
+    .cur { position: fixed; top: 0; left: 0; width: 14px; height: 14px; border-radius: 50%; background: #7c5cff;
+      margin: -7px 0 0 -7px; pointer-events: none; z-index: 9;
+      transition: width .2s, height .2s, margin .2s, background .2s; }
+    .cur.big { width: 54px; height: 54px; margin: -27px 0 0 -27px; background: rgba(124,92,255,.35); }
+  </style>
+</head>
+<body>
+  <div class="fx"><div data-t>Project</div><div data-t>About</div><div>Static</div></div>
+  <div class="cur" aria-hidden="true"></div>
+  <script>
+    (function () {
+      var c = document.querySelector(".cur");
+      addEventListener("pointermove", function (e) { c.style.transform = "translate(" + e.clientX + "px," + e.clientY + "px)"; });
+      document.querySelectorAll("[data-t]").forEach(function (el) {
+        el.addEventListener("pointerenter", function () { c.classList.add("big"); });
+        el.addEventListener("pointerleave", function () { c.classList.remove("big"); });
+      });
+    })();
+  </script>
+</body>
+</html>

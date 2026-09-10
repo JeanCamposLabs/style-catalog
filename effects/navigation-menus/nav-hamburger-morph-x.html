@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Morphing Hamburger</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "nav-hamburger-morph-x",
+    "title": "Morphing Hamburger",
+    "summary": "Three bars folding into a close icon.",
+    "description": "Three bars folding into a close icon.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "menu"],
+    "tags": ["navigation", "menu", "hamburger", "morph", "toggle", "mobile"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+    "customization": [
+      { "name": "--dur", "description": "Morph duration", "default": "0.3s" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Mobile menu triggers. Translate then rotate the outer bars (order matters) and fade the middle one; keep aria-expanded in sync or the control is meaningless to screen readers."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 48px; height: 48px; border: 1px solid #263149; border-radius: 12px; background: #151b2a; cursor: pointer;
+      display: grid; place-items: center; gap: 5px; padding: 12px; }
+    .fx i { display: block; width: 100%; height: 2px; border-radius: 2px; background: #e7ebf3;
+      transition: transform .3s cubic-bezier(.7,0,.2,1), opacity .2s; }
+    .fx[aria-expanded="true"] i:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .fx[aria-expanded="true"] i:nth-child(2) { opacity: 0; }
+    .fx[aria-expanded="true"] i:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button" aria-expanded="false" aria-label="Menu" id="hm"><i></i><i></i><i></i></button>
+  <script>
+    (function () {
+      var b = document.getElementById("hm");
+      b.addEventListener("click", function () {
+        b.setAttribute("aria-expanded", b.getAttribute("aria-expanded") === "true" ? "false" : "true");
+      });
+    })();
+  </script>
+</body>
+</html>

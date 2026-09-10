@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass Segmented Control</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-tabs-segmented",
+    "title": "Glass Segmented Control",
+    "summary": "A frosted segmented switcher.",
+    "description": "A frosted segmented switcher.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "surface"],
+    "tags": ["glass", "surface", "glass", "segmented", "thumb", "control"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+    "customization": [
+      { "name": "--blur", "description": "Backdrop blur", "default": "14px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Controls over imagery. The thumb should be lighter glass rather than an opaque fill, so the backdrop still shows through the selected segment."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: conic-gradient(from 140deg at 35% 30%, #7c5cff, #2dd4bf, #d1478c, #7c5cff); }
+    .fx { position: relative; display: inline-flex; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.16);
+      backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6);
+      border: 1px solid rgba(255,255,255,.32); }
+    .fx .thumb { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 3); border-radius: 999px;
+      background: rgba(255,255,255,.55); transition: transform .3s cubic-bezier(.7,0,.2,1); }
+    .fx button { position: relative; z-index: 1; padding: .5rem 1.1rem; border: 0; background: transparent; color: #fff;
+      font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+    .fx button[aria-pressed="true"] { color: #0b0d12; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx" id="gs" role="group" aria-label="View"><span class="thumb" aria-hidden="true"></span>
+  <button type="button" aria-pressed="true">Day</button><button type="button" aria-pressed="false">Week</button>
+  <button type="button" aria-pressed="false">Month</button></div>
+  <script>
+    (function () {
+      var g = document.getElementById("gs"), th = g.querySelector(".thumb");
+      var bs = [].slice.call(g.querySelectorAll("button"));
+      bs.forEach(function (b, i) {
+        b.addEventListener("click", function () {
+          bs.forEach(function (o) { o.setAttribute("aria-pressed", "false"); });
+          b.setAttribute("aria-pressed", "true");
+          th.style.transform = "translateX(" + i * 100 + "%)";
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

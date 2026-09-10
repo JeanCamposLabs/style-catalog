@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frosted Sidebar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-frosted-sidebar",
+    "title": "Frosted Sidebar",
+    "summary": "A translucent rail over a colourful page.",
+    "description": "A translucent rail over a colourful page.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "surface"],
+    "tags": ["glass", "surface", "glass", "sidebar", "rail", "overlay"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+    "customization": [
+      { "name": "--blur", "description": "Backdrop blur", "default": "18px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "App shells over vivid backgrounds. Keep glass panels on top of content, never behind it — a frosted layer under text just lowers contrast without any depth benefit."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: linear-gradient(140deg, #7c3aed, #0ea5e9 60%, #ec4899); }
+    .fx { display: flex; width: 300px; height: 190px; border-radius: 18px; overflow: hidden; }
+    .fx aside { width: 96px; padding: .8rem .6rem; background: rgba(255,255,255,.16);
+      backdrop-filter: blur(18px) saturate(1.6); -webkit-backdrop-filter: blur(18px) saturate(1.6);
+      border-right: 1px solid rgba(255,255,255,.28); }
+    .fx aside a { display: block; padding: .4rem .5rem; border-radius: 8px; color: #fff; text-decoration: none; font-size: .78rem; }
+    .fx aside a[aria-current] { background: rgba(255,255,255,.28); font-weight: 700; }
+    .fx main { flex: 1; padding: 1rem; color: #fff; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><aside><a href="#" aria-current="page">Home</a><a href="#">Library</a><a href="#">Settings</a></aside>
+  <main>Frosted rail over a vivid page.</main></div>
+</body>
+</html>

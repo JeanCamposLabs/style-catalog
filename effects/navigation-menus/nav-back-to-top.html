@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Back to Top</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "nav-back-to-top",
+    "title": "Back to Top",
+    "summary": "A button that appears after scrolling.",
+    "description": "A button that appears after scrolling.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "menu"],
+    "tags": ["navigation", "menu", "back-to-top", "scroll", "affordance", "fixed"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+    "customization": [
+      { "name": "--c", "description": "Button colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Long pages. Reveal it only after a screen of scrolling, and use scroll-behavior: smooth with a reduced-motion fallback so the jump is not disorienting."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { min-height: 220vh; }
+    .content { padding: 4rem 1.5rem; color: #8b93a7; max-width: 32ch; line-height: 1.6; }
+    .top { position: fixed; right: 16px; bottom: 16px; width: 46px; height: 46px; border-radius: 50%; border: 0;
+      background: #7c5cff; color: #fff; font-size: 1.1rem; cursor: pointer; opacity: 0; transform: translateY(10px);
+      transition: opacity .25s, transform .25s; box-shadow: 0 12px 26px rgba(124,92,255,.4); }
+    .top.show { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+  <div class="content"><h2>Scroll down</h2><p>The back-to-top control appears once you have scrolled past the first screen.</p></div>
+  <button class="top" type="button" id="tt" aria-label="Back to top">↑</button>
+  <script>
+    (function () {
+      var b = document.getElementById("tt"), s = document.createElement("div");
+      s.style.cssText = "position:absolute;top:80vh;height:1px;width:1px";
+      document.body.appendChild(s);
+      new IntersectionObserver(function (es) { b.classList.toggle("show", !es[0].isIntersecting); }).observe(s);
+      b.addEventListener("click", function () { scrollTo({ top: 0, behavior: "smooth" }); });
+    })();
+  </script>
+</body>
+</html>

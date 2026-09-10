@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Styled Selection</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-text-selection-style",
+    "title": "Styled Selection",
+    "summary": "Custom highlight colours for selected text.",
+    "description": "Custom highlight colours for selected text.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "pointer"],
+    "tags": ["cursor", "pointer", "selection", "highlight", "branding", "text"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--c", "description": "Selection colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Brand detail on content sites. Set both background and colour in ::selection — overriding only the background can leave the text unreadable against your brand hue."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; font-size: .95rem; line-height: 1.7; color: #cbd5e1; }
+    .fx ::selection { background: #7c5cff; color: #fff; }
+    .fx ::-moz-selection { background: #7c5cff; color: #fff; }
+    .fx .hint { display: block; margin-top: .7rem; font-size: .76rem; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div class="fx"><p>Select this sentence to see the branded highlight colour.</p>
+  <span class="hint">Both background and text colour are set, so contrast holds.</span></div>
+</body>
+</html>

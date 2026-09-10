@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Collapsing Breadcrumb</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "nav-breadcrumb-collapse",
+    "title": "Collapsing Breadcrumb",
+    "summary": "A long trail that folds its middle.",
+    "description": "A long trail that folds its middle.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "menu"],
+    "tags": ["navigation", "menu", "breadcrumb", "collapse", "overflow", "deep"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+    "customization": [
+      { "name": "--c", "description": "Link colour", "default": "#8b93a7" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Deep hierarchies on narrow screens. Always keep the root and the current page visible and collapse the middle behind a button that expands the hidden crumbs."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx ol { display: flex; align-items: center; gap: .4rem; list-style: none; margin: 0; padding: 0; font-size: .85rem; }
+    .fx a { color: #8b93a7; text-decoration: none; }
+    .fx a:hover { color: #e7ebf3; }
+    .fx li + li::before { content: "/"; margin-right: .4rem; color: #3b465e; }
+    .fx .more { padding: .1rem .45rem; border-radius: 6px; background: #1e2740; color: #cbd5e1; border: 0; cursor: pointer; font: inherit; font-size: .78rem; }
+    .fx [aria-current] { color: #e7ebf3; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <nav class="fx" aria-label="Breadcrumb"><ol><li><a href="#">Catalog</a></li>
+  <li><button class="more" type="button" aria-label="Show 3 hidden levels">…</button></li>
+  <li><a href="#">Buttons</a></li><li><span aria-current="page">Ripple</span></li></ol></nav>
+</body>
+</html>

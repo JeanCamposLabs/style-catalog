@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drag to Scroll</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-drag-scroll-rail",
+    "title": "Drag to Scroll",
+    "summary": "A rail scrolled by dragging with the pointer.",
+    "description": "A rail scrolled by dragging with the pointer.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "pointer"],
+    "tags": ["cursor", "pointer", "drag", "scroll", "rail", "grab"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--w", "description": "Item width", "default": "110px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Horizontal galleries. Drag-to-scroll must supplement native scrolling, never replace it — keep the container scrollable so wheel, touch, and keyboard still work."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 10px; width: 290px; overflow-x: auto; padding: 4px; cursor: grab; scrollbar-width: none; }
+    .fx::-webkit-scrollbar { display: none; }
+    .fx.dragging { cursor: grabbing; scroll-behavior: auto; }
+    .fx div { flex: none; width: 110px; height: 130px; border-radius: 12px;
+      background: linear-gradient(150deg, #7c5cff, #2dd4bf); }
+  </style>
+</head>
+<body>
+  <div class="fx" id="ds"><div></div><div></div><div></div><div></div></div>
+  <script>
+    (function () {
+      var el = document.getElementById("ds"), down = false, x0 = 0, s0 = 0;
+      el.addEventListener("pointerdown", function (e) {
+        down = true; x0 = e.clientX; s0 = el.scrollLeft; el.classList.add("dragging"); el.setPointerCapture(e.pointerId);
+      });
+      el.addEventListener("pointermove", function (e) { if (down) el.scrollLeft = s0 - (e.clientX - x0); });
+      ["pointerup", "pointercancel"].forEach(function (ev) {
+        el.addEventListener(ev, function () { down = false; el.classList.remove("dragging"); });
+      });
+    })();
+  </script>
+</body>
+</html>

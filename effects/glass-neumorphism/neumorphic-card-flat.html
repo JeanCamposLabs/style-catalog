@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soft Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neumorphic-card-flat",
+    "title": "Soft Card",
+    "summary": "A gently extruded content card.",
+    "description": "A gently extruded content card.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "surface"],
+    "tags": ["glass", "surface", "neumorphism", "card", "extruded", "soft"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+    "customization": [
+      { "name": "--dist", "description": "Shadow distance", "default": "8px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Soft-UI surfaces. The card and its background must be the same colour — neumorphism is shadow-only, and any colour difference collapses the effect."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: #232a3a; }
+    .fx { width: 250px; padding: 1.4rem; border-radius: 20px; background: #232a3a; color: #e7ebf3;
+      box-shadow: 8px 8px 18px rgba(0,0,0,.5), -8px -8px 18px rgba(255,255,255,.045); }
+    .fx h3 { margin: 0 0 .35rem; font-size: 1rem; }
+    .fx p { margin: 0; color: #8b93a7; font-size: .85rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <article class="fx"><h3>Soft surface</h3><p>Card and page share one colour; only the shadows differ.</p></article>
+</body>
+</html>

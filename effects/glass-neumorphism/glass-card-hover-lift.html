@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass Card Lift</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-card-hover-lift",
+    "title": "Glass Card Lift",
+    "summary": "A frosted card that rises and brightens on hover.",
+    "description": "A frosted card that rises and brightens on hover.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "surface"],
+    "tags": ["glass", "surface", "glass", "hover", "lift", "card"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+    "customization": [
+      { "name": "--lift", "description": "Hover lift", "default": "5px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Card grids over imagery. Increase the panel's own opacity on hover rather than its blur — changing blur mid-transition causes a visible re-rasterisation."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: conic-gradient(from 100deg at 40% 35%, #4c1d95, #0ea5e9, #db2777); }
+    .fx { width: 250px; padding: 1.4rem; border-radius: 18px; color: #fff; cursor: pointer;
+      background: rgba(255,255,255,.14); backdrop-filter: blur(14px) saturate(1.5);
+      -webkit-backdrop-filter: blur(14px) saturate(1.5); border: 1px solid rgba(255,255,255,.3);
+      transition: transform .3s, background .3s, box-shadow .3s; }
+    .fx:hover, .fx:focus-visible { transform: translateY(-5px); background: rgba(255,255,255,.22);
+      box-shadow: 0 22px 44px rgba(0,0,0,.35); }
+    .fx h3 { margin: 0 0 .3rem; font-size: 1rem; }
+    .fx p { margin: 0; opacity: .82; font-size: .85rem; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="fx" tabindex="0"><h3>Frosted lift</h3><p>Opacity rises, blur stays constant.</p></article>
+</body>
+</html>

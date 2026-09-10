@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass Dialog</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-modal-blur-scrim",
+    "title": "Glass Dialog",
+    "summary": "A dialog over a blurred, dimmed page.",
+    "description": "A dialog over a blurred, dimmed page.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "surface"],
+    "tags": ["glass", "surface", "glass", "dialog", "scrim", "blur"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+    "customization": [
+      { "name": "--scrim", "description": "Scrim blur", "default": "10px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Modal overlays. Blur the scrim, not the dialog: blurring both makes the dialog itself look out of focus and unreadable."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: conic-gradient(from 60deg at 45% 40%, #7c5cff, #10a894, #d1478c, #7c5cff); }
+    .scrim { position: fixed; inset: 0; background: rgba(4,7,14,.45); backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px); display: grid; place-items: center; }
+    .dlg { width: min(80vw, 280px); padding: 1.5rem; border-radius: 20px; color: #fff;
+      background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35);
+      backdrop-filter: blur(22px) saturate(1.6); -webkit-backdrop-filter: blur(22px) saturate(1.6); }
+    .dlg h3 { margin: 0 0 .5rem; font-size: 1.05rem; }
+    .dlg p { margin: 0 0 1.1rem; opacity: .85; font-size: .87rem; line-height: 1.5; }
+    .dlg button { padding: .55rem 1.2rem; border: 0; border-radius: 10px; background: #fff; color: #0b0d12; font: inherit; font-weight: 700; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="scrim"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="gd"><h3 id="gd">Publish catalogue?</h3>
+  <p>1,181 specimens will be deployed to GitHub Pages.</p><button type="button">Publish</button></div></div>
+</body>
+</html>
