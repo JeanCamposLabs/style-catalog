@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accent Application</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "brand-accent-application",
+    "title": "Accent Application",
+    "summary": "Where a brand colour should and should not go.",
+    "description": "Where a brand colour should and should not go.",
+    "theme": "color-systems",
+    "categories": ["color", "reference"],
+    "tags": ["color", "tokens", "accent", "brand", "application", "restraint"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+    "customization": [
+      { "name": "--brand", "description": "Accent", "default": "#7c5cff" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Accent discipline. One accent per view, on the single most important action; when everything is branded, nothing reads as primary."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; display: grid; gap: 8px; font-size: .8rem; }
+    .ok, .no { display: flex; gap: .6rem; padding: .6rem .8rem; border-radius: 10px; background: #151b2a; color: #cbd5e1; }
+    .ok span:first-child { color: #10a894; } .no span:first-child { color: #d1478c; }
+    .demo { display: flex; gap: .5rem; margin-top: .3rem; }
+    .demo button { padding: .4rem .9rem; border: 0; border-radius: 8px; font: inherit; font-size: .78rem; cursor: pointer; }
+    .primary { background: #7c5cff; color: #fff; }
+    .ghost { background: transparent; color: #cbd5e1; border: 1px solid #2b3450; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="ok"><span aria-hidden="true">✓</span><span>One primary action per view</span></div>
+  <div class="ok"><span aria-hidden="true">✓</span><span>Focus rings and active states</span></div>
+  <div class="no"><span aria-hidden="true">✕</span><span>Body text and large surfaces</span></div>
+  <div class="demo"><button class="primary" type="button">Publish</button><button class="ghost" type="button">Save draft</button></div></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heading Hierarchy</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "type-heading-hierarchy",
+    "title": "Heading Hierarchy",
+    "summary": "Weight, size, and colour working together.",
+    "description": "Weight, size, and colour working together.",
+    "theme": "typography-systems",
+    "categories": ["typography", "reference"],
+    "tags": ["typography", "type", "hierarchy", "headings", "eyebrow", "lede"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+    "customization": [
+      { "name": "--eyebrow", "description": "Eyebrow colour", "default": "#b9a5ff" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Article and section openers. Build hierarchy from three channels — size, weight, and colour — so it survives when any one of them is unavailable."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; }
+    .fx .eyebrow { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: #b9a5ff; margin-bottom: .35rem; }
+    .fx h2 { margin: 0 0 .4rem; font-size: 1.5rem; line-height: 1.2; font-weight: 800; }
+    .fx .lede { margin: 0 0 .7rem; font-size: 1rem; line-height: 1.55; color: #cbd5e1; }
+    .fx p { margin: 0; font-size: .86rem; line-height: 1.65; color: #8b93a7; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="eyebrow">Release notes</div><h2>A thousand new specimens</h2>
+  <p class="lede">The catalogue now spans fifty-seven themes, all zero-dependency.</p>
+  <p>Every effect ships as one self-contained file with machine-readable metadata for agents.</p></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reduced Motion Strategy</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "reduced-motion-strategy",
+    "title": "Reduced Motion Strategy",
+    "summary": "The same interface with motion reduced.",
+    "description": "The same interface with motion reduced.",
+    "theme": "motion-principles",
+    "categories": ["motion", "reference"],
+    "tags": ["motion", "easing", "reduced-motion", "strategy", "fallback", "accessibility"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+    "customization": [
+      { "name": "--dur", "description": "Duration", "default": "2s" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Reducing motion is not removing feedback. Replace large positional movement with an opacity or colour change so the state transition is still perceivable."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 12px; }
+    .p { width: 130px; padding: .9rem; border-radius: 12px; background: #151b2a; border: 1px solid #263149; font-size: .78rem; color: #cbd5e1; }
+    .p .box { height: 44px; border-radius: 8px; background: linear-gradient(150deg, #7c5cff, #2dd4bf); margin-bottom: .5rem; }
+    .full .box { animation: slide 2s ease-in-out infinite alternate; }
+    .reduced .box { animation: fade 2s ease-in-out infinite alternate; }
+    @keyframes slide { to { transform: translateX(40px) rotate(8deg); } }
+    @keyframes fade { to { opacity: .55; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="p full"><div class="box"></div>Full motion: travel and rotation.</div>
+  <div class="p reduced"><div class="box"></div>Reduced: the same state change as a fade.</div></div>
+</body>
+</html>

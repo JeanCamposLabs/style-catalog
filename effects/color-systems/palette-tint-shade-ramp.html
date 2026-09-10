@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tint & Shade Ramp</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "palette-tint-shade-ramp",
+    "title": "Tint & Shade Ramp",
+    "summary": "A single hue expanded into eleven steps.",
+    "description": "A single hue expanded into eleven steps.",
+    "theme": "color-systems",
+    "categories": ["color", "reference"],
+    "tags": ["color", "tokens", "ramp", "tints", "shades", "scale"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+    "customization": [
+      { "name": "--hue", "description": "Base hue", "default": "258" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Building a colour system from one brand hue. Keep lightness steps even and let chroma peak in the middle — linear interpolation to white and black produces washed-out tints and muddy shades."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; }
+    .fx .ramp { display: flex; border-radius: 10px; overflow: hidden; }
+    .fx .ramp i { flex: 1; height: 52px; }
+    .fx .lbl { display: flex; justify-content: space-between; margin-top: .4rem; font-size: .66rem; color: #64748b;
+      font-family: ui-monospace, monospace; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="ramp" role="img" aria-label="Violet ramp from 50 to 950">
+    <i style="background:#f2effe"></i><i style="background:#e0d9fd"></i><i style="background:#c6b8fb"></i>
+    <i style="background:#a894f8"></i><i style="background:#8f74f4"></i><i style="background:#7c5cff"></i>
+    <i style="background:#6544e0"></i><i style="background:#5134b8"></i><i style="background:#3f2890"></i>
+    <i style="background:#2c1c66"></i><i style="background:#1a1140"></i></div>
+  <div class="lbl"><span>50</span><span>300</span><span>500</span><span>700</span><span>950</span></div></div>
+</body>
+</html>

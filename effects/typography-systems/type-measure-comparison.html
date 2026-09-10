@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Line Length</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "type-measure-comparison",
+    "title": "Line Length",
+    "summary": "The same copy at three measures.",
+    "description": "The same copy at three measures.",
+    "theme": "typography-systems",
+    "categories": ["typography", "reference"],
+    "tags": ["typography", "type", "measure", "line-length", "readability", "ch"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+    "customization": [
+      { "name": "--measure", "description": "Target measure", "default": "60ch" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Body copy. Aim for 45–75 characters per line; below 40 the eye jumps too often, above 80 it loses the start of the next line. Set it in ch so it tracks the font."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; gap: .9rem; width: 300px; font-size: .8rem; line-height: 1.6; }
+    .fx p { margin: 0; color: #cbd5e1; }
+    .fx .lbl { font-size: .68rem; color: #64748b; font-family: ui-monospace, monospace; }
+    .narrow { max-width: 24ch; } .good { max-width: 46ch; } .wide { max-width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div><div class="lbl">24ch — too narrow</div><p class="narrow">Every specimen in this catalogue runs offline with no dependencies at all.</p></div>
+  <div><div class="lbl">46ch — comfortable</div><p class="good">Every specimen in this catalogue runs offline with no dependencies at all.</p></div>
+  <div><div class="lbl">full width — too wide</div><p class="wide">Every specimen in this catalogue runs offline with no dependencies at all.</p></div></div>
+</body>
+</html>

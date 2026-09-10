@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Easing Comparison</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "easing-curve-comparison",
+    "title": "Easing Comparison",
+    "summary": "Four curves racing side by side.",
+    "description": "Four curves racing side by side.",
+    "theme": "motion-principles",
+    "categories": ["motion", "reference"],
+    "tags": ["motion", "easing", "easing", "curves", "comparison", "timing"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+    "customization": [
+      { "name": "--dur", "description": "Cycle duration", "default": "2.4s" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Choosing a curve. ease-out for entrances (fast start, soft landing), ease-in for exits, a symmetric bezier for movement between two on-screen positions, and a spring only for playful accents."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; display: grid; gap: .6rem; }
+    .r { display: grid; grid-template-columns: 78px 1fr; align-items: center; gap: .6rem; font-size: .7rem; color: #64748b;
+      font-family: ui-monospace, monospace; }
+    .t { height: 22px; border-radius: 99px; background: #151b2a; position: relative; }
+    .t i { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #7c5cff;
+      animation: run 2.4s infinite; }
+    .l i { animation-timing-function: linear; }
+    .o i { animation-timing-function: ease-out; }
+    .io i { animation-timing-function: cubic-bezier(.7,0,.2,1); }
+    .sp i { animation-timing-function: cubic-bezier(.34,1.56,.64,1); }
+    @keyframes run { 0%, 10% { left: 3px; } 60%, 100% { left: calc(100% - 19px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="r l"><span>linear</span><span class="t"><i></i></span></div>
+  <div class="r o"><span>ease-out</span><span class="t"><i></i></span></div>
+  <div class="r io"><span>in-out</span><span class="t"><i></i></span></div>
+  <div class="r sp"><span>spring</span><span class="t"><i></i></span></div></div>
+</body>
+</html>

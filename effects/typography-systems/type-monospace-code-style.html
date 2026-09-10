@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Code Typography</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "type-monospace-code-style",
+    "title": "Code Typography",
+    "summary": "Monospace styling for inline and block code.",
+    "description": "Monospace styling for inline and block code.",
+    "theme": "typography-systems",
+    "categories": ["typography", "reference"],
+    "tags": ["typography", "type", "code", "monospace", "inline", "block"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+    "customization": [
+      { "name": "--bg", "description": "Code background", "default": "#1e2740" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Documentation. Set inline code at 0.88em (not a fixed size) so it scales with its context, and give block code its own line-height — monospace needs more leading than prose."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; font-size: .88rem; line-height: 1.65; color: #cbd5e1; }
+    .fx code { padding: .1rem .35rem; border-radius: 5px; background: #1e2740; color: #b9a5ff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em; }
+    .fx pre { margin: .7rem 0 0; padding: .8rem; border-radius: 10px; background: #10141f; overflow-x: auto;
+      font-family: ui-monospace, monospace; font-size: .78rem; line-height: 1.7; color: #c9d1d9; }
+  </style>
+</head>
+<body>
+  <div class="fx">Run <code>npm run build</code> to regenerate the index.
+  <pre><code>const { catalog } = scanCatalog();
+  console.log(catalog.counts.effects);</code></pre></div>
+</body>
+</html>

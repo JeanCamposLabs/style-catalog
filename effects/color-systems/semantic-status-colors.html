@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Semantic Status Set</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "semantic-status-colors",
+    "title": "Semantic Status Set",
+    "summary": "Reserved colours for the four states.",
+    "description": "Reserved colours for the four states.",
+    "theme": "color-systems",
+    "categories": ["color", "reference"],
+    "tags": ["color", "tokens", "semantic", "status", "reserved", "tokens"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+    "customization": [
+      { "name": "--good", "description": "Success", "default": "#10a894" },
+      { "name": "--bad", "description": "Danger", "default": "#d1478c" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Status colours are reserved: never reuse them as chart series or brand accents. Each state ships with an icon and a word so it survives greyscale and colour-vision differences."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; gap: .5rem; width: 290px; }
+    .r { display: flex; align-items: center; gap: .6rem; padding: .6rem .8rem; border-radius: 10px; font-size: .84rem; }
+    .r b { margin-left: auto; font-family: ui-monospace, monospace; font-size: .72rem; opacity: .8; }
+    .good { background: rgba(16,168,148,.14); color: #7fd8cb; }
+    .warn { background: rgba(194,137,26,.14); color: #ecc57c; }
+    .bad { background: rgba(209,71,140,.14); color: #f0a3c6; }
+    .info { background: rgba(47,124,201,.14); color: #8ec1f0; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="r good"><span aria-hidden="true">✓</span>Success<b>#10a894</b></div>
+  <div class="r warn"><span aria-hidden="true">▲</span>Warning<b>#c2891a</b></div>
+  <div class="r bad"><span aria-hidden="true">■</span>Danger<b>#d1478c</b></div>
+  <div class="r info"><span aria-hidden="true">ⓘ</span>Info<b>#2f7cc9</b></div></div>
+</body>
+</html>

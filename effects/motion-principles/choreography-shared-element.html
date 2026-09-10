@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shared Element</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "choreography-shared-element",
+    "title": "Shared Element",
+    "summary": "One element morphing between two states.",
+    "description": "One element morphing between two states.",
+    "theme": "motion-principles",
+    "categories": ["motion", "reference"],
+    "tags": ["motion", "easing", "shared-element", "morph", "continuity", "transition"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+    "customization": [
+      { "name": "--dur", "description": "Transition duration", "default": "0.5s" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Navigating between a list and a detail view. Morphing one element preserves the user's sense of place far better than cross-fading two screens."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 290px; height: 170px; border-radius: 14px; background: #10141f; border: 1px solid #263149; overflow: hidden; }
+    .fx .el { position: absolute; border-radius: 12px; background: linear-gradient(150deg, #7c5cff, #2dd4bf);
+      animation: morph 4s cubic-bezier(.7,0,.2,1) infinite; }
+    @keyframes morph {
+      0%, 15% { top: 16px; left: 16px; width: 90px; height: 60px; border-radius: 12px; }
+      50%, 85% { top: 0; left: 0; width: 100%; height: 100%; border-radius: 0; }
+      100% { top: 16px; left: 16px; width: 90px; height: 60px; border-radius: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="el"></div></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Numeric Features</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "type-numeric-features",
+    "title": "Numeric Features",
+    "summary": "Tabular, lining, and old-style figures compared.",
+    "description": "Tabular, lining, and old-style figures compared.",
+    "theme": "typography-systems",
+    "categories": ["typography", "reference"],
+    "tags": ["typography", "type", "numerals", "tabular-nums", "opentype", "figures"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+    "customization": [
+      { "name": "--feat", "description": "Numeric feature", "default": "tabular-nums" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Tables, timers, and prices. tabular-nums gives every digit the same advance width so columns align and counters stop jittering; use proportional figures in running prose."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; display: grid; gap: .7rem; font-size: .95rem; }
+    .fx .r { display: flex; justify-content: space-between; padding: .4rem .6rem; border-radius: 8px; background: #151b2a; }
+    .fx .lbl { color: #64748b; font-size: .72rem; font-family: ui-monospace, monospace; }
+    .tab { font-variant-numeric: tabular-nums; }
+    .prop { font-variant-numeric: proportional-nums; }
+    .slash { font-variant-numeric: slashed-zero; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="r"><span class="lbl">tabular</span><span class="tab">1,181.00</span></div>
+  <div class="r"><span class="lbl">tabular</span><span class="tab">99,411.24</span></div>
+  <div class="r"><span class="lbl">proportional</span><span class="prop">1,181.00</span></div>
+  <div class="r"><span class="lbl">slashed zero</span><span class="slash">0O0O</span></div></div>
+</body>
+</html>
