@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Motion Blur Slide</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "slide-blur-left",
+    "title": "Motion Blur Slide",
+    "summary": "The element streaks in with a directional blur.",
+    "description": "The element streaks in with a directional blur. Applied once on load with animation-fill-mode: both so the element holds its final state.",
+    "theme": "transitions-animations",
+    "categories": ["animation", "entrance"],
+    "tags": ["entrance", "reveal", "blur", "motion", "slide"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.",
+    "customization": [
+      { "name": "--dur", "description": "Animation duration", "default": ".8s" },
+      { "name": "--ease", "description": "Timing function", "default": "cubic-bezier(.2,.8,.3,1)" }
+    ],
+    "variations": ["Stagger across a list with animation-delay", "Play on scroll with IntersectionObserver"],
+    "ai_usage": "Fake motion blur by clearing the blur faster than the movement finishes — matching their timing makes the whole thing look merely soft."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: .8s; --ease: cubic-bezier(.2,.8,.3,1); }
+    .card { width: 230px; padding: 1.5rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149;
+      animation: slide-blur-left var(--dur) var(--ease) both infinite alternate; }
+    .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    @keyframes slide-blur-left {
+      0% { opacity: 0; transform: translateX(60px); filter: blur(10px); }
+      60% { filter: blur(2px); }
+      100% { opacity: 1; transform: none; filter: blur(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card"><h3>Motion Blur Slide</h3><p>The element streaks in with a directional blur.</p></div>
+</body>
+</html>

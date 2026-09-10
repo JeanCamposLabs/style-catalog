@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radial Wipe</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "radial-wipe-in",
+    "title": "Radial Wipe",
+    "summary": "A conic wipe sweeps the element into view.",
+    "description": "A conic wipe sweeps the element into view. Applied once on load with animation-fill-mode: both so the element holds its final state.",
+    "theme": "transitions-animations",
+    "categories": ["animation", "entrance"],
+    "tags": ["entrance", "reveal", "mask", "conic", "wipe"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.",
+    "customization": [
+      { "name": "--dur", "description": "Animation duration", "default": "1s" },
+      { "name": "--ease", "description": "Timing function", "default": "linear" }
+    ],
+    "variations": ["Stagger across a list with animation-delay", "Play on scroll with IntersectionObserver"],
+    "ai_usage": "Progress-flavoured reveals. Browsers cannot interpolate conic-gradient stops without @property, so register the angle as a custom property for smooth playback in production."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 1s; --ease: linear; }
+    .card { width: 230px; padding: 1.5rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149;
+      animation: radial-wipe-in var(--dur) var(--ease) both infinite alternate; }
+    .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    @keyframes radial-wipe-in {
+      from { -webkit-mask-image: conic-gradient(#000 0deg, transparent 0deg); mask-image: conic-gradient(#000 0deg, transparent 0deg); }
+      to { -webkit-mask-image: conic-gradient(#000 360deg, transparent 360deg); mask-image: conic-gradient(#000 360deg, transparent 360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card"><h3>Radial Wipe</h3><p>A conic wipe sweeps the element into view.</p></div>
+</body>
+</html>
