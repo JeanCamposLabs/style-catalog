@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.22.1",
+  "version": "0.23.0",
   "counts": {
     "themes": 22,
-    "effects": 175
+    "effects": 176
   },
   "themes": [
     {
@@ -132,7 +132,7 @@
       "description": "Custom cursor experiences — following dots, trailing rings, and reveal spotlights.",
       "icon": "👆",
       "order": 120,
-      "count": 4
+      "count": 5
     },
     {
       "slug": "navigation-menus",
@@ -263,7 +263,7 @@
       {
         "slug": "cursors-pointers",
         "title": "Cursors & Pointers",
-        "count": 4
+        "count": 5
       },
       {
         "slug": "navigation-menus",
@@ -299,11 +299,11 @@
     "tech": [
       {
         "value": "css",
-        "count": 171
+        "count": 172
       },
       {
         "value": "js",
-        "count": 69
+        "count": 70
       },
       {
         "value": "html",
@@ -315,7 +315,7 @@
       },
       {
         "value": "canvas",
-        "count": 1
+        "count": 2
       }
     ],
     "difficulty": [
@@ -329,13 +329,13 @@
       },
       {
         "value": "advanced",
-        "count": 13
+        "count": 14
       }
     ],
     "era": [
       {
         "value": "2020s",
-        "count": 123
+        "count": 124
       },
       {
         "value": "timeless",
@@ -388,12 +388,12 @@
         "count": 11
       },
       {
-        "value": "button",
+        "value": "background",
         "count": 11
       },
       {
-        "value": "background",
-        "count": 10
+        "value": "button",
+        "count": 11
       },
       {
         "value": "card",
@@ -424,7 +424,15 @@
         "count": 7
       },
       {
+        "value": "ambient",
+        "count": 6
+      },
+      {
         "value": "color",
+        "count": 6
+      },
+      {
+        "value": "cursor",
         "count": 6
       },
       {
@@ -440,15 +448,7 @@
         "count": 6
       },
       {
-        "value": "ambient",
-        "count": 5
-      },
-      {
         "value": "border",
-        "count": 5
-      },
-      {
-        "value": "cursor",
         "count": 5
       },
       {
@@ -537,6 +537,10 @@
       },
       {
         "value": "motion",
+        "count": 3
+      },
+      {
+        "value": "pointer",
         "count": 3
       },
       {
@@ -641,10 +645,6 @@
       },
       {
         "value": "personal",
-        "count": 2
-      },
-      {
-        "value": "pointer",
         "count": 2
       },
       {
@@ -991,7 +991,7 @@
       },
       {
         "value": "cursor",
-        "count": 9
+        "count": 10
       },
       {
         "value": "gradient",
@@ -1142,6 +1142,14 @@
         "count": 4
       },
       {
+        "value": "monospace",
+        "count": 4
+      },
+      {
+        "value": "particles",
+        "count": 4
+      },
+      {
         "value": "ring",
         "count": 4
       },
@@ -1183,6 +1191,10 @@
       },
       {
         "value": "border",
+        "count": 3
+      },
+      {
+        "value": "canvas",
         "count": 3
       },
       {
@@ -1254,19 +1266,11 @@
         "count": 3
       },
       {
-        "value": "monospace",
-        "count": 3
-      },
-      {
         "value": "noise",
         "count": 3
       },
       {
         "value": "organic",
-        "count": 3
-      },
-      {
-        "value": "particles",
         "count": 3
       },
       {
@@ -1307,6 +1311,10 @@
       },
       {
         "value": "sticky",
+        "count": 3
+      },
+      {
+        "value": "trail",
         "count": 3
       },
       {
@@ -1379,10 +1387,6 @@
       },
       {
         "value": "button",
-        "count": 2
-      },
-      {
-        "value": "canvas",
         "count": 2
       },
       {
@@ -1742,10 +1746,6 @@
         "count": 2
       },
       {
-        "value": "trail",
-        "count": 2
-      },
-      {
         "value": "translucent",
         "count": 2
       },
@@ -1831,6 +1831,10 @@
       },
       {
         "value": "article",
+        "count": 1
+      },
+      {
+        "value": "ascii",
         "count": 1
       },
       {
@@ -2051,6 +2055,10 @@
       },
       {
         "value": "click",
+        "count": 1
+      },
+      {
+        "value": "click-wave",
         "count": 1
       },
       {
@@ -2382,6 +2390,10 @@
         "count": 1
       },
       {
+        "value": "glyph",
+        "count": 1
+      },
+      {
         "value": "gradient-stroke",
         "count": 1
       },
@@ -2419,6 +2431,10 @@
       },
       {
         "value": "heart",
+        "count": 1
+      },
+      {
+        "value": "heatmap",
         "count": 1
       },
       {
@@ -2623,6 +2639,10 @@
       },
       {
         "value": "masonry-like",
+        "count": 1
+      },
+      {
+        "value": "matrix",
         "count": 1
       },
       {
@@ -3315,6 +3335,10 @@
       },
       {
         "value": "type-scale",
+        "count": 1
+      },
+      {
+        "value": "typed-arrays",
         "count": 1
       },
       {
@@ -5593,6 +5617,101 @@
       "ai_usage": "Expressive marketing sites. Render a fixed dot and ring; on pointermove store target x/y; in a rAF loop snap the dot and lerp the ring (current += (target-current)*ease). Use transform: translate3d for compositing. Add cursor:none on the body but KEEP it usable: enlarge the ring on interactive elements and never hide cursor on forms. Skip the lag under reduced motion. No-op on touch.",
       "path": "effects/cursors-pointers/follow-dot-cursor.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Following Dot &amp; Ring Cursor</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"follow-dot-cursor\",\n    \"title\": \"Following Dot & Ring Cursor\",\n    \"summary\": \"A custom cursor: a precise dot plus a larger ring that lags behind with easing.\",\n    \"description\": \"Hides the native cursor and renders two elements — a dot that snaps to the pointer and a ring that eases toward it via a rAF lerp — the signature 'agency' custom cursor.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\", \"interaction\"],\n    \"tags\": [\"cursor\", \"custom-cursor\", \"follow\", \"ring\", \"lerp\", \"agency\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"Pointer devices only; on touch there is no cursor (gracefully no-ops). All modern browsers.\",\n    \"performance_notes\": \"One rAF loop updating transforms; cheap. Use transform (not top/left) for smoothness.\",\n    \"accessibility_notes\": \"Never hide the cursor on critical UI without a clear, large custom replacement. Respect prefers-reduced-motion (drop the lag/ease). Ensure focus styles remain for keyboard users.\",\n    \"customization\": [\n      { \"name\": \"--dot / --ring\", \"description\": \"Colors\", \"default\": \"#fff / #7c5cff\" },\n      { \"name\": \"ease\", \"description\": \"Ring lag factor (0-1)\", \"default\": \"0.18\" }\n    ],\n    \"variations\": [\"Grow the ring on hovering links\", \"Invert colors over images (mix-blend-mode: difference)\", \"Magnetic ring that snaps to buttons\"],\n    \"related\": [\"spotlight-cursor\", \"magnetic-button\"],\n    \"ai_usage\": \"Expressive marketing sites. Render a fixed dot and ring; on pointermove store target x/y; in a rAF loop snap the dot and lerp the ring (current += (target-current)*ease). Use transform: translate3d for compositing. Add cursor:none on the body but KEEP it usable: enlarge the ring on interactive elements and never hide cursor on forms. Skip the lag under reduced motion. No-op on touch.\"\n  }\n  </script>\n  <style>\n    :root { --dot: #fff; --ring: #7c5cff; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #8b93a7; font-family: system-ui, sans-serif; cursor: none; }\n    .hint { pointer-events: none; }\n    .cur-dot, .cur-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; transform: translate(-50%,-50%); z-index: 50; }\n    .cur-dot { width: 8px; height: 8px; background: var(--dot); }\n    .cur-ring { width: 38px; height: 38px; border: 2px solid var(--ring); }\n  </style>\n</head>\n<body>\n  <p class=\"hint\">Move your cursor</p>\n  <div class=\"cur-ring\" id=\"ring\"></div>\n  <div class=\"cur-dot\" id=\"dot\"></div>\n  <script>\n    var dot = document.getElementById(\"dot\"), ring = document.getElementById(\"ring\");\n    var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;\n    var reduce = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    addEventListener(\"pointermove\", function (e) { mx = e.clientX; my = e.clientY; });\n    function frame() {\n      dot.style.transform = \"translate(\" + mx + \"px,\" + my + \"px) translate(-50%,-50%)\";\n      var ease = reduce ? 1 : 0.18;\n      rx += (mx - rx) * ease; ry += (my - ry) * ease;\n      ring.style.transform = \"translate(\" + rx + \"px,\" + ry + \"px) translate(-50%,-50%)\";\n      requestAnimationFrame(frame);\n    }\n    frame();\n  </script>\n</body>\n</html>\n"
+    },
+    {
+      "id": "glyph-field",
+      "title": "Glyph Field",
+      "summary": "A canvas grid of ASCII glyphs ignites under the pointer, pointing the way you moved and heating up as you go faster.",
+      "description": "A full-bleed monospace grid sits behind the page. Pointer movement stamps a capsule of intensity along the segment travelled, so fast flicks paint continuous ribbons instead of dotted samples. Each lit cell renders a glyph chosen from one of eight direction sets (>, \\, v, /, <, ^ …), so the field reads as an arrow map of your gesture. Cursor speed drives a separate heat channel that ramps the glyph color from a cold ink tone to a hot accent, and a click launches an expanding ring whose glyphs face outward from the impact. Cells decay and cool on their own, so the trail dissolves a moment after you stop.",
+      "theme": "cursors-pointers",
+      "themeTitle": "Cursors & Pointers",
+      "categories": [
+        "cursor",
+        "pointer",
+        "ambient",
+        "background"
+      ],
+      "tags": [
+        "cursor",
+        "trail",
+        "canvas",
+        "ascii",
+        "glyph",
+        "matrix",
+        "monospace",
+        "particles",
+        "heatmap",
+        "click-wave",
+        "typed-arrays"
+      ],
+      "tech": [
+        "canvas",
+        "js",
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "advanced",
+      "dependencies": [],
+      "browser_support": "Any browser with Canvas 2D and Pointer Events (Chrome/Edge/Firefox/Safari). Gracefully renders a single static frame when reduced motion is requested or no fine pointer is present.",
+      "performance_notes": "State lives in Float32Array/Uint8Array grids indexed by cell, never per-cell objects. Only lit cells are visited (a compacted active list), draws are bucketed by font size x color band so fillStyle/font change at most SIZES*BANDS times per frame, and clearRect covers only the dirty rectangle rather than the full canvas. Device pixel ratio is capped at 1.5, the loop halves its rate while idle and stops entirely once the field is dark. Cost scales with the lit area, not the viewport.",
+      "accessibility_notes": "Purely decorative: the canvas is aria-hidden, has pointer-events: none, and never replaces the system cursor. Under prefers-reduced-motion: reduce (or on coarse/no-hover pointers) the animation loop and pointer listeners are skipped entirely and one still frame is painted instead. Nothing is conveyed by the glyphs alone, and page content sits in a positioned layer above with normal contrast.",
+      "customization": [
+        {
+          "name": "--glyph-field-cold",
+          "description": "Glyph color at rest / low speed",
+          "default": "var(--ink)"
+        },
+        {
+          "name": "--glyph-field-hot",
+          "description": "Glyph color at full speed and at the click wave crest",
+          "default": "var(--accent)"
+        },
+        {
+          "name": "FONT",
+          "description": "Base glyph size in px; also sets cell width/height with LEADING",
+          "default": "13"
+        },
+        {
+          "name": "R_BASE / R_FAST",
+          "description": "Trail radius at rest and the extra radius added at full speed",
+          "default": "58 / 34"
+        },
+        {
+          "name": "SPEED_DIV / SPEED_REF",
+          "description": "How much pointer velocity counts as \"full heat\"; normalized against viewport size so a small hero box behaves like a large one",
+          "default": "2.2 / 900"
+        },
+        {
+          "name": "DECAY / COOL",
+          "description": "Per-frame multipliers for intensity and heat — lower fades faster",
+          "default": "0.972 / 0.955"
+        },
+        {
+          "name": "SETS",
+          "description": "Eight arrays of glyphs, one per 45 degree direction bucket",
+          "default": "ASCII arrows"
+        },
+        {
+          "name": "WAVE_SPEED / WAVE_WIDTH / WAVE_MAX",
+          "description": "Click ring expansion px/s, band thickness, and travel before it dies",
+          "default": "780 / 46 / 820"
+        }
+      ],
+      "variations": [
+        "Swap SETS for katakana, braille (⠁⠂⠄⡀), or box-drawing characters for a different alphabet",
+        "Drop the direction buckets and always use one glyph set for a plain heat trail",
+        "Drive the field from scroll velocity instead of the pointer",
+        "Constrain the canvas to a hero section (position: absolute inside a relative parent) instead of the viewport",
+        "Emit a wave on route change or form submit rather than on click"
+      ],
+      "related": [
+        "blob-trail-cursor",
+        "follow-dot-cursor",
+        "spotlight-cursor"
+      ],
+      "ai_usage": "Use for a decorative, tech-flavoured pointer trail behind a hero or landing page — terminal, developer-tool, AI, or cyber aesthetics. Do NOT use it as a cursor replacement (keep the native cursor) or on content-dense/text-heavy pages, where it competes with reading.\n\nIntegrate: put <canvas data-glyph-field aria-hidden=\"true\"></canvas> first in <body>, style it position: fixed; inset: 0; z-index: 0; pointer-events: none, and give your content wrapper position: relative; z-index: 1 — without that the content sits at the same layer and the glyphs draw over it. The script self-initializes on DOM ready; window.GlyphField.init(canvas), .destroy(), and .refreshColors() are also exposed. In React/Vue/Next call init(ref.current) from an effect after mount and destroy() on unmount, and never call it during server rendering (it needs window). Only one instance is active at a time; init on a new canvas replaces the previous one.\n\nTune: set --glyph-field-cold and --glyph-field-hot on :root (they fall back to --ink/--accent, then built-in values) — cold should be close to your body text color and hot to your accent, or the trail turns into confetti. Root data-theme/class/style changes refresh automatically; call refreshColors() when theme state lives elsewhere. Raise R_BASE for a broader wash, lower DECAY for a snappier fade, and edit SETS to change the alphabet.\n\nAvoid: giving the canvas pointer events or a positive z-index above content; removing the reduced-motion and fine-pointer gate; running one instance per component render; replacing the typed arrays with per-cell objects, clearing the whole canvas each frame, or removing the idle throttle and the 1.5 DPR cap — those four are what keep it cheap. Because it paints the full viewport behind everything, verify text contrast with the hot color at full intensity.",
+      "path": "effects/cursors-pointers/glyph-field.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glyph Field</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glyph-field\",\n    \"title\": \"Glyph Field\",\n    \"summary\": \"A canvas grid of ASCII glyphs ignites under the pointer, pointing the way you moved and heating up as you go faster.\",\n    \"description\": \"A full-bleed monospace grid sits behind the page. Pointer movement stamps a capsule of intensity along the segment travelled, so fast flicks paint continuous ribbons instead of dotted samples. Each lit cell renders a glyph chosen from one of eight direction sets (>, \\\\, v, /, <, ^ …), so the field reads as an arrow map of your gesture. Cursor speed drives a separate heat channel that ramps the glyph color from a cold ink tone to a hot accent, and a click launches an expanding ring whose glyphs face outward from the impact. Cells decay and cool on their own, so the trail dissolves a moment after you stop.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\", \"ambient\", \"background\"],\n    \"tags\": [\"cursor\", \"trail\", \"canvas\", \"ascii\", \"glyph\", \"matrix\", \"monospace\", \"particles\", \"heatmap\", \"click-wave\", \"typed-arrays\"],\n    \"tech\": [\"canvas\", \"js\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"Any browser with Canvas 2D and Pointer Events (Chrome/Edge/Firefox/Safari). Gracefully renders a single static frame when reduced motion is requested or no fine pointer is present.\",\n    \"performance_notes\": \"State lives in Float32Array/Uint8Array grids indexed by cell, never per-cell objects. Only lit cells are visited (a compacted active list), draws are bucketed by font size x color band so fillStyle/font change at most SIZES*BANDS times per frame, and clearRect covers only the dirty rectangle rather than the full canvas. Device pixel ratio is capped at 1.5, the loop halves its rate while idle and stops entirely once the field is dark. Cost scales with the lit area, not the viewport.\",\n    \"accessibility_notes\": \"Purely decorative: the canvas is aria-hidden, has pointer-events: none, and never replaces the system cursor. Under prefers-reduced-motion: reduce (or on coarse/no-hover pointers) the animation loop and pointer listeners are skipped entirely and one still frame is painted instead. Nothing is conveyed by the glyphs alone, and page content sits in a positioned layer above with normal contrast.\",\n    \"customization\": [\n      { \"name\": \"--glyph-field-cold\", \"description\": \"Glyph color at rest / low speed\", \"default\": \"var(--ink)\" },\n      { \"name\": \"--glyph-field-hot\", \"description\": \"Glyph color at full speed and at the click wave crest\", \"default\": \"var(--accent)\" },\n      { \"name\": \"FONT\", \"description\": \"Base glyph size in px; also sets cell width/height with LEADING\", \"default\": \"13\" },\n      { \"name\": \"R_BASE / R_FAST\", \"description\": \"Trail radius at rest and the extra radius added at full speed\", \"default\": \"58 / 34\" },\n      { \"name\": \"SPEED_DIV / SPEED_REF\", \"description\": \"How much pointer velocity counts as \\\"full heat\\\"; normalized against viewport size so a small hero box behaves like a large one\", \"default\": \"2.2 / 900\" },\n      { \"name\": \"DECAY / COOL\", \"description\": \"Per-frame multipliers for intensity and heat — lower fades faster\", \"default\": \"0.972 / 0.955\" },\n      { \"name\": \"SETS\", \"description\": \"Eight arrays of glyphs, one per 45 degree direction bucket\", \"default\": \"ASCII arrows\" },\n      { \"name\": \"WAVE_SPEED / WAVE_WIDTH / WAVE_MAX\", \"description\": \"Click ring expansion px/s, band thickness, and travel before it dies\", \"default\": \"780 / 46 / 820\" }\n    ],\n    \"variations\": [\n      \"Swap SETS for katakana, braille (⠁⠂⠄⡀), or box-drawing characters for a different alphabet\",\n      \"Drop the direction buckets and always use one glyph set for a plain heat trail\",\n      \"Drive the field from scroll velocity instead of the pointer\",\n      \"Constrain the canvas to a hero section (position: absolute inside a relative parent) instead of the viewport\",\n      \"Emit a wave on route change or form submit rather than on click\"\n    ],\n    \"related\": [\"blob-trail-cursor\", \"follow-dot-cursor\", \"spotlight-cursor\"],\n    \"ai_usage\": \"Use for a decorative, tech-flavoured pointer trail behind a hero or landing page — terminal, developer-tool, AI, or cyber aesthetics. Do NOT use it as a cursor replacement (keep the native cursor) or on content-dense/text-heavy pages, where it competes with reading.\\n\\nIntegrate: put <canvas data-glyph-field aria-hidden=\\\"true\\\"></canvas> first in <body>, style it position: fixed; inset: 0; z-index: 0; pointer-events: none, and give your content wrapper position: relative; z-index: 1 — without that the content sits at the same layer and the glyphs draw over it. The script self-initializes on DOM ready; window.GlyphField.init(canvas), .destroy(), and .refreshColors() are also exposed. In React/Vue/Next call init(ref.current) from an effect after mount and destroy() on unmount, and never call it during server rendering (it needs window). Only one instance is active at a time; init on a new canvas replaces the previous one.\\n\\nTune: set --glyph-field-cold and --glyph-field-hot on :root (they fall back to --ink/--accent, then built-in values) — cold should be close to your body text color and hot to your accent, or the trail turns into confetti. Root data-theme/class/style changes refresh automatically; call refreshColors() when theme state lives elsewhere. Raise R_BASE for a broader wash, lower DECAY for a snappier fade, and edit SETS to change the alphabet.\\n\\nAvoid: giving the canvas pointer events or a positive z-index above content; removing the reduced-motion and fine-pointer gate; running one instance per component render; replacing the typed arrays with per-cell objects, clearing the whole canvas each frame, or removing the idle throttle and the 1.5 DPR cap — those four are what keep it cheap. Because it paints the full viewport behind everything, verify text contrast with the hot color at full intensity.\"\n  }\n  </script>\n  <style>\n    :root {\n      --bg: #0d0d15;\n      --ink: #ececf3;\n      --accent: #c79bff;\n      --muted: #6a6a85;\n      --mono: ui-monospace, \"SF Mono\", Menlo, Consolas, monospace;\n      /* The two knobs the effect actually reads; they alias your theme tokens. */\n      --glyph-field-cold: var(--ink);\n      --glyph-field-hot: var(--accent);\n    }\n    html, body { height: 100%; margin: 0; overflow: hidden; }\n    body { background: var(--bg); color: var(--muted); font-family: var(--mono); }\n\n    /* Decorative, viewport-sized, never interactive. Content goes above it. */\n    canvas[data-glyph-field] {\n      position: fixed; inset: 0; display: block;\n      width: 100%; height: 100%;\n      z-index: 0; pointer-events: none;\n    }\n\n    /* Content layer — must be positioned with z-index >= 1. */\n    .stage {\n      position: relative; z-index: 1;\n      height: 100%; display: grid; place-content: center;\n      text-align: center; padding: 1rem; pointer-events: none;\n    }\n    .stage h1 {\n      margin: 0; font-size: clamp(1.4rem, 5.6vw, 2.8rem); line-height: 1;\n      letter-spacing: -0.03em; color: var(--ink); font-weight: 600;\n    }\n    .stage p { margin: 0.9rem 0 0; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; }\n  </style>\n</head>\n<body>\n  <canvas data-glyph-field aria-hidden=\"true\"></canvas>\n\n  <div class=\"stage\">\n    <h1>Glyph field</h1>\n    <p>move · click</p>\n  </div>\n\n  <script>\n  (function (window, document) {\n    \"use strict\";\n\n    var instance = null, readyHandler = null, API = window.GlyphField || {};\n\n    function create(canvas) {\n      canvas = canvas || document.querySelector(\"[data-glyph-field]\") || document.getElementById(\"glyphfield\");\n      if (!canvas || !canvas.getContext) return null;\n      var ctx = canvas.getContext(\"2d\", { alpha: true });\n      if (!ctx) return null;\n\n      // Gate: reduced motion or a device without a fine hover pointer gets one\n      // still frame instead of a live loop (and instead of a blank box).\n      var reduced = window.matchMedia && window.matchMedia(\"(prefers-reduced-motion: reduce)\");\n      var fine = window.matchMedia && window.matchMedia(\"(hover: hover) and (pointer: fine)\");\n      var still = (reduced && reduced.matches) || (fine && !fine.matches);\n\n      var FONT = 13, LEADING = 1.26, R_BASE = 58, R_FAST = 34, PEAK = 0.85;\n      var SIZES = 4, DECAY = 0.972, COOL = 0.955, SCRAMBLE = 90, BANDS = 6;\n      var WAVE_SPEED = 780, WAVE_WIDTH = 46, WAVE_MAX = 820;\n      var SPEED_DIV = 2.2, SPEED_REF = 900;\n      var IDLE_MS = 2600, DEMO_WAVE_MS = 6500, DEMO_WAVE_0 = 3400;\n      var STROKE_MS = 2400, STROKE_LEAD = 1000, STROKE_RUN = 800;\n      // One glyph set per 45-degree direction bucket, starting at \"east\".\n      var SETS = [\n        [\">\", \">\", \">\", \"›\", \"»\", \"-\"], [\"\\\\\", \"\\\\\", \"\\\\\", \">\", \"·\"],\n        [\"v\", \"v\", \"|\", \"·\", \"↓\"], [\"/\", \"/\", \"/\", \"<\", \"·\"],\n        [\"<\", \"<\", \"<\", \"‹\", \"«\", \"-\"], [\"\\\\\", \"\\\\\", \"\\\\\", \"<\", \"·\"],\n        [\"^\", \"^\", \"|\", \"·\", \"↑\"], [\"/\", \"/\", \"/\", \">\", \"·\"]\n      ];\n\n      var cw = 7.2, ch = 15, cols = 0, rows = 0, n = 0, dpr = 1, cssW = 0, cssH = 0, vDiv = SPEED_DIV;\n      var inten, heat, dirOf, seedOf, activeArr, inActive, activeCount = 0;\n      var waves = [], raf = 0, resizeTimer = null, dead = false;\n      var lastX = null, lastY = null, lastT = 0, prevX = null, prevY = null, dir = 0, speed = 0;\n      var movedAt = -1e9, drawnAt = -1e9, userAt = -1e9, demo = !still;\n      var demoWave = DEMO_WAVE_0 - DEMO_WAVE_MS;\n      var dx0 = 0, dy0 = 0, dx1 = 0, dy1 = 0, dirty = false;\n      var ramp = [], fontAt = [];\n      var SLOTS = SIZES * BANDS, bucket = [], bucketLen = new Int32Array(SLOTS);\n      var SIN = new Float32Array(256), q, k;\n      for (q = 0; q < 256; q++) SIN[q] = Math.sin(q / 256 * Math.PI * 2);\n      for (k = 0; k < SLOTS; k++) bucket.push([]);\n\n      /* ---------- helpers ---------- */\n\n      function hash(v) {\n        v = (v ^ 61) ^ (v >>> 16); v += v << 3; v ^= v >>> 4;\n        v = Math.imul(v, 0x27d4eb2d); return (v ^ (v >>> 15)) >>> 0;\n      }\n      function rgbOf(value, fallback) {\n        var str = (value || fallback).trim();\n        if (str.charAt(0) === \"#\") {\n          if (str.length === 4) str = \"#\" + str[1] + str[1] + str[2] + str[2] + str[3] + str[3];\n          var num = parseInt(str.slice(1), 16);\n          if (!isNaN(num)) return [(num >> 16) & 255, (num >> 8) & 255, num & 255];\n        }\n        var m = str.match(/(\\d+(?:\\.\\d+)?)/g);\n        return m && m.length >= 3 ? [+m[0], +m[1], +m[2]] : rgbOf(fallback, \"#888888\");\n      }\n      // Precompute the cold -> hot ramp once per theme change, not per glyph.\n      function refreshColors() {\n        if (dead) return;\n        var st = window.getComputedStyle(document.documentElement);\n        var cold = rgbOf(st.getPropertyValue(\"--glyph-field-cold\") || st.getPropertyValue(\"--glyph\") || st.getPropertyValue(\"--ink\"), \"#ececf3\");\n        var hot = rgbOf(st.getPropertyValue(\"--glyph-field-hot\") || st.getPropertyValue(\"--glow\") || st.getPropertyValue(\"--accent\"), \"#c79bff\");\n        ramp.length = 0;\n        for (var b = 0; b < BANDS; b++) {\n          var t = b / (BANDS - 1);\n          ramp.push(\"rgb(\" + Math.round(cold[0] + (hot[0] - cold[0]) * t) + \",\" +\n            Math.round(cold[1] + (hot[1] - cold[1]) * t) + \",\" +\n            Math.round(cold[2] + (hot[2] - cold[2]) * t) + \")\");\n        }\n        if (still) requestFrame();\n      }\n      function resize() {\n        if (dead) return;\n        dpr = Math.min(window.devicePixelRatio || 1, 1.5); // cap: 2x costs 1.8x fill for no visible gain\n        var w = window.innerWidth, h = window.innerHeight;\n        cssW = w; cssH = h;\n        // Normalize \"fast\" against the viewport, not raw px/ms: the same gesture\n        // should read equally hot in a 600px hero box and on a 1600px display.\n        vDiv = SPEED_DIV * Math.max(0.5, Math.min(Math.min(w, h) / SPEED_REF, 1.35));\n        canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);\n        canvas.style.width = w + \"px\"; canvas.style.height = h + \"px\";\n        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);\n        var family = window.getComputedStyle(document.body).getPropertyValue(\"--mono\") || \"monospace\";\n        ctx.font = FONT + \"px \" + family;\n        cw = ctx.measureText(\"M\").width || FONT * 0.6;\n        fontAt.length = 0;\n        for (var z = 0; z < SIZES; z++) fontAt.push((FONT * (0.55 + 0.45 * z / (SIZES - 1))).toFixed(2) + \"px \" + family);\n        ch = Math.round(FONT * LEADING);\n        ctx.textAlign = \"center\"; ctx.textBaseline = \"middle\";\n        cols = Math.ceil(w / cw) + 1; rows = Math.ceil(h / ch) + 1; n = cols * rows;\n        inten = new Float32Array(n); heat = new Float32Array(n); dirOf = new Uint8Array(n);\n        seedOf = new Uint8Array(n); activeArr = new Int32Array(n); inActive = new Uint8Array(n);\n        activeCount = 0; dirty = false; waves.length = 0;\n        for (var i = 0; i < n; i++) seedOf[i] = hash(i) & 255;\n        if (still) paintStill(); else requestFrame();\n      }\n\n      /* ---------- field ---------- */\n\n      function light(i, value, direction, warmth) {\n        if (value > inten[i]) {\n          inten[i] = value; dirOf[i] = direction;\n          if (!inActive[i]) { inActive[i] = 1; activeArr[activeCount++] = i; }\n        }\n        if (warmth > heat[i]) heat[i] = warmth;\n      }\n      // Stamp a capsule along the segment travelled since the last sample, so a\n      // fast flick paints a ribbon instead of disconnected blobs.\n      function stamp(ax, ay, bx, by, radius) {\n        var rsq = radius * radius, abx = bx - ax, aby = by - ay, abLen = abx * abx + aby * aby;\n        var c0 = Math.max(0, Math.floor((Math.min(ax, bx) - radius) / cw));\n        var c1 = Math.min(cols, Math.ceil((Math.max(ax, bx) + radius) / cw));\n        var r0 = Math.max(0, Math.floor((Math.min(ay, by) - radius) / ch));\n        var r1 = Math.min(rows, Math.ceil((Math.max(ay, by) + radius) / ch));\n        for (var r = r0; r < r1; r++) for (var c = c0; c < c1; c++) {\n          var px = c * cw + cw * 0.5, py = r * ch + ch * 0.5, along = 0;\n          if (abLen > 0) { along = ((px - ax) * abx + (py - ay) * aby) / abLen; along = Math.max(0, Math.min(1, along)); }\n          var x = px - (ax + abx * along), y = py - (ay + aby * along), dsq = x * x + y * y;\n          if (dsq > rsq) continue;\n          var i = r * cols + c, t = 1 - Math.sqrt(dsq) / radius;\n          var value = t * (0.55 + t * 0.45) * (0.90 + (seedOf[i] % 100) / 1000) * (0.78 + speed * 0.35);\n          if (value > 0.02) light(i, value, dir, Math.min(t * (0.30 + speed * 1.15), 1));\n        }\n      }\n      // One pointer sample — real or synthesized by the idle demo.\n      function feed(mx, my, now) {\n        if (lastX !== null) {\n          var vx = mx - lastX, vy = my - lastY, dist = Math.sqrt(vx * vx + vy * vy);\n          if (dist > 2.5) {\n            dir = ((Math.round(Math.atan2(vy, vx) / (Math.PI / 4)) % 8) + 8) % 8;\n            speed = Math.min(dist / Math.max(now - lastT, 8) / vDiv, 1);\n          } else speed *= 0.9;\n        }\n        lastX = mx; lastY = my; lastT = now; movedAt = now;\n        if (prevX === null) { prevX = mx; prevY = my; }\n        if (Math.abs(mx - prevX) + Math.abs(my - prevY) > 400) { prevX = mx; prevY = my; }\n        stamp(prevX, prevY, mx, my, R_BASE + R_FAST * speed);\n        prevX = mx; prevY = my;\n      }\n      function splash(x, y, ts) {\n        if (waves.length > 3) waves.shift();\n        waves.push({ x: x, y: y, t0: ts });\n      }\n      function stepWaves(ts) {\n        for (var w = waves.length - 1; w >= 0; w--) {\n          var wave = waves[w], rad = (ts - wave.t0) / 1000 * WAVE_SPEED;\n          if (rad > WAVE_MAX) { waves.splice(w, 1); continue; }\n          var outer = rad + WAVE_WIDTH, inner = Math.max(rad - WAVE_WIDTH, 0);\n          var outerSq = outer * outer, innerSq = inner * inner, fade = 1 - rad / WAVE_MAX;\n          var c0 = Math.max(0, Math.floor((wave.x - outer) / cw)), c1 = Math.min(cols, Math.ceil((wave.x + outer) / cw));\n          var r0 = Math.max(0, Math.floor((wave.y - outer) / ch)), r1 = Math.min(rows, Math.ceil((wave.y + outer) / ch));\n          for (var r = r0; r < r1; r++) for (var c = c0; c < c1; c++) {\n            var x = c * cw + cw * 0.5 - wave.x, y = r * ch + ch * 0.5 - wave.y, dsq = x * x + y * y;\n            if (dsq < innerSq || dsq > outerSq) continue;\n            var edge = 1 - Math.abs(Math.sqrt(dsq) - rad) / WAVE_WIDTH;\n            if (edge > 0) light(r * cols + c, edge * fade * 0.95, ((Math.round(Math.atan2(y, x) / (Math.PI / 4)) % 8) + 8) % 8, edge * fade);\n          }\n        }\n      }\n\n      /* ---------- draw ---------- */\n\n      // Bucket lit cells by (size, color band) so font/fillStyle are set at most\n      // SIZES*BANDS times per frame instead of once per glyph.\n      function paint(ts, animate) {\n        if (dirty) ctx.clearRect(dx0, dy0, dx1 - dx0, dy1 - dy0);\n        var nx0 = 1e9, ny0 = 1e9, nx1 = -1e9, ny1 = -1e9;\n        var tick = (ts / SCRAMBLE) | 0, phase = (ts * 0.17) | 0, b;\n        for (b = 0; b < SLOTS; b++) bucketLen[b] = 0;\n        var write = 0;\n        for (var a = 0; a < activeCount; a++) {\n          var idx = activeArr[a], value = animate ? inten[idx] * DECAY : inten[idx];\n          if (value < 0.012) { inten[idx] = heat[idx] = inActive[idx] = 0; continue; }\n          inten[idx] = value; if (animate) heat[idx] *= COOL;\n          activeArr[write++] = idx;\n          var band = Math.min(BANDS - 1, (heat[idx] * (BANDS - 1) + 0.5) | 0);\n          var size = Math.max(0, Math.min(SIZES - 1, (value * SIZES) | 0));\n          var slot = size * BANDS + band; bucket[slot][bucketLen[slot]++] = idx;\n        }\n        activeCount = write;\n        for (b = 0; b < SLOTS; b++) {\n          var len = bucketLen[b]; if (!len) continue;\n          ctx.font = fontAt[(b / BANDS) | 0]; ctx.fillStyle = ramp[b % BANDS];\n          for (k = 0; k < len; k++) {\n            var i2 = bucket[b][k], v2 = inten[i2], set = SETS[dirOf[i2]];\n            var pick = v2 > 0.5 ? hash(i2 + tick * 7919) : hash(i2 + (tick >> 2) * 104729);\n            var shimmer = animate ? 0.80 + 0.20 * SIN[(phase + seedOf[i2]) & 255] : 0.9;\n            var c2 = i2 % cols, r2 = (i2 - c2) / cols;\n            var px = c2 * cw + cw * 0.5, py = r2 * ch + ch * 0.5;\n            nx0 = Math.min(nx0, px); nx1 = Math.max(nx1, px);\n            ny0 = Math.min(ny0, py); ny1 = Math.max(ny1, py);\n            ctx.globalAlpha = Math.min(v2, 1) * PEAK * shimmer;\n            ctx.fillText(set[(pick + seedOf[i2]) % set.length], px, py);\n          }\n        }\n        ctx.globalAlpha = 1;\n        if (nx1 > -1e8) {\n          dx0 = Math.max(0, nx0 - cw * 2); dy0 = Math.max(0, ny0 - ch * 2);\n          dx1 = Math.min(cssW, nx1 + cw * 2); dy1 = Math.min(cssH, ny1 + ch * 2); dirty = true;\n        } else dirty = false;\n      }\n\n      // Reduced motion / no fine pointer: one frozen sweep, no loop, no listeners.\n      function paintStill() {\n        if (!cols || !ramp.length) return;\n        // light() only ever raises a cell, so the grid must be wiped or a repeat\n        // call stamps nothing and the full clear below leaves an empty canvas.\n        inten.fill(0); heat.fill(0); inActive.fill(0);\n        activeCount = 0; dirty = false;\n        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);\n        ctx.clearRect(0, 0, cssW, cssH);\n        lastX = null; prevX = null; speed = 0.62; dir = 0;\n        // A short arc, sampled by hand so the segments join into one ribbon.\n        for (var st = 0; st <= 26; st++) {\n          var u = st / 26;\n          speed = 0.62;\n          dir = 0;\n          feed(cssW * (0.10 + 0.80 * u), cssH * (0.72 - 0.44 * u * u), st * 24);\n        }\n        paint(0, false);\n      }\n\n      // Idle demo: synthesize a pointer so the specimen shows itself, and hand\n      // control back the moment a real pointer arrives. Discrete eased strokes\n      // rather than a continuous orbit — an orbit re-crosses its own trail and\n      // washes the whole viewport, while a stroke reads as one gesture and its\n      // smoothstep velocity runs cold at the ends and hot through the middle.\n      function driveDemo(ts) {\n        var local = ts % STROKE_MS, k = (ts / STROKE_MS) | 0;\n        if (local < STROKE_LEAD || local > STROKE_LEAD + STROKE_RUN) {\n          lastX = null; prevX = null; return;   // resting between strokes\n        }\n        var h1 = hash(k * 2654435761), h2 = hash(k * 40503 + 7);\n        var ax = 0.10 + 0.20 * ((h1 & 255) / 255), ay = 0.16 + 0.68 * (((h1 >>> 8) & 255) / 255);\n        var bx = 0.70 + 0.22 * ((h2 & 255) / 255), by = 0.16 + 0.68 * (((h2 >>> 8) & 255) / 255);\n        if (k & 1) { var sx = ax; ax = bx; bx = sx; var sy = ay; ay = by; by = sy; }\n        var u = (local - STROKE_LEAD) / STROKE_RUN, e = u * u * (3 - 2 * u);\n        feed(cssW * (ax + (bx - ax) * e), cssH * (ay + (by - ay) * e), ts);\n      }\n\n      function requestFrame() { if (!raf && !dead) raf = window.requestAnimationFrame(frame); }\n      function frame(ts) {\n        raf = 0; if (dead) return;\n        if (still) { paintStill(); return; }\n        if (!demo && ts - userAt > IDLE_MS) { demo = true; demoWave = ts; lastX = null; prevX = null; }\n        if (demo && ts - demoWave > DEMO_WAVE_MS) { demoWave = ts; splash(lastX === null ? cssW * 0.5 : lastX, lastY === null ? cssH * 0.5 : lastY, ts); }\n        if (demo) driveDemo(ts);\n        // Idle: run at half rate rather than a full 60fps of pure decay.\n        if (!demo && ts - movedAt > 140 && !waves.length && ts - drawnAt < 30) { requestFrame(); return; }\n        drawnAt = ts;\n        if (waves.length) stepWaves(ts);\n        paint(ts, true);\n        if (activeCount || waves.length || demo) requestFrame();\n      }\n\n      /* ---------- wiring ---------- */\n\n      function onMove(e) {\n        demo = false; userAt = e.timeStamp || window.performance.now();\n        feed(e.clientX, e.clientY, userAt); requestFrame();\n      }\n      function onDown(e) {\n        demo = false; userAt = e.timeStamp || window.performance.now();\n        splash(e.clientX, e.clientY, window.performance.now()); requestFrame();\n      }\n      function onLeave() { speed = 0; lastX = null; prevX = null; }\n      function onResize() { window.clearTimeout(resizeTimer); resizeTimer = window.setTimeout(resize, 150); }\n\n      // Root attributes cover theme toggles; head mutations cover stylesheets\n      // swapped in at runtime (the gallery re-skins previews that way).\n      var rootObs = new MutationObserver(refreshColors);\n      var headObs = new MutationObserver(refreshColors);\n      refreshColors(); resize();\n      rootObs.observe(document.documentElement, { attributes: true, attributeFilter: [\"data-theme\", \"class\", \"style\"] });\n      headObs.observe(document.head, { childList: true, subtree: true, characterData: true });\n      window.addEventListener(\"resize\", onResize);\n      if (!still) {\n        window.addEventListener(\"pointermove\", onMove, { passive: true });\n        window.addEventListener(\"pointerdown\", onDown, { passive: true });\n        window.addEventListener(\"pointerleave\", onLeave);\n      }\n\n      return {\n        canvas: canvas,\n        refreshColors: refreshColors,\n        destroy: function () {\n          if (dead) return; dead = true;\n          if (raf) window.cancelAnimationFrame(raf);\n          window.clearTimeout(resizeTimer);\n          rootObs.disconnect(); headObs.disconnect();\n          window.removeEventListener(\"resize\", onResize);\n          window.removeEventListener(\"pointermove\", onMove);\n          window.removeEventListener(\"pointerdown\", onDown);\n          window.removeEventListener(\"pointerleave\", onLeave);\n          ctx.setTransform(1, 0, 0, 1, 0, 0);\n          ctx.clearRect(0, 0, canvas.width, canvas.height);\n          if (instance && instance.canvas === canvas) instance = null;\n        }\n      };\n    }\n\n    API.init = function (canvas) {\n      if (instance && (!canvas || canvas === instance.canvas)) return instance;\n      if (instance) instance.destroy();\n      instance = create(canvas); return instance;\n    };\n    API.destroy = function () {\n      if (readyHandler) { document.removeEventListener(\"DOMContentLoaded\", readyHandler); readyHandler = null; }\n      if (instance) instance.destroy();\n      instance = null;\n    };\n    API.refreshColors = function () { if (instance) instance.refreshColors(); };\n    window.GlyphField = API;\n\n    function autoInit() { readyHandler = null; API.init(); }\n    if (document.readyState === \"loading\") {\n      readyHandler = autoInit; document.addEventListener(\"DOMContentLoaded\", readyHandler, { once: true });\n    } else autoInit();\n  })(window, document);\n  </script>\n</body>\n</html>\n"
     },
     {
       "id": "blob-trail-cursor",
