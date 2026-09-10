@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inline Shortcut Hint</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shortcut-hint-inline",
+    "title": "Inline Shortcut Hint",
+    "summary": "Menu rows showing their shortcuts.",
+    "description": "Menu rows showing their shortcuts.",
+    "theme": "keyboard-input",
+    "categories": ["keyboard", "input"],
+    "tags": ["keyboard", "shortcut", "shortcut", "menu", "kbd", "hint"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+    "customization": [
+      { "name": "--bg", "description": "Menu background", "default": "#141a28" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Menus and command lists. Detect the platform and render ⌘ or Ctrl accordingly; showing Mac symbols to Windows users is the most common shortcut bug."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 250px; padding: .35rem; border-radius: 12px; background: #141a28; border: 1px solid #2b3450; }
+    .fx .it { display: flex; justify-content: space-between; align-items: center; padding: .45rem .65rem;
+      border-radius: 8px; color: #cbd5e1; font-size: .86rem; }
+    .fx .it:hover { background: #22304a; }
+    .fx kbd { padding: .1rem .35rem; border-radius: 5px; background: #1c2437; border: 1px solid #2b3450;
+      border-bottom-width: 2px; font-family: ui-monospace, monospace; font-size: .7rem; color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="menu"><div class="it" role="menuitem">New specimen <kbd>⌘N</kbd></div>
+  <div class="it" role="menuitem">Search <kbd>/</kbd></div><div class="it" role="menuitem">Toggle theme <kbd>⇧D</kbd></div></div>
+</body>
+</html>

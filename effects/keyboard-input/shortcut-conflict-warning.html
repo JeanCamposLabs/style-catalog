@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shortcut Editor</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shortcut-conflict-warning",
+    "title": "Shortcut Editor",
+    "summary": "A rebinding row that flags conflicts.",
+    "description": "A rebinding row that flags conflicts.",
+    "theme": "keyboard-input",
+    "categories": ["keyboard", "input"],
+    "tags": ["keyboard", "shortcut", "rebinding", "conflict", "shortcuts", "settings"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+    "customization": [
+      { "name": "--bad", "description": "Conflict colour", "default": "#d1478c" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Customisable shortcuts. Detect conflicts at bind time and name the command already using the combination; discovering the clash later is far more expensive to debug."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; display: grid; gap: 8px; }
+    .r { display: flex; justify-content: space-between; align-items: center; padding: .6rem .8rem; border-radius: 10px;
+      background: #151b2a; border: 1px solid #263149; font-size: .85rem; color: #cbd5e1; }
+    .r.bad { border-color: #d1478c; }
+    .r kbd { padding: .1rem .4rem; border-radius: 5px; background: #1c2437; border: 1px solid #2b3450;
+      font-family: ui-monospace, monospace; font-size: .74rem; }
+    .msg { font-size: .76rem; color: #f0a3c6; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="r"><span>Open palette</span><kbd>⌘K</kbd></div>
+  <div class="r bad"><span>Quick search</span><kbd>⌘K</kbd></div>
+  <span class="msg" role="alert">✕ ⌘K is already bound to “Open palette”</span></div>
+</body>
+</html>

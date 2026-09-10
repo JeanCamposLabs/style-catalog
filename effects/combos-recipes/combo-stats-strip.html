@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stats Strip</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "combo-stats-strip",
+    "title": "Stats Strip",
+    "summary": "Four headline numbers in a row.",
+    "description": "Four headline numbers in a row.",
+    "theme": "combos-recipes",
+    "categories": ["combo", "section"],
+    "tags": ["combo", "block", "stats", "numbers", "strip", "proof"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+    "customization": [
+      { "name": "--gap", "description": "Divider width", "default": "1px" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Credibility strips. A 1px gap on a coloured parent gives hairline dividers without any border maths, and the cells stay perfectly aligned."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { display: grid; place-items: center; padding: 2rem 1rem; }
+    .fx { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; width: min(92vw, 300px); border-radius: 16px;
+      overflow: hidden; background: #263149; }
+    .fx div { background: #151b2a; padding: 1rem .9rem; text-align: center; }
+    .fx .n { font-size: 1.6rem; font-weight: 900; line-height: 1; }
+    .fx .l { margin-top: .3rem; color: #8b93a7; font-size: .74rem; }
+  </style>
+</head>
+<body>
+  <section class="fx"><div><div class="n">1,181</div><div class="l">Specimens</div></div>
+  <div><div class="n">57</div><div class="l">Themes</div></div>
+  <div><div class="n">0</div><div class="l">Dependencies</div></div>
+  <div><div class="n">100%</div><div class="l">Offline-capable</div></div></section>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feature Grid Section</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "combo-feature-grid-section",
+    "title": "Feature Grid Section",
+    "summary": "A heading plus a three-up feature grid.",
+    "description": "A heading plus a three-up feature grid.",
+    "theme": "combos-recipes",
+    "categories": ["combo", "section"],
+    "tags": ["combo", "block", "features", "grid", "section", "marketing"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+    "customization": [
+      { "name": "--c", "description": "Accent", "default": "#7c5cff" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Marketing pages. Keep every icon block the same size so headings share a baseline, and let the grid collapse to one column rather than shrinking cards below readable width."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { display: grid; place-items: center; padding: 2rem 1rem; }
+    .wrap { width: min(92vw, 320px); }
+    .wrap .eyebrow { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: #b9a5ff; }
+    .wrap h2 { margin: .3rem 0 .5rem; font-size: 1.5rem; line-height: 1.2; }
+    .wrap .lede { margin: 0 0 1.2rem; color: #8b93a7; font-size: .88rem; line-height: 1.6; }
+    .grid { display: grid; gap: 10px; }
+    .card { padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }
+    .card .ic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; margin-bottom: .6rem;
+      background: linear-gradient(150deg, #7c5cff, #2dd4bf); color: #0b0d12; }
+    .card h3 { margin: 0 0 .25rem; font-size: .95rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .82rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <section class="wrap"><div class="eyebrow">Why the catalogue</div><h2>Effects you can actually ship</h2>
+  <p class="lede">Every specimen is one self-contained file with machine-readable metadata.</p>
+  <div class="grid"><article class="card"><div class="ic" aria-hidden="true">⚡</div><h3>Zero dependencies</h3><p>No CDN, no build step, no runtime.</p></article>
+  <article class="card"><div class="ic" aria-hidden="true">◆</div><h3>Agent-ready</h3><p>Structured metadata and usage notes per effect.</p></article>
+  <article class="card"><div class="ic" aria-hidden="true">♿</div><h3>Accessible by default</h3><p>Reduced-motion guards and real semantics.</p></article></div></section>
+</body>
+</html>

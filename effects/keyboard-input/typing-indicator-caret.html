@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blinking Caret</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "typing-indicator-caret",
+    "title": "Blinking Caret",
+    "summary": "A text caret with the correct blink rhythm.",
+    "description": "A text caret with the correct blink rhythm.",
+    "theme": "keyboard-input",
+    "categories": ["keyboard", "input"],
+    "tags": ["keyboard", "shortcut", "caret", "cursor", "blink", "text"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+    "customization": [
+      { "name": "--c", "description": "Caret colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Custom editors and terminal emulators. The system blink interval is about 1.06s with a hard on/off — a fading caret reads as a decoration rather than an insertion point."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { font-family: ui-monospace, monospace; font-size: 1.1rem; color: #cbd5e1; }
+    .fx i { display: inline-block; width: 2px; height: 1.1em; background: #7c5cff; vertical-align: -.15em;
+      animation: blink 1.06s step-end infinite; }
+    @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx">npm run build<i></i></div>
+</body>
+</html>

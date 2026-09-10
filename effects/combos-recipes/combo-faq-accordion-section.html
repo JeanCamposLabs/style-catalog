@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ Section</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "combo-faq-accordion-section",
+    "title": "FAQ Section",
+    "summary": "A heading with native disclosure questions.",
+    "description": "A heading with native disclosure questions.",
+    "theme": "combos-recipes",
+    "categories": ["combo", "section"],
+    "tags": ["combo", "block", "faq", "accordion", "details", "section"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+    "customization": [
+      { "name": "--bg", "description": "Panel background", "default": "#151b2a" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "FAQ and support pages. Native details gives keyboard support, in-page search, and correct disclosure semantics — an ARIA accordion has to reimplement all three."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { display: grid; place-items: center; padding: 2rem 1rem; }
+    .wrap { width: min(92vw, 310px); }
+    .wrap h2 { margin: 0 0 1rem; font-size: 1.4rem; }
+    details { border-radius: 12px; background: #151b2a; border: 1px solid #263149; margin-bottom: 8px; overflow: hidden; }
+    summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .8rem 1rem;
+      cursor: pointer; font-size: .9rem; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary .ch { color: #8b93a7; transition: transform .25s; }
+    details[open] summary .ch { transform: rotate(45deg); }
+    details p { margin: 0; padding: 0 1rem 1rem; color: #8b93a7; font-size: .84rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <section class="wrap"><h2>Frequently asked</h2>
+  <details open><summary>Can I use these commercially? <span class="ch">＋</span></summary><p>Yes — everything is MIT licensed, including the generated metadata.</p></details>
+  <details><summary>Do effects need a build step? <span class="ch">＋</span></summary><p>No. Each specimen is one HTML file that runs from the filesystem.</p></details>
+  <details><summary>How do agents consume it? <span class="ch">＋</span></summary><p>Through the JSON API or the bundled MCP server.</p></details></section>
+</body>
+</html>

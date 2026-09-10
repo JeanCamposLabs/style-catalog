@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comparison Block</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "combo-comparison-table-block",
+    "title": "Comparison Block",
+    "summary": "Plans compared feature by feature.",
+    "description": "Plans compared feature by feature.",
+    "theme": "combos-recipes",
+    "categories": ["combo", "section"],
+    "tags": ["combo", "block", "comparison", "table", "plans", "features"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+    "customization": [
+      { "name": "--ok", "description": "Included colour", "default": "#10a894" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Plan comparison. Use a tick with a visually-hidden 'included' label rather than colour alone, and keep feature names in the row header so the table remains navigable."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { display: grid; place-items: center; padding: 2rem 1rem; }
+    .fx { width: min(92vw, 300px); border-radius: 14px; overflow: hidden; border: 1px solid #263149; }
+    .fx table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    .fx th { background: #1c2437; color: #8b93a7; padding: .55rem .7rem; font-size: .7rem; text-transform: uppercase; text-align: left; }
+    .fx th.on { color: #b9a5ff; }
+    .fx td { padding: .55rem .7rem; border-top: 1px solid #1e2740; color: #cbd5e1; }
+    .fx td.c { text-align: center; }
+    .fx .y { color: #10a894; } .fx .n { color: #64748b; }
+  </style>
+</head>
+<body>
+  <section class="fx"><table><caption class="sr" style="position:absolute;left:-9999px">Plan comparison</caption>
+  <thead><tr><th scope="col">Feature</th><th scope="col">Starter</th><th scope="col" class="on">Studio</th></tr></thead>
+  <tbody><tr><td>Specimens</td><td class="c">All</td><td class="c">All</td></tr>
+  <tr><td>Bundles</td><td class="c"><span class="n">—</span></td><td class="c"><span class="y">✓</span></td></tr>
+  <tr><td>MCP access</td><td class="c"><span class="n">—</span></td><td class="c"><span class="y">✓</span></td></tr></tbody></table></section>
+</body>
+</html>

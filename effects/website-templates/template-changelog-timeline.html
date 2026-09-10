@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Changelog Page</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "template-changelog-timeline",
+    "title": "Changelog Page",
+    "summary": "A dated release log with version tags.",
+    "description": "A dated release log with version tags.",
+    "theme": "website-templates",
+    "categories": ["template", "page"],
+    "tags": ["template", "page", "changelog", "releases", "timeline", "docs"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+    "customization": [
+      { "name": "--c", "description": "Version colour", "default": "#b9a5ff" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Product changelogs. Tag each entry by type and keep versions in monospace so they align; readers scan for their version number before anything else."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { padding: 1.4rem; max-width: 34rem; margin: 0 auto; }
+    header { margin-bottom: 1.4rem; }
+    h1 { margin: 0 0 .3rem; font-size: 1.5rem; }
+    header p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    .rel { display: grid; grid-template-columns: 84px 1fr; gap: 1rem; padding: 1.1rem 0; border-top: 1px solid #1e2740; }
+    .rel .v { font-family: ui-monospace, monospace; font-size: .78rem; color: #b9a5ff; }
+    .rel time { display: block; color: #64748b; font-size: .72rem; margin-top: .2rem; }
+    .rel h2 { margin: 0 0 .4rem; font-size: 1rem; }
+    .rel ul { margin: 0; padding-left: 1.1rem; color: #8b93a7; font-size: .85rem; line-height: 1.7; }
+    .tag { display: inline-block; padding: .05rem .4rem; border-radius: 5px; font-size: .66rem; font-weight: 700; margin-right: .3rem; }
+    .add { background: rgba(16,168,148,.16); color: #7fd8cb; }
+    .fix { background: rgba(194,137,26,.16); color: #ecc57c; }
+  </style>
+</head>
+<body>
+  <header><h1>Changelog</h1><p>Every release, newest first.</p></header>
+  <main><article class="rel"><div><div class="v">0.24.0</div><time datetime="2026-09-10">10 Sept 2026</time></div>
+  <div><h2>A thousand new specimens</h2><ul><li><span class="tag add">added</span>552 specimens across 35 new themes</li>
+  <li><span class="tag add">added</span>Validated categorical palette for charts</li>
+  <li><span class="tag fix">fixed</span>Chunked grid rendering for large catalogues</li></ul></div></article>
+  <article class="rel"><div><div class="v">0.23.0</div><time datetime="2026-08-22">22 Aug 2026</time></div>
+  <div><h2>Poster pipeline</h2><ul><li><span class="tag add">added</span>Playwright poster generation</li></ul></div></article></main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keyboard Skip Set</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "keyboard-only-skip-nav",
+    "title": "Keyboard Skip Set",
+    "summary": "Skip links revealed only on focus.",
+    "description": "Skip links revealed only on focus.",
+    "theme": "keyboard-input",
+    "categories": ["keyboard", "input"],
+    "tags": ["keyboard", "shortcut", "skip-links", "keyboard", "bypass", "landmarks"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+    "customization": [
+      { "name": "--c", "description": "Link colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Pages with heavy navigation. Offer more than one skip target (content, search, footer) and put them first in the DOM so they are the very first tab stops."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 290px; height: 150px; border-radius: 14px; overflow: hidden; background: #10141f;
+      border: 1px solid #263149; }
+    .skips { position: absolute; top: 0; left: 0; right: 0; display: flex; gap: 6px; padding: 6px; z-index: 2; }
+    .skips a { position: absolute; top: -40px; padding: .4rem .8rem; border-radius: 0 0 8px 8px; background: #7c5cff;
+      color: #fff; text-decoration: none; font-size: .8rem; transition: top .18s; }
+    .skips a:nth-child(1) { left: 8px; } .skips a:nth-child(2) { left: 120px; }
+    .skips a:focus { top: 0; }
+    .body { padding: 3rem 1rem 1rem; color: #8b93a7; font-size: .82rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="skips"><a href="#c1">Skip to content</a><a href="#c2">Skip to search</a></div>
+  <div class="body" id="c1">Tab inside this frame: two skip links appear before anything else.</div></div>
+</body>
+</html>

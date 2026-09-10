@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hero with Form</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "combo-hero-split-form",
+    "title": "Hero with Form",
+    "summary": "A headline beside an inline sign-up form.",
+    "description": "A headline beside an inline sign-up form.",
+    "theme": "combos-recipes",
+    "categories": ["combo", "section"],
+    "tags": ["combo", "block", "hero", "form", "signup", "landing"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+    "customization": [
+      { "name": "--c", "description": "Action colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Landing pages with a single conversion goal. Ask for the minimum number of fields; every additional input measurably reduces completion."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { display: grid; place-items: center; padding: 2rem 1rem; }
+    .fx { width: min(92vw, 310px); }
+    .fx h1 { margin: 0 0 .4rem; font-size: 1.7rem; line-height: 1.15; }
+    .fx .lede { margin: 0 0 1.1rem; color: #8b93a7; font-size: .9rem; line-height: 1.6; }
+    .fx form { display: grid; gap: .5rem; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }
+    .fx input { padding: .7rem .9rem; border-radius: 10px; border: 1px solid #2b3450; background: #10141f; color: #e7ebf3; font: inherit; font-size: .86rem; }
+    .fx button { padding: .7rem; border: 0; border-radius: 10px; background: #7c5cff; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    .fx small { color: #64748b; font-size: .74rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <section class="fx"><h1>A museum of web effects, built for agents</h1>
+  <p class="lede">1,181 self-contained specimens with machine-readable metadata.</p>
+  <form><label class="sr" for="he" style="position:absolute;left:-9999px">Work email</label>
+  <input id="he" type="email" placeholder="you@studio.com" /><button type="button">Get access</button>
+  <small>No card required</small></form></section>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>API Reference</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "template-api-reference",
+    "title": "API Reference",
+    "summary": "An endpoint page with parameters and a response.",
+    "description": "An endpoint page with parameters and a response.",
+    "theme": "website-templates",
+    "categories": ["template", "page"],
+    "tags": ["template", "page", "api", "reference", "endpoint", "docs"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+    "customization": [
+      { "name": "--m", "description": "Method colour", "default": "#10a894" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "API documentation. Show the response shape immediately after the parameters; developers scan for the payload before they read prose."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { padding: 1.4rem; max-width: 34rem; margin: 0 auto; }
+    h1 { margin: 0 0 .4rem; font-size: 1.3rem; font-family: ui-monospace, monospace; }
+    .method { display: inline-block; padding: .12rem .5rem; border-radius: 6px; background: rgba(16,168,148,.16);
+      color: #7fd8cb; font-size: .7rem; font-weight: 800; margin-right: .4rem; }
+    .sub { margin: 0 0 1.1rem; color: #8b93a7; font-size: .88rem; line-height: 1.6; }
+    h2 { margin: 1.2rem 0 .5rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }
+    table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    th { text-align: left; color: #64748b; font-size: .68rem; text-transform: uppercase; padding: .3rem 0; }
+    td { padding: .4rem 0; border-top: 1px solid #1e2740; color: #cbd5e1; vertical-align: top; }
+    td code { color: #b9a5ff; font-family: ui-monospace, monospace; }
+    pre { margin: 0; padding: .9rem; border-radius: 10px; background: #0d1117; color: #c9d1d9; overflow-x: auto;
+      font-family: ui-monospace, monospace; font-size: .74rem; line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <h1><span class="method">GET</span>/api/effects/{id}.json</h1>
+  <p class="sub">Returns one complete specimen record, including its source.</p>
+  <main><h2>Parameters</h2><table><thead><tr><th scope="col">Name</th><th scope="col">Type</th><th scope="col">Description</th></tr></thead>
+  <tbody><tr><td><code>id</code></td><td>string</td><td>Kebab-case specimen id, e.g. <code>ripple-button</code>.</td></tr></tbody></table>
+  <h2>Response</h2><pre><code>{
+    "id": "ripple-button",
+    "theme": "buttons",
+    "tech": ["css", "js"],
+    "ai_usage": "Touch-first UIs…",
+    "source": "&lt;!DOCTYPE html&gt;…"
+  }</code></pre></main>
+</body>
+</html>

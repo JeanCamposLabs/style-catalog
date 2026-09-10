@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Composition State</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "ime-composition-state",
+    "title": "Composition State",
+    "summary": "Text mid-composition in an input method.",
+    "description": "Text mid-composition in an input method.",
+    "theme": "keyboard-input",
+    "categories": ["keyboard", "input"],
+    "tags": ["keyboard", "shortcut", "ime", "composition", "input-method", "i18n"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+    "customization": [
+      { "name": "--c", "description": "Composition colour", "default": "#b9a5ff" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "International input. Never handle keydown for text logic — listen for compositionstart/end, or every CJK user's input will be mangled mid-composition."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .fx .field { padding: .75rem .9rem; border-radius: 12px; border: 1px solid #7c5cff; background: #151b2a; color: #e7ebf3;
+      font-size: 1rem; }
+    .fx .comp { border-bottom: 2px dotted #b9a5ff; color: #b9a5ff; }
+    .fx .cands { display: flex; gap: .4rem; margin-top: .5rem; }
+    .fx .cands span { padding: .25rem .6rem; border-radius: 7px; background: #1c2437; color: #cbd5e1; font-size: .82rem; }
+    .fx .cands span:first-child { background: #7c5cff; color: #fff; }
+    .fx .note { margin-top: .6rem; color: #64748b; font-size: .74rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="field">検索<span class="comp">かたろぐ</span></div>
+  <div class="cands"><span>カタログ</span><span>катаlog</span><span>型録</span></div>
+  <p class="note">Dotted underline marks uncommitted text; candidates appear below.</p></div>
+</body>
+</html>

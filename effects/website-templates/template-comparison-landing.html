@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comparison Landing</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "template-comparison-landing",
+    "title": "Comparison Landing",
+    "summary": "A versus page with a verdict.",
+    "description": "A versus page with a verdict.",
+    "theme": "website-templates",
+    "categories": ["template", "page"],
+    "tags": ["template", "page", "comparison", "versus", "landing", "decision"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+    "customization": [
+      { "name": "--c", "description": "Highlight", "default": "#7c5cff" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Comparison pages. State honestly where the alternative wins; a page where one side has no drawbacks reads as marketing and is discounted entirely."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { padding: 1.4rem; max-width: 32rem; margin: 0 auto; }
+    h1 { margin: 0 0 .4rem; font-size: 1.5rem; }
+    .sub { margin: 0 0 1.2rem; color: #8b93a7; font-size: .88rem; line-height: 1.6; }
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.2rem; }
+    .col { padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }
+    .col.on { border-color: #7c5cff; }
+    .col b { font-size: .95rem; }
+    .col ul { margin: .5rem 0 0; padding-left: 1.1rem; color: #8b93a7; font-size: .8rem; line-height: 1.7; }
+    .verdict { padding: 1rem; border-radius: 14px; background: #191331; border: 1px solid #7c5cff; font-size: .86rem; line-height: 1.6; }
+    .verdict b { display: block; margin-bottom: .3rem; color: #b9a5ff; }
+  </style>
+</head>
+<body>
+  <h1>Catalogue vs. hand-rolled snippets</h1>
+  <p class="sub">Both work. The difference is what happens after the first month.</p>
+  <div class="cols"><div class="col on"><b>Style Catalog</b><ul><li>One file per effect</li><li>Machine-readable metadata</li>
+  <li>Validated accessibility notes</li></ul></div>
+  <div class="col"><b>Personal snippets</b><ul><li>Zero setup</li><li>Exactly your conventions</li><li>No search, no metadata</li></ul></div></div>
+  <div class="verdict"><b>Verdict</b>Keep your snippets for one-offs. Use the catalogue when more than one person, or one agent, has to find the effect again.</div>
+</body>
+</html>
