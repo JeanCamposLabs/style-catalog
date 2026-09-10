@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat Typing Indicator</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "typing-indicator",
+    "title": "Chat Typing Indicator",
+    "summary": "A message bubble with three dots that rise in sequence.",
+    "description": "The familiar chat affordance: a tail-bearing bubble plus three dots on a 0.18s stagger, sized to sit inline with real messages.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "chat"],
+    "tags": ["typing", "chat", "bubble", "dots", "messaging"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--bubble", "description": "Bubble background", "default": "#1c2333" },
+      { "name": "--c", "description": "Dot color", "default": "#94a3b8" }
+    ],
+    "variations": ["Add the sender's avatar beside it", "Tint per participant", "Fade the whole bubble in on arrival"],
+    "ai_usage": "Show it while awaiting a reply in chat or an AI stream. Match the bubble radius and padding to your real message bubbles so the indicator does not jump when the message replaces it; announce it with aria-live=polite."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --bubble: #1c2333; --c: #94a3b8; }
+    .typing { display: inline-flex; gap: 6px; align-items: center; padding: 14px 18px; border-radius: 18px 18px 18px 4px;
+      background: var(--bubble); }
+    .typing i { width: 9px; height: 9px; border-radius: 50%; background: var(--c);
+      animation: bump 1.2s ease-in-out infinite; animation-delay: calc(var(--i) * .18s); }
+    @keyframes bump { 0%, 60%, 100% { transform: translateY(0); opacity: .5; } 30% { transform: translateY(-6px); opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="typing" role="status" aria-label="Typing"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i></div>
+</body>
+</html>

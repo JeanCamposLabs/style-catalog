@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ripple Pulse</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "ripple-pulse-loader",
+    "title": "Ripple Pulse",
+    "summary": "Concentric rings expand and fade out of a still center, sonar-style.",
+    "description": "Two rings share one keyframe offset by half the cycle, so a new ripple always starts as the previous one dissolves.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "ambient"],
+    "tags": ["ripple", "pulse", "sonar", "expand", "rings"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Ring color", "default": "#38bdf8" },
+      { "name": "--dur", "description": "Ripple period", "default": "1.8s" }
+    ],
+    "variations": ["Three rings at one-third offsets", "Fill instead of stroke for a softer pulse", "Trigger a single ripple on click"],
+    "ai_usage": "Live-status, presence, or 'listening' indicators. Two children with animation-delay 0 and calc(var(--dur) / -2) give a continuous ripple with no gap. Keep the ring stroke thin — thick rings read as a target, not a pulse."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #38bdf8; --dur: 1.8s; }
+    .ripple { position: relative; width: 110px; height: 110px; display: grid; place-items: center; }
+    .ripple i { position: absolute; inset: 0; border: 3px solid var(--c); border-radius: 50%; opacity: 0;
+      animation: rip var(--dur) cubic-bezier(0,.2,.8,1) infinite; }
+    .ripple i:nth-child(2) { animation-delay: calc(var(--dur) / -2); }
+    .ripple .core { width: 18px; height: 18px; border-radius: 50%; background: var(--c); }
+    @keyframes rip { 0% { transform: scale(.18); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ripple" role="status" aria-label="Loading"><i></i><i></i><span class="core"></span></div>
+</body>
+</html>

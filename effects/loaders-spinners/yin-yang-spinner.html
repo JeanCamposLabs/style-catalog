@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yin Yang Spinner</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "yin-yang-spinner",
+    "title": "Yin Yang Spinner",
+    "summary": "A two-tone yin-yang built from one element and two pseudo-element dots.",
+    "description": "Split the circle with a hard-stop linear gradient, then place two half-size circles with inverted borders to form the classic tadpoles.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "spinner"],
+    "tags": ["yin-yang", "symbol", "rotate", "two-tone", "one-element"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--l", "description": "Light half", "default": "#e7ebf3" },
+      { "name": "--k", "description": "Dark half", "default": "#0b0d12" },
+      { "name": "--dur", "description": "Rotation", "default": "1.6s" }
+    ],
+    "variations": ["Brand colors instead of black/white", "Counter-rotate at half speed", "Pulse the scale on each turn"],
+    "ai_usage": "A characterful spinner for meditation, wellness, or zen-themed products. It's pure CSS with no SVG — the tadpole eyes come from the border on each pseudo-element, so keep the border width equal to a quarter of the diameter."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --l: #e7ebf3; --k: #0b0d12; --dur: 1.6s; }
+    .yy { width: 84px; height: 84px; border-radius: 50%; position: relative;
+      background: linear-gradient(90deg, var(--l) 50%, var(--k) 50%);
+      border: 2px solid var(--l); animation: yy var(--dur) linear infinite; }
+    .yy::before, .yy::after { content: ""; position: absolute; left: 25%; width: 50%; height: 50%; border-radius: 50%; }
+    .yy::before { top: 0; background: var(--l); border: 10px solid var(--k); }
+    .yy::after { bottom: 0; background: var(--k); border: 10px solid var(--l); }
+    @keyframes yy { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="yy" role="status" aria-label="Loading"></div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Folding Cube</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cube-fold-loader",
+    "title": "Folding Cube",
+    "summary": "Four quadrants fold in and out around a shared center in sequence.",
+    "description": "Each quadrant is rotated into place with a perspective transform and scales along its outer edge, so the square appears to fold in on itself.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "3d"],
+    "tags": ["3d", "fold", "cube", "perspective", "quadrant"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Face color", "default": "#22d3ee" },
+      { "name": "--dur", "description": "Fold cycle", "default": "2.4s" }
+    ],
+    "variations": ["Gradient faces for depth", "Reverse the fold order", "Add a soft shadow under the cube"],
+    "ai_usage": "A classic loader worth keeping for its silhouette. Each child needs its own rotateZ (0/90/180/270) on the wrapper and a scale on the ::before, with delays a quarter of the cycle apart. Keep perspective on the container or the fold looks flat."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #22d3ee; --dur: 2.4s; }
+    .fold { width: 64px; height: 64px; position: relative; transform: rotateZ(45deg); }
+    .fold i { position: absolute; inset: 0; width: 50%; height: 50%; float: left; transform: scale(1.1); }
+    .fold i::before { content: ""; position: absolute; inset: 0; background: var(--c); transform-origin: 100% 100%;
+      animation: fold var(--dur) linear infinite both; }
+    .fold i:nth-child(1) { transform: scale(1.1) rotateZ(0deg); }
+    .fold i:nth-child(2) { transform: scale(1.1) rotateZ(90deg); left: 50%; }
+    .fold i:nth-child(3) { transform: scale(1.1) rotateZ(180deg); top: 50%; left: 50%; }
+    .fold i:nth-child(4) { transform: scale(1.1) rotateZ(270deg); top: 50%; }
+    .fold i:nth-child(2)::before { animation-delay: calc(var(--dur) * .12); }
+    .fold i:nth-child(3)::before { animation-delay: calc(var(--dur) * .25); }
+    .fold i:nth-child(4)::before { animation-delay: calc(var(--dur) * .37); }
+    @keyframes fold {
+      0%, 10% { transform: perspective(140px) rotateX(-180deg); opacity: 0; }
+      25%, 75% { transform: perspective(140px) rotateX(0deg); opacity: 1; }
+      90%, 100% { transform: perspective(140px) rotateY(180deg); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fold" role="status" aria-label="Loading"><i></i><i></i><i></i><i></i></div>
+</body>
+</html>

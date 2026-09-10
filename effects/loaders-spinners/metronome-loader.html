@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Metronome</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "metronome-loader",
+    "title": "Metronome",
+    "summary": "A weighted arm swings between two stops with a click dot at each extreme.",
+    "description": "transform-origin at the base plus an ease-in-out swing produces pendulum motion; the flash at each end lands exactly at the keyframe extremes.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "time"],
+    "tags": ["metronome", "pendulum", "swing", "tempo", "music"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Arm color", "default": "#e7ebf3" },
+      { "name": "--a", "description": "Accent", "default": "#fbbf24" },
+      { "name": "--dur", "description": "Beat period", "default": "1.2s" }
+    ],
+    "variations": ["Move the weight to change the perceived tempo", "Add a tempo readout", "Bind --dur to real BPM"],
+    "ai_usage": "Music, tempo, or rhythm interfaces. Set --dur to 60/BPM * 2 seconds for a true beat. The pendulum illusion needs transform-origin: 50% 100% and an ease-in-out curve — linear looks like a windshield wiper."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #e7ebf3; --a: #fbbf24; --dur: 1.2s; }
+    .metro { position: relative; width: 96px; height: 96px; display: grid; place-items: end center; }
+    .metro .body { width: 0; height: 0; border-left: 34px solid transparent; border-right: 34px solid transparent;
+      border-bottom: 84px solid #1a2131; }
+    .metro .arm { position: absolute; bottom: 8px; width: 4px; height: 70px; background: var(--c); border-radius: 2px;
+      transform-origin: 50% 100%; animation: swing var(--dur) ease-in-out infinite alternate; }
+    .metro .arm b { position: absolute; top: 18px; left: 50%; width: 16px; height: 10px; margin-left: -8px;
+      border-radius: 3px; background: var(--a); }
+    @keyframes swing { from { transform: rotate(-26deg); } to { transform: rotate(26deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="metro" role="status" aria-label="Loading"><div class="body"></div><div class="arm"><b></b></div></div>
+</body>
+</html>

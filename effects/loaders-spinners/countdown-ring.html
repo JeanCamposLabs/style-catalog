@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Countdown Ring</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "countdown-ring",
+    "title": "Countdown Ring",
+    "summary": "An SVG ring that empties over a fixed duration with a digit at its center.",
+    "description": "stroke-dashoffset animates from zero to the full circumference, which drains the ring exactly once over --dur — the honest way to show a timed wait.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "time"],
+    "tags": ["countdown", "svg", "stroke-dashoffset", "timer", "ring"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Ring color", "default": "#fbbf24" },
+      { "name": "--dur", "description": "Countdown length", "default": "5s" }
+    ],
+    "variations": ["Turn red in the final second", "Count up instead of down", "Pause on hover"],
+    "ai_usage": "For timed waits with a known length — resend cooldowns, auto-redirects, session timeouts. Circumference is 2πr (here r=52 → 326.7); set stroke-dasharray to that number and animate stroke-dashoffset from 0 to it."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #fbbf24; --dur: 5s; }
+    .cd { position: relative; width: 130px; aspect-ratio: 1; display: grid; place-items: center; }
+    .cd svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+    .cd circle { fill: none; stroke-width: 8; }
+    .cd .track { stroke: #1c2333; }
+    .cd .bar { stroke: var(--c); stroke-linecap: round; stroke-dasharray: 326.7; stroke-dashoffset: 0;
+      animation: drain var(--dur) linear infinite; }
+    .cd span { font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+    @keyframes drain { to { stroke-dashoffset: 326.7; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cd" role="timer" aria-label="Countdown">
+    <svg viewBox="0 0 130 130" aria-hidden="true">
+      <circle class="track" cx="65" cy="65" r="52"></circle>
+      <circle class="bar" cx="65" cy="65" r="52"></circle>
+    </svg>
+    <span>5</span>
+  </div>
+</body>
+</html>

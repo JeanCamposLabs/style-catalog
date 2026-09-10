@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atom Orbits</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "atom-orbit-loader",
+    "title": "Atom Orbits",
+    "summary": "Three elliptical rings on different axes with electrons riding each one.",
+    "description": "Rotating each flattened ellipse to a different angle fakes 3D orbits; the electrons are dots animated along the same rotation as their ring.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "science"],
+    "tags": ["atom", "orbit", "electron", "ellipse", "science"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Orbit color", "default": "#22d3ee" },
+      { "name": "--n", "description": "Nucleus color", "default": "#f472b6" },
+      { "name": "--dur", "description": "Orbit period", "default": "1.5s" }
+    ],
+    "variations": ["Add a glow to the nucleus", "Different speed per orbit", "Real 3D with transform-style: preserve-3d"],
+    "ai_usage": "Science, research, or 'computing' contexts. Each .ring is the same ellipse rotated 60° apart; the electron is a child positioned at the ellipse edge so it inherits the ring's rotation for free."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #22d3ee; --n: #f472b6; --dur: 1.5s; }
+    .atom { position: relative; width: 96px; height: 96px; display: grid; place-items: center; }
+    .atom .ring { position: absolute; inset: 0; border: 2px solid color-mix(in srgb, var(--c) 55%, transparent);
+      border-radius: 50%; transform: rotate(var(--a)) scaleY(.38); animation: spin var(--dur) linear infinite; }
+    .atom .ring i { position: absolute; top: -5px; left: 50%; width: 10px; height: 10px; margin-left: -5px;
+      border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
+    .atom .core { width: 16px; height: 16px; border-radius: 50%; background: var(--n); box-shadow: 0 0 16px var(--n); }
+    @keyframes spin { to { transform: rotate(calc(var(--a) + 360deg)) scaleY(.38); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="atom" role="status" aria-label="Loading">
+    <div class="ring" style="--a:0deg"><i></i></div>
+    <div class="ring" style="--a:60deg"><i></i></div>
+    <div class="ring" style="--a:120deg"><i></i></div>
+    <div class="core"></div>
+  </div>
+</body>
+</html>
