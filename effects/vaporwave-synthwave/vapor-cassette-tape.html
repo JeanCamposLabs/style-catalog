@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cassette Tape</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "vapor-cassette-tape",
+    "title": "Cassette Tape",
+    "summary": "A compact cassette drawn in CSS.",
+    "description": "A compact cassette drawn in CSS.",
+    "theme": "vaporwave-synthwave",
+    "categories": ["retro", "vaporwave"],
+    "tags": ["vaporwave", "retro", "80s", "cassette", "tape", "music", "skeuomorphic"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+    "customization": [
+      { "name": "--a", "description": "Shell colour", "default": "#f472b6" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Music players and mixtape branding. Spinning reels at a slow constant rate is enough motion — do not animate the whole shell."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 240px; height: 150px; border-radius: 10px; background: linear-gradient(160deg, #f472b6, #7c3aed);
+      padding: 14px; box-shadow: inset 0 2px 0 rgba(255,255,255,.4), 0 14px 30px rgba(0,0,0,.5); }
+    .fx .win { height: 62px; border-radius: 6px; background: #1a1030; display: flex; align-items: center; justify-content: space-around; }
+    .fx .reel { width: 34px; height: 34px; border-radius: 50%; border: 6px solid #cbd5e1; background: #0b0d12;
+      animation: spin 3s linear infinite; }
+    .fx .lbl { margin-top: 12px; height: 34px; border-radius: 5px; background: rgba(255,255,255,.85); color: #4c1d95;
+      display: grid; place-items: center; font-weight: 800; font-size: .8rem; letter-spacing: .1em; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="win"><span class="reel"></span><span class="reel"></span></div><div class="lbl">SIDE A</div></div>
+</body>
+</html>

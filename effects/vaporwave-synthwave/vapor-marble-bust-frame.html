@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Statue Frame</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "vapor-marble-bust-frame",
+    "title": "Statue Frame",
+    "summary": "A classical bust motif framed in gradient and grid.",
+    "description": "A classical bust motif framed in gradient and grid.",
+    "theme": "vaporwave-synthwave",
+    "categories": ["retro", "vaporwave"],
+    "tags": ["vaporwave", "retro", "80s", "statue", "classical", "grid", "aesthetic"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+    "customization": [
+      { "name": "--a", "description": "Ground start", "default": "#6d28d9" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Vaporwave collage compositions. Desaturating the focal motif against a saturated ground is the core visual grammar of the style."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 250px; height: 190px; border-radius: 12px; overflow: hidden;
+      background: linear-gradient(160deg, #6d28d9, #db2777); display: grid; place-items: center; }
+    .fx::before { content: ""; position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.14) 0 1px, transparent 1px 26px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.14) 0 1px, transparent 1px 26px); }
+    .bust { position: relative; font-size: 5rem; filter: grayscale(1) contrast(1.2) drop-shadow(0 6px 14px rgba(0,0,0,.5)); }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="bust" aria-hidden="true">🗿</span></div>
+</body>
+</html>

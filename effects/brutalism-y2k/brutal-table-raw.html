@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raw Data Table</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "brutal-table-raw",
+    "title": "Raw Data Table",
+    "summary": "A table with visible borders and no polish.",
+    "description": "A table with visible borders and no polish.",
+    "theme": "brutalism-y2k",
+    "categories": ["brutalism", "y2k"],
+    "tags": ["brutalism", "raw", "table", "raw", "data", "grid"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+    "customization": [
+      { "name": "--hd", "description": "Header colour", "default": "#ffe600" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Data-forward brutalist layouts. Keep real <th> elements with scope so the table stays machine-readable however raw it looks."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { border-collapse: collapse; background: #fff; color: #0b0d12; font-family: "Courier New", monospace; font-size: .85rem; }
+    .fx th, .fx td { border: 2px solid #0b0d12; padding: .45rem .8rem; text-align: left; }
+    .fx th { background: #ffe600; text-transform: uppercase; font-size: .75rem; }
+    .fx tr:hover td { background: #e0f2fe; }
+  </style>
+</head>
+<body>
+  <table class="fx"><thead><tr><th scope="col">Build</th><th scope="col">Status</th></tr></thead>
+  <tbody><tr><td>0.24.1</td><td>PASS</td></tr><tr><td>0.24.0</td><td>PASS</td></tr><tr><td>0.23.9</td><td>FAIL</td></tr></tbody></table>
+</body>
+</html>

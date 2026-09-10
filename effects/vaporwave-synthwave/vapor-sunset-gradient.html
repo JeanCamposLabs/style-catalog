@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Retro Sunset</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "vapor-sunset-gradient",
+    "title": "Retro Sunset",
+    "summary": "A banded sun sinking into a gradient horizon.",
+    "description": "A banded sun sinking into a gradient horizon.",
+    "theme": "vaporwave-synthwave",
+    "categories": ["retro", "vaporwave"],
+    "tags": ["vaporwave", "retro", "80s", "sunset", "sun", "bands", "gradient"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+    "customization": [
+      { "name": "--a", "description": "Sky top", "default": "#2b1055" },
+      { "name": "--b", "description": "Sky bottom", "default": "#ff6b9d" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "The signature synthwave sun. The horizontal banding comes from a repeating mask, not from stripes drawn on top."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 280px; height: 190px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(180deg, #2b1055, #7b2d8e 55%, #ff6b9d); }
+    .fx .sun { position: absolute; bottom: 26%; left: 50%; translate: -50% 0; width: 130px; height: 130px; border-radius: 50%;
+      background: linear-gradient(180deg, #fde68a, #ff2d95);
+      -webkit-mask-image: repeating-linear-gradient(180deg, #000 0 10px, transparent 10px 14px);
+      mask-image: repeating-linear-gradient(180deg, #000 0 10px, transparent 10px 14px); }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="sun"></span></div>
+</body>
+</html>

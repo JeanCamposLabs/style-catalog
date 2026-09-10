@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glitching Panel</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neon-glitch-panel",
+    "title": "Glitching Panel",
+    "summary": "A cyberpunk panel with intermittent tearing.",
+    "description": "A cyberpunk panel with intermittent tearing.",
+    "theme": "neon-cyberpunk",
+    "categories": ["neon", "cyberpunk"],
+    "tags": ["neon", "glow", "dark", "glitch", "panel", "terminal", "tear"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+    "customization": [
+      { "name": "--c", "description": "Panel colour", "default": "#22d3ee" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Cyberpunk terminals. Keep the glitch rare (a couple of frames in five seconds) — constant tearing becomes wallpaper and hurts legibility."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 250px; padding: 1.2rem; border: 1px solid #22d3ee; color: #22d3ee;
+      font-family: ui-monospace, Menlo, monospace; font-size: .85rem; background: rgba(8,20,26,.7);
+      animation: tear 5s steps(1) infinite; }
+    @keyframes tear {
+      0%, 92%, 100% { clip-path: inset(0); transform: none; }
+      93% { clip-path: inset(18% 0 62% 0); transform: translateX(6px); }
+      95% { clip-path: inset(58% 0 22% 0); transform: translateX(-8px); }
+      97% { clip-path: inset(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx">&gt; ICE breached<br>&gt; node 0x4f: OPEN<br>&gt; tracing…</div>
+</body>
+</html>

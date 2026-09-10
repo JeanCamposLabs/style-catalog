@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cyber Scanlines</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neon-scanline-overlay",
+    "title": "Cyber Scanlines",
+    "summary": "A tight scanline layer with a rolling refresh band.",
+    "description": "A tight scanline layer with a rolling refresh band.",
+    "theme": "neon-cyberpunk",
+    "categories": ["neon", "cyberpunk"],
+    "tags": ["neon", "glow", "dark", "scanlines", "crt", "overlay", "roll"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+    "customization": [
+      { "name": "--c", "description": "Scanline colour", "default": "rgba(34,211,238,.09)" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Overlay this on any panel for an instant retro-tech read. Keep the rolling band faint — it should be felt more than seen."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 280px; height: 170px; border-radius: 12px; overflow: hidden;
+      background: linear-gradient(135deg, #0a1520, #06101a); }
+    .fx::before { content: ""; position: absolute; inset: 0;
+      background: repeating-linear-gradient(180deg, rgba(34,211,238,.09) 0 1px, transparent 1px 3px); }
+    .fx::after { content: ""; position: absolute; left: 0; right: 0; height: 40px;
+      background: linear-gradient(180deg, transparent, rgba(34,211,238,.16), transparent); animation: roll 4s linear infinite; }
+    @keyframes roll { from { top: -40px; } to { top: 100%; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orb Menu</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "y2k-gradient-orb-menu",
+    "title": "Orb Menu",
+    "summary": "Glossy circular menu orbs in a row.",
+    "description": "Glossy circular menu orbs in a row.",
+    "theme": "brutalism-y2k",
+    "categories": ["brutalism", "y2k"],
+    "tags": ["brutalism", "raw", "orb", "gloss", "menu", "buttons"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+    "customization": [
+      { "name": "--a", "description": "Orb colour", "default": "#f472b6" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Y2K navigation. Each orb needs a highlight cap and an inner bottom shadow to look spherical rather than flat."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .row { display: flex; gap: 14px; }
+    .orb { width: 64px; height: 64px; border-radius: 50%; border: 0; cursor: pointer; position: relative; color: #fff;
+      font-weight: 800; box-shadow: 0 8px 18px rgba(0,0,0,.45), inset 0 -6px 12px rgba(0,0,0,.3); }
+    .orb::before { content: ""; position: absolute; top: 6px; left: 14%; right: 14%; height: 38%; border-radius: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,0)); }
+  </style>
+</head>
+<body>
+  <div class="row"><button class="orb" type="button" style="background:radial-gradient(circle at 40% 30%,#fbcfe8,#db2777)">1</button>
+  <button class="orb" type="button" style="background:radial-gradient(circle at 40% 30%,#bae6fd,#0284c7)">2</button>
+  <button class="orb" type="button" style="background:radial-gradient(circle at 40% 30%,#bbf7d0,#16a34a)">3</button></div>
+</body>
+</html>

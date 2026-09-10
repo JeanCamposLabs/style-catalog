@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chrome Type</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "vapor-chrome-type",
+    "title": "Chrome Type",
+    "summary": "Reflective chrome lettering with a magenta edge.",
+    "description": "Reflective chrome lettering with a magenta edge.",
+    "theme": "vaporwave-synthwave",
+    "categories": ["retro", "vaporwave"],
+    "tags": ["vaporwave", "retro", "80s", "chrome", "type", "metal", "logo"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+    "customization": [
+      { "name": "--edge", "description": "Edge colour", "default": "#ff2d95" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "80s logos and title cards. The magenta drop-shadow offset by a couple of pixels is what dates it correctly to the era."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { font-size: 3rem; font-weight: 900; letter-spacing: .04em;
+      background: linear-gradient(180deg, #fff 0 12%, #9aa4bb 30%, #fff 46%, #5b6478 62%, #e2e8f0 82%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 2px 0 #ff2d95) drop-shadow(0 4px 10px rgba(255,45,149,.6)); }
+  </style>
+</head>
+<body>
+  <div class="fx">MIAMI</div>
+</body>
+</html>

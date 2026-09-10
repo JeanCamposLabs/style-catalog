@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wireframe Cube</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neon-wire-frame-cube",
+    "title": "Wireframe Cube",
+    "summary": "A rotating neon wireframe cube.",
+    "description": "A rotating neon wireframe cube.",
+    "theme": "neon-cyberpunk",
+    "categories": ["neon", "cyberpunk"],
+    "tags": ["neon", "glow", "dark", "3d", "cube", "wireframe", "rotate"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+    "customization": [
+      { "name": "--c", "description": "Wire colour", "default": "#ff2d95" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Sci-fi loaders and logos. Six bordered faces at ±half the cube size make the wireframe; the glow comes from paired outer and inset shadows."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .scene { perspective: 600px; }
+    .cube { position: relative; width: 110px; height: 110px; transform-style: preserve-3d; animation: spin 9s linear infinite; }
+    .cube div { position: absolute; inset: 0; border: 2px solid #ff2d95; box-shadow: 0 0 12px #ff2d95, inset 0 0 12px rgba(255,45,149,.5); }
+    .f1 { transform: translateZ(55px); } .f2 { transform: rotateY(180deg) translateZ(55px); }
+    .f3 { transform: rotateY(90deg) translateZ(55px); } .f4 { transform: rotateY(-90deg) translateZ(55px); }
+    .f5 { transform: rotateX(90deg) translateZ(55px); } .f6 { transform: rotateX(-90deg) translateZ(55px); }
+    @keyframes spin { to { transform: rotateX(360deg) rotateY(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene"><div class="cube"><div class="f1"></div><div class="f2"></div><div class="f3"></div><div class="f4"></div><div class="f5"></div><div class="f6"></div></div></div>
+</body>
+</html>

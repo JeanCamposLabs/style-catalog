@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sticker Badge</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "brutal-sticker-badge",
+    "title": "Sticker Badge",
+    "summary": "A rotated die-cut sticker with a thick outline.",
+    "description": "A rotated die-cut sticker with a thick outline.",
+    "theme": "brutalism-y2k",
+    "categories": ["brutalism", "y2k"],
+    "tags": ["brutalism", "raw", "sticker", "badge", "rotate", "label"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+    "customization": [
+      { "name": "--c", "description": "Sticker colour", "default": "#ff5f6d" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Promo flashes in raw layouts. A few degrees of rotation plus a hard shadow is what makes it read as a physical sticker."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: inline-block; padding: .7rem 1.3rem; background: #ff5f6d; color: #fff; font-family: "Courier New", monospace;
+      font-weight: 800; text-transform: uppercase; border: 3px solid #0b0d12; border-radius: 999px;
+      transform: rotate(-8deg); box-shadow: 5px 5px 0 #0b0d12; }
+  </style>
+</head>
+<body>
+  <span class="fx">Limited</span>
+</body>
+</html>

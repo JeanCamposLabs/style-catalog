@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Stream</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neon-data-stream",
+    "title": "Data Stream",
+    "summary": "Vertical light streams falling behind a panel.",
+    "description": "Vertical light streams falling behind a panel.",
+    "theme": "neon-cyberpunk",
+    "categories": ["neon", "cyberpunk"],
+    "tags": ["neon", "glow", "dark", "stream", "data", "fall", "matrix"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+    "customization": [
+      { "name": "--c", "description": "Stream colour", "default": "#34d399" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Server, AI, and data-processing visuals. Vary each stream's duration and delay; identical timings make the whole field pulse together."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 260px; height: 180px; border-radius: 14px; overflow: hidden; background: #04070f; }
+    .fx i { position: absolute; top: -40%; width: 2px; height: 40%; background: linear-gradient(180deg, transparent, #34d399);
+      animation: fall var(--d) linear infinite; animation-delay: var(--dl); left: var(--x); }
+    @keyframes fall { to { transform: translateY(360%); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="--x:12%;--d:1.6s;--dl:0s"></i><i style="--x:30%;--d:2.2s;--dl:-.6s"></i><i style="--x:48%;--d:1.9s;--dl:-1.2s"></i>
+  <i style="--x:66%;--d:2.6s;--dl:-.3s"></i><i style="--x:84%;--d:1.7s;--dl:-1.8s"></i></div>
+</body>
+</html>

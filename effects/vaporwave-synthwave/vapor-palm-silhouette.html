@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Palm Silhouette</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "vapor-palm-silhouette",
+    "title": "Palm Silhouette",
+    "summary": "Palm trees against a gradient sky.",
+    "description": "Palm trees against a gradient sky.",
+    "theme": "vaporwave-synthwave",
+    "categories": ["retro", "vaporwave"],
+    "tags": ["vaporwave", "retro", "80s", "palm", "silhouette", "tropical", "sunset"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+    "customization": [
+      { "name": "--sky", "description": "Sky bottom", "default": "#ff6b9d" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Tropical retro scenes. A clip-path frond shape on a pseudo-element keeps each palm to a single element."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 290px; height: 190px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(180deg, #1b0b33, #ff6b9d); }
+    .fx .p { position: absolute; bottom: 0; width: 5px; background: #0a0316; }
+    .fx .p::before { content: ""; position: absolute; top: -12px; left: -22px; width: 50px; height: 26px; background: #0a0316;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0; clip-path: polygon(0 100%, 12% 20%, 28% 62%, 50% 0, 72% 62%, 88% 20%, 100% 100%); }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="p" style="left:18%;height:80px"></span><span class="p" style="left:74%;height:104px"></span></div>
+</body>
+</html>
