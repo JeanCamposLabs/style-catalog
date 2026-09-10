@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gooey Blob Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gooey-blob-button",
+    "title": "Gooey Blob Button",
+    "summary": "Blobs merge out of the button and settle back on hover.",
+    "description": "An SVG goo filter over overlapping circles makes separate shapes behave like one liquid mass.",
+    "theme": "buttons",
+    "categories": ["button", "filter"],
+    "tags": ["gooey", "svg-filter", "blob", "liquid", "hover"],
+    "tech": ["css", "svg"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Blob color", "default": "#a78bfa" }
+    ],
+    "variations": ["More blobs for a busier splash", "Trigger the goo on click", "Apply the same filter to a menu"],
+    "ai_usage": "Delight-first products. The goo comes from feGaussianBlur + feColorMatrix raising alpha contrast; the filter must wrap the button and its blobs in one filtered container, and the blur radius controls how sticky the merge looks."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #a78bfa; }
+    .goo { position: relative; filter: url(#goo); display: inline-block; }
+    .goo button { position: relative; z-index: 2; padding: 1rem 2.2rem; border-radius: 999px; background: var(--c);
+      color: #1b1230; font-weight: 800; }
+    .goo i { position: absolute; top: 50%; left: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px;
+      border-radius: 50%; background: var(--c); transition: transform .45s cubic-bezier(.34,1.56,.64,1); }
+    .goo:hover i:nth-of-type(1) { transform: translate(-72px, -22px); }
+    .goo:hover i:nth-of-type(2) { transform: translate(70px, 20px); }
+    .goo:hover i:nth-of-type(3) { transform: translate(-10px, 34px); }
+    svg.defs { position: absolute; width: 0; height: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true"><filter id="goo">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b"/>
+    <feColorMatrix in="b" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 20 -9"/>
+  </filter></svg>
+  <span class="goo">
+    <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
+    <button type="button">Gooey</button>
+  </span>
+</body>
+</html>

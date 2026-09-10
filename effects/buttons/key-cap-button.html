@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keycap Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "key-cap-button",
+    "title": "Keycap Button",
+    "summary": "A mechanical keycap with a bevel that depresses on click.",
+    "description": "Stacked inset and outer shadows form the keycap wall; the press removes the wall height rather than just moving the cap.",
+    "theme": "buttons",
+    "categories": ["button", "skeuomorphic"],
+    "tags": ["keycap", "keyboard", "skeuomorphic", "press", "tactile"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--cap", "description": "Cap color", "default": "#e7ebf3" },
+      { "name": "--wall", "description": "Wall color", "default": "#94a3b8" },
+      { "name": "--h", "description": "Cap height", "default": "6px" }
+    ],
+    "variations": ["Dark keycap set", "Legend printed on the front face", "Bind to a real key press"],
+    "ai_usage": "Shortcut hints, keyboard demos, retro hardware UIs. The wall is a box-shadow of 0 var(--h) 0 — on :active reduce it to 0 and translate the cap by the same amount so nothing appears to float."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --cap: #e7ebf3; --wall: #94a3b8; --h: 6px; }
+    .keycap { min-width: 64px; padding: .9rem 1.1rem; border-radius: 10px; background: var(--cap); color: #0b0d12;
+      font-weight: 800; font-family: ui-monospace, Menlo, monospace;
+      box-shadow: 0 var(--h) 0 var(--wall), 0 calc(var(--h) + 6px) 14px rgba(0,0,0,.45), inset 0 2px 0 #fff;
+      transition: transform .06s, box-shadow .06s; }
+    .keycap:active { transform: translateY(var(--h)); box-shadow: 0 0 0 var(--wall), 0 4px 10px rgba(0,0,0,.4), inset 0 2px 0 #fff; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="keycap" type="button">⏎ Enter</button>
+</body>
+</html>

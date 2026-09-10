@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Border Draw Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "border-draw-button",
+    "title": "Border Draw Button",
+    "summary": "Two lines race around the perimeter and meet to complete the frame.",
+    "description": "Two pseudo-elements scale on opposite axes with a delay, drawing the outline rather than fading it in.",
+    "theme": "buttons",
+    "categories": ["button", "border"],
+    "tags": ["border", "draw", "outline", "hover", "minimal"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Line color", "default": "#2dd4bf" },
+      { "name": "--dur", "description": "Draw duration", "default": "0.25s" }
+    ],
+    "variations": ["Draw from the center out", "Thicker lines for a bolder frame", "Reverse the draw on mouse-out"],
+    "ai_usage": "Minimal and editorial designs. Each pseudo-element covers two sides via border-top/right (and bottom/left) and animates scaleX then scaleY with a transition-delay — the delay is what makes it draw instead of appear."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #2dd4bf; --dur: .25s; }
+    .bd { position: relative; padding: 1rem 2.4rem; background: transparent; color: #e7ebf3; font-weight: 700;
+      letter-spacing: .05em; }
+    .bd::before, .bd::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+    .bd::before { border-top: 2px solid var(--c); border-right: 2px solid var(--c); transform: scale(0, 1); transform-origin: left; }
+    .bd::after { border-bottom: 2px solid var(--c); border-left: 2px solid var(--c); transform: scale(0, 1); transform-origin: right; }
+    .bd:hover::before, .bd:hover::after { transform: scale(1, 1); transition: transform var(--dur) ease; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="bd" type="button">Read more</button>
+</body>
+</html>

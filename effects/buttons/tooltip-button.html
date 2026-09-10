@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Button with Tooltip</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "tooltip-button",
+    "title": "Button with Tooltip",
+    "summary": "A tooltip fades in above the button after a short delay.",
+    "description": "The delay on show and its absence on hide is what stops tooltips from flickering as the pointer crosses a toolbar.",
+    "theme": "buttons",
+    "categories": ["button", "tooltip"],
+    "tags": ["tooltip", "hint", "delay", "hover", "toolbar"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "The tooltip text is linked with aria-describedby so it is announced; it also appears on :focus-visible, not hover alone.",
+    "customization": [
+      { "name": "--bg", "description": "Tooltip background", "default": "#1f2637" },
+      { "name": "--delay", "description": "Show delay", "default": "0.35s" }
+    ],
+    "variations": ["Position below or beside", "Arrow via a rotated square", "Rich tooltip with a shortcut key"],
+    "ai_usage": "Icon toolbars where labels are hidden. Always show on focus as well as hover, link with aria-describedby, and never put interactive content inside a hover tooltip — use a popover for that."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --bg: #1f2637; --delay: .35s; }
+    .tip { position: relative; display: inline-block; }
+    .tip button { padding: .7rem 1.2rem; border-radius: 10px; background: #151b2a; border: 1px solid #263149; color: #e7ebf3; }
+    .tip .bub { position: absolute; bottom: calc(100% + 10px); left: 50%; translate: -50% 0; white-space: nowrap;
+      background: var(--bg); color: #e7ebf3; padding: .45rem .7rem; border-radius: 8px; font-size: .85rem;
+      opacity: 0; visibility: hidden; transform: translateY(4px); transition: opacity .18s, transform .18s, visibility .18s; }
+    .tip .bub::after { content: ""; position: absolute; top: 100%; left: 50%; translate: -50% 0; border: 6px solid transparent; border-top-color: var(--bg); }
+    .tip:hover .bub, .tip button:focus-visible + .bub { opacity: 1; visibility: visible; transform: translateY(0); transition-delay: var(--delay); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <span class="tip">
+    <button type="button" aria-describedby="t1">⌘K</button>
+    <span class="bub" id="t1" role="tooltip">Open the command palette</span>
+  </span>
+</body>
+</html>

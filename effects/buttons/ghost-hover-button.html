@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ghost to Solid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "ghost-hover-button",
+    "title": "Ghost to Solid",
+    "summary": "A ghost button gains a solid fill that grows from the centre.",
+    "description": "A centred pseudo-element scales from zero, so the fill blooms outward instead of wiping across.",
+    "theme": "buttons",
+    "categories": ["button", "hover"],
+    "tags": ["ghost", "fill", "scale", "secondary", "hover"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Fill color", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Bloom duration", "default": "0.35s" }
+    ],
+    "variations": ["Scale from a corner", "Radial gradient fill", "Fill from the pointer position with JS"],
+    "ai_usage": "Secondary actions that need to feel equal to the primary on hover. Keep the border color constant through the transition so the button's footprint never appears to change."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #7c5cff; --dur: .35s; }
+    .ghost { position: relative; overflow: hidden; padding: .95rem 2.2rem; border-radius: 12px; background: transparent;
+      border: 2px solid var(--c); color: var(--c); font-weight: 700; transition: color var(--dur); }
+    .ghost span { position: relative; z-index: 2; }
+    .ghost::before { content: ""; position: absolute; inset: 0; background: var(--c); transform: scale(0);
+      border-radius: 50%; transition: transform var(--dur) cubic-bezier(.7,0,.2,1); }
+    .ghost:hover { color: #fff; }
+    .ghost:hover::before { transform: scale(2.2); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="ghost" type="button"><span>Learn more</span></button>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Traced Glow Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glow-trace-button",
+    "title": "Traced Glow Button",
+    "summary": "A point of light runs the border like current through a circuit.",
+    "description": "A small conic highlight rotates behind the button and is masked to the edge, so a single bright dot traces the perimeter.",
+    "theme": "buttons",
+    "categories": ["button", "border"],
+    "tags": ["trace", "circuit", "glow", "conic-gradient", "tech"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Trace color", "default": "#22d3ee" },
+      { "name": "--dur", "description": "Lap time", "default": "2.6s" }
+    ],
+    "variations": ["Two traces at opposite phases", "Trace only on hover", "Slow it right down for an idle state"],
+    "ai_usage": "Technical and AI-product interfaces. The mask is what confines the glow to the border: an inner element repaints the surface, leaving only a 1–2px ring visible. Keep the highlight narrow (under 20° of the conic sweep)."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #22d3ee; --dur: 2.6s; }
+    .trace { position: relative; padding: 1px; border-radius: 12px; overflow: hidden; background: #263149; }
+    .trace::before { content: ""; position: absolute; inset: -70%;
+      background: conic-gradient(transparent 0 82%, var(--c) 92%, transparent 100%);
+      animation: spin var(--dur) linear infinite; }
+    .trace button { position: relative; padding: .9rem 2.1rem; border-radius: 11px; background: #10141f; color: #e7ebf3; font-weight: 700; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="trace"><button type="button">Run analysis</button></div>
+</body>
+</html>

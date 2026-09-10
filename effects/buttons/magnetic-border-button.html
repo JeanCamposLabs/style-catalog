@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotating Border Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "magnetic-border-button",
+    "title": "Rotating Border Button",
+    "summary": "A conic gradient spins continuously around the button edge.",
+    "description": "The animated conic gradient lives on a padded wrapper and is masked to the border, so the label stays crisp and unrotated.",
+    "theme": "buttons",
+    "categories": ["button", "border"],
+    "tags": ["conic-gradient", "animated-border", "spin", "gradient", "cta"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Sweep color A", "default": "#7c5cff" },
+      { "name": "--b", "description": "Sweep color B", "default": "#2dd4bf" },
+      { "name": "--dur", "description": "Rotation", "default": "3s" }
+    ],
+    "variations": ["Only spin on hover", "Thicker border for a bolder frame", "Pause when the button is disabled"],
+    "ai_usage": "High-emphasis CTAs. The wrapper carries the rotating conic background and 2px of padding; the inner element repaints the solid surface. Register --angle with @property for a smooth sweep, or rotate the whole pseudo-element as done here."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --a: #7c5cff; --b: #2dd4bf; --dur: 3s; }
+    .rb { position: relative; padding: 2px; border-radius: 14px; overflow: hidden; background: #151b2a; }
+    .rb::before { content: ""; position: absolute; inset: -60%;
+      background: conic-gradient(var(--a), var(--b), var(--a)); animation: spin var(--dur) linear infinite; }
+    .rb button { position: relative; padding: .9rem 2rem; border-radius: 12px; background: #10141f; color: #e7ebf3;
+      font-weight: 700; width: 100%; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="rb"><button type="button">Get started</button></div>
+</body>
+</html>

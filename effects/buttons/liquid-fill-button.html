@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liquid Fill Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "liquid-fill-button",
+    "title": "Liquid Fill Button",
+    "summary": "A wave of color rises to fill the button from the bottom.",
+    "description": "A pseudo-element with a wavy top edge translates upward on hover, so the fill reads as liquid rather than a bar.",
+    "theme": "buttons",
+    "categories": ["button", "fill"],
+    "tags": ["liquid", "fill", "wave", "hover", "playful"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Liquid color", "default": "#38bdf8" },
+      { "name": "--dur", "description": "Fill duration", "default": "0.5s" }
+    ],
+    "variations": ["Drain on mouse-out", "Two-tone liquid", "Use as a progress-bearing submit button"],
+    "ai_usage": "Playful primary actions. The wave crest is a border-radius trick on an oversized rotating circle; keep overflow hidden on the button and put the label above the fill with position:relative."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #38bdf8; --dur: .5s; }
+    .liq { position: relative; overflow: hidden; padding: .95rem 2.2rem; border-radius: 12px;
+      background: #151b2a; color: #e7ebf3; font-weight: 700; border: 1px solid #263149; isolation: isolate; }
+    .liq span { position: relative; z-index: 2; }
+    .liq::before { content: ""; position: absolute; left: -20%; right: -20%; top: 100%; height: 260%;
+      background: var(--c); border-radius: 45%; transition: transform var(--dur) cubic-bezier(.4,0,.2,1); }
+    .liq:hover::before { transform: translateY(-96%) rotate(6deg); }
+    .liq:hover { color: #06202e; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="liq" type="button"><span>Fill me</span></button>
+</body>
+</html>

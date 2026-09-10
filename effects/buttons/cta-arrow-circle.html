@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Circle Arrow CTA</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cta-arrow-circle",
+    "title": "Circle Arrow CTA",
+    "summary": "A pill label with a circular arrow that expands to swallow it on hover.",
+    "description": "The circle grows to the full pill width while the arrow slides to the far edge, merging two elements into one gesture.",
+    "theme": "buttons",
+    "categories": ["button", "hover"],
+    "tags": ["cta", "circle", "arrow", "expand", "agency"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Circle color", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Expand duration", "default": "0.45s" }
+    ],
+    "variations": ["Reverse: circle on the right", "Text color inversion at the end", "Use as a card-wide link"],
+    "ai_usage": "Agency and portfolio sites. Animate the circle's width (not scale) so the arrow's position stays predictable, and pair with a color transition on the label that completes slightly after the expansion."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #7c5cff; --dur: .45s; }
+    .cta { position: relative; display: inline-flex; align-items: center; gap: .9rem; padding: .5rem 1.6rem .5rem .5rem;
+      border-radius: 999px; background: transparent; border: 1px solid #2b3450; color: #e7ebf3; font-weight: 700; overflow: hidden; }
+    .cta .circ { position: relative; z-index: 2; display: grid; place-items: center; width: 42px; height: 42px;
+      border-radius: 999px; background: var(--c); color: #fff; transition: transform var(--dur) cubic-bezier(.7,0,.2,1); }
+    .cta .lbl { position: relative; z-index: 2; transition: color var(--dur), transform var(--dur); }
+    .cta::before { content: ""; position: absolute; left: 5px; top: 5px; bottom: 5px; width: 42px; border-radius: 999px;
+      background: var(--c); transition: width var(--dur) cubic-bezier(.7,0,.2,1); }
+    .cta:hover::before { width: calc(100% - 10px); }
+    .cta:hover .lbl { color: #fff; }
+    .cta:hover .circ { transform: translateX(6px); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="cta" type="button"><span class="circ" aria-hidden="true">→</span><span class="lbl">Start a project</span></button>
+</body>
+</html>

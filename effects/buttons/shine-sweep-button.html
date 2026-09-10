@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shine Sweep Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shine-sweep-button",
+    "title": "Shine Sweep Button",
+    "summary": "A diagonal highlight sweeps across the face on hover.",
+    "description": "A skewed white gradient slides through the button on a single transform, the classic glossy hover in one pseudo-element.",
+    "theme": "buttons",
+    "categories": ["button", "hover"],
+    "tags": ["shine", "sweep", "gloss", "hover", "cta"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Button color", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Sweep duration", "default": "0.6s" }
+    ],
+    "variations": ["Auto-sweep on a timer for a hero CTA", "Rainbow sheen", "Sweep in the opposite direction"],
+    "ai_usage": "Any solid primary button that needs a little life. The sheen is a skewX(-20deg) gradient translated from -150% to 150%; keep overflow hidden and never animate left/right (use transform for compositing)."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #7c5cff; --dur: .6s; }
+    .shine { position: relative; overflow: hidden; padding: .95rem 2.2rem; border-radius: 12px;
+      background: var(--c); color: #fff; font-weight: 700; }
+    .shine::after { content: ""; position: absolute; top: 0; bottom: 0; width: 60%; left: -80%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-20deg);
+      transition: left var(--dur) ease; }
+    .shine:hover::after { left: 120%; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="shine" type="button">Upgrade</button>
+</body>
+</html>
