@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adaptive Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-dark-light-adaptive",
+    "title": "Adaptive Card",
+    "summary": "One card that follows the user's colour scheme.",
+    "description": "One card that follows the user's colour scheme. Self-contained card markup you can drop into a grid.",
+    "theme": "cards-surfaces",
+    "categories": ["card", "surface"],
+    "tags": ["card", "surface", "dark-mode", "light-dark", "adaptive", "theming"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+    "customization": [
+      { "name": "--scheme", "description": "Colour scheme", "default": "light dark" }
+    ],
+    "variations": ["Adapt for a light theme", "Add a media area at the top"],
+    "ai_usage": "Any component in a themed system. Declare color-scheme on the root and use light-dark() so a single declaration covers both themes without duplicated media queries."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    :root { color-scheme: light dark; }
+    .card { background: light-dark(#ffffff, #151b2a); color: light-dark(#0b0d12, #e7ebf3);
+      border: 1px solid light-dark(#e2e8f0, #263149); box-shadow: 0 10px 30px light-dark(rgba(15,23,42,.1), rgba(0,0,0,.45)); }
+    .card p { color: light-dark(#475569, #8b93a7); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card"><h3>Adaptive Card</h3><p>One card that follows the user's colour scheme.</p></article>
+</body>
+</html>

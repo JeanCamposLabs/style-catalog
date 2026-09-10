@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beta Flag</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "badge-beta-flag",
+    "title": "Beta Flag",
+    "summary": "A small flag marking pre-release features.",
+    "description": "A small flag marking pre-release features. Small self-contained component ready to drop into a list or card.",
+    "theme": "badges-tags",
+    "categories": ["badge", "label"],
+    "tags": ["badge", "label", "beta", "flag", "preview", "label"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+    "customization": [
+      { "name": "--c", "description": "Flag colour", "default": "#a78bfa" }
+    ],
+    "variations": ["Add a size variant", "Map colours to semantic tokens"],
+    "ai_usage": "Feature flags in navigation. The dashed border signals impermanence — reserve solid badges for shipped states."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .item { display: inline-flex; align-items: center; gap: .5rem; color: #e7ebf3; font-weight: 600; }
+    .b { padding: .12rem .45rem; border-radius: 5px; border: 1px dashed #a78bfa; color: #a78bfa;
+      font-size: .68rem; font-weight: 800; letter-spacing: .08em; }
+  </style>
+</head>
+<body>
+  <span class="item">Vector search <span class="b">BETA</span></span>
+</body>
+</html>

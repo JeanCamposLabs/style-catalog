@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Side Accent Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-side-accent",
+    "title": "Side Accent Card",
+    "summary": "A coloured rail marks the card's category.",
+    "description": "A coloured rail marks the card's category. Self-contained card markup you can drop into a grid.",
+    "theme": "cards-surfaces",
+    "categories": ["card", "surface"],
+    "tags": ["card", "surface", "accent", "category", "rail", "status"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+    "customization": [
+      { "name": "--c", "description": "Accent colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt for a light theme", "Add a media area at the top"],
+    "ai_usage": "Notification and log lists. Pair the rail colour with an icon or label — a colour-only category is invisible to many users."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    .card { background: #151b2a; border: 1px solid #263149; border-left: 4px solid var(--c, #7c5cff); border-radius: 4px 18px 18px 4px; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card"><h3>Side Accent Card</h3><p>A coloured rail marks the card's category.</p></article>
+</body>
+</html>

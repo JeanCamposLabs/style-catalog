@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Card with Skeleton State</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-skeleton-swap",
+    "title": "Card with Skeleton State",
+    "summary": "The loading and loaded states of the same card, side by side.",
+    "description": "The loading and loaded states of the same card, side by side. Self-contained card markup you can drop into a grid.",
+    "theme": "cards-surfaces",
+    "categories": ["card", "surface"],
+    "tags": ["card", "surface", "skeleton", "loading", "placeholder", "state"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+    "customization": [
+      { "name": "--dur", "description": "Shimmer period", "default": "1.6s" }
+    ],
+    "variations": ["Adapt for a light theme", "Add a media area at the top"],
+    "ai_usage": "Ship the skeleton with the same dimensions as the real card so nothing shifts when content arrives — that jump is the main cause of layout-shift complaints."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    .row { display: flex; gap: 14px; }
+    .card { background: #151b2a; border: 1px solid #263149; width: 200px; }
+    .sk { height: 12px; border-radius: 6px; margin-bottom: 10px;
+      background: linear-gradient(90deg, #1b2231 25%, #2b3550 37%, #1b2231 63%); background-size: 400% 100%;
+      animation: sheen 1.6s ease-in-out infinite; }
+    .sk.t { height: 18px; width: 60%; }
+    @keyframes sheen { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <article class="card"><div class="sk t"></div><div class="sk"></div><div class="sk" style="width:80%"></div></article>
+    <article class="card"><h3>Loaded</h3><p>Same box, real content.</p></article>
+  </div>
+</body>
+</html>

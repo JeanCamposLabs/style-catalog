@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Severity Set</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "badge-severity-set",
+    "title": "Severity Set",
+    "summary": "Four severity levels with distinct shapes and colours.",
+    "description": "Four severity levels with distinct shapes and colours. Small self-contained component ready to drop into a list or card.",
+    "theme": "badges-tags",
+    "categories": ["badge", "label"],
+    "tags": ["badge", "label", "severity", "priority", "semantic", "system"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+    "customization": [
+      { "name": "--scale", "description": "Severity scale", "default": "4 levels" }
+    ],
+    "variations": ["Add a size variant", "Map colours to semantic tokens"],
+    "ai_usage": "Issue trackers and logs. Give each level a distinct glyph as well as a hue so severity survives greyscale and colour-vision differences."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .row { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .b { display: inline-flex; align-items: center; gap: .35rem; padding: .28rem .65rem; border-radius: 7px;
+      font-size: .78rem; font-weight: 700; }
+    .info { background: rgba(56,189,248,.14); color: #38bdf8; }
+    .low { background: rgba(52,211,153,.14); color: #34d399; }
+    .med { background: rgba(251,191,36,.14); color: #fbbf24; }
+    .high { background: rgba(248,113,113,.14); color: #f87171; }
+  </style>
+</head>
+<body>
+  <div class="row"><span class="b info"><span aria-hidden="true">ⓘ</span>Info</span><span class="b low"><span aria-hidden="true">▽</span>Low</span>
+  <span class="b med"><span aria-hidden="true">△</span>Medium</span><span class="b high"><span aria-hidden="true">■</span>High</span></div>
+</body>
+</html>

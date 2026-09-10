@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Metallic Tier Badge</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "badge-tier-metal",
+    "title": "Metallic Tier Badge",
+    "summary": "Gold, silver, and bronze rank badges.",
+    "description": "Gold, silver, and bronze rank badges. Small self-contained component ready to drop into a list or card.",
+    "theme": "badges-tags",
+    "categories": ["badge", "label"],
+    "tags": ["badge", "label", "metal", "rank", "gold", "gamification"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+    "customization": [
+      { "name": "--gold", "description": "Gold colour", "default": "#fde68a" }
+    ],
+    "variations": ["Add a size variant", "Map colours to semantic tokens"],
+    "ai_usage": "Leaderboards and achievements. The metal read comes from a light-to-dark gradient plus an inset highlight — flat gold looks like plain yellow."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .row { display: flex; gap: .6rem; }
+    .b { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-weight: 900; color: #2a1a02;
+      font-size: .9rem; box-shadow: inset 0 2px 4px rgba(255,255,255,.6), inset 0 -3px 6px rgba(0,0,0,.35); }
+    .g { background: linear-gradient(160deg, #fde68a, #d97706); }
+    .s { background: linear-gradient(160deg, #f1f5f9, #94a3b8); }
+    .br { background: linear-gradient(160deg, #fcd7b6, #b45309); }
+  </style>
+</head>
+<body>
+  <div class="row"><span class="b g">1st</span><span class="b s">2nd</span><span class="b br">3rd</span></div>
+</body>
+</html>

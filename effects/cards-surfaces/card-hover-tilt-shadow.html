@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tilting Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-hover-tilt-shadow",
+    "title": "Tilting Card",
+    "summary": "The card tips toward the pointer with a matching shadow.",
+    "description": "The card tips toward the pointer with a matching shadow. Self-contained card markup you can drop into a grid.",
+    "theme": "cards-surfaces",
+    "categories": ["card", "surface"],
+    "tags": ["card", "surface", "tilt", "3d", "hover", "shadow"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+    "customization": [
+      { "name": "--tilt", "description": "Tilt angle", "default": "6deg" }
+    ],
+    "variations": ["Adapt for a light theme", "Add a media area at the top"],
+    "ai_usage": "Portfolio and product grids. Offset the shadow opposite the tilt direction so the light source stays consistent."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    .card { background: #151b2a; border: 1px solid #263149; transition: transform .3s ease, box-shadow .3s ease; }
+    .card:hover { transform: perspective(800px) rotateX(6deg) rotateY(-6deg) translateY(-4px);
+      box-shadow: -18px 22px 40px rgba(0,0,0,.5); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card"><h3>Tilting Card</h3><p>The card tips toward the pointer with a matching shadow.</p></article>
+</body>
+</html>

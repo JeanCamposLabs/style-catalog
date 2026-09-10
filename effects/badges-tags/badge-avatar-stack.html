@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avatar Stack</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "badge-avatar-stack",
+    "title": "Avatar Stack",
+    "summary": "Overlapping avatars with an overflow count.",
+    "description": "Overlapping avatars with an overflow count. Small self-contained component ready to drop into a list or card.",
+    "theme": "badges-tags",
+    "categories": ["badge", "label"],
+    "tags": ["badge", "label", "avatars", "stack", "overlap", "team"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+    "customization": [
+      { "name": "--overlap", "description": "Overlap amount", "default": "10px" }
+    ],
+    "variations": ["Add a size variant", "Map colours to semantic tokens"],
+    "ai_usage": "Collaborator lists. Give the group a single accessible label ('5 collaborators') rather than announcing each initial separately."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .stack { display: flex; }
+    .stack span { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0b0d12; margin-left: -10px;
+      display: grid; place-items: center; font-size: .78rem; font-weight: 800; color: #0b0d12; }
+    .stack span:first-child { margin-left: 0; }
+    .stack .more { background: #2b3450; color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <div class="stack" role="img" aria-label="5 collaborators">
+    <span style="background:#7c5cff">A</span><span style="background:#2dd4bf">B</span>
+    <span style="background:#fbbf24">C</span><span class="more">+2</span>
+  </div>
+</body>
+</html>

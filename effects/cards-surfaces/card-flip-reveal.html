@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flip Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-flip-reveal",
+    "title": "Flip Card",
+    "summary": "The card turns to reveal detail on its back.",
+    "description": "The card turns to reveal detail on its back. Self-contained card markup you can drop into a grid.",
+    "theme": "cards-surfaces",
+    "categories": ["card", "surface"],
+    "tags": ["card", "surface", "flip", "3d", "reveal", "back"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+    "customization": [
+      { "name": "--dur", "description": "Flip duration", "default": "0.6s" }
+    ],
+    "variations": ["Adapt for a light theme", "Add a media area at the top"],
+    "ai_usage": "Compact detail reveals. Both faces need backface-visibility:hidden, and the scene (not the card) carries the perspective."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    body { perspective: 900px; }
+    .scene { width: 260px; height: 170px; }
+    .card { position: relative; width: 100%; height: 100%; padding: 0; transform-style: preserve-3d;
+      transition: transform .6s cubic-bezier(.7,0,.2,1); }
+    .scene:hover .card, .scene:focus-within .card { transform: rotateY(180deg); }
+    .face { position: absolute; inset: 0; border-radius: 18px; padding: 1.4rem; backface-visibility: hidden;
+      background: #151b2a; border: 1px solid #263149; }
+    .face.back { transform: rotateY(180deg); background: #7c5cff; color: #fff; }
+    .face.back p { color: rgba(255,255,255,.85); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene" tabindex="0"><div class="card">
+    <div class="face"><h3>Flip Card</h3><p>Hover or focus to turn it over.</p></div>
+    <div class="face back"><h3>Back</h3><p>Detail lives on the reverse.</p></div>
+  </div></div>
+</body>
+</html>

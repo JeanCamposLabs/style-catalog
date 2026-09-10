@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image Overlay Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-overlay-gradient",
+    "title": "Image Overlay Card",
+    "summary": "Text sits over media behind a legibility gradient.",
+    "description": "Text sits over media behind a legibility gradient. Self-contained card markup you can drop into a grid.",
+    "theme": "cards-surfaces",
+    "categories": ["card", "surface"],
+    "tags": ["card", "surface", "overlay", "image", "gradient", "legibility"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+    "customization": [
+      { "name": "--veil", "description": "Scrim strength", "default": "0.88" }
+    ],
+    "variations": ["Adapt for a light theme", "Add a media area at the top"],
+    "ai_usage": "Editorial and gallery cards. A gradient scrim (not a flat tint) keeps the image visible at the top while guaranteeing text contrast at the bottom."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    .card { position: relative; height: 200px; padding: 0; overflow: hidden;
+      background: conic-gradient(from 160deg at 40% 30%, #7c5cff, #2dd4bf, #f472b6); }
+    .card .veil { position: absolute; inset: 0; background: linear-gradient(transparent 30%, rgba(6,8,14,.88)); }
+    .card .body { position: absolute; inset: auto 0 0 0; padding: 1.2rem; }
+    .card h3 { color: #fff; }
+    .card p { color: rgba(255,255,255,.8); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card"><div class="veil"></div><div class="body"><h3>Overlay Card</h3><p>Scrim guarantees contrast.</p></div></article>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Folded Corner Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-corner-fold",
+    "title": "Folded Corner Card",
+    "summary": "A page-corner fold in the top right.",
+    "description": "A page-corner fold in the top right. Self-contained card markup you can drop into a grid.",
+    "theme": "cards-surfaces",
+    "categories": ["card", "surface"],
+    "tags": ["card", "surface", "fold", "corner", "paper", "skeuomorphic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+    "customization": [
+      { "name": "--size", "description": "Fold size", "default": "34px" }
+    ],
+    "variations": ["Adapt for a light theme", "Add a media area at the top"],
+    "ai_usage": "Document and note cards. The fold needs a two-stop diagonal gradient plus a shadow — a flat triangle reads as a cut, not a fold."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    .card { position: relative; background: #151b2a; border: 1px solid #263149; overflow: hidden; }
+    .card::before { content: ""; position: absolute; top: 0; right: 0; width: 34px; height: 34px;
+      background: linear-gradient(225deg, #0b0d12 0 50%, #2b3450 50%); box-shadow: -2px 2px 5px rgba(0,0,0,.4); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card"><h3>Folded Corner Card</h3><p>A page-corner fold in the top right.</p></article>
+</body>
+</html>

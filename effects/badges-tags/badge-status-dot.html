@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Status Pill</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "badge-status-dot",
+    "title": "Status Pill",
+    "summary": "A pill with a coloured dot and a text status.",
+    "description": "A pill with a coloured dot and a text status. Small self-contained component ready to drop into a list or card.",
+    "theme": "badges-tags",
+    "categories": ["badge", "label"],
+    "tags": ["badge", "label", "status", "dot", "pill", "semantic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+    "customization": [
+      { "name": "--ok", "description": "Healthy colour", "default": "#34d399" }
+    ],
+    "variations": ["Add a size variant", "Map colours to semantic tokens"],
+    "ai_usage": "System status and record states. Always include the word as well as the dot; a colour-only indicator fails for colour-blind users and in greyscale printing."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .b { display: inline-flex; align-items: center; gap: .45rem; padding: .3rem .7rem; border-radius: 999px;
+      font-size: .8rem; font-weight: 700; background: rgba(52,211,153,.13); color: #34d399; }
+    .b i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .row { display: flex; gap: .5rem; }
+    .b.warn { background: rgba(251,191,36,.13); color: #fbbf24; }
+    .b.bad { background: rgba(248,113,113,.13); color: #f87171; }
+  </style>
+</head>
+<body>
+  <div class="row"><span class="b"><i></i>Operational</span><span class="b warn"><i></i>Degraded</span><span class="b bad"><i></i>Down</span></div>
+</body>
+</html>
