@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notched Outline Field</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "input-floating-label-outline",
+    "title": "Notched Outline Field",
+    "summary": "A label that notches into the field's border.",
+    "description": "A label that notches into the field's border.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input"],
+    "tags": ["form", "input", "floating-label", "notch", "outline", "material"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+    "customization": [
+      { "name": "--c", "description": "Focus colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Dense forms. The :not(:placeholder-shown) selector is what keeps the label raised after typing — it requires a placeholder attribute, even an empty one."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 280px; }
+    .fx input { width: 100%; padding: .95rem .9rem; border-radius: 12px; border: 1px solid #2b3450; background: transparent;
+      color: #e7ebf3; font: inherit; }
+    .fx label { position: absolute; left: .7rem; top: .95rem; padding: 0 .3rem; color: #64748b; pointer-events: none;
+      transition: transform .18s, font-size .18s, color .18s; background: #0b0d12; }
+    .fx input:focus { outline: none; border-color: #7c5cff; }
+    .fx input:focus + label, .fx input:not(:placeholder-shown) + label {
+      transform: translateY(-1.55rem); font-size: .74rem; color: #b9a5ff; }
+  </style>
+</head>
+<body>
+  <div class="fx"><input id="fl" type="text" placeholder=" " /><label for="fl">Workspace name</label></div>
+</body>
+</html>

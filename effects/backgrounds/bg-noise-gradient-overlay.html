@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grainy Gradient</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bg-noise-gradient-overlay",
+    "title": "Grainy Gradient",
+    "summary": "A smooth gradient with grain to kill banding.",
+    "description": "A smooth gradient with grain to kill banding.",
+    "theme": "backgrounds",
+    "categories": ["background", "surface"],
+    "tags": ["background", "grain", "banding", "gradient", "overlay"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--o", "description": "Grain opacity", "default": "0.3" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Any large gradient on a wide screen. A 25–35% noise overlay is the standard fix for the visible stepping that 8-bit gradients produce."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background: linear-gradient(140deg, #1e1b4b, #0b0d12 60%, #042f2a); }
+    .bg::after { content: ""; position: absolute; inset: 0; opacity: .3; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Label Swap</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "hover-text-swap-slide",
+    "title": "Label Swap",
+    "summary": "One label sliding out as another slides in.",
+    "description": "One label sliding out as another slides in.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "interaction"],
+    "tags": ["hover", "pointer", "swap", "slide", "label", "hover"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every hover state here is mirrored on :focus-visible so keyboard users get the same information.",
+    "customization": [
+      { "name": "--dur", "description": "Slide duration", "default": "0.3s" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Buttons whose hover reveals detail ('Download' → '4 MB ZIP'). Set the accessible name on the button itself so it does not change as the visible label swaps."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; overflow: hidden; padding: .8rem 1.6rem; border-radius: 11px; border: 1px solid #2b3450;
+      background: #151b2a; color: #cbd5e1; font: inherit; cursor: pointer; height: 44px; }
+    .fx span { position: absolute; inset: 0; display: grid; place-items: center; transition: transform .3s cubic-bezier(.7,0,.2,1); }
+    .fx .b { transform: translateY(100%); color: #b9a5ff; }
+    .fx:hover .a, .fx:focus-visible .a { transform: translateY(-100%); }
+    .fx:hover .b, .fx:focus-visible .b { transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button" aria-label="Download, 4 megabyte ZIP"><span class="a">Download</span><span class="b">4 MB ZIP</span></button>
+</body>
+</html>

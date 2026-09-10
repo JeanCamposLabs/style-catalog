@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perspective Floor</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bg-grid-perspective-floor",
+    "title": "Perspective Floor",
+    "summary": "A grid receding to a horizon.",
+    "description": "A grid receding to a horizon.",
+    "theme": "backgrounds",
+    "categories": ["background", "surface"],
+    "tags": ["background", "grid", "perspective", "floor", "retro"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Grid colour", "default": "rgba(124,92,255,.5)" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Retro-futurist scenes. Oversize the grid layer well past the viewport so the vanishing point sits off-screen and no hard edge shows."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background: linear-gradient(180deg, #0b0d12 0 55%, #120a26 55%); overflow: hidden; }
+    .bg i { position: absolute; left: -60%; right: -60%; bottom: 0; height: 45%;
+      background-image: repeating-linear-gradient(90deg, rgba(124,92,255,.5) 0 2px, transparent 2px 60px),
+        repeating-linear-gradient(0deg, rgba(124,92,255,.5) 0 2px, transparent 2px 60px);
+      transform: perspective(220px) rotateX(68deg); transform-origin: bottom; }
+  </style>
+</head>
+<body>
+  <div class="bg"><i></i></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotating Rays</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bg-animated-conic-rays",
+    "title": "Rotating Rays",
+    "summary": "Soft conic rays turning slowly behind content.",
+    "description": "Soft conic rays turning slowly behind content.",
+    "theme": "backgrounds",
+    "categories": ["background", "surface"],
+    "tags": ["background", "rays", "conic", "rotate", "ambient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Rotation period", "default": "50s" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Ambient hero backdrops. Keep the rotation very slow (40s+) and the ray alpha low; a fast conic sweep behind text is genuinely nauseating."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background: #0b0d12; overflow: hidden; }
+    .bg i { position: absolute; inset: -40%;
+      background: repeating-conic-gradient(from 0deg, rgba(124,92,255,.12) 0 8deg, transparent 8deg 22deg);
+      animation: spin 50s linear infinite; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"><i></i></div>
+</body>
+</html>

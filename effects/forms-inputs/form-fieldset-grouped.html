@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grouped Fieldset</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "form-fieldset-grouped",
+    "title": "Grouped Fieldset",
+    "summary": "Related options grouped with a legend.",
+    "description": "Related options grouped with a legend.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input"],
+    "tags": ["form", "input", "fieldset", "legend", "group", "radio"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+    "customization": [
+      { "name": "--c", "description": "Accent", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Any group of related controls. A fieldset with a legend is what tells screen-reader users the question the options answer; a styled heading does not."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; border: 1px solid #2b3450; border-radius: 12px; padding: .9rem 1rem 1rem; }
+    .fx legend { padding: 0 .4rem; font-size: .78rem; color: #b9a5ff; }
+    .fx label { display: flex; align-items: flex-start; gap: .6rem; padding: .35rem 0; color: #cbd5e1; font-size: .86rem; }
+    .fx input { accent-color: #7c5cff; margin-top: .2rem; }
+    .fx small { display: block; color: #64748b; font-size: .76rem; }
+  </style>
+</head>
+<body>
+  <fieldset class="fx"><legend>Deployment target</legend>
+  <label><input type="radio" name="dt" checked /><span>Production<small>Live for all visitors</small></span></label>
+  <label><input type="radio" name="dt" /><span>Preview<small>Shareable URL, noindex</small></span></label></fieldset>
+</body>
+</html>

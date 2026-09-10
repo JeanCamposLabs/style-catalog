@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auto-Sizing Textarea</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "input-textarea-autosize",
+    "title": "Auto-Sizing Textarea",
+    "summary": "A textarea that grows with its content.",
+    "description": "A textarea that grows with its content.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input"],
+    "tags": ["form", "input", "textarea", "autosize", "grow", "input"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+    "customization": [
+      { "name": "--min", "description": "Minimum height", "default": "60px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Comment and message composers. Reset height to auto before reading scrollHeight, or the field can only ever grow and never shrink back."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .fx label { display: block; font-size: .8rem; color: #8b93a7; margin-bottom: .35rem; }
+    .fx textarea { width: 100%; min-height: 60px; padding: .75rem .9rem; border-radius: 12px; border: 1px solid #2b3450;
+      background: #151b2a; color: #e7ebf3; font: inherit; font-size: .88rem; resize: none; overflow: hidden; line-height: 1.5; }
+    .fx textarea:focus { outline: none; border-color: #7c5cff; }
+  </style>
+</head>
+<body>
+  <div class="fx"><label for="ta">Release notes</label>
+  <textarea id="ta" rows="2">Type here — the field grows as you add lines.</textarea></div>
+  <script>
+    (function () {
+      var t = document.getElementById("ta");
+      function fit() { t.style.height = "auto"; t.style.height = t.scrollHeight + "px"; }
+      t.addEventListener("input", fit); fit();
+    })();
+  </script>
+</body>
+</html>

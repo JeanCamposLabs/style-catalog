@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Split Panels</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bg-diagonal-split-panels",
+    "title": "Split Panels",
+    "summary": "Two colour fields meeting on a diagonal.",
+    "description": "Two colour fields meeting on a diagonal.",
+    "theme": "backgrounds",
+    "categories": ["background", "surface"],
+    "tags": ["background", "split", "diagonal", "panels", "hero"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--angle", "description": "Split angle", "default": "135deg" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Split-screen heroes. Give both halves complementary polygons sharing the same diagonal, or a hairline seam appears between them at some zoom levels."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background: #0b0d12; }
+    .bg i { position: absolute; inset: 0; }
+    .bg .a { background: linear-gradient(135deg, #1e1b4b, #0b0d12); clip-path: polygon(0 0, 100% 0, 0 100%); }
+    .bg .b { background: linear-gradient(135deg, #042f2a, #0b0d12); clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+  </style>
+</head>
+<body>
+  <div class="bg"><i class="a"></i><i class="b"></i></div>
+</body>
+</html>
