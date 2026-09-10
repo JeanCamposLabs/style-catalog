@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Holographic Foil</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "holo-foil-card",
+    "title": "Holographic Foil",
+    "summary": "A card with an oil-slick sheen that rotates.",
+    "description": "A card with an oil-slick sheen that rotates.",
+    "theme": "holographic-metallic",
+    "categories": ["material", "holographic"],
+    "tags": ["holographic", "metallic", "foil", "iridescent", "dodge", "trading-card"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+    "customization": [
+      { "name": "--dur", "description": "Sheen period", "default": "8s" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Collectible cards and premium tiers. Colour-dodge blending on a rotating conic gradient is what produces the oil-slick shift; a static rainbow gradient never reads as foil."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 200px; height: 270px; border-radius: 18px; overflow: hidden;
+      background: #0f0a1e; border: 1px solid rgba(255,255,255,.2); }
+    .fx::after { content: ""; position: absolute; inset: -50%; mix-blend-mode: color-dodge; filter: blur(26px); opacity: .55;
+      background: conic-gradient(from 0deg, #ff2d95, #fbbf24, #22d3ee, #a855f7, #ff2d95); animation: spin 8s linear infinite; }
+    .fx b { position: absolute; inset: auto 0 0 0; padding: 1rem; font-weight: 800; color: #fff; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><b>Holo Rare</b></div>
+</body>
+</html>

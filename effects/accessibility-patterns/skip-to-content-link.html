@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skip Link</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "skip-to-content-link",
+    "title": "Skip Link",
+    "summary": "A skip link that appears on focus.",
+    "description": "A skip link that appears on focus.",
+    "theme": "accessibility-patterns",
+    "categories": ["accessibility", "reference"],
+    "tags": ["accessibility", "a11y", "skip-link", "keyboard", "bypass", "navigation"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+    "customization": [
+      { "name": "--c", "description": "Link colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Every page with repeated navigation needs one, as the first focusable element. Hide it off-screen (not with display:none, which removes it from the tab order) and reveal it on :focus."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 290px; height: 150px; border-radius: 14px; overflow: hidden; background: #10141f;
+      border: 1px solid #263149; }
+    .fx .skip { position: absolute; top: -44px; left: 12px; padding: .5rem .9rem; border-radius: 0 0 8px 8px;
+      background: #7c5cff; color: #fff; text-decoration: none; font-size: .85rem; transition: top .18s; z-index: 2; }
+    .fx .skip:focus { top: 0; }
+    .fx nav { display: flex; gap: 1rem; padding: 1rem; color: #8b93a7; font-size: .85rem; }
+    .fx main { padding: 0 1rem; color: #cbd5e1; font-size: .85rem; }
+    .fx .hint { padding: .6rem 1rem; color: #64748b; font-size: .76rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><a class="skip" href="#main">Skip to content</a>
+  <nav aria-label="Demo"><span>Home</span><span>Docs</span><span>API</span></nav>
+  <main id="main" tabindex="-1">Main content starts here.</main>
+  <p class="hint">Press Tab inside this frame to reveal the link.</p></div>
+</body>
+</html>

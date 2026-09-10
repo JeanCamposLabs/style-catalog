@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heading Outline</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "heading-outline-structure",
+    "title": "Heading Outline",
+    "summary": "A correctly nested document outline.",
+    "description": "A correctly nested document outline.",
+    "theme": "accessibility-patterns",
+    "categories": ["accessibility", "reference"],
+    "tags": ["accessibility", "a11y", "headings", "outline", "structure", "semantics"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+    "customization": [
+      { "name": "--bg", "description": "Panel background", "default": "#151b2a" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Screen-reader users navigate by heading. Never skip a level for visual sizing — set the level by meaning and control the size with CSS."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; padding: 1.1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; font-size: .85rem; }
+    .fx .h1 { font-size: 1.1rem; font-weight: 800; }
+    .fx .h2 { font-size: .95rem; font-weight: 700; margin-left: .9rem; margin-top: .6rem; }
+    .fx .h3 { font-size: .85rem; font-weight: 600; margin-left: 1.8rem; margin-top: .4rem; color: #cbd5e1; }
+    .fx .lvl { color: #64748b; font-size: .72rem; margin-right: .4rem; font-family: ui-monospace, monospace; }
+    .fx .note { margin: .9rem 0 0; color: #8b93a7; font-size: .78rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="h1"><span class="lvl">h1</span>Style Catalog</div>
+  <div class="h2"><span class="lvl">h2</span>Themes</div><div class="h3"><span class="lvl">h3</span>Buttons</div>
+  <div class="h3"><span class="lvl">h3</span>Loaders</div><div class="h2"><span class="lvl">h2</span>API</div>
+  <p class="note">Levels descend one at a time; size is a CSS decision, not a semantic one.</p></div>
+</body>
+</html>

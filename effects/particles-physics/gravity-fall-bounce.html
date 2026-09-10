@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gravity Bounce</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gravity-fall-bounce",
+    "title": "Gravity Bounce",
+    "summary": "Balls falling with decaying bounces.",
+    "description": "Balls falling with decaying bounces.",
+    "theme": "particles-physics",
+    "categories": ["particles", "physics"],
+    "tags": ["particles", "motion", "gravity", "bounce", "decay", "physics"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+    "customization": [
+      { "name": "--dur", "description": "Fall cycle", "default": "1.8s" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Playful loaders and empty states. Each bounce must reach a lower peak with a shorter interval — equal bounces read as an oscillation, not gravity."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 260px; height: 180px; border-radius: 14px; background: #10141f; border: 1px solid #263149; overflow: hidden; }
+    .fx i { position: absolute; width: 22px; height: 22px; border-radius: 50%; top: 0;
+      animation: drop var(--d) cubic-bezier(.5,0,1,1) infinite; animation-delay: var(--dl); }
+    @keyframes drop {
+      0% { transform: translateY(0); } 30% { transform: translateY(140px); }
+      45% { transform: translateY(64px); } 60% { transform: translateY(140px); }
+      72% { transform: translateY(104px); } 84% { transform: translateY(140px); }
+      92% { transform: translateY(126px); } 100% { transform: translateY(140px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="left:18%;background:#7c5cff;--d:1.8s;--dl:0s"></i>
+  <i style="left:46%;background:#10a894;--d:2.1s;--dl:.3s"></i><i style="left:74%;background:#c2891a;--d:1.6s;--dl:.6s"></i></div>
+</body>
+</html>

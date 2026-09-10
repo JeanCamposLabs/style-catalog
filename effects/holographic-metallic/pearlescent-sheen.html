@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pearlescent</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "pearlescent-sheen",
+    "title": "Pearlescent",
+    "summary": "A soft pearl finish with a subtle colour shift.",
+    "description": "A soft pearl finish with a subtle colour shift.",
+    "theme": "holographic-metallic",
+    "categories": ["material", "holographic"],
+    "tags": ["holographic", "metallic", "pearl", "sheen", "soft", "cosmetic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+    "customization": [
+      { "name": "--tint", "description": "Base tint", "default": "#f5e6f7" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Beauty, cosmetics, and soft luxury. Pearl is low-saturation colour drift, not rainbow — keep every stop close in lightness and far apart in hue."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 160px; height: 160px; border-radius: 50%;
+      background: radial-gradient(circle at 34% 28%, #fff 0 12%, #f5e6f7 26%, #d9e8f5 46%, #f7ecd9 66%, #e8dff5 86%, #cfd8e8);
+      box-shadow: inset -10px -8px 26px rgba(120,110,140,.35), 0 18px 40px rgba(0,0,0,.4); }
+  </style>
+</head>
+<body>
+  <div class="fx"></div>
+</body>
+</html>

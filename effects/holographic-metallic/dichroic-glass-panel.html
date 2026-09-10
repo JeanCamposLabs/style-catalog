@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dichroic Glass</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "dichroic-glass-panel",
+    "title": "Dichroic Glass",
+    "summary": "Glass that shows different colours by angle.",
+    "description": "Glass that shows different colours by angle.",
+    "theme": "holographic-metallic",
+    "categories": ["material", "holographic"],
+    "tags": ["holographic", "metallic", "dichroic", "glass", "angle", "colour-shift"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+    "customization": [
+      { "name": "--a", "description": "Primary tint", "default": "rgba(255,45,149,.5)" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Architectural and product visuals. Two crossing gradients at different angles create the angle-dependent colour shift dichroic film actually has."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 220px; height: 150px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(120deg, rgba(255,45,149,.5), rgba(34,211,238,.5) 50%, rgba(251,191,36,.5));
+      backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.35); }
+    .fx::after { content: ""; position: absolute; inset: 0; mix-blend-mode: overlay; opacity: .6;
+      background: linear-gradient(300deg, rgba(168,85,247,.7), transparent 60%); }
+  </style>
+</head>
+<body>
+  <div class="fx"></div>
+</body>
+</html>

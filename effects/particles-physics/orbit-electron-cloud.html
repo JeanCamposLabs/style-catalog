@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electron Cloud</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "orbit-electron-cloud",
+    "title": "Electron Cloud",
+    "summary": "Particles orbiting on random elliptical paths.",
+    "description": "Particles orbiting on random elliptical paths.",
+    "theme": "particles-physics",
+    "categories": ["particles", "physics"],
+    "tags": ["particles", "motion", "orbit", "electron", "atom", "cloud"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+    "customization": [
+      { "name": "--c", "description": "Electron colour", "default": "#22d3ee" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Science and AI visuals. Give each orbit a distinct tilt and period so the paths never align into a single visible ring."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 190px; height: 190px; display: grid; place-items: center; }
+    .fx .o { position: absolute; inset: 0; border-radius: 50%; animation: spin var(--d) linear infinite; transform: rotate(var(--a)); }
+    .fx .o i { position: absolute; top: -4px; left: 50%; width: 9px; height: 9px; margin-left: -4.5px; border-radius: 50%;
+      background: #22d3ee; box-shadow: 0 0 10px #22d3ee; }
+    .fx .core { width: 26px; height: 26px; border-radius: 50%; background: #d1478c; box-shadow: 0 0 20px #d1478c; }
+    @keyframes spin { to { transform: rotate(calc(var(--a) + 360deg)); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="o" style="--a:0deg;--d:3s"><i></i></span><span class="o" style="--a:45deg;--d:4.2s"><i></i></span>
+  <span class="o" style="--a:100deg;--d:3.6s"><i></i></span><span class="core"></span></div>
+</body>
+</html>

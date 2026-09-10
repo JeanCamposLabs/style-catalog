@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contrast Pairs</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "contrast-checker-pairs",
+    "title": "Contrast Pairs",
+    "summary": "Text pairs above and below the WCAG threshold.",
+    "description": "Text pairs above and below the WCAG threshold.",
+    "theme": "accessibility-patterns",
+    "categories": ["accessibility", "reference"],
+    "tags": ["accessibility", "a11y", "contrast", "wcag", "ratio", "text"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+    "customization": [
+      { "name": "--bg", "description": "Surface", "default": "#151b2a" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Normal text needs 4.5:1 and large text 3:1 against its background. Check the actual rendered pair, not the token names — a muted colour that passes on white can fail on a tinted surface."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; gap: 8px; width: 290px; }
+    .p { display: flex; justify-content: space-between; align-items: center; padding: .7rem .9rem; border-radius: 10px; font-size: .88rem; }
+    .p b { font-size: .74rem; opacity: .9; }
+    .ok { background: #151b2a; color: #e7ebf3; }
+    .mid { background: #151b2a; color: #8b93a7; }
+    .bad { background: #151b2a; color: #3f4a63; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="p ok"><span>Primary text</span><b>13.9:1 · passes AAA</b></div>
+  <div class="p mid"><span>Muted text</span><b>4.8:1 · passes AA</b></div>
+  <div class="p bad"><span>Too faint</span><b>1.9:1 · fails</b></div></div>
+</body>
+</html>

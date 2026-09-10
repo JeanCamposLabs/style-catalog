@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hologram Projection</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "hologram-projection",
+    "title": "Hologram Projection",
+    "summary": "A projected figure with scanlines and a glow base.",
+    "description": "A projected figure with scanlines and a glow base.",
+    "theme": "holographic-metallic",
+    "categories": ["material", "holographic"],
+    "tags": ["holographic", "metallic", "hologram", "projection", "scanlines", "sci-fi"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+    "customization": [
+      { "name": "--c", "description": "Hologram colour", "default": "#22d3ee" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Sci-fi and AI-assistant visuals. The elliptical glow at the base is what implies a projector; without it the figure just looks tinted."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 200px; height: 200px; display: grid; place-items: center; }
+    .fx .fig { font-size: 4rem; color: #22d3ee; filter: drop-shadow(0 0 14px #22d3ee); opacity: .85;
+      animation: flick 4s steps(1) infinite; }
+    .fx::before { content: ""; position: absolute; inset: 0;
+      background: repeating-linear-gradient(180deg, rgba(34,211,238,.12) 0 2px, transparent 2px 5px); pointer-events: none; }
+    .fx .base { position: absolute; bottom: 8px; width: 130px; height: 18px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(34,211,238,.6), transparent 70%); }
+    @keyframes flick { 0%, 88%, 100% { opacity: .85; } 90% { opacity: .5; } 92% { opacity: .95; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="fig" aria-hidden="true">🛸</span><span class="base"></span></div>
+</body>
+</html>
