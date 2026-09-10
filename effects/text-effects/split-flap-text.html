@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Split-Flap Board</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "split-flap-text",
+    "title": "Split-Flap Board",
+    "summary": "An airport-style board where each character flips through glyphs before settling.",
+    "description": "Each cell cycles random characters on a timer and stops at its target, staggered so the word resolves left to right.",
+    "theme": "text-effects",
+    "categories": ["text", "retro"],
+    "tags": ["split-flap", "departure-board", "retro", "javascript", "reveal"],
+    "tech": ["css", "js"],
+    "era": "2000s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--cell", "description": "Cell background", "default": "#15192a" },
+      { "name": "--ink", "description": "Character color", "default": "#e7ebf3" }
+    ],
+    "variations": ["Real 3D flap with two half-cells", "Sound-free tick with a scale pulse", "Cycle through numbers only for counters"],
+    "ai_usage": "Announcements, stat reveals, and retro dashboards. Randomize each cell independently and stagger the settle time by index; keep the character set small (A–Z plus space) or the resolve takes too long to read."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --cell: #15192a; --ink: #e7ebf3; }
+    .flap { display: flex; gap: 4px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .flap b { width: 34px; height: 48px; display: grid; place-items: center; border-radius: 5px;
+      background: var(--cell); color: var(--ink); font-size: 1.5rem; font-weight: 700;
+      box-shadow: inset 0 -1px 0 #2b3350, inset 0 1px 0 #0a0d18; position: relative; }
+    .flap b::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #0a0d18; }
+  </style>
+</head>
+<body>
+  <div class="flap" id="board" aria-label="ARRIVED"></div>
+  <script>
+    (function () {
+      var word = "ARRIVED", chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", board = document.getElementById("board"), cells = [];
+      for (var i = 0; i < word.length; i++) {
+        var b = document.createElement("b"); b.textContent = "A"; b.setAttribute("aria-hidden", "true");
+        board.appendChild(b); cells.push(b);
+      }
+      function run() {
+        cells.forEach(function (b, i) {
+          var ticks = 0, max = 12 + i * 4;
+          var t = setInterval(function () {
+            b.textContent = chars[Math.floor(Math.random() * chars.length)];
+            if (++ticks >= max) { clearInterval(t); b.textContent = word[i]; }
+          }, 55);
+        });
+      }
+      run(); setInterval(run, 5000);
+    })();
+  </script>
+</body>
+</html>

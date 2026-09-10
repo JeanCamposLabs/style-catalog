@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marker Highlight</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "marker-highlight-text",
+    "title": "Marker Highlight",
+    "summary": "A hand-drawn marker stripe sweeps behind a phrase.",
+    "description": "A skewed, slightly transparent band with soft ends imitates a felt-tip pass; it grows from left on a single scaleX.",
+    "theme": "text-effects",
+    "categories": ["text", "highlight"],
+    "tags": ["marker", "highlight", "hand-drawn", "emphasis", "annotation"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Marker color", "default": "#fbbf24" },
+      { "name": "--dur", "description": "Draw time", "default": "0.8s" }
+    ],
+    "variations": ["Trigger on scroll into view", "Double pass for a scribbled look", "Underline-only variant"],
+    "ai_usage": "Emphasize a phrase in body copy without bold or color. Put the band on a ::before with transform-origin:left and z-index:-1; keep opacity around .35 so the text stays readable over it."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #fbbf24; --dur: .8s; }
+    .mk { font-size: clamp(1.2rem, 4vw, 1.8rem); max-width: 24ch; line-height: 1.7; }
+    .mk em { font-style: normal; position: relative; display: inline-block; }
+    .mk em::before { content: ""; position: absolute; left: -.2em; right: -.2em; top: .1em; bottom: .05em; z-index: -1;
+      background: var(--c); opacity: .38; border-radius: 4px 12px 6px 10px; transform: skewX(-4deg) scaleX(0);
+      transform-origin: left; animation: draw var(--dur) cubic-bezier(.2,.8,.3,1) .4s forwards; }
+    @keyframes draw { to { transform: skewX(-4deg) scaleX(1); } }
+    @media (prefers-reduced-motion: reduce) {
+      .mk em::before { animation: none; transform: skewX(-4deg) scaleX(1); }
+    }
+  </style>
+</head>
+<body>
+  <p class="mk">Good documentation is <em>the cheapest feature</em> you will ever ship.</p>
+</body>
+</html>

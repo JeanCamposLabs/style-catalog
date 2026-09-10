@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wavy Letters</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "wavy-text",
+    "title": "Wavy Letters",
+    "summary": "Each character bobs on a sine-like loop offset by its index.",
+    "description": "Per-letter animation-delay derived from a --i custom property turns one keyframe into a travelling wave.",
+    "theme": "text-effects",
+    "categories": ["text", "animation"],
+    "tags": ["wave", "letters", "stagger", "bob", "playful"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Wave period", "default": "1.4s" },
+      { "name": "--amp", "description": "Bob height", "default": "10px" }
+    ],
+    "variations": ["Color-cycle along the wave", "Larger amplitude for a bouncier feel", "Trigger only on hover"],
+    "ai_usage": "Playful headings and empty states. Wrap each character in a span with --i set to its index; delay = i * (dur / letters). Add aria-label on the wrapper and aria-hidden on the spans so screen readers get the whole word."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 1.4s; --amp: 10px; }
+    .wavy { font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 800; display: flex; }
+    .wavy span { display: inline-block; animation: bob var(--dur) ease-in-out infinite;
+      animation-delay: calc(var(--i) * .08s); }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(calc(var(--amp) * -1)); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="wavy" aria-label="Wavy">
+    <span aria-hidden="true" style="--i:0">W</span><span aria-hidden="true" style="--i:1">a</span><span aria-hidden="true" style="--i:2">v</span><span aria-hidden="true" style="--i:3">y</span><span aria-hidden="true" style="--i:4">&nbsp;</span><span aria-hidden="true" style="--i:5">T</span><span aria-hidden="true" style="--i:6">e</span><span aria-hidden="true" style="--i:7">x</span><span aria-hidden="true" style="--i:8">t</span>
+  </h1>
+</body>
+</html>

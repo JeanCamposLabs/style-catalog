@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hue Cycle Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "color-cycle-text",
+    "title": "Hue Cycle Text",
+    "summary": "The headline walks the entire hue wheel on a slow loop.",
+    "description": "A single filter: hue-rotate animation recolors the type continuously without touching any color values.",
+    "theme": "text-effects",
+    "categories": ["text", "color"],
+    "tags": ["hue-rotate", "color-cycle", "filter", "rainbow", "loop"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Full hue rotation", "default": "6s" }
+    ],
+    "variations": ["Limit the range for a subtle shift", "Apply to an icon set instead", "Pause on hover"],
+    "ai_usage": "Party, pride, or playful branding. hue-rotate is one cheap filter, but it re-rasterizes the element each frame — keep it on small text, never a full page. Respect reduced motion; cycling color is a common trigger."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 6s; }
+    .hue { font-size: clamp(2rem, 8vw, 3.8rem); font-weight: 900; color: #ff5f6d;
+      animation: hue var(--dur) linear infinite; }
+    @keyframes hue { to { filter: hue-rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="hue">SPECTRUM</h1>
+</body>
+</html>

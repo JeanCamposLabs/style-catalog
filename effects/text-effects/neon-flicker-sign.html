@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flickering Neon Sign</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neon-flicker-sign",
+    "title": "Flickering Neon Sign",
+    "summary": "A neon headline where one letter stutters like a failing tube.",
+    "description": "The whole sign glows steadily while a single character runs an irregular flicker keyframe — the asymmetry is what makes it read as broken neon.",
+    "theme": "text-effects",
+    "categories": ["text", "glow"],
+    "tags": ["neon", "flicker", "sign", "glow", "retro"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Neon color", "default": "#ff2d95" },
+      { "name": "--dur", "description": "Flicker cycle", "default": "4s" }
+    ],
+    "variations": ["Flicker two letters out of phase", "Warm-up sequence on load", "Buzzing tube with a subtle shake"],
+    "ai_usage": "Bars, arcades, and nightlife aesthetics. Real neon flickers irregularly — use uneven keyframe percentages (4%, 6%, 19%, 21%) rather than a regular pulse, and only on one glyph."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #ff2d95; --dur: 4s; }
+    .neon { font-size: clamp(2rem, 8vw, 3.8rem); font-weight: 800; color: #fff; letter-spacing: .04em;
+      text-shadow: 0 0 6px #fff, 0 0 12px var(--c), 0 0 28px var(--c), 0 0 52px var(--c); }
+    .neon i { font-style: normal; animation: flick var(--dur) linear infinite; }
+    @keyframes flick {
+      0%, 3%, 5%, 18%, 22%, 100% { opacity: 1; }
+      4%, 19%, 21% { opacity: .18; }
+      60%, 62% { opacity: .4; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="neon">M<i>O</i>TEL</h1>
+</body>
+</html>

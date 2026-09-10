@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Extruded Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "text-3d-extrude",
+    "title": "3D Extruded Text",
+    "summary": "Stacked text-shadows extrude the headline into a solid slab.",
+    "description": "A dozen 1px-offset shadows in darkening steps build the side of the letterform, with a final soft shadow grounding it.",
+    "theme": "text-effects",
+    "categories": ["text", "3d"],
+    "tags": ["3d", "extrude", "text-shadow", "depth", "headline"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--face", "description": "Front face color", "default": "#ffd166" },
+      { "name": "--side", "description": "Extrusion color", "default": "#b06a12" },
+      { "name": "--depth", "description": "Extrusion length", "default": "10" }
+    ],
+    "variations": ["Animate the depth on hover", "Angle the extrusion by adding x-offset", "Gradient face with background-clip"],
+    "ai_usage": "Poster and hero headlines. The slab is a run of text-shadows at increasing offsets — generate them rather than hand-typing, and keep the offsets 1px apart or the side shows banding. Pair with a tight, heavy font."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --face: #ffd166; --side: #b06a12; }
+    .ex { font-size: clamp(2.4rem, 9vw, 4.6rem); font-weight: 900; letter-spacing: -.02em; color: var(--face);
+      text-shadow: 1px 1px var(--side), 2px 2px var(--side), 3px 3px var(--side), 4px 4px var(--side),
+        5px 5px var(--side), 6px 6px var(--side), 7px 7px var(--side), 8px 8px var(--side),
+        9px 9px var(--side), 10px 10px var(--side), 12px 14px 18px rgba(0,0,0,.55); }
+  </style>
+</head>
+<body>
+  <h1 class="ex">EXTRUDE</h1>
+</body>
+</html>

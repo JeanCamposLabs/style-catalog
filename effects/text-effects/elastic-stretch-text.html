@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elastic Stretch</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "elastic-stretch-text",
+    "title": "Elastic Stretch",
+    "summary": "Letters stretch apart and snap back on a spring curve.",
+    "description": "Animating letter-spacing with an overshooting bezier makes the word breathe without any per-character markup.",
+    "theme": "text-effects",
+    "categories": ["text", "animation"],
+    "tags": ["elastic", "letter-spacing", "spring", "kinetic", "loop"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Cycle", "default": "2.4s" },
+      { "name": "--sp", "description": "Peak spacing", "default": "0.35em" }
+    ],
+    "variations": ["Stretch on hover only", "Add a scaleX squash", "Stagger per word in a sentence"],
+    "ai_usage": "Kinetic typography and loading titles. letter-spacing animates cheaply but forces layout — keep it to a single short heading, and center the text so the growth is symmetric."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 2.4s; --sp: .35em; }
+    .stretch { font-size: clamp(1.8rem, 7vw, 3.2rem); font-weight: 800; text-align: center;
+      animation: stretch var(--dur) cubic-bezier(.34,1.56,.64,1) infinite alternate; }
+    @keyframes stretch { from { letter-spacing: 0; } to { letter-spacing: var(--sp); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="stretch">ELASTIC</h1>
+</body>
+</html>

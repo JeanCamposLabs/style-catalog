@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frosted Ice Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "frost-text",
+    "title": "Frosted Ice Text",
+    "summary": "A cold headline with crystalline highlights and a pale drop shadow.",
+    "description": "A blue-white gradient fill plus a light outer glow and a soft inner-dark shadow give the glassy depth of frozen type.",
+    "theme": "text-effects",
+    "categories": ["text", "elemental"],
+    "tags": ["ice", "frost", "cold", "gradient", "winter"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--ice", "description": "Highlight color", "default": "#e0f2fe" },
+      { "name": "--deep", "description": "Shadow tone", "default": "#0369a1" }
+    ],
+    "variations": ["Add drips with a mask", "Animate a slow shimmer", "Pair with a falling-snow background"],
+    "ai_usage": "Winter promos, cold-storage or gaming themes. The chill comes from the pairing of a near-white gradient with a saturated blue glow; drop the glow and it just reads as light gray text."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .ice { font-size: clamp(2.2rem, 9vw, 4.4rem); font-weight: 900;
+      background: linear-gradient(180deg, #ffffff, var(--ice, #e0f2fe) 40%, #7dd3fc);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 0 14px rgba(56,189,248,.55)) drop-shadow(0 4px 2px rgba(3,105,161,.6)); }
+  </style>
+</head>
+<body>
+  <h1 class="ice">SUBZERO</h1>
+</body>
+</html>

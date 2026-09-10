@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Burning Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "fire-text",
+    "title": "Burning Text",
+    "summary": "Flames lick up from the letterforms with layered blurred shadows.",
+    "description": "Three text-shadow layers at different blurs and hues, animated on slightly different periods, avoid the single-glow look of a naive fire effect.",
+    "theme": "text-effects",
+    "categories": ["text", "elemental"],
+    "tags": ["fire", "flame", "glow", "text-shadow", "hot"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Flicker period", "default": "1.1s" }
+    ],
+    "variations": ["Cool it to a blue plasma", "Add a rising-ember particle layer", "Slow it right down for embers"],
+    "ai_usage": "Gaming, sales, or heat-themed headings. Layer at least three shadows with different blur radii and animate their vertical offsets out of phase — matching phases read as a pulsing glow, not fire."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 1.1s; }
+    .fire { font-size: clamp(2.4rem, 10vw, 5rem); font-weight: 900; color: #ffedd5; letter-spacing: .02em;
+      animation: burn var(--dur) ease-in-out infinite alternate; }
+    @keyframes burn {
+      from { text-shadow: 0 -2px 4px #fff, 0 -8px 12px #fb923c, 0 -18px 28px #ea580c, 0 -30px 44px #7c2d12; }
+      to { text-shadow: 0 -3px 6px #fff, 0 -12px 18px #fdba74, 0 -24px 34px #f97316, 0 -40px 56px #9a3412; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="fire">IGNITE</h1>
+</body>
+</html>

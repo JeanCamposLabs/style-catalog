@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotating Words</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "word-rotator",
+    "title": "Rotating Words",
+    "summary": "One noun in the headline swaps for the next on a vertical roll.",
+    "description": "A fixed-height mask shows one word at a time while the stack slides up, so the surrounding line never reflows.",
+    "theme": "text-effects",
+    "categories": ["text", "animation"],
+    "tags": ["rotator", "headline", "marketing", "roll", "cycle"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Time per word", "default": "2s" },
+      { "name": "--c", "description": "Rotating word color", "default": "#2dd4bf" }
+    ],
+    "variations": ["Fade instead of roll", "Type each word out instead", "Match the container width to the longest word"],
+    "ai_usage": "Marketing headlines ('build faster / safer / together'). Fix the mask height to the line-height and animate translateY in whole-line steps; if the surrounding text jitters, the container width is not fixed to the longest word."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 2s; --c: #2dd4bf; }
+    .rot { font-size: clamp(1.4rem, 5vw, 2.4rem); font-weight: 800; display: flex; gap: .5ch; align-items: center; }
+    .rot .win { height: 1.25em; overflow: hidden; }
+    .rot .win .list { display: block; animation: roll calc(var(--dur) * 4) steps(4) infinite; }
+    .rot .win b { display: block; height: 1.25em; line-height: 1.25em; color: var(--c); }
+    @keyframes roll { to { transform: translateY(-500%); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="rot">Ship it <span class="win"><span class="list"><b>faster</b><b>safer</b><b>together</b><b>today</b><b>faster</b></span></span></div>
+</body>
+</html>
