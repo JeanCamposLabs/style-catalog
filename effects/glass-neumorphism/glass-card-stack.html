@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stacked Glass Cards</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-card-stack",
+    "title": "Stacked Glass Cards",
+    "summary": "Three frosted panels overlap at different depths.",
+    "description": "Stacking translucent panels compounds their blur, so each layer is visibly deeper than the one behind it.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass"],
+    "tags": ["glass", "stack", "depth", "layers", "overlap"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.",
+    "customization": [
+      { "name": "--gap", "description": "Layer offset", "default": "16px" }
+    ],
+    "variations": ["Fan the stack out on hover", "More layers", "Different tint per layer"],
+    "ai_usage": "Onboarding and feature reveals. Because backdrop-filter compounds, keep each panel's blur small (8–12px) — three panels at 20px blur produce mud."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: conic-gradient(from 140deg at 40% 30%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }
+    :root { --gap: 16px; }
+    .stack { position: relative; width: 240px; height: 160px; }
+    .stack div { position: absolute; inset: 0; border-radius: 18px; background: rgba(255,255,255,.13);
+      backdrop-filter: blur(10px) saturate(1.4); -webkit-backdrop-filter: blur(10px) saturate(1.4);
+      border: 1px solid rgba(255,255,255,.3); }
+    .stack div:nth-child(1) { transform: translate(calc(var(--gap) * -1), calc(var(--gap) * -1)) scale(.94); opacity: .7; }
+    .stack div:nth-child(2) { transform: translate(calc(var(--gap) * -.5), calc(var(--gap) * -.5)) scale(.97); opacity: .85; }
+    .stack div:nth-child(3) { display: grid; place-items: center; color: #fff; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <div class="stack"><div></div><div></div><div>Front</div></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grainy Glass</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-noise-overlay",
+    "title": "Grainy Glass",
+    "summary": "Frosted glass with a fine grain that removes gradient banding.",
+    "description": "A low-opacity noise layer over the blur hides the 8-bit stepping that large soft gradients produce.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "texture"],
+    "tags": ["glass", "grain", "banding", "noise", "polish"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.",
+    "customization": [
+      { "name": "--grain", "description": "Grain opacity", "default": "0.35" }
+    ],
+    "variations": ["Coarser grain for a paper feel", "Grain on the backdrop instead", "Animate the grain for film noise"],
+    "ai_usage": "Any large blurred surface on a wide screen. A 2–4% noise overlay is the standard fix for visible gradient banding and costs one pseudo-element."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: radial-gradient(circle at 30% 30%, #7c5cff, #0b0d12 70%); }
+    :root { --grain: .35; }
+    .gg { position: relative; width: 260px; padding: 1.6rem; border-radius: 20px; overflow: hidden; color: #fff;
+      background: rgba(255,255,255,.1); backdrop-filter: blur(16px) saturate(1.5);
+      -webkit-backdrop-filter: blur(16px) saturate(1.5); border: 1px solid rgba(255,255,255,.25); }
+    .gg::after { content: ""; position: absolute; inset: 0; opacity: var(--grain); mix-blend-mode: overlay; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .gg h3 { margin: 0 0 .4rem; }
+    .gg p { margin: 0; opacity: .82; font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <div class="gg"><h3>Grainy glass</h3><p>Noise kills the banding.</p></div>
+</body>
+</html>

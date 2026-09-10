@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taped Corners</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "tape-corner-card",
+    "title": "Taped Corners",
+    "summary": "Translucent tape strips hold the card at two corners.",
+    "description": "Two rotated, semi-transparent strips overlap the card edge, which is what makes the tape read as on top of it.",
+    "theme": "borders-shadows",
+    "categories": ["border", "craft"],
+    "tags": ["tape", "scrapbook", "craft", "rotate", "photo"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--tape", "description": "Tape color", "default": "rgba(251,191,36,.5)" }
+    ],
+    "variations": ["Washi tape pattern", "Tape all four corners", "Slight card rotation for a pinned-up look"],
+    "ai_usage": "Scrapbook, moodboard, and photo-wall layouts. The strips must extend past the card edge and sit above it in z-order; tape drawn inside the card looks like a printed graphic."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }
+    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    :root { --tape: rgba(251,191,36,.5); }
+    .tape { position: relative; }
+    .tape::before, .tape::after { content: ""; position: absolute; width: 76px; height: 24px; background: var(--tape);
+      box-shadow: 0 1px 3px rgba(0,0,0,.4); }
+    .tape::before { top: -10px; left: -14px; transform: rotate(-24deg); }
+    .tape::after { bottom: -10px; right: -14px; transform: rotate(-24deg); }
+    .demo { background: #151b2a; border-radius: 4px; box-shadow: 0 10px 26px rgba(0,0,0,.45); }
+  </style>
+</head>
+<body>
+  <div class="tape"><div class="demo"><h3>Taped up</h3><p>Two strips, rotated.</p></div></div>
+</body>
+</html>

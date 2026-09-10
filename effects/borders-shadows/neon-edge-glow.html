@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Edge Glow</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neon-edge-glow",
+    "title": "Neon Edge Glow",
+    "summary": "A saturated border with matching inner and outer bloom.",
+    "description": "Three shadows — inset, tight outer, wide outer — turn a flat border into a lit tube.",
+    "theme": "borders-shadows",
+    "categories": ["border", "glow"],
+    "tags": ["neon", "glow", "box-shadow", "dark-ui", "bloom"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Glow color", "default": "#ff2d95" },
+      { "name": "--str", "description": "Bloom size", "default": "30px" }
+    ],
+    "variations": ["Animate the bloom to pulse", "Two-colour edge", "Glow only on hover"],
+    "ai_usage": "Dark dashboards and nightlife themes. Always pair the outer bloom with a matching inset shadow; without it the border looks like it is floating above the surface."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }
+    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    :root { --c: #ff2d95; --str: 30px; }
+    .demo { border: 1.5px solid var(--c); border-radius: 16px; background: #14101a;
+      box-shadow: inset 0 0 18px color-mix(in srgb, var(--c) 35%, transparent), 0 0 10px var(--c), 0 0 var(--str) color-mix(in srgb, var(--c) 55%, transparent); }
+  </style>
+</head>
+<body>
+  <div class="demo"><h3>Neon edge</h3><p>Inset plus outer bloom.</p></div>
+</body>
+</html>
