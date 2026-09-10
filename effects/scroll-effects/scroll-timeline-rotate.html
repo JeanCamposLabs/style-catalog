@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scroll-Linked Rotation</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scroll-timeline-rotate",
+    "title": "Scroll-Linked Rotation",
+    "summary": "An element rotating with scroll via CSS only.",
+    "description": "An element rotating with scroll via CSS only.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "motion"],
+    "tags": ["scroll", "scroll-timeline", "rotate", "css-only", "native"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+    "customization": [
+      { "name": "--dur", "description": "Full rotation", "default": "one scroll" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Decorative scroll links. Native scroll-driven animation needs no JS and never desynchronises from the scroller; feature-detect with @supports (animation-timeline: scroll()) for a fallback."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { min-height: 250vh; }
+    .stage { position: sticky; top: 0; height: 100vh; display: grid; place-items: center; }
+    .sq { width: 130px; height: 130px; border-radius: 22px; background: linear-gradient(150deg, #7c5cff, #2dd4bf);
+      animation: turn linear; animation-timeline: scroll(root); }
+    .hint { position: absolute; bottom: 14vh; color: #8b93a7; font-size: .85rem; }
+    @keyframes turn { to { rotate: 360deg; scale: .6; } }
+    @media (prefers-reduced-motion: reduce) {
+      .sq { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage"><div class="sq"></div><p class="hint">Scroll to rotate — pure CSS scroll-timeline</p></div>
+</body>
+</html>

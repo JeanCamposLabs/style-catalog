@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shaped Frames</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "image-shape-mask-frames",
+    "title": "Shaped Frames",
+    "summary": "The same image in four mask shapes.",
+    "description": "The same image in four mask shapes.",
+    "theme": "images-media",
+    "categories": ["image", "media"],
+    "tags": ["image", "media", "shapes", "mask", "frames", "gallery"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+    "customization": [
+      { "name": "--size", "description": "Frame size", "default": "68px" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Editorial image sets. Pick one shape language per layout; mixed frame shapes in a single grid read as unfinished rather than playful."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 12px; }
+    .i { width: 68px; height: 68px; background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #c2891a); }
+    .hex { clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+    .blob { border-radius: 58% 42% 37% 63% / 45% 39% 61% 55%; }
+    .circle { border-radius: 50%; }
+    .arch { border-radius: 50% 50% 8px 8px / 60% 60% 8px 8px; }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="i circle"></span><span class="i hex"></span><span class="i blob"></span><span class="i arch"></span></div>
+</body>
+</html>

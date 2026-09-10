@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scroll-Driven Progress</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scroll-driven-progress",
+    "title": "Scroll-Driven Progress",
+    "summary": "A bar driven by native scroll-timeline.",
+    "description": "A bar driven by native scroll-timeline.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "motion"],
+    "tags": ["scroll", "scroll-timeline", "progress", "native", "css-only"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+    "customization": [
+      { "name": "--c", "description": "Bar colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Reading progress. animation-timeline: scroll() runs on the compositor with no JS listener; keep a JS fallback for browsers without scroll-driven animation support."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { min-height: 260vh; background: linear-gradient(#0b0d12, #1a1030); }
+    .bar { position: fixed; top: 0; left: 0; right: 0; height: 5px; transform-origin: left; background: #7c5cff;
+      animation: grow linear; animation-timeline: scroll(root); scale: 0 1; }
+    .content { padding: 30vh 1.5rem; color: #cbd5e1; max-width: 34ch; }
+    h2 { margin: 0 0 .5rem; }
+    p { color: #8b93a7; line-height: 1.6; }
+    @keyframes grow { to { scale: 1 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .bar { animation: none; scale: 1 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bar" aria-hidden="true"></div>
+  <div class="content"><h2>Scroll to fill the bar</h2><p>The progress bar is driven entirely by CSS scroll-timeline — no scroll listener, no layout thrash.</p></div>
+  <div class="content"><h2>Still scrolling</h2><p>Because it runs on the compositor, the bar never lags behind fast flicks.</p></div>
+</body>
+</html>

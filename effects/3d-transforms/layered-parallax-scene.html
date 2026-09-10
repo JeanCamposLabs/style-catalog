@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layered 3D Scene</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "layered-parallax-scene",
+    "title": "Layered 3D Scene",
+    "summary": "Layers at different Z depths moving with the pointer.",
+    "description": "Layers at different Z depths moving with the pointer.",
+    "theme": "3d-transforms",
+    "categories": ["3d", "transform"],
+    "tags": ["3d", "transform", "parallax", "layers", "pointer", "depth"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--max", "description": "Maximum tilt", "default": "12deg" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Interactive hero scenes. Put the pointer-driven rotation on one wrapper and let each layer's translateZ create the parallax automatically — moving layers individually is far more code and less consistent."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .scene { width: 260px; height: 180px; perspective: 700px; border-radius: 16px; overflow: hidden; background: #0d1220; }
+    .world { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .2s ease-out; }
+    .l { position: absolute; inset: 0; display: grid; place-items: center; }
+    .l1 { transform: translateZ(-120px); background: radial-gradient(circle at 40% 30%, #1e1b4b, #0d1220 70%); }
+    .l2 { transform: translateZ(-40px); }
+    .l2 span { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(150deg, #7c5cff, #2dd4bf); }
+    .l3 { transform: translateZ(40px); color: #fff; font-weight: 900; font-size: 1.2rem; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene" id="sc"><div class="world">
+    <div class="l l1"></div><div class="l l2"><span></span></div><div class="l l3">DEPTH</div></div></div>
+  <script>
+    (function () {
+      var s = document.getElementById("sc"), w = s.querySelector(".world");
+      s.addEventListener("pointermove", function (e) {
+        var r = s.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        w.style.transform = "rotateY(" + x * 24 + "deg) rotateX(" + -y * 24 + "deg)";
+      });
+      s.addEventListener("pointerleave", function () { w.style.transform = ""; });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Horizontal Scroll</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "horizontal-scroll-section",
+    "title": "Horizontal Scroll",
+    "summary": "A section that scrolls sideways as the page scrolls down.",
+    "description": "A section that scrolls sideways as the page scrolls down.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "motion"],
+    "tags": ["scroll", "horizontal", "pin", "sideways", "gallery"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+    "customization": [
+      { "name": "--rate", "description": "Travel rate", "default": "1" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Portfolio and process sections. Pin a tall wrapper and translate the rail by the scroll fraction; the wrapper's extra height is what buys the horizontal travel."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { margin: 0; }
+    .pin { height: 260vh; position: relative; }
+    .stage { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; overflow: hidden; }
+    .rail { display: flex; gap: 20px; padding: 0 20px; will-change: transform; }
+    .card { flex: none; width: 220px; height: 300px; border-radius: 18px; display: grid; place-items: center;
+      color: #0b0d12; font-weight: 900; font-size: 1.2rem; }
+  </style>
+</head>
+<body>
+  <div class="pin"><div class="stage"><div class="rail" id="rail">
+    <div class="card" style="background:#7c5cff">01</div><div class="card" style="background:#10a894">02</div>
+    <div class="card" style="background:#c2891a">03</div><div class="card" style="background:#d1478c">04</div></div></div></div>
+  <script>
+    (function () {
+      var pin = document.querySelector(".pin"), rail = document.getElementById("rail");
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      addEventListener("scroll", function () {
+        var r = pin.getBoundingClientRect();
+        var p = Math.min(Math.max(-r.top / (r.height - innerHeight), 0), 1);
+        rail.style.transform = "translateX(" + -p * (rail.scrollWidth - innerWidth + 40) + "px)";
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

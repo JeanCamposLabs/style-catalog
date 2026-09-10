@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Staggered Reveal</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scroll-reveal-stagger",
+    "title": "Staggered Reveal",
+    "summary": "Cards fading in as they enter the viewport.",
+    "description": "Cards fading in as they enter the viewport.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "motion"],
+    "tags": ["scroll", "intersection-observer", "reveal", "stagger", "viewport"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+    "customization": [
+      { "name": "--step", "description": "Stagger step", "default": "0.08s" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Section entrances. Use IntersectionObserver with a small rootMargin and unobserve after the first reveal — re-animating on every scroll direction change is disorienting."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { min-height: 200vh; }
+    .wrap { padding: 40vh 1.5rem; display: grid; gap: 14px; }
+    .c { padding: 1.1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; color: #cbd5e1;
+      opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s cubic-bezier(.2,.8,.3,1); }
+    .c.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .c { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap"><div class="c">First card</div><div class="c">Second card</div><div class="c">Third card</div>
+  <div class="c">Fourth card</div></div>
+  <script>
+    (function () {
+      var cs = [].slice.call(document.querySelectorAll(".c"));
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e, i) {
+          if (!e.isIntersecting) return;
+          setTimeout(function () { e.target.classList.add("in"); }, i * 80);
+          io.unobserve(e.target);
+        });
+      }, { rootMargin: "0px 0px -15% 0px" });
+      cs.forEach(function (c) { io.observe(c); });
+    })();
+  </script>
+</body>
+</html>

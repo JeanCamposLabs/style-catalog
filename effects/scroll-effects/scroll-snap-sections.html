@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Full-Page Snap</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scroll-snap-sections",
+    "title": "Full-Page Snap",
+    "summary": "Sections that snap into place while scrolling.",
+    "description": "Sections that snap into place while scrolling.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "motion"],
+    "tags": ["scroll", "scroll-snap", "full-page", "sections", "mandatory"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+    "customization": [
+      { "name": "--type", "description": "Snap type", "default": "y mandatory" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Story and portfolio pages. Use mandatory snapping only when every section is exactly one viewport tall; otherwise proximity, or users will be unable to reach content taller than the screen."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    html { scroll-snap-type: y mandatory; }
+    body { margin: 0; }
+    section { height: 100vh; scroll-snap-align: start; display: grid; place-items: center; color: #fff; font-size: 1.6rem; font-weight: 800; }
+    .s1 { background: linear-gradient(160deg, #7c5cff, #1e1b4b); }
+    .s2 { background: linear-gradient(160deg, #10a894, #042f2a); }
+    .s3 { background: linear-gradient(160deg, #c2891a, #451a03); }
+  </style>
+</head>
+<body>
+  <section class="s1">One</section><section class="s2">Two</section><section class="s3">Three</section>
+</body>
+</html>

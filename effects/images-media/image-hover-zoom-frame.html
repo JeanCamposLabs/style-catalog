@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contained Zoom</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "image-hover-zoom-frame",
+    "title": "Contained Zoom",
+    "summary": "An image scaling inside a fixed frame on hover.",
+    "description": "An image scaling inside a fixed frame on hover.",
+    "theme": "images-media",
+    "categories": ["image", "media"],
+    "tags": ["image", "media", "zoom", "hover", "frame", "gallery"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+    "customization": [
+      { "name": "--z", "description": "Zoom scale", "default": "1.12" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Gallery thumbnails. Overflow hidden on the frame plus a transform on the inner image keeps the card size fixed — scaling the frame itself would reflow the grid."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 260px; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; }
+    .fx .img { width: 100%; height: 100%; background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #c2891a, #7c5cff);
+      transition: transform .5s cubic-bezier(.2,.8,.3,1); }
+    .fx:hover .img { transform: scale(1.12); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="img"></div></div>
+</body>
+</html>

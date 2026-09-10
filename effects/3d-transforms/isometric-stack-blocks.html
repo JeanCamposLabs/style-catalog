@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Isometric Blocks</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "isometric-stack-blocks",
+    "title": "Isometric Blocks",
+    "summary": "Stacked blocks in an isometric projection.",
+    "description": "Stacked blocks in an isometric projection.",
+    "theme": "3d-transforms",
+    "categories": ["3d", "transform"],
+    "tags": ["3d", "transform", "isometric", "blocks", "projection", "3d"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Block colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Technical illustration. rotateX(58deg) rotateZ(45deg) is the standard isometric camera; build each block from a top face plus two side faces rather than shading a square."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 200px; height: 180px; display: grid; place-items: center; }
+    .iso { transform: rotateX(58deg) rotateZ(45deg); transform-style: preserve-3d; }
+    .b { position: relative; width: 90px; height: 90px; background: #7c5cff; transform-style: preserve-3d;
+      animation: lift 3s ease-in-out infinite alternate; }
+    .b::before, .b::after { content: ""; position: absolute; }
+    .b::before { width: 90px; height: 24px; background: #4c1d95; bottom: -24px; transform-origin: top; transform: rotateX(-90deg); }
+    .b::after { width: 24px; height: 90px; background: #6d3fd6; right: -24px; transform-origin: left; transform: rotateY(90deg); }
+    @keyframes lift { to { transform: translateZ(26px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="iso"><div class="b"></div></div></div>
+</body>
+</html>

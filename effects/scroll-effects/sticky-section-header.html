@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sticky Section Headers</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "sticky-section-header",
+    "title": "Sticky Section Headers",
+    "summary": "Headers that pin while their section scrolls.",
+    "description": "Headers that pin while their section scrolls.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "motion"],
+    "tags": ["scroll", "sticky", "headers", "sections", "list"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+    "customization": [
+      { "name": "--hd", "description": "Header background", "default": "#1c2437" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Long grouped lists. position:sticky needs the header inside the scrolling section, not before it — a common mistake that makes the header disappear at the section boundary."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: #0b0d12; }
+    h3 { position: sticky; top: 0; margin: 0; padding: .6rem 1rem; background: #1c2437; color: #e7ebf3;
+      font-size: .9rem; border-bottom: 1px solid #2b3450; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li { padding: .7rem 1rem; border-bottom: 1px solid #1a2130; color: #8b93a7; font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <section><h3>Backgrounds</h3><ul><li>Aurora</li><li>Mesh gradient</li><li>Dot grid</li><li>Plasma field</li></ul></section>
+  <section><h3>Buttons</h3><ul><li>Ripple</li><li>Neon outline</li><li>Liquid fill</li><li>Keycap</li></ul></section>
+  <section><h3>Loaders</h3><ul><li>Conic ring</li><li>Comet</li><li>Hourglass</li><li>Pac-Man</li></ul></section>
+</body>
+</html>

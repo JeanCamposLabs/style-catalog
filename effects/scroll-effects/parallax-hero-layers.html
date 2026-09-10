@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parallax Hero</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "parallax-hero-layers",
+    "title": "Parallax Hero",
+    "summary": "Background layers moving at different rates.",
+    "description": "Background layers moving at different rates.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "motion"],
+    "tags": ["scroll", "parallax", "hero", "layers", "sticky"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+    "customization": [
+      { "name": "--rate", "description": "Parallax rate", "default": "0.4" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Landing heroes. Drive layer offsets from a single scroll value and apply them with transform — animating background-position forces a repaint of the whole layer each frame."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { min-height: 250vh; margin: 0; }
+    .hero { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+    .l { position: absolute; inset: 0; }
+    .sky { background: linear-gradient(180deg, #1e1b4b, #7c5cff); }
+    .hills { background: radial-gradient(ellipse 120% 60% at 50% 100%, #10a894 0 60%, transparent 61%); }
+    .front { background: radial-gradient(ellipse 90% 40% at 50% 100%, #042f2a 0 60%, transparent 61%); }
+    .title { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 2rem; font-weight: 900; }
+    .after { height: 120vh; background: #0b0d12; }
+  </style>
+</head>
+<body>
+  <div class="hero"><div class="l sky"></div><div class="l hills" id="h1"></div><div class="l front" id="h2"></div>
+  <div class="title">PARALLAX</div></div><div class="after"></div>
+  <script>
+    (function () {
+      var h1 = document.getElementById("h1"), h2 = document.getElementById("h2");
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      addEventListener("scroll", function () {
+        var y = scrollY;
+        h1.style.transform = "translateY(" + y * .18 + "px)";
+        h2.style.transform = "translateY(" + y * .34 + "px)";
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

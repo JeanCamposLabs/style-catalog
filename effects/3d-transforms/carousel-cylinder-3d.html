@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cylinder Carousel</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "carousel-cylinder-3d",
+    "title": "Cylinder Carousel",
+    "summary": "Panels arranged around a rotating cylinder.",
+    "description": "Panels arranged around a rotating cylinder.",
+    "theme": "3d-transforms",
+    "categories": ["3d", "transform"],
+    "tags": ["3d", "transform", "carousel", "cylinder", "rotate", "panels"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--r", "description": "Cylinder radius", "default": "180px" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Rotating showcases. The translateZ radius must be about (panelWidth / 2) / tan(180° / count) or the panels overlap or leave gaps."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .scene { perspective: 900px; width: 220px; height: 140px; }
+    .cyl { position: relative; width: 100%; height: 100%; transform-style: preserve-3d;
+      animation: spin 16s linear infinite; }
+    .p { position: absolute; inset: 0; border-radius: 12px; display: grid; place-items: center; font-weight: 800;
+      color: #0b0d12; transform: rotateY(var(--a)) translateZ(180px); backface-visibility: hidden; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene"><div class="cyl">
+    <span class="p" style="--a:0deg;background:#7c5cff">1</span><span class="p" style="--a:60deg;background:#10a894">2</span>
+    <span class="p" style="--a:120deg;background:#c2891a">3</span><span class="p" style="--a:180deg;background:#d1478c">4</span>
+    <span class="p" style="--a:240deg;background:#2f7cc9">5</span><span class="p" style="--a:300deg;background:#a855f7">6</span></div></div>
+</body>
+</html>
