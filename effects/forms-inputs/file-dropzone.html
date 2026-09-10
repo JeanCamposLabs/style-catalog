@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>File Drop Zone</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "file-dropzone",
+    "title": "File Drop Zone",
+    "summary": "Drag-and-drop upload area with a dashed target, live drag state, and a queued file list with progress bars.",
+    "description": "A drop target that is also a real file input, which is the part most implementations get wrong. The dashed frame lifts and tints on dragover, driven by a drag counter so that dragging across a child element does not flicker the state off and on. Dropped or picked files land in a queue with a type icon, a human-readable size, and a progress bar; the label wraps a visually-hidden <input type=\"file\"> so the whole zone is clickable, focusable, and operable from the keyboard without a single extra listener.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input", "upload", "drag-and-drop"],
+    "tags": ["file-upload", "dropzone", "drag-and-drop", "input", "form", "progress", "queue", "dragover", "accessibility"],
+    "tech": ["css", "js", "html"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers. Drag-and-drop needs a pointer; the wrapped file input is the fallback everywhere else, including touch and keyboard.",
+    "performance_notes": "Listeners are bound once on the zone plus a window-level guard that stops the browser navigating away when a file is dropped outside it. Rendering is one row per file. Progress here is simulated on a timer — swap it for real XHR/fetch upload events.",
+    "accessibility_notes": "The zone is a <label> wrapping a visually-hidden (not display:none) file input, so it stays in the tab order, announces as a file control, and opens the picker on Enter or Space with no key handling of our own. Drag state is decorative only — every action is reachable without dragging. The queue is an aria-live=\"polite\" region so added files are announced once. Focus is shown with a real outline, and the dashed border is not the only cue for the drag state.",
+    "customization": [
+      { "name": "--accent", "description": "Active/dragover tint and progress fill", "default": "#7c5cff" },
+      { "name": "--line", "description": "Resting dashed border colour", "default": "#2b3145" },
+      { "name": "accept", "description": "Restrict pickable types on the input; validate again on drop, since dropping bypasses accept", "default": "unset" },
+      { "name": "MAX_MB", "description": "Client-side size guard — always re-check server side", "default": "10" }
+    ],
+    "variations": [
+      "Paste-to-upload by listening for paste and reading event.clipboardData.files",
+      "Image thumbnails via URL.createObjectURL, revoked on removal",
+      "Chunked/resumable upload for large files",
+      "Restrict to a single file and replace rather than append"
+    ],
+    "related": ["floating-label-input", "password-strength", "tag-input"],
+    "ai_usage": "Use for any file intake — attachments, avatar/logo upload, CSV import, document submission.\n\nThe one structural rule: the drop zone must wrap a real <input type=\"file\">, hidden with the clip-rect visually-hidden pattern, NOT display:none or visibility:hidden — those remove it from the accessibility tree and the tab order, and you lose keyboard and touch users, who cannot drag anything. Wrapping it in a <label> gives you click-to-open, focus, and Enter/Space activation for free; do not reimplement those with key handlers.\n\nDrag state: dragenter/dragleave fire for every child element, so track a depth counter (++ on enter, -- on leave, active while > 0) instead of toggling a boolean, or the highlight strobes. Call preventDefault in dragover or the drop never fires, and add a window-level dragover/drop guard so a missed drop does not navigate the page to the file.\n\nValidate on both paths: the accept attribute filters the picker but does NOT filter drops, so re-check type and size in your drop handler, and re-check everything server side regardless. Progress here is a timer stub — replace it with xhr.upload.onprogress, or fetch with a streamed body, and handle failure per row rather than failing the whole queue.\n\nAvoid: making drag the only way in, blocking the UI during upload, silently dropping files that exceed a limit (say which file and why), and forgetting to revoke object URLs if you add thumbnails."
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --surface: #12151f;
+      --line: #2b3145;
+      --text: #e7ebf3;
+      --muted: #8b93a7;
+      --accent: #7c5cff;
+      --ok: #2dd4bf;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, sans-serif;
+      display: grid; place-content: center; padding: 1rem;
+    }
+    .wrap { width: min(400px, 92vw); }
+
+    /* Visually hidden but still focusable and announced — never display:none. */
+    .sr {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+
+    .zone {
+      display: grid; place-items: center; gap: .3rem;
+      padding: 1.4rem 1rem; text-align: center; cursor: pointer;
+      background: var(--surface);
+      border: 2px dashed var(--line);
+      border-radius: var(--radius);
+      transition: border-color .18s, background .18s, transform .18s cubic-bezier(.22,1,.36,1);
+    }
+    .zone:hover { border-color: #3c4460; }
+    .zone.is-over {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+      transform: scale(1.015);
+    }
+    /* Focus lives on the input, so mirror it onto the label. */
+    .zone:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .zone svg { width: 26px; height: 26px; stroke: var(--accent); fill: none; stroke-width: 1.6; }
+    .zone b { font-size: .82rem; font-weight: 600; }
+    .zone small { font-size: .66rem; color: var(--muted); }
+
+    ul { list-style: none; margin: .7rem 0 0; padding: 0; display: grid; gap: .4rem; }
+    li {
+      display: grid; grid-template-columns: 26px 1fr auto; align-items: center; gap: .55rem;
+      padding: .45rem .55rem; background: var(--surface);
+      border: 1px solid var(--line); border-radius: 8px;
+    }
+    .ext {
+      font-size: .52rem; font-weight: 700; letter-spacing: .03em; text-align: center;
+      padding: .25rem 0; border-radius: 4px;
+      background: color-mix(in srgb, var(--accent) 22%, transparent); color: #cdbfff;
+    }
+    .meta { min-width: 0; }
+    .name { font-size: .7rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .size { font-size: .6rem; color: var(--muted); }
+    .bar { height: 3px; margin-top: .3rem; background: #202638; border-radius: 999px; overflow: hidden; }
+    .bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .25s linear; }
+    li.done .bar i { background: var(--ok); }
+    .rm {
+      border: 0; background: none; color: var(--muted); cursor: pointer;
+      font-size: .9rem; line-height: 1; padding: .2rem .3rem; border-radius: 5px;
+    }
+    .rm:hover { color: var(--text); background: #ffffff12; }
+    .rm:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .zone, .bar i { transition: none; }
+      .zone.is-over { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <label class="zone" id="zone">
+      <input class="sr" type="file" id="picker" multiple />
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 16V4m0 0L8 8m4-4 4 4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 15v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3" stroke-linecap="round"/>
+      </svg>
+      <b>Drop files here</b>
+      <small>or click to browse · up to 10&nbsp;MB each</small>
+    </label>
+
+    <ul id="queue" aria-live="polite" aria-label="Selected files"></ul>
+  </div>
+
+  <script>
+    var MAX_MB = 10;
+    var zone = document.getElementById("zone");
+    var picker = document.getElementById("picker");
+    var queue = document.getElementById("queue");
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var depth = 0;   // dragenter/dragleave fire per child; count instead of toggling
+
+    function human(bytes) {
+      if (bytes < 1024) return bytes + " B";
+      var kb = bytes / 1024;
+      if (kb < 1024) return kb.toFixed(0) + " KB";
+      return (kb / 1024).toFixed(1) + " MB";
+    }
+    function extOf(name) {
+      var i = name.lastIndexOf(".");
+      return (i > -1 ? name.slice(i + 1) : "?").slice(0, 4).toUpperCase();
+    }
+
+    function addRow(file) {
+      var li = document.createElement("li");
+      var tooBig = file.size > MAX_MB * 1024 * 1024;
+
+      var ext = document.createElement("span");
+      ext.className = "ext"; ext.textContent = extOf(file.name);
+
+      var meta = document.createElement("div");
+      meta.className = "meta";
+      var name = document.createElement("div");
+      name.className = "name"; name.textContent = file.name;
+      var size = document.createElement("div");
+      size.className = "size";
+      // Say which file failed and why — never drop it silently.
+      size.textContent = tooBig ? human(file.size) + " · too large, max " + MAX_MB + " MB" : human(file.size);
+      if (tooBig) size.style.color = "#f2555a";
+      var bar = document.createElement("div");
+      bar.className = "bar";
+      var fill = document.createElement("i");
+      bar.appendChild(fill);
+      meta.appendChild(name); meta.appendChild(size);
+      if (!tooBig) meta.appendChild(bar);
+
+      var rm = document.createElement("button");
+      rm.className = "rm"; rm.type = "button";
+      rm.setAttribute("aria-label", "Remove " + file.name);
+      rm.textContent = "×";
+      rm.onclick = function () { li.remove(); };
+
+      li.appendChild(ext); li.appendChild(meta); li.appendChild(rm);
+      queue.appendChild(li);
+
+      // Stub progress. Replace with xhr.upload.onprogress for a real upload.
+      if (!tooBig) {
+        if (reduce) { fill.style.width = "100%"; li.classList.add("done"); return; }
+        var pct = 0;
+        var timer = setInterval(function () {
+          pct = Math.min(pct + 8 + Math.random() * 14, 100);
+          fill.style.width = pct + "%";
+          if (pct >= 100) { clearInterval(timer); li.classList.add("done"); }
+        }, 140);
+      }
+    }
+
+    function accept(list) {
+      for (var i = 0; i < list.length; i++) addRow(list[i]);
+    }
+
+    picker.addEventListener("change", function () { accept(picker.files); picker.value = ""; });
+
+    // dragover must preventDefault or the drop event never fires.
+    zone.addEventListener("dragover", function (e) { e.preventDefault(); });
+    zone.addEventListener("dragenter", function (e) {
+      e.preventDefault(); depth++; zone.classList.add("is-over");
+    });
+    zone.addEventListener("dragleave", function () {
+      if (--depth <= 0) { depth = 0; zone.classList.remove("is-over"); }
+    });
+    zone.addEventListener("drop", function (e) {
+      e.preventDefault(); depth = 0; zone.classList.remove("is-over");
+      // accept="" filters the picker but NOT drops — validate here too.
+      if (e.dataTransfer && e.dataTransfer.files) accept(e.dataTransfer.files);
+    });
+
+    // Without this, a file dropped outside the zone navigates the page to it.
+    window.addEventListener("dragover", function (e) { e.preventDefault(); });
+    window.addEventListener("drop", function (e) { e.preventDefault(); });
+
+    // Seed the queue so the specimen shows its resting state.
+    [
+      { name: "quarterly-report.pdf", size: 2411724 },
+      { name: "hero-banner@2x.png", size: 845213 }
+    ].forEach(addRow);
+  </script>
+</body>
+</html>

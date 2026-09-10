@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "counts": {
     "themes": 22,
-    "effects": 176
+    "effects": 181
   },
   "effectEndpoint": "api/effects/{id}.json",
   "effects": [
@@ -868,6 +868,38 @@
       "path": "effects/color-systems/semantic-color-tokens.html"
     },
     {
+      "id": "contrast-grid",
+      "title": "WCAG Contrast Grid",
+      "summary": "Every foreground/background pair in a palette, scored against WCAG 2.1 contrast thresholds and labelled AAA / AA / AA-Large / fail.",
+      "theme": "color-systems",
+      "themeTitle": "Color Systems",
+      "categories": [
+        "color",
+        "accessibility",
+        "design-tokens",
+        "reference"
+      ],
+      "tags": [
+        "contrast",
+        "wcag",
+        "accessibility",
+        "a11y",
+        "color",
+        "palette",
+        "tokens",
+        "luminance",
+        "ratio",
+        "audit"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "timeless",
+      "difficulty": "intermediate",
+      "path": "effects/color-systems/contrast-grid.html"
+    },
+    {
       "id": "glass-navbar",
       "title": "Glass Navbar (composed)",
       "summary": "A sticky frosted-glass navigation bar with animated underline links and a gradient CTA.",
@@ -972,6 +1004,38 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/combos-recipes/pricing-card.html"
+    },
+    {
+      "id": "site-footer",
+      "title": "Site Footer Block",
+      "summary": "A complete multi-column site footer — brand, link columns, newsletter capture, social row, and a legal bar.",
+      "theme": "combos-recipes",
+      "themeTitle": "Combination Recipes",
+      "categories": [
+        "layout",
+        "footer",
+        "navigation",
+        "block"
+      ],
+      "tags": [
+        "footer",
+        "site-footer",
+        "columns",
+        "newsletter",
+        "links",
+        "legal",
+        "responsive",
+        "grid",
+        "auto-fit",
+        "block"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "path": "effects/combos-recipes/site-footer.html"
     },
     {
       "id": "spotlight-cursor",
@@ -1168,6 +1232,38 @@
       "era": "2020s",
       "difficulty": "intermediate",
       "path": "effects/forms-inputs/custom-range-slider.html"
+    },
+    {
+      "id": "file-dropzone",
+      "title": "File Drop Zone",
+      "summary": "Drag-and-drop upload area with a dashed target, live drag state, and a queued file list with progress bars.",
+      "theme": "forms-inputs",
+      "themeTitle": "Forms & Inputs",
+      "categories": [
+        "form",
+        "input",
+        "upload",
+        "drag-and-drop"
+      ],
+      "tags": [
+        "file-upload",
+        "dropzone",
+        "drag-and-drop",
+        "input",
+        "form",
+        "progress",
+        "queue",
+        "dragover",
+        "accessibility"
+      ],
+      "tech": [
+        "css",
+        "js",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/forms-inputs/file-dropzone.html"
     },
     {
       "id": "floating-label-input",
@@ -2169,6 +2265,36 @@
       "path": "effects/motion-principles/duration-scale.html"
     },
     {
+      "id": "spring-physics",
+      "title": "Spring Physics Easing",
+      "summary": "Spring curves as pure CSS linear() tokens, racing a plain ease-out so you can see the overshoot and settle.",
+      "theme": "motion-principles",
+      "themeTitle": "Motion Principles",
+      "categories": [
+        "motion",
+        "easing",
+        "design-tokens",
+        "reference"
+      ],
+      "tags": [
+        "spring",
+        "easing",
+        "linear",
+        "overshoot",
+        "damping",
+        "motion",
+        "tokens",
+        "timing-function",
+        "physics"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "path": "effects/motion-principles/spring-physics.html"
+    },
+    {
       "id": "stagger-choreography",
       "title": "Stagger Choreography",
       "summary": "A list whose items animate in one after another with an incremental delay.",
@@ -2430,6 +2556,40 @@
       "era": "1990s",
       "difficulty": "beginner",
       "path": "effects/retro-web/rainbow-text.html"
+    },
+    {
+      "id": "visitor-counter",
+      "title": "Retro Visitor Counter",
+      "summary": "A 90s odometer hit counter in seven-segment digits, rolling up to its total with a CRT glow.",
+      "theme": "retro-web",
+      "themeTitle": "Retro Web",
+      "categories": [
+        "retro",
+        "nostalgia",
+        "counter",
+        "decorative"
+      ],
+      "tags": [
+        "retro",
+        "90s",
+        "visitor-counter",
+        "hit-counter",
+        "odometer",
+        "seven-segment",
+        "led",
+        "crt",
+        "scanlines",
+        "geocities",
+        "nostalgia"
+      ],
+      "tech": [
+        "css",
+        "js",
+        "html"
+      ],
+      "era": "1990s",
+      "difficulty": "beginner",
+      "path": "effects/retro-web/visitor-counter.html"
     },
     {
       "id": "starfield",

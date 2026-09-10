@@ -3,6 +3,46 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.24.0] — 2026-09-10
+
+### Added — five specimens filling catalogue gaps
+
+- **Spring Physics Easing** (`spring-physics`, Motion Principles): three damped
+  springs sampled into CSS `linear()` tokens, racing a `cubic-bezier` against a
+  dashed target line so the overshoot a bezier cannot produce is visible rather
+  than described. Curves are sampled from
+  `x(t) = 1 - e^(-d·t)·(cos(w·t) + (d/w)·sin(w·t))`, and the sampling formula
+  ships in `ai_usage` so consumers can generate their own.
+- **WCAG Contrast Grid** (`contrast-grid`, Color Systems): every foreground /
+  background pair in a palette scored with the real WCAG 2.1 formula (channel
+  linearisation, 0.2126/0.7152/0.0722 luminance, `(L1+0.05)/(L2+0.05)`) and
+  graded AAA / AA / AA-Large / fail. Each ratio is drawn in the actual pair, so
+  a failing combination visibly fails, while the grade badge picks a black or
+  white ink by luminance and stays legible in every cell.
+- **Retro Visitor Counter** (`visitor-counter`, Retro Web): the odometer hit
+  counter the theme description already promised but the theme never had.
+  Seven-segment digits with an unlit ghost layer, beveled cabinet, scanlines,
+  and an ease-out roll-up.
+- **Site Footer Block** (`site-footer`, Combination Recipes): a full multi-column
+  footer — brand, newsletter capture, three `nav` landmarks, social row, legal
+  bar — with animatable underline sweeps and columns that reflow without a
+  media query.
+- **File Drop Zone** (`file-dropzone`, Forms & Inputs): a drop target built
+  around a real visually-hidden `<input type="file">`, so it stays keyboard- and
+  touch-operable. Drag state uses a depth counter (child elements otherwise
+  strobe the highlight), and a window-level guard stops a missed drop from
+  navigating the page.
+
+### Notes
+
+- `motion-principles`, `color-systems`, `combos-recipes`, and `retro-web` were
+  the four thinnest themes; three of them gain a specimen here.
+- Worth recording for future CSS work: `var()` does **not** resolve for
+  `animation-timing-function` declared inside a `@keyframes` block. It falls
+  back silently, so every lane sharing one keyframe animates identically. Leave
+  the timing function off the `0%` frame and let each element's own
+  `animation-timing-function` drive that segment.
+
 ## [0.23.0] — 2026-09-10
 
 ### Added — Glyph Field

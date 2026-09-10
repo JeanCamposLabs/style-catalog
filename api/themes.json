@@ -14,7 +14,7 @@
       "description": "Full UI blocks that compose multiple effects together — heroes, pricing cards, navbars, CTAs, and forms. Copy a whole section, not just one trick.",
       "icon": "🧩",
       "order": 5,
-      "count": 4
+      "count": 5
     },
     {
       "slug": "text-effects",
@@ -54,7 +54,7 @@
       "description": "Accessible, styled form controls — floating labels, toggles, animated checkboxes, and custom sliders.",
       "icon": "📝",
       "order": 45,
-      "count": 7
+      "count": 8
     },
     {
       "slug": "loaders-spinners",
@@ -142,7 +142,7 @@
       "description": "Nostalgia from the 90s/2000s web — marquees, blink, starfields, visitor counters, and rainbow text. Modern, accessible reimplementations of deprecated tags.",
       "icon": "💾",
       "order": 140,
-      "count": 4
+      "count": 5
     },
     {
       "slug": "color-systems",
@@ -150,7 +150,7 @@
       "description": "Design-choice references (beyond single effects) — palettes, gradient libraries, and semantic color tokens you can copy as CSS custom properties.",
       "icon": "🎨",
       "order": 200,
-      "count": 4
+      "count": 5
     },
     {
       "slug": "typography-systems",
@@ -174,7 +174,7 @@
       "description": "Motion-design references — easing curves and a duration scale, as copy-ready tokens for consistent animation.",
       "icon": "🌀",
       "order": 230,
-      "count": 3
+      "count": 4
     }
   ],
   "facets": {
@@ -187,7 +187,7 @@
       {
         "slug": "combos-recipes",
         "title": "Combination Recipes",
-        "count": 4
+        "count": 5
       },
       {
         "slug": "text-effects",
@@ -212,7 +212,7 @@
       {
         "slug": "forms-inputs",
         "title": "Forms & Inputs",
-        "count": 7
+        "count": 8
       },
       {
         "slug": "loaders-spinners",
@@ -267,12 +267,12 @@
       {
         "slug": "retro-web",
         "title": "Retro Web",
-        "count": 4
+        "count": 5
       },
       {
         "slug": "color-systems",
         "title": "Color Systems",
-        "count": 4
+        "count": 5
       },
       {
         "slug": "typography-systems",
@@ -287,21 +287,21 @@
       {
         "slug": "motion-principles",
         "title": "Motion Principles",
-        "count": 3
+        "count": 4
       }
     ],
     "tech": [
       {
         "value": "css",
-        "count": 172
+        "count": 177
       },
       {
         "value": "js",
-        "count": 70
+        "count": 73
       },
       {
         "value": "html",
-        "count": 38
+        "count": 41
       },
       {
         "value": "svg",
@@ -315,11 +315,11 @@
     "difficulty": [
       {
         "value": "intermediate",
-        "count": 84
+        "count": 87
       },
       {
         "value": "beginner",
-        "count": 78
+        "count": 80
       },
       {
         "value": "advanced",
@@ -329,11 +329,11 @@
     "era": [
       {
         "value": "2020s",
-        "count": 124
+        "count": 126
       },
       {
         "value": "timeless",
-        "count": 25
+        "count": 27
       },
       {
         "value": "2010s",
@@ -341,7 +341,7 @@
       },
       {
         "value": "1990s",
-        "count": 4
+        "count": 5
       },
       {
         "value": "2000s",
@@ -366,11 +366,11 @@
         "count": 19
       },
       {
-        "value": "hover",
-        "count": 13
+        "value": "reference",
+        "count": 15
       },
       {
-        "value": "reference",
+        "value": "hover",
         "count": 13
       },
       {
@@ -403,7 +403,7 @@
       },
       {
         "value": "form",
-        "count": 8
+        "count": 9
       },
       {
         "value": "image",
@@ -411,6 +411,22 @@
       },
       {
         "value": "navigation",
+        "count": 8
+      },
+      {
+        "value": "color",
+        "count": 7
+      },
+      {
+        "value": "design-tokens",
+        "count": 7
+      },
+      {
+        "value": "layout",
+        "count": 7
+      },
+      {
+        "value": "retro",
         "count": 7
       },
       {
@@ -422,19 +438,7 @@
         "count": 6
       },
       {
-        "value": "color",
-        "count": 6
-      },
-      {
         "value": "cursor",
-        "count": 6
-      },
-      {
-        "value": "layout",
-        "count": 6
-      },
-      {
-        "value": "retro",
         "count": 6
       },
       {
@@ -446,15 +450,15 @@
         "count": 5
       },
       {
-        "value": "design-tokens",
-        "count": 5
-      },
-      {
         "value": "feedback",
         "count": 5
       },
       {
         "value": "filter",
+        "count": 5
+      },
+      {
+        "value": "input",
         "count": 5
       },
       {
@@ -490,11 +494,11 @@
         "count": 4
       },
       {
-        "value": "input",
+        "value": "micro-interaction",
         "count": 4
       },
       {
-        "value": "micro-interaction",
+        "value": "motion",
         "count": 4
       },
       {
@@ -527,10 +531,6 @@
       },
       {
         "value": "menu",
-        "count": 3
-      },
-      {
-        "value": "motion",
         "count": 3
       },
       {
@@ -591,6 +591,10 @@
       },
       {
         "value": "dropdown",
+        "count": 2
+      },
+      {
+        "value": "easing",
         "count": 2
       },
       {
@@ -678,6 +682,10 @@
         "count": 2
       },
       {
+        "value": "accessibility",
+        "count": 1
+      },
+      {
         "value": "accordion",
         "count": 1
       },
@@ -699,6 +707,10 @@
       },
       {
         "value": "auth",
+        "count": 1
+      },
+      {
+        "value": "block",
         "count": 1
       },
       {
@@ -734,6 +746,10 @@
         "count": 1
       },
       {
+        "value": "counter",
+        "count": 1
+      },
+      {
         "value": "css",
         "count": 1
       },
@@ -755,6 +771,10 @@
       },
       {
         "value": "decoration",
+        "count": 1
+      },
+      {
+        "value": "decorative",
         "count": 1
       },
       {
@@ -786,11 +806,11 @@
         "count": 1
       },
       {
-        "value": "duration",
+        "value": "drag-and-drop",
         "count": 1
       },
       {
-        "value": "easing",
+        "value": "duration",
         "count": 1
       },
       {
@@ -823,6 +843,10 @@
       },
       {
         "value": "fonts",
+        "count": 1
+      },
+      {
+        "value": "footer",
         "count": 1
       },
       {
@@ -883,6 +907,10 @@
       },
       {
         "value": "morph",
+        "count": 1
+      },
+      {
+        "value": "nostalgia",
         "count": 1
       },
       {
@@ -954,6 +982,10 @@
         "count": 1
       },
       {
+        "value": "upload",
+        "count": 1
+      },
+      {
         "value": "utility",
         "count": 1
       },
@@ -992,15 +1024,19 @@
         "count": 8
       },
       {
+        "value": "grid",
+        "count": 8
+      },
+      {
         "value": "reveal",
         "count": 8
       },
       {
-        "value": "glow",
-        "count": 7
+        "value": "tokens",
+        "count": 8
       },
       {
-        "value": "grid",
+        "value": "glow",
         "count": 7
       },
       {
@@ -1024,6 +1060,10 @@
         "count": 6
       },
       {
+        "value": "progress",
+        "count": 6
+      },
+      {
         "value": "rotate",
         "count": 6
       },
@@ -1032,8 +1072,8 @@
         "count": 6
       },
       {
-        "value": "tokens",
-        "count": 6
+        "value": "90s",
+        "count": 5
       },
       {
         "value": "accessible",
@@ -1072,20 +1112,12 @@
         "count": 5
       },
       {
-        "value": "progress",
-        "count": 5
-      },
-      {
         "value": "saas",
         "count": 5
       },
       {
         "value": "stroke",
         "count": 5
-      },
-      {
-        "value": "90s",
-        "count": 4
       },
       {
         "value": "ambient",
@@ -1124,6 +1156,10 @@
         "count": 4
       },
       {
+        "value": "input",
+        "count": 4
+      },
+      {
         "value": "loader",
         "count": 4
       },
@@ -1141,6 +1177,14 @@
       },
       {
         "value": "particles",
+        "count": 4
+      },
+      {
+        "value": "responsive",
+        "count": 4
+      },
+      {
+        "value": "retro",
         "count": 4
       },
       {
@@ -1204,6 +1248,10 @@
         "count": 3
       },
       {
+        "value": "columns",
+        "count": 3
+      },
+      {
         "value": "conic",
         "count": 3
       },
@@ -1224,15 +1272,19 @@
         "count": 3
       },
       {
+        "value": "form",
+        "count": 3
+      },
+      {
         "value": "frosted",
         "count": 3
       },
       {
-        "value": "glitch",
+        "value": "geocities",
         "count": 3
       },
       {
-        "value": "input",
+        "value": "glitch",
         "count": 3
       },
       {
@@ -1241,6 +1293,10 @@
       },
       {
         "value": "kinetic",
+        "count": 3
+      },
+      {
+        "value": "linear",
         "count": 3
       },
       {
@@ -1260,11 +1316,23 @@
         "count": 3
       },
       {
+        "value": "motion",
+        "count": 3
+      },
+      {
         "value": "noise",
         "count": 3
       },
       {
+        "value": "nostalgia",
+        "count": 3
+      },
+      {
         "value": "organic",
+        "count": 3
+      },
+      {
+        "value": "palette",
         "count": 3
       },
       {
@@ -1277,14 +1345,6 @@
       },
       {
         "value": "radial",
-        "count": 3
-      },
-      {
-        "value": "responsive",
-        "count": 3
-      },
-      {
-        "value": "retro",
         "count": 3
       },
       {
@@ -1320,6 +1380,10 @@
         "count": 3
       },
       {
+        "value": "accessibility",
+        "count": 2
+      },
+      {
         "value": "agency",
         "count": 2
       },
@@ -1353,6 +1417,10 @@
       },
       {
         "value": "auth",
+        "count": 2
+      },
+      {
+        "value": "auto-fit",
         "count": 2
       },
       {
@@ -1404,10 +1472,6 @@
         "count": 2
       },
       {
-        "value": "columns",
-        "count": 2
-      },
-      {
         "value": "comparison",
         "count": 2
       },
@@ -1456,6 +1520,10 @@
         "count": 2
       },
       {
+        "value": "easing",
+        "count": 2
+      },
+      {
         "value": "entrance",
         "count": 2
       },
@@ -1493,14 +1561,6 @@
       },
       {
         "value": "focus",
-        "count": 2
-      },
-      {
-        "value": "form",
-        "count": 2
-      },
-      {
-        "value": "geocities",
         "count": 2
       },
       {
@@ -1572,10 +1632,6 @@
         "count": 2
       },
       {
-        "value": "linear",
-        "count": 2
-      },
-      {
         "value": "link",
         "count": 2
       },
@@ -1608,10 +1664,6 @@
         "count": 2
       },
       {
-        "value": "motion",
-        "count": 2
-      },
-      {
         "value": "music",
         "count": 2
       },
@@ -1628,15 +1680,7 @@
         "count": 2
       },
       {
-        "value": "nostalgia",
-        "count": 2
-      },
-      {
         "value": "orbit",
-        "count": 2
-      },
-      {
-        "value": "palette",
         "count": 2
       },
       {
@@ -1696,6 +1740,10 @@
         "count": 2
       },
       {
+        "value": "spring",
+        "count": 2
+      },
+      {
         "value": "stroke-dashoffset",
         "count": 2
       },
@@ -1736,6 +1784,10 @@
         "count": 2
       },
       {
+        "value": "timing-function",
+        "count": 2
+      },
+      {
         "value": "topbar",
         "count": 2
       },
@@ -1749,6 +1801,10 @@
       },
       {
         "value": "validation",
+        "count": 2
+      },
+      {
+        "value": "visitor-counter",
         "count": 2
       },
       {
@@ -1777,6 +1833,10 @@
       },
       {
         "value": "50-50",
+        "count": 1
+      },
+      {
+        "value": "a11y",
         "count": 1
       },
       {
@@ -1844,15 +1904,15 @@
         "count": 1
       },
       {
+        "value": "audit",
+        "count": 1
+      },
+      {
         "value": "aurora-ui",
         "count": 1
       },
       {
         "value": "auto-advance",
-        "count": 1
-      },
-      {
-        "value": "auto-fit",
         "count": 1
       },
       {
@@ -1917,6 +1977,10 @@
       },
       {
         "value": "blobs",
+        "count": 1
+      },
+      {
+        "value": "block",
         "count": 1
       },
       {
@@ -2060,6 +2124,10 @@
         "count": 1
       },
       {
+        "value": "color",
+        "count": 1
+      },
+      {
         "value": "color-space",
         "count": 1
       },
@@ -2092,6 +2160,10 @@
         "count": 1
       },
       {
+        "value": "contrast",
+        "count": 1
+      },
+      {
         "value": "corner",
         "count": 1
       },
@@ -2113,6 +2185,10 @@
       },
       {
         "value": "crop",
+        "count": 1
+      },
+      {
+        "value": "crt",
         "count": 1
       },
       {
@@ -2141,6 +2217,10 @@
       },
       {
         "value": "cylinder",
+        "count": 1
+      },
+      {
+        "value": "damping",
         "count": 1
       },
       {
@@ -2228,7 +2308,19 @@
         "count": 1
       },
       {
+        "value": "drag-and-drop",
+        "count": 1
+      },
+      {
+        "value": "dragover",
+        "count": 1
+      },
+      {
         "value": "draw-on",
+        "count": 1
+      },
+      {
+        "value": "dropzone",
         "count": 1
       },
       {
@@ -2245,10 +2337,6 @@
       },
       {
         "value": "earthy",
-        "count": 1
-      },
-      {
-        "value": "easing",
         "count": 1
       },
       {
@@ -2312,6 +2400,10 @@
         "count": 1
       },
       {
+        "value": "file-upload",
+        "count": 1
+      },
+      {
         "value": "film",
         "count": 1
       },
@@ -2357,6 +2449,10 @@
       },
       {
         "value": "food",
+        "count": 1
+      },
+      {
+        "value": "footer",
         "count": 1
       },
       {
@@ -2441,6 +2537,10 @@
       },
       {
         "value": "highlight",
+        "count": 1
+      },
+      {
+        "value": "hit-counter",
         "count": 1
       },
       {
@@ -2540,6 +2640,14 @@
         "count": 1
       },
       {
+        "value": "led",
+        "count": 1
+      },
+      {
+        "value": "legal",
+        "count": 1
+      },
+      {
         "value": "library",
         "count": 1
       },
@@ -2580,6 +2688,10 @@
         "count": 1
       },
       {
+        "value": "links",
+        "count": 1
+      },
+      {
         "value": "linktree",
         "count": 1
       },
@@ -2609,6 +2721,10 @@
       },
       {
         "value": "lqip",
+        "count": 1
+      },
+      {
+        "value": "luminance",
         "count": 1
       },
       {
@@ -2736,6 +2852,10 @@
         "count": 1
       },
       {
+        "value": "newsletter",
+        "count": 1
+      },
+      {
         "value": "northern-lights",
         "count": 1
       },
@@ -2756,6 +2876,10 @@
         "count": 1
       },
       {
+        "value": "odometer",
+        "count": 1
+      },
+      {
         "value": "oklch",
         "count": 1
       },
@@ -2769,6 +2893,10 @@
       },
       {
         "value": "overlay",
+        "count": 1
+      },
+      {
+        "value": "overshoot",
         "count": 1
       },
       {
@@ -2813,6 +2941,10 @@
       },
       {
         "value": "physical",
+        "count": 1
+      },
+      {
+        "value": "physics",
         "count": 1
       },
       {
@@ -2904,11 +3036,19 @@
         "count": 1
       },
       {
+        "value": "queue",
+        "count": 1
+      },
+      {
         "value": "rainbow",
         "count": 1
       },
       {
         "value": "ratings",
+        "count": 1
+      },
+      {
+        "value": "ratio",
         "count": 1
       },
       {
@@ -3020,6 +3160,10 @@
         "count": 1
       },
       {
+        "value": "scanlines",
+        "count": 1
+      },
+      {
         "value": "schedule",
         "count": 1
       },
@@ -3064,6 +3208,10 @@
         "count": 1
       },
       {
+        "value": "seven-segment",
+        "count": 1
+      },
+      {
         "value": "shake",
         "count": 1
       },
@@ -3093,6 +3241,10 @@
       },
       {
         "value": "signature",
+        "count": 1
+      },
+      {
+        "value": "site-footer",
         "count": 1
       },
       {
@@ -3161,10 +3313,6 @@
       },
       {
         "value": "spotify",
-        "count": 1
-      },
-      {
-        "value": "spring",
         "count": 1
       },
       {
@@ -3304,10 +3452,6 @@
         "count": 1
       },
       {
-        "value": "timing-function",
-        "count": 1
-      },
-      {
         "value": "toc",
         "count": 1
       },
@@ -3376,10 +3520,6 @@
         "count": 1
       },
       {
-        "value": "visitor-counter",
-        "count": 1
-      },
-      {
         "value": "vw",
         "count": 1
       },
@@ -3393,6 +3533,10 @@
       },
       {
         "value": "wash",
+        "count": 1
+      },
+      {
+        "value": "wcag",
         "count": 1
       },
       {
