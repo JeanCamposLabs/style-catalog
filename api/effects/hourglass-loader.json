@@ -1,0 +1,54 @@
+{
+  "id": "hourglass-loader",
+  "title": "Hourglass",
+  "summary": "Sand drains from the top bulb to the bottom, then the whole glass flips.",
+  "description": "Two clipped triangles change height on the same timeline as a falling grain stream; a flip at the end of the cycle restarts it without a jump.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "time"
+  ],
+  "tags": [
+    "hourglass",
+    "sand",
+    "flip",
+    "time",
+    "clip-path"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--sand",
+      "description": "Sand color",
+      "default": "#fbbf24"
+    },
+    {
+      "name": "--glass",
+      "description": "Glass edge",
+      "default": "#94a3b8"
+    },
+    {
+      "name": "--dur",
+      "description": "Drain time",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Slow the flip for a heavier glass",
+    "Add grain speckles inside the sand",
+    "Pair with a countdown number"
+  ],
+  "related": [],
+  "ai_usage": "Best for waits you can actually estimate — an hourglass implies finite time. The bulbs are clip-path triangles; animate the inner fill's height, and put the flip on the outer wrapper so the sand levels swap seamlessly.",
+  "path": "effects/loaders-spinners/hourglass-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hourglass</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hourglass-loader\",\n    \"title\": \"Hourglass\",\n    \"summary\": \"Sand drains from the top bulb to the bottom, then the whole glass flips.\",\n    \"description\": \"Two clipped triangles change height on the same timeline as a falling grain stream; a flip at the end of the cycle restarts it without a jump.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"time\"],\n    \"tags\": [\"hourglass\", \"sand\", \"flip\", \"time\", \"clip-path\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--sand\", \"description\": \"Sand color\", \"default\": \"#fbbf24\" },\n      { \"name\": \"--glass\", \"description\": \"Glass edge\", \"default\": \"#94a3b8\" },\n      { \"name\": \"--dur\", \"description\": \"Drain time\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Slow the flip for a heavier glass\", \"Add grain speckles inside the sand\", \"Pair with a countdown number\"],\n    \"ai_usage\": \"Best for waits you can actually estimate — an hourglass implies finite time. The bulbs are clip-path triangles; animate the inner fill's height, and put the flip on the outer wrapper so the sand levels swap seamlessly.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --sand: #fbbf24; --glass: #94a3b8; --dur: 3s; }\n    .hg { width: 60px; height: 92px; position: relative; animation: flip calc(var(--dur) + .6s) ease-in-out infinite; }\n    .hg .bulb { position: absolute; left: 0; right: 0; height: 44px; background: #131a2a; border: 2px solid var(--glass); overflow: hidden; }\n    .hg .top { top: 0; clip-path: polygon(0 0, 100% 0, 52% 100%, 48% 100%); }\n    .hg .bot { bottom: 0; clip-path: polygon(48% 0, 52% 0, 100% 100%, 0 100%); }\n    .hg .fill { position: absolute; left: 0; right: 0; background: var(--sand); }\n    .hg .top .fill { top: 0; height: 100%; animation: drain var(--dur) linear infinite; }\n    .hg .bot .fill { bottom: 0; height: 0; animation: fillup var(--dur) linear infinite; }\n    .hg .stream { position: absolute; top: 44px; left: 50%; width: 2px; height: 6px; margin-left: -1px; background: var(--sand); }\n    @keyframes drain { to { height: 0; } }\n    @keyframes fillup { to { height: 100%; } }\n    @keyframes flip { 0%, 84% { transform: rotate(0); } 100% { transform: rotate(180deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"hg\" role=\"status\" aria-label=\"Loading\">\n    <div class=\"bulb top\"><div class=\"fill\"></div></div>\n    <span class=\"stream\"></span>\n    <div class=\"bulb bot\"><div class=\"fill\"></div></div>\n  </div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "progress-donut-stat",
+  "title": "KPI Tile",
+  "summary": "A headline number with a supporting ring and delta.",
+  "description": "A headline number with a supporting ring and delta.",
+  "theme": "charts-dataviz",
+  "themeTitle": "Charts & Data Viz",
+  "categories": [
+    "chart",
+    "dataviz"
+  ],
+  "tags": [
+    "chart",
+    "data",
+    "kpi",
+    "stat",
+    "tile",
+    "headline"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+  "customization": [
+    {
+      "name": "--p",
+      "description": "Ring percent",
+      "default": "74"
+    },
+    {
+      "name": "--c1",
+      "description": "Ring colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "When one number is the whole message, a hero figure beats a chart. Add a ring only if the number is a share of a known total; otherwise the ring is decoration and should be dropped.",
+  "path": "effects/charts-dataviz/progress-donut-stat.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>KPI Tile</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"progress-donut-stat\",\n    \"title\": \"KPI Tile\",\n    \"summary\": \"A headline number with a supporting ring and delta.\",\n    \"description\": \"A headline number with a supporting ring and delta.\",\n    \"theme\": \"charts-dataviz\",\n    \"categories\": [\"chart\", \"dataviz\"],\n    \"tags\": [\"chart\", \"data\", \"kpi\", \"stat\", \"tile\", \"headline\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.\",\n    \"customization\": [\n      { \"name\": \"--p\", \"description\": \"Ring percent\", \"default\": \"74\" },\n      { \"name\": \"--c1\", \"description\": \"Ring colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"When one number is the whole message, a hero figure beats a chart. Add a ring only if the number is a share of a known total; otherwise the ring is decoration and should be dropped.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;\n      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; display: flex; align-items: center; gap: 1.1rem; padding: 1.2rem 1.4rem; border-radius: 16px;\n      background: #151b2a; border: 1px solid #263149; }\n    .fx .ring { position: relative; width: 66px; aspect-ratio: 1; border-radius: 50%;\n      background: conic-gradient(var(--c1) calc(var(--p) * 1%), #22304a 0);\n      -webkit-mask: radial-gradient(farthest-side, transparent 66%, #000 67%); mask: radial-gradient(farthest-side, transparent 66%, #000 67%); }\n    .fx .wrap { position: relative; display: grid; place-items: center; }\n    .fx .wrap b { position: absolute; font-size: .8rem; font-weight: 800; color: var(--ink); }\n    .fx .n { font-size: 2rem; font-weight: 900; color: var(--ink); line-height: 1; }\n    .fx .l { font-size: .78rem; color: var(--ink-2); margin-top: .2rem; }\n    .fx .up { color: #10a894; font-size: .78rem; font-weight: 700; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"wrap\"><div class=\"ring\" style=\"--p:74\" role=\"img\" aria-label=\"74 percent of target\"></div><b>74%</b></div>\n  <div><div class=\"n\">8,412</div><div class=\"l\">Monthly API calls</div><div class=\"up\">▲ 18% vs last month</div></div></div>\n</body>\n</html>\n"
+}

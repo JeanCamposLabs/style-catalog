@@ -1,0 +1,44 @@
+{
+  "id": "brutal-hard-card",
+  "title": "Brutalist Card",
+  "summary": "Thick black border, hard offset shadow, system type.",
+  "description": "Thick black border, hard offset shadow, system type.",
+  "theme": "brutalism-y2k",
+  "themeTitle": "Brutalism & Y2K",
+  "categories": [
+    "brutalism",
+    "y2k"
+  ],
+  "tags": [
+    "brutalism",
+    "raw",
+    "card",
+    "hard-shadow",
+    "border",
+    "raw"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+  "customization": [
+    {
+      "name": "--sh",
+      "description": "Shadow offset",
+      "default": "10px"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Indie products and portfolios. The shadow must be pure offset with zero blur — any blur immediately reads as a normal card.",
+  "path": "effects/brutalism-y2k/brutal-hard-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Brutalist Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"brutal-hard-card\",\n    \"title\": \"Brutalist Card\",\n    \"summary\": \"Thick black border, hard offset shadow, system type.\",\n    \"description\": \"Thick black border, hard offset shadow, system type.\",\n    \"theme\": \"brutalism-y2k\",\n    \"categories\": [\"brutalism\", \"y2k\"],\n    \"tags\": [\"brutalism\", \"raw\", \"card\", \"hard-shadow\", \"border\", \"raw\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.\",\n    \"customization\": [\n      { \"name\": \"--sh\", \"description\": \"Shadow offset\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Indie products and portfolios. The shadow must be pure offset with zero blur — any blur immediately reads as a normal card.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; padding: 1.2rem; background: #fdf6e3; color: #0b0d12; border: 4px solid #0b0d12;\n      box-shadow: 10px 10px 0 #0b0d12; font-family: \"Courier New\", monospace; }\n    .fx h3 { margin: 0 0 .5rem; font-size: 1.2rem; text-transform: uppercase; }\n    .fx p { margin: 0; font-size: .88rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><h3>NO NONSENSE</h3><p>Four-pixel borders. Zero blur. Courier.</p></div>\n</body>\n</html>\n"
+}

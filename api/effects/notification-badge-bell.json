@@ -1,0 +1,44 @@
+{
+  "id": "notification-badge-bell",
+  "title": "Bell with Count",
+  "summary": "A bell that shakes when a notification arrives.",
+  "description": "A bell that shakes when a notification arrives.",
+  "theme": "notifications-toasts",
+  "themeTitle": "Notifications & Toasts",
+  "categories": [
+    "notification",
+    "feedback"
+  ],
+  "tags": [
+    "notification",
+    "feedback",
+    "bell",
+    "badge",
+    "count",
+    "alert"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Badge colour",
+      "default": "#d1478c"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Notification entry points. The shake draws the eye once — do not loop it continuously, and always expose the count in the button's accessible name.",
+  "path": "effects/notifications-toasts/notification-badge-bell.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Bell with Count</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"notification-badge-bell\",\n    \"title\": \"Bell with Count\",\n    \"summary\": \"A bell that shakes when a notification arrives.\",\n    \"description\": \"A bell that shakes when a notification arrives.\",\n    \"theme\": \"notifications-toasts\",\n    \"categories\": [\"notification\", \"feedback\"],\n    \"tags\": [\"notification\", \"feedback\", \"bell\", \"badge\", \"count\", \"alert\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Badge colour\", \"default\": \"#d1478c\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Notification entry points. The shake draws the eye once — do not loop it continuously, and always expose the count in the button's accessible name.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 52px; height: 52px; border-radius: 14px; background: #151b2a; border: 1px solid #263149;\n      display: grid; place-items: center; font-size: 1.3rem; }\n    .fx .b { animation: ring 4s ease-in-out infinite; transform-origin: 50% 10%; }\n    .fx .n { position: absolute; top: -6px; right: -6px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 99px;\n      background: #d1478c; color: #2a0d1c; font-size: .7rem; font-weight: 800; display: grid; place-items: center;\n      border: 2px solid #0b0d12; }\n    @keyframes ring {\n      0%, 82%, 100% { transform: rotate(0); }\n      84% { transform: rotate(14deg); } 86% { transform: rotate(-12deg); }\n      88% { transform: rotate(9deg); } 90% { transform: rotate(-6deg); } 92% { transform: rotate(0); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-label=\"Notifications, 5 unread\"><span class=\"b\" aria-hidden=\"true\">🔔</span><span class=\"n\" aria-hidden=\"true\">5</span></button>\n</body>\n</html>\n"
+}

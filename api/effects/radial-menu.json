@@ -1,0 +1,43 @@
+{
+  "id": "radial-menu",
+  "title": "Radial Menu",
+  "summary": "Actions fan out on an arc from a central trigger.",
+  "description": "Each item is rotated into place and counter-rotated so its icon stays upright on the arc.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation"
+  ],
+  "tags": [
+    "radial",
+    "pie-menu",
+    "arc",
+    "fan",
+    "gesture"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Arc radius",
+      "default": "86px"
+    }
+  ],
+  "variations": [
+    "Full circle instead of a quarter",
+    "Labels on hover"
+  ],
+  "related": [],
+  "ai_usage": "Touch and canvas tools. Position with rotate(angle) translate(radius) rotate(-angle) — the final counter-rotation is what keeps icons upright.",
+  "path": "effects/navigation-menus/radial-menu.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Radial Menu</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"radial-menu\",\n    \"title\": \"Radial Menu\",\n    \"summary\": \"Actions fan out on an arc from a central trigger.\",\n    \"description\": \"Each item is rotated into place and counter-rotated so its icon stays upright on the arc.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\"],\n    \"tags\": [\"radial\", \"pie-menu\", \"arc\", \"fan\", \"gesture\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Arc radius\", \"default\": \"86px\" }\n    ],\n    \"variations\": [\"Full circle instead of a quarter\", \"Labels on hover\"],\n    \"ai_usage\": \"Touch and canvas tools. Position with rotate(angle) translate(radius) rotate(-angle) — the final counter-rotation is what keeps icons upright.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --r: 86px; }\n    .rm { position: relative; width: 220px; height: 220px; display: grid; place-items: center; }\n    .rm .main { width: 58px; height: 58px; border-radius: 50%; border: 0; background: #7c5cff; color: #fff; font-size: 1.4rem; cursor: pointer; }\n    .rm .it { position: absolute; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #1c2437; color: #e7ebf3;\n      cursor: pointer; opacity: 0; transform: rotate(var(--a)) translate(0) rotate(calc(var(--a) * -1));\n      transition: transform .35s cubic-bezier(.34,1.56,.64,1), opacity .25s; }\n    .rm.is-open .it { opacity: 1; transform: rotate(var(--a)) translate(var(--r)) rotate(calc(var(--a) * -1)); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"rm\" id=\"rm\">\n    <button class=\"it\" type=\"button\" style=\"--a:-90deg\" aria-label=\"Copy\">⧉</button>\n    <button class=\"it\" type=\"button\" style=\"--a:-45deg\" aria-label=\"Share\">↗</button>\n    <button class=\"it\" type=\"button\" style=\"--a:0deg\" aria-label=\"Delete\">🗑</button>\n    <button class=\"it\" type=\"button\" style=\"--a:45deg\" aria-label=\"Star\">★</button>\n    <button class=\"main\" type=\"button\" aria-expanded=\"false\" aria-label=\"Actions\">＋</button>\n  </div>\n  <script>\n    (function () {\n      var m = document.getElementById(\"rm\"), b = m.querySelector(\".main\");\n      b.addEventListener(\"click\", function () {\n        var open = m.classList.toggle(\"is-open\");\n        b.setAttribute(\"aria-expanded\", String(open));\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

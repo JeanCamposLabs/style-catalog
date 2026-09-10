@@ -1,0 +1,49 @@
+{
+  "id": "gradient-shift-text",
+  "title": "Shifting Gradient Text",
+  "summary": "A wide multi-hue gradient slides continuously through the letterforms.",
+  "description": "Oversizing the background and animating its position makes the color travel rather than the text, so the glyph edges stay razor sharp.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "color"
+  ],
+  "tags": [
+    "gradient",
+    "animated",
+    "background-clip",
+    "color",
+    "hero"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Loop time",
+      "default": "5s"
+    },
+    {
+      "name": "--g",
+      "description": "Gradient stops",
+      "default": "#7c5cff,#2dd4bf,#f472b6,#7c5cff"
+    }
+  ],
+  "variations": [
+    "Slower for an ambient hero",
+    "Diagonal angle for more movement",
+    "Freeze it and shift on hover"
+  ],
+  "related": [],
+  "ai_usage": "Hero headlines that need life without motion sickness. Keep background-size at 300% and animate background-position; ensure the first and last stop match or the loop visibly snaps.",
+  "path": "effects/text-effects/gradient-shift-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Shifting Gradient Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"gradient-shift-text\",\n    \"title\": \"Shifting Gradient Text\",\n    \"summary\": \"A wide multi-hue gradient slides continuously through the letterforms.\",\n    \"description\": \"Oversizing the background and animating its position makes the color travel rather than the text, so the glyph edges stay razor sharp.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"color\"],\n    \"tags\": [\"gradient\", \"animated\", \"background-clip\", \"color\", \"hero\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Loop time\", \"default\": \"5s\" },\n      { \"name\": \"--g\", \"description\": \"Gradient stops\", \"default\": \"#7c5cff,#2dd4bf,#f472b6,#7c5cff\" }\n    ],\n    \"variations\": [\"Slower for an ambient hero\", \"Diagonal angle for more movement\", \"Freeze it and shift on hover\"],\n    \"ai_usage\": \"Hero headlines that need life without motion sickness. Keep background-size at 300% and animate background-position; ensure the first and last stop match or the loop visibly snaps.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: 5s; }\n    .gs { font-size: clamp(2.2rem, 9vw, 4.4rem); font-weight: 900;\n      background: linear-gradient(90deg, #7c5cff, #2dd4bf, #f472b6, #7c5cff);\n      background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;\n      animation: shift var(--dur) linear infinite; }\n    @keyframes shift { to { background-position: 300% 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"gs\">Gradient Motion</h1>\n</body>\n</html>\n"
+}

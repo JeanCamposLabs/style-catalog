@@ -1,0 +1,44 @@
+{
+  "id": "layout-aspect-ratio-tiles",
+  "title": "Aspect Ratio Tiles",
+  "summary": "Tiles that keep their proportions at any width.",
+  "description": "Tiles that keep their proportions at any width.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "structure"
+  ],
+  "tags": [
+    "layout",
+    "grid",
+    "aspect-ratio",
+    "tiles",
+    "proportion",
+    "grid"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+  "customization": [
+    {
+      "name": "--ratio",
+      "description": "Tile ratio",
+      "default": "1"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Media grids. aspect-ratio reserves the box before content loads, which removes the layout shift that padding-top hacks were invented to solve.",
+  "path": "effects/layout-archetypes/layout-aspect-ratio-tiles.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Aspect Ratio Tiles</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"layout-aspect-ratio-tiles\",\n    \"title\": \"Aspect Ratio Tiles\",\n    \"summary\": \"Tiles that keep their proportions at any width.\",\n    \"description\": \"Tiles that keep their proportions at any width.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"structure\"],\n    \"tags\": [\"layout\", \"grid\", \"aspect-ratio\", \"tiles\", \"proportion\", \"grid\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.\",\n    \"customization\": [\n      { \"name\": \"--ratio\", \"description\": \"Tile ratio\", \"default\": \"1\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Media grids. aspect-ratio reserves the box before content loads, which removes the layout shift that padding-top hacks were invented to solve.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 300px; }\n    .fx div { aspect-ratio: 1; border-radius: 12px; display: grid; place-items: center; color: #0b0d12; font-weight: 800; font-size: .78rem; }\n    .fx .wide { grid-column: span 2; aspect-ratio: 2 / 1; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"wide\" style=\"background:#7c5cff\">2:1</div><div style=\"background:#10a894\">1:1</div>\n  <div style=\"background:#c2891a\">1:1</div><div style=\"background:#d1478c\">1:1</div><div style=\"background:#2f7cc9\">1:1</div></div>\n</body>\n</html>\n"
+}

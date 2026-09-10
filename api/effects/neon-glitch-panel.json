@@ -1,0 +1,45 @@
+{
+  "id": "neon-glitch-panel",
+  "title": "Glitching Panel",
+  "summary": "A cyberpunk panel with intermittent tearing.",
+  "description": "A cyberpunk panel with intermittent tearing.",
+  "theme": "neon-cyberpunk",
+  "themeTitle": "Neon & Cyberpunk",
+  "categories": [
+    "neon",
+    "cyberpunk"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "dark",
+    "glitch",
+    "panel",
+    "terminal",
+    "tear"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Panel colour",
+      "default": "#22d3ee"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Cyberpunk terminals. Keep the glitch rare (a couple of frames in five seconds) — constant tearing becomes wallpaper and hurts legibility.",
+  "path": "effects/neon-cyberpunk/neon-glitch-panel.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glitching Panel</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-glitch-panel\",\n    \"title\": \"Glitching Panel\",\n    \"summary\": \"A cyberpunk panel with intermittent tearing.\",\n    \"description\": \"A cyberpunk panel with intermittent tearing.\",\n    \"theme\": \"neon-cyberpunk\",\n    \"categories\": [\"neon\", \"cyberpunk\"],\n    \"tags\": [\"neon\", \"glow\", \"dark\", \"glitch\", \"panel\", \"terminal\", \"tear\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Panel colour\", \"default\": \"#22d3ee\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Cyberpunk terminals. Keep the glitch rare (a couple of frames in five seconds) — constant tearing becomes wallpaper and hurts legibility.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 250px; padding: 1.2rem; border: 1px solid #22d3ee; color: #22d3ee;\n      font-family: ui-monospace, Menlo, monospace; font-size: .85rem; background: rgba(8,20,26,.7);\n      animation: tear 5s steps(1) infinite; }\n    @keyframes tear {\n      0%, 92%, 100% { clip-path: inset(0); transform: none; }\n      93% { clip-path: inset(18% 0 62% 0); transform: translateX(6px); }\n      95% { clip-path: inset(58% 0 22% 0); transform: translateX(-8px); }\n      97% { clip-path: inset(0); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">&gt; ICE breached<br>&gt; node 0x4f: OPEN<br>&gt; tracing…</div>\n</body>\n</html>\n"
+}

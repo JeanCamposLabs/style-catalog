@@ -1,0 +1,44 @@
+{
+  "id": "heading-outline-structure",
+  "title": "Heading Outline",
+  "summary": "A correctly nested document outline.",
+  "description": "A correctly nested document outline.",
+  "theme": "accessibility-patterns",
+  "themeTitle": "Accessibility Patterns",
+  "categories": [
+    "accessibility",
+    "reference"
+  ],
+  "tags": [
+    "accessibility",
+    "a11y",
+    "headings",
+    "outline",
+    "structure",
+    "semantics"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Panel background",
+      "default": "#151b2a"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Screen-reader users navigate by heading. Never skip a level for visual sizing — set the level by meaning and control the size with CSS.",
+  "path": "effects/accessibility-patterns/heading-outline-structure.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Heading Outline</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"heading-outline-structure\",\n    \"title\": \"Heading Outline\",\n    \"summary\": \"A correctly nested document outline.\",\n    \"description\": \"A correctly nested document outline.\",\n    \"theme\": \"accessibility-patterns\",\n    \"categories\": [\"accessibility\", \"reference\"],\n    \"tags\": [\"accessibility\", \"a11y\", \"headings\", \"outline\", \"structure\", \"semantics\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Panel background\", \"default\": \"#151b2a\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Screen-reader users navigate by heading. Never skip a level for visual sizing — set the level by meaning and control the size with CSS.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; padding: 1.1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; font-size: .85rem; }\n    .fx .h1 { font-size: 1.1rem; font-weight: 800; }\n    .fx .h2 { font-size: .95rem; font-weight: 700; margin-left: .9rem; margin-top: .6rem; }\n    .fx .h3 { font-size: .85rem; font-weight: 600; margin-left: 1.8rem; margin-top: .4rem; color: #cbd5e1; }\n    .fx .lvl { color: #64748b; font-size: .72rem; margin-right: .4rem; font-family: ui-monospace, monospace; }\n    .fx .note { margin: .9rem 0 0; color: #8b93a7; font-size: .78rem; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"h1\"><span class=\"lvl\">h1</span>Style Catalog</div>\n  <div class=\"h2\"><span class=\"lvl\">h2</span>Themes</div><div class=\"h3\"><span class=\"lvl\">h3</span>Buttons</div>\n  <div class=\"h3\"><span class=\"lvl\">h3</span>Loaders</div><div class=\"h2\"><span class=\"lvl\">h2</span>API</div>\n  <p class=\"note\">Levels descend one at a time; size is a CSS decision, not a semantic one.</p></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "tooltip-delay-group",
+  "title": "Tooltip Group Delay",
+  "summary": "A toolbar where the first tooltip is delayed but the rest are instant.",
+  "description": "A toolbar where the first tooltip is delayed but the rest are instant.",
+  "theme": "tooltips-popovers",
+  "themeTitle": "Tooltips & Popovers",
+  "categories": [
+    "tooltip",
+    "overlay"
+  ],
+  "tags": [
+    "tooltip",
+    "popover",
+    "delay",
+    "toolbar",
+    "group",
+    "hover-intent"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.",
+  "customization": [
+    {
+      "name": "--delay",
+      "description": "Initial delay",
+      "default": "0.5s"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Icon toolbars. Delay the first tooltip but drop the delay while the pointer stays inside the group — this is the pattern every OS toolbar uses.",
+  "path": "effects/tooltips-popovers/tooltip-delay-group.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tooltip Group Delay</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"tooltip-delay-group\",\n    \"title\": \"Tooltip Group Delay\",\n    \"summary\": \"A toolbar where the first tooltip is delayed but the rest are instant.\",\n    \"description\": \"A toolbar where the first tooltip is delayed but the rest are instant.\",\n    \"theme\": \"tooltips-popovers\",\n    \"categories\": [\"tooltip\", \"overlay\"],\n    \"tags\": [\"tooltip\", \"popover\", \"delay\", \"toolbar\", \"group\", \"hover-intent\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.\",\n    \"customization\": [\n      { \"name\": \"--delay\", \"description\": \"Initial delay\", \"default\": \"0.5s\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Icon toolbars. Delay the first tooltip but drop the delay while the pointer stays inside the group — this is the pattern every OS toolbar uses.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bar { display: flex; gap: .4rem; padding: .4rem; border-radius: 12px; background: #151b2a; border: 1px solid #263149; }\n    .bar span { position: relative; }\n    .bar button { width: 40px; height: 40px; border: 0; border-radius: 9px; background: transparent; color: #cbd5e1; font-size: 1.05rem; cursor: pointer; }\n    .bar button:hover { background: #22304a; }\n    .bub { position: absolute; bottom: calc(100% + 8px); left: 50%; translate: -50% 0; white-space: nowrap;\n      padding: .3rem .55rem; border-radius: 6px; background: #1f2637; font-size: .75rem; opacity: 0; pointer-events: none;\n      transition: opacity .15s; transition-delay: .5s; }\n    .bar:hover .bub { transition-delay: 0s; }\n    .bar span:hover .bub, .bar button:focus-visible + .bub { opacity: 1; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bar\">\n    <span><button type=\"button\" aria-describedby=\"t1\">B</button><span class=\"bub\" id=\"t1\" role=\"tooltip\">Bold</span></span>\n    <span><button type=\"button\" aria-describedby=\"t2\">I</button><span class=\"bub\" id=\"t2\" role=\"tooltip\">Italic</span></span>\n    <span><button type=\"button\" aria-describedby=\"t3\">U</button><span class=\"bub\" id=\"t3\" role=\"tooltip\">Underline</span></span>\n  </div>\n</body>\n</html>\n"
+}

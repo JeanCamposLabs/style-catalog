@@ -1,0 +1,44 @@
+{
+  "id": "smoke-particles-rise",
+  "title": "Particle Smoke",
+  "summary": "Soft particles rising and dispersing.",
+  "description": "Soft particles rising and dispersing.",
+  "theme": "particles-physics",
+  "themeTitle": "Particles & Physics",
+  "categories": [
+    "particles",
+    "physics"
+  ],
+  "tags": [
+    "particles",
+    "motion",
+    "smoke",
+    "particles",
+    "rise",
+    "disperse"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Rise period",
+      "default": "5s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Ambient atmosphere. Scale each particle up as it fades so the plume disperses; particles that keep their size read as floating balls.",
+  "path": "effects/particles-physics/smoke-particles-rise.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Particle Smoke</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"smoke-particles-rise\",\n    \"title\": \"Particle Smoke\",\n    \"summary\": \"Soft particles rising and dispersing.\",\n    \"description\": \"Soft particles rising and dispersing.\",\n    \"theme\": \"particles-physics\",\n    \"categories\": [\"particles\", \"physics\"],\n    \"tags\": [\"particles\", \"motion\", \"smoke\", \"particles\", \"rise\", \"disperse\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Rise period\", \"default\": \"5s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Ambient atmosphere. Scale each particle up as it fades so the plume disperses; particles that keep their size read as floating balls.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 180px; height: 190px; overflow: hidden; }\n    .fx i { position: absolute; bottom: -20px; left: 50%; width: 40px; height: 40px; border-radius: 50%; filter: blur(12px);\n      background: rgba(203,213,225,.28); animation: up var(--d) linear infinite; animation-delay: var(--dl); }\n    @keyframes up {\n      0% { transform: translate(-50%, 0) scale(.4); opacity: .8; }\n      100% { transform: translate(calc(-50% + var(--x)), -190px) scale(2); opacity: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--d:5s;--dl:0s;--x:-22px\"></i><i style=\"--d:6.5s;--dl:-2s;--x:26px\"></i>\n  <i style=\"--d:5.8s;--dl:-4s;--x:-6px\"></i></div>\n</body>\n</html>\n"
+}

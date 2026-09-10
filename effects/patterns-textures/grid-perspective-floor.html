@@ -34,11 +34,11 @@
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
     .bg { position: fixed; inset: 0; }
     :root { --c: rgba(255,45,149,.5); }
-    .bg { background: linear-gradient(#0b0d12 0 50%, #1a0a20 50%); overflow: hidden; }
-    .bg::after { content: ""; position: absolute; left: -50%; right: -50%; bottom: -20%; height: 70%;
+    .bg { background: linear-gradient(#0b0d12 0 46%, #1a0a20 46%); overflow: hidden; perspective: 240px; }
+    .bg::after { content: ""; position: absolute; left: -80%; right: -80%; bottom: 0; height: 54%;
       background-image: repeating-linear-gradient(90deg, var(--c) 0 2px, transparent 2px 60px),
         repeating-linear-gradient(0deg, var(--c) 0 2px, transparent 2px 60px);
-      transform: perspective(200px) rotateX(64deg); transform-origin: bottom; }
+      transform: rotateX(72deg); transform-origin: 50% 100%; }
   </style>
 </head>
 <body>

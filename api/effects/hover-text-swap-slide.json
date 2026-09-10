@@ -1,0 +1,44 @@
+{
+  "id": "hover-text-swap-slide",
+  "title": "Label Swap",
+  "summary": "One label sliding out as another slides in.",
+  "description": "One label sliding out as another slides in.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "interaction"
+  ],
+  "tags": [
+    "hover",
+    "pointer",
+    "swap",
+    "slide",
+    "label",
+    "hover"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every hover state here is mirrored on :focus-visible so keyboard users get the same information.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Slide duration",
+      "default": "0.3s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Buttons whose hover reveals detail ('Download' → '4 MB ZIP'). Set the accessible name on the button itself so it does not change as the visible label swaps.",
+  "path": "effects/hover-interactions/hover-text-swap-slide.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Label Swap</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hover-text-swap-slide\",\n    \"title\": \"Label Swap\",\n    \"summary\": \"One label sliding out as another slides in.\",\n    \"description\": \"One label sliding out as another slides in.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"interaction\"],\n    \"tags\": [\"hover\", \"pointer\", \"swap\", \"slide\", \"label\", \"hover\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every hover state here is mirrored on :focus-visible so keyboard users get the same information.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Slide duration\", \"default\": \"0.3s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Buttons whose hover reveals detail ('Download' → '4 MB ZIP'). Set the accessible name on the button itself so it does not change as the visible label swaps.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; overflow: hidden; padding: .8rem 1.6rem; border-radius: 11px; border: 1px solid #2b3450;\n      background: #151b2a; color: #cbd5e1; font: inherit; cursor: pointer; height: 44px; }\n    .fx span { position: absolute; inset: 0; display: grid; place-items: center; transition: transform .3s cubic-bezier(.7,0,.2,1); }\n    .fx .b { transform: translateY(100%); color: #b9a5ff; }\n    .fx:hover .a, .fx:focus-visible .a { transform: translateY(-100%); }\n    .fx:hover .b, .fx:focus-visible .b { transform: translateY(0); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-label=\"Download, 4 megabyte ZIP\"><span class=\"a\">Download</span><span class=\"b\">4 MB ZIP</span></button>\n</body>\n</html>\n"
+}

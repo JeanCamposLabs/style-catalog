@@ -1,0 +1,49 @@
+{
+  "id": "diverging-bar-chart",
+  "title": "Diverging Bars",
+  "summary": "Positive and negative change around a zero baseline.",
+  "description": "Positive and negative change around a zero baseline.",
+  "theme": "charts-dataviz",
+  "themeTitle": "Charts & Data Viz",
+  "categories": [
+    "chart",
+    "dataviz"
+  ],
+  "tags": [
+    "chart",
+    "data",
+    "diverging",
+    "change",
+    "positive-negative",
+    "baseline"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+  "customization": [
+    {
+      "name": "--c5",
+      "description": "Positive colour",
+      "default": "#2f7cc9"
+    },
+    {
+      "name": "--c4",
+      "description": "Negative colour",
+      "default": "#d1478c"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "Change that can go either way. A diverging scale is two hues plus a neutral midpoint — never a hue at zero. Anchor both directions to one centred baseline so the lengths stay comparable.",
+  "path": "effects/charts-dataviz/diverging-bar-chart.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Diverging Bars</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"diverging-bar-chart\",\n    \"title\": \"Diverging Bars\",\n    \"summary\": \"Positive and negative change around a zero baseline.\",\n    \"description\": \"Positive and negative change around a zero baseline.\",\n    \"theme\": \"charts-dataviz\",\n    \"categories\": [\"chart\", \"dataviz\"],\n    \"tags\": [\"chart\", \"data\", \"diverging\", \"change\", \"positive-negative\", \"baseline\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.\",\n    \"customization\": [\n      { \"name\": \"--c5\", \"description\": \"Positive colour\", \"default\": \"#2f7cc9\" },\n      { \"name\": \"--c4\", \"description\": \"Negative colour\", \"default\": \"#d1478c\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"Change that can go either way. A diverging scale is two hues plus a neutral midpoint — never a hue at zero. Anchor both directions to one centred baseline so the lengths stay comparable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;\n      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; width: 300px; }\n    .fx h4 { margin: 0 0 .9rem; font-size: .95rem; color: var(--ink); }\n    .fx .row { display: grid; grid-template-columns: 70px 1fr; align-items: center; gap: .6rem; margin-bottom: .45rem;\n      font-size: .78rem; color: var(--ink-2); }\n    .fx .track { position: relative; height: 16px; }\n    .fx .track::before { content: \"\"; position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--grid); }\n    .fx .track i { position: absolute; top: 0; height: 100%; border-radius: 3px; }\n    .fx .pos { left: 50%; width: calc(var(--v) * 1%); background: var(--c5); border-radius: 2px 4px 4px 2px; }\n    .fx .neg { right: 50%; width: calc(var(--v) * 1%); background: var(--c4); border-radius: 4px 2px 2px 4px; }\n    .fx .val { position: absolute; top: 0; line-height: 16px; font-size: .7rem; color: var(--ink); font-variant-numeric: tabular-nums; }\n  </style>\n</head>\n<body>\n  <figure class=\"fx\" style=\"margin:0\"><h4>Week-over-week change</h4>\n  <div class=\"row\"><span>Gallery</span><span class=\"track\"><i class=\"pos\" style=\"--v:34\"></i><span class=\"val\" style=\"left:calc(50% + 36%)\">+34%</span></span></div>\n  <div class=\"row\"><span>API</span><span class=\"track\"><i class=\"pos\" style=\"--v:12\"></i><span class=\"val\" style=\"left:calc(50% + 14%)\">+12%</span></span></div>\n  <div class=\"row\"><span>Docs</span><span class=\"track\"><i class=\"neg\" style=\"--v:22\"></i><span class=\"val\" style=\"right:calc(50% + 24%)\">−22%</span></span></div>\n  <div class=\"row\"><span>MCP</span><span class=\"track\"><i class=\"neg\" style=\"--v:8\"></i><span class=\"val\" style=\"right:calc(50% + 10%)\">−8%</span></span></div></figure>\n</body>\n</html>\n"
+}

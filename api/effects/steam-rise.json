@@ -1,0 +1,44 @@
+{
+  "id": "steam-rise",
+  "title": "Rising Steam",
+  "summary": "Wisps of steam curling from a hot surface.",
+  "description": "Wisps of steam curling from a hot surface.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "steam",
+    "hot",
+    "coffee",
+    "wisp"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Steam colour",
+      "default": "rgba(226,232,240,.35)"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Food, drink, and 'freshly made' states. Blur is essential — sharp-edged steam reads as a white bar.",
+  "path": "effects/fire-water/steam-rise.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rising Steam</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"steam-rise\",\n    \"title\": \"Rising Steam\",\n    \"summary\": \"Wisps of steam curling from a hot surface.\",\n    \"description\": \"Wisps of steam curling from a hot surface.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"steam\", \"hot\", \"coffee\", \"wisp\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Steam colour\", \"default\": \"rgba(226,232,240,.35)\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Food, drink, and 'freshly made' states. Blur is essential — sharp-edged steam reads as a white bar.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 150px; height: 170px; display: grid; place-items: end center; }\n    .fx .cup { width: 90px; height: 60px; border-radius: 8px 8px 30px 30px; background: linear-gradient(160deg, #e2e8f0, #94a3b8); }\n    .fx i { position: absolute; bottom: 62px; width: 6px; height: 46px; border-radius: 99px; background: rgba(226,232,240,.35);\n      filter: blur(4px); animation: curl var(--d) ease-in-out infinite; animation-delay: var(--dl); }\n    @keyframes curl {\n      0% { transform: translateY(10px) scaleY(.6); opacity: 0; }\n      40% { opacity: .9; }\n      100% { transform: translateY(-46px) translateX(var(--dx)) scaleY(1.3); opacity: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"left:36%;--d:3s;--dl:0s;--dx:-8px\"></i><i style=\"left:50%;--d:3.6s;--dl:-1.2s;--dx:6px\"></i>\n  <i style=\"left:62%;--d:3.2s;--dl:-2s;--dx:10px\"></i><span class=\"cup\"></span></div>\n</body>\n</html>\n"
+}

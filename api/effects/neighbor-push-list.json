@@ -1,0 +1,44 @@
+{
+  "id": "neighbor-push-list",
+  "title": "Neighbour Push List",
+  "summary": "Hovering a list item nudges its neighbours away.",
+  "description": "Sibling selectors move the adjacent rows by a decreasing amount, producing a proximity falloff with no JS.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "list"
+  ],
+  "tags": [
+    "list",
+    "siblings",
+    "push",
+    "falloff",
+    "navigation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--push",
+      "description": "Push distance",
+      "default": "10px"
+    }
+  ],
+  "variations": [
+    "Scale the hovered row too",
+    "Vertical navigation menu",
+    "Colour falloff instead of movement"
+  ],
+  "related": [],
+  "ai_usage": "Navigation lists and menus. Use :hover + li and :hover + li + li with decreasing transforms; it is the CSS-only approximation of a dock magnification effect.",
+  "path": "effects/hover-interactions/neighbor-push-list.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neighbour Push List</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neighbor-push-list\",\n    \"title\": \"Neighbour Push List\",\n    \"summary\": \"Hovering a list item nudges its neighbours away.\",\n    \"description\": \"Sibling selectors move the adjacent rows by a decreasing amount, producing a proximity falloff with no JS.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"list\"],\n    \"tags\": [\"list\", \"siblings\", \"push\", \"falloff\", \"navigation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--push\", \"description\": \"Push distance\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Scale the hovered row too\", \"Vertical navigation menu\", \"Colour falloff instead of movement\"],\n    \"ai_usage\": \"Navigation lists and menus. Use :hover + li and :hover + li + li with decreasing transforms; it is the CSS-only approximation of a dock magnification effect.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --push: 10px; }\n    .nl { list-style: none; margin: 0; padding: 0; width: 230px; }\n    .nl li { padding: .7rem 1rem; border-radius: 10px; background: #151b2a; margin-bottom: 6px; color: #cbd5e1;\n      transition: transform .25s cubic-bezier(.2,.8,.3,1), background .25s; cursor: pointer; }\n    .nl li:hover { background: #23304a; transform: translateX(calc(var(--push) * 1.6)); }\n    .nl li:hover + li { transform: translateX(var(--push)); }\n    .nl li:hover + li + li { transform: translateX(calc(var(--push) * .4)); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <ul class=\"nl\"><li>Overview</li><li>Analytics</li><li>Reports</li><li>Settings</li><li>Billing</li></ul>\n</body>\n</html>\n"
+}

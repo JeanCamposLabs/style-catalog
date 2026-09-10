@@ -1,0 +1,55 @@
+{
+  "id": "triangle-stripes",
+  "title": "Triangle Stripes",
+  "summary": "Alternating triangles along a band.",
+  "description": "Alternating triangles along a band. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "triangles",
+    "sawtooth",
+    "geometric",
+    "bands"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Triangle colour",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--b",
+      "description": "Ground",
+      "default": "#0b0d12"
+    },
+    {
+      "name": "--s",
+      "description": "Tile size",
+      "default": "34px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Bold graphic headers. Two opposing 45° gradients at the same tile size give a clean sawtooth edge.",
+  "path": "effects/patterns-textures/triangle-stripes.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Triangle Stripes</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"triangle-stripes\",\n    \"title\": \"Triangle Stripes\",\n    \"summary\": \"Alternating triangles along a band.\",\n    \"description\": \"Alternating triangles along a band. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"triangles\", \"sawtooth\", \"geometric\", \"bands\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Triangle colour\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--b\", \"description\": \"Ground\", \"default\": \"#0b0d12\" },\n      { \"name\": \"--s\", \"description\": \"Tile size\", \"default\": \"34px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Bold graphic headers. Two opposing 45° gradients at the same tile size give a clean sawtooth edge.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #7c5cff; --b: #0b0d12; --s: 34px; }\n    .bg { background-color: var(--b);\n      background-image: linear-gradient(45deg, var(--a) 25%, transparent 25%), linear-gradient(-45deg, var(--a) 25%, transparent 25%);\n      background-size: var(--s) var(--s); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

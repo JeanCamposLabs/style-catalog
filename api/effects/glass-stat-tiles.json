@@ -1,0 +1,44 @@
+{
+  "id": "glass-stat-tiles",
+  "title": "Glass Stat Tiles",
+  "summary": "Translucent metric tiles in a row.",
+  "description": "Translucent metric tiles in a row.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass",
+    "surface"
+  ],
+  "tags": [
+    "glass",
+    "surface",
+    "glass",
+    "stats",
+    "tiles",
+    "dashboard"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+  "customization": [
+    {
+      "name": "--blur",
+      "description": "Backdrop blur",
+      "default": "14px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Dashboard overlays. Because backdrop-filter compounds across stacked panels, keep each tile's blur modest — three panels at 20px produce mud.",
+  "path": "effects/glass-neumorphism/glass-stat-tiles.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glass Stat Tiles</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-stat-tiles\",\n    \"title\": \"Glass Stat Tiles\",\n    \"summary\": \"Translucent metric tiles in a row.\",\n    \"description\": \"Translucent metric tiles in a row.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\", \"surface\"],\n    \"tags\": [\"glass\", \"surface\", \"glass\", \"stats\", \"tiles\", \"dashboard\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.\",\n    \"customization\": [\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur\", \"default\": \"14px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Dashboard overlays. Because backdrop-filter compounds across stacked panels, keep each tile's blur modest — three panels at 20px produce mud.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: linear-gradient(150deg, #1e1b4b, #7c3aed 60%, #0ea5e9); }\n    .fx { display: flex; gap: 10px; }\n    .t { width: 92px; padding: .9rem .8rem; border-radius: 14px; color: #fff;\n      background: rgba(255,255,255,.16); backdrop-filter: blur(14px) saturate(1.5);\n      -webkit-backdrop-filter: blur(14px) saturate(1.5); border: 1px solid rgba(255,255,255,.3); }\n    .t .n { font-size: 1.4rem; font-weight: 900; line-height: 1; }\n    .t .l { font-size: .7rem; opacity: .8; margin-top: .25rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"t\"><div class=\"n\">1,181</div><div class=\"l\">Specimens</div></div>\n  <div class=\"t\"><div class=\"n\">57</div><div class=\"l\">Themes</div></div>\n  <div class=\"t\"><div class=\"n\">0</div><div class=\"l\">Dependencies</div></div></div>\n</body>\n</html>\n"
+}

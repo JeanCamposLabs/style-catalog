@@ -1,0 +1,44 @@
+{
+  "id": "layout-bento-asymmetric",
+  "title": "Bento Grid",
+  "summary": "Asymmetric tiles of different spans.",
+  "description": "Asymmetric tiles of different spans.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "structure"
+  ],
+  "tags": [
+    "layout",
+    "grid",
+    "bento",
+    "asymmetric",
+    "spans",
+    "dashboard"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+  "customization": [
+    {
+      "name": "--rows",
+      "description": "Row height",
+      "default": "56px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Feature and dashboard grids. Vary spans, not gaps, and keep every tile aligned to the same track sizes — arbitrary sizes turn a bento into a collage.",
+  "path": "effects/layout-archetypes/layout-bento-asymmetric.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Bento Grid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"layout-bento-asymmetric\",\n    \"title\": \"Bento Grid\",\n    \"summary\": \"Asymmetric tiles of different spans.\",\n    \"description\": \"Asymmetric tiles of different spans.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"structure\"],\n    \"tags\": [\"layout\", \"grid\", \"bento\", \"asymmetric\", \"spans\", \"dashboard\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.\",\n    \"customization\": [\n      { \"name\": \"--rows\", \"description\": \"Row height\", \"default\": \"56px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Feature and dashboard grids. Vary spans, not gaps, and keep every tile aligned to the same track sizes — arbitrary sizes turn a bento into a collage.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 56px; gap: 8px; width: 300px; }\n    .fx div { border-radius: 12px; background: #151b2a; border: 1px solid #263149; display: grid; place-items: center;\n      color: #8b93a7; font-size: .74rem; }\n    .a { grid-column: span 2; grid-row: span 2; } .b { grid-column: span 2; } .c { grid-column: span 2; }\n    .d { grid-column: span 4; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"a\">feature</div><div class=\"b\">stat</div><div class=\"c\">stat</div><div class=\"d\">wide</div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "loader-square-fold",
+  "title": "Folding Squares",
+  "summary": "Four squares folding toward the centre in turn.",
+  "description": "Four squares folding toward the centre in turn.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "loader",
+    "waiting",
+    "fold",
+    "squares",
+    "stagger",
+    "sequence"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Cycle",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Compact loaders. Order the delays clockwise (0, 1, 3, 2) so the sequence reads as rotation rather than as a random flicker.",
+  "path": "effects/loaders-spinners/loader-square-fold.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Folding Squares</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"loader-square-fold\",\n    \"title\": \"Folding Squares\",\n    \"summary\": \"Four squares folding toward the centre in turn.\",\n    \"description\": \"Four squares folding toward the centre in turn.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"loader\", \"waiting\", \"fold\", \"squares\", \"stagger\", \"sequence\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Cycle\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Compact loaders. Order the delays clockwise (0, 1, 3, 2) so the sequence reads as rotation rather than as a random flicker.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: repeat(2, 26px); gap: 3px; }\n    .fx i { width: 26px; height: 26px; background: #2dd4bf; animation: fold 1.6s ease-in-out infinite;\n      animation-delay: calc(var(--i) * .2s); }\n    @keyframes fold { 0%, 70%, 100% { transform: scale(1); opacity: 1; } 35% { transform: scale(.2); opacity: .3; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"status\" aria-label=\"Loading\"><i style=\"--i:0\"></i><i style=\"--i:1\"></i><i style=\"--i:3\"></i><i style=\"--i:2\"></i></div>\n</body>\n</html>\n"
+}

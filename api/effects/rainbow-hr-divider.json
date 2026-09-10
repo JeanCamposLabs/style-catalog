@@ -1,0 +1,44 @@
+{
+  "id": "rainbow-hr-divider",
+  "title": "Rainbow Rule",
+  "summary": "The animated rainbow horizontal rule.",
+  "description": "The animated rainbow horizontal rule.",
+  "theme": "retro-web",
+  "themeTitle": "Retro Web",
+  "categories": [
+    "retro",
+    "nostalgia"
+  ],
+  "tags": [
+    "retro",
+    "nostalgia",
+    "rainbow",
+    "divider",
+    "hr",
+    "90s"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Cycle period",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Personal-page dividers. Animating background-position keeps the loop seamless as long as the first and last colour stops match.",
+  "path": "effects/retro-web/rainbow-hr-divider.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rainbow Rule</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"rainbow-hr-divider\",\n    \"title\": \"Rainbow Rule\",\n    \"summary\": \"The animated rainbow horizontal rule.\",\n    \"description\": \"The animated rainbow horizontal rule.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"nostalgia\"],\n    \"tags\": [\"retro\", \"nostalgia\", \"rainbow\", \"divider\", \"hr\", \"90s\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Cycle period\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Personal-page dividers. Animating background-position keeps the loop seamless as long as the first and last colour stops match.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; height: 10px; border-radius: 2px;\n      background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00c000, #0080ff, #8000ff, #ff0000);\n      background-size: 200% 100%; animation: slide 3s linear infinite; }\n    @keyframes slide { to { background-position: 200% 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"separator\"></div>\n</body>\n</html>\n"
+}

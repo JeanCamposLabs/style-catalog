@@ -1,0 +1,44 @@
+{
+  "id": "badge-avatar-stack",
+  "title": "Avatar Stack",
+  "summary": "Overlapping avatars with an overflow count.",
+  "description": "Overlapping avatars with an overflow count. Small self-contained component ready to drop into a list or card.",
+  "theme": "badges-tags",
+  "themeTitle": "Badges & Tags",
+  "categories": [
+    "badge",
+    "label"
+  ],
+  "tags": [
+    "badge",
+    "label",
+    "avatars",
+    "stack",
+    "overlap",
+    "team"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+  "customization": [
+    {
+      "name": "--overlap",
+      "description": "Overlap amount",
+      "default": "10px"
+    }
+  ],
+  "variations": [
+    "Add a size variant",
+    "Map colours to semantic tokens"
+  ],
+  "related": [],
+  "ai_usage": "Collaborator lists. Give the group a single accessible label ('5 collaborators') rather than announcing each initial separately.",
+  "path": "effects/badges-tags/badge-avatar-stack.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Avatar Stack</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"badge-avatar-stack\",\n    \"title\": \"Avatar Stack\",\n    \"summary\": \"Overlapping avatars with an overflow count.\",\n    \"description\": \"Overlapping avatars with an overflow count. Small self-contained component ready to drop into a list or card.\",\n    \"theme\": \"badges-tags\",\n    \"categories\": [\"badge\", \"label\"],\n    \"tags\": [\"badge\", \"label\", \"avatars\", \"stack\", \"overlap\", \"team\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Status must never be colour-only: pair every badge colour with a label, icon, or shape.\",\n    \"customization\": [\n      { \"name\": \"--overlap\", \"description\": \"Overlap amount\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Add a size variant\", \"Map colours to semantic tokens\"],\n    \"ai_usage\": \"Collaborator lists. Give the group a single accessible label ('5 collaborators') rather than announcing each initial separately.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .stack { display: flex; }\n    .stack span { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0b0d12; margin-left: -10px;\n      display: grid; place-items: center; font-size: .78rem; font-weight: 800; color: #0b0d12; }\n    .stack span:first-child { margin-left: 0; }\n    .stack .more { background: #2b3450; color: #cbd5e1; }\n  </style>\n</head>\n<body>\n  <div class=\"stack\" role=\"img\" aria-label=\"5 collaborators\">\n    <span style=\"background:#7c5cff\">A</span><span style=\"background:#2dd4bf\">B</span>\n    <span style=\"background:#fbbf24\">C</span><span class=\"more\">+2</span>\n  </div>\n</body>\n</html>\n"
+}

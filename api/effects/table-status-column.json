@@ -1,0 +1,44 @@
+{
+  "id": "table-status-column",
+  "title": "Status Column",
+  "summary": "A status cell with icon, colour, and label.",
+  "description": "A status cell with icon, colour, and label.",
+  "theme": "tables-data",
+  "themeTitle": "Tables & Data",
+  "categories": [
+    "table",
+    "data"
+  ],
+  "tags": [
+    "table",
+    "data",
+    "status",
+    "state",
+    "semantic",
+    "column"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+  "customization": [
+    {
+      "name": "--ok",
+      "description": "Healthy colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "Operational tables. Status colours are reserved and always ship with an icon plus a word — a coloured dot alone fails colour-vision, greyscale printing, and forced-colours mode.",
+  "path": "effects/tables-data/table-status-column.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Status Column</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"table-status-column\",\n    \"title\": \"Status Column\",\n    \"summary\": \"A status cell with icon, colour, and label.\",\n    \"description\": \"A status cell with icon, colour, and label.\",\n    \"theme\": \"tables-data\",\n    \"categories\": [\"table\", \"data\"],\n    \"tags\": [\"table\", \"data\", \"status\", \"state\", \"semantic\", \"column\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.\",\n    \"customization\": [\n      { \"name\": \"--ok\", \"description\": \"Healthy colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"Operational tables. Status colours are reserved and always ship with an icon plus a word — a coloured dot alone fails colour-vision, greyscale printing, and forced-colours mode.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; border-radius: 12px; overflow: hidden; border: 1px solid #263149; }\n    .fx table { width: 100%; border-collapse: collapse; font-size: .82rem; }\n    .fx th { background: #1c2437; color: #8b93a7; text-align: left; padding: .5rem .8rem; font-size: .68rem; text-transform: uppercase; }\n    .fx td { padding: .5rem .8rem; border-top: 1px solid #1e2740; color: #cbd5e1; }\n    .fx .s { display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; font-weight: 600; }\n    .fx .ok { color: #10a894; } .fx .warn { color: #c2891a; } .fx .bad { color: #d1478c; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><table><caption class=\"sr\" style=\"position:absolute;left:-9999px\">Service status</caption>\n  <thead><tr><th scope=\"col\">Service</th><th scope=\"col\">Status</th></tr></thead>\n  <tbody><tr><td>Gallery</td><td><span class=\"s ok\">✓ Operational</span></td></tr>\n  <tr><td>API</td><td><span class=\"s warn\">▲ Degraded</span></td></tr>\n  <tr><td>Posters</td><td><span class=\"s bad\">■ Failing</span></td></tr></tbody></table></div>\n</body>\n</html>\n"
+}

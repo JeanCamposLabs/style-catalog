@@ -1,0 +1,44 @@
+{
+  "id": "album-grid-hover-play",
+  "title": "Album Grid",
+  "summary": "Cover tiles that reveal a play button on hover.",
+  "description": "Cover tiles that reveal a play button on hover.",
+  "theme": "audio-music-ui",
+  "themeTitle": "Audio & Music UI",
+  "categories": [
+    "audio",
+    "music"
+  ],
+  "tags": [
+    "audio",
+    "player",
+    "album",
+    "grid",
+    "hover",
+    "play"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Audio controls need real button semantics and state labels; a play/pause icon swap must also swap the accessible name.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Play colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Retheme through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Music libraries. Reveal the play control on hover and focus; keep it reachable by keyboard rather than hidden behind pointer-only interaction.",
+  "path": "effects/audio-music-ui/album-grid-hover-play.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Album Grid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"album-grid-hover-play\",\n    \"title\": \"Album Grid\",\n    \"summary\": \"Cover tiles that reveal a play button on hover.\",\n    \"description\": \"Cover tiles that reveal a play button on hover.\",\n    \"theme\": \"audio-music-ui\",\n    \"categories\": [\"audio\", \"music\"],\n    \"tags\": [\"audio\", \"player\", \"album\", \"grid\", \"hover\", \"play\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Audio controls need real button semantics and state labels; a play/pause icon swap must also swap the accessible name.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Play colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Retheme through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Music libraries. Reveal the play control on hover and focus; keep it reachable by keyboard rather than hidden behind pointer-only interaction.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: repeat(2, 120px); gap: 12px; }\n    .al { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1; cursor: pointer; }\n    .al .cv { position: absolute; inset: 0; }\n    .al .pl { position: absolute; right: 8px; bottom: 8px; width: 36px; height: 36px; border-radius: 50%; border: 0;\n      background: #2dd4bf; color: #04241f; display: grid; place-items: center; opacity: 0; transform: translateY(8px);\n      transition: opacity .25s, transform .25s; cursor: pointer; }\n    .al:hover .pl, .al:focus-within .pl { opacity: 1; transform: none; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">\n    <div class=\"al\"><div class=\"cv\" style=\"background:conic-gradient(from 40deg,#7c5cff,#2dd4bf)\"></div><button class=\"pl\" type=\"button\" aria-label=\"Play album one\">▶</button></div>\n    <div class=\"al\"><div class=\"cv\" style=\"background:conic-gradient(from 140deg,#f472b6,#fbbf24)\"></div><button class=\"pl\" type=\"button\" aria-label=\"Play album two\">▶</button></div>\n  </div>\n</body>\n</html>\n"
+}

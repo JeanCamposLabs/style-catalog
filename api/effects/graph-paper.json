@@ -1,0 +1,55 @@
+{
+  "id": "graph-paper",
+  "title": "Graph Paper",
+  "summary": "Fine squares with a heavier major grid.",
+  "description": "Fine squares with a heavier major grid. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "graph-paper",
+    "grid",
+    "maths",
+    "technical"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--minor",
+      "description": "Minor line",
+      "default": "rgba(148,163,184,.14)"
+    },
+    {
+      "name": "--major",
+      "description": "Major line",
+      "default": "rgba(148,163,184,.3)"
+    },
+    {
+      "name": "--s",
+      "description": "Minor cell",
+      "default": "16px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Data, engineering, and note-taking surfaces. The 5:1 major-to-minor ratio matches real graph paper and reads correctly at any zoom.",
+  "path": "effects/patterns-textures/graph-paper.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Graph Paper</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"graph-paper\",\n    \"title\": \"Graph Paper\",\n    \"summary\": \"Fine squares with a heavier major grid.\",\n    \"description\": \"Fine squares with a heavier major grid. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"graph-paper\", \"grid\", \"maths\", \"technical\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--minor\", \"description\": \"Minor line\", \"default\": \"rgba(148,163,184,.14)\" },\n      { \"name\": \"--major\", \"description\": \"Major line\", \"default\": \"rgba(148,163,184,.3)\" },\n      { \"name\": \"--s\", \"description\": \"Minor cell\", \"default\": \"16px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Data, engineering, and note-taking surfaces. The 5:1 major-to-minor ratio matches real graph paper and reads correctly at any zoom.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --minor: rgba(148,163,184,.14); --major: rgba(148,163,184,.3); --s: 16px; }\n    .bg { background-color: #0d1016;\n      background-image: linear-gradient(var(--minor) 1px, transparent 1px), linear-gradient(90deg, var(--minor) 1px, transparent 1px),\n        linear-gradient(var(--major) 1px, transparent 1px), linear-gradient(90deg, var(--major) 1px, transparent 1px);\n      background-size: var(--s) var(--s), var(--s) var(--s), calc(var(--s) * 5) calc(var(--s) * 5), calc(var(--s) * 5) calc(var(--s) * 5); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

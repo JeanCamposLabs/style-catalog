@@ -1,0 +1,44 @@
+{
+  "id": "combo-feature-grid-section",
+  "title": "Feature Grid Section",
+  "summary": "A heading plus a three-up feature grid.",
+  "description": "A heading plus a three-up feature grid.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "combo",
+    "section"
+  ],
+  "tags": [
+    "combo",
+    "block",
+    "features",
+    "grid",
+    "section",
+    "marketing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Marketing pages. Keep every icon block the same size so headings share a baseline, and let the grid collapse to one column rather than shrinking cards below readable width.",
+  "path": "effects/combos-recipes/combo-feature-grid-section.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Feature Grid Section</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"combo-feature-grid-section\",\n    \"title\": \"Feature Grid Section\",\n    \"summary\": \"A heading plus a three-up feature grid.\",\n    \"description\": \"A heading plus a three-up feature grid.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"combo\", \"section\"],\n    \"tags\": [\"combo\", \"block\", \"features\", \"grid\", \"section\", \"marketing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Marketing pages. Keep every icon block the same size so headings share a baseline, and let the grid collapse to one column rather than shrinking cards below readable width.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; place-items: center; padding: 2rem 1rem; }\n    .wrap { width: min(92vw, 320px); }\n    .wrap .eyebrow { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: #b9a5ff; }\n    .wrap h2 { margin: .3rem 0 .5rem; font-size: 1.5rem; line-height: 1.2; }\n    .wrap .lede { margin: 0 0 1.2rem; color: #8b93a7; font-size: .88rem; line-height: 1.6; }\n    .grid { display: grid; gap: 10px; }\n    .card { padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }\n    .card .ic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; margin-bottom: .6rem;\n      background: linear-gradient(150deg, #7c5cff, #2dd4bf); color: #0b0d12; }\n    .card h3 { margin: 0 0 .25rem; font-size: .95rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .82rem; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <section class=\"wrap\"><div class=\"eyebrow\">Why the catalogue</div><h2>Effects you can actually ship</h2>\n  <p class=\"lede\">Every specimen is one self-contained file with machine-readable metadata.</p>\n  <div class=\"grid\"><article class=\"card\"><div class=\"ic\" aria-hidden=\"true\">⚡</div><h3>Zero dependencies</h3><p>No CDN, no build step, no runtime.</p></article>\n  <article class=\"card\"><div class=\"ic\" aria-hidden=\"true\">◆</div><h3>Agent-ready</h3><p>Structured metadata and usage notes per effect.</p></article>\n  <article class=\"card\"><div class=\"ic\" aria-hidden=\"true\">♿</div><h3>Accessible by default</h3><p>Reduced-motion guards and real semantics.</p></article></div></section>\n</body>\n</html>\n"
+}

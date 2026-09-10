@@ -1,0 +1,44 @@
+{
+  "id": "folded-letter",
+  "title": "Folded Letter",
+  "summary": "A sheet with visible horizontal fold creases.",
+  "description": "A sheet with visible horizontal fold creases.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "fold",
+    "crease",
+    "letter",
+    "mail"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--paper",
+      "description": "Paper colour",
+      "default": "#f8f5ee"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Letters, invitations, and mailers. A crease needs a dark line immediately followed by a light one — a single line reads as a printed rule.",
+  "path": "effects/paper-print/folded-letter.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Folded Letter</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"folded-letter\",\n    \"title\": \"Folded Letter\",\n    \"summary\": \"A sheet with visible horizontal fold creases.\",\n    \"description\": \"A sheet with visible horizontal fold creases.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"fold\", \"crease\", \"letter\", \"mail\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--paper\", \"description\": \"Paper colour\", \"default\": \"#f8f5ee\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Letters, invitations, and mailers. A crease needs a dark line immediately followed by a light one — a single line reads as a printed rule.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 230px; padding: 1.3rem; background: #f8f5ee; color: #1f2937; font-size: .85rem;\n      background-image: linear-gradient(180deg, transparent 32%, rgba(0,0,0,.09) 33%, rgba(255,255,255,.7) 34%, transparent 35%),\n        linear-gradient(180deg, transparent 65%, rgba(0,0,0,.09) 66%, rgba(255,255,255,.7) 67%, transparent 68%);\n      box-shadow: 0 12px 26px rgba(0,0,0,.4); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">Dear reader,<br><br>This sheet has been folded twice.<br><br>Yours,<br>The Catalogue</div>\n</body>\n</html>\n"
+}

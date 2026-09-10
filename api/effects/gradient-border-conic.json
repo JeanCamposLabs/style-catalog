@@ -1,0 +1,43 @@
+{
+  "id": "gradient-border-conic",
+  "title": "Conic Gradient Border",
+  "summary": "A full rainbow sweep confined to the border ring.",
+  "description": "A conic gradient behind a mask that keeps only the padding area visible produces a true gradient border.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border"
+  ],
+  "tags": [
+    "conic-gradient",
+    "mask",
+    "rainbow",
+    "border",
+    "modern"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--w",
+      "description": "Border width",
+      "default": "2px"
+    }
+  ],
+  "variations": [
+    "Two-colour sweep",
+    "Animate the angle",
+    "Thicker ring for a frame"
+  ],
+  "related": [],
+  "ai_usage": "The portable gradient-border recipe: padding + background gradient + mask-composite exclude. Change --w alone to thicken the ring; the mask uses the same padding value automatically.",
+  "path": "effects/borders-shadows/gradient-border-conic.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Conic Gradient Border</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"gradient-border-conic\",\n    \"title\": \"Conic Gradient Border\",\n    \"summary\": \"A full rainbow sweep confined to the border ring.\",\n    \"description\": \"A conic gradient behind a mask that keeps only the padding area visible produces a true gradient border.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\"],\n    \"tags\": [\"conic-gradient\", \"mask\", \"rainbow\", \"border\", \"modern\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--w\", \"description\": \"Border width\", \"default\": \"2px\" }\n    ],\n    \"variations\": [\"Two-colour sweep\", \"Animate the angle\", \"Thicker ring for a frame\"],\n    \"ai_usage\": \"The portable gradient-border recipe: padding + background gradient + mask-composite exclude. Change --w alone to thicken the ring; the mask uses the same padding value automatically.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --w: 2px; }\n    .cg { position: relative; border-radius: 16px; padding: var(--w);\n      background: conic-gradient(from 0deg, #7c5cff, #2dd4bf, #f472b6, #fbbf24, #7c5cff); }\n    .demo { background: #10141f; border-radius: 14px; }\n  </style>\n</head>\n<body>\n  <div class=\"cg\"><div class=\"demo\"><h3>Full sweep</h3><p>Conic gradient, masked to the edge.</p></div></div>\n</body>\n</html>\n"
+}

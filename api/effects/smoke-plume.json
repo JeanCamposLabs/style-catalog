@@ -1,0 +1,44 @@
+{
+  "id": "smoke-plume",
+  "title": "Smoke Plume",
+  "summary": "Soft smoke curling upward and dissipating.",
+  "description": "Soft smoke curling upward and dissipating.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "smoke",
+    "plume",
+    "blur",
+    "dissipate"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Smoke colour",
+      "default": "rgba(203,213,225,.3)"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Extinguished, cooling, or idle states. Scale up as opacity falls — smoke that keeps its size while fading reads as a ghost.",
+  "path": "effects/fire-water/smoke-plume.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Smoke Plume</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"smoke-plume\",\n    \"title\": \"Smoke Plume\",\n    \"summary\": \"Soft smoke curling upward and dissipating.\",\n    \"description\": \"Soft smoke curling upward and dissipating.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"smoke\", \"plume\", \"blur\", \"dissipate\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Smoke colour\", \"default\": \"rgba(203,213,225,.3)\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Extinguished, cooling, or idle states. Scale up as opacity falls — smoke that keeps its size while fading reads as a ghost.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 180px; height: 190px; overflow: hidden; }\n    .fx i { position: absolute; bottom: 0; left: 50%; width: 54px; height: 54px; border-radius: 50%; filter: blur(14px);\n      background: rgba(203,213,225,.3); animation: rise var(--d) ease-out infinite; animation-delay: var(--dl); }\n    @keyframes rise {\n      0% { transform: translate(-50%, 0) scale(.4); opacity: .7; }\n      100% { transform: translate(calc(-50% + var(--dx)), -170px) scale(1.8); opacity: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--d:4s;--dl:0s;--dx:-18px\"></i><i style=\"--d:5s;--dl:-1.6s;--dx:22px\"></i><i style=\"--d:4.5s;--dl:-3s;--dx:-6px\"></i></div>\n</body>\n</html>\n"
+}

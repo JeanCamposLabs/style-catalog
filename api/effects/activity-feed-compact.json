@@ -1,0 +1,44 @@
+{
+  "id": "activity-feed-compact",
+  "title": "Activity Feed",
+  "summary": "Compact events with actor avatars and verbs.",
+  "description": "Compact events with actor avatars and verbs.",
+  "theme": "timelines-steppers",
+  "themeTitle": "Timelines & Steppers",
+  "categories": [
+    "timeline",
+    "stepper"
+  ],
+  "tags": [
+    "timeline",
+    "sequence",
+    "activity",
+    "feed",
+    "events",
+    "log"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Avatar colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Team activity streams. Write the sentence as actor + verb + object; icon-only feeds force users to learn a vocabulary before they can read anything.",
+  "path": "effects/timelines-steppers/activity-feed-compact.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Activity Feed</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"activity-feed-compact\",\n    \"title\": \"Activity Feed\",\n    \"summary\": \"Compact events with actor avatars and verbs.\",\n    \"description\": \"Compact events with actor avatars and verbs.\",\n    \"theme\": \"timelines-steppers\",\n    \"categories\": [\"timeline\", \"stepper\"],\n    \"tags\": [\"timeline\", \"sequence\", \"activity\", \"feed\", \"events\", \"log\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Avatar colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Team activity streams. Write the sentence as actor + verb + object; icon-only feeds force users to learn a vocabulary before they can read anything.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; font-size: .84rem; }\n    .a { display: flex; gap: .7rem; padding: .5rem 0; }\n    .a .av { width: 28px; height: 28px; border-radius: 50%; flex: none; display: grid; place-items: center;\n      font-size: .68rem; font-weight: 800; color: #0b0d12; }\n    .a p { margin: 0; color: #cbd5e1; line-height: 1.45; }\n    .a b { color: #e7ebf3; }\n    .a time { color: #8b93a7; font-size: .74rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"a\"><span class=\"av\" style=\"background:#7c5cff\">A</span>\n  <div><p><b>Ada</b> merged <b>#412</b> into main</p><time datetime=\"2026-09-10T11:20\">12 minutes ago</time></div></div>\n  <div class=\"a\"><span class=\"av\" style=\"background:#2dd4bf\">J</span>\n  <div><p><b>Jean</b> published <b>36 specimens</b></p><time datetime=\"2026-09-10T09:02\">2 hours ago</time></div></div>\n  <div class=\"a\"><span class=\"av\" style=\"background:#fbbf24\">M</span>\n  <div><p><b>Max</b> commented on <b>#409</b></p><time datetime=\"2026-09-09T18:40\">Yesterday</time></div></div></div>\n</body>\n</html>\n"
+}

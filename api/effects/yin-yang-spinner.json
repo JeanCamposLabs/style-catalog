@@ -1,0 +1,54 @@
+{
+  "id": "yin-yang-spinner",
+  "title": "Yin Yang Spinner",
+  "summary": "A two-tone yin-yang built from one element and two pseudo-element dots.",
+  "description": "Split the circle with a hard-stop linear gradient, then place two half-size circles with inverted borders to form the classic tadpoles.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "yin-yang",
+    "symbol",
+    "rotate",
+    "two-tone",
+    "one-element"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--l",
+      "description": "Light half",
+      "default": "#e7ebf3"
+    },
+    {
+      "name": "--k",
+      "description": "Dark half",
+      "default": "#0b0d12"
+    },
+    {
+      "name": "--dur",
+      "description": "Rotation",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Brand colors instead of black/white",
+    "Counter-rotate at half speed",
+    "Pulse the scale on each turn"
+  ],
+  "related": [],
+  "ai_usage": "A characterful spinner for meditation, wellness, or zen-themed products. It's pure CSS with no SVG — the tadpole eyes come from the border on each pseudo-element, so keep the border width equal to a quarter of the diameter.",
+  "path": "effects/loaders-spinners/yin-yang-spinner.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Yin Yang Spinner</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"yin-yang-spinner\",\n    \"title\": \"Yin Yang Spinner\",\n    \"summary\": \"A two-tone yin-yang built from one element and two pseudo-element dots.\",\n    \"description\": \"Split the circle with a hard-stop linear gradient, then place two half-size circles with inverted borders to form the classic tadpoles.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"yin-yang\", \"symbol\", \"rotate\", \"two-tone\", \"one-element\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--l\", \"description\": \"Light half\", \"default\": \"#e7ebf3\" },\n      { \"name\": \"--k\", \"description\": \"Dark half\", \"default\": \"#0b0d12\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Brand colors instead of black/white\", \"Counter-rotate at half speed\", \"Pulse the scale on each turn\"],\n    \"ai_usage\": \"A characterful spinner for meditation, wellness, or zen-themed products. It's pure CSS with no SVG — the tadpole eyes come from the border on each pseudo-element, so keep the border width equal to a quarter of the diameter.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --l: #e7ebf3; --k: #0b0d12; --dur: 1.6s; }\n    .yy { width: 84px; height: 84px; border-radius: 50%; position: relative;\n      background: linear-gradient(90deg, var(--l) 50%, var(--k) 50%);\n      border: 2px solid var(--l); animation: yy var(--dur) linear infinite; }\n    .yy::before, .yy::after { content: \"\"; position: absolute; left: 25%; width: 50%; height: 50%; border-radius: 50%; }\n    .yy::before { top: 0; background: var(--l); border: 10px solid var(--k); }\n    .yy::after { bottom: 0; background: var(--k); border: 10px solid var(--l); }\n    @keyframes yy { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"yy\" role=\"status\" aria-label=\"Loading\"></div>\n</body>\n</html>\n"
+}

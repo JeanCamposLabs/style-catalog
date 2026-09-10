@@ -1,0 +1,50 @@
+{
+  "id": "emoji-reaction-button",
+  "title": "Reaction Button",
+  "summary": "A like button that pops, bursts, and increments its count.",
+  "description": "Scale overshoot on the icon plus radiating particles and a rolling number make one tap feel like three pieces of feedback.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "social"
+  ],
+  "tags": [
+    "like",
+    "reaction",
+    "burst",
+    "counter",
+    "social"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active color",
+      "default": "#fb7185"
+    },
+    {
+      "name": "--dur",
+      "description": "Burst duration",
+      "default": "0.6s"
+    }
+  ],
+  "variations": [
+    "Multiple reaction types",
+    "Long-press for a picker",
+    "Undo on second tap"
+  ],
+  "related": [],
+  "ai_usage": "Social and feedback UIs. Toggle a class rather than replacing the node so the count keeps its DOM position; set aria-pressed and update an aria-live count so the change is announced.",
+  "path": "effects/buttons/emoji-reaction-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Reaction Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"emoji-reaction-button\",\n    \"title\": \"Reaction Button\",\n    \"summary\": \"A like button that pops, bursts, and increments its count.\",\n    \"description\": \"Scale overshoot on the icon plus radiating particles and a rolling number make one tap feel like three pieces of feedback.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"social\"],\n    \"tags\": [\"like\", \"reaction\", \"burst\", \"counter\", \"social\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active color\", \"default\": \"#fb7185\" },\n      { \"name\": \"--dur\", \"description\": \"Burst duration\", \"default\": \"0.6s\" }\n    ],\n    \"variations\": [\"Multiple reaction types\", \"Long-press for a picker\", \"Undo on second tap\"],\n    \"ai_usage\": \"Social and feedback UIs. Toggle a class rather than replacing the node so the count keeps its DOM position; set aria-pressed and update an aria-live count so the change is announced.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #fb7185; --dur: .6s; }\n    .react { position: relative; display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.1rem;\n      border-radius: 999px; background: #151b2a; border: 1px solid #263149; color: #94a3b8; font-weight: 700; }\n    .react .heart { font-size: 1.1rem; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }\n    .react.is-on { color: var(--c); border-color: var(--c); }\n    .react.is-on .heart { transform: scale(1.25); }\n    .react i { position: absolute; left: 1.15rem; top: 50%; width: 5px; height: 5px; border-radius: 50%; background: var(--c);\n      opacity: 0; pointer-events: none; }\n    .react.is-on i { animation: burst var(--dur) ease-out; }\n    @keyframes burst {\n      0% { opacity: 1; transform: translate(0, 0) scale(1); }\n      100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(.4); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"react\" id=\"rb\" type=\"button\" aria-pressed=\"false\">\n    <span class=\"heart\" aria-hidden=\"true\">♥</span><span id=\"rc\">128</span>\n    <i aria-hidden=\"true\" style=\"--x:-18px;--y:-20px\"></i><i aria-hidden=\"true\" style=\"--x:16px;--y:-22px\"></i>\n    <i aria-hidden=\"true\" style=\"--x:-20px;--y:14px\"></i><i aria-hidden=\"true\" style=\"--x:18px;--y:16px\"></i>\n  </button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"rb\"), c = document.getElementById(\"rc\"), n = 128, on = false;\n      b.addEventListener(\"click\", function () {\n        on = !on; b.classList.toggle(\"is-on\", on); b.setAttribute(\"aria-pressed\", String(on));\n        n += on ? 1 : -1; c.textContent = n;\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "week-strip-selector",
+  "title": "Week Strip",
+  "summary": "A horizontal week selector with the active day marked.",
+  "description": "A horizontal week selector with the active day marked.",
+  "theme": "calendar-time",
+  "themeTitle": "Calendar & Time",
+  "categories": [
+    "calendar",
+    "time"
+  ],
+  "tags": [
+    "calendar",
+    "date",
+    "week",
+    "strip",
+    "selector",
+    "mobile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Mobile agendas. The dot marks days with events; it must have a text equivalent in the day's accessible name.",
+  "path": "effects/calendar-time/week-strip-selector.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Week Strip</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"week-strip-selector\",\n    \"title\": \"Week Strip\",\n    \"summary\": \"A horizontal week selector with the active day marked.\",\n    \"description\": \"A horizontal week selector with the active day marked.\",\n    \"theme\": \"calendar-time\",\n    \"categories\": [\"calendar\", \"time\"],\n    \"tags\": [\"calendar\", \"date\", \"week\", \"strip\", \"selector\", \"mobile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Mobile agendas. The dot marks days with events; it must have a text equivalent in the day's accessible name.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 6px; }\n    .d { width: 42px; padding: .5rem 0; border-radius: 12px; border: 1px solid #263149; background: #151b2a; text-align: center;\n      color: #8b93a7; font: inherit; cursor: pointer; }\n    .d .w { font-size: .64rem; letter-spacing: .06em; }\n    .d .n { font-size: 1rem; font-weight: 800; color: #cbd5e1; }\n    .d[aria-pressed=\"true\"] { background: #7c5cff; border-color: #7c5cff; color: #fff; }\n    .d[aria-pressed=\"true\"] .n { color: #fff; }\n    .d .dot { display: block; width: 5px; height: 5px; border-radius: 50%; background: #2dd4bf; margin: 3px auto 0; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"group\" aria-label=\"Select day\">\n    <button class=\"d\" type=\"button\" aria-pressed=\"false\"><span class=\"w\">MON</span><span class=\"n\">8</span></button>\n    <button class=\"d\" type=\"button\" aria-pressed=\"false\"><span class=\"w\">TUE</span><span class=\"n\">9</span><span class=\"dot\"></span></button>\n    <button class=\"d\" type=\"button\" aria-pressed=\"true\"><span class=\"w\">WED</span><span class=\"n\">10</span><span class=\"dot\"></span></button>\n    <button class=\"d\" type=\"button\" aria-pressed=\"false\"><span class=\"w\">THU</span><span class=\"n\">11</span></button>\n    <button class=\"d\" type=\"button\" aria-pressed=\"false\"><span class=\"w\">FRI</span><span class=\"n\">12</span></button></div>\n</body>\n</html>\n"
+}

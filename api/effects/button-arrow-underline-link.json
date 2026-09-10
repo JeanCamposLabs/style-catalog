@@ -1,0 +1,44 @@
+{
+  "id": "button-arrow-underline-link",
+  "title": "Arrow Link",
+  "summary": "A text link whose arrow slides on hover.",
+  "description": "A text link whose arrow slides on hover.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "action"
+  ],
+  "tags": [
+    "button",
+    "action",
+    "link",
+    "arrow",
+    "underline",
+    "cta"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Link colour",
+      "default": "#b9a5ff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Tertiary calls to action. Move the arrow and draw the underline on the same duration so the two read as one gesture rather than two effects.",
+  "path": "effects/buttons/button-arrow-underline-link.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Arrow Link</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"button-arrow-underline-link\",\n    \"title\": \"Arrow Link\",\n    \"summary\": \"A text link whose arrow slides on hover.\",\n    \"description\": \"A text link whose arrow slides on hover.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"action\"],\n    \"tags\": [\"button\", \"action\", \"link\", \"arrow\", \"underline\", \"cta\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Link colour\", \"default\": \"#b9a5ff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Tertiary calls to action. Move the arrow and draw the underline on the same duration so the two read as one gesture rather than two effects.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: inline-flex; align-items: center; gap: .4rem; color: #b9a5ff; text-decoration: none; font-weight: 700;\n      font-size: .95rem; position: relative; }\n    .fx .ar { transition: transform .25s cubic-bezier(.2,.8,.3,1); }\n    .fx::after { content: \"\"; position: absolute; left: 0; right: 1.2rem; bottom: -3px; height: 2px; background: currentColor;\n      transform: scaleX(0); transform-origin: left; transition: transform .25s; }\n    .fx:hover .ar, .fx:focus-visible .ar { transform: translateX(4px); }\n    .fx:hover::after, .fx:focus-visible::after { transform: scaleX(1); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <a class=\"fx\" href=\"#\">Browse the catalogue <span class=\"ar\" aria-hidden=\"true\">→</span></a>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "combo-stats-strip",
+  "title": "Stats Strip",
+  "summary": "Four headline numbers in a row.",
+  "description": "Four headline numbers in a row.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "combo",
+    "section"
+  ],
+  "tags": [
+    "combo",
+    "block",
+    "stats",
+    "numbers",
+    "strip",
+    "proof"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+  "customization": [
+    {
+      "name": "--gap",
+      "description": "Divider width",
+      "default": "1px"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Credibility strips. A 1px gap on a coloured parent gives hairline dividers without any border maths, and the cells stay perfectly aligned.",
+  "path": "effects/combos-recipes/combo-stats-strip.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stats Strip</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"combo-stats-strip\",\n    \"title\": \"Stats Strip\",\n    \"summary\": \"Four headline numbers in a row.\",\n    \"description\": \"Four headline numbers in a row.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"combo\", \"section\"],\n    \"tags\": [\"combo\", \"block\", \"stats\", \"numbers\", \"strip\", \"proof\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.\",\n    \"customization\": [\n      { \"name\": \"--gap\", \"description\": \"Divider width\", \"default\": \"1px\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Credibility strips. A 1px gap on a coloured parent gives hairline dividers without any border maths, and the cells stay perfectly aligned.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; place-items: center; padding: 2rem 1rem; }\n    .fx { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; width: min(92vw, 300px); border-radius: 16px;\n      overflow: hidden; background: #263149; }\n    .fx div { background: #151b2a; padding: 1rem .9rem; text-align: center; }\n    .fx .n { font-size: 1.6rem; font-weight: 900; line-height: 1; }\n    .fx .l { margin-top: .3rem; color: #8b93a7; font-size: .74rem; }\n  </style>\n</head>\n<body>\n  <section class=\"fx\"><div><div class=\"n\">1,181</div><div class=\"l\">Specimens</div></div>\n  <div><div class=\"n\">57</div><div class=\"l\">Themes</div></div>\n  <div><div class=\"n\">0</div><div class=\"l\">Dependencies</div></div>\n  <div><div class=\"n\">100%</div><div class=\"l\">Offline-capable</div></div></section>\n</body>\n</html>\n"
+}

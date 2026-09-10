@@ -1,0 +1,45 @@
+{
+  "id": "neon-data-stream",
+  "title": "Data Stream",
+  "summary": "Vertical light streams falling behind a panel.",
+  "description": "Vertical light streams falling behind a panel.",
+  "theme": "neon-cyberpunk",
+  "themeTitle": "Neon & Cyberpunk",
+  "categories": [
+    "neon",
+    "cyberpunk"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "dark",
+    "stream",
+    "data",
+    "fall",
+    "matrix"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Stream colour",
+      "default": "#34d399"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Server, AI, and data-processing visuals. Vary each stream's duration and delay; identical timings make the whole field pulse together.",
+  "path": "effects/neon-cyberpunk/neon-data-stream.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Data Stream</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-data-stream\",\n    \"title\": \"Data Stream\",\n    \"summary\": \"Vertical light streams falling behind a panel.\",\n    \"description\": \"Vertical light streams falling behind a panel.\",\n    \"theme\": \"neon-cyberpunk\",\n    \"categories\": [\"neon\", \"cyberpunk\"],\n    \"tags\": [\"neon\", \"glow\", \"dark\", \"stream\", \"data\", \"fall\", \"matrix\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Stream colour\", \"default\": \"#34d399\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Server, AI, and data-processing visuals. Vary each stream's duration and delay; identical timings make the whole field pulse together.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 260px; height: 180px; border-radius: 14px; overflow: hidden; background: #04070f; }\n    .fx i { position: absolute; top: -40%; width: 2px; height: 40%; background: linear-gradient(180deg, transparent, #34d399);\n      animation: fall var(--d) linear infinite; animation-delay: var(--dl); left: var(--x); }\n    @keyframes fall { to { transform: translateY(360%); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--x:12%;--d:1.6s;--dl:0s\"></i><i style=\"--x:30%;--d:2.2s;--dl:-.6s\"></i><i style=\"--x:48%;--d:1.9s;--dl:-1.2s\"></i>\n  <i style=\"--x:66%;--d:2.6s;--dl:-.3s\"></i><i style=\"--x:84%;--d:1.7s;--dl:-1.8s\"></i></div>\n</body>\n</html>\n"
+}

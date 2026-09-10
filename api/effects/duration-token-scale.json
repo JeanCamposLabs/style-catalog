@@ -1,0 +1,49 @@
+{
+  "id": "duration-token-scale",
+  "title": "Duration Scale",
+  "summary": "Five duration tokens with matching demos.",
+  "description": "Five duration tokens with matching demos.",
+  "theme": "motion-principles",
+  "themeTitle": "Motion Principles",
+  "categories": [
+    "motion",
+    "reference"
+  ],
+  "tags": [
+    "motion",
+    "easing",
+    "duration",
+    "tokens",
+    "timing",
+    "scale"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+  "customization": [
+    {
+      "name": "--fast",
+      "description": "Fast token",
+      "default": "120ms"
+    },
+    {
+      "name": "--slow",
+      "description": "Slow token",
+      "default": "500ms"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Duration tokens. Under 100ms feels instant, 150–250ms suits most UI transitions, and anything over 500ms needs a reason. Scale duration with distance, not with importance.",
+  "path": "effects/motion-principles/duration-token-scale.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Duration Scale</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"duration-token-scale\",\n    \"title\": \"Duration Scale\",\n    \"summary\": \"Five duration tokens with matching demos.\",\n    \"description\": \"Five duration tokens with matching demos.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"reference\"],\n    \"tags\": [\"motion\", \"easing\", \"duration\", \"tokens\", \"timing\", \"scale\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.\",\n    \"customization\": [\n      { \"name\": \"--fast\", \"description\": \"Fast token\", \"default\": \"120ms\" },\n      { \"name\": \"--slow\", \"description\": \"Slow token\", \"default\": \"500ms\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Duration tokens. Under 100ms feels instant, 150–250ms suits most UI transitions, and anything over 500ms needs a reason. Scale duration with distance, not with importance.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; display: grid; gap: .5rem; }\n    .r { display: grid; grid-template-columns: 62px 1fr 44px; align-items: center; gap: .6rem; font-size: .7rem; color: #64748b;\n      font-family: ui-monospace, monospace; }\n    .t { height: 18px; border-radius: 99px; background: #151b2a; overflow: hidden; }\n    .t i { display: block; height: 100%; width: 0; background: #2dd4bf; animation: fill var(--d) ease-out infinite alternate; }\n    @keyframes fill { to { width: 100%; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"r\"><span>instant</span><span class=\"t\"><i style=\"--d:80ms\"></i></span><span>80ms</span></div>\n  <div class=\"r\"><span>fast</span><span class=\"t\"><i style=\"--d:150ms\"></i></span><span>150ms</span></div>\n  <div class=\"r\"><span>base</span><span class=\"t\"><i style=\"--d:250ms\"></i></span><span>250ms</span></div>\n  <div class=\"r\"><span>slow</span><span class=\"t\"><i style=\"--d:400ms\"></i></span><span>400ms</span></div>\n  <div class=\"r\"><span>deliberate</span><span class=\"t\"><i style=\"--d:700ms\"></i></span><span>700ms</span></div></div>\n</body>\n</html>\n"
+}

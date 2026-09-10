@@ -1,0 +1,43 @@
+{
+  "id": "scroll-reveal-stagger",
+  "title": "Staggered Reveal",
+  "summary": "Cards fading in as they enter the viewport.",
+  "description": "Cards fading in as they enter the viewport.",
+  "theme": "scroll-effects",
+  "themeTitle": "Scroll Effects",
+  "categories": [
+    "scroll",
+    "motion"
+  ],
+  "tags": [
+    "scroll",
+    "intersection-observer",
+    "reveal",
+    "stagger",
+    "viewport"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+  "customization": [
+    {
+      "name": "--step",
+      "description": "Stagger step",
+      "default": "0.08s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Section entrances. Use IntersectionObserver with a small rootMargin and unobserve after the first reveal — re-animating on every scroll direction change is disorienting.",
+  "path": "effects/scroll-effects/scroll-reveal-stagger.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Staggered Reveal</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"scroll-reveal-stagger\",\n    \"title\": \"Staggered Reveal\",\n    \"summary\": \"Cards fading in as they enter the viewport.\",\n    \"description\": \"Cards fading in as they enter the viewport.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"motion\"],\n    \"tags\": [\"scroll\", \"intersection-observer\", \"reveal\", \"stagger\", \"viewport\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.\",\n    \"customization\": [\n      { \"name\": \"--step\", \"description\": \"Stagger step\", \"default\": \"0.08s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Section entrances. Use IntersectionObserver with a small rootMargin and unobserve after the first reveal — re-animating on every scroll direction change is disorienting.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { min-height: 200vh; }\n    .wrap { padding: 40vh 1.5rem; display: grid; gap: 14px; }\n    .c { padding: 1.1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; color: #cbd5e1;\n      opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s cubic-bezier(.2,.8,.3,1); }\n    .c.in { opacity: 1; transform: none; }\n    @media (prefers-reduced-motion: reduce) {\n      .c { opacity: 1; transform: none; transition: none; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\"><div class=\"c\">First card</div><div class=\"c\">Second card</div><div class=\"c\">Third card</div>\n  <div class=\"c\">Fourth card</div></div>\n  <script>\n    (function () {\n      var cs = [].slice.call(document.querySelectorAll(\".c\"));\n      var io = new IntersectionObserver(function (es) {\n        es.forEach(function (e, i) {\n          if (!e.isIntersecting) return;\n          setTimeout(function () { e.target.classList.add(\"in\"); }, i * 80);\n          io.unobserve(e.target);\n        });\n      }, { rootMargin: \"0px 0px -15% 0px\" });\n      cs.forEach(function (c) { io.observe(c); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

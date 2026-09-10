@@ -1,0 +1,44 @@
+{
+  "id": "float-buoyancy-cards",
+  "title": "Buoyant Cards",
+  "summary": "Cards bobbing as if floating on water.",
+  "description": "Cards bobbing as if floating on water.",
+  "theme": "particles-physics",
+  "themeTitle": "Particles & Physics",
+  "categories": [
+    "particles",
+    "physics"
+  ],
+  "tags": [
+    "particles",
+    "motion",
+    "float",
+    "bob",
+    "buoyancy",
+    "ambient"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Bob period",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Ambient hero elements. Pair vertical bob with a tiny rotation and give each card a different period — synchronised bobbing looks mechanical.",
+  "path": "effects/particles-physics/float-buoyancy-cards.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Buoyant Cards</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"float-buoyancy-cards\",\n    \"title\": \"Buoyant Cards\",\n    \"summary\": \"Cards bobbing as if floating on water.\",\n    \"description\": \"Cards bobbing as if floating on water.\",\n    \"theme\": \"particles-physics\",\n    \"categories\": [\"particles\", \"physics\"],\n    \"tags\": [\"particles\", \"motion\", \"float\", \"bob\", \"buoyancy\", \"ambient\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Bob period\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Ambient hero elements. Pair vertical bob with a tiny rotation and give each card a different period — synchronised bobbing looks mechanical.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 12px; }\n    .c { width: 78px; height: 100px; border-radius: 12px; background: linear-gradient(160deg, #1b2338, #10141f);\n      border: 1px solid #263149; animation: bob var(--d) ease-in-out infinite alternate; animation-delay: var(--dl); }\n    @keyframes bob { from { transform: translateY(0) rotate(-1.5deg); } to { transform: translateY(-12px) rotate(1.5deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"c\" style=\"--d:3s;--dl:0s\"></div><div class=\"c\" style=\"--d:3.8s;--dl:-1s\"></div>\n  <div class=\"c\" style=\"--d:3.3s;--dl:-2s\"></div></div>\n</body>\n</html>\n"
+}

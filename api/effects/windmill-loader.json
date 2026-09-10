@@ -1,0 +1,49 @@
+{
+  "id": "windmill-loader",
+  "title": "Windmill",
+  "summary": "Four tapered blades sweep around a hub with a slight ease each quarter turn.",
+  "description": "An ease-in-out timing split into four steps of 90° gives the blades a wind-driven cadence instead of a motorized constant spin.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "windmill",
+    "blades",
+    "rotate",
+    "quarter",
+    "ease"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Blade color",
+      "default": "#f472b6"
+    },
+    {
+      "name": "--dur",
+      "description": "Full turn",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Six blades for a pinwheel",
+    "Gradient blades for depth",
+    "Constant linear spin for a fan"
+  ],
+  "related": [],
+  "ai_usage": "A friendlier spinner for consumer products. The character is in the keyframes: hold briefly at each 90° stop instead of rotating linearly — that stepped ease is what separates it from a generic spinner.",
+  "path": "effects/loaders-spinners/windmill-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Windmill</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"windmill-loader\",\n    \"title\": \"Windmill\",\n    \"summary\": \"Four tapered blades sweep around a hub with a slight ease each quarter turn.\",\n    \"description\": \"An ease-in-out timing split into four steps of 90° gives the blades a wind-driven cadence instead of a motorized constant spin.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"windmill\", \"blades\", \"rotate\", \"quarter\", \"ease\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Blade color\", \"default\": \"#f472b6\" },\n      { \"name\": \"--dur\", \"description\": \"Full turn\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Six blades for a pinwheel\", \"Gradient blades for depth\", \"Constant linear spin for a fan\"],\n    \"ai_usage\": \"A friendlier spinner for consumer products. The character is in the keyframes: hold briefly at each 90° stop instead of rotating linearly — that stepped ease is what separates it from a generic spinner.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #f472b6; --dur: 1.6s; }\n    .mill { position: relative; width: 84px; height: 84px; animation: mill var(--dur) ease-in-out infinite; }\n    .mill i { position: absolute; top: 50%; left: 50%; width: 38px; height: 12px; margin: -6px 0 0 0;\n      background: linear-gradient(90deg, color-mix(in srgb, var(--c) 45%, transparent), var(--c));\n      border-radius: 0 6px 6px 0; transform-origin: 0 50%; transform: rotate(var(--a)); }\n    .mill .hub { position: absolute; inset: 50% auto auto 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px;\n      border-radius: 50%; background: #e7ebf3; }\n    @keyframes mill {\n      0% { transform: rotate(0); } 25% { transform: rotate(90deg); }\n      50% { transform: rotate(180deg); } 75% { transform: rotate(270deg); } 100% { transform: rotate(360deg); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"mill\" role=\"status\" aria-label=\"Loading\">\n    <i style=\"--a:0deg\"></i><i style=\"--a:90deg\"></i><i style=\"--a:180deg\"></i><i style=\"--a:270deg\"></i>\n    <span class=\"hub\"></span>\n  </div>\n</body>\n</html>\n"
+}

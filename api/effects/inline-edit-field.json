@@ -1,0 +1,44 @@
+{
+  "id": "inline-edit-field",
+  "title": "Click to Edit",
+  "summary": "Text that becomes an input when clicked and saves on blur.",
+  "description": "Swapping in place keeps the layout identical, so nothing shifts when edit mode starts.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "edit"
+  ],
+  "tags": [
+    "inline-edit",
+    "click-to-edit",
+    "save",
+    "field",
+    "cms"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Focus colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Escape to cancel",
+    "Pencil affordance on hover"
+  ],
+  "related": [],
+  "ai_usage": "Dashboards and CMS tables. Match the input's font, padding, and border-box to the static text exactly, or the row jumps when entering edit mode.",
+  "path": "effects/forms-inputs/inline-edit-field.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Click to Edit</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"inline-edit-field\",\n    \"title\": \"Click to Edit\",\n    \"summary\": \"Text that becomes an input when clicked and saves on blur.\",\n    \"description\": \"Swapping in place keeps the layout identical, so nothing shifts when edit mode starts.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"edit\"],\n    \"tags\": [\"inline-edit\", \"click-to-edit\", \"save\", \"field\", \"cms\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Focus colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Escape to cancel\", \"Pencil affordance on hover\"],\n    \"ai_usage\": \"Dashboards and CMS tables. Match the input's font, padding, and border-box to the static text exactly, or the row jumps when entering edit mode.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .ie { width: 280px; }\n    .ie .val { padding: .55rem .7rem; border: 1px solid transparent; border-radius: 10px; cursor: text; color: #e7ebf3; }\n    .ie .val:hover { border-color: #2b3450; background: #151b2a; }\n    .ie input { width: 100%; padding: .55rem .7rem; border: 1px solid var(--c, #7c5cff); border-radius: 10px;\n      background: #151b2a; color: #e7ebf3; font: inherit; }\n    .ie .hint { font-size: .78rem; color: #8b93a7; margin-top: .4rem; }\n  </style>\n</head>\n<body>\n  <div class=\"ie\" id=\"ie\"><div class=\"val\" tabindex=\"0\" role=\"button\">Quarterly roadmap</div>\n  <p class=\"hint\">Click the title to rename it.</p></div>\n  <script>\n    (function () {\n      var host = document.getElementById(\"ie\");\n      host.addEventListener(\"click\", function (e) {\n        var v = e.target.closest(\".val\"); if (!v) return;\n        var inp = document.createElement(\"input\");\n        inp.value = v.textContent.trim(); inp.setAttribute(\"aria-label\", \"Rename\");\n        v.replaceWith(inp); inp.focus(); inp.select();\n        inp.addEventListener(\"blur\", function () {\n          var d = document.createElement(\"div\");\n          d.className = \"val\"; d.tabIndex = 0; d.setAttribute(\"role\", \"button\"); d.textContent = inp.value || \"Untitled\";\n          inp.replaceWith(d);\n        });\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

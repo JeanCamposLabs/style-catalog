@@ -1,0 +1,54 @@
+{
+  "id": "striped-progress-bar",
+  "title": "Striped Progress Bar",
+  "summary": "A determinate bar with diagonal barber-pole stripes marching along it.",
+  "description": "repeating-linear-gradient supplies the stripes; animating background-position by exactly one stripe period makes the march seamless.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "progress"
+  ],
+  "tags": [
+    "stripes",
+    "progress",
+    "barber-pole",
+    "repeating-gradient",
+    "determinate"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Bar color",
+      "default": "#34d399"
+    },
+    {
+      "name": "--w",
+      "description": "Fill percentage",
+      "default": "64%"
+    },
+    {
+      "name": "--dur",
+      "description": "Stripe speed",
+      "default": "0.9s"
+    }
+  ],
+  "variations": [
+    "Reverse the stripe direction",
+    "Pulse the bar when complete",
+    "Red stripes for an error state"
+  ],
+  "related": [],
+  "ai_usage": "Determinate progress that still reads as active. The march is seamless only if the background-position translation equals the gradient's repeat length (here 28px) — mismatch it and you get a visible stutter every loop.",
+  "path": "effects/loaders-spinners/striped-progress-bar.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Striped Progress Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"striped-progress-bar\",\n    \"title\": \"Striped Progress Bar\",\n    \"summary\": \"A determinate bar with diagonal barber-pole stripes marching along it.\",\n    \"description\": \"repeating-linear-gradient supplies the stripes; animating background-position by exactly one stripe period makes the march seamless.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"progress\"],\n    \"tags\": [\"stripes\", \"progress\", \"barber-pole\", \"repeating-gradient\", \"determinate\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Bar color\", \"default\": \"#34d399\" },\n      { \"name\": \"--w\", \"description\": \"Fill percentage\", \"default\": \"64%\" },\n      { \"name\": \"--dur\", \"description\": \"Stripe speed\", \"default\": \"0.9s\" }\n    ],\n    \"variations\": [\"Reverse the stripe direction\", \"Pulse the bar when complete\", \"Red stripes for an error state\"],\n    \"ai_usage\": \"Determinate progress that still reads as active. The march is seamless only if the background-position translation equals the gradient's repeat length (here 28px) — mismatch it and you get a visible stutter every loop.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #34d399; --w: 64%; --dur: .9s; }\n    .sp { width: 280px; height: 18px; border-radius: 99px; background: #151b2a; overflow: hidden; border: 1px solid #232c42; }\n    .sp b { display: block; height: 100%; width: var(--w); background-color: var(--c);\n      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.22) 0 10px, transparent 10px 20px);\n      background-size: 28px 28px; animation: march var(--dur) linear infinite; }\n    @keyframes march { to { background-position: 28px 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"sp\" role=\"progressbar\" aria-valuenow=\"64\" aria-valuemin=\"0\" aria-valuemax=\"100\"><b></b></div>\n</body>\n</html>\n"
+}

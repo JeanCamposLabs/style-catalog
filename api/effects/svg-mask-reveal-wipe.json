@@ -1,0 +1,45 @@
+{
+  "id": "svg-mask-reveal-wipe",
+  "title": "SVG Mask Wipe",
+  "summary": "Artwork revealed by a moving mask.",
+  "description": "Artwork revealed by a moving mask.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "vector"
+  ],
+  "tags": [
+    "svg",
+    "vector",
+    "mask",
+    "wipe",
+    "reveal",
+    "animation"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Wipe duration",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Reveals over vector art. An SVG mask can use gradients and shapes together, giving soft-edged wipes that clip-path cannot express.",
+  "path": "effects/svg-effects/svg-mask-reveal-wipe.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Mask Wipe</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-mask-reveal-wipe\",\n    \"title\": \"SVG Mask Wipe\",\n    \"summary\": \"Artwork revealed by a moving mask.\",\n    \"description\": \"Artwork revealed by a moving mask.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"vector\"],\n    \"tags\": [\"svg\", \"vector\", \"mask\", \"wipe\", \"reveal\", \"animation\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Wipe duration\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Reveals over vector art. An SVG mask can use gradients and shapes together, giving soft-edged wipes that clip-path cannot express.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 240px; }\n    .fx svg { width: 100%; display: block; }\n    .fx .mrect { animation: wipe 3s ease-in-out infinite; }\n    @keyframes wipe { 0% { transform: translateX(-100%); } 55%, 100% { transform: translateX(0); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><svg viewBox=\"0 0 240 120\" aria-hidden=\"true\">\n    <defs><mask id=\"mk\"><rect class=\"mrect\" width=\"240\" height=\"120\" fill=\"#fff\"/></mask>\n    <linearGradient id=\"ag\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#d1478c\"/>\n    <stop offset=\"1\" stop-color=\"#c2891a\"/></linearGradient></defs>\n    <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#ag)\" mask=\"url(#mk)\"/></svg></div>\n</body>\n</html>\n"
+}

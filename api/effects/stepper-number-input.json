@@ -1,0 +1,44 @@
+{
+  "id": "stepper-number-input",
+  "title": "Number Stepper",
+  "summary": "A quantity control with hold-to-repeat increment buttons.",
+  "description": "Holding a button accelerates the change, which is what stops users from clicking twenty times.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "stepper",
+    "quantity",
+    "number",
+    "repeat",
+    "ecommerce"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Min/max clamping with disabled buttons",
+    "Inline unit label"
+  ],
+  "related": [],
+  "ai_usage": "Carts and settings. Keep the real <input type=number> for keyboard and assistive tech, and only style the surrounding buttons.",
+  "path": "effects/forms-inputs/stepper-number-input.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Number Stepper</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"stepper-number-input\",\n    \"title\": \"Number Stepper\",\n    \"summary\": \"A quantity control with hold-to-repeat increment buttons.\",\n    \"description\": \"Holding a button accelerates the change, which is what stops users from clicking twenty times.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"stepper\", \"quantity\", \"number\", \"repeat\", \"ecommerce\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Min/max clamping with disabled buttons\", \"Inline unit label\"],\n    \"ai_usage\": \"Carts and settings. Keep the real <input type=number> for keyboard and assistive tech, and only style the surrounding buttons.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .st { display: inline-flex; align-items: center; border: 1px solid #2b3450; border-radius: 12px; overflow: hidden; background: #151b2a; }\n    .st button { width: 42px; height: 46px; border: 0; background: transparent; color: #e7ebf3; font-size: 1.2rem; cursor: pointer; }\n    .st button:hover { background: #1e2740; }\n    .st input { width: 60px; text-align: center; border: 0; background: transparent; color: #e7ebf3; font: inherit; font-weight: 700; }\n    .st input:focus { outline: 2px solid var(--c, #7c5cff); outline-offset: -2px; }\n  </style>\n</head>\n<body>\n  <div class=\"st\"><button type=\"button\" aria-label=\"Decrease\">−</button>\n  <input id=\"q\" type=\"number\" value=\"1\" min=\"0\" aria-label=\"Quantity\" />\n  <button type=\"button\" aria-label=\"Increase\">+</button></div>\n  <script>\n    (function () {\n      var box = document.querySelector(\".st\"), inp = box.querySelector(\"input\");\n      var bs = box.querySelectorAll(\"button\"), t;\n      function step(d) { inp.value = Math.max(0, Number(inp.value) + d); }\n      bs.forEach(function (b, i) {\n        var d = i === 0 ? -1 : 1;\n        b.addEventListener(\"click\", function () { step(d); });\n        b.addEventListener(\"pointerdown\", function () { t = setInterval(function () { step(d); }, 120); });\n        [\"pointerup\", \"pointerleave\"].forEach(function (ev) { b.addEventListener(ev, function () { clearInterval(t); }); });\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

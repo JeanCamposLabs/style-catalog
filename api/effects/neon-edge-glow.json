@@ -1,0 +1,49 @@
+{
+  "id": "neon-edge-glow",
+  "title": "Neon Edge Glow",
+  "summary": "A saturated border with matching inner and outer bloom.",
+  "description": "Three shadows — inset, tight outer, wide outer — turn a flat border into a lit tube.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border",
+    "glow"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "box-shadow",
+    "dark-ui",
+    "bloom"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Glow color",
+      "default": "#ff2d95"
+    },
+    {
+      "name": "--str",
+      "description": "Bloom size",
+      "default": "30px"
+    }
+  ],
+  "variations": [
+    "Animate the bloom to pulse",
+    "Two-colour edge",
+    "Glow only on hover"
+  ],
+  "related": [],
+  "ai_usage": "Dark dashboards and nightlife themes. Always pair the outer bloom with a matching inset shadow; without it the border looks like it is floating above the surface.",
+  "path": "effects/borders-shadows/neon-edge-glow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neon Edge Glow</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-edge-glow\",\n    \"title\": \"Neon Edge Glow\",\n    \"summary\": \"A saturated border with matching inner and outer bloom.\",\n    \"description\": \"Three shadows — inset, tight outer, wide outer — turn a flat border into a lit tube.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\", \"glow\"],\n    \"tags\": [\"neon\", \"glow\", \"box-shadow\", \"dark-ui\", \"bloom\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Glow color\", \"default\": \"#ff2d95\" },\n      { \"name\": \"--str\", \"description\": \"Bloom size\", \"default\": \"30px\" }\n    ],\n    \"variations\": [\"Animate the bloom to pulse\", \"Two-colour edge\", \"Glow only on hover\"],\n    \"ai_usage\": \"Dark dashboards and nightlife themes. Always pair the outer bloom with a matching inset shadow; without it the border looks like it is floating above the surface.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --c: #ff2d95; --str: 30px; }\n    .demo { border: 1.5px solid var(--c); border-radius: 16px; background: #14101a;\n      box-shadow: inset 0 0 18px color-mix(in srgb, var(--c) 35%, transparent), 0 0 10px var(--c), 0 0 var(--str) color-mix(in srgb, var(--c) 55%, transparent); }\n  </style>\n</head>\n<body>\n  <div class=\"demo\"><h3>Neon edge</h3><p>Inset plus outer bloom.</p></div>\n</body>\n</html>\n"
+}

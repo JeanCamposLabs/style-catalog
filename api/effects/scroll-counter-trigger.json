@@ -1,0 +1,43 @@
+{
+  "id": "scroll-counter-trigger",
+  "title": "Counter on Scroll",
+  "summary": "Numbers that count up when scrolled into view.",
+  "description": "Numbers that count up when scrolled into view.",
+  "theme": "scroll-effects",
+  "themeTitle": "Scroll Effects",
+  "categories": [
+    "scroll",
+    "motion"
+  ],
+  "tags": [
+    "scroll",
+    "counter",
+    "scroll",
+    "trigger",
+    "stats"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Count duration",
+      "default": "1.2s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Stat sections. Trigger once with IntersectionObserver and unobserve; counters that restart every time the section re-enters view read as broken.",
+  "path": "effects/scroll-effects/scroll-counter-trigger.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Counter on Scroll</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"scroll-counter-trigger\",\n    \"title\": \"Counter on Scroll\",\n    \"summary\": \"Numbers that count up when scrolled into view.\",\n    \"description\": \"Numbers that count up when scrolled into view.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"motion\"],\n    \"tags\": [\"scroll\", \"counter\", \"scroll\", \"trigger\", \"stats\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Count duration\", \"default\": \"1.2s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Stat sections. Trigger once with IntersectionObserver and unobserve; counters that restart every time the section re-enters view read as broken.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { min-height: 210vh; }\n    .wrap { padding: 45vh 1.5rem; display: flex; gap: 2rem; }\n    .st { text-align: center; }\n    .st .n { font-size: 2.2rem; font-weight: 900; font-variant-numeric: tabular-nums; }\n    .st .l { color: #8b93a7; font-size: .8rem; }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\"><div class=\"st\"><div class=\"n\" data-to=\"1181\">0</div><div class=\"l\">Specimens</div></div>\n  <div class=\"st\"><div class=\"n\" data-to=\"57\">0</div><div class=\"l\">Themes</div></div></div>\n  <script>\n    (function () {\n      var io = new IntersectionObserver(function (es) {\n        es.forEach(function (e) {\n          if (!e.isIntersecting) return;\n          io.unobserve(e.target);\n          var el = e.target, to = Number(el.dataset.to), t0 = null;\n          if (matchMedia(\"(prefers-reduced-motion: reduce)\").matches) { el.textContent = to.toLocaleString(); return; }\n          requestAnimationFrame(function step(ts) {\n            if (!t0) t0 = ts;\n            var p = Math.min((ts - t0) / 1200, 1);\n            el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))).toLocaleString();\n            if (p < 1) requestAnimationFrame(step);\n          });\n        });\n      });\n      document.querySelectorAll(\"[data-to]\").forEach(function (n) { io.observe(n); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

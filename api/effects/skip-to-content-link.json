@@ -1,0 +1,44 @@
+{
+  "id": "skip-to-content-link",
+  "title": "Skip Link",
+  "summary": "A skip link that appears on focus.",
+  "description": "A skip link that appears on focus.",
+  "theme": "accessibility-patterns",
+  "themeTitle": "Accessibility Patterns",
+  "categories": [
+    "accessibility",
+    "reference"
+  ],
+  "tags": [
+    "accessibility",
+    "a11y",
+    "skip-link",
+    "keyboard",
+    "bypass",
+    "navigation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Link colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Every page with repeated navigation needs one, as the first focusable element. Hide it off-screen (not with display:none, which removes it from the tab order) and reveal it on :focus.",
+  "path": "effects/accessibility-patterns/skip-to-content-link.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Skip Link</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"skip-to-content-link\",\n    \"title\": \"Skip Link\",\n    \"summary\": \"A skip link that appears on focus.\",\n    \"description\": \"A skip link that appears on focus.\",\n    \"theme\": \"accessibility-patterns\",\n    \"categories\": [\"accessibility\", \"reference\"],\n    \"tags\": [\"accessibility\", \"a11y\", \"skip-link\", \"keyboard\", \"bypass\", \"navigation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Link colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Every page with repeated navigation needs one, as the first focusable element. Hide it off-screen (not with display:none, which removes it from the tab order) and reveal it on :focus.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 290px; height: 150px; border-radius: 14px; overflow: hidden; background: #10141f;\n      border: 1px solid #263149; }\n    .fx .skip { position: absolute; top: -44px; left: 12px; padding: .5rem .9rem; border-radius: 0 0 8px 8px;\n      background: #7c5cff; color: #fff; text-decoration: none; font-size: .85rem; transition: top .18s; z-index: 2; }\n    .fx .skip:focus { top: 0; }\n    .fx nav { display: flex; gap: 1rem; padding: 1rem; color: #8b93a7; font-size: .85rem; }\n    .fx main { padding: 0 1rem; color: #cbd5e1; font-size: .85rem; }\n    .fx .hint { padding: .6rem 1rem; color: #64748b; font-size: .76rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><a class=\"skip\" href=\"#main\">Skip to content</a>\n  <nav aria-label=\"Demo\"><span>Home</span><span>Docs</span><span>API</span></nav>\n  <main id=\"main\" tabindex=\"-1\">Main content starts here.</main>\n  <p class=\"hint\">Press Tab inside this frame to reveal the link.</p></div>\n</body>\n</html>\n"
+}

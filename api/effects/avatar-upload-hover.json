@@ -1,0 +1,44 @@
+{
+  "id": "avatar-upload-hover",
+  "title": "Avatar Upload",
+  "summary": "An avatar with a change-photo overlay on hover.",
+  "description": "An avatar with a change-photo overlay on hover.",
+  "theme": "avatars-identity",
+  "themeTitle": "Avatars & Identity",
+  "categories": [
+    "avatar",
+    "identity"
+  ],
+  "tags": [
+    "avatar",
+    "identity",
+    "upload",
+    "change",
+    "overlay",
+    "profile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+  "customization": [
+    {
+      "name": "--ov",
+      "description": "Overlay colour",
+      "default": "rgba(4,7,14,.7)"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Profile settings. Keep a real file input covering the avatar so keyboard and screen-reader users get the same affordance the hover overlay implies.",
+  "path": "effects/avatars-identity/avatar-upload-hover.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Avatar Upload</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"avatar-upload-hover\",\n    \"title\": \"Avatar Upload\",\n    \"summary\": \"An avatar with a change-photo overlay on hover.\",\n    \"description\": \"An avatar with a change-photo overlay on hover.\",\n    \"theme\": \"avatars-identity\",\n    \"categories\": [\"avatar\", \"identity\"],\n    \"tags\": [\"avatar\", \"identity\", \"upload\", \"change\", \"overlay\", \"profile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.\",\n    \"customization\": [\n      { \"name\": \"--ov\", \"description\": \"Overlay colour\", \"default\": \"rgba(4,7,14,.7)\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Profile settings. Keep a real file input covering the avatar so keyboard and screen-reader users get the same affordance the hover overlay implies.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 84px; height: 84px; border-radius: 50%; overflow: hidden; cursor: pointer; }\n    .fx .a { position: absolute; inset: 0; background: linear-gradient(150deg, #7c5cff, #2dd4bf); display: grid;\n      place-items: center; font-weight: 800; color: #0b0d12; font-size: 1.2rem; }\n    .fx .ov { position: absolute; inset: 0; background: rgba(4,7,14,.7); color: #fff; display: grid; place-items: center;\n      font-size: .72rem; opacity: 0; transition: opacity .2s; }\n    .fx:hover .ov, .fx:focus-within .ov { opacity: 1; }\n    .fx input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <label class=\"fx\"><span class=\"a\">JC</span><span class=\"ov\">Change</span>\n  <input type=\"file\" accept=\"image/*\" aria-label=\"Change profile photo\" /></label>\n</body>\n</html>\n"
+}

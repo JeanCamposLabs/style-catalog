@@ -1,0 +1,49 @@
+{
+  "id": "vhs-tracking-text",
+  "title": "VHS Tracking Text",
+  "summary": "Horizontal tearing and colour bleed like a worn videotape.",
+  "description": "A clipped duplicate jumps horizontally on a jittery keyframe while scanlines drift over the top, reproducing tracking error.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "retro"
+  ],
+  "tags": [
+    "vhs",
+    "tracking",
+    "scanlines",
+    "analog",
+    "glitch"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Bleed color",
+      "default": "#ff2d95"
+    },
+    {
+      "name": "--dur",
+      "description": "Tear cycle",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Add vertical roll",
+    "Stronger bleed for older tape",
+    "Trigger only on hover"
+  ],
+  "related": [],
+  "ai_usage": "Retro-analog aesthetics: 90s, found-footage, lo-fi. Combine three cues — horizontal tear (clip-path jump), chroma bleed (offset colored copy) and scanlines (repeating-linear-gradient); any one alone reads as a generic glitch.",
+  "path": "effects/text-effects/vhs-tracking-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>VHS Tracking Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"vhs-tracking-text\",\n    \"title\": \"VHS Tracking Text\",\n    \"summary\": \"Horizontal tearing and colour bleed like a worn videotape.\",\n    \"description\": \"A clipped duplicate jumps horizontally on a jittery keyframe while scanlines drift over the top, reproducing tracking error.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"retro\"],\n    \"tags\": [\"vhs\", \"tracking\", \"scanlines\", \"analog\", \"glitch\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Bleed color\", \"default\": \"#ff2d95\" },\n      { \"name\": \"--dur\", \"description\": \"Tear cycle\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Add vertical roll\", \"Stronger bleed for older tape\", \"Trigger only on hover\"],\n    \"ai_usage\": \"Retro-analog aesthetics: 90s, found-footage, lo-fi. Combine three cues — horizontal tear (clip-path jump), chroma bleed (offset colored copy) and scanlines (repeating-linear-gradient); any one alone reads as a generic glitch.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #ff2d95; --dur: 3s; }\n    .vhs { position: relative; font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 900; color: #e7ebf3; }\n    .vhs::before { content: attr(data-text); position: absolute; inset: 0; color: var(--c); mix-blend-mode: screen;\n      animation: tear var(--dur) steps(1) infinite; }\n    .vhs::after { content: \"\"; position: absolute; inset: -10px;\n      background: repeating-linear-gradient(180deg, rgba(255,255,255,.07) 0 1px, transparent 1px 3px);\n      animation: roll 6s linear infinite; pointer-events: none; }\n    @keyframes tear {\n      0%, 92%, 100% { clip-path: inset(0 0 0 0); transform: none; }\n      93% { clip-path: inset(22% 0 58% 0); transform: translateX(8px); }\n      95% { clip-path: inset(64% 0 18% 0); transform: translateX(-10px); }\n      97% { clip-path: inset(40% 0 40% 0); transform: translateX(5px); }\n    }\n    @keyframes roll { to { background-position: 0 60px; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"vhs\" data-text=\"PLAY ▶\">PLAY ▶</h1>\n</body>\n</html>\n"
+}

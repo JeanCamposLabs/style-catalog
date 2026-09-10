@@ -1,0 +1,44 @@
+{
+  "id": "pin-code-boxes",
+  "title": "PIN Entry Boxes",
+  "summary": "Four separate boxes with focus advancing automatically as you type.",
+  "description": "Auto-advance and backspace-to-previous are what make separated code fields usable rather than annoying.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "pin",
+    "otp",
+    "code",
+    "auto-advance",
+    "security"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active border",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Paste support that fills every box",
+    "Error shake on a wrong code"
+  ],
+  "related": [],
+  "ai_usage": "Verification and 2FA screens. Handle paste on the first input by splitting the clipboard across boxes; without it users cannot paste a code from their password manager.",
+  "path": "effects/forms-inputs/pin-code-boxes.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>PIN Entry Boxes</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"pin-code-boxes\",\n    \"title\": \"PIN Entry Boxes\",\n    \"summary\": \"Four separate boxes with focus advancing automatically as you type.\",\n    \"description\": \"Auto-advance and backspace-to-previous are what make separated code fields usable rather than annoying.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"pin\", \"otp\", \"code\", \"auto-advance\", \"security\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active border\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Paste support that fills every box\", \"Error shake on a wrong code\"],\n    \"ai_usage\": \"Verification and 2FA screens. Handle paste on the first input by splitting the clipboard across boxes; without it users cannot paste a code from their password manager.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .pin { display: flex; gap: 10px; }\n    .pin input { width: 52px; height: 62px; text-align: center; font-size: 1.5rem; font-weight: 700; color: #e7ebf3;\n      background: #151b2a; border: 1px solid #2b3450; border-radius: 12px; }\n    .pin input:focus { outline: none; border-color: var(--c, #7c5cff); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c, #7c5cff) 30%, transparent); }\n  </style>\n</head>\n<body>\n  <div class=\"pin\" id=\"pin\" role=\"group\" aria-label=\"Verification code\">\n    <input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" aria-label=\"Digit 1\" />\n    <input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" aria-label=\"Digit 2\" />\n    <input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" aria-label=\"Digit 3\" />\n    <input type=\"text\" inputmode=\"numeric\" maxlength=\"1\" aria-label=\"Digit 4\" />\n  </div>\n  <script>\n    (function () {\n      var ins = [].slice.call(document.querySelectorAll(\"#pin input\"));\n      ins.forEach(function (i, n) {\n        i.addEventListener(\"input\", function () { if (i.value && ins[n + 1]) ins[n + 1].focus(); });\n        i.addEventListener(\"keydown\", function (e) { if (e.key === \"Backspace\" && !i.value && ins[n - 1]) ins[n - 1].focus(); });\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

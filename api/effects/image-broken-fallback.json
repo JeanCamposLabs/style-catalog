@@ -1,0 +1,44 @@
+{
+  "id": "image-broken-fallback",
+  "title": "Broken Image Fallback",
+  "summary": "A graceful placeholder when an image fails.",
+  "description": "A graceful placeholder when an image fails.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "media"
+  ],
+  "tags": [
+    "image",
+    "media",
+    "fallback",
+    "broken",
+    "placeholder",
+    "error"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Placeholder background",
+      "default": "#10141f"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Any user-supplied imagery. Handle the error event and swap in a labelled placeholder; the browser's default broken-image icon leaks file names and looks like a bug.",
+  "path": "effects/images-media/image-broken-fallback.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Broken Image Fallback</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"image-broken-fallback\",\n    \"title\": \"Broken Image Fallback\",\n    \"summary\": \"A graceful placeholder when an image fails.\",\n    \"description\": \"A graceful placeholder when an image fails.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"media\"],\n    \"tags\": [\"image\", \"media\", \"fallback\", \"broken\", \"placeholder\", \"error\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Placeholder background\", \"default\": \"#10141f\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Any user-supplied imagery. Handle the error event and swap in a labelled placeholder; the browser's default broken-image icon leaks file names and looks like a bug.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 12px; align-items: flex-start; }\n    .ph { width: 120px; aspect-ratio: 4 / 3; border-radius: 12px; border: 1px dashed #2b3450; background: #10141f;\n      display: grid; place-items: center; gap: .3rem; color: #64748b; font-size: .72rem; text-align: center; padding: .5rem; }\n    .ph .ic { font-size: 1.3rem; opacity: .6; }\n    .note { max-width: 150px; color: #8b93a7; font-size: .78rem; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"ph\"><span class=\"ic\" aria-hidden=\"true\">🖼</span>Image unavailable</div>\n  <p class=\"note\">Listen for the img error event and replace the element rather than letting the browser render its default.</p></div>\n</body>\n</html>\n"
+}

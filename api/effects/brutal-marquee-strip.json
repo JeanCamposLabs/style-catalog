@@ -1,0 +1,44 @@
+{
+  "id": "brutal-marquee-strip",
+  "title": "Brutalist Ticker",
+  "summary": "A high-contrast scrolling strip.",
+  "description": "A high-contrast scrolling strip.",
+  "theme": "brutalism-y2k",
+  "themeTitle": "Brutalism & Y2K",
+  "categories": [
+    "brutalism",
+    "y2k"
+  ],
+  "tags": [
+    "brutalism",
+    "raw",
+    "marquee",
+    "ticker",
+    "yellow",
+    "strip"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Strip colour",
+      "default": "#ffe600"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Announcement bars in anti-design layouts. Pair maximum-contrast colours; the style depends on refusing subtlety.",
+  "path": "effects/brutalism-y2k/brutal-marquee-strip.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Brutalist Ticker</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"brutal-marquee-strip\",\n    \"title\": \"Brutalist Ticker\",\n    \"summary\": \"A high-contrast scrolling strip.\",\n    \"description\": \"A high-contrast scrolling strip.\",\n    \"theme\": \"brutalism-y2k\",\n    \"categories\": [\"brutalism\", \"y2k\"],\n    \"tags\": [\"brutalism\", \"raw\", \"marquee\", \"ticker\", \"yellow\", \"strip\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Strip colour\", \"default\": \"#ffe600\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Announcement bars in anti-design layouts. Pair maximum-contrast colours; the style depends on refusing subtlety.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; overflow: hidden; background: #ffe600; border-block: 4px solid #0b0d12; padding: .5rem 0; }\n    .fx b { display: inline-block; white-space: nowrap; color: #0b0d12; font-family: \"Courier New\", monospace;\n      font-weight: 700; letter-spacing: .1em; animation: slide 8s linear infinite; }\n    @keyframes slide { to { transform: translateX(-50%); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><b>NEW DROP · NEW DROP · NEW DROP · NEW DROP · </b></div>\n</body>\n</html>\n"
+}

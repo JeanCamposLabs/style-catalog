@@ -1,0 +1,44 @@
+{
+  "id": "vintage-fade-filter",
+  "title": "Vintage Fade",
+  "summary": "Lifted blacks and warm cast, like faded film.",
+  "description": "Lifted blacks and warm cast, like faded film. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.",
+  "theme": "blend-filters",
+  "themeTitle": "Blends & Filters",
+  "categories": [
+    "filter",
+    "color"
+  ],
+  "tags": [
+    "filter",
+    "css",
+    "vintage",
+    "film",
+    "fade",
+    "warm"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.",
+  "customization": [
+    {
+      "name": "--warmth",
+      "description": "Sepia amount",
+      "default": "0.35"
+    }
+  ],
+  "variations": [
+    "Animate the filter value on hover",
+    "Apply to a whole section with backdrop-filter"
+  ],
+  "related": [],
+  "ai_usage": "Nostalgic photography. The lifted-black overlay (a screen-blended warm wash) is what makes it look faded rather than merely sepia.",
+  "path": "effects/blend-filters/vintage-fade-filter.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Vintage Fade</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"vintage-fade-filter\",\n    \"title\": \"Vintage Fade\",\n    \"summary\": \"Lifted blacks and warm cast, like faded film.\",\n    \"description\": \"Lifted blacks and warm cast, like faded film. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.\",\n    \"theme\": \"blend-filters\",\n    \"categories\": [\"filter\", \"color\"],\n    \"tags\": [\"filter\", \"css\", \"vintage\", \"film\", \"fade\", \"warm\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.\",\n    \"customization\": [\n      { \"name\": \"--warmth\", \"description\": \"Sepia amount\", \"default\": \"0.35\" }\n    ],\n    \"variations\": [\"Animate the filter value on hover\", \"Apply to a whole section with backdrop-filter\"],\n    \"ai_usage\": \"Nostalgic photography. The lifted-black overlay (a screen-blended warm wash) is what makes it look faded rather than merely sepia.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; height: 170px; border-radius: 16px; overflow: hidden; position: relative;\n      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }\n    .label { margin-top: .8rem; text-align: center; color: #8b93a7; font-size: .82rem; }\n    .fx { filter: sepia(.35) contrast(.88) saturate(1.15) brightness(1.05); }\n    .fx::after { content: \"\"; position: absolute; inset: 0; background: rgba(255, 226, 189, .18); mix-blend-mode: screen; }\n  </style>\n</head>\n<body>\n  <div><div class=\"demo fx\"></div><p class=\"label\">Vintage Fade</p></div>\n</body>\n</html>\n"
+}

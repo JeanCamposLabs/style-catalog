@@ -1,0 +1,44 @@
+{
+  "id": "size-guide-table",
+  "title": "Size Guide",
+  "summary": "A measurement table with the selected row highlighted.",
+  "description": "A measurement table with the selected row highlighted.",
+  "theme": "ecommerce-ui",
+  "themeTitle": "E-commerce UI",
+  "categories": [
+    "ecommerce",
+    "commerce"
+  ],
+  "tags": [
+    "ecommerce",
+    "shop",
+    "size-guide",
+    "table",
+    "measurements",
+    "fit"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Selected row",
+      "default": "#1e1740"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Apparel product pages. Give both metric and imperial columns; forcing conversion is a common reason for returns.",
+  "path": "effects/ecommerce-ui/size-guide-table.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Size Guide</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"size-guide-table\",\n    \"title\": \"Size Guide\",\n    \"summary\": \"A measurement table with the selected row highlighted.\",\n    \"description\": \"A measurement table with the selected row highlighted.\",\n    \"theme\": \"ecommerce-ui\",\n    \"categories\": [\"ecommerce\", \"commerce\"],\n    \"tags\": [\"ecommerce\", \"shop\", \"size-guide\", \"table\", \"measurements\", \"fit\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Price, stock, and discount information must be in text, never only a colour or a badge shape.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Selected row\", \"default\": \"#1e1740\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Apparel product pages. Give both metric and imperial columns; forcing conversion is a common reason for returns.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { border-collapse: collapse; font-size: .82rem; background: #151b2a; border-radius: 12px; overflow: hidden; }\n    .fx th, .fx td { padding: .5rem .9rem; text-align: left; border-bottom: 1px solid #22304a; }\n    .fx th { background: #1c2437; color: #8b93a7; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; }\n    .fx tr.on td { background: #1e1740; color: #fff; }\n    .fx td { color: #cbd5e1; }\n  </style>\n</head>\n<body>\n  <table class=\"fx\"><caption class=\"sr\" style=\"position:absolute;left:-9999px\">Size guide</caption>\n  <thead><tr><th scope=\"col\">Size</th><th scope=\"col\">Chest</th><th scope=\"col\">Length</th></tr></thead>\n  <tbody><tr><td>S</td><td>96 cm</td><td>68 cm</td></tr><tr class=\"on\"><td>M</td><td>104 cm</td><td>71 cm</td></tr>\n  <tr><td>L</td><td>112 cm</td><td>74 cm</td></tr></tbody></table>\n</body>\n</html>\n"
+}

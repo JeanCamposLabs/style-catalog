@@ -1,0 +1,44 @@
+{
+  "id": "mention-autocomplete",
+  "title": "Mention Suggestions",
+  "summary": "An @-mention list appearing above the input.",
+  "description": "An @-mention list appearing above the input.",
+  "theme": "social-ui",
+  "themeTitle": "Social UI",
+  "categories": [
+    "social",
+    "feed"
+  ],
+  "tags": [
+    "social",
+    "community",
+    "mention",
+    "autocomplete",
+    "at",
+    "typeahead"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "List background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Composers and comment boxes. Implement as a combobox with aria-activedescendant so arrow-key selection is announced without moving DOM focus.",
+  "path": "effects/social-ui/mention-autocomplete.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Mention Suggestions</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"mention-autocomplete\",\n    \"title\": \"Mention Suggestions\",\n    \"summary\": \"An @-mention list appearing above the input.\",\n    \"description\": \"An @-mention list appearing above the input.\",\n    \"theme\": \"social-ui\",\n    \"categories\": [\"social\", \"feed\"],\n    \"tags\": [\"social\", \"community\", \"mention\", \"autocomplete\", \"at\", \"typeahead\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"List background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Composers and comment boxes. Implement as a combobox with aria-activedescendant so arrow-key selection is announced without moving DOM focus.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; }\n    .fx .list { position: absolute; bottom: calc(100% + 6px); left: 0; right: 0; padding: .3rem; border-radius: 12px;\n      background: #141a28; border: 1px solid #2b3450; box-shadow: 0 16px 40px rgba(0,0,0,.5); }\n    .fx .it { display: flex; align-items: center; gap: .6rem; padding: .4rem .5rem; border-radius: 8px; font-size: .85rem; color: #cbd5e1; }\n    .fx .it.on { background: #22304a; color: #fff; }\n    .fx .av { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: .68rem;\n      font-weight: 800; color: #0b0d12; }\n    .fx .h { color: #8b93a7; font-size: .78rem; }\n    .fx input { width: 100%; padding: .7rem .9rem; border-radius: 12px; border: 1px solid #2b3450; background: #151b2a;\n      color: #e7ebf3; font: inherit; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"list\" role=\"listbox\" aria-label=\"Mention suggestions\">\n    <div class=\"it on\" role=\"option\" aria-selected=\"true\"><span class=\"av\" style=\"background:#7c5cff\">A</span>Ada Lovelace <span class=\"h\">@ada</span></div>\n    <div class=\"it\" role=\"option\" aria-selected=\"false\"><span class=\"av\" style=\"background:#2dd4bf\">A</span>Alan Turing <span class=\"h\">@alan</span></div>\n  </div><input type=\"text\" value=\"Thanks @a\" aria-label=\"Write a comment\" /></div>\n</body>\n</html>\n"
+}

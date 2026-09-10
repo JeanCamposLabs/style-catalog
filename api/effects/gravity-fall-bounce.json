@@ -1,0 +1,44 @@
+{
+  "id": "gravity-fall-bounce",
+  "title": "Gravity Bounce",
+  "summary": "Balls falling with decaying bounces.",
+  "description": "Balls falling with decaying bounces.",
+  "theme": "particles-physics",
+  "themeTitle": "Particles & Physics",
+  "categories": [
+    "particles",
+    "physics"
+  ],
+  "tags": [
+    "particles",
+    "motion",
+    "gravity",
+    "bounce",
+    "decay",
+    "physics"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Fall cycle",
+      "default": "1.8s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Playful loaders and empty states. Each bounce must reach a lower peak with a shorter interval — equal bounces read as an oscillation, not gravity.",
+  "path": "effects/particles-physics/gravity-fall-bounce.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Gravity Bounce</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"gravity-fall-bounce\",\n    \"title\": \"Gravity Bounce\",\n    \"summary\": \"Balls falling with decaying bounces.\",\n    \"description\": \"Balls falling with decaying bounces.\",\n    \"theme\": \"particles-physics\",\n    \"categories\": [\"particles\", \"physics\"],\n    \"tags\": [\"particles\", \"motion\", \"gravity\", \"bounce\", \"decay\", \"physics\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Fall cycle\", \"default\": \"1.8s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Playful loaders and empty states. Each bounce must reach a lower peak with a shorter interval — equal bounces read as an oscillation, not gravity.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 260px; height: 180px; border-radius: 14px; background: #10141f; border: 1px solid #263149; overflow: hidden; }\n    .fx i { position: absolute; width: 22px; height: 22px; border-radius: 50%; top: 0;\n      animation: drop var(--d) cubic-bezier(.5,0,1,1) infinite; animation-delay: var(--dl); }\n    @keyframes drop {\n      0% { transform: translateY(0); } 30% { transform: translateY(140px); }\n      45% { transform: translateY(64px); } 60% { transform: translateY(140px); }\n      72% { transform: translateY(104px); } 84% { transform: translateY(140px); }\n      92% { transform: translateY(126px); } 100% { transform: translateY(140px); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"left:18%;background:#7c5cff;--d:1.8s;--dl:0s\"></i>\n  <i style=\"left:46%;background:#10a894;--d:2.1s;--dl:.3s\"></i><i style=\"left:74%;background:#c2891a;--d:1.6s;--dl:.6s\"></i></div>\n</body>\n</html>\n"
+}

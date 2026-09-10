@@ -1,0 +1,44 @@
+{
+  "id": "glass-tabs-segmented",
+  "title": "Glass Segmented Control",
+  "summary": "A frosted segmented switcher.",
+  "description": "A frosted segmented switcher.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass",
+    "surface"
+  ],
+  "tags": [
+    "glass",
+    "surface",
+    "glass",
+    "segmented",
+    "thumb",
+    "control"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+  "customization": [
+    {
+      "name": "--blur",
+      "description": "Backdrop blur",
+      "default": "14px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Controls over imagery. The thumb should be lighter glass rather than an opaque fill, so the backdrop still shows through the selected segment.",
+  "path": "effects/glass-neumorphism/glass-tabs-segmented.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glass Segmented Control</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-tabs-segmented\",\n    \"title\": \"Glass Segmented Control\",\n    \"summary\": \"A frosted segmented switcher.\",\n    \"description\": \"A frosted segmented switcher.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\", \"surface\"],\n    \"tags\": [\"glass\", \"surface\", \"glass\", \"segmented\", \"thumb\", \"control\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.\",\n    \"customization\": [\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur\", \"default\": \"14px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Controls over imagery. The thumb should be lighter glass rather than an opaque fill, so the backdrop still shows through the selected segment.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: conic-gradient(from 140deg at 35% 30%, #7c5cff, #2dd4bf, #d1478c, #7c5cff); }\n    .fx { position: relative; display: inline-flex; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.16);\n      backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6);\n      border: 1px solid rgba(255,255,255,.32); }\n    .fx .thumb { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 3); border-radius: 999px;\n      background: rgba(255,255,255,.55); transition: transform .3s cubic-bezier(.7,0,.2,1); }\n    .fx button { position: relative; z-index: 1; padding: .5rem 1.1rem; border: 0; background: transparent; color: #fff;\n      font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }\n    .fx button[aria-pressed=\"true\"] { color: #0b0d12; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"gs\" role=\"group\" aria-label=\"View\"><span class=\"thumb\" aria-hidden=\"true\"></span>\n  <button type=\"button\" aria-pressed=\"true\">Day</button><button type=\"button\" aria-pressed=\"false\">Week</button>\n  <button type=\"button\" aria-pressed=\"false\">Month</button></div>\n  <script>\n    (function () {\n      var g = document.getElementById(\"gs\"), th = g.querySelector(\".thumb\");\n      var bs = [].slice.call(g.querySelectorAll(\"button\"));\n      bs.forEach(function (b, i) {\n        b.addEventListener(\"click\", function () {\n          bs.forEach(function (o) { o.setAttribute(\"aria-pressed\", \"false\"); });\n          b.setAttribute(\"aria-pressed\", \"true\");\n          th.style.transform = \"translateX(\" + i * 100 + \"%)\";\n        });\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

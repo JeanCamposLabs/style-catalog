@@ -1,0 +1,44 @@
+{
+  "id": "save-bookmark-flip",
+  "title": "Bookmark Flip",
+  "summary": "A bookmark that flips and fills when saved.",
+  "description": "A bookmark that flips and fills when saved.",
+  "theme": "micro-interactions",
+  "themeTitle": "Micro-interactions",
+  "categories": [
+    "micro-interaction",
+    "feedback"
+  ],
+  "tags": [
+    "micro-interaction",
+    "feedback",
+    "bookmark",
+    "save",
+    "flip",
+    "toggle"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Saved colour",
+      "default": "#c2891a"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Save-for-later. A full rotation is enough motion for a binary state; combine it with a colour change so the state survives with animation disabled.",
+  "path": "effects/micro-interactions/save-bookmark-flip.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Bookmark Flip</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"save-bookmark-flip\",\n    \"title\": \"Bookmark Flip\",\n    \"summary\": \"A bookmark that flips and fills when saved.\",\n    \"description\": \"A bookmark that flips and fills when saved.\",\n    \"theme\": \"micro-interactions\",\n    \"categories\": [\"micro-interaction\", \"feedback\"],\n    \"tags\": [\"micro-interaction\", \"feedback\", \"bookmark\", \"save\", \"flip\", \"toggle\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Saved colour\", \"default\": \"#c2891a\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Save-for-later. A full rotation is enough motion for a binary state; combine it with a colour change so the state survives with animation disabled.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 56px; height: 56px; border: 0; border-radius: 14px; background: #151b2a; border: 1px solid #263149;\n      color: #8b93a7; font-size: 1.3rem; cursor: pointer; transition: color .2s, border-color .2s; }\n    .fx span { display: inline-block; transition: transform .4s cubic-bezier(.7,0,.2,1); }\n    .fx[aria-pressed=\"true\"] { color: #c2891a; border-color: #c2891a; }\n    .fx[aria-pressed=\"true\"] span { transform: rotateY(360deg); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-pressed=\"false\" aria-label=\"Bookmark\" id=\"bm\"><span>🔖</span></button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"bm\");\n      b.addEventListener(\"click\", function () {\n        b.setAttribute(\"aria-pressed\", b.getAttribute(\"aria-pressed\") === \"true\" ? \"false\" : \"true\");\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

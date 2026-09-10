@@ -1,0 +1,54 @@
+{
+  "id": "key-cap-button",
+  "title": "Keycap Button",
+  "summary": "A mechanical keycap with a bevel that depresses on click.",
+  "description": "Stacked inset and outer shadows form the keycap wall; the press removes the wall height rather than just moving the cap.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "skeuomorphic"
+  ],
+  "tags": [
+    "keycap",
+    "keyboard",
+    "skeuomorphic",
+    "press",
+    "tactile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--cap",
+      "description": "Cap color",
+      "default": "#e7ebf3"
+    },
+    {
+      "name": "--wall",
+      "description": "Wall color",
+      "default": "#94a3b8"
+    },
+    {
+      "name": "--h",
+      "description": "Cap height",
+      "default": "6px"
+    }
+  ],
+  "variations": [
+    "Dark keycap set",
+    "Legend printed on the front face",
+    "Bind to a real key press"
+  ],
+  "related": [],
+  "ai_usage": "Shortcut hints, keyboard demos, retro hardware UIs. The wall is a box-shadow of 0 var(--h) 0 — on :active reduce it to 0 and translate the cap by the same amount so nothing appears to float.",
+  "path": "effects/buttons/key-cap-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Keycap Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"key-cap-button\",\n    \"title\": \"Keycap Button\",\n    \"summary\": \"A mechanical keycap with a bevel that depresses on click.\",\n    \"description\": \"Stacked inset and outer shadows form the keycap wall; the press removes the wall height rather than just moving the cap.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"skeuomorphic\"],\n    \"tags\": [\"keycap\", \"keyboard\", \"skeuomorphic\", \"press\", \"tactile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--cap\", \"description\": \"Cap color\", \"default\": \"#e7ebf3\" },\n      { \"name\": \"--wall\", \"description\": \"Wall color\", \"default\": \"#94a3b8\" },\n      { \"name\": \"--h\", \"description\": \"Cap height\", \"default\": \"6px\" }\n    ],\n    \"variations\": [\"Dark keycap set\", \"Legend printed on the front face\", \"Bind to a real key press\"],\n    \"ai_usage\": \"Shortcut hints, keyboard demos, retro hardware UIs. The wall is a box-shadow of 0 var(--h) 0 — on :active reduce it to 0 and translate the cap by the same amount so nothing appears to float.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --cap: #e7ebf3; --wall: #94a3b8; --h: 6px; }\n    .keycap { min-width: 64px; padding: .9rem 1.1rem; border-radius: 10px; background: var(--cap); color: #0b0d12;\n      font-weight: 800; font-family: ui-monospace, Menlo, monospace;\n      box-shadow: 0 var(--h) 0 var(--wall), 0 calc(var(--h) + 6px) 14px rgba(0,0,0,.45), inset 0 2px 0 #fff;\n      transition: transform .06s, box-shadow .06s; }\n    .keycap:active { transform: translateY(var(--h)); box-shadow: 0 0 0 var(--wall), 0 4px 10px rgba(0,0,0,.4), inset 0 2px 0 #fff; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"keycap\" type=\"button\">⏎ Enter</button>\n</body>\n</html>\n"
+}

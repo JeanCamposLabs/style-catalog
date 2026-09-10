@@ -1,0 +1,44 @@
+{
+  "id": "terminal-typing-prompt",
+  "title": "Typing Prompt",
+  "summary": "A command typed out character by character.",
+  "description": "A command typed out character by character.",
+  "theme": "terminal-cli",
+  "themeTitle": "Terminal & CLI",
+  "categories": [
+    "terminal",
+    "code"
+  ],
+  "tags": [
+    "terminal",
+    "monospace",
+    "typing",
+    "steps",
+    "prompt",
+    "caret"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Terminal output should live in a real text element (not an image) so it can be selected, searched, and read aloud.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Text colour",
+      "default": "#4ade80"
+    }
+  ],
+  "variations": [
+    "Retheme through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Hero demos. The steps() count must equal the character count and the width must be that many ch, or the caret drifts away from the text.",
+  "path": "effects/terminal-cli/terminal-typing-prompt.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Typing Prompt</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"terminal-typing-prompt\",\n    \"title\": \"Typing Prompt\",\n    \"summary\": \"A command typed out character by character.\",\n    \"description\": \"A command typed out character by character.\",\n    \"theme\": \"terminal-cli\",\n    \"categories\": [\"terminal\", \"code\"],\n    \"tags\": [\"terminal\", \"monospace\", \"typing\", \"steps\", \"prompt\", \"caret\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Terminal output should live in a real text element (not an image) so it can be selected, searched, and read aloud.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Text colour\", \"default\": \"#4ade80\" }\n    ],\n    \"variations\": [\"Retheme through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Hero demos. The steps() count must equal the character count and the width must be that many ch, or the caret drifts away from the text.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; padding: 1rem; border-radius: 8px; background: #05070d; border: 1px solid #1f2937;\n      font-family: ui-monospace, monospace; font-size: .85rem; color: #4ade80; }\n    .fx .line { overflow: hidden; white-space: nowrap; border-right: 2px solid #4ade80; width: 0;\n      animation: type 3s steps(28) infinite, caret .7s step-end infinite; }\n    @keyframes type { 0% { width: 0; } 60%, 100% { width: 28ch; } }\n    @keyframes caret { 50% { border-color: transparent; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"line\">$ npx create-catalog my-app</div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "glass-frosted-sidebar",
+  "title": "Frosted Sidebar",
+  "summary": "A translucent rail over a colourful page.",
+  "description": "A translucent rail over a colourful page.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass",
+    "surface"
+  ],
+  "tags": [
+    "glass",
+    "surface",
+    "glass",
+    "sidebar",
+    "rail",
+    "overlay"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+  "customization": [
+    {
+      "name": "--blur",
+      "description": "Backdrop blur",
+      "default": "18px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "App shells over vivid backgrounds. Keep glass panels on top of content, never behind it — a frosted layer under text just lowers contrast without any depth benefit.",
+  "path": "effects/glass-neumorphism/glass-frosted-sidebar.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Frosted Sidebar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-frosted-sidebar\",\n    \"title\": \"Frosted Sidebar\",\n    \"summary\": \"A translucent rail over a colourful page.\",\n    \"description\": \"A translucent rail over a colourful page.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\", \"surface\"],\n    \"tags\": [\"glass\", \"surface\", \"glass\", \"sidebar\", \"rail\", \"overlay\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.\",\n    \"customization\": [\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur\", \"default\": \"18px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"App shells over vivid backgrounds. Keep glass panels on top of content, never behind it — a frosted layer under text just lowers contrast without any depth benefit.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: linear-gradient(140deg, #7c3aed, #0ea5e9 60%, #ec4899); }\n    .fx { display: flex; width: 300px; height: 190px; border-radius: 18px; overflow: hidden; }\n    .fx aside { width: 96px; padding: .8rem .6rem; background: rgba(255,255,255,.16);\n      backdrop-filter: blur(18px) saturate(1.6); -webkit-backdrop-filter: blur(18px) saturate(1.6);\n      border-right: 1px solid rgba(255,255,255,.28); }\n    .fx aside a { display: block; padding: .4rem .5rem; border-radius: 8px; color: #fff; text-decoration: none; font-size: .78rem; }\n    .fx aside a[aria-current] { background: rgba(255,255,255,.28); font-weight: 700; }\n    .fx main { flex: 1; padding: 1rem; color: #fff; font-size: .85rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><aside><a href=\"#\" aria-current=\"page\">Home</a><a href=\"#\">Library</a><a href=\"#\">Settings</a></aside>\n  <main>Frosted rail over a vivid page.</main></div>\n</body>\n</html>\n"
+}

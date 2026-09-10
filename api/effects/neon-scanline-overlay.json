@@ -1,0 +1,45 @@
+{
+  "id": "neon-scanline-overlay",
+  "title": "Cyber Scanlines",
+  "summary": "A tight scanline layer with a rolling refresh band.",
+  "description": "A tight scanline layer with a rolling refresh band.",
+  "theme": "neon-cyberpunk",
+  "themeTitle": "Neon & Cyberpunk",
+  "categories": [
+    "neon",
+    "cyberpunk"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "dark",
+    "scanlines",
+    "crt",
+    "overlay",
+    "roll"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Scanline colour",
+      "default": "rgba(34,211,238,.09)"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Overlay this on any panel for an instant retro-tech read. Keep the rolling band faint — it should be felt more than seen.",
+  "path": "effects/neon-cyberpunk/neon-scanline-overlay.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Cyber Scanlines</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-scanline-overlay\",\n    \"title\": \"Cyber Scanlines\",\n    \"summary\": \"A tight scanline layer with a rolling refresh band.\",\n    \"description\": \"A tight scanline layer with a rolling refresh band.\",\n    \"theme\": \"neon-cyberpunk\",\n    \"categories\": [\"neon\", \"cyberpunk\"],\n    \"tags\": [\"neon\", \"glow\", \"dark\", \"scanlines\", \"crt\", \"overlay\", \"roll\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Scanline colour\", \"default\": \"rgba(34,211,238,.09)\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Overlay this on any panel for an instant retro-tech read. Keep the rolling band faint — it should be felt more than seen.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 170px; border-radius: 12px; overflow: hidden;\n      background: linear-gradient(135deg, #0a1520, #06101a); }\n    .fx::before { content: \"\"; position: absolute; inset: 0;\n      background: repeating-linear-gradient(180deg, rgba(34,211,238,.09) 0 1px, transparent 1px 3px); }\n    .fx::after { content: \"\"; position: absolute; left: 0; right: 0; height: 40px;\n      background: linear-gradient(180deg, transparent, rgba(34,211,238,.16), transparent); animation: roll 4s linear infinite; }\n    @keyframes roll { from { top: -40px; } to { top: 100%; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

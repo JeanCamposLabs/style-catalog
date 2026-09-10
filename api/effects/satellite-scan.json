@@ -1,0 +1,44 @@
+{
+  "id": "satellite-scan",
+  "title": "Satellite Scan",
+  "summary": "A satellite sweeping a beam over a planet's edge.",
+  "description": "A satellite sweeping a beam over a planet's edge.",
+  "theme": "space-cosmic",
+  "themeTitle": "Space & Cosmic",
+  "categories": [
+    "space",
+    "cosmic"
+  ],
+  "tags": [
+    "space",
+    "cosmic",
+    "satellite",
+    "scan",
+    "beam",
+    "planet"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Beam colour",
+      "default": "rgba(56,189,248,.2)"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Monitoring and coverage visuals. Animate satellite and beam with the same keyframe so they can never drift apart.",
+  "path": "effects/space-cosmic/satellite-scan.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Satellite Scan</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"satellite-scan\",\n    \"title\": \"Satellite Scan\",\n    \"summary\": \"A satellite sweeping a beam over a planet's edge.\",\n    \"description\": \"A satellite sweeping a beam over a planet's edge.\",\n    \"theme\": \"space-cosmic\",\n    \"categories\": [\"space\", \"cosmic\"],\n    \"tags\": [\"space\", \"cosmic\", \"satellite\", \"scan\", \"beam\", \"planet\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Beam colour\", \"default\": \"rgba(56,189,248,.2)\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Monitoring and coverage visuals. Animate satellite and beam with the same keyframe so they can never drift apart.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 260px; height: 170px; border-radius: 14px; overflow: hidden; background: #05070d; }\n    .fx .planet { position: absolute; bottom: -120px; left: 50%; translate: -50% 0; width: 260px; height: 200px;\n      border-radius: 50%; background: radial-gradient(circle at 40% 20%, #38bdf8, #0c4a6e 60%, #082f49); }\n    .fx .sat { position: absolute; top: 26px; left: 30px; width: 14px; height: 10px; border-radius: 3px; background: #cbd5e1;\n      animation: cross 6s linear infinite; }\n    .fx .beam { position: absolute; top: 36px; left: 30px; width: 0; height: 0;\n      border-left: 26px solid transparent; border-right: 26px solid transparent; border-top: 90px solid rgba(56,189,248,.2);\n      animation: cross 6s linear infinite; }\n    @keyframes cross { to { transform: translateX(200px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"planet\"></span><span class=\"beam\"></span><span class=\"sat\"></span></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "hue-fade-in",
+  "title": "Colour Fade In",
+  "summary": "The element arrives desaturated and gains colour.",
+  "description": "The element arrives desaturated and gains colour. Applied once on load with animation-fill-mode: both so the element holds its final state.",
+  "theme": "transitions-animations",
+  "themeTitle": "Transitions & Animations",
+  "categories": [
+    "animation",
+    "entrance"
+  ],
+  "tags": [
+    "entrance",
+    "reveal",
+    "filter",
+    "grayscale",
+    "color"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Animation duration",
+      "default": ".7s"
+    },
+    {
+      "name": "--ease",
+      "description": "Timing function",
+      "default": "cubic-bezier(.2,.8,.3,1)"
+    }
+  ],
+  "variations": [
+    "Stagger across a list with animation-delay",
+    "Play on scroll with IntersectionObserver"
+  ],
+  "related": [],
+  "ai_usage": "Image galleries and portfolio grids. Grayscale-to-colour also works as a hover state — reuse the same duration in both for consistency.",
+  "path": "effects/transitions-animations/hue-fade-in.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Colour Fade In</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hue-fade-in\",\n    \"title\": \"Colour Fade In\",\n    \"summary\": \"The element arrives desaturated and gains colour.\",\n    \"description\": \"The element arrives desaturated and gains colour. Applied once on load with animation-fill-mode: both so the element holds its final state.\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"entrance\"],\n    \"tags\": [\"entrance\", \"reveal\", \"filter\", \"grayscale\", \"color\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Animation duration\", \"default\": \".7s\" },\n      { \"name\": \"--ease\", \"description\": \"Timing function\", \"default\": \"cubic-bezier(.2,.8,.3,1)\" }\n    ],\n    \"variations\": [\"Stagger across a list with animation-delay\", \"Play on scroll with IntersectionObserver\"],\n    \"ai_usage\": \"Image galleries and portfolio grids. Grayscale-to-colour also works as a hover state — reuse the same duration in both for consistency.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: .7s; --ease: cubic-bezier(.2,.8,.3,1); }\n    .card { width: 230px; padding: 1.5rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149;\n      animation: hue-fade-in var(--dur) var(--ease) both infinite alternate; }\n    .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    @keyframes hue-fade-in {\n      from { opacity: 0; filter: grayscale(1) brightness(.6); }\n      to { opacity: 1; filter: grayscale(0) brightness(1); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      .card { animation: none; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\"><h3>Colour Fade In</h3><p>The element arrives desaturated and gains colour.</p></div>\n</body>\n</html>\n"
+}

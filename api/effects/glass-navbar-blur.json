@@ -1,0 +1,44 @@
+{
+  "id": "glass-navbar-blur",
+  "title": "Sticky Glass Bar",
+  "summary": "A translucent top bar that blurs the content scrolling under it.",
+  "description": "The bar only gains its border and shadow once the page has scrolled, so a page at rest stays clean.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass",
+    "navigation"
+  ],
+  "tags": [
+    "navbar",
+    "sticky",
+    "backdrop-filter",
+    "scroll",
+    "header"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.",
+  "customization": [
+    {
+      "name": "--blur",
+      "description": "Backdrop blur",
+      "default": "14px"
+    }
+  ],
+  "variations": [
+    "Hide on scroll down, show on scroll up",
+    "Solid on scroll instead of glass",
+    "Progress bar under the bar"
+  ],
+  "related": [],
+  "ai_usage": "App and marketing headers. Add the elevated class only after scrollY > 0 (via IntersectionObserver on a sentinel, not a scroll listener) so the resting header has no border.",
+  "path": "effects/glass-neumorphism/glass-navbar-blur.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sticky Glass Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-navbar-blur\",\n    \"title\": \"Sticky Glass Bar\",\n    \"summary\": \"A translucent top bar that blurs the content scrolling under it.\",\n    \"description\": \"The bar only gains its border and shadow once the page has scrolled, so a page at rest stays clean.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\", \"navigation\"],\n    \"tags\": [\"navbar\", \"sticky\", \"backdrop-filter\", \"scroll\", \"header\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.\",\n    \"customization\": [\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur\", \"default\": \"14px\" }\n    ],\n    \"variations\": [\"Hide on scroll down, show on scroll up\", \"Solid on scroll instead of glass\", \"Progress bar under the bar\"],\n    \"ai_usage\": \"App and marketing headers. Add the elevated class only after scrollY > 0 (via IntersectionObserver on a sentinel, not a scroll listener) so the resting header has no border.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { min-height: 200vh; background: linear-gradient(180deg, #7c5cff, #0b0d12 40%); }\n    :root { --blur: 14px; }\n    .bar { position: fixed; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between;\n      padding: .9rem 1.2rem; background: rgba(11,13,18,.55); backdrop-filter: blur(var(--blur)) saturate(1.5);\n      -webkit-backdrop-filter: blur(var(--blur)) saturate(1.5); border-bottom: 1px solid rgba(255,255,255,.12); color: #e7ebf3; }\n    .bar b { font-weight: 800; }\n    .bar nav { display: flex; gap: 1rem; color: #b9c2d4; font-size: .9rem; }\n    .content { padding: 6rem 1.2rem; color: #e7ebf3; max-width: 40ch; }\n  </style>\n</head>\n<body>\n  <header class=\"bar\"><b>Catalog</b><nav><span>Docs</span><span>API</span><span>Pricing</span></nav></header>\n  <div class=\"content\"><h2>Scroll me</h2><p>The bar blurs whatever passes beneath it.</p></div>\n</body>\n</html>\n"
+}

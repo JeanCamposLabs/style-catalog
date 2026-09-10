@@ -1,0 +1,45 @@
+{
+  "id": "svg-pattern-fill",
+  "title": "SVG Pattern Fill",
+  "summary": "A shape filled with a repeating vector pattern.",
+  "description": "A shape filled with a repeating vector pattern.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "vector"
+  ],
+  "tags": [
+    "svg",
+    "vector",
+    "pattern",
+    "fill",
+    "tile",
+    "defs"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+  "customization": [
+    {
+      "name": "--size",
+      "description": "Pattern tile",
+      "default": "12"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Filling arbitrary shapes with texture. An SVG <pattern> tiles inside any path — unlike a CSS background, it follows the shape's geometry exactly, including transforms.",
+  "path": "effects/svg-effects/svg-pattern-fill.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>SVG Pattern Fill</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-pattern-fill\",\n    \"title\": \"SVG Pattern Fill\",\n    \"summary\": \"A shape filled with a repeating vector pattern.\",\n    \"description\": \"A shape filled with a repeating vector pattern.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"vector\"],\n    \"tags\": [\"svg\", \"vector\", \"pattern\", \"fill\", \"tile\", \"defs\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.\",\n    \"customization\": [\n      { \"name\": \"--size\", \"description\": \"Pattern tile\", \"default\": \"12\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Filling arbitrary shapes with texture. An SVG <pattern> tiles inside any path — unlike a CSS background, it follows the shape's geometry exactly, including transforms.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 190px; }\n    .fx svg { width: 100%; display: block; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><svg viewBox=\"0 0 190 160\" aria-hidden=\"true\">\n    <defs><pattern id=\"pt\" width=\"12\" height=\"12\" patternUnits=\"userSpaceOnUse\">\n      <rect width=\"12\" height=\"12\" fill=\"#151b2a\"/><circle cx=\"6\" cy=\"6\" r=\"2.4\" fill=\"#7c5cff\"/></pattern></defs>\n    <path d=\"M95 8 L182 60 L150 152 L40 152 L8 60 Z\" fill=\"url(#pt)\" stroke=\"#7c5cff\" stroke-width=\"2\"/></svg></div>\n</body>\n</html>\n"
+}

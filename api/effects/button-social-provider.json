@@ -1,0 +1,44 @@
+{
+  "id": "button-social-provider",
+  "title": "Provider Buttons",
+  "summary": "Sign-in buttons with brand marks.",
+  "description": "Sign-in buttons with brand marks.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "action"
+  ],
+  "tags": [
+    "button",
+    "action",
+    "social",
+    "sign-in",
+    "providers",
+    "auth"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Button background",
+      "default": "#151b2a"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Authentication screens. Keep every provider button the same size and order them by likely use; a visually dominant provider skews sign-in choice and fragments accounts.",
+  "path": "effects/buttons/button-social-provider.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Provider Buttons</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"button-social-provider\",\n    \"title\": \"Provider Buttons\",\n    \"summary\": \"Sign-in buttons with brand marks.\",\n    \"description\": \"Sign-in buttons with brand marks.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"action\"],\n    \"tags\": [\"button\", \"action\", \"social\", \"sign-in\", \"providers\", \"auth\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Button background\", \"default\": \"#151b2a\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Authentication screens. Keep every provider button the same size and order them by likely use; a visually dominant provider skews sign-in choice and fragments accounts.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; gap: 8px; width: 250px; }\n    .fx button { display: flex; align-items: center; gap: .7rem; padding: .7rem 1rem; border-radius: 11px;\n      border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; font-size: .88rem; cursor: pointer; }\n    .fx button:hover { background: #1c2437; }\n    .fx .m { width: 20px; height: 20px; border-radius: 5px; display: grid; place-items: center; font-size: .8rem; flex: none; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><button type=\"button\"><span class=\"m\" style=\"background:#fff;color:#0b0d12\" aria-hidden=\"true\">G</span>Continue with Google</button>\n  <button type=\"button\"><span class=\"m\" style=\"background:#24292f;color:#fff\" aria-hidden=\"true\">◉</span>Continue with GitHub</button>\n  <button type=\"button\"><span class=\"m\" style=\"background:#0a66c2;color:#fff\" aria-hidden=\"true\">in</span>Continue with LinkedIn</button></div>\n</body>\n</html>\n"
+}

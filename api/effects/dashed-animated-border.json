@@ -1,0 +1,49 @@
+{
+  "id": "dashed-animated-border",
+  "title": "Rotating Dashed Border",
+  "summary": "A dashed outline that rotates around the box.",
+  "description": "An SVG rect with a dash pattern animates stroke-dashoffset, which CSS dashed borders cannot do.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border"
+  ],
+  "tags": [
+    "dashed",
+    "svg",
+    "dashoffset",
+    "animated",
+    "selection"
+  ],
+  "tech": [
+    "css",
+    "svg"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Dash color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Lap time",
+      "default": "12s"
+    }
+  ],
+  "variations": [
+    "Faster for an active drop target",
+    "Solid stroke that draws once",
+    "Rounded corners via rx"
+  ],
+  "related": [],
+  "ai_usage": "Drop zones and selection states. The border must be SVG (or a mask) because border-style:dashed cannot animate its offset; keep the rect inset by half the stroke width so the line is not clipped.",
+  "path": "effects/borders-shadows/dashed-animated-border.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rotating Dashed Border</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dashed-animated-border\",\n    \"title\": \"Rotating Dashed Border\",\n    \"summary\": \"A dashed outline that rotates around the box.\",\n    \"description\": \"An SVG rect with a dash pattern animates stroke-dashoffset, which CSS dashed borders cannot do.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\"],\n    \"tags\": [\"dashed\", \"svg\", \"dashoffset\", \"animated\", \"selection\"],\n    \"tech\": [\"css\", \"svg\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Dash color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Lap time\", \"default\": \"12s\" }\n    ],\n    \"variations\": [\"Faster for an active drop target\", \"Solid stroke that draws once\", \"Rounded corners via rx\"],\n    \"ai_usage\": \"Drop zones and selection states. The border must be SVG (or a mask) because border-style:dashed cannot animate its offset; keep the rect inset by half the stroke width so the line is not clipped.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --c: #7c5cff; --dur: 12s; }\n    .dash { position: relative; }\n    .dash svg { position: absolute; inset: 0; width: 100%; height: 100%; }\n    .dash rect { fill: none; stroke: var(--c); stroke-width: 2; stroke-dasharray: 12 8; rx: 14;\n      animation: march var(--dur) linear infinite; }\n    @keyframes march { to { stroke-dashoffset: -400; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"dash\">\n    <svg aria-hidden=\"true\" preserveAspectRatio=\"none\" viewBox=\"0 0 260 110\"><rect x=\"1\" y=\"1\" width=\"258\" height=\"108\"/></svg>\n    <div class=\"demo\"><h3>Drop files here</h3><p>Animated dashed outline.</p></div>\n  </div>\n</body>\n</html>\n"
+}

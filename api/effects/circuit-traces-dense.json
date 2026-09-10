@@ -1,0 +1,50 @@
+{
+  "id": "circuit-traces-dense",
+  "title": "Dense Circuit",
+  "summary": "Tight PCB traces with vias.",
+  "description": "Tight PCB traces with vias. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "circuit",
+    "pcb",
+    "tech",
+    "dense"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Trace colour",
+      "default": "rgba(52,211,153,.28)"
+    },
+    {
+      "name": "--s",
+      "description": "Trace pitch",
+      "default": "34px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Hardware and hacker aesthetics. Offset the via layer by half a tile so pads land between traces rather than on them.",
+  "path": "effects/patterns-textures/circuit-traces-dense.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dense Circuit</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"circuit-traces-dense\",\n    \"title\": \"Dense Circuit\",\n    \"summary\": \"Tight PCB traces with vias.\",\n    \"description\": \"Tight PCB traces with vias. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"circuit\", \"pcb\", \"tech\", \"dense\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Trace colour\", \"default\": \"rgba(52,211,153,.28)\" },\n      { \"name\": \"--s\", \"description\": \"Trace pitch\", \"default\": \"34px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Hardware and hacker aesthetics. Offset the via layer by half a tile so pads land between traces rather than on them.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: rgba(52,211,153,.28); --s: 34px; }\n    .bg { background-color: #061410;\n      background-image: linear-gradient(var(--c) 1px, transparent 1px), linear-gradient(90deg, var(--c) 1px, transparent 1px),\n        radial-gradient(circle, rgba(52,211,153,.6) 1.6px, transparent 2px);\n      background-size: var(--s) var(--s), var(--s) var(--s), var(--s) var(--s);\n      background-position: 0 0, 0 0, calc(var(--s) / 2) calc(var(--s) / 2); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

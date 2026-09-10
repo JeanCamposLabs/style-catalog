@@ -1,0 +1,44 @@
+{
+  "id": "water-ripple-avatar",
+  "title": "Rippling Avatar",
+  "summary": "Concentric water rings around a circular avatar.",
+  "description": "Concentric water rings around a circular avatar.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "ripple",
+    "avatar",
+    "presence",
+    "rings"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Ring colour",
+      "default": "rgba(56,189,248,.6)"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Live presence and voice-activity indicators. Offset the rings by a third of the cycle so a new ring starts as the last fades.",
+  "path": "effects/fire-water/water-ripple-avatar.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rippling Avatar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"water-ripple-avatar\",\n    \"title\": \"Rippling Avatar\",\n    \"summary\": \"Concentric water rings around a circular avatar.\",\n    \"description\": \"Concentric water rings around a circular avatar.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"ripple\", \"avatar\", \"presence\", \"rings\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Ring colour\", \"default\": \"rgba(56,189,248,.6)\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Live presence and voice-activity indicators. Offset the rings by a third of the cycle so a new ring starts as the last fades.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 150px; height: 150px; display: grid; place-items: center; }\n    .fx .av { width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(160deg, #38bdf8, #0369a1);\n      display: grid; place-items: center; color: #fff; font-weight: 800; z-index: 1; }\n    .fx i { position: absolute; width: 76px; height: 76px; border-radius: 50%; border: 2px solid rgba(56,189,248,.6);\n      animation: out 2.6s cubic-bezier(0,.2,.8,1) infinite; animation-delay: var(--dl); }\n    @keyframes out { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.9); opacity: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--dl:0s\"></i><i style=\"--dl:.85s\"></i><i style=\"--dl:1.7s\"></i><span class=\"av\">JC</span></div>\n</body>\n</html>\n"
+}

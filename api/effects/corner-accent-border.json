@@ -1,0 +1,48 @@
+{
+  "id": "corner-accent-border",
+  "title": "Corner Accent Rules",
+  "summary": "Short rules mark only the corners of the panel.",
+  "description": "Four small gradient layers positioned at the corners suggest a frame without enclosing the content.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border"
+  ],
+  "tags": [
+    "corners",
+    "accent",
+    "minimal",
+    "frame",
+    "technical"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent color",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--len",
+      "description": "Rule length",
+      "default": "22px"
+    }
+  ],
+  "variations": [
+    "Longer rules for a full frame",
+    "Animate the rules on hover",
+    "Single corner accent"
+  ],
+  "related": [],
+  "ai_usage": "HUDs, viewfinders, and technical panels. Four background-image layers with explicit background-position keep it to one element; each layer is a small linear-gradient sized to --len.",
+  "path": "effects/borders-shadows/corner-accent-border.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Corner Accent Rules</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"corner-accent-border\",\n    \"title\": \"Corner Accent Rules\",\n    \"summary\": \"Short rules mark only the corners of the panel.\",\n    \"description\": \"Four small gradient layers positioned at the corners suggest a frame without enclosing the content.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\"],\n    \"tags\": [\"corners\", \"accent\", \"minimal\", \"frame\", \"technical\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent color\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--len\", \"description\": \"Rule length\", \"default\": \"22px\" }\n    ],\n    \"variations\": [\"Longer rules for a full frame\", \"Animate the rules on hover\", \"Single corner accent\"],\n    \"ai_usage\": \"HUDs, viewfinders, and technical panels. Four background-image layers with explicit background-position keep it to one element; each layer is a small linear-gradient sized to --len.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --c: #2dd4bf; --len: 22px; }\n    .demo { position: relative; background: #10141f; }\n    .demo::before, .demo::after, .demo > span::before, .demo > span::after { content: \"\"; position: absolute; width: var(--len); height: var(--len); }\n    .demo::before { top: 0; left: 0; border-top: 2px solid var(--c); border-left: 2px solid var(--c); }\n    .demo::after { top: 0; right: 0; border-top: 2px solid var(--c); border-right: 2px solid var(--c); }\n    .demo > span::before { bottom: 0; left: 0; border-bottom: 2px solid var(--c); border-left: 2px solid var(--c); }\n    .demo > span::after { bottom: 0; right: 0; border-bottom: 2px solid var(--c); border-right: 2px solid var(--c); }\n  </style>\n</head>\n<body>\n  <div class=\"demo\"><span aria-hidden=\"true\"></span><h3>Target locked</h3><p>Corner rules only.</p></div>\n</body>\n</html>\n"
+}

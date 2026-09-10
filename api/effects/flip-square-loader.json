@@ -1,0 +1,49 @@
+{
+  "id": "flip-square-loader",
+  "title": "Flipping Square",
+  "summary": "A single square flips over X, then Y, in an endless two-beat loop.",
+  "description": "One element, one keyframe: rotateX to 180°, then rotateY to 180°, then both back to zero — the minimum-markup loader.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "3d"
+  ],
+  "tags": [
+    "flip",
+    "square",
+    "rotate",
+    "3d",
+    "minimal"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Square color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Full cycle",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Rounded corners for a softer read",
+    "Gradient fill that shifts per face",
+    "Add a drop shadow that follows the flip"
+  ],
+  "related": [],
+  "ai_usage": "The smallest useful loader — one div. Add perspective on the parent if you want the flip to feel dimensional rather than a flat scale. Pair with a subtle box-shadow to imply the third dimension.",
+  "path": "effects/loaders-spinners/flip-square-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Flipping Square</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"flip-square-loader\",\n    \"title\": \"Flipping Square\",\n    \"summary\": \"A single square flips over X, then Y, in an endless two-beat loop.\",\n    \"description\": \"One element, one keyframe: rotateX to 180°, then rotateY to 180°, then both back to zero — the minimum-markup loader.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"3d\"],\n    \"tags\": [\"flip\", \"square\", \"rotate\", \"3d\", \"minimal\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Square color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Full cycle\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Rounded corners for a softer read\", \"Gradient fill that shifts per face\", \"Add a drop shadow that follows the flip\"],\n    \"ai_usage\": \"The smallest useful loader — one div. Add perspective on the parent if you want the flip to feel dimensional rather than a flat scale. Pair with a subtle box-shadow to imply the third dimension.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #7c5cff; --dur: 1.6s; }\n    .flipsq { width: 52px; height: 52px; border-radius: 8px; background: var(--c);\n      box-shadow: 0 10px 30px color-mix(in srgb, var(--c) 40%, transparent);\n      animation: flipsq var(--dur) ease-in-out infinite; }\n    @keyframes flipsq {\n      0% { transform: perspective(160px) rotateX(0) rotateY(0); }\n      50% { transform: perspective(160px) rotateX(180deg) rotateY(0); }\n      100% { transform: perspective(160px) rotateX(180deg) rotateY(180deg); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"flipsq\" role=\"status\" aria-label=\"Loading\"></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "duration-picker-dial",
+  "title": "Duration Picker",
+  "summary": "Preset durations plus a custom option.",
+  "description": "Preset durations plus a custom option.",
+  "theme": "calendar-time",
+  "themeTitle": "Calendar & Time",
+  "categories": [
+    "calendar",
+    "time"
+  ],
+  "tags": [
+    "calendar",
+    "date",
+    "duration",
+    "presets",
+    "picker",
+    "meeting"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Selected colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Meeting and reminder scheduling. Offer the four or five durations people actually pick, with custom as a fallback — a free-form field first slows everyone down.",
+  "path": "effects/calendar-time/duration-picker-dial.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Duration Picker</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"duration-picker-dial\",\n    \"title\": \"Duration Picker\",\n    \"summary\": \"Preset durations plus a custom option.\",\n    \"description\": \"Preset durations plus a custom option.\",\n    \"theme\": \"calendar-time\",\n    \"categories\": [\"calendar\", \"time\"],\n    \"tags\": [\"calendar\", \"date\", \"duration\", \"presets\", \"picker\", \"meeting\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Selected colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Meeting and reminder scheduling. Offer the four or five durations people actually pick, with custom as a fallback — a free-form field first slows everyone down.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; flex-wrap: wrap; gap: .5rem; width: 270px; }\n    .fx button { padding: .5rem .9rem; border-radius: 999px; border: 1px solid #2b3450; background: #151b2a; color: #cbd5e1;\n      font: inherit; font-size: .85rem; cursor: pointer; }\n    .fx button[aria-pressed=\"true\"] { background: #2dd4bf; border-color: #2dd4bf; color: #04241f; font-weight: 700; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"group\" aria-label=\"Duration\">\n    <button type=\"button\" aria-pressed=\"false\">15 min</button><button type=\"button\" aria-pressed=\"true\">30 min</button>\n    <button type=\"button\" aria-pressed=\"false\">45 min</button><button type=\"button\" aria-pressed=\"false\">1 hr</button>\n    <button type=\"button\" aria-pressed=\"false\">Custom…</button></div>\n</body>\n</html>\n"
+}

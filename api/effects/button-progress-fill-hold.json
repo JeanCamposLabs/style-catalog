@@ -1,0 +1,44 @@
+{
+  "id": "button-progress-fill-hold",
+  "title": "Hold Progress Button",
+  "summary": "A button that fills while held.",
+  "description": "A button that fills while held.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "action"
+  ],
+  "tags": [
+    "button",
+    "action",
+    "hold",
+    "progress",
+    "press",
+    "confirm"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+  "customization": [
+    {
+      "name": "--hold",
+      "description": "Hold duration",
+      "default": "1.2s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Actions worth a moment's thought. Fire on animationend rather than on a timer so releasing early genuinely cancels the action.",
+  "path": "effects/buttons/button-progress-fill-hold.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hold Progress Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"button-progress-fill-hold\",\n    \"title\": \"Hold Progress Button\",\n    \"summary\": \"A button that fills while held.\",\n    \"description\": \"A button that fills while held.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"action\"],\n    \"tags\": [\"button\", \"action\", \"hold\", \"progress\", \"press\", \"confirm\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.\",\n    \"customization\": [\n      { \"name\": \"--hold\", \"description\": \"Hold duration\", \"default\": \"1.2s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Actions worth a moment's thought. Fire on animationend rather than on a timer so releasing early genuinely cancels the action.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; overflow: hidden; padding: .9rem 2rem; border: 1px solid #2dd4bf; border-radius: 11px;\n      background: transparent; color: #2dd4bf; font: inherit; font-weight: 700; cursor: pointer; }\n    .fx span { position: relative; z-index: 2; }\n    .fx::before { content: \"\"; position: absolute; inset: 0; background: rgba(45,212,191,.25); transform: scaleX(0);\n      transform-origin: left; transition: transform .3s ease; }\n    .fx:active::before { transform: scaleX(1); transition-duration: 1.2s; transition-timing-function: linear; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\"><span>Hold to confirm</span></button>\n</body>\n</html>\n"
+}

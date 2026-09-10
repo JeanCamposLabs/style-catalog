@@ -1,0 +1,49 @@
+{
+  "id": "glow-pulse-border",
+  "title": "Pulsing Border Glow",
+  "summary": "The border breathes between dim and bright.",
+  "description": "Animating only box-shadow spread and colour keeps the geometry static, so nothing reflows during the pulse.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border",
+    "glow"
+  ],
+  "tags": [
+    "pulse",
+    "glow",
+    "attention",
+    "animated",
+    "status"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Glow color",
+      "default": "#34d399"
+    },
+    {
+      "name": "--dur",
+      "description": "Pulse period",
+      "default": "2s"
+    }
+  ],
+  "variations": [
+    "Red for an error state",
+    "Faster pulse for urgency",
+    "Single pulse on state change"
+  ],
+  "related": [],
+  "ai_usage": "Live and recording indicators. Animate box-shadow, never width or padding — a pulsing border-width forces layout on every frame.",
+  "path": "effects/borders-shadows/glow-pulse-border.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Pulsing Border Glow</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glow-pulse-border\",\n    \"title\": \"Pulsing Border Glow\",\n    \"summary\": \"The border breathes between dim and bright.\",\n    \"description\": \"Animating only box-shadow spread and colour keeps the geometry static, so nothing reflows during the pulse.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\", \"glow\"],\n    \"tags\": [\"pulse\", \"glow\", \"attention\", \"animated\", \"status\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Glow color\", \"default\": \"#34d399\" },\n      { \"name\": \"--dur\", \"description\": \"Pulse period\", \"default\": \"2s\" }\n    ],\n    \"variations\": [\"Red for an error state\", \"Faster pulse for urgency\", \"Single pulse on state change\"],\n    \"ai_usage\": \"Live and recording indicators. Animate box-shadow, never width or padding — a pulsing border-width forces layout on every frame.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --c: #34d399; --dur: 2s; }\n    .demo { border: 1px solid var(--c); border-radius: 14px; background: #0f1a17; animation: pulse var(--dur) ease-in-out infinite; }\n    @keyframes pulse {\n      0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 55%, transparent); }\n      50% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--c) 0%, transparent); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"demo\"><h3>Live</h3><p>Recording in progress.</p></div>\n</body>\n</html>\n"
+}

@@ -9,7 +9,7 @@
     "id": "brick-wall-bg",
     "title": "Brick Wall",
     "summary": "Staggered brick courses with mortar gaps.",
-    "description": "Alternate rows offset by half a brick via two background layers with different positions.",
+    "description": "Two identical brick layers offset by half a brick and half a course produce the running bond a single layer cannot.",
     "theme": "backgrounds",
     "categories": ["background", "texture"],
     "tags": ["brick", "wall", "masonry", "texture", "offset"],
@@ -21,12 +21,13 @@
     "performance_notes": "Lightweight — composited transform/opacity work only.",
     "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
     "customization": [
-      { "name": "--brick", "description": "Brick color", "default": "#3a2320" },
-      { "name": "--mortar", "description": "Mortar color", "default": "#1a1614" },
-      { "name": "--w", "description": "Brick width", "default": "64px" }
+      { "name": "--brick", "description": "Brick colour", "default": "#3a2320" },
+      { "name": "--mortar", "description": "Mortar colour", "default": "#1a1614" },
+      { "name": "--w", "description": "Brick width", "default": "64px" },
+      { "name": "--h", "description": "Course height", "default": "30px" }
     ],
-    "variations": ["Whitewashed brick", "Add noise for texture", "Vary brick tones per row with nth-child"],
-    "ai_usage": "Industrial, café, and loft aesthetics. The half-brick offset between alternating rows is the entire pattern; without it the wall reads as a plain grid."
+    "variations": ["Whitewashed brick", "Vary brick tones per row", "Add grain for texture"],
+    "ai_usage": "Industrial, cafe, and loft aesthetics. The running bond comes from a second gradient pair offset by half the brick width and half the course height — without that offset the wall reads as a plain grid."
   }
   </script>
   <style>
@@ -35,15 +36,18 @@
     body { background: #0b0d12; color: #e7ebf3;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
     .bg { position: fixed; inset: 0; }
-    :root { --brick: #3a2320; --mortar: #1a1614; --w: 64px; }
+    :root { --brick: #3a2320; --mortar: #1a1614; --w: 64px; --h: 30px; }
     .bg { background-color: var(--mortar);
-      background-image: linear-gradient(335deg, transparent 0, transparent 0),
-        linear-gradient(var(--brick) 28px, transparent 28px), linear-gradient(90deg, var(--brick) 60px, transparent 60px);
-      background-size: 100% 100%, var(--w) 32px, var(--w) 32px;
-      background-position: 0 0, 0 0, 0 0; }
+      background-image: linear-gradient(var(--brick) 0 calc(var(--h) - 3px), transparent calc(var(--h) - 3px)),
+        linear-gradient(90deg, transparent 0 3px, var(--brick) 3px);
+      background-size: var(--w) var(--h), var(--w) var(--h);
+      background-blend-mode: multiply; }
     .bg::after { content: ""; position: absolute; inset: 0;
-      background-image: linear-gradient(var(--brick) 28px, transparent 28px), linear-gradient(90deg, var(--brick) 60px, transparent 60px);
-      background-size: var(--w) 32px, var(--w) 32px; background-position: 32px 16px, 32px 16px; }
+      background-image: linear-gradient(var(--brick) 0 calc(var(--h) - 3px), transparent calc(var(--h) - 3px)),
+        linear-gradient(90deg, transparent 0 3px, var(--brick) 3px);
+      background-size: var(--w) var(--h), var(--w) var(--h);
+      background-position: calc(var(--w) / 2) var(--h), calc(var(--w) / 2) var(--h);
+      background-blend-mode: multiply; }
   </style>
 </head>
 <body>

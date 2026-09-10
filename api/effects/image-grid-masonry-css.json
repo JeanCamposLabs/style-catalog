@@ -1,0 +1,44 @@
+{
+  "id": "image-grid-masonry-css",
+  "title": "Masonry Grid",
+  "summary": "A ragged-height image grid with CSS columns.",
+  "description": "A ragged-height image grid with CSS columns.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "media"
+  ],
+  "tags": [
+    "image",
+    "media",
+    "masonry",
+    "columns",
+    "grid",
+    "gallery"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+  "customization": [
+    {
+      "name": "--cols",
+      "description": "Column count",
+      "default": "3"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Photo walls. CSS columns fill top-to-bottom then left-to-right, so reading order differs from visual order — use grid with explicit spans when order matters.",
+  "path": "effects/images-media/image-grid-masonry-css.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Masonry Grid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"image-grid-masonry-css\",\n    \"title\": \"Masonry Grid\",\n    \"summary\": \"A ragged-height image grid with CSS columns.\",\n    \"description\": \"A ragged-height image grid with CSS columns.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"media\"],\n    \"tags\": [\"image\", \"media\", \"masonry\", \"columns\", \"grid\", \"gallery\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.\",\n    \"customization\": [\n      { \"name\": \"--cols\", \"description\": \"Column count\", \"default\": \"3\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Photo walls. CSS columns fill top-to-bottom then left-to-right, so reading order differs from visual order — use grid with explicit spans when order matters.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; column-count: 3; column-gap: 8px; }\n    .fx div { break-inside: avoid; margin-bottom: 8px; border-radius: 10px; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div style=\"height:70px;background:#7c5cff\"></div><div style=\"height:110px;background:#10a894\"></div>\n  <div style=\"height:90px;background:#c2891a\"></div><div style=\"height:120px;background:#d1478c\"></div>\n  <div style=\"height:80px;background:#2f7cc9\"></div><div style=\"height:60px;background:#a855f7\"></div></div>\n</body>\n</html>\n"
+}

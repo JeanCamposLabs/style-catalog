@@ -1,0 +1,49 @@
+{
+  "id": "glow-trace-button",
+  "title": "Traced Glow Button",
+  "summary": "A point of light runs the border like current through a circuit.",
+  "description": "A small conic highlight rotates behind the button and is masked to the edge, so a single bright dot traces the perimeter.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "border"
+  ],
+  "tags": [
+    "trace",
+    "circuit",
+    "glow",
+    "conic-gradient",
+    "tech"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Trace color",
+      "default": "#22d3ee"
+    },
+    {
+      "name": "--dur",
+      "description": "Lap time",
+      "default": "2.6s"
+    }
+  ],
+  "variations": [
+    "Two traces at opposite phases",
+    "Trace only on hover",
+    "Slow it right down for an idle state"
+  ],
+  "related": [],
+  "ai_usage": "Technical and AI-product interfaces. The mask is what confines the glow to the border: an inner element repaints the surface, leaving only a 1–2px ring visible. Keep the highlight narrow (under 20° of the conic sweep).",
+  "path": "effects/buttons/glow-trace-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Traced Glow Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glow-trace-button\",\n    \"title\": \"Traced Glow Button\",\n    \"summary\": \"A point of light runs the border like current through a circuit.\",\n    \"description\": \"A small conic highlight rotates behind the button and is masked to the edge, so a single bright dot traces the perimeter.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"border\"],\n    \"tags\": [\"trace\", \"circuit\", \"glow\", \"conic-gradient\", \"tech\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Trace color\", \"default\": \"#22d3ee\" },\n      { \"name\": \"--dur\", \"description\": \"Lap time\", \"default\": \"2.6s\" }\n    ],\n    \"variations\": [\"Two traces at opposite phases\", \"Trace only on hover\", \"Slow it right down for an idle state\"],\n    \"ai_usage\": \"Technical and AI-product interfaces. The mask is what confines the glow to the border: an inner element repaints the surface, leaving only a 1–2px ring visible. Keep the highlight narrow (under 20° of the conic sweep).\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #22d3ee; --dur: 2.6s; }\n    .trace { position: relative; padding: 1px; border-radius: 12px; overflow: hidden; background: #263149; }\n    .trace::before { content: \"\"; position: absolute; inset: -70%;\n      background: conic-gradient(transparent 0 82%, var(--c) 92%, transparent 100%);\n      animation: spin var(--dur) linear infinite; }\n    .trace button { position: relative; padding: .9rem 2.1rem; border-radius: 11px; background: #10141f; color: #e7ebf3; font-weight: 700; }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"trace\"><button type=\"button\">Run analysis</button></div>\n</body>\n</html>\n"
+}

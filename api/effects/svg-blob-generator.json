@@ -1,0 +1,45 @@
+{
+  "id": "svg-blob-generator",
+  "title": "Organic Blob",
+  "summary": "A smooth blob built from cubic curves.",
+  "description": "A smooth blob built from cubic curves.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "vector"
+  ],
+  "tags": [
+    "svg",
+    "vector",
+    "blob",
+    "organic",
+    "bezier",
+    "decorative"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Rotation period",
+      "default": "20s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Decorative shapes. Build blobs from cubic segments with mirrored control points so the outline stays smooth; polygon approximations show flat spots at large sizes.",
+  "path": "effects/svg-effects/svg-blob-generator.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Organic Blob</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-blob-generator\",\n    \"title\": \"Organic Blob\",\n    \"summary\": \"A smooth blob built from cubic curves.\",\n    \"description\": \"A smooth blob built from cubic curves.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"vector\"],\n    \"tags\": [\"svg\", \"vector\", \"blob\", \"organic\", \"bezier\", \"decorative\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"20s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Decorative shapes. Build blobs from cubic segments with mirrored control points so the outline stays smooth; polygon approximations show flat spots at large sizes.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 180px; }\n    .fx svg { width: 100%; display: block; }\n    .fx path { fill: url(#bg); animation: turn 20s linear infinite; transform-origin: center; }\n    @keyframes turn { to { transform: rotate(360deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><svg viewBox=\"0 0 180 180\" aria-hidden=\"true\">\n    <defs><linearGradient id=\"bg\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#7c5cff\"/>\n    <stop offset=\"1\" stop-color=\"#2dd4bf\"/></linearGradient></defs>\n    <path d=\"M90 14 C130 14 166 44 166 84 C166 128 132 166 90 166 C46 166 14 130 14 88 C14 46 48 14 90 14 Z\"/></svg></div>\n</body>\n</html>\n"
+}

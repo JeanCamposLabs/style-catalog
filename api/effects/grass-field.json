@@ -1,0 +1,44 @@
+{
+  "id": "grass-field",
+  "title": "Grass Blades",
+  "summary": "A row of blades bending in a passing breeze.",
+  "description": "A row of blades bending in a passing breeze.",
+  "theme": "nature-organic",
+  "themeTitle": "Nature & Organic",
+  "categories": [
+    "nature",
+    "organic"
+  ],
+  "tags": [
+    "organic",
+    "nature",
+    "grass",
+    "blades",
+    "breeze",
+    "stagger"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Blade colour",
+      "default": "#4ade80"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Landscape and outdoor headers. An index-based delay makes the breeze travel across the field instead of bending it all at once.",
+  "path": "effects/nature-organic/grass-field.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Grass Blades</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"grass-field\",\n    \"title\": \"Grass Blades\",\n    \"summary\": \"A row of blades bending in a passing breeze.\",\n    \"description\": \"A row of blades bending in a passing breeze.\",\n    \"theme\": \"nature-organic\",\n    \"categories\": [\"nature\", \"organic\"],\n    \"tags\": [\"organic\", \"nature\", \"grass\", \"blades\", \"breeze\", \"stagger\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Blade colour\", \"default\": \"#4ade80\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Landscape and outdoor headers. An index-based delay makes the breeze travel across the field instead of bending it all at once.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; align-items: flex-end; gap: 5px; height: 90px; }\n    .fx i { width: 5px; border-radius: 99px 99px 0 0; background: linear-gradient(180deg, #4ade80, #166534);\n      transform-origin: bottom; animation: bend 3s ease-in-out infinite; animation-delay: calc(var(--i) * .12s); }\n    @keyframes bend { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(12deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--i:0;height:52px\"></i><i style=\"--i:1;height:74px\"></i><i style=\"--i:2;height:60px\"></i><i style=\"--i:3;height:88px\"></i>\n  <i style=\"--i:4;height:66px\"></i><i style=\"--i:5;height:80px\"></i><i style=\"--i:6;height:56px\"></i><i style=\"--i:7;height:72px\"></i></div>\n</body>\n</html>\n"
+}

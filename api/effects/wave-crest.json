@@ -1,0 +1,44 @@
+{
+  "id": "wave-crest",
+  "title": "Ocean Waves",
+  "summary": "Layered waves rolling across the frame.",
+  "description": "Layered waves rolling across the frame.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "waves",
+    "ocean",
+    "sea",
+    "layers"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Wave colour",
+      "default": "#0ea5e9"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Sea and pool themes. Rotating wide flattened ellipses is far cheaper than animating SVG paths and reads identically at small sizes.",
+  "path": "effects/fire-water/wave-crest.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Ocean Waves</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"wave-crest\",\n    \"title\": \"Ocean Waves\",\n    \"summary\": \"Layered waves rolling across the frame.\",\n    \"description\": \"Layered waves rolling across the frame.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"waves\", \"ocean\", \"sea\", \"layers\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Wave colour\", \"default\": \"#0ea5e9\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Sea and pool themes. Rotating wide flattened ellipses is far cheaper than animating SVG paths and reads identically at small sizes.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 150px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #0c4a6e, #082f49); }\n    .fx i { position: absolute; bottom: var(--b); left: -50%; width: 200%; height: 60px; border-radius: 45%;\n      background: var(--c); animation: roll var(--d) linear infinite; }\n    @keyframes roll { to { transform: rotate(360deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--b:-40px;--c:rgba(14,165,233,.4);--d:9s\"></i><i style=\"--b:-52px;--c:rgba(56,189,248,.55);--d:12s\"></i>\n  <i style=\"--b:-64px;--c:#38bdf8;--d:15s\"></i></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "progress-circular-steps",
+  "title": "Segmented Ring",
+  "summary": "A ring divided into discrete step segments.",
+  "description": "A ring divided into discrete step segments.",
+  "theme": "progress-meters",
+  "themeTitle": "Progress & Meters",
+  "categories": [
+    "progress",
+    "meter"
+  ],
+  "tags": [
+    "progress",
+    "indicator",
+    "segments",
+    "ring",
+    "steps",
+    "conic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+  "customization": [
+    {
+      "name": "--done",
+      "description": "Steps complete",
+      "default": "4"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Multi-step processes shown as a ring. A repeating-conic mask cuts the gaps, so segment count changes need only one number.",
+  "path": "effects/progress-meters/progress-circular-steps.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Segmented Ring</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"progress-circular-steps\",\n    \"title\": \"Segmented Ring\",\n    \"summary\": \"A ring divided into discrete step segments.\",\n    \"description\": \"A ring divided into discrete step segments.\",\n    \"theme\": \"progress-meters\",\n    \"categories\": [\"progress\", \"meter\"],\n    \"tags\": [\"progress\", \"indicator\", \"segments\", \"ring\", \"steps\", \"conic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.\",\n    \"customization\": [\n      { \"name\": \"--done\", \"description\": \"Steps complete\", \"default\": \"4\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Multi-step processes shown as a ring. A repeating-conic mask cuts the gaps, so segment count changes need only one number.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .sr { width: 140px; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;\n      background: conic-gradient(#7c5cff 0 calc(var(--done) * 60deg), #22304a calc(var(--done) * 60deg) 360deg);\n      -webkit-mask: radial-gradient(farthest-side, transparent 62%, #000 63%), repeating-conic-gradient(#000 0 56deg, transparent 56deg 60deg);\n      mask: radial-gradient(farthest-side, transparent 62%, #000 63%), repeating-conic-gradient(#000 0 56deg, transparent 56deg 60deg);\n      -webkit-mask-composite: source-in; mask-composite: intersect; }\n    .wrap { position: relative; display: grid; place-items: center; }\n    .wrap b { position: absolute; font-size: 1.4rem; font-weight: 900; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\"><div class=\"sr\" style=\"--done:4\" role=\"img\" aria-label=\"4 of 6 steps\"></div><b>4/6</b></div>\n</body>\n</html>\n"
+}

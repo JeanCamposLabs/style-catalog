@@ -1,0 +1,49 @@
+{
+  "id": "bar-chart-css",
+  "title": "Bar Chart",
+  "summary": "A single-series column chart with a recessive grid and direct labels.",
+  "description": "A single-series column chart with a recessive grid and direct labels.",
+  "theme": "charts-dataviz",
+  "themeTitle": "Charts & Data Viz",
+  "categories": [
+    "chart",
+    "dataviz"
+  ],
+  "tags": [
+    "chart",
+    "data",
+    "bar",
+    "column",
+    "magnitude",
+    "single-series"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+  "customization": [
+    {
+      "name": "--c1",
+      "description": "Series colour",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--grid",
+      "description": "Grid colour",
+      "default": "rgba(139,147,167,.22)"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "Comparing magnitude across a handful of categories. One series needs no legend — the title names it. Round only the data end (4px top corners), keep bars anchored to a zero baseline, and label values directly instead of adding a y-axis.",
+  "path": "effects/charts-dataviz/bar-chart-css.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Bar Chart</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bar-chart-css\",\n    \"title\": \"Bar Chart\",\n    \"summary\": \"A single-series column chart with a recessive grid and direct labels.\",\n    \"description\": \"A single-series column chart with a recessive grid and direct labels.\",\n    \"theme\": \"charts-dataviz\",\n    \"categories\": [\"chart\", \"dataviz\"],\n    \"tags\": [\"chart\", \"data\", \"bar\", \"column\", \"magnitude\", \"single-series\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.\",\n    \"customization\": [\n      { \"name\": \"--c1\", \"description\": \"Series colour\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--grid\", \"description\": \"Grid colour\", \"default\": \"rgba(139,147,167,.22)\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"Comparing magnitude across a handful of categories. One series needs no legend — the title names it. Round only the data end (4px top corners), keep bars anchored to a zero baseline, and label values directly instead of adding a y-axis.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;\n      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; width: 300px; }\n    .fx h4 { margin: 0 0 .1rem; font-size: .95rem; color: var(--ink); }\n    .fx .sub { margin: 0 0 1rem; font-size: .78rem; color: var(--ink-2); }\n    .fx .plot { position: relative; display: flex; align-items: flex-end; gap: 10px; height: 150px;\n      background: repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 37.5px); }\n    .fx .col { flex: 1; display: grid; align-content: end; justify-items: center; gap: .35rem; height: 100%; }\n    .fx .col i { width: 100%; height: calc(var(--v) * 1%); border-radius: 4px 4px 0 0; background: var(--c1); }\n    .fx .col b { font-size: .72rem; color: var(--ink); font-variant-numeric: tabular-nums; }\n    .fx .axis { display: flex; gap: 10px; margin-top: .4rem; }\n    .fx .axis span { flex: 1; text-align: center; font-size: .7rem; color: var(--ink-2); }\n  </style>\n</head>\n<body>\n  <figure class=\"fx\" style=\"margin:0\"><h4>Specimens added</h4><p class=\"sub\">Per week, September</p>\n  <div class=\"plot\" role=\"img\" aria-label=\"Bar chart: week 1 has 42, week 2 has 68, week 3 has 55, week 4 has 91 specimens\">\n    <div class=\"col\" style=\"--v:46\"><b>42</b><i></i></div><div class=\"col\" style=\"--v:75\"><b>68</b><i></i></div>\n    <div class=\"col\" style=\"--v:60\"><b>55</b><i></i></div><div class=\"col\" style=\"--v:100\"><b>91</b><i></i></div></div>\n  <div class=\"axis\"><span>W1</span><span>W2</span><span>W3</span><span>W4</span></div></figure>\n</body>\n</html>\n"
+}

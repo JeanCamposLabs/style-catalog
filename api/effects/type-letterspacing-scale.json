@@ -1,0 +1,49 @@
+{
+  "id": "type-letterspacing-scale",
+  "title": "Tracking Scale",
+  "summary": "Letter-spacing tuned per size.",
+  "description": "Letter-spacing tuned per size.",
+  "theme": "typography-systems",
+  "themeTitle": "Typography Systems",
+  "categories": [
+    "typography",
+    "reference"
+  ],
+  "tags": [
+    "typography",
+    "type",
+    "tracking",
+    "letter-spacing",
+    "optical",
+    "sizing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+  "customization": [
+    {
+      "name": "--tight",
+      "description": "Display tracking",
+      "default": "-0.02em"
+    },
+    {
+      "name": "--caps",
+      "description": "Caps tracking",
+      "default": "0.12em"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Optical correction. Tighten tracking as size grows and open it for small caps; uniform letter-spacing across a scale always looks wrong at one end.",
+  "path": "effects/typography-systems/type-letterspacing-scale.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tracking Scale</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"type-letterspacing-scale\",\n    \"title\": \"Tracking Scale\",\n    \"summary\": \"Letter-spacing tuned per size.\",\n    \"description\": \"Letter-spacing tuned per size.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"reference\"],\n    \"tags\": [\"typography\", \"type\", \"tracking\", \"letter-spacing\", \"optical\", \"sizing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.\",\n    \"customization\": [\n      { \"name\": \"--tight\", \"description\": \"Display tracking\", \"default\": \"-0.02em\" },\n      { \"name\": \"--caps\", \"description\": \"Caps tracking\", \"default\": \"0.12em\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Optical correction. Tighten tracking as size grows and open it for small caps; uniform letter-spacing across a scale always looks wrong at one end.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; display: grid; gap: .7rem; }\n    .fx .r { display: flex; align-items: baseline; justify-content: space-between; }\n    .fx .s { font-size: .68rem; color: #64748b; font-family: ui-monospace, monospace; }\n    .disp { font-size: 2rem; font-weight: 800; letter-spacing: -.02em; }\n    .body { font-size: 1rem; letter-spacing: 0; }\n    .caps { font-size: .74rem; text-transform: uppercase; letter-spacing: .12em; color: #cbd5e1; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"r\"><span class=\"disp\">Display</span><span class=\"s\">-0.02em</span></div>\n  <div class=\"r\"><span class=\"body\">Body copy</span><span class=\"s\">0</span></div>\n  <div class=\"r\"><span class=\"caps\">Small caps label</span><span class=\"s\">+0.12em</span></div></div>\n</body>\n</html>\n"
+}

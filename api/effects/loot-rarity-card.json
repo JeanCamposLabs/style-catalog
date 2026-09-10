@@ -1,0 +1,44 @@
+{
+  "id": "loot-rarity-card",
+  "title": "Loot Card",
+  "summary": "An item card whose frame reflects its rarity.",
+  "description": "An item card whose frame reflects its rarity.",
+  "theme": "game-ui",
+  "themeTitle": "Game UI",
+  "categories": [
+    "game",
+    "ui"
+  ],
+  "tags": [
+    "game",
+    "hud",
+    "loot",
+    "rarity",
+    "card",
+    "reward"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Rarity colour",
+      "default": "#a855f7"
+    }
+  ],
+  "variations": [
+    "Retheme through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Loot drops and gacha reveals. Reserve the rotating sheen for high rarities so the animation itself signals value.",
+  "path": "effects/game-ui/loot-rarity-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Loot Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"loot-rarity-card\",\n    \"title\": \"Loot Card\",\n    \"summary\": \"An item card whose frame reflects its rarity.\",\n    \"description\": \"An item card whose frame reflects its rarity.\",\n    \"theme\": \"game-ui\",\n    \"categories\": [\"game\", \"ui\"],\n    \"tags\": [\"game\", \"hud\", \"loot\", \"rarity\", \"card\", \"reward\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Rarity colour\", \"default\": \"#a855f7\" }\n    ],\n    \"variations\": [\"Retheme through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Loot drops and gacha reveals. Reserve the rotating sheen for high rarities so the animation itself signals value.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 190px; padding: 1rem; border-radius: 12px; text-align: center; position: relative; overflow: hidden;\n      background: linear-gradient(180deg, #1b1030, #0d0819); border: 2px solid #a855f7;\n      box-shadow: 0 0 22px rgba(168,85,247,.4), inset 0 0 26px rgba(168,85,247,.2); }\n    .fx::after { content: \"\"; position: absolute; inset: -40%; opacity: .35; mix-blend-mode: screen;\n      background: conic-gradient(from 0deg, transparent 0 70%, rgba(216,180,254,.9) 80%, transparent);\n      animation: spin 4s linear infinite; }\n    .fx .ic { font-size: 2.4rem; }\n    .fx b { display: block; margin-top: .4rem; color: #e9d5ff; }\n    .fx .rar { font-size: .72rem; letter-spacing: .16em; color: #a855f7; }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"ic\" aria-hidden=\"true\">🔮</div><b>Void Orb</b><div class=\"rar\">EPIC</div></div>\n</body>\n</html>\n"
+}

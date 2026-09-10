@@ -1,0 +1,54 @@
+{
+  "id": "diagonal-stripes-bg",
+  "title": "Diagonal Stripes",
+  "summary": "Repeating 45° stripes that drift slowly sideways.",
+  "description": "repeating-linear-gradient supplies the stripes; the drift is a background-position animation matched exactly to the stripe period.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "stripes",
+    "repeating-gradient",
+    "diagonal",
+    "drift",
+    "pattern"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Stripe A",
+      "default": "#0f1420"
+    },
+    {
+      "name": "--b",
+      "description": "Stripe B",
+      "default": "#141b2b"
+    },
+    {
+      "name": "--w",
+      "description": "Stripe width",
+      "default": "18px"
+    }
+  ],
+  "variations": [
+    "Higher contrast for a barber pole",
+    "Vertical or horizontal stripes",
+    "Freeze the drift for a static texture"
+  ],
+  "related": [],
+  "ai_usage": "Section backgrounds and empty states. Animate background-position by exactly 2× the stripe width (the gradient period) or the loop visibly jumps.",
+  "path": "effects/backgrounds/diagonal-stripes-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Diagonal Stripes</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"diagonal-stripes-bg\",\n    \"title\": \"Diagonal Stripes\",\n    \"summary\": \"Repeating 45° stripes that drift slowly sideways.\",\n    \"description\": \"repeating-linear-gradient supplies the stripes; the drift is a background-position animation matched exactly to the stripe period.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"stripes\", \"repeating-gradient\", \"diagonal\", \"drift\", \"pattern\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Stripe A\", \"default\": \"#0f1420\" },\n      { \"name\": \"--b\", \"description\": \"Stripe B\", \"default\": \"#141b2b\" },\n      { \"name\": \"--w\", \"description\": \"Stripe width\", \"default\": \"18px\" }\n    ],\n    \"variations\": [\"Higher contrast for a barber pole\", \"Vertical or horizontal stripes\", \"Freeze the drift for a static texture\"],\n    \"ai_usage\": \"Section backgrounds and empty states. Animate background-position by exactly 2× the stripe width (the gradient period) or the loop visibly jumps.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #0f1420; --b: #141b2b; --w: 18px; }\n    .bg { background: repeating-linear-gradient(45deg, var(--a) 0 var(--w), var(--b) var(--w) calc(var(--w) * 2));\n      animation: drift 6s linear infinite; }\n    @keyframes drift { to { background-position: calc(var(--w) * 2.83) 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

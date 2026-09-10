@@ -1,0 +1,44 @@
+{
+  "id": "focus-trap-dialog",
+  "title": "Focus Trap",
+  "summary": "A dialog that keeps Tab inside it.",
+  "description": "A dialog that keeps Tab inside it.",
+  "theme": "accessibility-patterns",
+  "themeTitle": "Accessibility Patterns",
+  "categories": [
+    "accessibility",
+    "reference"
+  ],
+  "tags": [
+    "accessibility",
+    "a11y",
+    "focus-trap",
+    "dialog",
+    "modal",
+    "keyboard"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Focus colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Modal dialogs. The native <dialog> element with showModal() traps focus, handles Escape, and marks the rest of the page inert — reach for it before writing a trap by hand.",
+  "path": "effects/accessibility-patterns/focus-trap-dialog.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Focus Trap</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"focus-trap-dialog\",\n    \"title\": \"Focus Trap\",\n    \"summary\": \"A dialog that keeps Tab inside it.\",\n    \"description\": \"A dialog that keeps Tab inside it.\",\n    \"theme\": \"accessibility-patterns\",\n    \"categories\": [\"accessibility\", \"reference\"],\n    \"tags\": [\"accessibility\", \"a11y\", \"focus-trap\", \"dialog\", \"modal\", \"keyboard\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Focus colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Modal dialogs. The native <dialog> element with showModal() traps focus, handles Escape, and marks the rest of the page inert — reach for it before writing a trap by hand.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; padding: 1.3rem; border-radius: 16px; background: #141a28; border: 1px solid #2b3450; }\n    .fx h3 { margin: 0 0 .4rem; font-size: 1rem; }\n    .fx p { margin: 0 0 1rem; color: #8b93a7; font-size: .84rem; line-height: 1.5; }\n    .fx .row { display: flex; gap: .5rem; }\n    .fx button { padding: .5rem 1rem; border-radius: 9px; border: 1px solid #2b3450; background: transparent; color: #cbd5e1;\n      font: inherit; font-size: .84rem; cursor: pointer; }\n    .fx .primary { background: #7c5cff; border-color: #7c5cff; color: #fff; font-weight: 700; }\n    .fx button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"ft\"><h3 id=\"ft\">Discard draft?</h3>\n  <p>Tab cycles between these two buttons and never leaves the dialog.</p>\n  <div class=\"row\"><button type=\"button\">Keep editing</button><button class=\"primary\" type=\"button\">Discard</button></div></div>\n</body>\n</html>\n"
+}

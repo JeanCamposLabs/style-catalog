@@ -1,0 +1,44 @@
+{
+  "id": "nav-mega-featured-panel",
+  "title": "Mega Menu with Feature",
+  "summary": "A dropdown with links plus a promoted card.",
+  "description": "A dropdown with links plus a promoted card.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "mega-menu",
+    "featured",
+    "dropdown",
+    "promo"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Panel background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Marketing navigation. Open on click for touch parity, close on Escape and outside click, and keep the promoted card last in the DOM so it is not read before the links.",
+  "path": "effects/navigation-menus/nav-mega-featured-panel.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Mega Menu with Feature</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-mega-featured-panel\",\n    \"title\": \"Mega Menu with Feature\",\n    \"summary\": \"A dropdown with links plus a promoted card.\",\n    \"description\": \"A dropdown with links plus a promoted card.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"mega-menu\", \"featured\", \"dropdown\", \"promo\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Panel background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Marketing navigation. Open on click for touch parity, close on Escape and outside click, and keep the promoted card last in the DOM so it is not read before the links.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; display: inline-block; }\n    .fx > button { padding: .6rem 1rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3;\n      font: inherit; cursor: pointer; }\n    .fx .panel { position: absolute; top: calc(100% + 8px); left: 0; display: none; grid-template-columns: 1fr 130px;\n      gap: 1rem; padding: 1rem; border-radius: 14px; background: #141a28; border: 1px solid #2b3450;\n      box-shadow: 0 22px 50px rgba(0,0,0,.55); width: 300px; }\n    .fx.is-open .panel { display: grid; }\n    .fx h4 { margin: 0 0 .4rem; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }\n    .fx a { display: block; padding: .2rem 0; color: #cbd5e1; text-decoration: none; font-size: .84rem; }\n    .fx .promo { border-radius: 10px; padding: .7rem; background: linear-gradient(150deg, #7c5cff, #2dd4bf); color: #0b0d12; font-size: .76rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"mm2\"><button type=\"button\" aria-expanded=\"false\">Product ▾</button>\n  <div class=\"panel\"><div><h4>Explore</h4><a href=\"#\">Gallery</a><a href=\"#\">Themes</a><a href=\"#\">Bundles</a></div>\n  <div class=\"promo\"><b>New</b><br>1,181 specimens</div></div></div>\n  <script>\n    (function () {\n      var m = document.getElementById(\"mm2\"), b = m.querySelector(\"button\");\n      b.addEventListener(\"click\", function () { b.setAttribute(\"aria-expanded\", String(m.classList.toggle(\"is-open\"))); });\n      addEventListener(\"keydown\", function (e) { if (e.key === \"Escape\") { m.classList.remove(\"is-open\"); b.setAttribute(\"aria-expanded\", \"false\"); } });\n    })();\n  </script>\n</body>\n</html>\n"
+}

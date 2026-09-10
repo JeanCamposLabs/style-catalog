@@ -1,0 +1,44 @@
+{
+  "id": "screen-blend-demo",
+  "title": "Screen Blend",
+  "summary": "Overlaid colour lightens what is beneath it.",
+  "description": "Overlaid colour lightens what is beneath it. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.",
+  "theme": "blend-filters",
+  "themeTitle": "Blends & Filters",
+  "categories": [
+    "filter",
+    "color"
+  ],
+  "tags": [
+    "filter",
+    "css",
+    "screen",
+    "blend-mode",
+    "lighten",
+    "light"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Overlay colour",
+      "default": "#1d4ed8"
+    }
+  ],
+  "variations": [
+    "Animate the filter value on hover",
+    "Apply to a whole section with backdrop-filter"
+  ],
+  "related": [],
+  "ai_usage": "Light leaks and glows. Screen is the inverse of multiply — black is transparent, so use it for anything additive.",
+  "path": "effects/blend-filters/screen-blend-demo.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Screen Blend</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"screen-blend-demo\",\n    \"title\": \"Screen Blend\",\n    \"summary\": \"Overlaid colour lightens what is beneath it.\",\n    \"description\": \"Overlaid colour lightens what is beneath it. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.\",\n    \"theme\": \"blend-filters\",\n    \"categories\": [\"filter\", \"color\"],\n    \"tags\": [\"filter\", \"css\", \"screen\", \"blend-mode\", \"lighten\", \"light\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Overlay colour\", \"default\": \"#1d4ed8\" }\n    ],\n    \"variations\": [\"Animate the filter value on hover\", \"Apply to a whole section with backdrop-filter\"],\n    \"ai_usage\": \"Light leaks and glows. Screen is the inverse of multiply — black is transparent, so use it for anything additive.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; height: 170px; border-radius: 16px; overflow: hidden; position: relative;\n      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }\n    .label { margin-top: .8rem; text-align: center; color: #8b93a7; font-size: .82rem; }\n    .fx::after { content: \"\"; position: absolute; inset: 0; background: #1d4ed8; mix-blend-mode: screen; }\n  </style>\n</head>\n<body>\n  <div><div class=\"demo fx\"></div><p class=\"label\">Screen Blend</p></div>\n</body>\n</html>\n"
+}

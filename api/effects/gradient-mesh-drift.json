@@ -1,0 +1,44 @@
+{
+  "id": "gradient-mesh-drift",
+  "title": "Drifting Mesh",
+  "summary": "Soft colour nodes drift behind a heavy blur, never repeating exactly.",
+  "description": "Four blurred nodes on coprime durations mean the composition takes minutes to repeat, unlike a looping gradient.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "gradient"
+  ],
+  "tags": [
+    "mesh",
+    "gradient",
+    "drift",
+    "blur",
+    "organic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Base period",
+      "default": "24s"
+    }
+  ],
+  "variations": [
+    "Light-mode palette",
+    "Reduce blur for defined blobs",
+    "Freeze at a pleasing frame for a static export"
+  ],
+  "related": [],
+  "ai_usage": "Premium marketing backgrounds. Use durations that are not multiples of each other (17s, 23s, 29s) so the loop point is imperceptible; add a grain overlay to hide gradient banding on wide screens.",
+  "path": "effects/backgrounds/gradient-mesh-drift.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Drifting Mesh</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"gradient-mesh-drift\",\n    \"title\": \"Drifting Mesh\",\n    \"summary\": \"Soft colour nodes drift behind a heavy blur, never repeating exactly.\",\n    \"description\": \"Four blurred nodes on coprime durations mean the composition takes minutes to repeat, unlike a looping gradient.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"gradient\"],\n    \"tags\": [\"mesh\", \"gradient\", \"drift\", \"blur\", \"organic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Base period\", \"default\": \"24s\" }\n    ],\n    \"variations\": [\"Light-mode palette\", \"Reduce blur for defined blobs\", \"Freeze at a pleasing frame for a static export\"],\n    \"ai_usage\": \"Premium marketing backgrounds. Use durations that are not multiples of each other (17s, 23s, 29s) so the loop point is imperceptible; add a grain overlay to hide gradient banding on wide screens.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    .bg { background: #0b0d12; overflow: hidden; }\n    .bg i { position: absolute; width: 60vmax; height: 60vmax; border-radius: 45%; filter: blur(60px); opacity: .5;\n      animation: wander var(--d) ease-in-out infinite alternate; }\n    @keyframes wander {\n      from { transform: translate(0, 0) rotate(0deg) scale(1); }\n      to { transform: translate(12vw, -10vh) rotate(60deg) scale(1.2); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\">\n    <i style=\"background:#7c5cff;top:-10%;left:-10%;--d:17s\"></i>\n    <i style=\"background:#2dd4bf;top:20%;right:-15%;--d:23s\"></i>\n    <i style=\"background:#f472b6;bottom:-20%;left:15%;--d:29s\"></i>\n  </div>\n</body>\n</html>\n"
+}

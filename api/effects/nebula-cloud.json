@@ -1,0 +1,44 @@
+{
+  "id": "nebula-cloud",
+  "title": "Nebula",
+  "summary": "Layered coloured gas clouds with embedded stars.",
+  "description": "Layered coloured gas clouds with embedded stars.",
+  "theme": "space-cosmic",
+  "themeTitle": "Space & Cosmic",
+  "categories": [
+    "space",
+    "cosmic"
+  ],
+  "tags": [
+    "space",
+    "cosmic",
+    "nebula",
+    "gas",
+    "stars",
+    "deep-space"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Cloud colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Cosmic backdrops. Blur the colour layers heavily and put the star field on top — stars behind the gas disappear entirely.",
+  "path": "effects/space-cosmic/nebula-cloud.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Nebula</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nebula-cloud\",\n    \"title\": \"Nebula\",\n    \"summary\": \"Layered coloured gas clouds with embedded stars.\",\n    \"description\": \"Layered coloured gas clouds with embedded stars.\",\n    \"theme\": \"space-cosmic\",\n    \"categories\": [\"space\", \"cosmic\"],\n    \"tags\": [\"space\", \"cosmic\", \"nebula\", \"gas\", \"stars\", \"deep-space\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Cloud colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Cosmic backdrops. Blur the colour layers heavily and put the star field on top — stars behind the gas disappear entirely.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 190px; border-radius: 14px; overflow: hidden; background: #05070d; }\n    .fx i { position: absolute; border-radius: 50%; filter: blur(30px); opacity: .55; }\n    .fx .stars { position: absolute; inset: 0;\n      background-image: radial-gradient(#fff 1px, transparent 1.4px), radial-gradient(rgba(255,255,255,.6) .7px, transparent 1px);\n      background-size: 60px 60px, 34px 34px; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"width:170px;height:130px;left:-10%;top:10%;background:#7c5cff\"></i>\n  <i style=\"width:150px;height:120px;right:-5%;top:35%;background:#ec4899\"></i>\n  <i style=\"width:120px;height:100px;left:35%;bottom:-10%;background:#22d3ee\"></i><span class=\"stars\"></span></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "neon-hud-frame",
+  "title": "HUD Frame",
+  "summary": "A targeting frame with corner brackets and a scan line.",
+  "description": "A targeting frame with corner brackets and a scan line.",
+  "theme": "neon-cyberpunk",
+  "themeTitle": "Neon & Cyberpunk",
+  "categories": [
+    "neon",
+    "cyberpunk"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "dark",
+    "hud",
+    "frame",
+    "scan",
+    "sci-fi"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "HUD colour",
+      "default": "#22d3ee"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Game and sci-fi overlays. Corner brackets plus one moving scan line read as a HUD; a full border reads as a plain box.",
+  "path": "effects/neon-cyberpunk/neon-hud-frame.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>HUD Frame</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-hud-frame\",\n    \"title\": \"HUD Frame\",\n    \"summary\": \"A targeting frame with corner brackets and a scan line.\",\n    \"description\": \"A targeting frame with corner brackets and a scan line.\",\n    \"theme\": \"neon-cyberpunk\",\n    \"categories\": [\"neon\", \"cyberpunk\"],\n    \"tags\": [\"neon\", \"glow\", \"dark\", \"hud\", \"frame\", \"scan\", \"sci-fi\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"HUD colour\", \"default\": \"#22d3ee\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Game and sci-fi overlays. Corner brackets plus one moving scan line read as a HUD; a full border reads as a plain box.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 260px; height: 170px; border: 1px solid rgba(34,211,238,.4); }\n    .fx::before, .fx::after { content: \"\"; position: absolute; width: 26px; height: 26px; border: 2px solid #22d3ee; }\n    .fx::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }\n    .fx::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }\n    .fx i { position: absolute; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #22d3ee, transparent);\n      animation: scan 2.6s ease-in-out infinite; }\n    @keyframes scan { 0%, 100% { top: 4%; } 50% { top: 94%; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i></i></div>\n</body>\n</html>\n"
+}

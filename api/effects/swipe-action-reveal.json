@@ -1,0 +1,44 @@
+{
+  "id": "swipe-action-reveal",
+  "title": "Swipe Actions",
+  "summary": "A row revealing actions when dragged aside.",
+  "description": "A row revealing actions when dragged aside.",
+  "theme": "micro-interactions",
+  "themeTitle": "Micro-interactions",
+  "categories": [
+    "micro-interaction",
+    "feedback"
+  ],
+  "tags": [
+    "micro-interaction",
+    "feedback",
+    "swipe",
+    "actions",
+    "mobile",
+    "reveal"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Action colour",
+      "default": "#d1478c"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Mobile list rows. Swipe must never be the only path to an action — provide the same options in a menu for keyboard and assistive-tech users.",
+  "path": "effects/micro-interactions/swipe-action-reveal.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Swipe Actions</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"swipe-action-reveal\",\n    \"title\": \"Swipe Actions\",\n    \"summary\": \"A row revealing actions when dragged aside.\",\n    \"description\": \"A row revealing actions when dragged aside.\",\n    \"theme\": \"micro-interactions\",\n    \"categories\": [\"micro-interaction\", \"feedback\"],\n    \"tags\": [\"micro-interaction\", \"feedback\", \"swipe\", \"actions\", \"mobile\", \"reveal\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Action colour\", \"default\": \"#d1478c\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Mobile list rows. Swipe must never be the only path to an action — provide the same options in a menu for keyboard and assistive-tech users.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; border-radius: 12px; overflow: hidden; position: relative; background: #d1478c; }\n    .fx .acts { position: absolute; inset: 0; display: flex; justify-content: flex-end; align-items: center; padding-right: 1rem;\n      color: #2a0d1c; font-weight: 700; font-size: .85rem; }\n    .fx .row { position: relative; padding: .9rem 1rem; background: #151b2a; color: #cbd5e1; font-size: .88rem;\n      transform: translateX(-88px); transition: transform .3s cubic-bezier(.7,0,.2,1); }\n    .fx:hover .row { transform: translateX(0); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"acts\">Delete</div><div class=\"row\">Draft: aurora-background.html</div></div>\n</body>\n</html>\n"
+}

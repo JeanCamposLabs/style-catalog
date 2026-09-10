@@ -1,0 +1,44 @@
+{
+  "id": "brushed-aluminium",
+  "title": "Brushed Aluminium",
+  "summary": "A metal surface with fine directional grain.",
+  "description": "A metal surface with fine directional grain.",
+  "theme": "holographic-metallic",
+  "themeTitle": "Holographic & Metallic",
+  "categories": [
+    "material",
+    "holographic"
+  ],
+  "tags": [
+    "holographic",
+    "metallic",
+    "brushed",
+    "aluminium",
+    "grain",
+    "hardware"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+  "customization": [
+    {
+      "name": "--tone",
+      "description": "Metal tone",
+      "default": "#9ca3af"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Hardware and pro-tool interfaces. The grain must run in one direction only; crossing it turns aluminium into fabric.",
+  "path": "effects/holographic-metallic/brushed-aluminium.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Brushed Aluminium</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"brushed-aluminium\",\n    \"title\": \"Brushed Aluminium\",\n    \"summary\": \"A metal surface with fine directional grain.\",\n    \"description\": \"A metal surface with fine directional grain.\",\n    \"theme\": \"holographic-metallic\",\n    \"categories\": [\"material\", \"holographic\"],\n    \"tags\": [\"holographic\", \"metallic\", \"brushed\", \"aluminium\", \"grain\", \"hardware\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Iridescent surfaces have unpredictable local contrast — never place body text directly on one.\",\n    \"customization\": [\n      { \"name\": \"--tone\", \"description\": \"Metal tone\", \"default\": \"#9ca3af\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Hardware and pro-tool interfaces. The grain must run in one direction only; crossing it turns aluminium into fabric.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; height: 140px; border-radius: 12px; background-color: #9ca3af;\n      background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.16) 0 1px, transparent 1px 3px, rgba(0,0,0,.12) 3px 4px, transparent 4px 7px),\n        linear-gradient(180deg, rgba(255,255,255,.3), rgba(0,0,0,.25));\n      box-shadow: inset 0 1px 0 #fff, 0 12px 26px rgba(0,0,0,.45); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "neon-button-arcade",
+  "title": "Arcade Button",
+  "summary": "A round illuminated button with a bezel.",
+  "description": "A round illuminated button with a bezel.",
+  "theme": "neon-cyberpunk",
+  "themeTitle": "Neon & Cyberpunk",
+  "categories": [
+    "neon",
+    "cyberpunk"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "dark",
+    "arcade",
+    "button",
+    "press",
+    "game"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Button colour",
+      "default": "#ff2d95"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Game and kiosk UIs. The bezel plus a hard offset shadow is what makes it read as a physical dome rather than a coloured circle.",
+  "path": "effects/neon-cyberpunk/neon-button-arcade.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Arcade Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-button-arcade\",\n    \"title\": \"Arcade Button\",\n    \"summary\": \"A round illuminated button with a bezel.\",\n    \"description\": \"A round illuminated button with a bezel.\",\n    \"theme\": \"neon-cyberpunk\",\n    \"categories\": [\"neon\", \"cyberpunk\"],\n    \"tags\": [\"neon\", \"glow\", \"dark\", \"arcade\", \"button\", \"press\", \"game\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Button colour\", \"default\": \"#ff2d95\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Game and kiosk UIs. The bezel plus a hard offset shadow is what makes it read as a physical dome rather than a coloured circle.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 96px; height: 96px; border-radius: 50%; border: 6px solid #1a1f2b; cursor: pointer;\n      background: radial-gradient(circle at 38% 32%, #ffd6ea, #ff2d95 55%, #9d174d);\n      box-shadow: 0 8px 0 #4a0d29, 0 0 30px rgba(255,45,149,.6); transition: transform .08s, box-shadow .08s; }\n    .fx:active { transform: translateY(6px); box-shadow: 0 2px 0 #4a0d29, 0 0 20px rgba(255,45,149,.5); }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-label=\"Start\"></button>\n</body>\n</html>\n"
+}

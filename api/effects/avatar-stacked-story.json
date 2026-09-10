@@ -1,0 +1,44 @@
+{
+  "id": "avatar-stacked-story",
+  "title": "Story Avatar",
+  "summary": "An avatar with a gradient unseen-story ring.",
+  "description": "An avatar with a gradient unseen-story ring.",
+  "theme": "avatars-identity",
+  "themeTitle": "Avatars & Identity",
+  "categories": [
+    "avatar",
+    "identity"
+  ],
+  "tags": [
+    "avatar",
+    "identity",
+    "story",
+    "ring",
+    "unseen",
+    "gradient"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+  "customization": [
+    {
+      "name": "--ring",
+      "description": "Unseen ring",
+      "default": "conic-gradient(#d1478c,#c2891a,#7c5cff)"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Story rails. The gradient ring encodes unseen; make that explicit in the label rather than relying on the colour difference alone.",
+  "path": "effects/avatars-identity/avatar-stacked-story.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Story Avatar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"avatar-stacked-story\",\n    \"title\": \"Story Avatar\",\n    \"summary\": \"An avatar with a gradient unseen-story ring.\",\n    \"description\": \"An avatar with a gradient unseen-story ring.\",\n    \"theme\": \"avatars-identity\",\n    \"categories\": [\"avatar\", \"identity\"],\n    \"tags\": [\"avatar\", \"identity\", \"story\", \"ring\", \"unseen\", \"gradient\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.\",\n    \"customization\": [\n      { \"name\": \"--ring\", \"description\": \"Unseen ring\", \"default\": \"conic-gradient(#d1478c,#c2891a,#7c5cff)\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Story rails. The gradient ring encodes unseen; make that explicit in the label rather than relying on the colour difference alone.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 12px; }\n    .s { width: 66px; height: 66px; border-radius: 50%; padding: 3px; background: conic-gradient(#d1478c, #c2891a, #7c5cff, #d1478c); }\n    .s.seen { background: #2b3450; }\n    .s .a { width: 100%; height: 100%; border-radius: 50%; border: 2px solid #0b0d12; display: grid; place-items: center;\n      font-weight: 800; color: #0b0d12; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"s\"><span class=\"a\" style=\"background:#7c5cff\" role=\"img\" aria-label=\"Ada, new story\">AL</span></div>\n  <div class=\"s seen\"><span class=\"a\" style=\"background:#10a894\" role=\"img\" aria-label=\"Jean, story seen\">JC</span></div></div>\n</body>\n</html>\n"
+}

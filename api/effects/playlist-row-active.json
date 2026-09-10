@@ -1,0 +1,44 @@
+{
+  "id": "playlist-row-active",
+  "title": "Playlist Rows",
+  "summary": "A track list with a playing indicator on the active row.",
+  "description": "A track list with a playing indicator on the active row.",
+  "theme": "audio-music-ui",
+  "themeTitle": "Audio & Music UI",
+  "categories": [
+    "audio",
+    "music"
+  ],
+  "tags": [
+    "audio",
+    "player",
+    "playlist",
+    "tracks",
+    "active",
+    "list"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Audio controls need real button semantics and state labels; a play/pause icon swap must also swap the accessible name.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Retheme through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Track lists. Mark the current row with aria-current and an icon, not colour alone; the mini equalizer should stop when playback pauses.",
+  "path": "effects/audio-music-ui/playlist-row-active.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Playlist Rows</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"playlist-row-active\",\n    \"title\": \"Playlist Rows\",\n    \"summary\": \"A track list with a playing indicator on the active row.\",\n    \"description\": \"A track list with a playing indicator on the active row.\",\n    \"theme\": \"audio-music-ui\",\n    \"categories\": [\"audio\", \"music\"],\n    \"tags\": [\"audio\", \"player\", \"playlist\", \"tracks\", \"active\", \"list\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Audio controls need real button semantics and state labels; a play/pause icon swap must also swap the accessible name.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Retheme through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Track lists. Mark the current row with aria-current and an icon, not colour alone; the mini equalizer should stop when playback pauses.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; }\n    .fx .row { display: flex; align-items: center; gap: .8rem; padding: .55rem .7rem; border-radius: 10px; color: #cbd5e1; font-size: .88rem; }\n    .fx .row:hover { background: #151b2a; }\n    .fx .row.on { background: #1a1f36; color: #fff; }\n    .fx .num { width: 18px; text-align: right; color: #64748b; font-size: .8rem; }\n    .fx .row.on .num { color: #2dd4bf; }\n    .fx .t { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n    .fx .d { color: #64748b; font-size: .78rem; font-variant-numeric: tabular-nums; }\n    .fx .eq { display: none; gap: 2px; align-items: flex-end; height: 12px; }\n    .fx .row.on .eq { display: flex; }\n    .fx .eq i { width: 2px; background: #2dd4bf; animation: bob .6s ease-in-out infinite alternate; }\n    .fx .eq i:nth-child(2) { animation-duration: .45s; } .fx .eq i:nth-child(3) { animation-duration: .8s; }\n    @keyframes bob { from { height: 3px; } to { height: 12px; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"row\"><span class=\"num\">1</span><span class=\"t\">Intro</span><span class=\"d\">1:12</span></div>\n  <div class=\"row on\" aria-current=\"true\"><span class=\"num\">2</span><span class=\"t\">Nightcall</span>\n  <span class=\"eq\" aria-hidden=\"true\"><i></i><i></i><i></i></span><span class=\"d\">4:18</span></div>\n  <div class=\"row\"><span class=\"num\">3</span><span class=\"t\">Odd Look</span><span class=\"d\">3:44</span></div></div>\n</body>\n</html>\n"
+}

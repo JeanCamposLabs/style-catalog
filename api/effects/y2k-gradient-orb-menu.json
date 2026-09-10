@@ -1,0 +1,44 @@
+{
+  "id": "y2k-gradient-orb-menu",
+  "title": "Orb Menu",
+  "summary": "Glossy circular menu orbs in a row.",
+  "description": "Glossy circular menu orbs in a row.",
+  "theme": "brutalism-y2k",
+  "themeTitle": "Brutalism & Y2K",
+  "categories": [
+    "brutalism",
+    "y2k"
+  ],
+  "tags": [
+    "brutalism",
+    "raw",
+    "orb",
+    "gloss",
+    "menu",
+    "buttons"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Orb colour",
+      "default": "#f472b6"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Y2K navigation. Each orb needs a highlight cap and an inner bottom shadow to look spherical rather than flat.",
+  "path": "effects/brutalism-y2k/y2k-gradient-orb-menu.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Orb Menu</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"y2k-gradient-orb-menu\",\n    \"title\": \"Orb Menu\",\n    \"summary\": \"Glossy circular menu orbs in a row.\",\n    \"description\": \"Glossy circular menu orbs in a row.\",\n    \"theme\": \"brutalism-y2k\",\n    \"categories\": [\"brutalism\", \"y2k\"],\n    \"tags\": [\"brutalism\", \"raw\", \"orb\", \"gloss\", \"menu\", \"buttons\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Orb colour\", \"default\": \"#f472b6\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Y2K navigation. Each orb needs a highlight cap and an inner bottom shadow to look spherical rather than flat.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .row { display: flex; gap: 14px; }\n    .orb { width: 64px; height: 64px; border-radius: 50%; border: 0; cursor: pointer; position: relative; color: #fff;\n      font-weight: 800; box-shadow: 0 8px 18px rgba(0,0,0,.45), inset 0 -6px 12px rgba(0,0,0,.3); }\n    .orb::before { content: \"\"; position: absolute; top: 6px; left: 14%; right: 14%; height: 38%; border-radius: 50%;\n      background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,0)); }\n  </style>\n</head>\n<body>\n  <div class=\"row\"><button class=\"orb\" type=\"button\" style=\"background:radial-gradient(circle at 40% 30%,#fbcfe8,#db2777)\">1</button>\n  <button class=\"orb\" type=\"button\" style=\"background:radial-gradient(circle at 40% 30%,#bae6fd,#0284c7)\">2</button>\n  <button class=\"orb\" type=\"button\" style=\"background:radial-gradient(circle at 40% 30%,#bbf7d0,#16a34a)\">3</button></div>\n</body>\n</html>\n"
+}

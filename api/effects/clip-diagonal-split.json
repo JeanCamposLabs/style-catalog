@@ -1,0 +1,44 @@
+{
+  "id": "clip-diagonal-split",
+  "title": "Diagonal Split",
+  "summary": "Two panels meeting on a diagonal.",
+  "description": "Two panels meeting on a diagonal. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.",
+  "theme": "masks-clipping",
+  "themeTitle": "Masks & Clipping",
+  "categories": [
+    "mask",
+    "shape"
+  ],
+  "tags": [
+    "clip-path",
+    "mask",
+    "diagonal",
+    "split",
+    "two-panel",
+    "hero"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.",
+  "customization": [
+    {
+      "name": "--angle",
+      "description": "Split direction",
+      "default": "135deg"
+    }
+  ],
+  "variations": [
+    "Animate the shape on hover",
+    "Combine with a gradient fill"
+  ],
+  "related": [],
+  "ai_usage": "Split hero sections. Both halves must use complementary polygons that share the same diagonal, or a hairline gap appears between them.",
+  "path": "effects/masks-clipping/clip-diagonal-split.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Diagonal Split</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"clip-diagonal-split\",\n    \"title\": \"Diagonal Split\",\n    \"summary\": \"Two panels meeting on a diagonal.\",\n    \"description\": \"Two panels meeting on a diagonal. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.\",\n    \"theme\": \"masks-clipping\",\n    \"categories\": [\"mask\", \"shape\"],\n    \"tags\": [\"clip-path\", \"mask\", \"diagonal\", \"split\", \"two-panel\", \"hero\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.\",\n    \"customization\": [\n      { \"name\": \"--angle\", \"description\": \"Split direction\", \"default\": \"135deg\" }\n    ],\n    \"variations\": [\"Animate the shape on hover\", \"Combine with a gradient fill\"],\n    \"ai_usage\": \"Split hero sections. Both halves must use complementary polygons that share the same diagonal, or a hairline gap appears between them.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .art { width: 210px; height: 210px; background: conic-gradient(from 210deg at 40% 35%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }\n    .label { margin-top: .9rem; text-align: center; color: #8b93a7; font-size: .82rem; }\n    .pair { position: relative; width: 260px; height: 180px; }\n    .pair div { position: absolute; inset: 0; }\n    .pair .a { background: linear-gradient(135deg, #7c5cff, #4c1d95); clip-path: polygon(0 0, 100% 0, 0 100%); }\n    .pair .b { background: linear-gradient(135deg, #2dd4bf, #0f766e); clip-path: polygon(100% 0, 100% 100%, 0 100%); }\n  </style>\n</head>\n<body>\n  <div><div class=\"pair\"><div class=\"a\"></div><div class=\"b\"></div></div><p class=\"label\">Diagonal Split</p></div>\n</body>\n</html>\n"
+}

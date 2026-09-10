@@ -1,0 +1,44 @@
+{
+  "id": "flame-flicker",
+  "title": "Flickering Flame",
+  "summary": "A candle flame with an inner core and a wobble.",
+  "description": "A candle flame with an inner core and a wobble.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "flame",
+    "candle",
+    "flicker",
+    "fire"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Flame colour",
+      "default": "#f97316"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Candles, streaks, and heat indicators. Animate the core out of phase with the outer flame — synchronised layers look like a pulsing blob.",
+  "path": "effects/fire-water/flame-flicker.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Flickering Flame</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"flame-flicker\",\n    \"title\": \"Flickering Flame\",\n    \"summary\": \"A candle flame with an inner core and a wobble.\",\n    \"description\": \"A candle flame with an inner core and a wobble.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"flame\", \"candle\", \"flicker\", \"fire\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Flame colour\", \"default\": \"#f97316\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Candles, streaks, and heat indicators. Animate the core out of phase with the outer flame — synchronised layers look like a pulsing blob.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 70px; height: 110px; display: grid; place-items: end center; }\n    .fx .fl { width: 46px; height: 84px; border-radius: 50% 50% 40% 40% / 70% 70% 30% 30%;\n      background: linear-gradient(180deg, #fef08a, #f97316 45%, #dc2626);\n      box-shadow: 0 0 30px rgba(249,115,22,.7); animation: flick .35s ease-in-out infinite alternate; }\n    .fx .core { position: absolute; bottom: 12px; width: 20px; height: 40px; border-radius: 50% 50% 40% 40% / 70% 70% 30% 30%;\n      background: #fff7ed; opacity: .85; animation: flick .28s ease-in-out infinite alternate-reverse; }\n    @keyframes flick { from { transform: scale(1) skewX(-2deg); } to { transform: scale(1.06, .96) skewX(3deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"fl\"></span><span class=\"core\"></span></div>\n</body>\n</html>\n"
+}

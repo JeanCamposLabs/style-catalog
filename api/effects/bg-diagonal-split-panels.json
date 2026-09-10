@@ -1,0 +1,43 @@
+{
+  "id": "bg-diagonal-split-panels",
+  "title": "Split Panels",
+  "summary": "Two colour fields meeting on a diagonal.",
+  "description": "Two colour fields meeting on a diagonal.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "surface"
+  ],
+  "tags": [
+    "background",
+    "split",
+    "diagonal",
+    "panels",
+    "hero"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--angle",
+      "description": "Split angle",
+      "default": "135deg"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Split-screen heroes. Give both halves complementary polygons sharing the same diagonal, or a hairline seam appears between them at some zoom levels.",
+  "path": "effects/backgrounds/bg-diagonal-split-panels.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Split Panels</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bg-diagonal-split-panels\",\n    \"title\": \"Split Panels\",\n    \"summary\": \"Two colour fields meeting on a diagonal.\",\n    \"description\": \"Two colour fields meeting on a diagonal.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"surface\"],\n    \"tags\": [\"background\", \"split\", \"diagonal\", \"panels\", \"hero\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--angle\", \"description\": \"Split angle\", \"default\": \"135deg\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Split-screen heroes. Give both halves complementary polygons sharing the same diagonal, or a hairline seam appears between them at some zoom levels.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    .bg { background: #0b0d12; }\n    .bg i { position: absolute; inset: 0; }\n    .bg .a { background: linear-gradient(135deg, #1e1b4b, #0b0d12); clip-path: polygon(0 0, 100% 0, 0 100%); }\n    .bg .b { background: linear-gradient(135deg, #042f2a, #0b0d12); clip-path: polygon(100% 0, 100% 100%, 0 100%); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"><i class=\"a\"></i><i class=\"b\"></i></div>\n</body>\n</html>\n"
+}

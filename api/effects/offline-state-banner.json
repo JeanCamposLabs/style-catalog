@@ -1,0 +1,44 @@
+{
+  "id": "offline-state-banner",
+  "title": "Offline State",
+  "summary": "An offline notice with queued-changes reassurance.",
+  "description": "An offline notice with queued-changes reassurance.",
+  "theme": "empty-skeleton-states",
+  "themeTitle": "Empty & Loading States",
+  "categories": [
+    "state",
+    "empty"
+  ],
+  "tags": [
+    "state",
+    "placeholder",
+    "offline",
+    "connectivity",
+    "queued",
+    "reassurance"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Status colour",
+      "default": "#c2891a"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Connectivity loss. Tell users what still works and what is queued; an offline banner that only says 'You are offline' causes people to abandon unsaved work.",
+  "path": "effects/empty-skeleton-states/offline-state-banner.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Offline State</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"offline-state-banner\",\n    \"title\": \"Offline State\",\n    \"summary\": \"An offline notice with queued-changes reassurance.\",\n    \"description\": \"An offline notice with queued-changes reassurance.\",\n    \"theme\": \"empty-skeleton-states\",\n    \"categories\": [\"state\", \"empty\"],\n    \"tags\": [\"state\", \"placeholder\", \"offline\", \"connectivity\", \"queued\", \"reassurance\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Status colour\", \"default\": \"#c2891a\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Connectivity loss. Tell users what still works and what is queued; an offline banner that only says 'You are offline' causes people to abandon unsaved work.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: .8rem; width: 295px; padding: .9rem 1rem; border-radius: 12px; background: #1c1c1c;\n      border: 1px solid #3f3f46; color: #e4e4e7; }\n    .fx .ic { font-size: 1.2rem; }\n    .fx b { display: block; font-size: .88rem; }\n    .fx p { margin: .15rem 0 0; color: #a1a1aa; font-size: .82rem; line-height: 1.45; }\n    .fx .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #c2891a; margin-right: .35rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"status\"><span class=\"ic\" aria-hidden=\"true\">📡</span>\n  <div><b><span class=\"dot\"></span>You are offline</b><p>Two edits are queued and will sync automatically when the connection returns.</p></div></div>\n</body>\n</html>\n"
+}

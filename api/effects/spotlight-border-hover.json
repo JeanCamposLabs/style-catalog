@@ -1,0 +1,49 @@
+{
+  "id": "spotlight-border-hover",
+  "title": "Spotlight Border",
+  "summary": "A soft light rides the border on hover.",
+  "description": "A masked gradient ring reveals only a portion of a rotating conic sweep, so the highlight appears to travel the edge.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border",
+    "hover"
+  ],
+  "tags": [
+    "hover",
+    "conic-gradient",
+    "mask",
+    "highlight",
+    "card"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Highlight",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Lap time",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Always-on for a live card",
+    "Slower sweep for calm",
+    "Two highlights opposite each other"
+  ],
+  "related": [],
+  "ai_usage": "Premium card grids. The mask-composite:xor trick confines a full-size gradient to the border ring; without it the gradient washes over the card's content.",
+  "path": "effects/borders-shadows/spotlight-border-hover.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Spotlight Border</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"spotlight-border-hover\",\n    \"title\": \"Spotlight Border\",\n    \"summary\": \"A soft light rides the border on hover.\",\n    \"description\": \"A masked gradient ring reveals only a portion of a rotating conic sweep, so the highlight appears to travel the edge.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\", \"hover\"],\n    \"tags\": [\"hover\", \"conic-gradient\", \"mask\", \"highlight\", \"card\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Highlight\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Lap time\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Always-on for a live card\", \"Slower sweep for calm\", \"Two highlights opposite each other\"],\n    \"ai_usage\": \"Premium card grids. The mask-composite:xor trick confines a full-size gradient to the border ring; without it the gradient washes over the card's content.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --c: #7c5cff; --dur: 3s; }\n    .sb { position: relative; border-radius: 16px; background: #151b2a; }\n    .sb::before { content: \"\"; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; opacity: 0;\n      background: conic-gradient(from 0deg, transparent 0 70%, var(--c) 85%, transparent);\n      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);\n      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);\n      -webkit-mask-composite: xor; mask-composite: exclude; transition: opacity .3s;\n      animation: spin var(--dur) linear infinite; }\n    .sb:hover::before { opacity: 1; }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"sb\"><div class=\"demo\"><h3>Hover me</h3><p>Light travels the border.</p></div></div>\n</body>\n</html>\n"
+}

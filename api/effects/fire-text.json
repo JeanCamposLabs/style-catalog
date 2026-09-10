@@ -1,0 +1,44 @@
+{
+  "id": "fire-text",
+  "title": "Burning Text",
+  "summary": "Flames lick up from the letterforms with layered blurred shadows.",
+  "description": "Three text-shadow layers at different blurs and hues, animated on slightly different periods, avoid the single-glow look of a naive fire effect.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "elemental"
+  ],
+  "tags": [
+    "fire",
+    "flame",
+    "glow",
+    "text-shadow",
+    "hot"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Flicker period",
+      "default": "1.1s"
+    }
+  ],
+  "variations": [
+    "Cool it to a blue plasma",
+    "Add a rising-ember particle layer",
+    "Slow it right down for embers"
+  ],
+  "related": [],
+  "ai_usage": "Gaming, sales, or heat-themed headings. Layer at least three shadows with different blur radii and animate their vertical offsets out of phase — matching phases read as a pulsing glow, not fire.",
+  "path": "effects/text-effects/fire-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Burning Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"fire-text\",\n    \"title\": \"Burning Text\",\n    \"summary\": \"Flames lick up from the letterforms with layered blurred shadows.\",\n    \"description\": \"Three text-shadow layers at different blurs and hues, animated on slightly different periods, avoid the single-glow look of a naive fire effect.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"elemental\"],\n    \"tags\": [\"fire\", \"flame\", \"glow\", \"text-shadow\", \"hot\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Flicker period\", \"default\": \"1.1s\" }\n    ],\n    \"variations\": [\"Cool it to a blue plasma\", \"Add a rising-ember particle layer\", \"Slow it right down for embers\"],\n    \"ai_usage\": \"Gaming, sales, or heat-themed headings. Layer at least three shadows with different blur radii and animate their vertical offsets out of phase — matching phases read as a pulsing glow, not fire.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: 1.1s; }\n    .fire { font-size: clamp(2.4rem, 10vw, 5rem); font-weight: 900; color: #ffedd5; letter-spacing: .02em;\n      animation: burn var(--dur) ease-in-out infinite alternate; }\n    @keyframes burn {\n      from { text-shadow: 0 -2px 4px #fff, 0 -8px 12px #fb923c, 0 -18px 28px #ea580c, 0 -30px 44px #7c2d12; }\n      to { text-shadow: 0 -3px 6px #fff, 0 -12px 18px #fdba74, 0 -24px 34px #f97316, 0 -40px 56px #9a3412; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"fire\">IGNITE</h1>\n</body>\n</html>\n"
+}

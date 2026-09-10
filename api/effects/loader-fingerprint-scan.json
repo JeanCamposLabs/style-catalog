@@ -1,0 +1,44 @@
+{
+  "id": "loader-fingerprint-scan",
+  "title": "Fingerprint Scan",
+  "summary": "Concentric arcs filling as a scan completes.",
+  "description": "Concentric arcs filling as a scan completes.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "loader",
+    "waiting",
+    "fingerprint",
+    "scan",
+    "biometric",
+    "security"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Scan colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Authentication flows. The moving scan line over static arcs is the recognisable biometric idiom; animating the arcs themselves loses it.",
+  "path": "effects/loaders-spinners/loader-fingerprint-scan.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Fingerprint Scan</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"loader-fingerprint-scan\",\n    \"title\": \"Fingerprint Scan\",\n    \"summary\": \"Concentric arcs filling as a scan completes.\",\n    \"description\": \"Concentric arcs filling as a scan completes.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"loader\", \"waiting\", \"fingerprint\", \"scan\", \"biometric\", \"security\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Scan colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Authentication flows. The moving scan line over static arcs is the recognisable biometric idiom; animating the arcs themselves loses it.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 84px; height: 84px; display: grid; place-items: center; overflow: hidden; border-radius: 12px; }\n    .fx i { position: absolute; border: 2px solid #22304a; border-radius: 50%; border-bottom-color: transparent; }\n    .fx i:nth-child(1) { width: 26px; height: 26px; } .fx i:nth-child(2) { width: 46px; height: 46px; }\n    .fx i:nth-child(3) { width: 66px; height: 66px; } .fx i:nth-child(4) { width: 84px; height: 84px; }\n    .fx .line { position: absolute; left: 0; right: 0; height: 2px; background: #2dd4bf; box-shadow: 0 0 12px #2dd4bf;\n      animation: scan 2s ease-in-out infinite alternate; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"status\" aria-label=\"Scanning\"><i></i><i></i><i></i><i></i><span class=\"line\"></span></div>\n  <style>@keyframes scan { from { top: 6%; } to { top: 92%; } }</style>\n</body>\n</html>\n"
+}

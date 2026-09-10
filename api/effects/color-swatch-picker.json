@@ -1,0 +1,44 @@
+{
+  "id": "color-swatch-picker",
+  "title": "Swatch Picker",
+  "summary": "A row of colour swatches with a selected ring.",
+  "description": "The selected ring sits outside the swatch so the colour itself is never obscured by the indicator.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "color"
+  ],
+  "tags": [
+    "color",
+    "swatch",
+    "picker",
+    "selection",
+    "palette"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Each swatch has an accessible name — a colour alone cannot be perceived by every user.",
+  "customization": [
+    {
+      "name": "--ring",
+      "description": "Selection ring",
+      "default": "#fff"
+    }
+  ],
+  "variations": [
+    "Custom colour via <input type=color>",
+    "Two-row palette with shades"
+  ],
+  "related": [],
+  "ai_usage": "Theme and product-variant pickers. Always name the colour in the accessible label; use outline (not border) for the selection so the swatch size never changes.",
+  "path": "effects/forms-inputs/color-swatch-picker.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Swatch Picker</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"color-swatch-picker\",\n    \"title\": \"Swatch Picker\",\n    \"summary\": \"A row of colour swatches with a selected ring.\",\n    \"description\": \"The selected ring sits outside the swatch so the colour itself is never obscured by the indicator.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"color\"],\n    \"tags\": [\"color\", \"swatch\", \"picker\", \"selection\", \"palette\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Each swatch has an accessible name — a colour alone cannot be perceived by every user.\",\n    \"customization\": [\n      { \"name\": \"--ring\", \"description\": \"Selection ring\", \"default\": \"#fff\" }\n    ],\n    \"variations\": [\"Custom colour via <input type=color>\", \"Two-row palette with shades\"],\n    \"ai_usage\": \"Theme and product-variant pickers. Always name the colour in the accessible label; use outline (not border) for the selection so the swatch size never changes.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .sw { display: flex; gap: 10px; }\n    .sw button { width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer; }\n    .sw button[aria-pressed=\"true\"] { outline: 2px solid var(--ring, #fff); outline-offset: 3px; }\n  </style>\n</head>\n<body>\n  <div class=\"sw\" id=\"sw\" role=\"group\" aria-label=\"Accent colour\">\n    <button type=\"button\" aria-pressed=\"true\" aria-label=\"Violet\" style=\"background:#7c5cff\"></button>\n    <button type=\"button\" aria-pressed=\"false\" aria-label=\"Teal\" style=\"background:#2dd4bf\"></button>\n    <button type=\"button\" aria-pressed=\"false\" aria-label=\"Pink\" style=\"background:#f472b6\"></button>\n    <button type=\"button\" aria-pressed=\"false\" aria-label=\"Amber\" style=\"background:#fbbf24\"></button>\n  </div>\n  <script>\n    (function () {\n      var g = document.getElementById(\"sw\");\n      g.addEventListener(\"click\", function (e) {\n        var b = e.target.closest(\"button\"); if (!b) return;\n        g.querySelectorAll(\"button\").forEach(function (o) { o.setAttribute(\"aria-pressed\", \"false\"); });\n        b.setAttribute(\"aria-pressed\", \"true\");\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "multi-select-chips",
+  "title": "Chip Multi-Select",
+  "summary": "Selectable filter chips that toggle on click.",
+  "description": "Chips carry aria-pressed so the selection is announced, and the checked state adds a tick as well as a colour.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "select"
+  ],
+  "tags": [
+    "chips",
+    "filter",
+    "multi-select",
+    "toggle",
+    "tags"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Selected colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Single-select radio behaviour",
+    "Count badge for selected chips"
+  ],
+  "related": [],
+  "ai_usage": "Filter bars and tag pickers. Use buttons with aria-pressed rather than divs; if the filter must survive a page load, back it with real checkboxes.",
+  "path": "effects/forms-inputs/multi-select-chips.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Chip Multi-Select</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"multi-select-chips\",\n    \"title\": \"Chip Multi-Select\",\n    \"summary\": \"Selectable filter chips that toggle on click.\",\n    \"description\": \"Chips carry aria-pressed so the selection is announced, and the checked state adds a tick as well as a colour.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"select\"],\n    \"tags\": [\"chips\", \"filter\", \"multi-select\", \"toggle\", \"tags\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Selected colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Single-select radio behaviour\", \"Count badge for selected chips\"],\n    \"ai_usage\": \"Filter bars and tag pickers. Use buttons with aria-pressed rather than divs; if the filter must survive a page load, back it with real checkboxes.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .chips { display: flex; flex-wrap: wrap; gap: 8px; width: 300px; }\n    .chips button { padding: .5rem 1rem; border-radius: 999px; border: 1px solid #2b3450; background: #151b2a; color: #cbd5e1;\n      font: inherit; font-size: .9rem; cursor: pointer; transition: background .2s, border-color .2s, color .2s; }\n    .chips button[aria-pressed=\"true\"] { background: color-mix(in srgb, var(--c, #7c5cff) 25%, #151b2a);\n      border-color: var(--c, #7c5cff); color: #fff; }\n    .chips button[aria-pressed=\"true\"]::before { content: \"✓ \"; }\n  </style>\n</head>\n<body>\n  <div class=\"chips\" id=\"ch\">\n    <button type=\"button\" aria-pressed=\"true\">CSS</button><button type=\"button\" aria-pressed=\"false\">SVG</button>\n    <button type=\"button\" aria-pressed=\"false\">Canvas</button><button type=\"button\" aria-pressed=\"true\">Animation</button>\n    <button type=\"button\" aria-pressed=\"false\">Retro</button>\n  </div>\n  <script>\n    (function () {\n      document.getElementById(\"ch\").addEventListener(\"click\", function (e) {\n        var b = e.target.closest(\"button\"); if (!b) return;\n        b.setAttribute(\"aria-pressed\", b.getAttribute(\"aria-pressed\") === \"true\" ? \"false\" : \"true\");\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

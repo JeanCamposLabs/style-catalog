@@ -1,0 +1,44 @@
+{
+  "id": "cloud-drift-scene",
+  "title": "Drifting Clouds",
+  "summary": "Puffy clouds crossing a daylight sky.",
+  "description": "Puffy clouds crossing a daylight sky.",
+  "theme": "weather-ambient",
+  "themeTitle": "Weather & Ambient",
+  "categories": [
+    "weather",
+    "ambient"
+  ],
+  "tags": [
+    "weather",
+    "ambient",
+    "clouds",
+    "sky",
+    "drift",
+    "daylight"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Crossing period",
+      "default": "18s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Daylight scenes and empty states. Build each cloud from a rounded bar plus two circles; a single ellipse never reads as a cloud.",
+  "path": "effects/weather-ambient/cloud-drift-scene.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Drifting Clouds</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cloud-drift-scene\",\n    \"title\": \"Drifting Clouds\",\n    \"summary\": \"Puffy clouds crossing a daylight sky.\",\n    \"description\": \"Puffy clouds crossing a daylight sky.\",\n    \"theme\": \"weather-ambient\",\n    \"categories\": [\"weather\", \"ambient\"],\n    \"tags\": [\"weather\", \"ambient\", \"clouds\", \"sky\", \"drift\", \"daylight\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Crossing period\", \"default\": \"18s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Daylight scenes and empty states. Build each cloud from a rounded bar plus two circles; a single ellipse never reads as a cloud.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 270px; height: 160px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #38bdf8, #bae6fd); }\n    .fx .cl { position: absolute; height: 26px; border-radius: 99px; background: #fff;\n      animation: cross var(--d) linear infinite; animation-delay: var(--dl); }\n    .fx .cl::before, .fx .cl::after { content: \"\"; position: absolute; bottom: 0; border-radius: 50%; background: #fff; }\n    .fx .cl::before { left: 12px; width: 30px; height: 30px; }\n    .fx .cl::after { right: 14px; width: 22px; height: 22px; }\n    @keyframes cross { from { transform: translateX(-120px); } to { transform: translateX(300px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"cl\" style=\"top:22%;width:74px;--d:18s;--dl:0s\"></span>\n  <span class=\"cl\" style=\"top:52%;width:56px;--d:26s;--dl:-8s\"></span></div>\n</body>\n</html>\n"
+}

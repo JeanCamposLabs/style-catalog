@@ -1,0 +1,44 @@
+{
+  "id": "glass-modal-blur-scrim",
+  "title": "Glass Dialog",
+  "summary": "A dialog over a blurred, dimmed page.",
+  "description": "A dialog over a blurred, dimmed page.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass",
+    "surface"
+  ],
+  "tags": [
+    "glass",
+    "surface",
+    "glass",
+    "dialog",
+    "scrim",
+    "blur"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+  "customization": [
+    {
+      "name": "--scrim",
+      "description": "Scrim blur",
+      "default": "10px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Modal overlays. Blur the scrim, not the dialog: blurring both makes the dialog itself look out of focus and unreadable.",
+  "path": "effects/glass-neumorphism/glass-modal-blur-scrim.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glass Dialog</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-modal-blur-scrim\",\n    \"title\": \"Glass Dialog\",\n    \"summary\": \"A dialog over a blurred, dimmed page.\",\n    \"description\": \"A dialog over a blurred, dimmed page.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\", \"surface\"],\n    \"tags\": [\"glass\", \"surface\", \"glass\", \"dialog\", \"scrim\", \"blur\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.\",\n    \"customization\": [\n      { \"name\": \"--scrim\", \"description\": \"Scrim blur\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Modal overlays. Blur the scrim, not the dialog: blurring both makes the dialog itself look out of focus and unreadable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: conic-gradient(from 60deg at 45% 40%, #7c5cff, #10a894, #d1478c, #7c5cff); }\n    .scrim { position: fixed; inset: 0; background: rgba(4,7,14,.45); backdrop-filter: blur(10px);\n      -webkit-backdrop-filter: blur(10px); display: grid; place-items: center; }\n    .dlg { width: min(80vw, 280px); padding: 1.5rem; border-radius: 20px; color: #fff;\n      background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35);\n      backdrop-filter: blur(22px) saturate(1.6); -webkit-backdrop-filter: blur(22px) saturate(1.6); }\n    .dlg h3 { margin: 0 0 .5rem; font-size: 1.05rem; }\n    .dlg p { margin: 0 0 1.1rem; opacity: .85; font-size: .87rem; line-height: 1.5; }\n    .dlg button { padding: .55rem 1.2rem; border: 0; border-radius: 10px; background: #fff; color: #0b0d12; font: inherit; font-weight: 700; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <div class=\"scrim\"><div class=\"dlg\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"gd\"><h3 id=\"gd\">Publish catalogue?</h3>\n  <p>1,181 specimens will be deployed to GitHub Pages.</p><button type=\"button\">Publish</button></div></div>\n</body>\n</html>\n"
+}

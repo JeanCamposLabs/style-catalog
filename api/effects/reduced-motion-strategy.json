@@ -1,0 +1,44 @@
+{
+  "id": "reduced-motion-strategy",
+  "title": "Reduced Motion Strategy",
+  "summary": "The same interface with motion reduced.",
+  "description": "The same interface with motion reduced.",
+  "theme": "motion-principles",
+  "themeTitle": "Motion Principles",
+  "categories": [
+    "motion",
+    "reference"
+  ],
+  "tags": [
+    "motion",
+    "easing",
+    "reduced-motion",
+    "strategy",
+    "fallback",
+    "accessibility"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Duration",
+      "default": "2s"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Reducing motion is not removing feedback. Replace large positional movement with an opacity or colour change so the state transition is still perceivable.",
+  "path": "effects/motion-principles/reduced-motion-strategy.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Reduced Motion Strategy</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"reduced-motion-strategy\",\n    \"title\": \"Reduced Motion Strategy\",\n    \"summary\": \"The same interface with motion reduced.\",\n    \"description\": \"The same interface with motion reduced.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"reference\"],\n    \"tags\": [\"motion\", \"easing\", \"reduced-motion\", \"strategy\", \"fallback\", \"accessibility\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Duration\", \"default\": \"2s\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Reducing motion is not removing feedback. Replace large positional movement with an opacity or colour change so the state transition is still perceivable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 12px; }\n    .p { width: 130px; padding: .9rem; border-radius: 12px; background: #151b2a; border: 1px solid #263149; font-size: .78rem; color: #cbd5e1; }\n    .p .box { height: 44px; border-radius: 8px; background: linear-gradient(150deg, #7c5cff, #2dd4bf); margin-bottom: .5rem; }\n    .full .box { animation: slide 2s ease-in-out infinite alternate; }\n    .reduced .box { animation: fade 2s ease-in-out infinite alternate; }\n    @keyframes slide { to { transform: translateX(40px) rotate(8deg); } }\n    @keyframes fade { to { opacity: .55; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"p full\"><div class=\"box\"></div>Full motion: travel and rotation.</div>\n  <div class=\"p reduced\"><div class=\"box\"></div>Reduced: the same state change as a fade.</div></div>\n</body>\n</html>\n"
+}

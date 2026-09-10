@@ -1,0 +1,44 @@
+{
+  "id": "spring-vs-ease",
+  "title": "Spring vs Ease",
+  "summary": "The same move with two personalities.",
+  "description": "The same move with two personalities.",
+  "theme": "motion-principles",
+  "themeTitle": "Motion Principles",
+  "categories": [
+    "motion",
+    "reference"
+  ],
+  "tags": [
+    "motion",
+    "easing",
+    "spring",
+    "overshoot",
+    "easing",
+    "personality"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+  "customization": [
+    {
+      "name": "--spring",
+      "description": "Spring curve",
+      "default": "cubic-bezier(.34,1.56,.64,1)"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Choosing personality. A spring overshoots and settles, which suits playful accents; a standard ease never passes its target, which suits functional UI. Mixing both in one product feels inconsistent.",
+  "path": "effects/motion-principles/spring-vs-ease.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Spring vs Ease</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"spring-vs-ease\",\n    \"title\": \"Spring vs Ease\",\n    \"summary\": \"The same move with two personalities.\",\n    \"description\": \"The same move with two personalities.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"reference\"],\n    \"tags\": [\"motion\", \"easing\", \"spring\", \"overshoot\", \"easing\", \"personality\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.\",\n    \"customization\": [\n      { \"name\": \"--spring\", \"description\": \"Spring curve\", \"default\": \"cubic-bezier(.34,1.56,.64,1)\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Choosing personality. A spring overshoots and settles, which suits playful accents; a standard ease never passes its target, which suits functional UI. Mixing both in one product feels inconsistent.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; display: grid; gap: .8rem; }\n    .lbl { font-size: .68rem; color: #64748b; font-family: ui-monospace, monospace; margin-bottom: .25rem; }\n    .t { height: 26px; border-radius: 99px; background: #151b2a; position: relative; }\n    .t i { position: absolute; top: 4px; left: 4px; width: 18px; height: 18px; border-radius: 50%; background: #d1478c; }\n    .e i { animation: go 1.6s cubic-bezier(.2,.8,.3,1) infinite alternate; }\n    .s i { animation: go 1.6s cubic-bezier(.34,1.56,.64,1) infinite alternate; }\n    @keyframes go { to { left: calc(100% - 22px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div><div class=\"lbl\">ease · no overshoot</div><div class=\"t e\"><i></i></div></div>\n  <div><div class=\"lbl\">spring · overshoots and settles</div><div class=\"t s\"><i></i></div></div></div>\n</body>\n</html>\n"
+}

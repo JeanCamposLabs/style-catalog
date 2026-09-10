@@ -1,0 +1,44 @@
+{
+  "id": "alert-severity-set",
+  "title": "Severity Set",
+  "summary": "Four alert levels with icons and labels.",
+  "description": "Four alert levels with icons and labels.",
+  "theme": "notifications-toasts",
+  "themeTitle": "Notifications & Toasts",
+  "categories": [
+    "notification",
+    "feedback"
+  ],
+  "tags": [
+    "notification",
+    "feedback",
+    "severity",
+    "alerts",
+    "semantic",
+    "system"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+  "customization": [
+    {
+      "name": "--info",
+      "description": "Info colour",
+      "default": "#2f7cc9"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "The alert vocabulary for a design system. Status colours are reserved — never reuse them as chart series — and each level ships with its own glyph and word.",
+  "path": "effects/notifications-toasts/alert-severity-set.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Severity Set</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"alert-severity-set\",\n    \"title\": \"Severity Set\",\n    \"summary\": \"Four alert levels with icons and labels.\",\n    \"description\": \"Four alert levels with icons and labels.\",\n    \"theme\": \"notifications-toasts\",\n    \"categories\": [\"notification\", \"feedback\"],\n    \"tags\": [\"notification\", \"feedback\", \"severity\", \"alerts\", \"semantic\", \"system\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.\",\n    \"customization\": [\n      { \"name\": \"--info\", \"description\": \"Info colour\", \"default\": \"#2f7cc9\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"The alert vocabulary for a design system. Status colours are reserved — never reuse them as chart series — and each level ships with its own glyph and word.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; gap: .5rem; width: 300px; }\n    .a { display: flex; gap: .6rem; padding: .6rem .8rem; border-radius: 10px; font-size: .82rem; align-items: center; }\n    .info { background: rgba(47,124,201,.14); color: #8ec1f0; border: 1px solid rgba(47,124,201,.5); }\n    .ok { background: rgba(16,168,148,.14); color: #7fd8cb; border: 1px solid rgba(16,168,148,.5); }\n    .warn { background: rgba(194,137,26,.14); color: #ecc57c; border: 1px solid rgba(194,137,26,.5); }\n    .bad { background: rgba(209,71,140,.14); color: #f0a3c6; border: 1px solid rgba(209,71,140,.5); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"a info\"><span aria-hidden=\"true\">ⓘ</span>Scheduled maintenance on Sunday</div>\n  <div class=\"a ok\"><span aria-hidden=\"true\">✓</span>All services operational</div>\n  <div class=\"a warn\"><span aria-hidden=\"true\">▲</span>API latency above target</div>\n  <div class=\"a bad\" role=\"alert\"><span aria-hidden=\"true\">■</span>Poster generation failed</div></div>\n</body>\n</html>\n"
+}

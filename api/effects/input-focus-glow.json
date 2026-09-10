@@ -1,0 +1,44 @@
+{
+  "id": "input-focus-glow",
+  "title": "Focus Glow",
+  "summary": "A field whose border and glow bloom on focus.",
+  "description": "A field whose border and glow bloom on focus.",
+  "theme": "micro-interactions",
+  "themeTitle": "Micro-interactions",
+  "categories": [
+    "micro-interaction",
+    "feedback"
+  ],
+  "tags": [
+    "micro-interaction",
+    "feedback",
+    "focus",
+    "glow",
+    "input",
+    "affordance"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Focus colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Form fields. A ring built from box-shadow does not change layout the way a thicker border does — and it still satisfies the visible-focus requirement.",
+  "path": "effects/micro-interactions/input-focus-glow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Focus Glow</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"input-focus-glow\",\n    \"title\": \"Focus Glow\",\n    \"summary\": \"A field whose border and glow bloom on focus.\",\n    \"description\": \"A field whose border and glow bloom on focus.\",\n    \"theme\": \"micro-interactions\",\n    \"categories\": [\"micro-interaction\", \"feedback\"],\n    \"tags\": [\"micro-interaction\", \"feedback\", \"focus\", \"glow\", \"input\", \"affordance\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Focus colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Form fields. A ring built from box-shadow does not change layout the way a thicker border does — and it still satisfies the visible-focus requirement.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; padding: .8rem 1rem; border-radius: 12px; border: 1px solid #2b3450; background: #151b2a;\n      color: #e7ebf3; font: inherit; transition: border-color .2s, box-shadow .2s; }\n    .fx::placeholder { color: #64748b; }\n    .fx:focus { outline: none; border-color: #7c5cff; box-shadow: 0 0 0 4px rgba(124,92,255,.18); }\n  </style>\n</head>\n<body>\n  <input class=\"fx\" type=\"text\" placeholder=\"Click or tab into this field\" aria-label=\"Demo field\" />\n</body>\n</html>\n"
+}

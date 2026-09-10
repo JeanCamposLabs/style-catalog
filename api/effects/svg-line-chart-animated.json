@@ -1,0 +1,45 @@
+{
+  "id": "svg-line-chart-animated",
+  "title": "Animated Line Draw",
+  "summary": "A chart line drawing itself left to right.",
+  "description": "A chart line drawing itself left to right.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "vector"
+  ],
+  "tags": [
+    "svg",
+    "vector",
+    "chart",
+    "draw",
+    "line",
+    "reveal"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Line colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Data reveals. Draw the line left to right so it reads as time passing; drawing from both ends or from the middle breaks the temporal metaphor.",
+  "path": "effects/svg-effects/svg-line-chart-animated.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Animated Line Draw</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-line-chart-animated\",\n    \"title\": \"Animated Line Draw\",\n    \"summary\": \"A chart line drawing itself left to right.\",\n    \"description\": \"A chart line drawing itself left to right.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"vector\"],\n    \"tags\": [\"svg\", \"vector\", \"chart\", \"draw\", \"line\", \"reveal\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Line colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Data reveals. Draw the line left to right so it reads as time passing; drawing from both ends or from the middle breaks the temporal metaphor.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; }\n    .fx svg { width: 100%; display: block; }\n    .fx .ln { fill: none; stroke: #10a894; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;\n      stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 2.4s ease-out infinite; }\n    .fx .gr line { stroke: rgba(139,147,167,.2); }\n    @keyframes draw { 0% { stroke-dashoffset: 400; } 60%, 100% { stroke-dashoffset: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><svg viewBox=\"0 0 250 110\" role=\"img\" aria-label=\"Line chart drawing itself\">\n    <g class=\"gr\"><line x1=\"0\" y1=\"25\" x2=\"250\" y2=\"25\"/><line x1=\"0\" y1=\"60\" x2=\"250\" y2=\"60\"/><line x1=\"0\" y1=\"95\" x2=\"250\" y2=\"95\"/></g>\n    <path class=\"ln\" d=\"M8 92 L60 74 L112 80 L164 42 L216 34 L242 14\"/></svg></div>\n</body>\n</html>\n"
+}

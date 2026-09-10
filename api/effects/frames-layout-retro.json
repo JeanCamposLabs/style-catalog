@@ -1,0 +1,44 @@
+{
+  "id": "frames-layout-retro",
+  "title": "Frameset Layout",
+  "summary": "The three-pane frames layout, rebuilt with grid.",
+  "description": "The three-pane frames layout, rebuilt with grid.",
+  "theme": "retro-web",
+  "themeTitle": "Retro Web",
+  "categories": [
+    "retro",
+    "nostalgia"
+  ],
+  "tags": [
+    "retro",
+    "nostalgia",
+    "frames",
+    "frameset",
+    "layout",
+    "90s"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+  "customization": [
+    {
+      "name": "--nav",
+      "description": "Nav colour",
+      "default": "#c0c0c0"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Retro pastiche without the accessibility disaster of real frames — CSS grid gives the same look while keeping one document, one URL, and one focus order.",
+  "path": "effects/retro-web/frames-layout-retro.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Frameset Layout</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"frames-layout-retro\",\n    \"title\": \"Frameset Layout\",\n    \"summary\": \"The three-pane frames layout, rebuilt with grid.\",\n    \"description\": \"The three-pane frames layout, rebuilt with grid.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"nostalgia\"],\n    \"tags\": [\"retro\", \"nostalgia\", \"frames\", \"frameset\", \"layout\", \"90s\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.\",\n    \"customization\": [\n      { \"name\": \"--nav\", \"description\": \"Nav colour\", \"default\": \"#c0c0c0\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Retro pastiche without the accessibility disaster of real frames — CSS grid gives the same look while keeping one document, one URL, and one focus order.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: 90px 1fr; grid-template-rows: 40px 1fr; width: 290px; height: 180px;\n      border: 2px inset #808080; font-family: \"Times New Roman\", serif; font-size: .78rem; }\n    .fx .top { grid-column: 1 / -1; background: #000080; color: #fff; display: grid; place-items: center; border-bottom: 2px ridge #c0c0c0; }\n    .fx .side { background: #c0c0c0; color: #000; padding: .5rem; border-right: 2px ridge #fff; }\n    .fx .side a { display: block; color: #0000ee; margin-bottom: .3rem; }\n    .fx .main { background: #fff; color: #000; padding: .6rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"top\">MY SITE</div><nav class=\"side\"><a href=\"#\">Home</a><a href=\"#\">Links</a><a href=\"#\">About</a></nav>\n  <div class=\"main\">Welcome! This page uses frames.</div></div>\n</body>\n</html>\n"
+}

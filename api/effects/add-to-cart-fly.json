@@ -1,0 +1,44 @@
+{
+  "id": "add-to-cart-fly",
+  "title": "Fly to Cart",
+  "summary": "The item image arcs into the cart icon on add.",
+  "description": "The item image arcs into the cart icon on add.",
+  "theme": "ecommerce-ui",
+  "themeTitle": "E-commerce UI",
+  "categories": [
+    "ecommerce",
+    "commerce"
+  ],
+  "tags": [
+    "ecommerce",
+    "shop",
+    "cart",
+    "fly",
+    "feedback",
+    "animation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Flight duration",
+      "default": "0.7s"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Add-to-cart confirmation. The flight is decorative — always update the cart count and announce it via aria-live so the change is not motion-only.",
+  "path": "effects/ecommerce-ui/add-to-cart-fly.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Fly to Cart</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"add-to-cart-fly\",\n    \"title\": \"Fly to Cart\",\n    \"summary\": \"The item image arcs into the cart icon on add.\",\n    \"description\": \"The item image arcs into the cart icon on add.\",\n    \"theme\": \"ecommerce-ui\",\n    \"categories\": [\"ecommerce\", \"commerce\"],\n    \"tags\": [\"ecommerce\", \"shop\", \"cart\", \"fly\", \"feedback\", \"animation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Price, stock, and discount information must be in text, never only a colour or a badge shape.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Flight duration\", \"default\": \"0.7s\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Add-to-cart confirmation. The flight is decorative — always update the cart count and announce it via aria-live so the change is not motion-only.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; display: flex; align-items: center; justify-content: space-between; width: 280px;\n      padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }\n    .fx .thumb { width: 54px; height: 54px; border-radius: 10px; background: conic-gradient(from 40deg, #7c5cff, #2dd4bf); }\n    .fx .cart { position: relative; font-size: 1.4rem; }\n    .fx .cart b { position: absolute; top: -6px; right: -10px; min-width: 18px; height: 18px; border-radius: 99px;\n      background: #f472b6; color: #2a0d1c; font-size: .68rem; font-weight: 800; display: grid; place-items: center; }\n    .fx button { padding: .5rem 1rem; border: 0; border-radius: 9px; background: #7c5cff; color: #fff; font: inherit; cursor: pointer; }\n    .fly { position: absolute; width: 30px; height: 30px; border-radius: 8px; background: conic-gradient(from 40deg, #7c5cff, #2dd4bf);\n      pointer-events: none; animation: fly .7s cubic-bezier(.5,-0.2,.7,1) forwards; }\n    @keyframes fly { to { transform: translate(var(--dx), var(--dy)) scale(.3); opacity: 0; } }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"ac\"><div class=\"thumb\"></div><button type=\"button\" id=\"adb\">Add to cart</button>\n  <div class=\"cart\" aria-hidden=\"true\">🛒<b id=\"cn\">2</b></div></div>\n  <script>\n    (function () {\n      var host = document.getElementById(\"ac\"), btn = document.getElementById(\"adb\"), n = document.getElementById(\"cn\"), c = 2;\n      btn.addEventListener(\"click\", function () {\n        var f = document.createElement(\"div\");\n        f.className = \"fly\"; f.style.left = \"18px\"; f.style.top = \"22px\";\n        f.style.setProperty(\"--dx\", \"218px\"); f.style.setProperty(\"--dy\", \"6px\");\n        host.appendChild(f);\n        f.addEventListener(\"animationend\", function () { f.remove(); n.textContent = ++c; });\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

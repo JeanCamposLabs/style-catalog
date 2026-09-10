@@ -1,0 +1,44 @@
+{
+  "id": "button-elevated-tonal-set",
+  "title": "Button Variants",
+  "summary": "Filled, tonal, outlined, and text buttons.",
+  "description": "Filled, tonal, outlined, and text buttons.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "action"
+  ],
+  "tags": [
+    "button",
+    "action",
+    "variants",
+    "hierarchy",
+    "tonal",
+    "system"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Primary colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "The button hierarchy for a design system. One filled button per view; tonal for secondary, outlined for tertiary, text for low-stakes actions like Cancel.",
+  "path": "effects/buttons/button-elevated-tonal-set.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Button Variants</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"button-elevated-tonal-set\",\n    \"title\": \"Button Variants\",\n    \"summary\": \"Filled, tonal, outlined, and text buttons.\",\n    \"description\": \"Filled, tonal, outlined, and text buttons.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"action\"],\n    \"tags\": [\"button\", \"action\", \"variants\", \"hierarchy\", \"tonal\", \"system\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Primary colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"The button hierarchy for a design system. One filled button per view; tonal for secondary, outlined for tertiary, text for low-stakes actions like Cancel.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: .5rem; flex-wrap: wrap; width: 300px; }\n    .fx button { padding: .6rem 1.1rem; border-radius: 10px; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; border: 1px solid transparent; }\n    .filled { background: #7c5cff; color: #fff; }\n    .tonal { background: rgba(124,92,255,.18); color: #b9a5ff; }\n    .outlined { background: transparent; border-color: #2b3450; color: #cbd5e1; }\n    .text { background: transparent; color: #b9a5ff; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><button class=\"filled\" type=\"button\">Publish</button><button class=\"tonal\" type=\"button\">Preview</button>\n  <button class=\"outlined\" type=\"button\">Duplicate</button><button class=\"text\" type=\"button\">Cancel</button></div>\n</body>\n</html>\n"
+}

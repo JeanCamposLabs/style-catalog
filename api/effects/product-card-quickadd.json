@@ -1,0 +1,44 @@
+{
+  "id": "product-card-quickadd",
+  "title": "Product Card",
+  "summary": "A product tile with price, rating, and quick-add.",
+  "description": "A product tile with price, rating, and quick-add.",
+  "theme": "ecommerce-ui",
+  "themeTitle": "E-commerce UI",
+  "categories": [
+    "ecommerce",
+    "commerce"
+  ],
+  "tags": [
+    "ecommerce",
+    "shop",
+    "product",
+    "card",
+    "rating",
+    "quick-add"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent",
+      "default": "#e7ebf3"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Product grids. Keep quick-add reachable by keyboard (focus-within), and put the star rating in text as well so it is not a colour-only signal.",
+  "path": "effects/ecommerce-ui/product-card-quickadd.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Product Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"product-card-quickadd\",\n    \"title\": \"Product Card\",\n    \"summary\": \"A product tile with price, rating, and quick-add.\",\n    \"description\": \"A product tile with price, rating, and quick-add.\",\n    \"theme\": \"ecommerce-ui\",\n    \"categories\": [\"ecommerce\", \"commerce\"],\n    \"tags\": [\"ecommerce\", \"shop\", \"product\", \"card\", \"rating\", \"quick-add\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Price, stock, and discount information must be in text, never only a colour or a badge shape.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent\", \"default\": \"#e7ebf3\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Product grids. Keep quick-add reachable by keyboard (focus-within), and put the star rating in text as well so it is not a colour-only signal.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 210px; border-radius: 16px; overflow: hidden; background: #151b2a; border: 1px solid #263149; }\n    .fx .img { aspect-ratio: 1; background: conic-gradient(from 40deg at 40% 35%, #7c5cff, #2dd4bf, #f472b6); position: relative; }\n    .fx .add { position: absolute; right: 8px; bottom: 8px; width: 36px; height: 36px; border-radius: 50%; border: 0;\n      background: #e7ebf3; color: #0b0d12; font-size: 1.2rem; cursor: pointer; opacity: 0; transform: translateY(8px);\n      transition: opacity .25s, transform .25s; }\n    .fx:hover .add, .fx:focus-within .add { opacity: 1; transform: none; }\n    .fx .b { padding: .8rem .9rem 1rem; }\n    .fx b { display: block; font-size: .92rem; }\n    .fx .r { color: #fbbf24; font-size: .78rem; margin: .2rem 0 .4rem; }\n    .fx .p { font-weight: 800; }\n    .fx .p s { color: #8b93a7; font-weight: 400; margin-left: .4rem; font-size: .85rem; }\n  </style>\n</head>\n<body>\n  <article class=\"fx\"><div class=\"img\"><button class=\"add\" type=\"button\" aria-label=\"Add Aurora Lamp to cart\">＋</button></div>\n  <div class=\"b\"><b>Aurora Lamp</b><div class=\"r\">★★★★☆ <span style=\"color:#8b93a7\">(214)</span></div>\n  <div class=\"p\">$79 <s>$99</s></div></div></article>\n</body>\n</html>\n"
+}

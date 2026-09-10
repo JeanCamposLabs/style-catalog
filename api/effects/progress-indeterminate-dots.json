@@ -1,0 +1,44 @@
+{
+  "id": "progress-indeterminate-dots",
+  "title": "Indeterminate Bar Set",
+  "summary": "Three indeterminate bars at different speeds.",
+  "description": "Three indeterminate bars at different speeds.",
+  "theme": "progress-meters",
+  "themeTitle": "Progress & Meters",
+  "categories": [
+    "progress",
+    "meter"
+  ],
+  "tags": [
+    "progress",
+    "indicator",
+    "indeterminate",
+    "unknown",
+    "bars",
+    "waiting"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Bar colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Parallel operations of unknown length. Different durations stop the bars from marching in lockstep, which otherwise reads as one animation.",
+  "path": "effects/progress-meters/progress-indeterminate-dots.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Indeterminate Bar Set</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"progress-indeterminate-dots\",\n    \"title\": \"Indeterminate Bar Set\",\n    \"summary\": \"Three indeterminate bars at different speeds.\",\n    \"description\": \"Three indeterminate bars at different speeds.\",\n    \"theme\": \"progress-meters\",\n    \"categories\": [\"progress\", \"meter\"],\n    \"tags\": [\"progress\", \"indicator\", \"indeterminate\", \"unknown\", \"bars\", \"waiting\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Bar colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Parallel operations of unknown length. Different durations stop the bars from marching in lockstep, which otherwise reads as one animation.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .set { width: 300px; display: grid; gap: 12px; }\n    .set .t { height: 6px; border-radius: 99px; background: #22304a; overflow: hidden; position: relative; }\n    .set .t i { position: absolute; inset: 0 auto 0 0; width: 35%; border-radius: 99px; background: #7c5cff;\n      animation: run var(--d) cubic-bezier(.65,.05,.36,1) infinite; }\n    @keyframes run { 0% { left: -35%; } 100% { left: 100%; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"set\"><div class=\"t\"><i style=\"--d:1.3s\"></i></div><div class=\"t\"><i style=\"--d:1.7s\"></i></div><div class=\"t\"><i style=\"--d:2.1s\"></i></div></div>\n</body>\n</html>\n"
+}

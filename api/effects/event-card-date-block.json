@@ -1,0 +1,44 @@
+{
+  "id": "event-card-date-block",
+  "title": "Event Card",
+  "summary": "An event with a prominent date block.",
+  "description": "An event with a prominent date block.",
+  "theme": "calendar-time",
+  "themeTitle": "Calendar & Time",
+  "categories": [
+    "calendar",
+    "time"
+  ],
+  "tags": [
+    "calendar",
+    "date",
+    "event",
+    "date",
+    "card",
+    "listing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Month colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Event listings. The stacked month/day block is scannable at a glance; still wrap the full date in a <time datetime> for machines.",
+  "path": "effects/calendar-time/event-card-date-block.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Event Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"event-card-date-block\",\n    \"title\": \"Event Card\",\n    \"summary\": \"An event with a prominent date block.\",\n    \"description\": \"An event with a prominent date block.\",\n    \"theme\": \"calendar-time\",\n    \"categories\": [\"calendar\", \"time\"],\n    \"tags\": [\"calendar\", \"date\", \"event\", \"date\", \"card\", \"listing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Month colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Event listings. The stacked month/day block is scannable at a glance; still wrap the full date in a <time datetime> for machines.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 1rem; width: 290px; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }\n    .fx .d { width: 56px; text-align: center; border-radius: 10px; overflow: hidden; flex: none; background: #1c2437; }\n    .fx .d .m { background: #7c5cff; color: #fff; font-size: .68rem; font-weight: 800; padding: .2rem 0; letter-spacing: .08em; }\n    .fx .d .n { font-size: 1.5rem; font-weight: 900; padding: .3rem 0; }\n    .fx b { display: block; font-size: .95rem; }\n    .fx span { display: block; color: #8b93a7; font-size: .8rem; margin-top: .2rem; }\n  </style>\n</head>\n<body>\n  <article class=\"fx\"><div class=\"d\"><div class=\"m\">SEP</div><div class=\"n\">18</div></div>\n  <div><b>Catalogue release party</b><span><time datetime=\"2026-09-18T19:00\">19:00</time> · Lisbon · 42 going</span></div></article>\n</body>\n</html>\n"
+}

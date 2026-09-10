@@ -1,0 +1,44 @@
+{
+  "id": "template-team-page",
+  "title": "Team Page",
+  "summary": "Member cards with roles and links.",
+  "description": "Member cards with roles and links.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "page"
+  ],
+  "tags": [
+    "template",
+    "page",
+    "team",
+    "people",
+    "about",
+    "cards"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+  "customization": [
+    {
+      "name": "--cols",
+      "description": "Column count",
+      "default": "2"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "About and team pages. Put each person's name in a heading so the page has a usable outline, and keep role text short enough to fit one line at card width.",
+  "path": "effects/website-templates/template-team-page.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Team Page</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"template-team-page\",\n    \"title\": \"Team Page\",\n    \"summary\": \"Member cards with roles and links.\",\n    \"description\": \"Member cards with roles and links.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"page\"],\n    \"tags\": [\"template\", \"page\", \"team\", \"people\", \"about\", \"cards\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.\",\n    \"customization\": [\n      { \"name\": \"--cols\", \"description\": \"Column count\", \"default\": \"2\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"About and team pages. Put each person's name in a heading so the page has a usable outline, and keep role text short enough to fit one line at card width.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { padding: 1.4rem; max-width: 32rem; margin: 0 auto; }\n    h1 { margin: 0 0 .3rem; font-size: 1.5rem; }\n    .sub { margin: 0 0 1.2rem; color: #8b93a7; font-size: .88rem; }\n    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }\n    .m { padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; text-align: center; }\n    .m .av { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto .6rem; display: grid; place-items: center;\n      font-weight: 800; color: #0b0d12; font-size: .9rem; }\n    .m b { display: block; font-size: .9rem; }\n    .m span { color: #8b93a7; font-size: .78rem; }\n    .m a { display: inline-block; margin-top: .5rem; color: #b9a5ff; text-decoration: none; font-size: .76rem; }\n  </style>\n</head>\n<body>\n  <h1>The team</h1><p class=\"sub\">Four people and a very patient build server.</p>\n  <div class=\"grid\"><article class=\"m\"><div class=\"av\" style=\"background:#7c5cff\">JC</div><b>Jean Campos</b><span>Design engineer</span><br><a href=\"#\">Profile</a></article>\n  <article class=\"m\"><div class=\"av\" style=\"background:#10a894\">AL</div><b>Ada Lovelace</b><span>Systems</span><br><a href=\"#\">Profile</a></article>\n  <article class=\"m\"><div class=\"av\" style=\"background:#c2891a\">MR</div><b>Max Rivera</b><span>Accessibility</span><br><a href=\"#\">Profile</a></article>\n  <article class=\"m\"><div class=\"av\" style=\"background:#d1478c\">SK</div><b>Sam Kaur</b><span>Docs</span><br><a href=\"#\">Profile</a></article></div>\n</body>\n</html>\n"
+}

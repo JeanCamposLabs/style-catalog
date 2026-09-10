@@ -1,0 +1,44 @@
+{
+  "id": "character-counter-textarea",
+  "title": "Counted Textarea",
+  "summary": "A textarea with a live character count that warns near the limit.",
+  "description": "The counter changes colour only in the last 20 characters, so it stays quiet for most of the typing.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "textarea"
+  ],
+  "tags": [
+    "counter",
+    "limit",
+    "textarea",
+    "feedback",
+    "live"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+  "customization": [
+    {
+      "name": "--warn",
+      "description": "Warning colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Hard block at the limit",
+    "Word count instead of characters"
+  ],
+  "related": [],
+  "ai_usage": "Bios, posts, and messages. Put the count in an aria-live=polite region but only update it every few keystrokes, or screen readers announce every character.",
+  "path": "effects/forms-inputs/character-counter-textarea.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Counted Textarea</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"character-counter-textarea\",\n    \"title\": \"Counted Textarea\",\n    \"summary\": \"A textarea with a live character count that warns near the limit.\",\n    \"description\": \"The counter changes colour only in the last 20 characters, so it stays quiet for most of the typing.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"textarea\"],\n    \"tags\": [\"counter\", \"limit\", \"textarea\", \"feedback\", \"live\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.\",\n    \"customization\": [\n      { \"name\": \"--warn\", \"description\": \"Warning colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Hard block at the limit\", \"Word count instead of characters\"],\n    \"ai_usage\": \"Bios, posts, and messages. Put the count in an aria-live=polite region but only update it every few keystrokes, or screen readers announce every character.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .ta { width: 300px; }\n    .ta textarea { width: 100%; min-height: 110px; padding: .8rem 1rem; border-radius: 12px; border: 1px solid #2b3450;\n      background: #151b2a; color: #e7ebf3; font: inherit; resize: vertical; }\n    .ta .row { display: flex; justify-content: space-between; margin-top: .4rem; font-size: .8rem; color: #8b93a7; }\n    .ta.is-near .count { color: var(--warn, #fbbf24); font-weight: 700; }\n  </style>\n</head>\n<body>\n  <div class=\"ta\" id=\"ta\"><label for=\"bio\" style=\"font-size:.82rem;color:#8b93a7\">Bio</label>\n  <textarea id=\"bio\" maxlength=\"140\" placeholder=\"Tell us about yourself\"></textarea>\n  <div class=\"row\"><span>Max 140</span><span class=\"count\" aria-live=\"polite\">0 / 140</span></div></div>\n  <script>\n    (function () {\n      var w = document.getElementById(\"ta\"), t = document.getElementById(\"bio\"), c = w.querySelector(\".count\");\n      t.addEventListener(\"input\", function () {\n        c.textContent = t.value.length + \" / 140\";\n        w.classList.toggle(\"is-near\", t.value.length > 120);\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

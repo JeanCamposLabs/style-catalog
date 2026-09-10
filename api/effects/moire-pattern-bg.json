@@ -1,0 +1,54 @@
+{
+  "id": "moire-pattern-bg",
+  "title": "Moiré Interference",
+  "summary": "Two fine line grids at a slight angle produce shimmering interference.",
+  "description": "Rotating one identical grid by a couple of degrees generates the moiré; animating that angle makes the pattern breathe.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "moire",
+    "interference",
+    "lines",
+    "optical",
+    "kinetic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "High-frequency interference can be uncomfortable — keep contrast low and honour prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Line color",
+      "default": "rgba(124,92,255,.35)"
+    },
+    {
+      "name": "--s",
+      "description": "Line pitch",
+      "default": "6px"
+    },
+    {
+      "name": "--dur",
+      "description": "Rotation period",
+      "default": "20s"
+    }
+  ],
+  "variations": [
+    "Radial grids instead of linear",
+    "Stronger angle for coarser bands",
+    "Static version with no animation"
+  ],
+  "related": [],
+  "ai_usage": "Optical-art and experimental sections. The moiré only appears when both layers use the same pitch and differ by a small angle (1–4°) — larger angles just look like a crosshatch.",
+  "path": "effects/backgrounds/moire-pattern-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Moiré Interference</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"moire-pattern-bg\",\n    \"title\": \"Moiré Interference\",\n    \"summary\": \"Two fine line grids at a slight angle produce shimmering interference.\",\n    \"description\": \"Rotating one identical grid by a couple of degrees generates the moiré; animating that angle makes the pattern breathe.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"moire\", \"interference\", \"lines\", \"optical\", \"kinetic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"High-frequency interference can be uncomfortable — keep contrast low and honour prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Line color\", \"default\": \"rgba(124,92,255,.35)\" },\n      { \"name\": \"--s\", \"description\": \"Line pitch\", \"default\": \"6px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"20s\" }\n    ],\n    \"variations\": [\"Radial grids instead of linear\", \"Stronger angle for coarser bands\", \"Static version with no animation\"],\n    \"ai_usage\": \"Optical-art and experimental sections. The moiré only appears when both layers use the same pitch and differ by a small angle (1–4°) — larger angles just look like a crosshatch.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: rgba(124,92,255,.35); --s: 6px; --dur: 20s; }\n    .bg { background: #0b0d12; overflow: hidden; }\n    .bg i { position: absolute; inset: -30%;\n      background-image: repeating-linear-gradient(0deg, var(--c) 0 1px, transparent 1px var(--s)); }\n    .bg i:nth-child(2) { animation: turn var(--dur) linear infinite; }\n    @keyframes turn { from { transform: rotate(1deg); } to { transform: rotate(5deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"><i></i><i></i></div>\n</body>\n</html>\n"
+}

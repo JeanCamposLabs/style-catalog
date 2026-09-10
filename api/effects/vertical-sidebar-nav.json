@@ -1,0 +1,47 @@
+{
+  "id": "vertical-sidebar-nav",
+  "title": "Icon Sidebar",
+  "summary": "A collapsed icon rail that expands labels on hover.",
+  "description": "The rail widens rather than overlaying, so content reflows predictably instead of being covered.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation"
+  ],
+  "tags": [
+    "sidebar",
+    "rail",
+    "icons",
+    "expand",
+    "app-shell"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+  "customization": [
+    {
+      "name": "--w",
+      "description": "Collapsed width",
+      "default": "62px"
+    },
+    {
+      "name": "--wide",
+      "description": "Expanded width",
+      "default": "190px"
+    }
+  ],
+  "variations": [
+    "Pin the expanded state",
+    "Tooltips instead of expansion"
+  ],
+  "related": [],
+  "ai_usage": "App shells. Keep text labels in the DOM (not title attributes) and hide them with overflow so screen readers always read the real label.",
+  "path": "effects/navigation-menus/vertical-sidebar-nav.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Icon Sidebar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"vertical-sidebar-nav\",\n    \"title\": \"Icon Sidebar\",\n    \"summary\": \"A collapsed icon rail that expands labels on hover.\",\n    \"description\": \"The rail widens rather than overlaying, so content reflows predictably instead of being covered.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\"],\n    \"tags\": [\"sidebar\", \"rail\", \"icons\", \"expand\", \"app-shell\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.\",\n    \"customization\": [\n      { \"name\": \"--w\", \"description\": \"Collapsed width\", \"default\": \"62px\" },\n      { \"name\": \"--wide\", \"description\": \"Expanded width\", \"default\": \"190px\" }\n    ],\n    \"variations\": [\"Pin the expanded state\", \"Tooltips instead of expansion\"],\n    \"ai_usage\": \"App shells. Keep text labels in the DOM (not title attributes) and hide them with overflow so screen readers always read the real label.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --w: 62px; --wide: 190px; }\n    .rail { width: var(--w); height: 320px; padding: .6rem; background: #10141f; border: 1px solid #1f2740; border-radius: 16px;\n      overflow: hidden; transition: width .3s cubic-bezier(.7,0,.2,1); }\n    .rail:hover, .rail:focus-within { width: var(--wide); }\n    .rail a { display: flex; align-items: center; gap: .9rem; padding: .7rem .75rem; border-radius: 10px; color: #8b93a7;\n      text-decoration: none; white-space: nowrap; }\n    .rail a:hover, .rail a:focus-visible { background: #1c2437; color: #e7ebf3; }\n    .rail a .ic { flex: none; width: 20px; text-align: center; }\n    .rail a[aria-current] { background: #221c3f; color: #b9a5ff; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <nav class=\"rail\" aria-label=\"Main\">\n    <a href=\"#\" aria-current=\"page\"><span class=\"ic\" aria-hidden=\"true\">◱</span> Dashboard</a>\n    <a href=\"#\"><span class=\"ic\" aria-hidden=\"true\">◷</span> Activity</a>\n    <a href=\"#\"><span class=\"ic\" aria-hidden=\"true\">◫</span> Projects</a>\n    <a href=\"#\"><span class=\"ic\" aria-hidden=\"true\">⚙</span> Settings</a>\n  </nav>\n</body>\n</html>\n"
+}

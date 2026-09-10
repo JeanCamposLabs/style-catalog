@@ -1,0 +1,44 @@
+{
+  "id": "blueprint-sheet",
+  "title": "Blueprint Sheet",
+  "summary": "A technical drawing sheet with a title block.",
+  "description": "A technical drawing sheet with a title block.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "blueprint",
+    "technical",
+    "drawing",
+    "title-block"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--ink",
+      "description": "Line colour",
+      "default": "#bfdbfe"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Engineering and planning aesthetics. The title block in the lower-right corner is the detail that makes it read as a real drawing sheet.",
+  "path": "effects/paper-print/blueprint-sheet.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Blueprint Sheet</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"blueprint-sheet\",\n    \"title\": \"Blueprint Sheet\",\n    \"summary\": \"A technical drawing sheet with a title block.\",\n    \"description\": \"A technical drawing sheet with a title block.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"blueprint\", \"technical\", \"drawing\", \"title-block\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--ink\", \"description\": \"Line colour\", \"default\": \"#bfdbfe\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Engineering and planning aesthetics. The title block in the lower-right corner is the detail that makes it read as a real drawing sheet.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 270px; height: 180px; position: relative; background: #0a2540; color: #bfdbfe; font-family: ui-monospace, monospace;\n      background-image: linear-gradient(rgba(191,219,254,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(191,219,254,.16) 1px, transparent 1px);\n      background-size: 18px 18px; border: 2px solid #bfdbfe; }\n    .fx .block { position: absolute; right: 0; bottom: 0; padding: .4rem .6rem; border-top: 2px solid #bfdbfe;\n      border-left: 2px solid #bfdbfe; font-size: .65rem; line-height: 1.5; }\n    .fx .shape { position: absolute; top: 30px; left: 34px; width: 90px; height: 60px; border: 2px solid #bfdbfe; }\n    .fx .shape::after { content: \"\"; position: absolute; inset: 12px; border: 1px dashed rgba(191,219,254,.6); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"shape\"></div><div class=\"block\">DWG-0042<br>SCALE 1:20<br>REV C</div></div>\n</body>\n</html>\n"
+}

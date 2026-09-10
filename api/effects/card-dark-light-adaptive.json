@@ -1,0 +1,44 @@
+{
+  "id": "card-dark-light-adaptive",
+  "title": "Adaptive Card",
+  "summary": "One card that follows the user's colour scheme.",
+  "description": "One card that follows the user's colour scheme. Self-contained card markup you can drop into a grid.",
+  "theme": "cards-surfaces",
+  "themeTitle": "Cards & Surfaces",
+  "categories": [
+    "card",
+    "surface"
+  ],
+  "tags": [
+    "card",
+    "surface",
+    "dark-mode",
+    "light-dark",
+    "adaptive",
+    "theming"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+  "customization": [
+    {
+      "name": "--scheme",
+      "description": "Colour scheme",
+      "default": "light dark"
+    }
+  ],
+  "variations": [
+    "Adapt for a light theme",
+    "Add a media area at the top"
+  ],
+  "related": [],
+  "ai_usage": "Any component in a themed system. Declare color-scheme on the root and use light-dark() so a single declaration covers both themes without duplicated media queries.",
+  "path": "effects/cards-surfaces/card-dark-light-adaptive.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Adaptive Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-dark-light-adaptive\",\n    \"title\": \"Adaptive Card\",\n    \"summary\": \"One card that follows the user's colour scheme.\",\n    \"description\": \"One card that follows the user's colour scheme. Self-contained card markup you can drop into a grid.\",\n    \"theme\": \"cards-surfaces\",\n    \"categories\": [\"card\", \"surface\"],\n    \"tags\": [\"card\", \"surface\", \"dark-mode\", \"light-dark\", \"adaptive\", \"theming\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A clickable card needs one real link or button inside it; never attach a click handler to a bare div.\",\n    \"customization\": [\n      { \"name\": \"--scheme\", \"description\": \"Colour scheme\", \"default\": \"light dark\" }\n    ],\n    \"variations\": [\"Adapt for a light theme\", \"Add a media area at the top\"],\n    \"ai_usage\": \"Any component in a themed system. Declare color-scheme on the root and use light-dark() so a single declaration covers both themes without duplicated media queries.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }\n    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }\n    :root { color-scheme: light dark; }\n    .card { background: light-dark(#ffffff, #151b2a); color: light-dark(#0b0d12, #e7ebf3);\n      border: 1px solid light-dark(#e2e8f0, #263149); box-shadow: 0 10px 30px light-dark(rgba(15,23,42,.1), rgba(0,0,0,.45)); }\n    .card p { color: light-dark(#475569, #8b93a7); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <article class=\"card\"><h3>Adaptive Card</h3><p>One card that follows the user's colour scheme.</p></article>\n</body>\n</html>\n"
+}

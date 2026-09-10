@@ -1,0 +1,44 @@
+{
+  "id": "neumorphic-card-flat",
+  "title": "Soft Card",
+  "summary": "A gently extruded content card.",
+  "description": "A gently extruded content card.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass",
+    "surface"
+  ],
+  "tags": [
+    "glass",
+    "surface",
+    "neumorphism",
+    "card",
+    "extruded",
+    "soft"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+  "customization": [
+    {
+      "name": "--dist",
+      "description": "Shadow distance",
+      "default": "8px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Soft-UI surfaces. The card and its background must be the same colour — neumorphism is shadow-only, and any colour difference collapses the effect.",
+  "path": "effects/glass-neumorphism/neumorphic-card-flat.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Soft Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neumorphic-card-flat\",\n    \"title\": \"Soft Card\",\n    \"summary\": \"A gently extruded content card.\",\n    \"description\": \"A gently extruded content card.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\", \"surface\"],\n    \"tags\": [\"glass\", \"surface\", \"neumorphism\", \"card\", \"extruded\", \"soft\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.\",\n    \"customization\": [\n      { \"name\": \"--dist\", \"description\": \"Shadow distance\", \"default\": \"8px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Soft-UI surfaces. The card and its background must be the same colour — neumorphism is shadow-only, and any colour difference collapses the effect.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: #232a3a; }\n    .fx { width: 250px; padding: 1.4rem; border-radius: 20px; background: #232a3a; color: #e7ebf3;\n      box-shadow: 8px 8px 18px rgba(0,0,0,.5), -8px -8px 18px rgba(255,255,255,.045); }\n    .fx h3 { margin: 0 0 .35rem; font-size: 1rem; }\n    .fx p { margin: 0; color: #8b93a7; font-size: .85rem; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <article class=\"fx\"><h3>Soft surface</h3><p>Card and page share one colour; only the shadows differ.</p></article>\n</body>\n</html>\n"
+}

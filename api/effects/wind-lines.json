@@ -1,0 +1,44 @@
+{
+  "id": "wind-lines",
+  "title": "Wind Streaks",
+  "summary": "Curved streaks blowing across the frame.",
+  "description": "Curved streaks blowing across the frame.",
+  "theme": "weather-ambient",
+  "themeTitle": "Weather & Ambient",
+  "categories": [
+    "weather",
+    "ambient"
+  ],
+  "tags": [
+    "weather",
+    "ambient",
+    "wind",
+    "streaks",
+    "motion",
+    "speed"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Streak colour",
+      "default": "rgba(226,232,240,.6)"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Wind speed and motion cues. Fade both ends of each streak so they enter and leave without a hard edge.",
+  "path": "effects/weather-ambient/wind-lines.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Wind Streaks</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"wind-lines\",\n    \"title\": \"Wind Streaks\",\n    \"summary\": \"Curved streaks blowing across the frame.\",\n    \"description\": \"Curved streaks blowing across the frame.\",\n    \"theme\": \"weather-ambient\",\n    \"categories\": [\"weather\", \"ambient\"],\n    \"tags\": [\"weather\", \"ambient\", \"wind\", \"streaks\", \"motion\", \"speed\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Streak colour\", \"default\": \"rgba(226,232,240,.6)\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Wind speed and motion cues. Fade both ends of each streak so they enter and leave without a hard edge.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 260px; height: 150px; border-radius: 14px; overflow: hidden; background: #0f172a; }\n    .fx i { position: absolute; height: 2px; border-radius: 99px; background: linear-gradient(90deg, transparent, rgba(226,232,240,.6), transparent);\n      animation: blow var(--d) linear infinite; animation-delay: var(--dl); }\n    @keyframes blow { from { transform: translateX(-120%); } to { transform: translateX(320%); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"top:26%;left:0;width:70px;--d:2.4s;--dl:0s\"></i><i style=\"top:46%;left:0;width:110px;--d:3.1s;--dl:-.8s\"></i>\n  <i style=\"top:66%;left:0;width:56px;--d:2s;--dl:-1.4s\"></i></div>\n</body>\n</html>\n"
+}

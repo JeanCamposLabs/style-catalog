@@ -1,0 +1,44 @@
+{
+  "id": "cursor-spotlight-mask-reveal",
+  "title": "Cursor Spotlight",
+  "summary": "Content revealed only under the pointer.",
+  "description": "Content revealed only under the pointer.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "pointer"
+  ],
+  "tags": [
+    "cursor",
+    "pointer",
+    "spotlight",
+    "mask",
+    "reveal",
+    "pointer"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Spotlight radius",
+      "default": "90px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Playful reveals. Keep the dim base copy readable — hiding content entirely behind a pointer-only reveal makes it inaccessible on touch and to keyboard users.",
+  "path": "effects/cursors-pointers/cursor-spotlight-mask-reveal.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Cursor Spotlight</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-spotlight-mask-reveal\",\n    \"title\": \"Cursor Spotlight\",\n    \"summary\": \"Content revealed only under the pointer.\",\n    \"description\": \"Content revealed only under the pointer.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\"],\n    \"tags\": [\"cursor\", \"pointer\", \"spotlight\", \"mask\", \"reveal\", \"pointer\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Spotlight radius\", \"default\": \"90px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Playful reveals. Keep the dim base copy readable — hiding content entirely behind a pointer-only reveal makes it inaccessible on touch and to keyboard users.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 290px; height: 170px; border-radius: 14px; overflow: hidden; background: #0b0d12;\n      display: grid; place-items: center; cursor: none; }\n    .fx .txt { font-size: 1.4rem; font-weight: 900; color: #2b3450; }\n    .fx .lit { position: absolute; inset: 0; display: grid; place-items: center; font-size: 1.4rem; font-weight: 900; color: #2dd4bf;\n      -webkit-mask-image: radial-gradient(90px circle at var(--x, -100px) var(--y, -100px), #000 40%, transparent 70%);\n      mask-image: radial-gradient(90px circle at var(--x, -100px) var(--y, -100px), #000 40%, transparent 70%); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"cs\"><span class=\"txt\">FIND ME</span><span class=\"lit\">FIND ME</span></div>\n  <script>\n    (function () {\n      var el = document.getElementById(\"cs\"), lit = el.querySelector(\".lit\");\n      el.addEventListener(\"pointermove\", function (e) {\n        var r = el.getBoundingClientRect();\n        lit.style.setProperty(\"--x\", (e.clientX - r.left) + \"px\");\n        lit.style.setProperty(\"--y\", (e.clientY - r.top) + \"px\");\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

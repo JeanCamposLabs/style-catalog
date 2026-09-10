@@ -1,0 +1,49 @@
+{
+  "id": "timeline-branching-git",
+  "title": "Branch Graph",
+  "summary": "A commit graph with a branch and a merge.",
+  "description": "A commit graph with a branch and a merge.",
+  "theme": "timelines-steppers",
+  "themeTitle": "Timelines & Steppers",
+  "categories": [
+    "timeline",
+    "stepper"
+  ],
+  "tags": [
+    "timeline",
+    "sequence",
+    "git",
+    "branch",
+    "merge",
+    "graph"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+  "customization": [
+    {
+      "name": "--main",
+      "description": "Main branch",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--feat",
+      "description": "Feature branch",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Version-control UIs. Colour each branch consistently and never recolour it when branches are filtered — colour follows the entity, not its position in the list.",
+  "path": "effects/timelines-steppers/timeline-branching-git.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Branch Graph</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"timeline-branching-git\",\n    \"title\": \"Branch Graph\",\n    \"summary\": \"A commit graph with a branch and a merge.\",\n    \"description\": \"A commit graph with a branch and a merge.\",\n    \"theme\": \"timelines-steppers\",\n    \"categories\": [\"timeline\", \"stepper\"],\n    \"tags\": [\"timeline\", \"sequence\", \"git\", \"branch\", \"merge\", \"graph\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.\",\n    \"customization\": [\n      { \"name\": \"--main\", \"description\": \"Main branch\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--feat\", \"description\": \"Feature branch\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Version-control UIs. Colour each branch consistently and never recolour it when branches are filtered — colour follows the entity, not its position in the list.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 1rem; width: 280px; font-size: .82rem; }\n    .fx svg { width: 60px; flex: none; }\n    .fx .list { display: grid; gap: .95rem; padding-top: 2px; }\n    .fx .list div { color: #cbd5e1; }\n    .fx .list span { display: block; color: #8b93a7; font-size: .74rem; }\n    .fx circle { stroke: #0b0d12; stroke-width: 2; }\n    .fx path { fill: none; stroke-width: 2; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><svg viewBox=\"0 0 60 150\" aria-hidden=\"true\">\n    <path d=\"M14 10 L14 140\" stroke=\"#7c5cff\"/>\n    <path d=\"M14 44 C34 44 40 60 40 76 L40 96 C40 112 34 112 14 112\" stroke=\"#10a894\"/>\n    <circle cx=\"14\" cy=\"14\" r=\"6\" fill=\"#7c5cff\"/><circle cx=\"14\" cy=\"44\" r=\"6\" fill=\"#7c5cff\"/>\n    <circle cx=\"40\" cy=\"78\" r=\"6\" fill=\"#10a894\"/><circle cx=\"14\" cy=\"112\" r=\"6\" fill=\"#7c5cff\"/>\n    <circle cx=\"14\" cy=\"140\" r=\"6\" fill=\"#7c5cff\"/></svg>\n  <div class=\"list\"><div>Bump version<span>main</span></div><div>Branch off<span>main</span></div>\n  <div>Add specimens<span>feature</span></div><div>Merge PR #412<span>main</span></div><div>Deploy<span>main</span></div></div></div>\n</body>\n</html>\n"
+}

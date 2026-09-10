@@ -1,0 +1,43 @@
+{
+  "id": "bg-grid-perspective-floor",
+  "title": "Perspective Floor",
+  "summary": "A grid receding to a horizon.",
+  "description": "A grid receding to a horizon.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "surface"
+  ],
+  "tags": [
+    "background",
+    "grid",
+    "perspective",
+    "floor",
+    "retro"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Grid colour",
+      "default": "rgba(124,92,255,.5)"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Retro-futurist scenes. Oversize the grid layer well past the viewport so the vanishing point sits off-screen and no hard edge shows.",
+  "path": "effects/backgrounds/bg-grid-perspective-floor.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Perspective Floor</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bg-grid-perspective-floor\",\n    \"title\": \"Perspective Floor\",\n    \"summary\": \"A grid receding to a horizon.\",\n    \"description\": \"A grid receding to a horizon.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"surface\"],\n    \"tags\": [\"background\", \"grid\", \"perspective\", \"floor\", \"retro\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Grid colour\", \"default\": \"rgba(124,92,255,.5)\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Retro-futurist scenes. Oversize the grid layer well past the viewport so the vanishing point sits off-screen and no hard edge shows.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    .bg { background: linear-gradient(180deg, #0b0d12 0 55%, #120a26 55%); overflow: hidden; }\n    .bg i { position: absolute; left: -60%; right: -60%; bottom: 0; height: 45%;\n      background-image: repeating-linear-gradient(90deg, rgba(124,92,255,.5) 0 2px, transparent 2px 60px),\n        repeating-linear-gradient(0deg, rgba(124,92,255,.5) 0 2px, transparent 2px 60px);\n      transform: perspective(220px) rotateX(68deg); transform-origin: bottom; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"><i></i></div>\n</body>\n</html>\n"
+}

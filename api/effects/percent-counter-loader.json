@@ -1,0 +1,55 @@
+{
+  "id": "percent-counter-loader",
+  "title": "Percent Counter Ring",
+  "summary": "A ring that fills while a number counts up in step with it.",
+  "description": "A conic-gradient angle and a text counter are driven by one requestAnimationFrame loop, so the label can never drift from the arc.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "progress"
+  ],
+  "tags": [
+    "percent",
+    "counter",
+    "conic-gradient",
+    "javascript",
+    "progress"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Fill color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--track",
+      "description": "Track color",
+      "default": "#1c2333"
+    },
+    {
+      "name": "--size",
+      "description": "Ring diameter",
+      "default": "120px"
+    }
+  ],
+  "variations": [
+    "Ease the counter for a natural finish",
+    "Snap to real upload progress",
+    "Color shift as it approaches 100%"
+  ],
+  "related": [],
+  "ai_usage": "Use for determinate progress where the exact number matters (uploads, exports). Drive the arc by setting the --p custom property (0–100) and reading it in conic-gradient(var(--c) calc(var(--p) * 1%), var(--track) 0) — one variable keeps ring and label in sync.",
+  "path": "effects/loaders-spinners/percent-counter-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Percent Counter Ring</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"percent-counter-loader\",\n    \"title\": \"Percent Counter Ring\",\n    \"summary\": \"A ring that fills while a number counts up in step with it.\",\n    \"description\": \"A conic-gradient angle and a text counter are driven by one requestAnimationFrame loop, so the label can never drift from the arc.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"progress\"],\n    \"tags\": [\"percent\", \"counter\", \"conic-gradient\", \"javascript\", \"progress\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Fill color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--track\", \"description\": \"Track color\", \"default\": \"#1c2333\" },\n      { \"name\": \"--size\", \"description\": \"Ring diameter\", \"default\": \"120px\" }\n    ],\n    \"variations\": [\"Ease the counter for a natural finish\", \"Snap to real upload progress\", \"Color shift as it approaches 100%\"],\n    \"ai_usage\": \"Use for determinate progress where the exact number matters (uploads, exports). Drive the arc by setting the --p custom property (0–100) and reading it in conic-gradient(var(--c) calc(var(--p) * 1%), var(--track) 0) — one variable keeps ring and label in sync.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #7c5cff; --track: #1c2333; --size: 120px; }\n    .pc { --p: 0; width: var(--size); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;\n      background: conic-gradient(var(--c) calc(var(--p) * 1%), var(--track) 0); }\n    .pc::before { content: \"\"; position: absolute; width: calc(var(--size) - 22px); aspect-ratio: 1; border-radius: 50%; background: #0b0d12; }\n    .pc span { position: relative; font-variant-numeric: tabular-nums; font-size: 1.5rem; font-weight: 700; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"pc\" role=\"status\" aria-label=\"Loading\"><span>0%</span></div>\n  <script>\n    (function () {\n      var el = document.querySelector(\".pc\"), out = el.querySelector(\"span\"), p = 0;\n      setInterval(function () {\n        p = (p + 1) % 101;\n        el.style.setProperty(\"--p\", p);\n        out.textContent = p + \"%\";\n      }, 40);\n    })();\n  </script>\n</body>\n</html>\n"
+}

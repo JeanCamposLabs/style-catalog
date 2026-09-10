@@ -1,0 +1,49 @@
+{
+  "id": "char-cascade-in",
+  "title": "Character Cascade",
+  "summary": "Letters drop into place one after another with a slight overshoot.",
+  "description": "Each glyph animates from above with a spring curve and an index-based delay, so the line assembles rather than appearing at once.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "entrance"
+  ],
+  "tags": [
+    "cascade",
+    "stagger",
+    "entrance",
+    "drop",
+    "kinetic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Per-letter duration",
+      "default": "0.5s"
+    },
+    {
+      "name": "--step",
+      "description": "Stagger step",
+      "default": "0.05s"
+    }
+  ],
+  "variations": [
+    "Rise from below instead",
+    "Add a rotate for a tumbling drop",
+    "Reverse for an exit animation"
+  ],
+  "related": [],
+  "ai_usage": "Page and section entrances. Split text into spans at build time or with JS; keep total = duration + letters * step under ~1.2s or the headline feels slow. Give the wrapper aria-label and hide the spans.",
+  "path": "effects/text-effects/char-cascade-in.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Character Cascade</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"char-cascade-in\",\n    \"title\": \"Character Cascade\",\n    \"summary\": \"Letters drop into place one after another with a slight overshoot.\",\n    \"description\": \"Each glyph animates from above with a spring curve and an index-based delay, so the line assembles rather than appearing at once.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"entrance\"],\n    \"tags\": [\"cascade\", \"stagger\", \"entrance\", \"drop\", \"kinetic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Per-letter duration\", \"default\": \"0.5s\" },\n      { \"name\": \"--step\", \"description\": \"Stagger step\", \"default\": \"0.05s\" }\n    ],\n    \"variations\": [\"Rise from below instead\", \"Add a rotate for a tumbling drop\", \"Reverse for an exit animation\"],\n    \"ai_usage\": \"Page and section entrances. Split text into spans at build time or with JS; keep total = duration + letters * step under ~1.2s or the headline feels slow. Give the wrapper aria-label and hide the spans.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: .5s; --step: .05s; }\n    .casc { font-size: clamp(1.8rem, 7vw, 3.2rem); font-weight: 800; display: flex; }\n    .casc span { display: inline-block; opacity: 0; transform: translateY(-.6em);\n      animation: drop var(--dur) cubic-bezier(.34,1.56,.64,1) forwards; animation-delay: calc(var(--i) * var(--step)); }\n    @keyframes drop { to { opacity: 1; transform: none; } }\n    @media (prefers-reduced-motion: reduce) {\n      .casc span { animation: none; opacity: 1; transform: none; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"casc\" aria-label=\"Cascade\">\n    <span aria-hidden=\"true\" style=\"--i:0\">C</span><span aria-hidden=\"true\" style=\"--i:1\">a</span><span aria-hidden=\"true\" style=\"--i:2\">s</span><span aria-hidden=\"true\" style=\"--i:3\">c</span><span aria-hidden=\"true\" style=\"--i:4\">a</span><span aria-hidden=\"true\" style=\"--i:5\">d</span><span aria-hidden=\"true\" style=\"--i:6\">e</span>\n  </h1>\n</body>\n</html>\n"
+}

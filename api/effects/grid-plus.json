@@ -1,0 +1,50 @@
+{
+  "id": "grid-plus",
+  "title": "Plus Sign Grid",
+  "summary": "A field of small plus marks.",
+  "description": "A field of small plus marks. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "plus",
+    "crosses",
+    "grid",
+    "technical"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Mark colour",
+      "default": "rgba(148,163,184,.28)"
+    },
+    {
+      "name": "--s",
+      "description": "Grid pitch",
+      "default": "34px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Design-tool canvases and technical backdrops. The mask cuts the continuous grid lines into short crosses at each intersection.",
+  "path": "effects/patterns-textures/grid-plus.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Plus Sign Grid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"grid-plus\",\n    \"title\": \"Plus Sign Grid\",\n    \"summary\": \"A field of small plus marks.\",\n    \"description\": \"A field of small plus marks. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"plus\", \"crosses\", \"grid\", \"technical\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Mark colour\", \"default\": \"rgba(148,163,184,.28)\" },\n      { \"name\": \"--s\", \"description\": \"Grid pitch\", \"default\": \"34px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Design-tool canvases and technical backdrops. The mask cuts the continuous grid lines into short crosses at each intersection.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: rgba(148,163,184,.28); --s: 34px; }\n    .bg { background-color: #0b0d12;\n      background-image: linear-gradient(var(--c) 2px, transparent 2px), linear-gradient(90deg, var(--c) 2px, transparent 2px);\n      background-size: var(--s) var(--s); background-position: center;\n      -webkit-mask-image: repeating-linear-gradient(0deg, #000 0 8px, transparent 8px 34px), repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 34px);\n      mask-image: repeating-linear-gradient(0deg, #000 0 8px, transparent 8px 34px), repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 34px); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

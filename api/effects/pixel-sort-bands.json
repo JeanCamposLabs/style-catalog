@@ -1,0 +1,44 @@
+{
+  "id": "pixel-sort-bands",
+  "title": "Pixel Sort",
+  "summary": "Horizontal bands smeared into streaks.",
+  "description": "Horizontal bands smeared into streaks.",
+  "theme": "glitch-distortion",
+  "themeTitle": "Glitch & Distortion",
+  "categories": [
+    "glitch",
+    "distortion"
+  ],
+  "tags": [
+    "glitch",
+    "distortion",
+    "pixel-sort",
+    "smear",
+    "bands",
+    "art"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--band",
+      "description": "Band height",
+      "default": "6px"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Generative and glitch art. Stretching a masked copy horizontally is the cheapest convincing pixel-sort without canvas processing.",
+  "path": "effects/glitch-distortion/pixel-sort-bands.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Pixel Sort</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"pixel-sort-bands\",\n    \"title\": \"Pixel Sort\",\n    \"summary\": \"Horizontal bands smeared into streaks.\",\n    \"description\": \"Horizontal bands smeared into streaks.\",\n    \"theme\": \"glitch-distortion\",\n    \"categories\": [\"glitch\", \"distortion\"],\n    \"tags\": [\"glitch\", \"distortion\", \"pixel-sort\", \"smear\", \"bands\", \"art\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--band\", \"description\": \"Band height\", \"default\": \"6px\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Generative and glitch art. Stretching a masked copy horizontally is the cheapest convincing pixel-sort without canvas processing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 250px; height: 160px; border-radius: 10px; overflow: hidden;\n      background: conic-gradient(from 200deg at 30% 40%, #f472b6, #fbbf24, #22d3ee, #f472b6); }\n    .fx::after { content: \"\"; position: absolute; inset: 0; background: inherit; transform: scaleX(3); transform-origin: left;\n      -webkit-mask-image: repeating-linear-gradient(180deg, #000 0 6px, transparent 6px 26px);\n      mask-image: repeating-linear-gradient(180deg, #000 0 6px, transparent 6px 26px); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

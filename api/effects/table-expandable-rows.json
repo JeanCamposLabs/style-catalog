@@ -1,0 +1,44 @@
+{
+  "id": "table-expandable-rows",
+  "title": "Expandable Rows",
+  "summary": "Rows that reveal detail panels underneath.",
+  "description": "Rows that reveal detail panels underneath.",
+  "theme": "tables-data",
+  "themeTitle": "Tables & Data",
+  "categories": [
+    "table",
+    "data"
+  ],
+  "tags": [
+    "table",
+    "data",
+    "expandable",
+    "detail",
+    "accordion",
+    "row"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Detail background",
+      "default": "#10141f"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "Tables with secondary detail. Use aria-expanded on the row trigger and aria-controls pointing at the detail panel, so the relationship is exposed rather than implied by position.",
+  "path": "effects/tables-data/table-expandable-rows.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Expandable Rows</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"table-expandable-rows\",\n    \"title\": \"Expandable Rows\",\n    \"summary\": \"Rows that reveal detail panels underneath.\",\n    \"description\": \"Rows that reveal detail panels underneath.\",\n    \"theme\": \"tables-data\",\n    \"categories\": [\"table\", \"data\"],\n    \"tags\": [\"table\", \"data\", \"expandable\", \"detail\", \"accordion\", \"row\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Detail background\", \"default\": \"#10141f\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"Tables with secondary detail. Use aria-expanded on the row trigger and aria-controls pointing at the detail panel, so the relationship is exposed rather than implied by position.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; border-radius: 12px; overflow: hidden; border: 1px solid #263149; font-size: .82rem; }\n    .fx .r { display: flex; justify-content: space-between; align-items: center; padding: .6rem .8rem;\n      border-top: 1px solid #1e2740; color: #cbd5e1; cursor: pointer; }\n    .fx .r:first-child { border-top: 0; }\n    .fx .r .ch { color: #8b93a7; transition: transform .2s; }\n    .fx .r[aria-expanded=\"true\"] .ch { transform: rotate(90deg); }\n    .fx .d { display: none; padding: .7rem .9rem; background: #10141f; color: #8b93a7; font-size: .78rem; line-height: 1.5; }\n    .fx .r[aria-expanded=\"true\"] + .d { display: block; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"r\" role=\"button\" tabindex=\"0\" aria-expanded=\"true\"><span>ripple-button</span><span class=\"ch\">›</span></div>\n  <div class=\"d\">Buttons · CSS + JS · intermediate · 4 customization tokens.</div>\n  <div class=\"r\" role=\"button\" tabindex=\"0\" aria-expanded=\"false\"><span>aurora-background</span><span class=\"ch\">›</span></div>\n  <div class=\"d\">Backgrounds · CSS · beginner · 3 customization tokens.</div></div>\n</body>\n</html>\n"
+}

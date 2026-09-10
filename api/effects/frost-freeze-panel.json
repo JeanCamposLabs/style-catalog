@@ -1,0 +1,44 @@
+{
+  "id": "frost-freeze-panel",
+  "title": "Freezing Panel",
+  "summary": "Frost creeping across a surface.",
+  "description": "Frost creeping across a surface.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "frost",
+    "freeze",
+    "ice",
+    "creep"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Frost colour",
+      "default": "rgba(224,242,254,.5)"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Cold, locked, or frozen states. Reveal the frost with a clip-path wipe rather than fading it in — real frost spreads from an edge.",
+  "path": "effects/fire-water/frost-freeze-panel.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Freezing Panel</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"frost-freeze-panel\",\n    \"title\": \"Freezing Panel\",\n    \"summary\": \"Frost creeping across a surface.\",\n    \"description\": \"Frost creeping across a surface.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"frost\", \"freeze\", \"ice\", \"creep\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Frost colour\", \"default\": \"rgba(224,242,254,.5)\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Cold, locked, or frozen states. Reveal the frost with a clip-path wipe rather than fading it in — real frost spreads from an edge.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 240px; height: 150px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(160deg, #1e3a5f, #0c1a2b); }\n    .fx::after { content: \"\"; position: absolute; inset: 0;\n      background-image: radial-gradient(circle at 12% 20%, rgba(224,242,254,.5) 0 8%, transparent 9%),\n        radial-gradient(circle at 78% 30%, rgba(224,242,254,.4) 0 10%, transparent 11%),\n        radial-gradient(circle at 40% 76%, rgba(224,242,254,.45) 0 12%, transparent 13%);\n      clip-path: inset(0 100% 0 0); animation: creep 5s ease-in-out infinite alternate; }\n    @keyframes creep { to { clip-path: inset(0 0 0 0); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

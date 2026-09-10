@@ -1,0 +1,44 @@
+{
+  "id": "tooltip-truncated-text",
+  "title": "Truncation Tooltip",
+  "summary": "A hint that appears only when text is actually clipped.",
+  "description": "A hint that appears only when text is actually clipped.",
+  "theme": "tooltips-popovers",
+  "themeTitle": "Tooltips & Popovers",
+  "categories": [
+    "tooltip",
+    "overlay"
+  ],
+  "tags": [
+    "tooltip",
+    "popover",
+    "truncation",
+    "ellipsis",
+    "conditional",
+    "table"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.",
+  "customization": [
+    {
+      "name": "--w",
+      "description": "Column width",
+      "default": "240px"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Data tables. Compare scrollWidth to clientWidth and only set the title when the text overflows — an always-present tooltip that duplicates visible text is noise.",
+  "path": "effects/tooltips-popovers/tooltip-truncated-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Truncation Tooltip</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"tooltip-truncated-text\",\n    \"title\": \"Truncation Tooltip\",\n    \"summary\": \"A hint that appears only when text is actually clipped.\",\n    \"description\": \"A hint that appears only when text is actually clipped.\",\n    \"theme\": \"tooltips-popovers\",\n    \"categories\": [\"tooltip\", \"overlay\"],\n    \"tags\": [\"tooltip\", \"popover\", \"truncation\", \"ellipsis\", \"conditional\", \"table\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.\",\n    \"customization\": [\n      { \"name\": \"--w\", \"description\": \"Column width\", \"default\": \"240px\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Data tables. Compare scrollWidth to clientWidth and only set the title when the text overflows — an always-present tooltip that duplicates visible text is noise.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .row { width: 240px; }\n    .name { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: .55rem .8rem;\n      background: #151b2a; border: 1px solid #263149; border-radius: 10px; color: #e7ebf3; }\n    .hint { margin-top: .6rem; color: #8b93a7; font-size: .78rem; }\n  </style>\n</head>\n<body>\n  <div class=\"row\"><span class=\"name\" id=\"nm\">quarterly-financial-projection-2026-final-v7.xlsx</span>\n  <p class=\"hint\">The title attribute is added only when the text is clipped.</p></div>\n  <script>\n    (function () {\n      var el = document.getElementById(\"nm\");\n      if (el.scrollWidth > el.clientWidth) el.title = el.textContent;\n    })();\n  </script>\n</body>\n</html>\n"
+}

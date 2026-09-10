@@ -1,0 +1,44 @@
+{
+  "id": "droplet-splash",
+  "title": "Splash Crown",
+  "summary": "A droplet impact with a crown of secondary drops.",
+  "description": "A droplet impact with a crown of secondary drops.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "splash",
+    "droplet",
+    "impact",
+    "water"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Water colour",
+      "default": "#38bdf8"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Water impact moments. The crown rim and the flying droplets must peak at the same keyframe or the splash looks like two events.",
+  "path": "effects/fire-water/droplet-splash.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Splash Crown</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"droplet-splash\",\n    \"title\": \"Splash Crown\",\n    \"summary\": \"A droplet impact with a crown of secondary drops.\",\n    \"description\": \"A droplet impact with a crown of secondary drops.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"splash\", \"droplet\", \"impact\", \"water\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Water colour\", \"default\": \"#38bdf8\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Water impact moments. The crown rim and the flying droplets must peak at the same keyframe or the splash looks like two events.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 180px; height: 130px; display: grid; place-items: end center; }\n    .fx .pool { width: 150px; height: 10px; border-radius: 50%; background: #0ea5e9; }\n    .fx .crown { position: absolute; bottom: 8px; width: 60px; height: 30px; border: 3px solid #38bdf8; border-bottom: 0;\n      border-radius: 50% 50% 0 0 / 100% 100% 0 0; opacity: 0; animation: crown 2.2s ease-out infinite; }\n    .fx i { position: absolute; bottom: 30px; width: 7px; height: 7px; border-radius: 50%; background: #38bdf8; opacity: 0;\n      animation: spray 2.2s ease-out infinite; }\n    @keyframes crown { 0% { transform: scale(.4); opacity: 0; } 25% { transform: scale(1); opacity: 1; } 60%, 100% { opacity: 0; } }\n    @keyframes spray {\n      0%, 15% { transform: translate(0, 0); opacity: 0; }\n      25% { opacity: 1; }\n      70%, 100% { transform: translate(var(--dx), var(--dy)); opacity: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"left:38%;--dx:-22px;--dy:-30px\"></i><i style=\"left:50%;--dx:0;--dy:-40px\"></i>\n  <i style=\"left:62%;--dx:24px;--dy:-28px\"></i><span class=\"crown\"></span><span class=\"pool\"></span></div>\n</body>\n</html>\n"
+}

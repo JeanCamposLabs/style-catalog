@@ -1,0 +1,43 @@
+{
+  "id": "bg-blurred-orbs-slow",
+  "title": "Slow Orbs",
+  "summary": "Large blurred colour orbs drifting apart.",
+  "description": "Large blurred colour orbs drifting apart.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "surface"
+  ],
+  "tags": [
+    "background",
+    "orbs",
+    "blur",
+    "drift",
+    "ambient"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Drift period",
+      "default": "24s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Calm marketing backdrops. Use blur radii above 60px and durations above 20s; smaller, faster orbs read as a screensaver rather than atmosphere.",
+  "path": "effects/backgrounds/bg-blurred-orbs-slow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Slow Orbs</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bg-blurred-orbs-slow\",\n    \"title\": \"Slow Orbs\",\n    \"summary\": \"Large blurred colour orbs drifting apart.\",\n    \"description\": \"Large blurred colour orbs drifting apart.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"surface\"],\n    \"tags\": [\"background\", \"orbs\", \"blur\", \"drift\", \"ambient\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Drift period\", \"default\": \"24s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Calm marketing backdrops. Use blur radii above 60px and durations above 20s; smaller, faster orbs read as a screensaver rather than atmosphere.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    .bg { background: #06070d; overflow: hidden; }\n    .bg i { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .5;\n      animation: drift var(--d) ease-in-out infinite alternate; }\n    @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(18vw, -12vh) scale(1.3); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"><i style=\"width:46vmax;height:46vmax;left:-10%;top:-15%;background:#7c5cff;--d:24s\"></i>\n  <i style=\"width:38vmax;height:38vmax;right:-12%;top:20%;background:#10a894;--d:31s\"></i>\n  <i style=\"width:42vmax;height:42vmax;left:25%;bottom:-20%;background:#d1478c;--d:27s\"></i></div>\n</body>\n</html>\n"
+}

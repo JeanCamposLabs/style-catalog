@@ -1,0 +1,45 @@
+{
+  "id": "corduroy-ribs",
+  "title": "Corduroy",
+  "summary": "Soft vertical ribs with highlight and shade.",
+  "description": "Soft vertical ribs with highlight and shade. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "corduroy",
+    "ribs",
+    "fabric",
+    "material"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--s",
+      "description": "Rib pitch",
+      "default": "14px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Fabric and retro-interior themes. Each rib needs a highlight and a shadow band, otherwise it reads as flat stripes.",
+  "path": "effects/patterns-textures/corduroy-ribs.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Corduroy</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"corduroy-ribs\",\n    \"title\": \"Corduroy\",\n    \"summary\": \"Soft vertical ribs with highlight and shade.\",\n    \"description\": \"Soft vertical ribs with highlight and shade. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"corduroy\", \"ribs\", \"fabric\", \"material\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--s\", \"description\": \"Rib pitch\", \"default\": \"14px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Fabric and retro-interior themes. Each rib needs a highlight and a shadow band, otherwise it reads as flat stripes.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --s: 14px; }\n    .bg { background-color: #2a1f2e;\n      background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 2px, transparent 2px 4px, rgba(0,0,0,.25) 4px 6px, transparent 6px var(--s)); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

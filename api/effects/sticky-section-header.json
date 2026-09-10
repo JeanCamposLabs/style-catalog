@@ -1,0 +1,43 @@
+{
+  "id": "sticky-section-header",
+  "title": "Sticky Section Headers",
+  "summary": "Headers that pin while their section scrolls.",
+  "description": "Headers that pin while their section scrolls.",
+  "theme": "scroll-effects",
+  "themeTitle": "Scroll Effects",
+  "categories": [
+    "scroll",
+    "motion"
+  ],
+  "tags": [
+    "scroll",
+    "sticky",
+    "headers",
+    "sections",
+    "list"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+  "customization": [
+    {
+      "name": "--hd",
+      "description": "Header background",
+      "default": "#1c2437"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Long grouped lists. position:sticky needs the header inside the scrolling section, not before it — a common mistake that makes the header disappear at the section boundary.",
+  "path": "effects/scroll-effects/sticky-section-header.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sticky Section Headers</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"sticky-section-header\",\n    \"title\": \"Sticky Section Headers\",\n    \"summary\": \"Headers that pin while their section scrolls.\",\n    \"description\": \"Headers that pin while their section scrolls.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"motion\"],\n    \"tags\": [\"scroll\", \"sticky\", \"headers\", \"sections\", \"list\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.\",\n    \"customization\": [\n      { \"name\": \"--hd\", \"description\": \"Header background\", \"default\": \"#1c2437\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Long grouped lists. position:sticky needs the header inside the scrolling section, not before it — a common mistake that makes the header disappear at the section boundary.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { background: #0b0d12; }\n    h3 { position: sticky; top: 0; margin: 0; padding: .6rem 1rem; background: #1c2437; color: #e7ebf3;\n      font-size: .9rem; border-bottom: 1px solid #2b3450; }\n    ul { list-style: none; margin: 0; padding: 0; }\n    li { padding: .7rem 1rem; border-bottom: 1px solid #1a2130; color: #8b93a7; font-size: .88rem; }\n  </style>\n</head>\n<body>\n  <section><h3>Backgrounds</h3><ul><li>Aurora</li><li>Mesh gradient</li><li>Dot grid</li><li>Plasma field</li></ul></section>\n  <section><h3>Buttons</h3><ul><li>Ripple</li><li>Neon outline</li><li>Liquid fill</li><li>Keycap</li></ul></section>\n  <section><h3>Loaders</h3><ul><li>Conic ring</li><li>Comet</li><li>Hourglass</li><li>Pac-Man</li></ul></section>\n</body>\n</html>\n"
+}

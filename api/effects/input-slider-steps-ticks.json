@@ -1,0 +1,44 @@
+{
+  "id": "input-slider-steps-ticks",
+  "title": "Stepped Slider",
+  "summary": "A range with visible tick marks and labels.",
+  "description": "A range with visible tick marks and labels.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "form",
+    "input",
+    "slider",
+    "steps",
+    "ticks",
+    "range"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Discrete choices on a continuum. Use the step attribute plus a datalist so keyboard arrows move between the same values the ticks show.",
+  "path": "effects/forms-inputs/input-slider-steps-ticks.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stepped Slider</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"input-slider-steps-ticks\",\n    \"title\": \"Stepped Slider\",\n    \"summary\": \"A range with visible tick marks and labels.\",\n    \"description\": \"A range with visible tick marks and labels.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"form\", \"input\", \"slider\", \"steps\", \"ticks\", \"range\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Discrete choices on a continuum. Use the step attribute plus a datalist so keyboard arrows move between the same values the ticks show.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; }\n    .fx input { width: 100%; accent-color: #7c5cff; }\n    .fx .ticks { display: flex; justify-content: space-between; margin-top: .3rem; font-size: .7rem; color: #64748b; }\n    .fx .ticks span { flex: 1; text-align: center; }\n    .fx .ticks span:first-child { text-align: left; }\n    .fx .ticks span:last-child { text-align: right; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><label for=\"sl\" style=\"display:block;font-size:.8rem;color:#8b93a7;margin-bottom:.4rem\">Blur radius</label>\n  <input id=\"sl\" type=\"range\" min=\"0\" max=\"4\" step=\"1\" value=\"2\" list=\"marks\" />\n  <datalist id=\"marks\"><option value=\"0\"></option><option value=\"1\"></option><option value=\"2\"></option>\n  <option value=\"3\"></option><option value=\"4\"></option></datalist>\n  <div class=\"ticks\"><span>None</span><span>4px</span><span>8px</span><span>16px</span><span>32px</span></div></div>\n</body>\n</html>\n"
+}

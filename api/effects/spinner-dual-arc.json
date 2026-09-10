@@ -1,0 +1,49 @@
+{
+  "id": "spinner-dual-arc",
+  "title": "Dual Arc Spinner",
+  "summary": "Two arcs counter-rotating at different speeds.",
+  "description": "Two arcs counter-rotating at different speeds.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "loader",
+    "waiting",
+    "arcs",
+    "counter-rotate",
+    "rings",
+    "spinner"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Outer colour",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--b",
+      "description": "Inner colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Two rings at different speeds and directions read as more active than one; keep the durations non-multiples so they rarely align.",
+  "path": "effects/loaders-spinners/spinner-dual-arc.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dual Arc Spinner</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"spinner-dual-arc\",\n    \"title\": \"Dual Arc Spinner\",\n    \"summary\": \"Two arcs counter-rotating at different speeds.\",\n    \"description\": \"Two arcs counter-rotating at different speeds.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"loader\", \"waiting\", \"arcs\", \"counter-rotate\", \"rings\", \"spinner\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Outer colour\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--b\", \"description\": \"Inner colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Two rings at different speeds and directions read as more active than one; keep the durations non-multiples so they rarely align.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 72px; aspect-ratio: 1; }\n    .fx i { position: absolute; inset: 0; border-radius: 50%; border: 4px solid transparent; }\n    .fx i:nth-child(1) { border-top-color: #7c5cff; border-right-color: #7c5cff; animation: spin 1.1s linear infinite; }\n    .fx i:nth-child(2) { inset: 12px; border-bottom-color: #2dd4bf; border-left-color: #2dd4bf;\n      animation: spin 1.6s linear infinite reverse; }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"status\" aria-label=\"Loading\"><i></i><i></i></div>\n</body>\n</html>\n"
+}

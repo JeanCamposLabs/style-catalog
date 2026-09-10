@@ -1,0 +1,44 @@
+{
+  "id": "door-open-reveal",
+  "title": "Opening Doors",
+  "summary": "Two panels swinging open to reveal content.",
+  "description": "Two panels swinging open to reveal content.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "transform"
+  ],
+  "tags": [
+    "3d",
+    "transform",
+    "doors",
+    "reveal",
+    "hover",
+    "open"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Open duration",
+      "default": "0.6s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Reveal interactions. Each panel hinges on its outer edge; a shared origin makes the doors slide rather than swing.",
+  "path": "effects/3d-transforms/door-open-reveal.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Opening Doors</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"door-open-reveal\",\n    \"title\": \"Opening Doors\",\n    \"summary\": \"Two panels swinging open to reveal content.\",\n    \"description\": \"Two panels swinging open to reveal content.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"transform\"],\n    \"tags\": [\"3d\", \"transform\", \"doors\", \"reveal\", \"hover\", \"open\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Open duration\", \"default\": \"0.6s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Reveal interactions. Each panel hinges on its outer edge; a shared origin makes the doors slide rather than swing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 250px; height: 160px; perspective: 800px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(150deg, #7c5cff, #2dd4bf); display: grid; place-items: center; color: #0b0d12; font-weight: 900; }\n    .fx .dr { position: absolute; top: 0; bottom: 0; width: 50%; background: #1c2437; border: 1px solid #2b3450;\n      transition: transform .6s cubic-bezier(.7,0,.2,1); }\n    .fx .l { left: 0; transform-origin: left; }\n    .fx .r { right: 0; transform-origin: right; }\n    .fx:hover .l { transform: rotateY(-115deg); }\n    .fx:hover .r { transform: rotateY(115deg); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span>REVEALED</span><span class=\"dr l\"></span><span class=\"dr r\"></span></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "bg-vignette-spotlight-combo",
+  "title": "Stage Light",
+  "summary": "A centred pool with a heavy vignette.",
+  "description": "A centred pool with a heavy vignette.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "surface"
+  ],
+  "tags": [
+    "background",
+    "vignette",
+    "stage",
+    "focus",
+    "theatrical"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--str",
+      "description": "Vignette strength",
+      "default": "0.9"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Product shots and hero focus. Combining a light pool with an inset vignette directs the eye far more strongly than either alone.",
+  "path": "effects/backgrounds/bg-vignette-spotlight-combo.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stage Light</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bg-vignette-spotlight-combo\",\n    \"title\": \"Stage Light\",\n    \"summary\": \"A centred pool with a heavy vignette.\",\n    \"description\": \"A centred pool with a heavy vignette.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"surface\"],\n    \"tags\": [\"background\", \"vignette\", \"stage\", \"focus\", \"theatrical\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--str\", \"description\": \"Vignette strength\", \"default\": \"0.9\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Product shots and hero focus. Combining a light pool with an inset vignette directs the eye far more strongly than either alone.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    .bg { background: radial-gradient(ellipse 70% 55% at 50% 40%, #1c2437 0%, #0b0d12 60%);\n      box-shadow: inset 0 0 200px rgba(0,0,0,.9); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

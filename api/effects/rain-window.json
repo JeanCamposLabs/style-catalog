@@ -1,0 +1,44 @@
+{
+  "id": "rain-window",
+  "title": "Rain on Glass",
+  "summary": "Droplets clinging to a window with occasional runs.",
+  "description": "Droplets clinging to a window with occasional runs.",
+  "theme": "weather-ambient",
+  "themeTitle": "Weather & Ambient",
+  "categories": [
+    "weather",
+    "ambient"
+  ],
+  "tags": [
+    "weather",
+    "ambient",
+    "rain",
+    "droplets",
+    "glass",
+    "window"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Droplet tint",
+      "default": "rgba(148,163,184,.25)"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Weather widgets and moody scenes. Vary droplet size and speed together — big drops must fall faster or the physics reads wrong.",
+  "path": "effects/weather-ambient/rain-window.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rain on Glass</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"rain-window\",\n    \"title\": \"Rain on Glass\",\n    \"summary\": \"Droplets clinging to a window with occasional runs.\",\n    \"description\": \"Droplets clinging to a window with occasional runs.\",\n    \"theme\": \"weather-ambient\",\n    \"categories\": [\"weather\", \"ambient\"],\n    \"tags\": [\"weather\", \"ambient\", \"rain\", \"droplets\", \"glass\", \"window\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Droplet tint\", \"default\": \"rgba(148,163,184,.25)\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Weather widgets and moody scenes. Vary droplet size and speed together — big drops must fall faster or the physics reads wrong.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 250px; height: 170px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(160deg, #1e293b, #0f172a); }\n    .fx i { position: absolute; width: var(--w); height: var(--w); border-radius: 50%;\n      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.7), rgba(148,163,184,.25));\n      animation: run var(--d) linear infinite; animation-delay: var(--dl); }\n    @keyframes run { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(180px); opacity: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"left:14%;top:-10px;--w:9px;--d:3s;--dl:0s\"></i><i style=\"left:34%;top:-10px;--w:6px;--d:4.2s;--dl:-1s\"></i>\n  <i style=\"left:58%;top:-10px;--w:12px;--d:2.4s;--dl:-2s\"></i><i style=\"left:78%;top:-10px;--w:7px;--d:3.6s;--dl:-.6s\"></i></div>\n</body>\n</html>\n"
+}

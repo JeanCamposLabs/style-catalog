@@ -1,0 +1,49 @@
+{
+  "id": "outline-offset-focus",
+  "title": "Focus Ring Showcase",
+  "summary": "Three focus-ring treatments compared side by side, keyboard-only.",
+  "description": "A reference for :focus-visible: an offset outline, a double ring for any background, and an inset ring for tight layouts.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "reference"
+  ],
+  "tags": [
+    "focus",
+    "accessibility",
+    "focus-visible",
+    "outline",
+    "reference"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "All three rings meet the 3:1 non-text contrast requirement against both the button and the page, and appear only for keyboard users via :focus-visible.",
+  "customization": [
+    {
+      "name": "--ring",
+      "description": "Ring color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--off",
+      "description": "Ring offset",
+      "default": "3px"
+    }
+  ],
+  "variations": [
+    "High-contrast mode variant",
+    "Animated ring on focus",
+    "Ring that follows the roving tabindex in a toolbar"
+  ],
+  "related": [],
+  "ai_usage": "Copy this as your focus-ring baseline. Never remove the outline without a replacement; the double-ring pattern (dark inner + light outer) is the only one that survives on unknown backgrounds. Tab through the demo to see them.",
+  "path": "effects/buttons/outline-offset-focus.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Focus Ring Showcase</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"outline-offset-focus\",\n    \"title\": \"Focus Ring Showcase\",\n    \"summary\": \"Three focus-ring treatments compared side by side, keyboard-only.\",\n    \"description\": \"A reference for :focus-visible: an offset outline, a double ring for any background, and an inset ring for tight layouts.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"reference\"],\n    \"tags\": [\"focus\", \"accessibility\", \"focus-visible\", \"outline\", \"reference\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"All three rings meet the 3:1 non-text contrast requirement against both the button and the page, and appear only for keyboard users via :focus-visible.\",\n    \"customization\": [\n      { \"name\": \"--ring\", \"description\": \"Ring color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--off\", \"description\": \"Ring offset\", \"default\": \"3px\" }\n    ],\n    \"variations\": [\"High-contrast mode variant\", \"Animated ring on focus\", \"Ring that follows the roving tabindex in a toolbar\"],\n    \"ai_usage\": \"Copy this as your focus-ring baseline. Never remove the outline without a replacement; the double-ring pattern (dark inner + light outer) is the only one that survives on unknown backgrounds. Tab through the demo to see them.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --ring: #7c5cff; --off: 3px; }\n    .row { display: flex; gap: .8rem; }\n    .row button { padding: .8rem 1.4rem; border-radius: 10px; background: #151b2a; border: 1px solid #263149; color: #e7ebf3; font-weight: 600; }\n    .f1:focus-visible { outline: 2px solid var(--ring); outline-offset: var(--off); }\n    .f2:focus-visible { outline: 2px solid #0b0d12; outline-offset: 0; box-shadow: 0 0 0 4px var(--ring); }\n    .f3:focus-visible { outline: 2px solid var(--ring); outline-offset: -4px; }\n    .hint { margin-top: 1rem; color: #8b93a7; font-size: .85rem; text-align: center; }\n  </style>\n</head>\n<body>\n  <div>\n    <div class=\"row\">\n      <button class=\"f1\" type=\"button\">Offset ring</button>\n      <button class=\"f2\" type=\"button\">Double ring</button>\n      <button class=\"f3\" type=\"button\">Inset ring</button>\n    </div>\n    <p class=\"hint\">Press Tab to see the rings — they appear for keyboard focus only.</p>\n  </div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "stepper-horizontal-numbered",
+  "title": "Numbered Stepper",
+  "summary": "Steps with numbers, ticks, and a connecting rail.",
+  "description": "Steps with numbers, ticks, and a connecting rail.",
+  "theme": "timelines-steppers",
+  "themeTitle": "Timelines & Steppers",
+  "categories": [
+    "timeline",
+    "stepper"
+  ],
+  "tags": [
+    "timeline",
+    "sequence",
+    "stepper",
+    "numbered",
+    "progress",
+    "wizard"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Multi-step forms. Completed steps show a tick, not just a colour; the active step carries aria-current=step so its position is announced.",
+  "path": "effects/timelines-steppers/stepper-horizontal-numbered.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Numbered Stepper</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"stepper-horizontal-numbered\",\n    \"title\": \"Numbered Stepper\",\n    \"summary\": \"Steps with numbers, ticks, and a connecting rail.\",\n    \"description\": \"Steps with numbers, ticks, and a connecting rail.\",\n    \"theme\": \"timelines-steppers\",\n    \"categories\": [\"timeline\", \"stepper\"],\n    \"tags\": [\"timeline\", \"sequence\", \"stepper\", \"numbered\", \"progress\", \"wizard\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Multi-step forms. Completed steps show a tick, not just a colour; the active step carries aria-current=step so its position is announced.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; align-items: flex-start; width: 300px; }\n    .st { flex: 1; display: grid; justify-items: center; gap: .4rem; text-align: center; font-size: .72rem; color: #8b93a7; }\n    .st .d { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 800;\n      background: #1c2437; border: 2px solid #2b3450; }\n    .st.done .d { background: #10a894; border-color: #10a894; color: #04241f; }\n    .st.now .d { border-color: #7c5cff; color: #b9a5ff; }\n    .st.now { color: #e7ebf3; }\n    .ln { flex: 0 0 auto; width: 28px; height: 2px; background: #2b3450; margin-top: 14px; }\n    .ln.done { background: #10a894; }\n  </style>\n</head>\n<body>\n  <ol class=\"fx\" style=\"list-style:none;margin:0;padding:0\"><li class=\"st done\"><span class=\"d\">✓</span>Account</li>\n  <li class=\"ln done\" aria-hidden=\"true\"></li><li class=\"st done\"><span class=\"d\">✓</span>Profile</li>\n  <li class=\"ln\" aria-hidden=\"true\"></li><li class=\"st now\" aria-current=\"step\"><span class=\"d\">3</span>Billing</li>\n  <li class=\"ln\" aria-hidden=\"true\"></li><li class=\"st\"><span class=\"d\">4</span>Done</li></ol>\n</body>\n</html>\n"
+}

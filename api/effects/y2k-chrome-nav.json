@@ -1,0 +1,44 @@
+{
+  "id": "y2k-chrome-nav",
+  "title": "Chrome Nav Bar",
+  "summary": "A metallic navigation bar with bevelled tabs.",
+  "description": "A metallic navigation bar with bevelled tabs.",
+  "theme": "brutalism-y2k",
+  "themeTitle": "Brutalism & Y2K",
+  "categories": [
+    "brutalism",
+    "y2k"
+  ],
+  "tags": [
+    "brutalism",
+    "raw",
+    "chrome",
+    "nav",
+    "bevel",
+    "metal"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Metal tone",
+      "default": "#94a3b8"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Y2K and skeuomorphic revivals. Every element gets a light-to-dark vertical gradient plus a 1px white inset — that pairing is the whole look.",
+  "path": "effects/brutalism-y2k/y2k-chrome-nav.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Chrome Nav Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"y2k-chrome-nav\",\n    \"title\": \"Chrome Nav Bar\",\n    \"summary\": \"A metallic navigation bar with bevelled tabs.\",\n    \"description\": \"A metallic navigation bar with bevelled tabs.\",\n    \"theme\": \"brutalism-y2k\",\n    \"categories\": [\"brutalism\", \"y2k\"],\n    \"tags\": [\"brutalism\", \"raw\", \"chrome\", \"nav\", \"bevel\", \"metal\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Metal tone\", \"default\": \"#94a3b8\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Y2K and skeuomorphic revivals. Every element gets a light-to-dark vertical gradient plus a 1px white inset — that pairing is the whole look.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 3px; padding: 5px; border-radius: 10px;\n      background: linear-gradient(180deg, #f8fafc, #94a3b8); box-shadow: inset 0 1px 0 #fff, 0 6px 16px rgba(0,0,0,.4); }\n    .fx a { padding: .5rem 1rem; border-radius: 7px; color: #1e293b; text-decoration: none; font-weight: 700; font-size: .85rem;\n      background: linear-gradient(180deg, #fff, #cbd5e1); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,.3); }\n    .fx a:hover { background: linear-gradient(180deg, #e0f2fe, #7dd3fc); }\n  </style>\n</head>\n<body>\n  <nav class=\"fx\"><a href=\"#\">Home</a><a href=\"#\">Gallery</a><a href=\"#\">Guestbook</a></nav>\n</body>\n</html>\n"
+}

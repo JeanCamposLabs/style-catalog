@@ -1,0 +1,49 @@
+{
+  "id": "dot-wave-bg",
+  "title": "Dot Wave Field",
+  "summary": "A grid of dots whose scale ripples outward in a wave.",
+  "description": "Per-dot delays computed from distance to the centre make the ripple radiate instead of sweeping in rows.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "grid"
+  ],
+  "tags": [
+    "dots",
+    "wave",
+    "ripple",
+    "grid",
+    "kinetic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Roughly 100 small elements animating transform only — fine, but do not scale this to thousands of dots.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Dot color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Ripple period",
+      "default": "2.6s"
+    }
+  ],
+  "variations": [
+    "Opacity ripple instead of scale",
+    "Follow the pointer with JS",
+    "Colour shift along the wave"
+  ],
+  "related": [],
+  "ai_usage": "Interactive hero sections and data-flavoured backdrops. Compute the delay from the dot's distance to the wave origin — a linear index delay produces a diagonal sweep, not a circular ripple.",
+  "path": "effects/backgrounds/dot-wave-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dot Wave Field</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dot-wave-bg\",\n    \"title\": \"Dot Wave Field\",\n    \"summary\": \"A grid of dots whose scale ripples outward in a wave.\",\n    \"description\": \"Per-dot delays computed from distance to the centre make the ripple radiate instead of sweeping in rows.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"grid\"],\n    \"tags\": [\"dots\", \"wave\", \"ripple\", \"grid\", \"kinetic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Roughly 100 small elements animating transform only — fine, but do not scale this to thousands of dots.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Dot color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Ripple period\", \"default\": \"2.6s\" }\n    ],\n    \"variations\": [\"Opacity ripple instead of scale\", \"Follow the pointer with JS\", \"Colour shift along the wave\"],\n    \"ai_usage\": \"Interactive hero sections and data-flavoured backdrops. Compute the delay from the dot's distance to the wave origin — a linear index delay produces a diagonal sweep, not a circular ripple.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: #7c5cff; --dur: 2.6s; }\n    .bg { background: #0b0d12; display: grid; place-items: center; }\n    .field { display: grid; grid-template-columns: repeat(12, 26px); gap: 0; }\n    .field i { width: 26px; height: 26px; display: grid; place-items: center; }\n    .field i::before { content: \"\"; width: 6px; height: 6px; border-radius: 50%; background: var(--c);\n      animation: pulse var(--dur) ease-in-out infinite; animation-delay: calc(var(--d) * .08s); }\n    @keyframes pulse { 0%, 100% { transform: scale(.5); opacity: .3; } 50% { transform: scale(1.6); opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"><div class=\"field\" id=\"f\" aria-hidden=\"true\"></div></div>\n  <script>\n    (function () {\n      var f = document.getElementById(\"f\"), cols = 12, rows = 8;\n      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {\n        var i = document.createElement(\"i\");\n        var d = Math.sqrt(Math.pow(c - cols / 2, 2) + Math.pow(r - rows / 2, 2));\n        i.style.setProperty(\"--d\", d.toFixed(2));\n        f.appendChild(i);\n      }\n    })();\n  </script>\n</body>\n</html>\n"
+}

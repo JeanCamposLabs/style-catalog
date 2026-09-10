@@ -1,0 +1,44 @@
+{
+  "id": "postage-stamp",
+  "title": "Postage Stamp",
+  "summary": "A perforated stamp with a printed frame.",
+  "description": "A perforated stamp with a printed frame.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "stamp",
+    "perforation",
+    "postal",
+    "vintage"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--paper",
+      "description": "Stamp colour",
+      "default": "#fef3c7"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Postal and collectible motifs. Two circular masks composited with intersect punch both edges from a single element.",
+  "path": "effects/paper-print/postage-stamp.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Postage Stamp</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"postage-stamp\",\n    \"title\": \"Postage Stamp\",\n    \"summary\": \"A perforated stamp with a printed frame.\",\n    \"description\": \"A perforated stamp with a printed frame.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"stamp\", \"perforation\", \"postal\", \"vintage\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--paper\", \"description\": \"Stamp colour\", \"default\": \"#fef3c7\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Postal and collectible motifs. Two circular masks composited with intersect punch both edges from a single element.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 150px; height: 180px; padding: 10px; background: #fef3c7;\n      -webkit-mask-image: radial-gradient(circle 5px at 0 50%, transparent 5px, #000 6px), radial-gradient(circle 5px at 50% 0, transparent 5px, #000 6px);\n      mask-image: radial-gradient(circle 5px at 0 50%, transparent 5px, #000 6px), radial-gradient(circle 5px at 50% 0, transparent 5px, #000 6px);\n      -webkit-mask-size: 14px 14px; mask-size: 14px 14px; -webkit-mask-composite: source-in; mask-composite: intersect; }\n    .fx .inner { height: 100%; border: 1px solid #92400e; display: grid; place-items: center; gap: .3rem;\n      color: #92400e; font-family: Georgia, serif; text-align: center; }\n    .fx .val { font-size: 1.6rem; font-weight: 700; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"inner\"><div class=\"val\">42¢</div><div>AIRMAIL</div></div></div>\n</body>\n</html>\n"
+}

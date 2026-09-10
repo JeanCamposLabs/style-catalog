@@ -1,0 +1,45 @@
+{
+  "id": "particle-field-canvas",
+  "title": "Particle Field",
+  "summary": "Drifting points connected when they come close.",
+  "description": "Drifting points connected when they come close.",
+  "theme": "particles-physics",
+  "themeTitle": "Particles & Physics",
+  "categories": [
+    "particles",
+    "physics"
+  ],
+  "tags": [
+    "particles",
+    "motion",
+    "canvas",
+    "network",
+    "connections",
+    "field"
+  ],
+  "tech": [
+    "js",
+    "canvas"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+  "customization": [
+    {
+      "name": "--n",
+      "description": "Particle count",
+      "default": "44"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Hero backdrops. Cap the particle count (40–80) and only test pairs within a radius; the naive all-pairs loop is what makes these effects melt laptops.",
+  "path": "effects/particles-physics/particle-field-canvas.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Particle Field</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"particle-field-canvas\",\n    \"title\": \"Particle Field\",\n    \"summary\": \"Drifting points connected when they come close.\",\n    \"description\": \"Drifting points connected when they come close.\",\n    \"theme\": \"particles-physics\",\n    \"categories\": [\"particles\", \"physics\"],\n    \"tags\": [\"particles\", \"motion\", \"canvas\", \"network\", \"connections\", \"field\"],\n    \"tech\": [\"js\", \"canvas\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--n\", \"description\": \"Particle count\", \"default\": \"44\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Hero backdrops. Cap the particle count (40–80) and only test pairs within a radius; the naive all-pairs loop is what makes these effects melt laptops.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; height: 190px; border-radius: 14px; overflow: hidden; background: #06080f; }\n    canvas { display: block; width: 100%; height: 100%; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><canvas id=\"pf\"></canvas></div>\n  <script>\n    (function () {\n      var c = document.getElementById(\"pf\"), x = c.getContext(\"2d\"), ps = [];\n      var reduce = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n      function fit() { c.width = c.offsetWidth; c.height = c.offsetHeight; }\n      fit(); addEventListener(\"resize\", fit);\n      for (var i = 0; i < 44; i++) ps.push({\n        x: Math.random() * c.width, y: Math.random() * c.height,\n        vx: (Math.random() - .5) * .5, vy: (Math.random() - .5) * .5\n      });\n      function frame() {\n        x.clearRect(0, 0, c.width, c.height);\n        for (var i = 0; i < ps.length; i++) {\n          var p = ps[i];\n          p.x += p.vx; p.y += p.vy;\n          if (p.x < 0 || p.x > c.width) p.vx *= -1;\n          if (p.y < 0 || p.y > c.height) p.vy *= -1;\n          x.fillStyle = \"#7c5cff\"; x.beginPath(); x.arc(p.x, p.y, 1.8, 0, 6.283); x.fill();\n          for (var j = i + 1; j < ps.length; j++) {\n            var q = ps[j], d = Math.hypot(p.x - q.x, p.y - q.y);\n            if (d < 62) {\n              x.strokeStyle = \"rgba(124,92,255,\" + (1 - d / 62) * .5 + \")\";\n              x.beginPath(); x.moveTo(p.x, p.y); x.lineTo(q.x, q.y); x.stroke();\n            }\n          }\n        }\n        if (!reduce) requestAnimationFrame(frame);\n      }\n      frame();\n    })();\n  </script>\n</body>\n</html>\n"
+}

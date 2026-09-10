@@ -1,0 +1,43 @@
+{
+  "id": "reveal-on-scroll-mask",
+  "title": "Scroll Mask Reveal",
+  "summary": "Text uncovered by a mask as it enters view.",
+  "description": "Text uncovered by a mask as it enters view.",
+  "theme": "scroll-effects",
+  "themeTitle": "Scroll Effects",
+  "categories": [
+    "scroll",
+    "motion"
+  ],
+  "tags": [
+    "scroll",
+    "mask",
+    "reveal",
+    "scroll",
+    "text"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+  "customization": [
+    {
+      "name": "--p",
+      "description": "Reveal percentage",
+      "default": "0%"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Editorial headlines. Mask to a low alpha rather than to transparent so the text stays legible before it is revealed — never gate readability behind scrolling.",
+  "path": "effects/scroll-effects/reveal-on-scroll-mask.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scroll Mask Reveal</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"reveal-on-scroll-mask\",\n    \"title\": \"Scroll Mask Reveal\",\n    \"summary\": \"Text uncovered by a mask as it enters view.\",\n    \"description\": \"Text uncovered by a mask as it enters view.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"motion\"],\n    \"tags\": [\"scroll\", \"mask\", \"reveal\", \"scroll\", \"text\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.\",\n    \"customization\": [\n      { \"name\": \"--p\", \"description\": \"Reveal percentage\", \"default\": \"0%\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Editorial headlines. Mask to a low alpha rather than to transparent so the text stays legible before it is revealed — never gate readability behind scrolling.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { min-height: 220vh; }\n    .wrap { padding: 45vh 1.5rem; }\n    h2 { font-size: clamp(1.6rem, 6vw, 2.6rem); font-weight: 900; max-width: 16ch; line-height: 1.15;\n      -webkit-mask-image: linear-gradient(90deg, #000 0 var(--p, 0%), rgba(0,0,0,.15) var(--p, 0%));\n      mask-image: linear-gradient(90deg, #000 0 var(--p, 0%), rgba(0,0,0,.15) var(--p, 0%)); }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\"><h2 id=\"ht\">Every specimen in this catalogue runs offline, with no dependencies.</h2></div>\n  <script>\n    (function () {\n      var h = document.getElementById(\"ht\");\n      function upd() {\n        var r = h.getBoundingClientRect();\n        var p = Math.min(Math.max((innerHeight - r.top) / (innerHeight * .8), 0), 1);\n        h.style.setProperty(\"--p\", (p * 100).toFixed(1) + \"%\");\n      }\n      if (matchMedia(\"(prefers-reduced-motion: reduce)\").matches) { h.style.setProperty(\"--p\", \"100%\"); return; }\n      addEventListener(\"scroll\", upd, { passive: true }); upd();\n    })();\n  </script>\n</body>\n</html>\n"
+}

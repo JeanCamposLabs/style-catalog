@@ -1,0 +1,48 @@
+{
+  "id": "tilt-settle",
+  "title": "Tilt Settle",
+  "summary": "The card tips forward and settles flat.",
+  "description": "The card tips forward and settles flat. Applied once on load with animation-fill-mode: both so the element holds its final state.",
+  "theme": "transitions-animations",
+  "themeTitle": "Transitions & Animations",
+  "categories": [
+    "animation",
+    "entrance"
+  ],
+  "tags": [
+    "entrance",
+    "reveal",
+    "3d",
+    "tilt",
+    "settle"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Animation duration",
+      "default": ".7s"
+    },
+    {
+      "name": "--ease",
+      "description": "Timing function",
+      "default": "cubic-bezier(.2,.8,.3,1)"
+    }
+  ],
+  "variations": [
+    "Stagger across a list with animation-delay",
+    "Play on scroll with IntersectionObserver"
+  ],
+  "related": [],
+  "ai_usage": "Dashboard cards and screenshots. Keep the starting angle modest (20–30°) so the text stays legible during the animation.",
+  "path": "effects/transitions-animations/tilt-settle.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tilt Settle</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"tilt-settle\",\n    \"title\": \"Tilt Settle\",\n    \"summary\": \"The card tips forward and settles flat.\",\n    \"description\": \"The card tips forward and settles flat. Applied once on load with animation-fill-mode: both so the element holds its final state.\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"entrance\"],\n    \"tags\": [\"entrance\", \"reveal\", \"3d\", \"tilt\", \"settle\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Animation duration\", \"default\": \".7s\" },\n      { \"name\": \"--ease\", \"description\": \"Timing function\", \"default\": \"cubic-bezier(.2,.8,.3,1)\" }\n    ],\n    \"variations\": [\"Stagger across a list with animation-delay\", \"Play on scroll with IntersectionObserver\"],\n    \"ai_usage\": \"Dashboard cards and screenshots. Keep the starting angle modest (20–30°) so the text stays legible during the animation.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: .7s; --ease: cubic-bezier(.2,.8,.3,1); }\n    .card { width: 230px; padding: 1.5rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149;\n      animation: tilt-settle var(--dur) var(--ease) both infinite alternate; }\n    .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    @keyframes tilt-settle {\n      0% { opacity: 0; transform: perspective(800px) rotateX(24deg) translateY(30px); }\n      100% { opacity: 1; transform: perspective(800px) rotateX(0) translateY(0); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      .card { animation: none; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\"><h3>Tilt Settle</h3><p>The card tips forward and settles flat.</p></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "weather-card-set",
+  "title": "Weather Card",
+  "summary": "A forecast card with an animated condition icon.",
+  "description": "A forecast card with an animated condition icon.",
+  "theme": "weather-ambient",
+  "themeTitle": "Weather & Ambient",
+  "categories": [
+    "weather",
+    "ambient"
+  ],
+  "tags": [
+    "weather",
+    "ambient",
+    "weather",
+    "card",
+    "forecast",
+    "widget"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Card gradient start",
+      "default": "#1d4ed8"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Weather widgets. Encode the condition in text as well as the icon — an emoji or glyph alone is not a reliable label.",
+  "path": "effects/weather-ambient/weather-card-set.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Weather Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"weather-card-set\",\n    \"title\": \"Weather Card\",\n    \"summary\": \"A forecast card with an animated condition icon.\",\n    \"description\": \"A forecast card with an animated condition icon.\",\n    \"theme\": \"weather-ambient\",\n    \"categories\": [\"weather\", \"ambient\"],\n    \"tags\": [\"weather\", \"ambient\", \"weather\", \"card\", \"forecast\", \"widget\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Card gradient start\", \"default\": \"#1d4ed8\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Weather widgets. Encode the condition in text as well as the icon — an emoji or glyph alone is not a reliable label.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 220px; padding: 1.2rem; border-radius: 18px; color: #fff;\n      background: linear-gradient(160deg, #1d4ed8, #0c4a6e); box-shadow: 0 18px 40px rgba(29,78,216,.35); }\n    .fx .top { display: flex; justify-content: space-between; align-items: flex-start; }\n    .fx .t { font-size: 2.6rem; font-weight: 900; line-height: 1; }\n    .fx .c { font-size: 2rem; animation: bob 3s ease-in-out infinite alternate; }\n    .fx .meta { margin-top: 1rem; display: flex; justify-content: space-between; font-size: .78rem; opacity: .8; }\n    @keyframes bob { to { transform: translateY(-6px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"top\"><div><div class=\"t\">18°</div><div>Partly cloudy</div></div><div class=\"c\" aria-hidden=\"true\">⛅</div></div>\n  <div class=\"meta\"><span>H 21°</span><span>L 12°</span><span>Wind 8 km/h</span></div></div>\n</body>\n</html>\n"
+}

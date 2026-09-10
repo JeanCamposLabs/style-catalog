@@ -1,0 +1,44 @@
+{
+  "id": "nav-back-to-top",
+  "title": "Back to Top",
+  "summary": "A button that appears after scrolling.",
+  "description": "A button that appears after scrolling.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "back-to-top",
+    "scroll",
+    "affordance",
+    "fixed"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Button colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Long pages. Reveal it only after a screen of scrolling, and use scroll-behavior: smooth with a reduced-motion fallback so the jump is not disorienting.",
+  "path": "effects/navigation-menus/nav-back-to-top.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Back to Top</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-back-to-top\",\n    \"title\": \"Back to Top\",\n    \"summary\": \"A button that appears after scrolling.\",\n    \"description\": \"A button that appears after scrolling.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"back-to-top\", \"scroll\", \"affordance\", \"fixed\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Button colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Long pages. Reveal it only after a screen of scrolling, and use scroll-behavior: smooth with a reduced-motion fallback so the jump is not disorienting.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { min-height: 220vh; }\n    .content { padding: 4rem 1.5rem; color: #8b93a7; max-width: 32ch; line-height: 1.6; }\n    .top { position: fixed; right: 16px; bottom: 16px; width: 46px; height: 46px; border-radius: 50%; border: 0;\n      background: #7c5cff; color: #fff; font-size: 1.1rem; cursor: pointer; opacity: 0; transform: translateY(10px);\n      transition: opacity .25s, transform .25s; box-shadow: 0 12px 26px rgba(124,92,255,.4); }\n    .top.show { opacity: 1; transform: none; }\n  </style>\n</head>\n<body>\n  <div class=\"content\"><h2>Scroll down</h2><p>The back-to-top control appears once you have scrolled past the first screen.</p></div>\n  <button class=\"top\" type=\"button\" id=\"tt\" aria-label=\"Back to top\">↑</button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"tt\"), s = document.createElement(\"div\");\n      s.style.cssText = \"position:absolute;top:80vh;height:1px;width:1px\";\n      document.body.appendChild(s);\n      new IntersectionObserver(function (es) { b.classList.toggle(\"show\", !es[0].isIntersecting); }).observe(s);\n      b.addEventListener(\"click\", function () { scrollTo({ top: 0, behavior: \"smooth\" }); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

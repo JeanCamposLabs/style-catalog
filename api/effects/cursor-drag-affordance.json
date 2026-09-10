@@ -1,0 +1,45 @@
+{
+  "id": "cursor-drag-affordance",
+  "title": "Drag Affordance Cursor",
+  "summary": "A carousel whose cursor becomes a two-way drag arrow inside it.",
+  "description": "The affordance appears only within the draggable region and rotates to match the drag axis.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "drag"
+  ],
+  "tags": [
+    "drag",
+    "carousel",
+    "affordance",
+    "cursor",
+    "gallery"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Cursor color",
+      "default": "#e7ebf3"
+    }
+  ],
+  "variations": [
+    "Grabbing state while the button is down",
+    "Vertical drag variant",
+    "Snap indicator at the edges"
+  ],
+  "related": [],
+  "ai_usage": "Draggable galleries and maps. Show the affordance on pointerenter of the region only, and always keep native cursor fallbacks (grab / grabbing) so the interaction survives if JS fails.",
+  "path": "effects/cursors-pointers/cursor-drag-affordance.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Drag Affordance Cursor</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-drag-affordance\",\n    \"title\": \"Drag Affordance Cursor\",\n    \"summary\": \"A carousel whose cursor becomes a two-way drag arrow inside it.\",\n    \"description\": \"The affordance appears only within the draggable region and rotates to match the drag axis.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"drag\"],\n    \"tags\": [\"drag\", \"carousel\", \"affordance\", \"cursor\", \"gallery\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Cursor color\", \"default\": \"#e7ebf3\" }\n    ],\n    \"variations\": [\"Grabbing state while the button is down\", \"Vertical drag variant\", \"Snap indicator at the edges\"],\n    \"ai_usage\": \"Draggable galleries and maps. Show the affordance on pointerenter of the region only, and always keep native cursor fallbacks (grab / grabbing) so the interaction survives if JS fails.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .rail { position: relative; width: 320px; height: 160px; border-radius: 14px; overflow: hidden; cursor: grab;\n      display: flex; gap: 10px; padding: 10px; background: #10141f; border: 1px solid #263149; }\n    .rail:active { cursor: grabbing; }\n    .rail .card { flex: none; width: 120px; border-radius: 10px; background: linear-gradient(160deg, #7c5cff, #2dd4bf); }\n    .dcur { position: fixed; width: 56px; height: 56px; border-radius: 50%; background: rgba(231,235,243,.14);\n      border: 1px solid rgba(231,235,243,.5); backdrop-filter: blur(4px); display: grid; place-items: center;\n      color: var(--c, #e7ebf3); margin: -28px 0 0 -28px; pointer-events: none; opacity: 0; transition: opacity .2s, transform .1s; z-index: 9; }\n    .rail:hover ~ .dcur { opacity: 1; }\n  </style>\n</head>\n<body>\n  <div class=\"rail\" id=\"rl\">\n    <div class=\"card\"></div><div class=\"card\"></div><div class=\"card\"></div>\n  </div>\n  <div class=\"dcur\" aria-hidden=\"true\">↔</div>\n  <script>\n    (function () {\n      var rail = document.getElementById(\"rl\"), cur = document.querySelector(\".dcur\");\n      rail.addEventListener(\"pointermove\", function (e) {\n        cur.style.transform = \"translate(\" + e.clientX + \"px,\" + e.clientY + \"px)\";\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "card-flip-reveal",
+  "title": "Flip Card",
+  "summary": "The card turns to reveal detail on its back.",
+  "description": "The card turns to reveal detail on its back. Self-contained card markup you can drop into a grid.",
+  "theme": "cards-surfaces",
+  "themeTitle": "Cards & Surfaces",
+  "categories": [
+    "card",
+    "surface"
+  ],
+  "tags": [
+    "card",
+    "surface",
+    "flip",
+    "3d",
+    "reveal",
+    "back"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Flip duration",
+      "default": "0.6s"
+    }
+  ],
+  "variations": [
+    "Adapt for a light theme",
+    "Add a media area at the top"
+  ],
+  "related": [],
+  "ai_usage": "Compact detail reveals. Both faces need backface-visibility:hidden, and the scene (not the card) carries the perspective.",
+  "path": "effects/cards-surfaces/card-flip-reveal.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Flip Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-flip-reveal\",\n    \"title\": \"Flip Card\",\n    \"summary\": \"The card turns to reveal detail on its back.\",\n    \"description\": \"The card turns to reveal detail on its back. Self-contained card markup you can drop into a grid.\",\n    \"theme\": \"cards-surfaces\",\n    \"categories\": [\"card\", \"surface\"],\n    \"tags\": [\"card\", \"surface\", \"flip\", \"3d\", \"reveal\", \"back\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A clickable card needs one real link or button inside it; never attach a click handler to a bare div.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Flip duration\", \"default\": \"0.6s\" }\n    ],\n    \"variations\": [\"Adapt for a light theme\", \"Add a media area at the top\"],\n    \"ai_usage\": \"Compact detail reveals. Both faces need backface-visibility:hidden, and the scene (not the card) carries the perspective.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }\n    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }\n    body { perspective: 900px; }\n    .scene { width: 260px; height: 170px; }\n    .card { position: relative; width: 100%; height: 100%; padding: 0; transform-style: preserve-3d;\n      transition: transform .6s cubic-bezier(.7,0,.2,1); }\n    .scene:hover .card, .scene:focus-within .card { transform: rotateY(180deg); }\n    .face { position: absolute; inset: 0; border-radius: 18px; padding: 1.4rem; backface-visibility: hidden;\n      background: #151b2a; border: 1px solid #263149; }\n    .face.back { transform: rotateY(180deg); background: #7c5cff; color: #fff; }\n    .face.back p { color: rgba(255,255,255,.85); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"scene\" tabindex=\"0\"><div class=\"card\">\n    <div class=\"face\"><h3>Flip Card</h3><p>Hover or focus to turn it over.</p></div>\n    <div class=\"face back\"><h3>Back</h3><p>Detail lives on the reverse.</p></div>\n  </div></div>\n</body>\n</html>\n"
+}

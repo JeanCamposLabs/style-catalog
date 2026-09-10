@@ -1,0 +1,44 @@
+{
+  "id": "aria-expanded-disclosure",
+  "title": "Disclosure Pattern",
+  "summary": "A native details/summary disclosure.",
+  "description": "A native details/summary disclosure.",
+  "theme": "accessibility-patterns",
+  "themeTitle": "Accessibility Patterns",
+  "categories": [
+    "accessibility",
+    "reference"
+  ],
+  "tags": [
+    "accessibility",
+    "a11y",
+    "disclosure",
+    "details",
+    "summary",
+    "native"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Panel background",
+      "default": "#151b2a"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "FAQs and progressive detail. <details>/<summary> is keyboard-operable, announced as a disclosure, and findable by in-page search — reach for it before building an ARIA accordion.",
+  "path": "effects/accessibility-patterns/aria-expanded-disclosure.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Disclosure Pattern</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"aria-expanded-disclosure\",\n    \"title\": \"Disclosure Pattern\",\n    \"summary\": \"A native details/summary disclosure.\",\n    \"description\": \"A native details/summary disclosure.\",\n    \"theme\": \"accessibility-patterns\",\n    \"categories\": [\"accessibility\", \"reference\"],\n    \"tags\": [\"accessibility\", \"a11y\", \"disclosure\", \"details\", \"summary\", \"native\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Panel background\", \"default\": \"#151b2a\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"FAQs and progressive detail. <details>/<summary> is keyboard-operable, announced as a disclosure, and findable by in-page search — reach for it before building an ARIA accordion.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; }\n    .fx details { border-radius: 12px; background: #151b2a; border: 1px solid #263149; margin-bottom: 8px; overflow: hidden; }\n    .fx summary { padding: .75rem .9rem; cursor: pointer; font-size: .88rem; list-style: none; display: flex;\n      justify-content: space-between; align-items: center; }\n    .fx summary::-webkit-details-marker { display: none; }\n    .fx summary .ch { color: #8b93a7; transition: transform .25s; }\n    .fx details[open] summary .ch { transform: rotate(90deg); }\n    .fx p { margin: 0; padding: 0 .9rem .9rem; color: #8b93a7; font-size: .82rem; line-height: 1.55; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><details open><summary>What makes a specimen valid? <span class=\"ch\">›</span></summary>\n  <p>A single self-contained HTML file with an embedded metadata block that passes the schema.</p></details>\n  <details><summary>Are external assets allowed? <span class=\"ch\">›</span></summary>\n  <p>No. Every specimen must run offline with no network requests.</p></details></div>\n</body>\n</html>\n"
+}

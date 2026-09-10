@@ -1,0 +1,43 @@
+{
+  "id": "glass-tinted-gradient",
+  "title": "Tinted Glass",
+  "summary": "Frosted glass carrying a colour wash across its face.",
+  "description": "A translucent gradient over the blur tints the panel without hiding what is behind it.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass"
+  ],
+  "tags": [
+    "glass",
+    "tint",
+    "gradient",
+    "overlay",
+    "panel"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.",
+  "customization": [
+    {
+      "name": "--tint",
+      "description": "Tint colour",
+      "default": "rgba(124,92,255,.28)"
+    }
+  ],
+  "variations": [
+    "Tint by state (success, danger)",
+    "Vertical rather than diagonal wash",
+    "Stronger tint for a coloured card"
+  ],
+  "related": [],
+  "ai_usage": "Status-coloured overlays that must stay translucent. Keep tint alpha under .35 or the panel loses the glass read and becomes a solid card.",
+  "path": "effects/glass-neumorphism/glass-tinted-gradient.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tinted Glass</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-tinted-gradient\",\n    \"title\": \"Tinted Glass\",\n    \"summary\": \"Frosted glass carrying a colour wash across its face.\",\n    \"description\": \"A translucent gradient over the blur tints the panel without hiding what is behind it.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\"],\n    \"tags\": [\"glass\", \"tint\", \"gradient\", \"overlay\", \"panel\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.\",\n    \"customization\": [\n      { \"name\": \"--tint\", \"description\": \"Tint colour\", \"default\": \"rgba(124,92,255,.28)\" }\n    ],\n    \"variations\": [\"Tint by state (success, danger)\", \"Vertical rather than diagonal wash\", \"Stronger tint for a coloured card\"],\n    \"ai_usage\": \"Status-coloured overlays that must stay translucent. Keep tint alpha under .35 or the panel loses the glass read and becomes a solid card.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: linear-gradient(135deg, #0ea5e9, #7c3aed 60%, #ec4899); }\n    :root { --tint: rgba(124,92,255,.28); }\n    .glass { width: 260px; padding: 1.6rem; border-radius: 20px; color: #fff;\n      background: linear-gradient(135deg, var(--tint), rgba(255,255,255,.08));\n      backdrop-filter: blur(14px) saturate(1.5); -webkit-backdrop-filter: blur(14px) saturate(1.5);\n      border: 1px solid rgba(255,255,255,.3); }\n    .glass h3 { margin: 0 0 .4rem; }\n    .glass p { margin: 0; opacity: .82; font-size: .88rem; }\n  </style>\n</head>\n<body>\n  <div class=\"glass\"><h3>Tinted</h3><p>Colour wash over the blur.</p></div>\n</body>\n</html>\n"
+}

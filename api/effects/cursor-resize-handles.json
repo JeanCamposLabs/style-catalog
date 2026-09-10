@@ -1,0 +1,44 @@
+{
+  "id": "cursor-resize-handles",
+  "title": "Resize Handles",
+  "summary": "A box with directional resize affordances.",
+  "description": "A box with directional resize affordances.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "pointer"
+  ],
+  "tags": [
+    "cursor",
+    "pointer",
+    "resize",
+    "handles",
+    "cursors",
+    "editor"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Handle colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Canvas and layout editors. Match each handle's cursor to its axis; a generic move cursor on every handle destroys the spatial cue users rely on.",
+  "path": "effects/cursors-pointers/cursor-resize-handles.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Resize Handles</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-resize-handles\",\n    \"title\": \"Resize Handles\",\n    \"summary\": \"A box with directional resize affordances.\",\n    \"description\": \"A box with directional resize affordances.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\"],\n    \"tags\": [\"cursor\", \"pointer\", \"resize\", \"handles\", \"cursors\", \"editor\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Handle colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Canvas and layout editors. Match each handle's cursor to its axis; a generic move cursor on every handle destroys the spatial cue users rely on.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 200px; height: 130px; border-radius: 10px; background: #151b2a; border: 1px solid #7c5cff; }\n    .fx i { position: absolute; width: 10px; height: 10px; border-radius: 2px; background: #7c5cff; }\n    .nw { top: -5px; left: -5px; cursor: nwse-resize; } .ne { top: -5px; right: -5px; cursor: nesw-resize; }\n    .sw { bottom: -5px; left: -5px; cursor: nesw-resize; } .se { bottom: -5px; right: -5px; cursor: nwse-resize; }\n    .n { top: -5px; left: 50%; margin-left: -5px; cursor: ns-resize; } .s { bottom: -5px; left: 50%; margin-left: -5px; cursor: ns-resize; }\n    .w { left: -5px; top: 50%; margin-top: -5px; cursor: ew-resize; } .e { right: -5px; top: 50%; margin-top: -5px; cursor: ew-resize; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i class=\"nw\"></i><i class=\"n\"></i><i class=\"ne\"></i><i class=\"w\"></i><i class=\"e\"></i>\n  <i class=\"sw\"></i><i class=\"s\"></i><i class=\"se\"></i></div>\n</body>\n</html>\n"
+}

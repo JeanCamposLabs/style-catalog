@@ -1,0 +1,54 @@
+{
+  "id": "argyle-pattern-bg",
+  "title": "Argyle",
+  "summary": "Diamonds with crossing overcheck lines, knitwear style.",
+  "description": "A diamond lattice from two 45° gradient sets plus dashed diagonal overchecks, the way the pattern is actually knitted.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "argyle",
+    "diamond",
+    "knit",
+    "preppy",
+    "textile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Diamond color",
+      "default": "#1e293b"
+    },
+    {
+      "name": "--line",
+      "description": "Overcheck",
+      "default": "rgba(251,191,36,.5)"
+    },
+    {
+      "name": "--s",
+      "description": "Diamond size",
+      "default": "70px"
+    }
+  ],
+  "variations": [
+    "Three-tone diamonds",
+    "Larger scale for upholstery",
+    "Remove the overcheck for plain harlequin"
+  ],
+  "related": [],
+  "ai_usage": "Fashion, golf, and preppy branding. The dashed overcheck lines at 45° are what distinguishes argyle from a plain harlequin diamond grid — do not omit them.",
+  "path": "effects/backgrounds/argyle-pattern-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Argyle</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"argyle-pattern-bg\",\n    \"title\": \"Argyle\",\n    \"summary\": \"Diamonds with crossing overcheck lines, knitwear style.\",\n    \"description\": \"A diamond lattice from two 45° gradient sets plus dashed diagonal overchecks, the way the pattern is actually knitted.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"argyle\", \"diamond\", \"knit\", \"preppy\", \"textile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Diamond color\", \"default\": \"#1e293b\" },\n      { \"name\": \"--line\", \"description\": \"Overcheck\", \"default\": \"rgba(251,191,36,.5)\" },\n      { \"name\": \"--s\", \"description\": \"Diamond size\", \"default\": \"70px\" }\n    ],\n    \"variations\": [\"Three-tone diamonds\", \"Larger scale for upholstery\", \"Remove the overcheck for plain harlequin\"],\n    \"ai_usage\": \"Fashion, golf, and preppy branding. The dashed overcheck lines at 45° are what distinguishes argyle from a plain harlequin diamond grid — do not omit them.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #1e293b; --line: rgba(251,191,36,.5); --s: 70px; }\n    .bg { background-color: #0b0d12;\n      background-image: linear-gradient(45deg, var(--a) 25%, transparent 25% 75%, var(--a) 75%),\n        linear-gradient(-45deg, var(--a) 25%, transparent 25% 75%, var(--a) 75%),\n        repeating-linear-gradient(45deg, var(--line) 0 2px, transparent 2px 20px),\n        repeating-linear-gradient(-45deg, var(--line) 0 2px, transparent 2px 20px);\n      background-size: var(--s) var(--s), var(--s) var(--s), 100% 100%, 100% 100%; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

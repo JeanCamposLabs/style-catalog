@@ -1,0 +1,44 @@
+{
+  "id": "card-glass-frost",
+  "title": "Frosted Card",
+  "summary": "A translucent card on a colourful backdrop.",
+  "description": "A translucent card on a colourful backdrop. Self-contained card markup you can drop into a grid.",
+  "theme": "cards-surfaces",
+  "themeTitle": "Cards & Surfaces",
+  "categories": [
+    "card",
+    "surface"
+  ],
+  "tags": [
+    "card",
+    "surface",
+    "glass",
+    "frost",
+    "translucent",
+    "overlay"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+  "customization": [
+    {
+      "name": "--blur",
+      "description": "Backdrop blur",
+      "default": "16px"
+    }
+  ],
+  "variations": [
+    "Adapt for a light theme",
+    "Add a media area at the top"
+  ],
+  "related": [],
+  "ai_usage": "Cards over imagery or video. Always include a solid @supports fallback; without backdrop-filter the card becomes near-invisible.",
+  "path": "effects/cards-surfaces/card-glass-frost.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Frosted Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-glass-frost\",\n    \"title\": \"Frosted Card\",\n    \"summary\": \"A translucent card on a colourful backdrop.\",\n    \"description\": \"A translucent card on a colourful backdrop. Self-contained card markup you can drop into a grid.\",\n    \"theme\": \"cards-surfaces\",\n    \"categories\": [\"card\", \"surface\"],\n    \"tags\": [\"card\", \"surface\", \"glass\", \"frost\", \"translucent\", \"overlay\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A clickable card needs one real link or button inside it; never attach a click handler to a bare div.\",\n    \"customization\": [\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur\", \"default\": \"16px\" }\n    ],\n    \"variations\": [\"Adapt for a light theme\", \"Add a media area at the top\"],\n    \"ai_usage\": \"Cards over imagery or video. Always include a solid @supports fallback; without backdrop-filter the card becomes near-invisible.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }\n    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }\n    body { background: conic-gradient(from 150deg at 40% 30%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }\n    .card { background: rgba(255,255,255,.13); backdrop-filter: blur(16px) saturate(1.6);\n      -webkit-backdrop-filter: blur(16px) saturate(1.6); border: 1px solid rgba(255,255,255,.3); color: #fff; }\n    .card p { color: rgba(255,255,255,.82); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <article class=\"card\"><h3>Frosted Card</h3><p>A translucent card on a colourful backdrop.</p></article>\n</body>\n</html>\n"
+}

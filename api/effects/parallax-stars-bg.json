@@ -1,0 +1,44 @@
+{
+  "id": "parallax-stars-bg",
+  "title": "Parallax Star Layers",
+  "summary": "Three star fields scroll at different speeds for depth.",
+  "description": "Box-shadow star fields at three densities and speeds give parallax without a single extra DOM node per star.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "space"
+  ],
+  "tags": [
+    "stars",
+    "parallax",
+    "space",
+    "box-shadow",
+    "depth"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Stars are one element each with a long box-shadow list — hundreds of stars, three elements.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Near layer period",
+      "default": "60s"
+    }
+  ],
+  "variations": [
+    "Add a twinkle animation",
+    "Colour-shift distant stars blue",
+    "Comet that crosses occasionally"
+  ],
+  "related": [],
+  "ai_usage": "Space and night themes. The box-shadow star-field trick renders many points with no extra nodes; generate the shadow list at build time and vary size/opacity per layer to reinforce depth.",
+  "path": "effects/backgrounds/parallax-stars-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Parallax Star Layers</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"parallax-stars-bg\",\n    \"title\": \"Parallax Star Layers\",\n    \"summary\": \"Three star fields scroll at different speeds for depth.\",\n    \"description\": \"Box-shadow star fields at three densities and speeds give parallax without a single extra DOM node per star.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"space\"],\n    \"tags\": [\"stars\", \"parallax\", \"space\", \"box-shadow\", \"depth\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Stars are one element each with a long box-shadow list — hundreds of stars, three elements.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Near layer period\", \"default\": \"60s\" }\n    ],\n    \"variations\": [\"Add a twinkle animation\", \"Colour-shift distant stars blue\", \"Comet that crosses occasionally\"],\n    \"ai_usage\": \"Space and night themes. The box-shadow star-field trick renders many points with no extra nodes; generate the shadow list at build time and vary size/opacity per layer to reinforce depth.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --dur: 60s; }\n    .bg { background: radial-gradient(ellipse at 50% 100%, #131c33, #05070d 70%); overflow: hidden; }\n    .bg i { position: absolute; inset: 0; animation: pan var(--d) linear infinite; background-repeat: repeat;\n      background-image: radial-gradient(#fff var(--r), transparent var(--r)); background-size: var(--s) var(--s); opacity: var(--o); }\n    @keyframes pan { to { background-position: 0 var(--s2); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\">\n    <i style=\"--r:1.4px;--s:90px;--s2:90px;--o:.95;--d:60s\"></i>\n    <i style=\"--r:1px;--s:140px;--s2:140px;--o:.6;--d:110s\"></i>\n    <i style=\"--r:.7px;--s:200px;--s2:200px;--o:.35;--d:180s\"></i>\n  </div>\n</body>\n</html>\n"
+}

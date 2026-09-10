@@ -1,0 +1,44 @@
+{
+  "id": "shake-on-error",
+  "title": "Error Shake",
+  "summary": "A field that shakes once on invalid submit.",
+  "description": "A field that shakes once on invalid submit.",
+  "theme": "micro-interactions",
+  "themeTitle": "Micro-interactions",
+  "categories": [
+    "micro-interaction",
+    "feedback"
+  ],
+  "tags": [
+    "micro-interaction",
+    "feedback",
+    "shake",
+    "error",
+    "validation",
+    "feedback"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+  "customization": [
+    {
+      "name": "--bad",
+      "description": "Error colour",
+      "default": "#d1478c"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Invalid submissions. Shake once and never loop; the error message carries the meaning, the motion only points at where to look.",
+  "path": "effects/micro-interactions/shake-on-error.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Error Shake</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"shake-on-error\",\n    \"title\": \"Error Shake\",\n    \"summary\": \"A field that shakes once on invalid submit.\",\n    \"description\": \"A field that shakes once on invalid submit.\",\n    \"theme\": \"micro-interactions\",\n    \"categories\": [\"micro-interaction\", \"feedback\"],\n    \"tags\": [\"micro-interaction\", \"feedback\", \"shake\", \"error\", \"validation\", \"feedback\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.\",\n    \"customization\": [\n      { \"name\": \"--bad\", \"description\": \"Error colour\", \"default\": \"#d1478c\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Invalid submissions. Shake once and never loop; the error message carries the meaning, the motion only points at where to look.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; }\n    .fx input { width: 100%; padding: .8rem 1rem; border-radius: 12px; border: 1px solid #d1478c; background: #1f1218;\n      color: #e7ebf3; font: inherit; }\n    .fx.bad input { animation: shake .4s ease-in-out; }\n    .fx p { margin: .5rem 0 0; color: #f0a3c6; font-size: .8rem; }\n    @keyframes shake {\n      0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px); }\n      40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(2px); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      .fx.bad input { animation: none; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx bad\"><input type=\"text\" value=\"not-an-email\" aria-invalid=\"true\" aria-describedby=\"er\" aria-label=\"Email\" />\n  <p id=\"er\" role=\"alert\">Enter a valid email address</p></div>\n</body>\n</html>\n"
+}

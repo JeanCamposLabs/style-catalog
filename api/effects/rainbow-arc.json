@@ -1,0 +1,44 @@
+{
+  "id": "rainbow-arc",
+  "title": "Rainbow Arc",
+  "summary": "A soft rainbow over a pale sky.",
+  "description": "A soft rainbow over a pale sky.",
+  "theme": "weather-ambient",
+  "themeTitle": "Weather & Ambient",
+  "categories": [
+    "weather",
+    "ambient"
+  ],
+  "tags": [
+    "weather",
+    "ambient",
+    "rainbow",
+    "arc",
+    "sky",
+    "weather"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+  "customization": [
+    {
+      "name": "--o",
+      "description": "Rainbow opacity",
+      "default": "0.75"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "After-rain and pride themes. A masked conic ring plus a slight blur gives the soft-edged band a hard-stop gradient cannot.",
+  "path": "effects/weather-ambient/rainbow-arc.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rainbow Arc</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"rainbow-arc\",\n    \"title\": \"Rainbow Arc\",\n    \"summary\": \"A soft rainbow over a pale sky.\",\n    \"description\": \"A soft rainbow over a pale sky.\",\n    \"theme\": \"weather-ambient\",\n    \"categories\": [\"weather\", \"ambient\"],\n    \"tags\": [\"weather\", \"ambient\", \"rainbow\", \"arc\", \"sky\", \"weather\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--o\", \"description\": \"Rainbow opacity\", \"default\": \"0.75\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"After-rain and pride themes. A masked conic ring plus a slight blur gives the soft-edged band a hard-stop gradient cannot.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 260px; height: 150px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #bfdbfe, #e0f2fe); }\n    .fx .bow { position: absolute; bottom: -100px; left: 50%; translate: -50% 0; width: 240px; height: 240px; border-radius: 50%;\n      background: conic-gradient(from 180deg, #ef4444, #f59e0b, #eab308, #22c55e, #3b82f6, #a855f7, #ef4444);\n      -webkit-mask: radial-gradient(farthest-side, transparent 62%, #000 63%, #000 78%, transparent 79%);\n      mask: radial-gradient(farthest-side, transparent 62%, #000 63%, #000 78%, transparent 79%); opacity: .75; filter: blur(2px); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"bow\"></span></div>\n</body>\n</html>\n"
+}

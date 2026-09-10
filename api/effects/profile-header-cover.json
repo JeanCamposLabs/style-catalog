@@ -1,0 +1,44 @@
+{
+  "id": "profile-header-cover",
+  "title": "Profile Header",
+  "summary": "A cover image with an overlapping avatar and stats.",
+  "description": "A cover image with an overlapping avatar and stats.",
+  "theme": "social-ui",
+  "themeTitle": "Social UI",
+  "categories": [
+    "social",
+    "feed"
+  ],
+  "tags": [
+    "social",
+    "community",
+    "profile",
+    "header",
+    "cover",
+    "stats"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Avatar colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Profile pages. The negative margin that lifts the avatar over the cover must be paired with a border in the page background colour to read as a cut-out.",
+  "path": "effects/social-ui/profile-header-cover.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Profile Header</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"profile-header-cover\",\n    \"title\": \"Profile Header\",\n    \"summary\": \"A cover image with an overlapping avatar and stats.\",\n    \"description\": \"A cover image with an overlapping avatar and stats.\",\n    \"theme\": \"social-ui\",\n    \"categories\": [\"social\", \"feed\"],\n    \"tags\": [\"social\", \"community\", \"profile\", \"header\", \"cover\", \"stats\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Avatar colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Profile pages. The negative margin that lifts the avatar over the cover must be paired with a border in the page background colour to read as a cut-out.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; border-radius: 16px; overflow: hidden; background: #151b2a; border: 1px solid #263149; }\n    .fx .cover { height: 80px; background: conic-gradient(from 140deg at 40% 30%, #7c5cff, #2dd4bf, #f472b6); }\n    .fx .body { padding: 0 1rem 1rem; margin-top: -28px; }\n    .fx .av { width: 60px; height: 60px; border-radius: 50%; border: 3px solid #151b2a; display: grid; place-items: center;\n      font-weight: 800; color: #0b0d12; background: #fbbf24; }\n    .fx b { display: block; margin-top: .5rem; }\n    .fx .h { color: #8b93a7; font-size: .8rem; }\n    .fx .stats { display: flex; gap: 1.2rem; margin-top: .7rem; font-size: .82rem; }\n    .fx .stats span { color: #8b93a7; }\n    .fx .stats b { display: inline; color: #e7ebf3; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"cover\"></div><div class=\"body\"><div class=\"av\">JC</div>\n  <b>Jean Campos</b><div class=\"h\">@jean · Design engineer</div>\n  <div class=\"stats\"><span><b>1,181</b> specimens</span><span><b>4.2k</b> followers</span></div></div></div>\n</body>\n</html>\n"
+}

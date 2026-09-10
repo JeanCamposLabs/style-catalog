@@ -1,0 +1,44 @@
+{
+  "id": "template-changelog-timeline",
+  "title": "Changelog Page",
+  "summary": "A dated release log with version tags.",
+  "description": "A dated release log with version tags.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "page"
+  ],
+  "tags": [
+    "template",
+    "page",
+    "changelog",
+    "releases",
+    "timeline",
+    "docs"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Version colour",
+      "default": "#b9a5ff"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Product changelogs. Tag each entry by type and keep versions in monospace so they align; readers scan for their version number before anything else.",
+  "path": "effects/website-templates/template-changelog-timeline.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Changelog Page</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"template-changelog-timeline\",\n    \"title\": \"Changelog Page\",\n    \"summary\": \"A dated release log with version tags.\",\n    \"description\": \"A dated release log with version tags.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"page\"],\n    \"tags\": [\"template\", \"page\", \"changelog\", \"releases\", \"timeline\", \"docs\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Version colour\", \"default\": \"#b9a5ff\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Product changelogs. Tag each entry by type and keep versions in monospace so they align; readers scan for their version number before anything else.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { padding: 1.4rem; max-width: 34rem; margin: 0 auto; }\n    header { margin-bottom: 1.4rem; }\n    h1 { margin: 0 0 .3rem; font-size: 1.5rem; }\n    header p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    .rel { display: grid; grid-template-columns: 84px 1fr; gap: 1rem; padding: 1.1rem 0; border-top: 1px solid #1e2740; }\n    .rel .v { font-family: ui-monospace, monospace; font-size: .78rem; color: #b9a5ff; }\n    .rel time { display: block; color: #64748b; font-size: .72rem; margin-top: .2rem; }\n    .rel h2 { margin: 0 0 .4rem; font-size: 1rem; }\n    .rel ul { margin: 0; padding-left: 1.1rem; color: #8b93a7; font-size: .85rem; line-height: 1.7; }\n    .tag { display: inline-block; padding: .05rem .4rem; border-radius: 5px; font-size: .66rem; font-weight: 700; margin-right: .3rem; }\n    .add { background: rgba(16,168,148,.16); color: #7fd8cb; }\n    .fix { background: rgba(194,137,26,.16); color: #ecc57c; }\n  </style>\n</head>\n<body>\n  <header><h1>Changelog</h1><p>Every release, newest first.</p></header>\n  <main><article class=\"rel\"><div><div class=\"v\">0.24.0</div><time datetime=\"2026-09-10\">10 Sept 2026</time></div>\n  <div><h2>A thousand new specimens</h2><ul><li><span class=\"tag add\">added</span>552 specimens across 35 new themes</li>\n  <li><span class=\"tag add\">added</span>Validated categorical palette for charts</li>\n  <li><span class=\"tag fix\">fixed</span>Chunked grid rendering for large catalogues</li></ul></div></article>\n  <article class=\"rel\"><div><div class=\"v\">0.23.0</div><time datetime=\"2026-08-22\">22 Aug 2026</time></div>\n  <div><h2>Poster pipeline</h2><ul><li><span class=\"tag add\">added</span>Playwright poster generation</li></ul></div></article></main>\n</body>\n</html>\n"
+}

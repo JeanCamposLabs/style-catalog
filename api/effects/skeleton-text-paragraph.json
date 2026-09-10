@@ -1,0 +1,44 @@
+{
+  "id": "skeleton-text-paragraph",
+  "title": "Skeleton Paragraph",
+  "summary": "Placeholder text lines with varied widths.",
+  "description": "Placeholder text lines with varied widths.",
+  "theme": "empty-skeleton-states",
+  "themeTitle": "Empty & Loading States",
+  "categories": [
+    "state",
+    "empty"
+  ],
+  "tags": [
+    "state",
+    "placeholder",
+    "skeleton",
+    "text",
+    "paragraph",
+    "shimmer"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Shimmer period",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Article and description placeholders. Vary the line widths — uniform bars read as a UI element rather than as text about to appear.",
+  "path": "effects/empty-skeleton-states/skeleton-text-paragraph.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Skeleton Paragraph</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"skeleton-text-paragraph\",\n    \"title\": \"Skeleton Paragraph\",\n    \"summary\": \"Placeholder text lines with varied widths.\",\n    \"description\": \"Placeholder text lines with varied widths.\",\n    \"theme\": \"empty-skeleton-states\",\n    \"categories\": [\"state\", \"empty\"],\n    \"tags\": [\"state\", \"placeholder\", \"skeleton\", \"text\", \"paragraph\", \"shimmer\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Shimmer period\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Article and description placeholders. Vary the line widths — uniform bars read as a UI element rather than as text about to appear.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; display: grid; gap: 10px; }\n    .fx i { height: 10px; border-radius: 5px; width: var(--w, 100%);\n      background: linear-gradient(90deg, #1b2231 25%, #2b3550 37%, #1b2231 63%); background-size: 400% 100%;\n      animation: sheen 1.6s ease-in-out infinite; }\n    .fx .h { height: 16px; width: 45%; }\n    @keyframes sheen { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" aria-hidden=\"true\"><i class=\"h\"></i><i></i><i style=\"--w:96%\"></i><i style=\"--w:88%\"></i><i style=\"--w:54%\"></i></div>\n</body>\n</html>\n"
+}

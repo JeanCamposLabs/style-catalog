@@ -1,0 +1,44 @@
+{
+  "id": "analog-clock-face",
+  "title": "Analog Clock",
+  "summary": "A clock with hands driven by the real time.",
+  "description": "A clock with hands driven by the real time.",
+  "theme": "calendar-time",
+  "themeTitle": "Calendar & Time",
+  "categories": [
+    "calendar",
+    "time"
+  ],
+  "tags": [
+    "calendar",
+    "date",
+    "clock",
+    "analog",
+    "hands",
+    "time"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Second hand",
+      "default": "#f87171"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Dashboards and world clocks. Set the hand rotations from Date once and let CSS animate, rather than re-rendering every second in JS.",
+  "path": "effects/calendar-time/analog-clock-face.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Analog Clock</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"analog-clock-face\",\n    \"title\": \"Analog Clock\",\n    \"summary\": \"A clock with hands driven by the real time.\",\n    \"description\": \"A clock with hands driven by the real time.\",\n    \"theme\": \"calendar-time\",\n    \"categories\": [\"calendar\", \"time\"],\n    \"tags\": [\"calendar\", \"date\", \"clock\", \"analog\", \"hands\", \"time\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Second hand\", \"default\": \"#f87171\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Dashboards and world clocks. Set the hand rotations from Date once and let CSS animate, rather than re-rendering every second in JS.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 140px; aspect-ratio: 1; border-radius: 50%; border: 3px solid #2b3450;\n      background: radial-gradient(circle, #151b2a, #10141f); }\n    .fx i { position: absolute; left: 50%; bottom: 50%; transform-origin: 50% 100%; border-radius: 3px; }\n    .fx .h { width: 5px; height: 34px; margin-left: -2.5px; background: #e7ebf3; }\n    .fx .m { width: 3px; height: 48px; margin-left: -1.5px; background: #cbd5e1; }\n    .fx .s { width: 2px; height: 54px; margin-left: -1px; background: #f87171; }\n    .fx .pin { position: absolute; inset: 50% auto auto 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px;\n      border-radius: 50%; background: #f87171; }\n    .fx .tick { position: absolute; left: 50%; top: 4px; width: 2px; height: 7px; background: #3b465e;\n      transform-origin: 50% 62px; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"img\" aria-label=\"Analog clock\" id=\"clk\">\n    <i class=\"h\"></i><i class=\"m\"></i><i class=\"s\"></i><span class=\"pin\"></span></div>\n  <script>\n    (function () {\n      var c = document.getElementById(\"clk\");\n      for (var k = 0; k < 12; k++) {\n        var t = document.createElement(\"span\");\n        t.className = \"tick\"; t.style.transform = \"rotate(\" + k * 30 + \"deg)\";\n        c.appendChild(t);\n      }\n      function tick() {\n        var d = new Date();\n        c.querySelector(\".h\").style.transform = \"rotate(\" + ((d.getHours() % 12) * 30 + d.getMinutes() * .5) + \"deg)\";\n        c.querySelector(\".m\").style.transform = \"rotate(\" + d.getMinutes() * 6 + \"deg)\";\n        c.querySelector(\".s\").style.transform = \"rotate(\" + d.getSeconds() * 6 + \"deg)\";\n      }\n      tick(); setInterval(tick, 1000);\n    })();\n  </script>\n</body>\n</html>\n"
+}

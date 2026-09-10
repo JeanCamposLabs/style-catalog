@@ -1,0 +1,49 @@
+{
+  "id": "neumorphic-toggle",
+  "title": "Neumorphic Toggle",
+  "summary": "A soft switch that sinks into its track when off.",
+  "description": "The track uses inset shadows and the knob uses outset ones, so the two read as different depths of the same material.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "neumorphism",
+    "form"
+  ],
+  "tags": [
+    "neumorphism",
+    "toggle",
+    "soft-ui",
+    "switch",
+    "inset"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Soft-UI controls are notoriously low-contrast — this one adds an accent fill and a visible focus ring so state is never conveyed by shadow alone.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Surface color",
+      "default": "#232a3a"
+    },
+    {
+      "name": "--on",
+      "description": "On colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Light-mode surface",
+    "Icon inside the knob",
+    "Larger hit area for touch"
+  ],
+  "related": [],
+  "ai_usage": "Soft-UI settings panels. Mixing inset (track) and outset (knob) shadows is what makes neumorphism read; never use it for the only indicator of a binary state — add colour or a label.",
+  "path": "effects/glass-neumorphism/neumorphic-toggle.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neumorphic Toggle</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neumorphic-toggle\",\n    \"title\": \"Neumorphic Toggle\",\n    \"summary\": \"A soft switch that sinks into its track when off.\",\n    \"description\": \"The track uses inset shadows and the knob uses outset ones, so the two read as different depths of the same material.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"neumorphism\", \"form\"],\n    \"tags\": [\"neumorphism\", \"toggle\", \"soft-ui\", \"switch\", \"inset\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Soft-UI controls are notoriously low-contrast — this one adds an accent fill and a visible focus ring so state is never conveyed by shadow alone.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Surface color\", \"default\": \"#232a3a\" },\n      { \"name\": \"--on\", \"description\": \"On colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Light-mode surface\", \"Icon inside the knob\", \"Larger hit area for touch\"],\n    \"ai_usage\": \"Soft-UI settings panels. Mixing inset (track) and outset (knob) shadows is what makes neumorphism read; never use it for the only indicator of a binary state — add colour or a label.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: #232a3a; }\n    :root { --bg: #232a3a; --on: #7c5cff; }\n    .nt { position: relative; width: 82px; height: 44px; border-radius: 999px; background: var(--bg);\n      box-shadow: inset 3px 3px 7px rgba(0,0,0,.5), inset -3px -3px 7px rgba(255,255,255,.05); cursor: pointer; border: 0; }\n    .nt::after { content: \"\"; position: absolute; top: 5px; left: 5px; width: 34px; height: 34px; border-radius: 50%;\n      background: var(--bg); box-shadow: 3px 3px 7px rgba(0,0,0,.5), -3px -3px 7px rgba(255,255,255,.06);\n      transition: transform .28s cubic-bezier(.7,0,.2,1), background .28s; }\n    .nt[aria-pressed=\"true\"]::after { transform: translateX(38px); background: var(--on); }\n    .nt:focus-visible { outline: 2px solid var(--on); outline-offset: 4px; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"nt\" type=\"button\" aria-pressed=\"false\" aria-label=\"Notifications\"></button>\n  <script>\n    (function () {\n      var b = document.querySelector(\".nt\");\n      b.addEventListener(\"click\", function () {\n        b.setAttribute(\"aria-pressed\", b.getAttribute(\"aria-pressed\") === \"true\" ? \"false\" : \"true\");\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

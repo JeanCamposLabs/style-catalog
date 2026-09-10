@@ -1,0 +1,50 @@
+{
+  "id": "toggle-morph-button",
+  "title": "Morphing Submit Button",
+  "summary": "The button collapses into a circle, spins, and becomes a checkmark.",
+  "description": "Width, radius, and content swap on one class change, so a submit turns into its own success state without a layout jump.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "state"
+  ],
+  "tags": [
+    "morph",
+    "submit",
+    "success",
+    "state",
+    "loading"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Button color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--ok",
+      "description": "Success color",
+      "default": "#34d399"
+    }
+  ],
+  "variations": [
+    "Error state that shakes and turns red",
+    "Progress ring while pending",
+    "Return to idle after a delay"
+  ],
+  "related": [],
+  "ai_usage": "Form submissions where feedback must stay in place. Animate width and border-radius on the button itself and cross-fade the inner label/spinner/check; never swap the element or focus is lost mid-flow. Announce the result with aria-live.",
+  "path": "effects/buttons/toggle-morph-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Morphing Submit Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"toggle-morph-button\",\n    \"title\": \"Morphing Submit Button\",\n    \"summary\": \"The button collapses into a circle, spins, and becomes a checkmark.\",\n    \"description\": \"Width, radius, and content swap on one class change, so a submit turns into its own success state without a layout jump.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"state\"],\n    \"tags\": [\"morph\", \"submit\", \"success\", \"state\", \"loading\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Button color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--ok\", \"description\": \"Success color\", \"default\": \"#34d399\" }\n    ],\n    \"variations\": [\"Error state that shakes and turns red\", \"Progress ring while pending\", \"Return to idle after a delay\"],\n    \"ai_usage\": \"Form submissions where feedback must stay in place. Animate width and border-radius on the button itself and cross-fade the inner label/spinner/check; never swap the element or focus is lost mid-flow. Announce the result with aria-live.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #7c5cff; --ok: #34d399; }\n    .morph { width: 180px; height: 52px; border-radius: 12px; background: var(--c); color: #fff; font-weight: 700;\n      display: grid; place-items: center; transition: width .4s cubic-bezier(.7,0,.2,1), border-radius .4s, background .3s; }\n    .morph .lbl, .morph .spin, .morph .ok { grid-area: 1 / 1; transition: opacity .2s; }\n    .morph .spin, .morph .ok { opacity: 0; }\n    .morph .spin { width: 22px; height: 22px; border: 3px solid rgba(255,255,255,.35); border-top-color: #fff;\n      border-radius: 50%; animation: sp .8s linear infinite; }\n    .morph.is-busy { width: 52px; border-radius: 50%; }\n    .morph.is-busy .lbl { opacity: 0; }\n    .morph.is-busy .spin { opacity: 1; }\n    .morph.is-done { width: 52px; border-radius: 50%; background: var(--ok); }\n    .morph.is-done .spin { opacity: 0; }\n    .morph.is-done .ok { opacity: 1; font-size: 1.4rem; }\n    @keyframes sp { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"morph\" type=\"button\" id=\"m\">\n    <span class=\"lbl\">Submit</span><span class=\"spin\" aria-hidden=\"true\"></span><span class=\"ok\" aria-hidden=\"true\">✓</span>\n  </button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"m\");\n      function cycle() {\n        b.classList.add(\"is-busy\");\n        setTimeout(function () { b.classList.remove(\"is-busy\"); b.classList.add(\"is-done\"); }, 1400);\n        setTimeout(function () { b.classList.remove(\"is-done\"); }, 3000);\n      }\n      b.addEventListener(\"click\", cycle);\n      setInterval(cycle, 4200);\n    })();\n  </script>\n</body>\n</html>\n"
+}

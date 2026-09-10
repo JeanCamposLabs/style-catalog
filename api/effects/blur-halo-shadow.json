@@ -1,0 +1,49 @@
+{
+  "id": "blur-halo-shadow",
+  "title": "Colour Halo",
+  "summary": "A soft coloured halo blooms behind the card.",
+  "description": "A blurred, saturated duplicate behind the surface tints the surrounding area instead of darkening it.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "shadow",
+    "glow"
+  ],
+  "tags": [
+    "halo",
+    "bloom",
+    "color",
+    "glow",
+    "hero"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Halo color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--blur",
+      "description": "Halo blur",
+      "default": "44px"
+    }
+  ],
+  "variations": [
+    "Two-colour halo",
+    "Pulse the halo slowly",
+    "Halo only on hover"
+  ],
+  "related": [],
+  "ai_usage": "Dark hero sections. A coloured halo replaces a dark shadow on dark backgrounds where a black shadow is invisible — keep it wide and low-opacity or it reads as a glow bug.",
+  "path": "effects/borders-shadows/blur-halo-shadow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Colour Halo</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"blur-halo-shadow\",\n    \"title\": \"Colour Halo\",\n    \"summary\": \"A soft coloured halo blooms behind the card.\",\n    \"description\": \"A blurred, saturated duplicate behind the surface tints the surrounding area instead of darkening it.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"shadow\", \"glow\"],\n    \"tags\": [\"halo\", \"bloom\", \"color\", \"glow\", \"hero\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Halo color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--blur\", \"description\": \"Halo blur\", \"default\": \"44px\" }\n    ],\n    \"variations\": [\"Two-colour halo\", \"Pulse the halo slowly\", \"Halo only on hover\"],\n    \"ai_usage\": \"Dark hero sections. A coloured halo replaces a dark shadow on dark backgrounds where a black shadow is invisible — keep it wide and low-opacity or it reads as a glow bug.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --c: #7c5cff; --blur: 44px; }\n    .halo { position: relative; }\n    .halo::before { content: \"\"; position: absolute; inset: 6px; border-radius: 24px; background: var(--c);\n      filter: blur(var(--blur)); opacity: .55; }\n    .demo { position: relative; background: #151b2a; border-radius: 18px; border: 1px solid #2b3450; }\n  </style>\n</head>\n<body>\n  <div class=\"halo\"><div class=\"demo\"><h3>Haloed</h3><p>Colour bloom behind the surface.</p></div></div>\n</body>\n</html>\n"
+}

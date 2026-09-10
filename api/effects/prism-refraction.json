@@ -1,0 +1,44 @@
+{
+  "id": "prism-refraction",
+  "title": "Prism Refraction",
+  "summary": "White light splitting into a spectrum.",
+  "description": "White light splitting into a spectrum.",
+  "theme": "holographic-metallic",
+  "themeTitle": "Holographic & Metallic",
+  "categories": [
+    "material",
+    "holographic"
+  ],
+  "tags": [
+    "holographic",
+    "metallic",
+    "prism",
+    "refraction",
+    "spectrum",
+    "light"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+  "customization": [
+    {
+      "name": "--w",
+      "description": "Spectrum width",
+      "default": "110px"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Design and optics themes. Fan the spectrum with a clip-path wedge so the bands widen with distance — a rectangle reads as a printed swatch.",
+  "path": "effects/holographic-metallic/prism-refraction.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Prism Refraction</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"prism-refraction\",\n    \"title\": \"Prism Refraction\",\n    \"summary\": \"White light splitting into a spectrum.\",\n    \"description\": \"White light splitting into a spectrum.\",\n    \"theme\": \"holographic-metallic\",\n    \"categories\": [\"material\", \"holographic\"],\n    \"tags\": [\"holographic\", \"metallic\", \"prism\", \"refraction\", \"spectrum\", \"light\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Iridescent surfaces have unpredictable local contrast — never place body text directly on one.\",\n    \"customization\": [\n      { \"name\": \"--w\", \"description\": \"Spectrum width\", \"default\": \"110px\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Design and optics themes. Fan the spectrum with a clip-path wedge so the bands widen with distance — a rectangle reads as a printed swatch.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 250px; height: 150px; border-radius: 12px; overflow: hidden; background: #05070d; }\n    .fx .beam { position: absolute; top: 40px; left: 0; width: 110px; height: 3px; background: #fff; box-shadow: 0 0 10px #fff; }\n    .fx .prism { position: absolute; top: 26px; left: 104px; width: 0; height: 0;\n      border-left: 26px solid transparent; border-right: 26px solid transparent; border-bottom: 48px solid rgba(255,255,255,.18); }\n    .fx .spec { position: absolute; top: 56px; left: 150px; width: 110px; height: 44px;\n      background: linear-gradient(180deg, #ef4444, #f59e0b, #eab308, #22c55e, #3b82f6, #a855f7);\n      clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%); filter: blur(1px); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"beam\"></span><span class=\"prism\"></span><span class=\"spec\"></span></div>\n</body>\n</html>\n"
+}

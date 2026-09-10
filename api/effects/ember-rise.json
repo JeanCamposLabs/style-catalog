@@ -1,0 +1,44 @@
+{
+  "id": "ember-rise",
+  "title": "Rising Embers",
+  "summary": "Sparks lifting from a fire and fading out.",
+  "description": "Sparks lifting from a fire and fading out.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "embers",
+    "sparks",
+    "rise",
+    "fire"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Ember colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Campfire and forge scenes. Give each ember a different horizontal drift so the column disperses instead of rising as a straight line.",
+  "path": "effects/fire-water/ember-rise.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rising Embers</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"ember-rise\",\n    \"title\": \"Rising Embers\",\n    \"summary\": \"Sparks lifting from a fire and fading out.\",\n    \"description\": \"Sparks lifting from a fire and fading out.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"embers\", \"sparks\", \"rise\", \"fire\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Ember colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Campfire and forge scenes. Give each ember a different horizontal drift so the column disperses instead of rising as a straight line.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 200px; height: 170px; border-radius: 14px; overflow: hidden;\n      background: radial-gradient(circle at 50% 110%, #7c2d12, #0b0d12 65%); }\n    .fx i { position: absolute; bottom: -6px; width: 4px; height: 4px; border-radius: 50%; background: #fbbf24;\n      box-shadow: 0 0 8px #f97316; animation: up var(--d) linear infinite; animation-delay: var(--dl); }\n    @keyframes up {\n      0% { transform: translate(0, 0) scale(1); opacity: 1; }\n      100% { transform: translate(var(--dx), -160px) scale(.3); opacity: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"left:30%;--d:2.6s;--dl:0s;--dx:18px\"></i><i style=\"left:46%;--d:3.4s;--dl:-1s;--dx:-14px\"></i>\n  <i style=\"left:58%;--d:2.2s;--dl:-1.6s;--dx:24px\"></i><i style=\"left:70%;--d:3s;--dl:-.6s;--dx:-20px\"></i></div>\n</body>\n</html>\n"
+}

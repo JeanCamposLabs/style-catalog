@@ -1,0 +1,44 @@
+{
+  "id": "combo-newsletter-inline",
+  "title": "Newsletter Block",
+  "summary": "An inline sign-up with consent text.",
+  "description": "An inline sign-up with consent text.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "combo",
+    "section"
+  ],
+  "tags": [
+    "combo",
+    "block",
+    "newsletter",
+    "signup",
+    "email",
+    "consent"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Action colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Content sites. State the sending frequency and link the privacy policy next to the field; both measurably raise completion and are legally required in several jurisdictions.",
+  "path": "effects/combos-recipes/combo-newsletter-inline.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Newsletter Block</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"combo-newsletter-inline\",\n    \"title\": \"Newsletter Block\",\n    \"summary\": \"An inline sign-up with consent text.\",\n    \"description\": \"An inline sign-up with consent text.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"combo\", \"section\"],\n    \"tags\": [\"combo\", \"block\", \"newsletter\", \"signup\", \"email\", \"consent\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Action colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Content sites. State the sending frequency and link the privacy policy next to the field; both measurably raise completion and are legally required in several jurisdictions.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; place-items: center; padding: 2rem 1rem; }\n    .fx { width: min(92vw, 300px); padding: 1.3rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }\n    .fx h3 { margin: 0 0 .3rem; font-size: 1.05rem; }\n    .fx p { margin: 0 0 .9rem; color: #8b93a7; font-size: .84rem; line-height: 1.5; }\n    .fx .row { display: flex; gap: .5rem; }\n    .fx input { flex: 1; min-width: 0; padding: .65rem .8rem; border-radius: 10px; border: 1px solid #2b3450;\n      background: #10141f; color: #e7ebf3; font: inherit; font-size: .85rem; }\n    .fx button { padding: .65rem 1.1rem; border: 0; border-radius: 10px; background: #7c5cff; color: #fff; font: inherit;\n      font-weight: 700; font-size: .85rem; cursor: pointer; }\n    .fx small { display: block; margin-top: .6rem; color: #64748b; font-size: .74rem; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <section class=\"fx\"><h3>New specimens, monthly</h3><p>One email a month with what shipped and why.</p>\n  <form class=\"row\"><label class=\"sr\" for=\"nl\" style=\"position:absolute;left:-9999px\">Email address</label>\n  <input id=\"nl\" type=\"email\" placeholder=\"you@studio.com\" /><button type=\"button\">Subscribe</button></form>\n  <small>One email a month. Unsubscribe any time. See our privacy notice.</small></section>\n</body>\n</html>\n"
+}

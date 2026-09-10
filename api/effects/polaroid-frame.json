@@ -1,0 +1,44 @@
+{
+  "id": "polaroid-frame",
+  "title": "Polaroid Frame",
+  "summary": "An instant photo with a wide bottom margin and a caption.",
+  "description": "An instant photo with a wide bottom margin and a caption.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "polaroid",
+    "photo",
+    "frame",
+    "instant"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--frame",
+      "description": "Frame colour",
+      "default": "#fdfdfb"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Photo galleries and memory boards. The bottom margin must be much deeper than the other three — equal padding reads as a generic white frame.",
+  "path": "effects/paper-print/polaroid-frame.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Polaroid Frame</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"polaroid-frame\",\n    \"title\": \"Polaroid Frame\",\n    \"summary\": \"An instant photo with a wide bottom margin and a caption.\",\n    \"description\": \"An instant photo with a wide bottom margin and a caption.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"polaroid\", \"photo\", \"frame\", \"instant\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--frame\", \"description\": \"Frame colour\", \"default\": \"#fdfdfb\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Photo galleries and memory boards. The bottom margin must be much deeper than the other three — equal padding reads as a generic white frame.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 190px; padding: 12px 12px 44px; background: #fdfdfb; box-shadow: 0 14px 30px rgba(0,0,0,.45);\n      transform: rotate(-3deg); position: relative; }\n    .fx .img { aspect-ratio: 1; background: conic-gradient(from 160deg at 40% 35%, #7c5cff, #2dd4bf, #f472b6); }\n    .fx .cap { position: absolute; bottom: 10px; left: 0; right: 0; text-align: center; color: #57534e;\n      font-family: \"Segoe Script\", cursive; font-size: .85rem; }\n  </style>\n</head>\n<body>\n  <figure class=\"fx\" style=\"margin:0\"><div class=\"img\"></div><figcaption class=\"cap\">Summer, 2026</figcaption></figure>\n</body>\n</html>\n"
+}

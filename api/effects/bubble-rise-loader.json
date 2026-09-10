@@ -1,0 +1,49 @@
+{
+  "id": "bubble-rise-loader",
+  "title": "Rising Bubbles Loader",
+  "summary": "Bubbles detach from the bottom, wobble upward, and pop at the surface.",
+  "description": "Each bubble uses the same keyframe with a different delay, duration, and horizontal offset, so the column never looks mechanically synchronized.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "ambient"
+  ],
+  "tags": [
+    "bubbles",
+    "rise",
+    "organic",
+    "stagger",
+    "liquid"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Bubble tint",
+      "default": "#38bdf8"
+    },
+    {
+      "name": "--dur",
+      "description": "Rise duration",
+      "default": "2.6s"
+    }
+  ],
+  "variations": [
+    "Vary bubble sizes for depth",
+    "Add a slight sideways drift per bubble",
+    "Tint bubbles by progress state"
+  ],
+  "related": [],
+  "ai_usage": "A calmer alternative to a spinner for long waits (uploads, renders). Randomness comes from per-child --i / --d custom properties, not JS — add more spans and keep the delays irregular (prime-ish fractions) so the loop never visibly repeats.",
+  "path": "effects/loaders-spinners/bubble-rise-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rising Bubbles Loader</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bubble-rise-loader\",\n    \"title\": \"Rising Bubbles Loader\",\n    \"summary\": \"Bubbles detach from the bottom, wobble upward, and pop at the surface.\",\n    \"description\": \"Each bubble uses the same keyframe with a different delay, duration, and horizontal offset, so the column never looks mechanically synchronized.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"ambient\"],\n    \"tags\": [\"bubbles\", \"rise\", \"organic\", \"stagger\", \"liquid\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Bubble tint\", \"default\": \"#38bdf8\" },\n      { \"name\": \"--dur\", \"description\": \"Rise duration\", \"default\": \"2.6s\" }\n    ],\n    \"variations\": [\"Vary bubble sizes for depth\", \"Add a slight sideways drift per bubble\", \"Tint bubbles by progress state\"],\n    \"ai_usage\": \"A calmer alternative to a spinner for long waits (uploads, renders). Randomness comes from per-child --i / --d custom properties, not JS — add more spans and keep the delays irregular (prime-ish fractions) so the loop never visibly repeats.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #38bdf8; --dur: 2.6s; }\n    .tank { position: relative; width: 96px; height: 130px; border-radius: 0 0 16px 16px;\n      background: linear-gradient(180deg, #0d1220, #101a2c); border: 1px solid #22304a; overflow: hidden; }\n    .tank i { position: absolute; bottom: -18px; left: var(--x); width: var(--s); height: var(--s); border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--c) 70%, transparent); background: color-mix(in srgb, var(--c) 18%, transparent);\n      animation: rise var(--dur) linear infinite; animation-delay: var(--d); }\n    @keyframes rise {\n      0% { transform: translateY(0) translateX(0); opacity: 0; }\n      12% { opacity: 1; }\n      50% { transform: translateY(-70px) translateX(6px); }\n      85% { opacity: 1; }\n      100% { transform: translateY(-150px) translateX(-4px); opacity: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"tank\" role=\"status\" aria-label=\"Loading\">\n    <i style=\"--x:14px;--s:12px;--d:0s\"></i>\n    <i style=\"--x:38px;--s:18px;--d:.7s\"></i>\n    <i style=\"--x:64px;--s:10px;--d:1.3s\"></i>\n    <i style=\"--x:28px;--s:8px;--d:1.9s\"></i>\n    <i style=\"--x:56px;--s:14px;--d:2.3s\"></i>\n  </div>\n</body>\n</html>\n"
+}

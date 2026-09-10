@@ -1,0 +1,49 @@
+{
+  "id": "neon-outline-button",
+  "title": "Neon Outline Button",
+  "summary": "A hollow button whose border and label ignite on hover.",
+  "description": "Layered box-shadows inside and out plus a text glow turn a flat outline into a lit tube.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "glow"
+  ],
+  "tags": [
+    "neon",
+    "outline",
+    "glow",
+    "hover",
+    "dark-ui"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Neon color",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--dur",
+      "description": "Ignite speed",
+      "default": "0.25s"
+    }
+  ],
+  "variations": [
+    "Flicker on first hover",
+    "Fill the button on active",
+    "Different hue per action"
+  ],
+  "related": [],
+  "ai_usage": "Dark UIs, gaming, nightlife. The glow is three box-shadows (inset, small outer, large outer) plus a text-shadow — one shadow alone looks like a blur, not neon. Keep the resting state visible for accessibility.",
+  "path": "effects/buttons/neon-outline-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neon Outline Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-outline-button\",\n    \"title\": \"Neon Outline Button\",\n    \"summary\": \"A hollow button whose border and label ignite on hover.\",\n    \"description\": \"Layered box-shadows inside and out plus a text glow turn a flat outline into a lit tube.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"glow\"],\n    \"tags\": [\"neon\", \"outline\", \"glow\", \"hover\", \"dark-ui\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Neon color\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--dur\", \"description\": \"Ignite speed\", \"default\": \"0.25s\" }\n    ],\n    \"variations\": [\"Flicker on first hover\", \"Fill the button on active\", \"Different hue per action\"],\n    \"ai_usage\": \"Dark UIs, gaming, nightlife. The glow is three box-shadows (inset, small outer, large outer) plus a text-shadow — one shadow alone looks like a blur, not neon. Keep the resting state visible for accessibility.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #2dd4bf; --dur: .25s; }\n    .neon { padding: .9rem 2rem; border-radius: 10px; background: transparent; color: var(--c);\n      border: 2px solid var(--c); font-weight: 700; letter-spacing: .06em; text-transform: uppercase;\n      transition: box-shadow var(--dur), color var(--dur), text-shadow var(--dur); }\n    .neon:hover { color: #fff; text-shadow: 0 0 8px var(--c);\n      box-shadow: inset 0 0 14px color-mix(in srgb, var(--c) 45%, transparent), 0 0 10px var(--c), 0 0 30px color-mix(in srgb, var(--c) 60%, transparent); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"neon\" type=\"button\">Engage</button>\n</body>\n</html>\n"
+}

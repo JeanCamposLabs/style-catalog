@@ -1,0 +1,44 @@
+{
+  "id": "type-heading-hierarchy",
+  "title": "Heading Hierarchy",
+  "summary": "Weight, size, and colour working together.",
+  "description": "Weight, size, and colour working together.",
+  "theme": "typography-systems",
+  "themeTitle": "Typography Systems",
+  "categories": [
+    "typography",
+    "reference"
+  ],
+  "tags": [
+    "typography",
+    "type",
+    "hierarchy",
+    "headings",
+    "eyebrow",
+    "lede"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+  "customization": [
+    {
+      "name": "--eyebrow",
+      "description": "Eyebrow colour",
+      "default": "#b9a5ff"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Article and section openers. Build hierarchy from three channels — size, weight, and colour — so it survives when any one of them is unavailable.",
+  "path": "effects/typography-systems/type-heading-hierarchy.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Heading Hierarchy</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"type-heading-hierarchy\",\n    \"title\": \"Heading Hierarchy\",\n    \"summary\": \"Weight, size, and colour working together.\",\n    \"description\": \"Weight, size, and colour working together.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"reference\"],\n    \"tags\": [\"typography\", \"type\", \"hierarchy\", \"headings\", \"eyebrow\", \"lede\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.\",\n    \"customization\": [\n      { \"name\": \"--eyebrow\", \"description\": \"Eyebrow colour\", \"default\": \"#b9a5ff\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Article and section openers. Build hierarchy from three channels — size, weight, and colour — so it survives when any one of them is unavailable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; }\n    .fx .eyebrow { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: #b9a5ff; margin-bottom: .35rem; }\n    .fx h2 { margin: 0 0 .4rem; font-size: 1.5rem; line-height: 1.2; font-weight: 800; }\n    .fx .lede { margin: 0 0 .7rem; font-size: 1rem; line-height: 1.55; color: #cbd5e1; }\n    .fx p { margin: 0; font-size: .86rem; line-height: 1.65; color: #8b93a7; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"eyebrow\">Release notes</div><h2>A thousand new specimens</h2>\n  <p class=\"lede\">The catalogue now spans fifty-seven themes, all zero-dependency.</p>\n  <p>Every effect ships as one self-contained file with machine-readable metadata for agents.</p></div>\n</body>\n</html>\n"
+}

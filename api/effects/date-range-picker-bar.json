@@ -1,0 +1,44 @@
+{
+  "id": "date-range-picker-bar",
+  "title": "Date Range",
+  "summary": "A range selection with highlighted intermediate days.",
+  "description": "A range selection with highlighted intermediate days.",
+  "theme": "calendar-time",
+  "themeTitle": "Calendar & Time",
+  "categories": [
+    "calendar",
+    "time"
+  ],
+  "tags": [
+    "calendar",
+    "date",
+    "date-range",
+    "picker",
+    "selection",
+    "filter"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Range colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Reports and bookings. Highlight the in-between days as a continuous band (square inner corners, rounded ends) so the range reads as one selection.",
+  "path": "effects/calendar-time/date-range-picker-bar.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Date Range</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"date-range-picker-bar\",\n    \"title\": \"Date Range\",\n    \"summary\": \"A range selection with highlighted intermediate days.\",\n    \"description\": \"A range selection with highlighted intermediate days.\",\n    \"theme\": \"calendar-time\",\n    \"categories\": [\"calendar\", \"time\"],\n    \"tags\": [\"calendar\", \"date\", \"date-range\", \"picker\", \"selection\", \"filter\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Range colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Reports and bookings. Highlight the in-between days as a continuous band (square inner corners, rounded ends) so the range reads as one selection.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 260px; padding: 1rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }\n    .fx .g { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; text-align: center; }\n    .fx .g button { aspect-ratio: 1; border: 0; background: transparent; color: #cbd5e1; font: inherit; font-size: .8rem; cursor: pointer; }\n    .fx .g button.in { background: rgba(124,92,255,.2); }\n    .fx .g button.start { background: #7c5cff; color: #fff; border-radius: 9px 0 0 9px; }\n    .fx .g button.end { background: #7c5cff; color: #fff; border-radius: 0 9px 9px 0; }\n    .fx .lbl { margin-top: .8rem; font-size: .8rem; color: #8b93a7; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"g\"><button>8</button><button>9</button><button class=\"start\">10</button><button class=\"in\">11</button>\n  <button class=\"in\">12</button><button class=\"in\">13</button><button class=\"end\">14</button></div>\n  <div class=\"lbl\">10 – 14 September · 5 nights</div></div>\n</body>\n</html>\n"
+}

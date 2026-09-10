@@ -1,0 +1,45 @@
+{
+  "id": "animated-noise-bg",
+  "title": "Animated Static",
+  "summary": "Pure white noise regenerated every few frames on a canvas.",
+  "description": "Writing random bytes into ImageData produces genuine per-pixel static that no CSS texture can match.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "texture"
+  ],
+  "tags": [
+    "static",
+    "noise",
+    "canvas",
+    "tv",
+    "analog"
+  ],
+  "tech": [
+    "js",
+    "canvas"
+  ],
+  "era": "1990s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Regenerating ImageData is the expensive part — render at a quarter resolution and scale up, and throttle to ~12fps.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--o",
+      "description": "Overlay opacity",
+      "default": "0.5"
+    }
+  ],
+  "variations": [
+    "Colour static instead of monochrome",
+    "Slower refresh for film grain",
+    "Blend over content with mix-blend-mode"
+  ],
+  "related": [],
+  "ai_usage": "No-signal screens, error states, and analog aesthetics. Draw into a small offscreen canvas (e.g. 160×90) and let CSS scale it — full-resolution noise wastes an enormous amount of fill rate for no visual gain.",
+  "path": "effects/backgrounds/animated-noise-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Animated Static</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"animated-noise-bg\",\n    \"title\": \"Animated Static\",\n    \"summary\": \"Pure white noise regenerated every few frames on a canvas.\",\n    \"description\": \"Writing random bytes into ImageData produces genuine per-pixel static that no CSS texture can match.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"texture\"],\n    \"tags\": [\"static\", \"noise\", \"canvas\", \"tv\", \"analog\"],\n    \"tech\": [\"js\", \"canvas\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Regenerating ImageData is the expensive part — render at a quarter resolution and scale up, and throttle to ~12fps.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--o\", \"description\": \"Overlay opacity\", \"default\": \"0.5\" }\n    ],\n    \"variations\": [\"Colour static instead of monochrome\", \"Slower refresh for film grain\", \"Blend over content with mix-blend-mode\"],\n    \"ai_usage\": \"No-signal screens, error states, and analog aesthetics. Draw into a small offscreen canvas (e.g. 160×90) and let CSS scale it — full-resolution noise wastes an enormous amount of fill rate for no visual gain.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    canvas { display: block; width: 100%; height: 100%; opacity: var(--o, .5); image-rendering: pixelated; }\n    :root { --o: .5; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"><canvas id=\"n\" width=\"160\" height=\"90\"></canvas></div>\n  <script>\n    (function () {\n      var c = document.getElementById(\"n\"), x = c.getContext(\"2d\");\n      var img = x.createImageData(c.width, c.height);\n      var reduce = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n      function draw() {\n        var d = img.data;\n        for (var i = 0; i < d.length; i += 4) {\n          var v = Math.random() * 255;\n          d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255;\n        }\n        x.putImageData(img, 0, 0);\n      }\n      draw();\n      if (!reduce) setInterval(draw, 80);\n    })();\n  </script>\n</body>\n</html>\n"
+}

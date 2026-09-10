@@ -1,0 +1,44 @@
+{
+  "id": "timeline-horizontal-scroll",
+  "title": "Horizontal Timeline",
+  "summary": "A scrolling year timeline with milestone cards.",
+  "description": "A scrolling year timeline with milestone cards.",
+  "theme": "timelines-steppers",
+  "themeTitle": "Timelines & Steppers",
+  "categories": [
+    "timeline",
+    "stepper"
+  ],
+  "tags": [
+    "timeline",
+    "sequence",
+    "horizontal",
+    "scroll",
+    "milestones",
+    "history"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Marker colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Company and product histories. Horizontal timelines must scroll rather than compress; make the container keyboard-scrollable and add edge fades so the overflow is discoverable.",
+  "path": "effects/timelines-steppers/timeline-horizontal-scroll.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Horizontal Timeline</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"timeline-horizontal-scroll\",\n    \"title\": \"Horizontal Timeline\",\n    \"summary\": \"A scrolling year timeline with milestone cards.\",\n    \"description\": \"A scrolling year timeline with milestone cards.\",\n    \"theme\": \"timelines-steppers\",\n    \"categories\": [\"timeline\", \"stepper\"],\n    \"tags\": [\"timeline\", \"sequence\", \"horizontal\", \"scroll\", \"milestones\", \"history\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Marker colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Company and product histories. Horizontal timelines must scroll rather than compress; make the container keyboard-scrollable and add edge fades so the overflow is discoverable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; overflow-x: auto; padding-bottom: .5rem; }\n    .rail { position: relative; display: flex; gap: 1.4rem; min-width: 460px; padding-top: 1.6rem; }\n    .rail::before { content: \"\"; position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: #2b3450; }\n    .m { position: relative; width: 130px; flex: none; }\n    .m::before { content: \"\"; position: absolute; top: -18px; left: 0; width: 12px; height: 12px; border-radius: 50%;\n      background: #7c5cff; border: 2px solid #0b0d12; }\n    .m time { display: block; color: #8b93a7; font-size: .72rem; margin-bottom: .2rem; }\n    .m b { font-size: .84rem; }\n    .m p { margin: .2rem 0 0; color: #8b93a7; font-size: .76rem; line-height: 1.4; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"rail\">\n    <div class=\"m\"><time>2024</time><b>Prototype</b><p>Nine effects in one file.</p></div>\n    <div class=\"m\"><time>2025</time><b>Public gallery</b><p>Static site on Pages.</p></div>\n    <div class=\"m\"><time>2026</time><b>1,181 specimens</b><p>Forty-plus themes.</p></div></div></div>\n</body>\n</html>\n"
+}

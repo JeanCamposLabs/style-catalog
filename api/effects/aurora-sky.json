@@ -1,0 +1,44 @@
+{
+  "id": "aurora-sky",
+  "title": "Aurora Sky",
+  "summary": "Green and violet curtains over a starfield.",
+  "description": "Green and violet curtains over a starfield.",
+  "theme": "space-cosmic",
+  "themeTitle": "Space & Cosmic",
+  "categories": [
+    "space",
+    "cosmic"
+  ],
+  "tags": [
+    "space",
+    "cosmic",
+    "aurora",
+    "curtains",
+    "night",
+    "sky"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Curtain colour",
+      "default": "#34d399"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Arctic and night scenes. Vertical blurred columns with independent sway periods; horizontal gradients read as sunset instead.",
+  "path": "effects/space-cosmic/aurora-sky.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Aurora Sky</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"aurora-sky\",\n    \"title\": \"Aurora Sky\",\n    \"summary\": \"Green and violet curtains over a starfield.\",\n    \"description\": \"Green and violet curtains over a starfield.\",\n    \"theme\": \"space-cosmic\",\n    \"categories\": [\"space\", \"cosmic\"],\n    \"tags\": [\"space\", \"cosmic\", \"aurora\", \"curtains\", \"night\", \"sky\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Curtain colour\", \"default\": \"#34d399\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Arctic and night scenes. Vertical blurred columns with independent sway periods; horizontal gradients read as sunset instead.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 180px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #050b16, #0b1a2a); }\n    .fx .st { position: absolute; inset: 0; background-image: radial-gradient(#fff 1px, transparent 1.3px); background-size: 46px 46px; opacity: .7; }\n    .fx i { position: absolute; top: -10%; height: 120%; width: 60px; filter: blur(22px); opacity: .5;\n      animation: sway var(--d) ease-in-out infinite alternate; }\n    @keyframes sway { from { transform: translateX(-14px) skewX(-8deg); } to { transform: translateX(18px) skewX(10deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"st\"></span>\n  <i style=\"left:12%;background:linear-gradient(180deg,transparent,#34d399,transparent);--d:9s\"></i>\n  <i style=\"left:44%;background:linear-gradient(180deg,transparent,#22d3ee,transparent);--d:13s\"></i>\n  <i style=\"left:72%;background:linear-gradient(180deg,transparent,#a78bfa,transparent);--d:11s\"></i></div>\n</body>\n</html>\n"
+}

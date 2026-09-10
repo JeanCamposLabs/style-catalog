@@ -1,0 +1,49 @@
+{
+  "id": "text-mask-video-bars",
+  "title": "Bar Reveal Text",
+  "summary": "Vertical bars wipe away to expose the headline beneath.",
+  "description": "A row of absolutely positioned bars scales to zero height on staggered delays, uncovering the type strip by strip.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "reveal"
+  ],
+  "tags": [
+    "reveal",
+    "bars",
+    "wipe",
+    "stagger",
+    "entrance"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--bar",
+      "description": "Bar color",
+      "default": "#0b0d12"
+    },
+    {
+      "name": "--dur",
+      "description": "Wipe duration",
+      "default": "0.6s"
+    }
+  ],
+  "variations": [
+    "Horizontal bars",
+    "Bars that slide sideways instead of scaling",
+    "Reverse to conceal the text"
+  ],
+  "related": [],
+  "ai_usage": "Section headings that reveal on scroll. Bars must exactly cover the text box (inset:0 with flex children) and animate transform, not height, to stay on the compositor. Set them aria-hidden.",
+  "path": "effects/text-effects/text-mask-video-bars.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Bar Reveal Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"text-mask-video-bars\",\n    \"title\": \"Bar Reveal Text\",\n    \"summary\": \"Vertical bars wipe away to expose the headline beneath.\",\n    \"description\": \"A row of absolutely positioned bars scales to zero height on staggered delays, uncovering the type strip by strip.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"reveal\"],\n    \"tags\": [\"reveal\", \"bars\", \"wipe\", \"stagger\", \"entrance\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--bar\", \"description\": \"Bar color\", \"default\": \"#0b0d12\" },\n      { \"name\": \"--dur\", \"description\": \"Wipe duration\", \"default\": \"0.6s\" }\n    ],\n    \"variations\": [\"Horizontal bars\", \"Bars that slide sideways instead of scaling\", \"Reverse to conceal the text\"],\n    \"ai_usage\": \"Section headings that reveal on scroll. Bars must exactly cover the text box (inset:0 with flex children) and animate transform, not height, to stay on the compositor. Set them aria-hidden.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --bar: #0b0d12; --dur: .6s; }\n    .br { position: relative; display: inline-block; font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 900; }\n    .br .bars { position: absolute; inset: -6px; display: flex; }\n    .br .bars i { flex: 1; background: var(--bar); transform-origin: top;\n      animation: wipe var(--dur) cubic-bezier(.7,0,.2,1) forwards; animation-delay: calc(var(--i) * .07s); }\n    @keyframes wipe { to { transform: scaleY(0); } }\n    @media (prefers-reduced-motion: reduce) {\n      .br .bars { display: none; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"br\">REVEALED\n    <span class=\"bars\" aria-hidden=\"true\">\n      <i style=\"--i:0\"></i><i style=\"--i:1\"></i><i style=\"--i:2\"></i><i style=\"--i:3\"></i>\n      <i style=\"--i:4\"></i><i style=\"--i:5\"></i><i style=\"--i:6\"></i><i style=\"--i:7\"></i>\n    </span>\n  </h1>\n</body>\n</html>\n"
+}

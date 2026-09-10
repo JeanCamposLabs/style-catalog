@@ -1,0 +1,44 @@
+{
+  "id": "shape-arrow-steps",
+  "title": "Arrow Step Chain",
+  "summary": "Chained arrow blocks for a process bar.",
+  "description": "Chained arrow blocks for a process bar. Purely decorative and self-contained, so it drops between any two sections.",
+  "theme": "dividers-shapes",
+  "themeTitle": "Dividers & Shapes",
+  "categories": [
+    "divider",
+    "shape"
+  ],
+  "tags": [
+    "divider",
+    "separator",
+    "arrow",
+    "steps",
+    "process",
+    "chain"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Flip vertically for the opposite section",
+    "Recolour to match the next section"
+  ],
+  "related": [],
+  "ai_usage": "Checkout and workflow bars. The negative margin equal to the arrow depth is what makes the steps interlock without gaps.",
+  "path": "effects/dividers-shapes/shape-arrow-steps.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Arrow Step Chain</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"shape-arrow-steps\",\n    \"title\": \"Arrow Step Chain\",\n    \"summary\": \"Chained arrow blocks for a process bar.\",\n    \"description\": \"Chained arrow blocks for a process bar. Purely decorative and self-contained, so it drops between any two sections.\",\n    \"theme\": \"dividers-shapes\",\n    \"categories\": [\"divider\", \"shape\"],\n    \"tags\": [\"divider\", \"separator\", \"arrow\", \"steps\", \"process\", \"chain\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dividers are decorative: mark them aria-hidden so they are not announced as content.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Flip vertically for the opposite section\", \"Recolour to match the next section\"],\n    \"ai_usage\": \"Checkout and workflow bars. The negative margin equal to the arrow depth is what makes the steps interlock without gaps.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }\n    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }\n    .stage { width: min(92vw, 340px); }\n    .stage { display: flex; padding: 1.4rem 0; }\n    .stp { padding: .7rem 1.4rem .7rem 2rem; background: #1c2437; color: #cbd5e1; font-size: .85rem; margin-left: -14px;\n      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%); }\n    .stp:first-child { margin-left: 0; padding-left: 1.2rem; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%); }\n    .stp.on { background: #7c5cff; color: #fff; }\n  </style>\n</head>\n<body>\n  <div class=\"stage\"><span class=\"stp on\">Cart</span><span class=\"stp on\">Ship</span><span class=\"stp\">Pay</span></div>\n</body>\n</html>\n"
+}

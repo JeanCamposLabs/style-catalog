@@ -1,0 +1,44 @@
+{
+  "id": "empty-inbox-zero",
+  "title": "Inbox Zero",
+  "summary": "A cleared-queue celebration state.",
+  "description": "A cleared-queue celebration state.",
+  "theme": "empty-skeleton-states",
+  "themeTitle": "Empty & Loading States",
+  "categories": [
+    "state",
+    "empty"
+  ],
+  "tags": [
+    "state",
+    "placeholder",
+    "inbox-zero",
+    "complete",
+    "celebration",
+    "done"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.",
+  "customization": [
+    {
+      "name": "--ok",
+      "description": "Accent colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "A finished queue. Celebrate briefly and stop — a persistent animation on an empty inbox is noise the user has to look at every day.",
+  "path": "effects/empty-skeleton-states/empty-inbox-zero.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Inbox Zero</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"empty-inbox-zero\",\n    \"title\": \"Inbox Zero\",\n    \"summary\": \"A cleared-queue celebration state.\",\n    \"description\": \"A cleared-queue celebration state.\",\n    \"theme\": \"empty-skeleton-states\",\n    \"categories\": [\"state\", \"empty\"],\n    \"tags\": [\"state\", \"placeholder\", \"inbox-zero\", \"complete\", \"celebration\", \"done\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.\",\n    \"customization\": [\n      { \"name\": \"--ok\", \"description\": \"Accent colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"A finished queue. Celebrate briefly and stop — a persistent animation on an empty inbox is noise the user has to look at every day.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; padding: 2rem 1.4rem; border-radius: 16px; background: #101f1b; border: 1px solid #1c4a41; text-align: center; }\n    .fx .ic { font-size: 2.2rem; }\n    .fx h3 { margin: .7rem 0 .3rem; font-size: 1rem; color: #b8f0e5; }\n    .fx p { margin: 0; color: #7fbfb3; font-size: .85rem; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"status\"><div class=\"ic\" aria-hidden=\"true\">🎉</div><h3>All caught up</h3>\n  <p>No pending reviews. The next batch arrives Monday.</p></div>\n</body>\n</html>\n"
+}

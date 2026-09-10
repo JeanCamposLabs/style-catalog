@@ -1,0 +1,44 @@
+{
+  "id": "snow-globe",
+  "title": "Snow Globe",
+  "summary": "A glass dome with snow settling inside.",
+  "description": "A glass dome with snow settling inside.",
+  "theme": "weather-ambient",
+  "themeTitle": "Weather & Ambient",
+  "categories": [
+    "weather",
+    "ambient"
+  ],
+  "tags": [
+    "weather",
+    "ambient",
+    "snow",
+    "globe",
+    "winter",
+    "glass"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Glass tint",
+      "default": "rgba(219,234,254,.25)"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Seasonal decorations. The inset highlight and shadow pair is what makes the dome read as glass rather than a flat circle.",
+  "path": "effects/weather-ambient/snow-globe.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Snow Globe</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"snow-globe\",\n    \"title\": \"Snow Globe\",\n    \"summary\": \"A glass dome with snow settling inside.\",\n    \"description\": \"A glass dome with snow settling inside.\",\n    \"theme\": \"weather-ambient\",\n    \"categories\": [\"weather\", \"ambient\"],\n    \"tags\": [\"weather\", \"ambient\", \"snow\", \"globe\", \"winter\", \"glass\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Glass tint\", \"default\": \"rgba(219,234,254,.25)\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Seasonal decorations. The inset highlight and shadow pair is what makes the dome read as glass rather than a flat circle.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 170px; height: 190px; display: grid; place-items: end center; }\n    .fx .dome { position: absolute; top: 0; width: 160px; height: 160px; border-radius: 50%; overflow: hidden;\n      background: linear-gradient(160deg, rgba(219,234,254,.25), rgba(30,58,138,.35));\n      box-shadow: inset -12px -10px 30px rgba(0,0,0,.35), inset 12px 10px 24px rgba(255,255,255,.25); }\n    .fx .dome i { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #fff;\n      animation: fall var(--d) linear infinite; animation-delay: var(--dl); }\n    .fx .base { width: 150px; height: 34px; border-radius: 10px 10px 14px 14px; background: linear-gradient(180deg, #7c2d12, #431407); }\n    @keyframes fall { from { transform: translateY(-10px); } to { transform: translateY(170px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"dome\"><i style=\"left:20%;--d:4s;--dl:0s\"></i><i style=\"left:44%;--d:5.4s;--dl:-2s\"></i>\n  <i style=\"left:66%;--d:4.6s;--dl:-3s\"></i><i style=\"left:82%;--d:6s;--dl:-1s\"></i></div><div class=\"base\"></div></div>\n</body>\n</html>\n"
+}

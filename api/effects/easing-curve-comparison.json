@@ -1,0 +1,44 @@
+{
+  "id": "easing-curve-comparison",
+  "title": "Easing Comparison",
+  "summary": "Four curves racing side by side.",
+  "description": "Four curves racing side by side.",
+  "theme": "motion-principles",
+  "themeTitle": "Motion Principles",
+  "categories": [
+    "motion",
+    "reference"
+  ],
+  "tags": [
+    "motion",
+    "easing",
+    "easing",
+    "curves",
+    "comparison",
+    "timing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Cycle duration",
+      "default": "2.4s"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Choosing a curve. ease-out for entrances (fast start, soft landing), ease-in for exits, a symmetric bezier for movement between two on-screen positions, and a spring only for playful accents.",
+  "path": "effects/motion-principles/easing-curve-comparison.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Easing Comparison</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"easing-curve-comparison\",\n    \"title\": \"Easing Comparison\",\n    \"summary\": \"Four curves racing side by side.\",\n    \"description\": \"Four curves racing side by side.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"reference\"],\n    \"tags\": [\"motion\", \"easing\", \"easing\", \"curves\", \"comparison\", \"timing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Cycle duration\", \"default\": \"2.4s\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Choosing a curve. ease-out for entrances (fast start, soft landing), ease-in for exits, a symmetric bezier for movement between two on-screen positions, and a spring only for playful accents.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; display: grid; gap: .6rem; }\n    .r { display: grid; grid-template-columns: 78px 1fr; align-items: center; gap: .6rem; font-size: .7rem; color: #64748b;\n      font-family: ui-monospace, monospace; }\n    .t { height: 22px; border-radius: 99px; background: #151b2a; position: relative; }\n    .t i { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #7c5cff;\n      animation: run 2.4s infinite; }\n    .l i { animation-timing-function: linear; }\n    .o i { animation-timing-function: ease-out; }\n    .io i { animation-timing-function: cubic-bezier(.7,0,.2,1); }\n    .sp i { animation-timing-function: cubic-bezier(.34,1.56,.64,1); }\n    @keyframes run { 0%, 10% { left: 3px; } 60%, 100% { left: calc(100% - 19px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"r l\"><span>linear</span><span class=\"t\"><i></i></span></div>\n  <div class=\"r o\"><span>ease-out</span><span class=\"t\"><i></i></span></div>\n  <div class=\"r io\"><span>in-out</span><span class=\"t\"><i></i></span></div>\n  <div class=\"r sp\"><span>spring</span><span class=\"t\"><i></i></span></div></div>\n</body>\n</html>\n"
+}

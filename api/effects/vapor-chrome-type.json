@@ -1,0 +1,45 @@
+{
+  "id": "vapor-chrome-type",
+  "title": "Chrome Type",
+  "summary": "Reflective chrome lettering with a magenta edge.",
+  "description": "Reflective chrome lettering with a magenta edge.",
+  "theme": "vaporwave-synthwave",
+  "themeTitle": "Vaporwave & Synthwave",
+  "categories": [
+    "retro",
+    "vaporwave"
+  ],
+  "tags": [
+    "vaporwave",
+    "retro",
+    "80s",
+    "chrome",
+    "type",
+    "metal",
+    "logo"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+  "customization": [
+    {
+      "name": "--edge",
+      "description": "Edge colour",
+      "default": "#ff2d95"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "80s logos and title cards. The magenta drop-shadow offset by a couple of pixels is what dates it correctly to the era.",
+  "path": "effects/vaporwave-synthwave/vapor-chrome-type.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Chrome Type</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"vapor-chrome-type\",\n    \"title\": \"Chrome Type\",\n    \"summary\": \"Reflective chrome lettering with a magenta edge.\",\n    \"description\": \"Reflective chrome lettering with a magenta edge.\",\n    \"theme\": \"vaporwave-synthwave\",\n    \"categories\": [\"retro\", \"vaporwave\"],\n    \"tags\": [\"vaporwave\", \"retro\", \"80s\", \"chrome\", \"type\", \"metal\", \"logo\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.\",\n    \"customization\": [\n      { \"name\": \"--edge\", \"description\": \"Edge colour\", \"default\": \"#ff2d95\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"80s logos and title cards. The magenta drop-shadow offset by a couple of pixels is what dates it correctly to the era.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { font-size: 3rem; font-weight: 900; letter-spacing: .04em;\n      background: linear-gradient(180deg, #fff 0 12%, #9aa4bb 30%, #fff 46%, #5b6478 62%, #e2e8f0 82%);\n      -webkit-background-clip: text; background-clip: text; color: transparent;\n      filter: drop-shadow(0 2px 0 #ff2d95) drop-shadow(0 4px 10px rgba(255,45,149,.6)); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">MIAMI</div>\n</body>\n</html>\n"
+}

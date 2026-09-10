@@ -1,0 +1,45 @@
+{
+  "id": "svg-gradient-animated-stroke",
+  "title": "Animated Gradient Stroke",
+  "summary": "A stroke whose gradient travels along it.",
+  "description": "A stroke whose gradient travels along it.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "vector"
+  ],
+  "tags": [
+    "svg",
+    "vector",
+    "gradient",
+    "stroke",
+    "animated",
+    "svg-defs"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Shift period",
+      "default": "4s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Decorative connectors and highlights. Animate the gradient stops with SMIL or by rotating a gradientTransform; CSS cannot animate SVG gradient stops directly.",
+  "path": "effects/svg-effects/svg-gradient-animated-stroke.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Animated Gradient Stroke</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-gradient-animated-stroke\",\n    \"title\": \"Animated Gradient Stroke\",\n    \"summary\": \"A stroke whose gradient travels along it.\",\n    \"description\": \"A stroke whose gradient travels along it.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"vector\"],\n    \"tags\": [\"svg\", \"vector\", \"gradient\", \"stroke\", \"animated\", \"svg-defs\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Shift period\", \"default\": \"4s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Decorative connectors and highlights. Animate the gradient stops with SMIL or by rotating a gradientTransform; CSS cannot animate SVG gradient stops directly.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 200px; }\n    .fx svg { width: 100%; display: block; }\n    .fx path { fill: none; stroke: url(#g); stroke-width: 8; stroke-linecap: round; }\n    .fx stop { animation: shift 4s linear infinite; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><svg viewBox=\"0 0 200 90\" aria-hidden=\"true\">\n    <defs><linearGradient id=\"g\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\">\n      <stop offset=\"0\" stop-color=\"#7c5cff\"><animate attributeName=\"offset\" values=\"0;1;0\" dur=\"4s\" repeatCount=\"indefinite\"/></stop>\n      <stop offset=\"0.5\" stop-color=\"#2dd4bf\"><animate attributeName=\"offset\" values=\"0.5;1.5;0.5\" dur=\"4s\" repeatCount=\"indefinite\"/></stop>\n    </linearGradient></defs>\n    <path d=\"M10 70 C50 10 90 90 130 40 C155 10 175 30 190 20\"/></svg></div>\n</body>\n</html>\n"
+}

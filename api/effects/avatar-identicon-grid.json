@@ -1,0 +1,44 @@
+{
+  "id": "avatar-identicon-grid",
+  "title": "Identicon",
+  "summary": "A deterministic pattern generated from a seed.",
+  "description": "A deterministic pattern generated from a seed.",
+  "theme": "avatars-identity",
+  "themeTitle": "Avatars & Identity",
+  "categories": [
+    "avatar",
+    "identity"
+  ],
+  "tags": [
+    "avatar",
+    "identity",
+    "identicon",
+    "generated",
+    "deterministic",
+    "seed"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Pattern colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Anonymous or unset profile images. Mirror the left columns onto the right so the pattern is symmetric, which is what makes identicons recognisable rather than noisy.",
+  "path": "effects/avatars-identity/avatar-identicon-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Identicon</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"avatar-identicon-grid\",\n    \"title\": \"Identicon\",\n    \"summary\": \"A deterministic pattern generated from a seed.\",\n    \"description\": \"A deterministic pattern generated from a seed.\",\n    \"theme\": \"avatars-identity\",\n    \"categories\": [\"avatar\", \"identity\"],\n    \"tags\": [\"avatar\", \"identity\", \"identicon\", \"generated\", \"deterministic\", \"seed\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Pattern colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Anonymous or unset profile images. Mirror the left columns onto the right so the pattern is symmetric, which is what makes identicons recognisable rather than noisy.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 10px; }\n    .id { width: 52px; height: 52px; border-radius: 12px; display: grid; grid-template-columns: repeat(5, 1fr);\n      grid-template-rows: repeat(5, 1fr); overflow: hidden; background: #151b2a; }\n    .id i { background: var(--c); }\n    .id i.off { background: transparent; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"id\" style=\"--c:#7c5cff\" role=\"img\" aria-label=\"Identicon for user 8f2a\">\n    <i class=\"off\"></i><i></i><i class=\"off\"></i><i></i><i class=\"off\"></i>\n    <i></i><i></i><i></i><i></i><i></i>\n    <i></i><i class=\"off\"></i><i></i><i class=\"off\"></i><i></i>\n    <i class=\"off\"></i><i></i><i></i><i></i><i class=\"off\"></i>\n    <i></i><i class=\"off\"></i><i class=\"off\"></i><i class=\"off\"></i><i></i></div>\n  <div class=\"id\" style=\"--c:#10a894\" role=\"img\" aria-label=\"Identicon for user c71e\">\n    <i></i><i class=\"off\"></i><i></i><i class=\"off\"></i><i></i>\n    <i class=\"off\"></i><i></i><i></i><i></i><i class=\"off\"></i>\n    <i></i><i></i><i class=\"off\"></i><i></i><i></i>\n    <i class=\"off\"></i><i class=\"off\"></i><i></i><i class=\"off\"></i><i class=\"off\"></i>\n    <i></i><i></i><i class=\"off\"></i><i></i><i></i></div></div>\n</body>\n</html>\n"
+}

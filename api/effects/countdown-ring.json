@@ -1,0 +1,50 @@
+{
+  "id": "countdown-ring",
+  "title": "Countdown Ring",
+  "summary": "An SVG ring that empties over a fixed duration with a digit at its center.",
+  "description": "stroke-dashoffset animates from zero to the full circumference, which drains the ring exactly once over --dur — the honest way to show a timed wait.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "time"
+  ],
+  "tags": [
+    "countdown",
+    "svg",
+    "stroke-dashoffset",
+    "timer",
+    "ring"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Ring color",
+      "default": "#fbbf24"
+    },
+    {
+      "name": "--dur",
+      "description": "Countdown length",
+      "default": "5s"
+    }
+  ],
+  "variations": [
+    "Turn red in the final second",
+    "Count up instead of down",
+    "Pause on hover"
+  ],
+  "related": [],
+  "ai_usage": "For timed waits with a known length — resend cooldowns, auto-redirects, session timeouts. Circumference is 2πr (here r=52 → 326.7); set stroke-dasharray to that number and animate stroke-dashoffset from 0 to it.",
+  "path": "effects/loaders-spinners/countdown-ring.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Countdown Ring</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"countdown-ring\",\n    \"title\": \"Countdown Ring\",\n    \"summary\": \"An SVG ring that empties over a fixed duration with a digit at its center.\",\n    \"description\": \"stroke-dashoffset animates from zero to the full circumference, which drains the ring exactly once over --dur — the honest way to show a timed wait.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"time\"],\n    \"tags\": [\"countdown\", \"svg\", \"stroke-dashoffset\", \"timer\", \"ring\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Ring color\", \"default\": \"#fbbf24\" },\n      { \"name\": \"--dur\", \"description\": \"Countdown length\", \"default\": \"5s\" }\n    ],\n    \"variations\": [\"Turn red in the final second\", \"Count up instead of down\", \"Pause on hover\"],\n    \"ai_usage\": \"For timed waits with a known length — resend cooldowns, auto-redirects, session timeouts. Circumference is 2πr (here r=52 → 326.7); set stroke-dasharray to that number and animate stroke-dashoffset from 0 to it.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #fbbf24; --dur: 5s; }\n    .cd { position: relative; width: 130px; aspect-ratio: 1; display: grid; place-items: center; }\n    .cd svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }\n    .cd circle { fill: none; stroke-width: 8; }\n    .cd .track { stroke: #1c2333; }\n    .cd .bar { stroke: var(--c); stroke-linecap: round; stroke-dasharray: 326.7; stroke-dashoffset: 0;\n      animation: drain var(--dur) linear infinite; }\n    .cd span { font-size: 1.7rem; font-weight: 700; font-variant-numeric: tabular-nums; }\n    @keyframes drain { to { stroke-dashoffset: 326.7; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"cd\" role=\"timer\" aria-label=\"Countdown\">\n    <svg viewBox=\"0 0 130 130\" aria-hidden=\"true\">\n      <circle class=\"track\" cx=\"65\" cy=\"65\" r=\"52\"></circle>\n      <circle class=\"bar\" cx=\"65\" cy=\"65\" r=\"52\"></circle>\n    </svg>\n    <span>5</span>\n  </div>\n</body>\n</html>\n"
+}

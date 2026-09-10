@@ -1,0 +1,44 @@
+{
+  "id": "focus-visible-only",
+  "title": "Focus Visible",
+  "summary": "Rings for keyboard users only.",
+  "description": "Rings for keyboard users only.",
+  "theme": "accessibility-patterns",
+  "themeTitle": "Accessibility Patterns",
+  "categories": [
+    "accessibility",
+    "reference"
+  ],
+  "tags": [
+    "accessibility",
+    "a11y",
+    "focus-visible",
+    "keyboard",
+    "ring",
+    "heuristic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Ring colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Use :focus-visible so a ring appears for keyboard and assistive input but not on mouse clicks. Never delete the ring outright — that is the single most common accessibility regression in modern CSS.",
+  "path": "effects/accessibility-patterns/focus-visible-only.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Focus Visible</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"focus-visible-only\",\n    \"title\": \"Focus Visible\",\n    \"summary\": \"Rings for keyboard users only.\",\n    \"description\": \"Rings for keyboard users only.\",\n    \"theme\": \"accessibility-patterns\",\n    \"categories\": [\"accessibility\", \"reference\"],\n    \"tags\": [\"accessibility\", \"a11y\", \"focus-visible\", \"keyboard\", \"ring\", \"heuristic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Ring colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Use :focus-visible so a ring appears for keyboard and assistive input but not on mouse clicks. Never delete the ring outright — that is the single most common accessibility regression in modern CSS.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 10px; }\n    .fx button { padding: .7rem 1.2rem; border-radius: 10px; border: 1px solid #263149; background: #151b2a; color: #cbd5e1;\n      font: inherit; cursor: pointer; }\n    .always:focus { outline: 3px solid #d1478c; outline-offset: 3px; }\n    .smart:focus-visible { outline: 3px solid #10a894; outline-offset: 3px; }\n    .smart:focus:not(:focus-visible) { outline: none; }\n    .note { margin-top: .9rem; max-width: 280px; color: #8b93a7; font-size: .8rem; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <div><div class=\"fx\"><button class=\"always\" type=\"button\">Ring on any focus</button>\n  <button class=\"smart\" type=\"button\">Ring on keyboard only</button></div>\n  <p class=\"note\">Click each button, then Tab to them. Only the second distinguishes pointer focus from keyboard focus.</p></div>\n</body>\n</html>\n"
+}

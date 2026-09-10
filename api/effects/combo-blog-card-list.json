@@ -1,0 +1,44 @@
+{
+  "id": "combo-blog-card-list",
+  "title": "Article List",
+  "summary": "Post cards with metadata and tags.",
+  "description": "Post cards with metadata and tags.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "combo",
+    "section"
+  ],
+  "tags": [
+    "combo",
+    "block",
+    "blog",
+    "list",
+    "cards",
+    "metadata"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+  "customization": [
+    {
+      "name": "--th",
+      "description": "Thumbnail size",
+      "default": "66px"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Article indexes. Keep the whole card clickable via a link that wraps the title with a stretched pseudo-element, so the hit area is large without nesting interactive elements.",
+  "path": "effects/combos-recipes/combo-blog-card-list.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Article List</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"combo-blog-card-list\",\n    \"title\": \"Article List\",\n    \"summary\": \"Post cards with metadata and tags.\",\n    \"description\": \"Post cards with metadata and tags.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"combo\", \"section\"],\n    \"tags\": [\"combo\", \"block\", \"blog\", \"list\", \"cards\", \"metadata\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.\",\n    \"customization\": [\n      { \"name\": \"--th\", \"description\": \"Thumbnail size\", \"default\": \"66px\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Article indexes. Keep the whole card clickable via a link that wraps the title with a stretched pseudo-element, so the hit area is large without nesting interactive elements.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; place-items: center; padding: 2rem 1rem; }\n    .wrap { width: min(92vw, 310px); display: grid; gap: 10px; }\n    .post { display: flex; gap: .9rem; padding: .8rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }\n    .post .th { width: 66px; height: 66px; border-radius: 10px; flex: none; }\n    .post h3 { margin: 0 0 .2rem; font-size: .92rem; line-height: 1.3; }\n    .post .meta { color: #64748b; font-size: .74rem; }\n    .post .tags { display: flex; gap: .3rem; margin-top: .4rem; }\n    .post .tags span { padding: .1rem .45rem; border-radius: 5px; background: #1e2740; color: #8b93a7; font-size: .68rem; }\n  </style>\n</head>\n<body>\n  <section class=\"wrap\"><article class=\"post\"><div class=\"th\" style=\"background:linear-gradient(150deg,#7c5cff,#2dd4bf)\"></div>\n  <div><h3>Why every effect ships as one file</h3><div class=\"meta\">10 Sept · 6 min read</div>\n  <div class=\"tags\"><span>architecture</span><span>tooling</span></div></div></article>\n  <article class=\"post\"><div class=\"th\" style=\"background:linear-gradient(150deg,#d1478c,#c2891a)\"></div>\n  <div><h3>Validating a palette instead of eyeballing it</h3><div class=\"meta\">2 Sept · 9 min read</div>\n  <div class=\"tags\"><span>color</span><span>a11y</span></div></div></article></section>\n</body>\n</html>\n"
+}

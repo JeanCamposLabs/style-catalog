@@ -1,0 +1,44 @@
+{
+  "id": "modal-lightbox",
+  "title": "Image Lightbox",
+  "summary": "A thumbnail that expands into a full-size overlay.",
+  "description": "A thumbnail that expands into a full-size overlay.",
+  "theme": "modals-overlays",
+  "themeTitle": "Modals & Overlays",
+  "categories": [
+    "modal",
+    "overlay"
+  ],
+  "tags": [
+    "modal",
+    "dialog",
+    "lightbox",
+    "gallery",
+    "zoom",
+    "image"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.",
+  "customization": [
+    {
+      "name": "--scrim",
+      "description": "Scrim opacity",
+      "default": "0.88"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Galleries. Move focus to the close button on open and back to the thumbnail on close; also support left/right arrows to move between images.",
+  "path": "effects/modals-overlays/modal-lightbox.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Image Lightbox</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"modal-lightbox\",\n    \"title\": \"Image Lightbox\",\n    \"summary\": \"A thumbnail that expands into a full-size overlay.\",\n    \"description\": \"A thumbnail that expands into a full-size overlay.\",\n    \"theme\": \"modals-overlays\",\n    \"categories\": [\"modal\", \"overlay\"],\n    \"tags\": [\"modal\", \"dialog\", \"lightbox\", \"gallery\", \"zoom\", \"image\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.\",\n    \"customization\": [\n      { \"name\": \"--scrim\", \"description\": \"Scrim opacity\", \"default\": \"0.88\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Galleries. Move focus to the close button on open and back to the thumbnail on close; also support left/right arrows to move between images.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .thumbs { display: flex; gap: 10px; }\n    .thumbs button { width: 84px; height: 84px; border: 0; border-radius: 12px; cursor: pointer; padding: 0; }\n    .lb { position: fixed; inset: 0; display: none; place-items: center; background: rgba(4,7,14,.88); z-index: 5; }\n    .lb.is-open { display: grid; }\n    .lb .big { width: min(70vw, 300px); aspect-ratio: 1; border-radius: 16px; animation: zoom .3s cubic-bezier(.2,.8,.3,1); }\n    .lb .close { position: absolute; top: 1rem; right: 1rem; width: 38px; height: 38px; border-radius: 50%; border: 0;\n      background: rgba(255,255,255,.14); color: #fff; font-size: 1.2rem; cursor: pointer; }\n    @keyframes zoom { from { transform: scale(.8); opacity: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"thumbs\">\n    <button type=\"button\" data-bg=\"linear-gradient(135deg,#7c5cff,#2dd4bf)\" style=\"background:linear-gradient(135deg,#7c5cff,#2dd4bf)\" aria-label=\"Open image 1\"></button>\n    <button type=\"button\" data-bg=\"linear-gradient(135deg,#f472b6,#fbbf24)\" style=\"background:linear-gradient(135deg,#f472b6,#fbbf24)\" aria-label=\"Open image 2\"></button>\n  </div>\n  <div class=\"lb\" id=\"lb\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Image viewer\"><button class=\"close\" id=\"lbx\" type=\"button\" aria-label=\"Close\">×</button><div class=\"big\" id=\"big\"></div></div>\n  <script>\n    (function () {\n      var lb = document.getElementById(\"lb\"), big = document.getElementById(\"big\");\n      document.querySelectorAll(\".thumbs button\").forEach(function (b) {\n        b.addEventListener(\"click\", function () { big.style.background = b.dataset.bg; lb.classList.add(\"is-open\"); document.getElementById(\"lbx\").focus(); });\n      });\n      document.getElementById(\"lbx\").addEventListener(\"click\", function () { lb.classList.remove(\"is-open\"); });\n      addEventListener(\"keydown\", function (e) { if (e.key === \"Escape\") lb.classList.remove(\"is-open\"); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

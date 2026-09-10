@@ -1,0 +1,55 @@
+{
+  "id": "infinity-loop-loader",
+  "title": "Infinity Loop",
+  "summary": "A dash travels an endless figure-eight path.",
+  "description": "One SVG path plus stroke-dasharray gives a short dash that runs the lemniscate forever, crossing itself at the middle.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "svg"
+  ],
+  "tags": [
+    "infinity",
+    "svg",
+    "stroke-dasharray",
+    "path",
+    "loop"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Dash color",
+      "default": "#a78bfa"
+    },
+    {
+      "name": "--track",
+      "description": "Track color",
+      "default": "#1c2333"
+    },
+    {
+      "name": "--dur",
+      "description": "Lap time",
+      "default": "1.8s"
+    }
+  ],
+  "variations": [
+    "Two dashes half a lap apart",
+    "Thicker stroke for a bolder mark",
+    "Gradient stroke via a linearGradient def"
+  ],
+  "related": [],
+  "ai_usage": "A calm, brand-friendly loader for long operations. Change the dash length by editing the first stroke-dasharray value and keep the animation's dashoffset equal to the total path length (here ~370) so the loop is seamless.",
+  "path": "effects/loaders-spinners/infinity-loop-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Infinity Loop</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"infinity-loop-loader\",\n    \"title\": \"Infinity Loop\",\n    \"summary\": \"A dash travels an endless figure-eight path.\",\n    \"description\": \"One SVG path plus stroke-dasharray gives a short dash that runs the lemniscate forever, crossing itself at the middle.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"svg\"],\n    \"tags\": [\"infinity\", \"svg\", \"stroke-dasharray\", \"path\", \"loop\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Dash color\", \"default\": \"#a78bfa\" },\n      { \"name\": \"--track\", \"description\": \"Track color\", \"default\": \"#1c2333\" },\n      { \"name\": \"--dur\", \"description\": \"Lap time\", \"default\": \"1.8s\" }\n    ],\n    \"variations\": [\"Two dashes half a lap apart\", \"Thicker stroke for a bolder mark\", \"Gradient stroke via a linearGradient def\"],\n    \"ai_usage\": \"A calm, brand-friendly loader for long operations. Change the dash length by editing the first stroke-dasharray value and keep the animation's dashoffset equal to the total path length (here ~370) so the loop is seamless.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #a78bfa; --track: #1c2333; --dur: 1.8s; }\n    .inf { width: 150px; }\n    .inf svg { width: 100%; display: block; }\n    .inf path { fill: none; stroke-width: 8; stroke-linecap: round; }\n    .inf .track { stroke: var(--track); }\n    .inf .dash { stroke: var(--c); stroke-dasharray: 60 310; animation: run var(--dur) linear infinite; }\n    @keyframes run { to { stroke-dashoffset: -370; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"inf\" role=\"status\" aria-label=\"Loading\">\n    <svg viewBox=\"0 0 200 100\" aria-hidden=\"true\">\n      <path class=\"track\" d=\"M60 50a25 25 0 1 1 25 25 60 60 0 0 1-25-50 25 25 0 1 0 25 25 60 60 0 0 0-25 50 25 25 0 1 1-25-25z\"/>\n      <path class=\"dash\" d=\"M60 50a25 25 0 1 1 25 25 60 60 0 0 1-25-50 25 25 0 1 0 25 25 60 60 0 0 0-25 50 25 25 0 1 1-25-25z\"/>\n    </svg>\n  </div>\n</body>\n</html>\n"
+}

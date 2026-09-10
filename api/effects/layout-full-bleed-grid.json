@@ -1,0 +1,44 @@
+{
+  "id": "layout-full-bleed-grid",
+  "title": "Full-Bleed Content",
+  "summary": "Content in a measure with full-width breakouts.",
+  "description": "Content in a measure with full-width breakouts.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "structure"
+  ],
+  "tags": [
+    "layout",
+    "grid",
+    "full-bleed",
+    "breakout",
+    "measure",
+    "article"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+  "customization": [
+    {
+      "name": "--measure",
+      "description": "Content width",
+      "default": "220px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Long-form articles with wide images. A three-column grid where content sits in the middle track lets any child break out with grid-column: 1 / -1 — no negative margins.",
+  "path": "effects/layout-archetypes/layout-full-bleed-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Full-Bleed Content</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"layout-full-bleed-grid\",\n    \"title\": \"Full-Bleed Content\",\n    \"summary\": \"Content in a measure with full-width breakouts.\",\n    \"description\": \"Content in a measure with full-width breakouts.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"structure\"],\n    \"tags\": [\"layout\", \"grid\", \"full-bleed\", \"breakout\", \"measure\", \"article\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.\",\n    \"customization\": [\n      { \"name\": \"--measure\", \"description\": \"Content width\", \"default\": \"220px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Long-form articles with wide images. A three-column grid where content sits in the middle track lets any child break out with grid-column: 1 / -1 — no negative margins.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: 1fr min(220px, 100%) 1fr; width: 300px; border-radius: 14px;\n      overflow: hidden; background: #10141f; padding-block: 1rem; }\n    .fx > * { grid-column: 2; }\n    .fx .bleed { grid-column: 1 / -1; }\n    .fx p { margin: 0 0 .8rem; color: #8b93a7; font-size: .8rem; line-height: 1.6; }\n    .fx .bleed { height: 60px; background: conic-gradient(from 160deg, #7c5cff, #2dd4bf, #d1478c); margin-bottom: .8rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><p>Body copy stays within a readable measure.</p><div class=\"bleed\"></div>\n  <p>The image above breaks out to the full width without leaving the flow.</p></div>\n</body>\n</html>\n"
+}

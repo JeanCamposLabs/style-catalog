@@ -1,0 +1,50 @@
+{
+  "id": "moroccan-tile",
+  "title": "Moroccan Tile",
+  "summary": "Interlaced quatrefoil tilework.",
+  "description": "Interlaced quatrefoil tilework. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "moroccan",
+    "tile",
+    "quatrefoil",
+    "ornament"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Line colour",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--s",
+      "description": "Tile size",
+      "default": "52px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Decorative headers and hospitality design. Four corner-anchored arcs per tile interlace into the classic quatrefoil.",
+  "path": "effects/patterns-textures/moroccan-tile.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Moroccan Tile</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"moroccan-tile\",\n    \"title\": \"Moroccan Tile\",\n    \"summary\": \"Interlaced quatrefoil tilework.\",\n    \"description\": \"Interlaced quatrefoil tilework. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"moroccan\", \"tile\", \"quatrefoil\", \"ornament\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Line colour\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--s\", \"description\": \"Tile size\", \"default\": \"52px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Decorative headers and hospitality design. Four corner-anchored arcs per tile interlace into the classic quatrefoil.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: #2dd4bf; --s: 52px; }\n    .bg { background-color: #0d1b23;\n      background-image: radial-gradient(circle at 0 0, transparent 0 18px, var(--c) 18px 20px, transparent 20px),\n        radial-gradient(circle at 100% 0, transparent 0 18px, var(--c) 18px 20px, transparent 20px),\n        radial-gradient(circle at 0 100%, transparent 0 18px, var(--c) 18px 20px, transparent 20px),\n        radial-gradient(circle at 100% 100%, transparent 0 18px, var(--c) 18px 20px, transparent 20px);\n      background-size: var(--s) var(--s); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

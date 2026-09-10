@@ -1,0 +1,44 @@
+{
+  "id": "timeline-audit-trail",
+  "title": "Audit Trail",
+  "summary": "Immutable log entries with actor and hash.",
+  "description": "Immutable log entries with actor and hash.",
+  "theme": "timelines-steppers",
+  "themeTitle": "Timelines & Steppers",
+  "categories": [
+    "timeline",
+    "stepper"
+  ],
+  "tags": [
+    "timeline",
+    "sequence",
+    "audit",
+    "log",
+    "trail",
+    "compliance"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Marker colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Compliance and security views. Show the actor, the action, the timestamp, and the record hash — an audit trail missing any one of those is not auditable.",
+  "path": "effects/timelines-steppers/timeline-audit-trail.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Audit Trail</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"timeline-audit-trail\",\n    \"title\": \"Audit Trail\",\n    \"summary\": \"Immutable log entries with actor and hash.\",\n    \"description\": \"Immutable log entries with actor and hash.\",\n    \"theme\": \"timelines-steppers\",\n    \"categories\": [\"timeline\", \"stepper\"],\n    \"tags\": [\"timeline\", \"sequence\", \"audit\", \"log\", \"trail\", \"compliance\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Marker colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Compliance and security views. Show the actor, the action, the timestamp, and the record hash — an audit trail missing any one of those is not auditable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; font-family: ui-monospace, Menlo, monospace; font-size: .74rem; }\n    .e { display: grid; grid-template-columns: 8px 1fr; gap: .7rem; }\n    .e .rail { display: grid; justify-items: center; }\n    .e .d { width: 8px; height: 8px; border-radius: 50%; background: #2dd4bf; margin-top: 5px; }\n    .e .line { width: 1px; flex: 1; background: #22304a; height: 100%; }\n    .e .body { padding-bottom: .9rem; color: #cbd5e1; }\n    .e .h { color: #64748b; }\n    .e time { color: #8b93a7; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"e\"><span class=\"rail\"><span class=\"d\"></span><span class=\"line\"></span></span>\n  <div class=\"body\"><time>12:04:18Z</time> jean · publish<br><span class=\"h\">sha 8f2a4c…</span></div></div>\n  <div class=\"e\"><span class=\"rail\"><span class=\"d\"></span><span class=\"line\"></span></span>\n  <div class=\"body\"><time>11:58:02Z</time> ci-bot · build<br><span class=\"h\">sha 41b0de…</span></div></div>\n  <div class=\"e\"><span class=\"rail\"><span class=\"d\"></span></span>\n  <div class=\"body\"><time>11:42:55Z</time> ada · approve<br><span class=\"h\">sha c7e119…</span></div></div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "image-polaroid-scatter",
+  "title": "Scattered Photos",
+  "summary": "Overlapping photos at slight angles.",
+  "description": "Overlapping photos at slight angles.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "media"
+  ],
+  "tags": [
+    "image",
+    "media",
+    "scatter",
+    "photos",
+    "polaroid",
+    "collage"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Rotation range",
+      "default": "8deg"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Memory walls and about pages. Small random rotations (±8°) plus overlap create the pile; straightening on hover is what makes it feel touchable.",
+  "path": "effects/images-media/image-polaroid-scatter.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scattered Photos</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"image-polaroid-scatter\",\n    \"title\": \"Scattered Photos\",\n    \"summary\": \"Overlapping photos at slight angles.\",\n    \"description\": \"Overlapping photos at slight angles.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"media\"],\n    \"tags\": [\"image\", \"media\", \"scatter\", \"photos\", \"polaroid\", \"collage\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Rotation range\", \"default\": \"8deg\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Memory walls and about pages. Small random rotations (±8°) plus overlap create the pile; straightening on hover is what makes it feel touchable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 200px; }\n    .p { position: absolute; width: 110px; padding: 8px 8px 26px; background: #fdfdfb; box-shadow: 0 10px 24px rgba(0,0,0,.5);\n      transition: transform .3s, z-index 0s; }\n    .p .img { aspect-ratio: 1; }\n    .p:hover { transform: scale(1.06) rotate(0deg) !important; z-index: 5; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"p\" style=\"left:0;top:20px;transform:rotate(-7deg)\"><div class=\"img\" style=\"background:#7c5cff\"></div></div>\n  <div class=\"p\" style=\"left:84px;top:0;transform:rotate(4deg)\"><div class=\"img\" style=\"background:#10a894\"></div></div>\n  <div class=\"p\" style=\"left:162px;top:28px;transform:rotate(-3deg)\"><div class=\"img\" style=\"background:#c2891a\"></div></div></div>\n</body>\n</html>\n"
+}

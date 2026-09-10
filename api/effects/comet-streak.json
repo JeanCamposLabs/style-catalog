@@ -1,0 +1,44 @@
+{
+  "id": "comet-streak",
+  "title": "Comet Streak",
+  "summary": "A comet crossing the frame with a tapering tail.",
+  "description": "A comet crossing the frame with a tapering tail.",
+  "theme": "space-cosmic",
+  "themeTitle": "Space & Cosmic",
+  "categories": [
+    "space",
+    "cosmic"
+  ],
+  "tags": [
+    "space",
+    "cosmic",
+    "comet",
+    "streak",
+    "tail",
+    "motion"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Comet colour",
+      "default": "#a5f3fc"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Space scenes and loading flourishes. The tail must trail behind the head — build it as a gradient that fades away from the bright end.",
+  "path": "effects/space-cosmic/comet-streak.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Comet Streak</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"comet-streak\",\n    \"title\": \"Comet Streak\",\n    \"summary\": \"A comet crossing the frame with a tapering tail.\",\n    \"description\": \"A comet crossing the frame with a tapering tail.\",\n    \"theme\": \"space-cosmic\",\n    \"categories\": [\"space\", \"cosmic\"],\n    \"tags\": [\"space\", \"cosmic\", \"comet\", \"streak\", \"tail\", \"motion\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Comet colour\", \"default\": \"#a5f3fc\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Space scenes and loading flourishes. The tail must trail behind the head — build it as a gradient that fades away from the bright end.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 170px; border-radius: 14px; overflow: hidden; background: #05070d; }\n    .fx .c { position: absolute; top: 20%; left: -20%; width: 90px; height: 3px; border-radius: 99px;\n      background: linear-gradient(90deg, transparent, #a5f3fc, #fff); animation: fly 4s linear infinite; }\n    .fx .c::after { content: \"\"; position: absolute; right: -3px; top: -3px; width: 9px; height: 9px; border-radius: 50%;\n      background: #fff; box-shadow: 0 0 14px #a5f3fc; }\n    @keyframes fly { to { transform: translate(320px, 90px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"c\"></span></div>\n</body>\n</html>\n"
+}

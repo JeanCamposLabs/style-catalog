@@ -1,0 +1,49 @@
+{
+  "id": "icon-slide-button",
+  "title": "Icon Slide Button",
+  "summary": "The label steps aside and an arrow slides in from the edge.",
+  "description": "Label and icon translate in opposite directions on one transition, so the swap reads as a single gesture.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "hover"
+  ],
+  "tags": [
+    "icon",
+    "slide",
+    "arrow",
+    "hover",
+    "microinteraction"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent",
+      "default": "#34d399"
+    },
+    {
+      "name": "--dur",
+      "description": "Slide duration",
+      "default": "0.28s"
+    }
+  ],
+  "variations": [
+    "Icon on the left instead",
+    "Swap the icon for a spinner while pending",
+    "Rotate the arrow on active"
+  ],
+  "related": [],
+  "ai_usage": "Navigation and 'continue' actions. Reserve the icon's width in the resting layout (padding-right) so the button does not resize on hover — a width change causes layout jitter in a row of buttons.",
+  "path": "effects/buttons/icon-slide-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Icon Slide Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"icon-slide-button\",\n    \"title\": \"Icon Slide Button\",\n    \"summary\": \"The label steps aside and an arrow slides in from the edge.\",\n    \"description\": \"Label and icon translate in opposite directions on one transition, so the swap reads as a single gesture.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"hover\"],\n    \"tags\": [\"icon\", \"slide\", \"arrow\", \"hover\", \"microinteraction\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent\", \"default\": \"#34d399\" },\n      { \"name\": \"--dur\", \"description\": \"Slide duration\", \"default\": \"0.28s\" }\n    ],\n    \"variations\": [\"Icon on the left instead\", \"Swap the icon for a spinner while pending\", \"Rotate the arrow on active\"],\n    \"ai_usage\": \"Navigation and 'continue' actions. Reserve the icon's width in the resting layout (padding-right) so the button does not resize on hover — a width change causes layout jitter in a row of buttons.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #34d399; --dur: .28s; }\n    .isl { position: relative; overflow: hidden; padding: .9rem 3rem .9rem 1.6rem; border-radius: 999px;\n      background: #151b2a; border: 1px solid #263149; color: #e7ebf3; font-weight: 700; }\n    .isl span { display: inline-block; transition: transform var(--dur) ease; }\n    .isl i { position: absolute; right: 1.1rem; top: 50%; translate: 0 -50%; color: var(--c); font-style: normal;\n      opacity: 0; transform: translateX(-8px); transition: transform var(--dur) ease, opacity var(--dur) ease; }\n    .isl:hover span { transform: translateX(-6px); }\n    .isl:hover i { opacity: 1; transform: translateX(0); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"isl\" type=\"button\"><span>Continue</span><i aria-hidden=\"true\">→</i></button>\n</body>\n</html>\n"
+}

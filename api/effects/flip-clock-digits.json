@@ -1,0 +1,44 @@
+{
+  "id": "flip-clock-digits",
+  "title": "Flip Clock",
+  "summary": "Split-flap digits that fold over.",
+  "description": "Split-flap digits that fold over.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "transform"
+  ],
+  "tags": [
+    "3d",
+    "transform",
+    "flip-clock",
+    "split-flap",
+    "digits",
+    "time"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Flip period",
+      "default": "2s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Countdowns and clocks. The top half folds down around the centre line; the illusion only works with overflow hidden on both halves and a hairline seam between them.",
+  "path": "effects/3d-transforms/flip-clock-digits.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Flip Clock</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"flip-clock-digits\",\n    \"title\": \"Flip Clock\",\n    \"summary\": \"Split-flap digits that fold over.\",\n    \"description\": \"Split-flap digits that fold over.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"transform\"],\n    \"tags\": [\"3d\", \"transform\", \"flip-clock\", \"split-flap\", \"digits\", \"time\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Flip period\", \"default\": \"2s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Countdowns and clocks. The top half folds down around the centre line; the illusion only works with overflow hidden on both halves and a hairline seam between them.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 8px; }\n    .d { position: relative; width: 54px; height: 74px; border-radius: 8px; background: #151b2a; perspective: 300px;\n      display: grid; place-items: center; font-size: 2rem; font-weight: 900; color: #e7ebf3; overflow: hidden; }\n    .d::after { content: \"\"; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #0b0d12; }\n    .d .top { position: absolute; inset: 0 0 50% 0; background: #1c2437; display: grid; place-items: end center;\n      transform-origin: bottom; animation: fold 2s ease-in infinite; overflow: hidden; }\n    .d .top span { transform: translateY(50%); }\n    @keyframes fold { 0%, 60% { transform: rotateX(0); } 80%, 100% { transform: rotateX(-90deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"d\">1<span class=\"top\"><span>1</span></span></div>\n  <div class=\"d\">8<span class=\"top\"><span>8</span></span></div>\n  <div class=\"d\">1<span class=\"top\"><span>1</span></span></div></div>\n</body>\n</html>\n"
+}

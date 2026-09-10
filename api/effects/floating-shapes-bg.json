@@ -1,0 +1,49 @@
+{
+  "id": "floating-shapes-bg",
+  "title": "Floating Geometry",
+  "summary": "Outlined squares, circles, and triangles drift upward at different rates.",
+  "description": "Each shape has its own duration, delay, and rotation, so the field never resolves into a visible loop.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "ambient"
+  ],
+  "tags": [
+    "shapes",
+    "float",
+    "geometry",
+    "ambient",
+    "drift"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Shape color",
+      "default": "rgba(124,92,255,.3)"
+    },
+    {
+      "name": "--dur",
+      "description": "Base float period",
+      "default": "16s"
+    }
+  ],
+  "variations": [
+    "Filled shapes for a bolder look",
+    "Brand icons instead of geometry",
+    "Drift sideways for a marquee feel"
+  ],
+  "related": [],
+  "ai_usage": "Landing-page sections that need life without distraction. Keep stroke-only shapes at low opacity, and give every shape a unique duration — matched durations make the whole field pulse as one.",
+  "path": "effects/backgrounds/floating-shapes-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Floating Geometry</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"floating-shapes-bg\",\n    \"title\": \"Floating Geometry\",\n    \"summary\": \"Outlined squares, circles, and triangles drift upward at different rates.\",\n    \"description\": \"Each shape has its own duration, delay, and rotation, so the field never resolves into a visible loop.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"ambient\"],\n    \"tags\": [\"shapes\", \"float\", \"geometry\", \"ambient\", \"drift\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Shape color\", \"default\": \"rgba(124,92,255,.3)\" },\n      { \"name\": \"--dur\", \"description\": \"Base float period\", \"default\": \"16s\" }\n    ],\n    \"variations\": [\"Filled shapes for a bolder look\", \"Brand icons instead of geometry\", \"Drift sideways for a marquee feel\"],\n    \"ai_usage\": \"Landing-page sections that need life without distraction. Keep stroke-only shapes at low opacity, and give every shape a unique duration — matched durations make the whole field pulse as one.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: rgba(124,92,255,.3); --dur: 16s; }\n    .bg { background: linear-gradient(160deg, #10131f, #0b0d12); overflow: hidden; }\n    .bg i { position: absolute; border: 2px solid var(--c); animation: rise var(--d) linear infinite; animation-delay: var(--dl); }\n    .bg .sq { width: 46px; height: 46px; border-radius: 6px; }\n    .bg .ci { width: 34px; height: 34px; border-radius: 50%; }\n    .bg .tr { width: 0; height: 0; border: 0; border-left: 22px solid transparent; border-right: 22px solid transparent; border-bottom: 38px solid var(--c); }\n    @keyframes rise {\n      0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }\n      10%, 90% { opacity: 1; }\n      100% { transform: translateY(-20vh) rotate(320deg); opacity: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\">\n    <i class=\"sq\" style=\"left:8%;--d:18s;--dl:0s\"></i>\n    <i class=\"ci\" style=\"left:26%;--d:24s;--dl:-6s\"></i>\n    <i class=\"tr\" style=\"left:44%;--d:15s;--dl:-11s\"></i>\n    <i class=\"sq\" style=\"left:62%;--d:21s;--dl:-3s\"></i>\n    <i class=\"ci\" style=\"left:80%;--d:27s;--dl:-16s\"></i>\n    <i class=\"tr\" style=\"left:92%;--d:19s;--dl:-9s\"></i>\n  </div>\n</body>\n</html>\n"
+}

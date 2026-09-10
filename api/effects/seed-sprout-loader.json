@@ -1,0 +1,44 @@
+{
+  "id": "seed-sprout-loader",
+  "title": "Sprouting Seed",
+  "summary": "A seed splits and sends up a shoot.",
+  "description": "A seed splits and sends up a shoot.",
+  "theme": "nature-organic",
+  "themeTitle": "Nature & Organic",
+  "categories": [
+    "nature",
+    "organic"
+  ],
+  "tags": [
+    "organic",
+    "nature",
+    "seed",
+    "sprout",
+    "grow",
+    "loader"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Shoot colour",
+      "default": "#22c55e"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Loading states for eco products. Sequencing (stem first, leaves after) is what makes growth read as growth rather than an assembly of parts.",
+  "path": "effects/nature-organic/seed-sprout-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sprouting Seed</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"seed-sprout-loader\",\n    \"title\": \"Sprouting Seed\",\n    \"summary\": \"A seed splits and sends up a shoot.\",\n    \"description\": \"A seed splits and sends up a shoot.\",\n    \"theme\": \"nature-organic\",\n    \"categories\": [\"nature\", \"organic\"],\n    \"tags\": [\"organic\", \"nature\", \"seed\", \"sprout\", \"grow\", \"loader\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Shoot colour\", \"default\": \"#22c55e\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Loading states for eco products. Sequencing (stem first, leaves after) is what makes growth read as growth rather than an assembly of parts.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 120px; height: 120px; display: grid; place-items: end center; }\n    .fx .stem { width: 4px; height: 0; background: #22c55e; border-radius: 2px; animation: rise 3s ease-out infinite; }\n    .fx .leaf { position: absolute; bottom: 44px; width: 22px; height: 14px; background: #4ade80; border-radius: 0 99px 0 99px;\n      transform: scale(0); animation: unfurl 3s ease-out infinite; }\n    .fx .leaf.r { left: 50%; } .fx .leaf.l { right: 50%; border-radius: 99px 0 99px 0; }\n    @keyframes rise { 0% { height: 0; } 60%, 100% { height: 74px; } }\n    @keyframes unfurl { 0%, 45% { transform: scale(0); } 70%, 100% { transform: scale(1); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"leaf l\"></span><span class=\"leaf r\"></span><span class=\"stem\"></span></div>\n</body>\n</html>\n"
+}

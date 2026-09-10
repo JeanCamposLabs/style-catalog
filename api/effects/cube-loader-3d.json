@@ -1,0 +1,44 @@
+{
+  "id": "cube-loader-3d",
+  "title": "3D Cube Loader",
+  "summary": "A cube tumbling end over end.",
+  "description": "A cube tumbling end over end.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "transform"
+  ],
+  "tags": [
+    "3d",
+    "transform",
+    "cube",
+    "loader",
+    "tumble",
+    "3d"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Tumble period",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "A loader with more presence than a spinner. Rotate in 90° steps with an ease that pauses between turns so the cube reads as tumbling rather than spinning.",
+  "path": "effects/3d-transforms/cube-loader-3d.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>3D Cube Loader</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cube-loader-3d\",\n    \"title\": \"3D Cube Loader\",\n    \"summary\": \"A cube tumbling end over end.\",\n    \"description\": \"A cube tumbling end over end.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"transform\"],\n    \"tags\": [\"3d\", \"transform\", \"cube\", \"loader\", \"tumble\", \"3d\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Tumble period\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"A loader with more presence than a spinner. Rotate in 90° steps with an ease that pauses between turns so the cube reads as tumbling rather than spinning.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .scene { perspective: 600px; width: 70px; height: 70px; }\n    .cb { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; animation: roll 3s cubic-bezier(.6,.05,.3,1) infinite; }\n    .cb .f { position: absolute; inset: 0; background: rgba(124,92,255,.85); border: 1px solid #b9a5ff; }\n    .f1 { transform: translateZ(35px); } .f2 { transform: rotateY(180deg) translateZ(35px); }\n    .f3 { transform: rotateY(90deg) translateZ(35px); } .f4 { transform: rotateY(-90deg) translateZ(35px); }\n    .f5 { transform: rotateX(90deg) translateZ(35px); } .f6 { transform: rotateX(-90deg) translateZ(35px); }\n    @keyframes roll {\n      0% { transform: rotateX(0) rotateY(0); } 50% { transform: rotateX(-90deg) rotateY(0); }\n      100% { transform: rotateX(-90deg) rotateY(-90deg); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"scene\"><div class=\"cb\"><span class=\"f f1\"></span><span class=\"f f2\"></span><span class=\"f f3\"></span>\n  <span class=\"f f4\"></span><span class=\"f f5\"></span><span class=\"f f6\"></span></div></div>\n</body>\n</html>\n"
+}

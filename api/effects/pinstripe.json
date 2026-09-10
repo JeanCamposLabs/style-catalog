@@ -1,0 +1,49 @@
+{
+  "id": "pinstripe",
+  "title": "Pinstripe",
+  "summary": "Hairline stripes on a dark ground, tailoring style.",
+  "description": "Hairline stripes on a dark ground, tailoring style. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "pinstripe",
+    "hairline",
+    "tailoring"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--line",
+      "description": "Line colour",
+      "default": "rgba(255,255,255,.12)"
+    },
+    {
+      "name": "--gap",
+      "description": "Line spacing",
+      "default": "14px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Formal and financial UIs. Keep the line at 1px and the gap at 12–18px; wider gaps read as a grid rather than pinstripe.",
+  "path": "effects/patterns-textures/pinstripe.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Pinstripe</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"pinstripe\",\n    \"title\": \"Pinstripe\",\n    \"summary\": \"Hairline stripes on a dark ground, tailoring style.\",\n    \"description\": \"Hairline stripes on a dark ground, tailoring style. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"pinstripe\", \"hairline\", \"tailoring\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--line\", \"description\": \"Line colour\", \"default\": \"rgba(255,255,255,.12)\" },\n      { \"name\": \"--gap\", \"description\": \"Line spacing\", \"default\": \"14px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Formal and financial UIs. Keep the line at 1px and the gap at 12–18px; wider gaps read as a grid rather than pinstripe.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --line: rgba(255,255,255,.12); --gap: 14px; }\n    .bg { background-color: #10131c; background-image: repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px var(--gap)); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "depth-shadow-button",
+  "title": "Hard Shadow Button",
+  "summary": "A solid offset shadow that collapses as the button is pushed into it.",
+  "description": "The press moves the button by exactly the shadow offset, so the two visually meet — the detail most hard-shadow buttons get wrong.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "press"
+  ],
+  "tags": [
+    "neubrutalism",
+    "hard-shadow",
+    "press",
+    "offset",
+    "tactile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Button color",
+      "default": "#fbbf24"
+    },
+    {
+      "name": "--sh",
+      "description": "Shadow color",
+      "default": "#0b0d12"
+    },
+    {
+      "name": "--off",
+      "description": "Shadow offset",
+      "default": "6px"
+    }
+  ],
+  "variations": [
+    "Colored shadow instead of black",
+    "Bigger offset for a bolder look",
+    "Add a border for full neubrutalism"
+  ],
+  "related": [],
+  "ai_usage": "Neubrutalist and indie-product UIs. Set translate on :active to the same value as the shadow offset and drop the shadow to 0 — mismatched values make the button look like it floats after the press.",
+  "path": "effects/buttons/depth-shadow-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hard Shadow Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"depth-shadow-button\",\n    \"title\": \"Hard Shadow Button\",\n    \"summary\": \"A solid offset shadow that collapses as the button is pushed into it.\",\n    \"description\": \"The press moves the button by exactly the shadow offset, so the two visually meet — the detail most hard-shadow buttons get wrong.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"press\"],\n    \"tags\": [\"neubrutalism\", \"hard-shadow\", \"press\", \"offset\", \"tactile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Button color\", \"default\": \"#fbbf24\" },\n      { \"name\": \"--sh\", \"description\": \"Shadow color\", \"default\": \"#0b0d12\" },\n      { \"name\": \"--off\", \"description\": \"Shadow offset\", \"default\": \"6px\" }\n    ],\n    \"variations\": [\"Colored shadow instead of black\", \"Bigger offset for a bolder look\", \"Add a border for full neubrutalism\"],\n    \"ai_usage\": \"Neubrutalist and indie-product UIs. Set translate on :active to the same value as the shadow offset and drop the shadow to 0 — mismatched values make the button look like it floats after the press.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #fbbf24; --sh: #0b0d12; --off: 6px; }\n    .hard { padding: .95rem 2.2rem; border: 3px solid var(--sh); border-radius: 12px; background: var(--c);\n      color: var(--sh); font-weight: 800; box-shadow: var(--off) var(--off) 0 var(--sh); transition: transform .1s, box-shadow .1s; }\n    .hard:active { transform: translate(var(--off), var(--off)); box-shadow: 0 0 0 var(--sh); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"hard\" type=\"button\">Click it</button>\n</body>\n</html>\n"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "rain-streaks-bg",
+  "title": "Rain Streaks",
+  "summary": "Thin diagonal streaks fall across a stormy gradient.",
+  "description": "A repeating-linear-gradient of thin transparent stripes animated on the Y axis makes continuous rain with one element.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "weather"
+  ],
+  "tags": [
+    "rain",
+    "weather",
+    "streaks",
+    "gradient",
+    "storm"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Streak color",
+      "default": "rgba(180,210,255,.28)"
+    },
+    {
+      "name": "--dur",
+      "description": "Fall speed",
+      "default": "0.7s"
+    }
+  ],
+  "variations": [
+    "Heavier rain via tighter stripes",
+    "Add an occasional lightning flash",
+    "Angle the rain further for wind"
+  ],
+  "related": [],
+  "ai_usage": "Weather widgets and moody hero sections. The rain must be angled (100–105deg) and the animation distance equal to the gradient period, or the streaks appear to stutter mid-fall.",
+  "path": "effects/backgrounds/rain-streaks-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rain Streaks</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"rain-streaks-bg\",\n    \"title\": \"Rain Streaks\",\n    \"summary\": \"Thin diagonal streaks fall across a stormy gradient.\",\n    \"description\": \"A repeating-linear-gradient of thin transparent stripes animated on the Y axis makes continuous rain with one element.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"weather\"],\n    \"tags\": [\"rain\", \"weather\", \"streaks\", \"gradient\", \"storm\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Streak color\", \"default\": \"rgba(180,210,255,.28)\" },\n      { \"name\": \"--dur\", \"description\": \"Fall speed\", \"default\": \"0.7s\" }\n    ],\n    \"variations\": [\"Heavier rain via tighter stripes\", \"Add an occasional lightning flash\", \"Angle the rain further for wind\"],\n    \"ai_usage\": \"Weather widgets and moody hero sections. The rain must be angled (100–105deg) and the animation distance equal to the gradient period, or the streaks appear to stutter mid-fall.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: rgba(180,210,255,.28); --dur: .7s; }\n    .bg { background: linear-gradient(180deg, #0a111d, #111a2b); }\n    .bg::after { content: \"\"; position: absolute; inset: -20%;\n      background-image: repeating-linear-gradient(102deg, transparent 0 22px, var(--c) 22px 23px);\n      animation: rain var(--dur) linear infinite; }\n    @keyframes rain { to { transform: translateY(23px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

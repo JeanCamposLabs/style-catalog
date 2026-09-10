@@ -1,0 +1,44 @@
+{
+  "id": "surface-elevation-tokens",
+  "title": "Elevation Surfaces",
+  "summary": "Surfaces that lighten as they rise.",
+  "description": "Surfaces that lighten as they rise.",
+  "theme": "color-systems",
+  "themeTitle": "Color Systems",
+  "categories": [
+    "color",
+    "reference"
+  ],
+  "tags": [
+    "color",
+    "tokens",
+    "elevation",
+    "surfaces",
+    "depth",
+    "dark-mode"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+  "customization": [
+    {
+      "name": "--s0",
+      "description": "Base surface",
+      "default": "#0b0d12"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Dark-mode depth. In dark themes shadows barely read, so elevation is expressed by lightening the surface — four or five steps is usually enough for a whole product.",
+  "path": "effects/color-systems/surface-elevation-tokens.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Elevation Surfaces</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"surface-elevation-tokens\",\n    \"title\": \"Elevation Surfaces\",\n    \"summary\": \"Surfaces that lighten as they rise.\",\n    \"description\": \"Surfaces that lighten as they rise.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"color\", \"reference\"],\n    \"tags\": [\"color\", \"tokens\", \"elevation\", \"surfaces\", \"depth\", \"dark-mode\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.\",\n    \"customization\": [\n      { \"name\": \"--s0\", \"description\": \"Base surface\", \"default\": \"#0b0d12\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Dark-mode depth. In dark themes shadows barely read, so elevation is expressed by lightening the surface — four or five steps is usually enough for a whole product.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; padding: 1rem; border-radius: 14px; background: #0b0d12; display: grid; gap: 8px; }\n    .s { padding: .7rem .9rem; border-radius: 10px; font-size: .8rem; color: #cbd5e1; display: flex; justify-content: space-between; }\n    .s b { font-family: ui-monospace, monospace; font-size: .68rem; color: #64748b; }\n    .s0 { background: #0b0d12; border: 1px solid #1a2130; }\n    .s1 { background: #10141f; } .s2 { background: #151b2a; } .s3 { background: #1c2437; } .s4 { background: #232c42; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"s s0\">Base<b>#0b0d12</b></div><div class=\"s s1\">Raised<b>#10141f</b></div>\n  <div class=\"s s2\">Card<b>#151b2a</b></div><div class=\"s s3\">Popover<b>#1c2437</b></div><div class=\"s s4\">Dialog<b>#232c42</b></div></div>\n</body>\n</html>\n"
+}

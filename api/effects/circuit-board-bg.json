@@ -1,0 +1,49 @@
+{
+  "id": "circuit-board-bg",
+  "title": "Circuit Board",
+  "summary": "PCB traces and pads etched across a dark board.",
+  "description": "Right-angle gradient traces plus a dot layer for vias produce a plausible circuit without drawing a single path.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "tech"
+  ],
+  "tags": [
+    "circuit",
+    "pcb",
+    "tech",
+    "traces",
+    "hardware"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--trace",
+      "description": "Trace color",
+      "default": "rgba(52,211,153,.2)"
+    },
+    {
+      "name": "--board",
+      "description": "Board color",
+      "default": "#071410"
+    }
+  ],
+  "variations": [
+    "Animate a pulse along the traces",
+    "Gold traces on green board",
+    "Denser grid for a busier board"
+  ],
+  "related": [],
+  "ai_usage": "Hardware, embedded, and hacker aesthetics. Mixing a square grid with an offset dot grid is what sells it — traces alone read as graph paper.",
+  "path": "effects/backgrounds/circuit-board-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Circuit Board</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"circuit-board-bg\",\n    \"title\": \"Circuit Board\",\n    \"summary\": \"PCB traces and pads etched across a dark board.\",\n    \"description\": \"Right-angle gradient traces plus a dot layer for vias produce a plausible circuit without drawing a single path.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"tech\"],\n    \"tags\": [\"circuit\", \"pcb\", \"tech\", \"traces\", \"hardware\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--trace\", \"description\": \"Trace color\", \"default\": \"rgba(52,211,153,.2)\" },\n      { \"name\": \"--board\", \"description\": \"Board color\", \"default\": \"#071410\" }\n    ],\n    \"variations\": [\"Animate a pulse along the traces\", \"Gold traces on green board\", \"Denser grid for a busier board\"],\n    \"ai_usage\": \"Hardware, embedded, and hacker aesthetics. Mixing a square grid with an offset dot grid is what sells it — traces alone read as graph paper.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --trace: rgba(52,211,153,.2); --board: #071410; }\n    .bg { background-color: var(--board);\n      background-image: linear-gradient(var(--trace) 2px, transparent 2px), linear-gradient(90deg, var(--trace) 2px, transparent 2px),\n        radial-gradient(circle, rgba(52,211,153,.45) 2px, transparent 3px);\n      background-size: 70px 70px, 70px 70px, 70px 70px;\n      background-position: 0 0, 0 0, 35px 35px; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

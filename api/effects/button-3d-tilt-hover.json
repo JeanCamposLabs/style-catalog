@@ -1,0 +1,44 @@
+{
+  "id": "button-3d-tilt-hover",
+  "title": "Tilting Button",
+  "summary": "A button that leans toward the pointer.",
+  "description": "A button that leans toward the pointer.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "action"
+  ],
+  "tags": [
+    "button",
+    "action",
+    "tilt",
+    "3d",
+    "pointer",
+    "hover"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+  "customization": [
+    {
+      "name": "--max",
+      "description": "Maximum tilt",
+      "default": "9deg"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Hero calls to action. Keep the tilt under 10° — beyond that the label distorts and the button starts to feel unstable rather than responsive.",
+  "path": "effects/buttons/button-3d-tilt-hover.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tilting Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"button-3d-tilt-hover\",\n    \"title\": \"Tilting Button\",\n    \"summary\": \"A button that leans toward the pointer.\",\n    \"description\": \"A button that leans toward the pointer.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"action\"],\n    \"tags\": [\"button\", \"action\", \"tilt\", \"3d\", \"pointer\", \"hover\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.\",\n    \"customization\": [\n      { \"name\": \"--max\", \"description\": \"Maximum tilt\", \"default\": \"9deg\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Hero calls to action. Keep the tilt under 10° — beyond that the label distorts and the button starts to feel unstable rather than responsive.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { padding: 1rem 2rem; border: 0; border-radius: 14px; background: linear-gradient(150deg, #7c5cff, #4c1d95);\n      color: #fff; font: inherit; font-weight: 800; cursor: pointer; transition: transform .15s ease-out;\n      box-shadow: 0 14px 28px rgba(76,29,149,.5); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" id=\"tb\">Get started</button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"tb\");\n      b.addEventListener(\"pointermove\", function (e) {\n        var r = b.getBoundingClientRect();\n        var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;\n        b.style.transform = \"perspective(600px) rotateY(\" + x * 18 + \"deg) rotateX(\" + -y * 18 + \"deg)\";\n      });\n      b.addEventListener(\"pointerleave\", function () { b.style.transform = \"\"; });\n    })();\n  </script>\n</body>\n</html>\n"
+}

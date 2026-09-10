@@ -1,0 +1,44 @@
+{
+  "id": "wave-distort-image",
+  "title": "Wave Distortion",
+  "summary": "A surface rippling as if seen through water.",
+  "description": "A surface rippling as if seen through water.",
+  "theme": "glitch-distortion",
+  "themeTitle": "Glitch & Distortion",
+  "categories": [
+    "glitch",
+    "distortion"
+  ],
+  "tags": [
+    "glitch",
+    "distortion",
+    "turbulence",
+    "distort",
+    "svg-filter",
+    "water"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--scale",
+      "description": "Displacement",
+      "default": "18"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Underwater and dream sequences. Animate feTurbulence's baseFrequency with SMIL — CSS cannot animate filter primitive attributes directly.",
+  "path": "effects/glitch-distortion/wave-distort-image.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Wave Distortion</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"wave-distort-image\",\n    \"title\": \"Wave Distortion\",\n    \"summary\": \"A surface rippling as if seen through water.\",\n    \"description\": \"A surface rippling as if seen through water.\",\n    \"theme\": \"glitch-distortion\",\n    \"categories\": [\"glitch\", \"distortion\"],\n    \"tags\": [\"glitch\", \"distortion\", \"turbulence\", \"distort\", \"svg-filter\", \"water\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--scale\", \"description\": \"Displacement\", \"default\": \"18\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Underwater and dream sequences. Animate feTurbulence's baseFrequency with SMIL — CSS cannot animate filter primitive attributes directly.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 240px; height: 160px; border-radius: 12px; filter: url(#wavy);\n      background: conic-gradient(from 140deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #7c5cff); }\n    svg.defs { position: absolute; width: 0; height: 0; }\n  </style>\n</head>\n<body>\n  <svg class=\"defs\" aria-hidden=\"true\"><filter id=\"wavy\">\n    <feTurbulence type=\"fractalNoise\" baseFrequency=\"0.012 0.03\" numOctaves=\"2\" result=\"n\">\n      <animate attributeName=\"baseFrequency\" dur=\"8s\" values=\"0.012 0.03;0.02 0.05;0.012 0.03\" repeatCount=\"indefinite\"/>\n    </feTurbulence>\n    <feDisplacementMap in=\"SourceGraphic\" in2=\"n\" scale=\"18\" xChannelSelector=\"R\" yChannelSelector=\"G\"/>\n  </filter></svg>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

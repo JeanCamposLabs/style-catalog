@@ -1,0 +1,49 @@
+{
+  "id": "ripple-pulse-loader",
+  "title": "Ripple Pulse",
+  "summary": "Concentric rings expand and fade out of a still center, sonar-style.",
+  "description": "Two rings share one keyframe offset by half the cycle, so a new ripple always starts as the previous one dissolves.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "ambient"
+  ],
+  "tags": [
+    "ripple",
+    "pulse",
+    "sonar",
+    "expand",
+    "rings"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Ring color",
+      "default": "#38bdf8"
+    },
+    {
+      "name": "--dur",
+      "description": "Ripple period",
+      "default": "1.8s"
+    }
+  ],
+  "variations": [
+    "Three rings at one-third offsets",
+    "Fill instead of stroke for a softer pulse",
+    "Trigger a single ripple on click"
+  ],
+  "related": [],
+  "ai_usage": "Live-status, presence, or 'listening' indicators. Two children with animation-delay 0 and calc(var(--dur) / -2) give a continuous ripple with no gap. Keep the ring stroke thin — thick rings read as a target, not a pulse.",
+  "path": "effects/loaders-spinners/ripple-pulse-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Ripple Pulse</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"ripple-pulse-loader\",\n    \"title\": \"Ripple Pulse\",\n    \"summary\": \"Concentric rings expand and fade out of a still center, sonar-style.\",\n    \"description\": \"Two rings share one keyframe offset by half the cycle, so a new ripple always starts as the previous one dissolves.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"ambient\"],\n    \"tags\": [\"ripple\", \"pulse\", \"sonar\", \"expand\", \"rings\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Ring color\", \"default\": \"#38bdf8\" },\n      { \"name\": \"--dur\", \"description\": \"Ripple period\", \"default\": \"1.8s\" }\n    ],\n    \"variations\": [\"Three rings at one-third offsets\", \"Fill instead of stroke for a softer pulse\", \"Trigger a single ripple on click\"],\n    \"ai_usage\": \"Live-status, presence, or 'listening' indicators. Two children with animation-delay 0 and calc(var(--dur) / -2) give a continuous ripple with no gap. Keep the ring stroke thin — thick rings read as a target, not a pulse.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #38bdf8; --dur: 1.8s; }\n    .ripple { position: relative; width: 110px; height: 110px; display: grid; place-items: center; }\n    .ripple i { position: absolute; inset: 0; border: 3px solid var(--c); border-radius: 50%; opacity: 0;\n      animation: rip var(--dur) cubic-bezier(0,.2,.8,1) infinite; }\n    .ripple i:nth-child(2) { animation-delay: calc(var(--dur) / -2); }\n    .ripple .core { width: 18px; height: 18px; border-radius: 50%; background: var(--c); }\n    @keyframes rip { 0% { transform: scale(.18); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"ripple\" role=\"status\" aria-label=\"Loading\"><i></i><i></i><span class=\"core\"></span></div>\n</body>\n</html>\n"
+}

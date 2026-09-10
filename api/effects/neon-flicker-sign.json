@@ -1,0 +1,49 @@
+{
+  "id": "neon-flicker-sign",
+  "title": "Flickering Neon Sign",
+  "summary": "A neon headline where one letter stutters like a failing tube.",
+  "description": "The whole sign glows steadily while a single character runs an irregular flicker keyframe — the asymmetry is what makes it read as broken neon.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "glow"
+  ],
+  "tags": [
+    "neon",
+    "flicker",
+    "sign",
+    "glow",
+    "retro"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Neon color",
+      "default": "#ff2d95"
+    },
+    {
+      "name": "--dur",
+      "description": "Flicker cycle",
+      "default": "4s"
+    }
+  ],
+  "variations": [
+    "Flicker two letters out of phase",
+    "Warm-up sequence on load",
+    "Buzzing tube with a subtle shake"
+  ],
+  "related": [],
+  "ai_usage": "Bars, arcades, and nightlife aesthetics. Real neon flickers irregularly — use uneven keyframe percentages (4%, 6%, 19%, 21%) rather than a regular pulse, and only on one glyph.",
+  "path": "effects/text-effects/neon-flicker-sign.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Flickering Neon Sign</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-flicker-sign\",\n    \"title\": \"Flickering Neon Sign\",\n    \"summary\": \"A neon headline where one letter stutters like a failing tube.\",\n    \"description\": \"The whole sign glows steadily while a single character runs an irregular flicker keyframe — the asymmetry is what makes it read as broken neon.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"glow\"],\n    \"tags\": [\"neon\", \"flicker\", \"sign\", \"glow\", \"retro\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Neon color\", \"default\": \"#ff2d95\" },\n      { \"name\": \"--dur\", \"description\": \"Flicker cycle\", \"default\": \"4s\" }\n    ],\n    \"variations\": [\"Flicker two letters out of phase\", \"Warm-up sequence on load\", \"Buzzing tube with a subtle shake\"],\n    \"ai_usage\": \"Bars, arcades, and nightlife aesthetics. Real neon flickers irregularly — use uneven keyframe percentages (4%, 6%, 19%, 21%) rather than a regular pulse, and only on one glyph.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #ff2d95; --dur: 4s; }\n    .neon { font-size: clamp(2rem, 8vw, 3.8rem); font-weight: 800; color: #fff; letter-spacing: .04em;\n      text-shadow: 0 0 6px #fff, 0 0 12px var(--c), 0 0 28px var(--c), 0 0 52px var(--c); }\n    .neon i { font-style: normal; animation: flick var(--dur) linear infinite; }\n    @keyframes flick {\n      0%, 3%, 5%, 18%, 22%, 100% { opacity: 1; }\n      4%, 19%, 21% { opacity: .18; }\n      60%, 62% { opacity: .4; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"neon\">M<i>O</i>TEL</h1>\n</body>\n</html>\n"
+}

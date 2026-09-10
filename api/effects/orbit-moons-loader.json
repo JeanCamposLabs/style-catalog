@@ -1,0 +1,54 @@
+{
+  "id": "orbit-moons-loader",
+  "title": "Orbiting Moons",
+  "summary": "Two moons circle a core on tilted, differently timed orbits.",
+  "description": "Counter-rotating orbits of unequal period keep the two moons from ever lining up the same way twice within a short loop.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "ambient"
+  ],
+  "tags": [
+    "orbit",
+    "moons",
+    "rotate",
+    "celestial",
+    "counter-rotate"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Inner moon",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--b",
+      "description": "Outer moon",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--dur",
+      "description": "Inner period",
+      "default": "1.2s"
+    }
+  ],
+  "variations": [
+    "Add trailing tails to each moon",
+    "Third orbit at a third speed",
+    "Ellipse orbits via scaleY"
+  ],
+  "related": [],
+  "ai_usage": "Ambient waiting state for space, network, or sync themes. Use unequal, non-multiple durations (1.2s and 1.9s) — durations in a simple ratio make the motion look like one rigid object turning.",
+  "path": "effects/loaders-spinners/orbit-moons-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Orbiting Moons</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"orbit-moons-loader\",\n    \"title\": \"Orbiting Moons\",\n    \"summary\": \"Two moons circle a core on tilted, differently timed orbits.\",\n    \"description\": \"Counter-rotating orbits of unequal period keep the two moons from ever lining up the same way twice within a short loop.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"ambient\"],\n    \"tags\": [\"orbit\", \"moons\", \"rotate\", \"celestial\", \"counter-rotate\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Inner moon\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--b\", \"description\": \"Outer moon\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--dur\", \"description\": \"Inner period\", \"default\": \"1.2s\" }\n    ],\n    \"variations\": [\"Add trailing tails to each moon\", \"Third orbit at a third speed\", \"Ellipse orbits via scaleY\"],\n    \"ai_usage\": \"Ambient waiting state for space, network, or sync themes. Use unequal, non-multiple durations (1.2s and 1.9s) — durations in a simple ratio make the motion look like one rigid object turning.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --a: #7c5cff; --b: #2dd4bf; --dur: 1.2s; }\n    .orb { position: relative; width: 110px; aspect-ratio: 1; display: grid; place-items: center; }\n    .orb .path { position: absolute; border-radius: 50%; border: 1px dashed #232c42; }\n    .orb .p1 { inset: 22px; animation: spin var(--dur) linear infinite; }\n    .orb .p2 { inset: 0; animation: spin calc(var(--dur) * 1.6) linear infinite reverse; }\n    .orb .path i { position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; }\n    .orb .p1 i { background: var(--a); box-shadow: 0 0 12px var(--a); }\n    .orb .p2 i { background: var(--b); box-shadow: 0 0 12px var(--b); }\n    .orb .core { width: 20px; height: 20px; border-radius: 50%; background: #e7ebf3; }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"orb\" role=\"status\" aria-label=\"Loading\">\n    <div class=\"path p1\"><i></i></div>\n    <div class=\"path p2\"><i></i></div>\n    <span class=\"core\"></span>\n  </div>\n</body>\n</html>\n"
+}

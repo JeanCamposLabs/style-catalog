@@ -1,0 +1,44 @@
+{
+  "id": "hover-icon-label-expand",
+  "title": "Expanding Icon Label",
+  "summary": "An icon button that grows to show its label.",
+  "description": "An icon button that grows to show its label.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "interaction"
+  ],
+  "tags": [
+    "hover",
+    "pointer",
+    "expand",
+    "icon",
+    "label",
+    "hover"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every hover state here is mirrored on :focus-visible so keyboard users get the same information.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Expand duration",
+      "default": "0.25s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Compact toolbars. Animate max-width rather than width so the label sizes itself; keep the accessible name on the button so it never depends on the visible label.",
+  "path": "effects/hover-interactions/hover-icon-label-expand.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Expanding Icon Label</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hover-icon-label-expand\",\n    \"title\": \"Expanding Icon Label\",\n    \"summary\": \"An icon button that grows to show its label.\",\n    \"description\": \"An icon button that grows to show its label.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"interaction\"],\n    \"tags\": [\"hover\", \"pointer\", \"expand\", \"icon\", \"label\", \"hover\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every hover state here is mirrored on :focus-visible so keyboard users get the same information.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Expand duration\", \"default\": \"0.25s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Compact toolbars. Animate max-width rather than width so the label sizes itself; keep the accessible name on the button so it never depends on the visible label.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: inline-flex; align-items: center; gap: 0; padding: .7rem; border-radius: 999px; border: 1px solid #2b3450;\n      background: #151b2a; color: #cbd5e1; font: inherit; cursor: pointer; transition: gap .25s, padding .25s; }\n    .fx .lbl { max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0; transition: max-width .25s, opacity .25s; }\n    .fx:hover, .fx:focus-visible { gap: .5rem; padding-right: 1.1rem; }\n    .fx:hover .lbl, .fx:focus-visible .lbl { max-width: 110px; opacity: 1; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-label=\"Add to bundle\"><span aria-hidden=\"true\">＋</span><span class=\"lbl\">Add to bundle</span></button>\n</body>\n</html>\n"
+}

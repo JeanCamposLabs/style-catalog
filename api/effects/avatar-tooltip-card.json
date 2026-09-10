@@ -1,0 +1,44 @@
+{
+  "id": "avatar-tooltip-card",
+  "title": "Avatar Hover Card",
+  "summary": "A profile card that opens from an avatar.",
+  "description": "A profile card that opens from an avatar.",
+  "theme": "avatars-identity",
+  "themeTitle": "Avatars & Identity",
+  "categories": [
+    "avatar",
+    "identity"
+  ],
+  "tags": [
+    "avatar",
+    "identity",
+    "hover-card",
+    "profile",
+    "preview",
+    "popover"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Card background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Mentions and author bylines. Hover cards with interactive content must also open on focus and stay open while the pointer travels to them.",
+  "path": "effects/avatars-identity/avatar-tooltip-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Avatar Hover Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"avatar-tooltip-card\",\n    \"title\": \"Avatar Hover Card\",\n    \"summary\": \"A profile card that opens from an avatar.\",\n    \"description\": \"A profile card that opens from an avatar.\",\n    \"theme\": \"avatars-identity\",\n    \"categories\": [\"avatar\", \"identity\"],\n    \"tags\": [\"avatar\", \"identity\", \"hover-card\", \"profile\", \"preview\", \"popover\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Card background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Mentions and author bylines. Hover cards with interactive content must also open on focus and stay open while the pointer travels to them.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; display: inline-block; }\n    .fx .a { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(150deg, #7c5cff, #2dd4bf);\n      display: grid; place-items: center; font-weight: 800; color: #0b0d12; cursor: pointer; }\n    .fx .card { position: absolute; bottom: calc(100% + 10px); left: 50%; translate: -50% 0; width: 210px; padding: .9rem;\n      border-radius: 14px; background: #141a28; border: 1px solid #2b3450; box-shadow: 0 18px 44px rgba(0,0,0,.55);\n      opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; }\n    .fx:hover .card, .fx:focus-within .card { opacity: 1; visibility: visible; }\n    .fx b { display: block; font-size: .9rem; }\n    .fx p { margin: .2rem 0 .6rem; color: #8b93a7; font-size: .8rem; line-height: 1.45; }\n    .fx button { padding: .35rem .8rem; border: 0; border-radius: 8px; background: #7c5cff; color: #fff; font: inherit; font-size: .78rem; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <span class=\"fx\"><button class=\"a\" type=\"button\" aria-describedby=\"pc\">JC</button>\n  <span class=\"card\" id=\"pc\" role=\"tooltip\"><b>Jean Campos</b><p>Design engineer · Lisbon · 1,181 specimens published</p>\n  <button type=\"button\">Follow</button></span></span>\n</body>\n</html>\n"
+}

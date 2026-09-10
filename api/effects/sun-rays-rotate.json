@@ -1,0 +1,44 @@
+{
+  "id": "sun-rays-rotate",
+  "title": "Sun Rays",
+  "summary": "A sun with slowly rotating light rays.",
+  "description": "A sun with slowly rotating light rays.",
+  "theme": "weather-ambient",
+  "themeTitle": "Weather & Ambient",
+  "categories": [
+    "weather",
+    "ambient"
+  ],
+  "tags": [
+    "weather",
+    "ambient",
+    "sun",
+    "rays",
+    "conic",
+    "warm"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Sun colour",
+      "default": "#f59e0b"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Weather and summer themes. A repeating-conic gradient makes every ray in one declaration; rotate slowly (30s+) so it stays ambient.",
+  "path": "effects/weather-ambient/sun-rays-rotate.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sun Rays</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"sun-rays-rotate\",\n    \"title\": \"Sun Rays\",\n    \"summary\": \"A sun with slowly rotating light rays.\",\n    \"description\": \"A sun with slowly rotating light rays.\",\n    \"theme\": \"weather-ambient\",\n    \"categories\": [\"weather\", \"ambient\"],\n    \"tags\": [\"weather\", \"ambient\", \"sun\", \"rays\", \"conic\", \"warm\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Sun colour\", \"default\": \"#f59e0b\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Weather and summer themes. A repeating-conic gradient makes every ray in one declaration; rotate slowly (30s+) so it stays ambient.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 180px; height: 180px; display: grid; place-items: center; }\n    .fx .rays { position: absolute; inset: 0; border-radius: 50%;\n      background: repeating-conic-gradient(from 0deg, rgba(251,191,36,.35) 0 6deg, transparent 6deg 18deg);\n      animation: spin 30s linear infinite; }\n    .fx .core { width: 84px; height: 84px; border-radius: 50%; background: radial-gradient(circle at 38% 32%, #fef08a, #f59e0b);\n      box-shadow: 0 0 40px rgba(251,191,36,.7); }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"rays\"></span><span class=\"core\"></span></div>\n</body>\n</html>\n"
+}

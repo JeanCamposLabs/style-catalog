@@ -1,0 +1,44 @@
+{
+  "id": "progress-speedometer",
+  "title": "Speedometer",
+  "summary": "A dial with tick marks and a rotating needle.",
+  "description": "A dial with tick marks and a rotating needle.",
+  "theme": "progress-meters",
+  "themeTitle": "Progress & Meters",
+  "categories": [
+    "progress",
+    "meter"
+  ],
+  "tags": [
+    "progress",
+    "indicator",
+    "speedometer",
+    "dial",
+    "needle",
+    "ticks"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+  "customization": [
+    {
+      "name": "--p",
+      "description": "Value",
+      "default": "62"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Performance and speed readouts. Map 0–100% to 180° of rotation (1.8° per percent) so the needle sweeps the whole dial exactly.",
+  "path": "effects/progress-meters/progress-speedometer.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Speedometer</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"progress-speedometer\",\n    \"title\": \"Speedometer\",\n    \"summary\": \"A dial with tick marks and a rotating needle.\",\n    \"description\": \"A dial with tick marks and a rotating needle.\",\n    \"theme\": \"progress-meters\",\n    \"categories\": [\"progress\", \"meter\"],\n    \"tags\": [\"progress\", \"indicator\", \"speedometer\", \"dial\", \"needle\", \"ticks\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.\",\n    \"customization\": [\n      { \"name\": \"--p\", \"description\": \"Value\", \"default\": \"62\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Performance and speed readouts. Map 0–100% to 180° of rotation (1.8° per percent) so the needle sweeps the whole dial exactly.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .sp { position: relative; width: 200px; height: 120px; overflow: hidden; }\n    .sp .face { width: 200px; height: 200px; border-radius: 50%; background: repeating-conic-gradient(from 180deg, #3b465e 0 1deg, transparent 1deg 15deg);\n      -webkit-mask: radial-gradient(farthest-side, transparent 72%, #000 73%); mask: radial-gradient(farthest-side, transparent 72%, #000 73%); }\n    .sp .needle { position: absolute; left: 50%; bottom: 0; width: 3px; height: 84px; background: #f87171; transform-origin: 50% 100%;\n      transform: translateX(-50%) rotate(calc(-90deg + var(--p) * 1.8deg)); border-radius: 2px; transition: transform .6s cubic-bezier(.34,1.56,.64,1); }\n    .sp .hub { position: absolute; left: 50%; bottom: -8px; translate: -50% 0; width: 18px; height: 18px; border-radius: 50%; background: #e7ebf3; }\n    .rd { text-align: center; margin-top: .4rem; font-weight: 800; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div><div class=\"sp\" style=\"--p:62\" role=\"meter\" aria-valuenow=\"62\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-label=\"Speed\">\n    <div class=\"face\"></div><div class=\"needle\"></div><div class=\"hub\"></div></div><div class=\"rd\">62 Mbps</div></div>\n</body>\n</html>\n"
+}

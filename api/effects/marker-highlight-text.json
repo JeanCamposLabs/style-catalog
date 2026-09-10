@@ -1,0 +1,49 @@
+{
+  "id": "marker-highlight-text",
+  "title": "Marker Highlight",
+  "summary": "A hand-drawn marker stripe sweeps behind a phrase.",
+  "description": "A skewed, slightly transparent band with soft ends imitates a felt-tip pass; it grows from left on a single scaleX.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "highlight"
+  ],
+  "tags": [
+    "marker",
+    "highlight",
+    "hand-drawn",
+    "emphasis",
+    "annotation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Marker color",
+      "default": "#fbbf24"
+    },
+    {
+      "name": "--dur",
+      "description": "Draw time",
+      "default": "0.8s"
+    }
+  ],
+  "variations": [
+    "Trigger on scroll into view",
+    "Double pass for a scribbled look",
+    "Underline-only variant"
+  ],
+  "related": [],
+  "ai_usage": "Emphasize a phrase in body copy without bold or color. Put the band on a ::before with transform-origin:left and z-index:-1; keep opacity around .35 so the text stays readable over it.",
+  "path": "effects/text-effects/marker-highlight-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Marker Highlight</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"marker-highlight-text\",\n    \"title\": \"Marker Highlight\",\n    \"summary\": \"A hand-drawn marker stripe sweeps behind a phrase.\",\n    \"description\": \"A skewed, slightly transparent band with soft ends imitates a felt-tip pass; it grows from left on a single scaleX.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"highlight\"],\n    \"tags\": [\"marker\", \"highlight\", \"hand-drawn\", \"emphasis\", \"annotation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Marker color\", \"default\": \"#fbbf24\" },\n      { \"name\": \"--dur\", \"description\": \"Draw time\", \"default\": \"0.8s\" }\n    ],\n    \"variations\": [\"Trigger on scroll into view\", \"Double pass for a scribbled look\", \"Underline-only variant\"],\n    \"ai_usage\": \"Emphasize a phrase in body copy without bold or color. Put the band on a ::before with transform-origin:left and z-index:-1; keep opacity around .35 so the text stays readable over it.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #fbbf24; --dur: .8s; }\n    .mk { font-size: clamp(1.2rem, 4vw, 1.8rem); max-width: 24ch; line-height: 1.7; }\n    .mk em { font-style: normal; position: relative; display: inline-block; }\n    .mk em::before { content: \"\"; position: absolute; left: -.2em; right: -.2em; top: .1em; bottom: .05em; z-index: -1;\n      background: var(--c); opacity: .38; border-radius: 4px 12px 6px 10px; transform: skewX(-4deg) scaleX(0);\n      transform-origin: left; animation: draw var(--dur) cubic-bezier(.2,.8,.3,1) .4s forwards; }\n    @keyframes draw { to { transform: skewX(-4deg) scaleX(1); } }\n    @media (prefers-reduced-motion: reduce) {\n      .mk em::before { animation: none; transform: skewX(-4deg) scaleX(1); }\n    }\n  </style>\n</head>\n<body>\n  <p class=\"mk\">Good documentation is <em>the cheapest feature</em> you will ever ship.</p>\n</body>\n</html>\n"
+}

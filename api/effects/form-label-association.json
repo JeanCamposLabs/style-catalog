@@ -1,0 +1,44 @@
+{
+  "id": "form-label-association",
+  "title": "Label Association",
+  "summary": "Correct and incorrect field labelling.",
+  "description": "Correct and incorrect field labelling.",
+  "theme": "accessibility-patterns",
+  "themeTitle": "Accessibility Patterns",
+  "categories": [
+    "accessibility",
+    "reference"
+  ],
+  "tags": [
+    "accessibility",
+    "a11y",
+    "labels",
+    "forms",
+    "for",
+    "aria-describedby"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Field border",
+      "default": "#2b3450"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Every input needs a programmatically associated label — <label for> matching the input id, or aria-label when no visible label exists. Placeholder text is not a label; it disappears the moment someone types.",
+  "path": "effects/accessibility-patterns/form-label-association.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Label Association</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"form-label-association\",\n    \"title\": \"Label Association\",\n    \"summary\": \"Correct and incorrect field labelling.\",\n    \"description\": \"Correct and incorrect field labelling.\",\n    \"theme\": \"accessibility-patterns\",\n    \"categories\": [\"accessibility\", \"reference\"],\n    \"tags\": [\"accessibility\", \"a11y\", \"labels\", \"forms\", \"for\", \"aria-describedby\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Field border\", \"default\": \"#2b3450\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Every input needs a programmatically associated label — <label for> matching the input id, or aria-label when no visible label exists. Placeholder text is not a label; it disappears the moment someone types.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; gap: 1rem; width: 290px; }\n    .f label { display: block; font-size: .8rem; color: #8b93a7; margin-bottom: .3rem; }\n    .f input { width: 100%; padding: .65rem .8rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a;\n      color: #e7ebf3; font: inherit; }\n    .f .hint { margin: .35rem 0 0; font-size: .76rem; color: #64748b; }\n    .bad { opacity: .75; }\n    .bad .warn { color: #f0a3c6; font-size: .76rem; margin-top: .35rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"f\"><label for=\"ok1\">Workspace name</label>\n  <input id=\"ok1\" type=\"text\" aria-describedby=\"h1\" /><p class=\"hint\" id=\"h1\">Lowercase letters and hyphens only.</p></div>\n  <div class=\"f bad\"><input type=\"text\" placeholder=\"Workspace name\" />\n  <p class=\"warn\">✕ Placeholder-only: no label, and the hint vanishes on input.</p></div></div>\n</body>\n</html>\n"
+}

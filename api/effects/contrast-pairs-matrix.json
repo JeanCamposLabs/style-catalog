@@ -1,0 +1,44 @@
+{
+  "id": "contrast-pairs-matrix",
+  "title": "Contrast Matrix",
+  "summary": "Text and surface pairs with their ratios.",
+  "description": "Text and surface pairs with their ratios.",
+  "theme": "color-systems",
+  "themeTitle": "Color Systems",
+  "categories": [
+    "color",
+    "reference"
+  ],
+  "tags": [
+    "color",
+    "tokens",
+    "contrast",
+    "wcag",
+    "ratio",
+    "pairs"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+  "customization": [
+    {
+      "name": "--surface",
+      "description": "Surface",
+      "default": "#151b2a"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Verify pairs, not colours. A token that passes on your default surface can fail on a tinted card — check the rendered combination, and treat 4.5:1 as the floor for body text.",
+  "path": "effects/color-systems/contrast-pairs-matrix.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Contrast Matrix</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"contrast-pairs-matrix\",\n    \"title\": \"Contrast Matrix\",\n    \"summary\": \"Text and surface pairs with their ratios.\",\n    \"description\": \"Text and surface pairs with their ratios.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"color\", \"reference\"],\n    \"tags\": [\"color\", \"tokens\", \"contrast\", \"wcag\", \"ratio\", \"pairs\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.\",\n    \"customization\": [\n      { \"name\": \"--surface\", \"description\": \"Surface\", \"default\": \"#151b2a\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Verify pairs, not colours. A token that passes on your default surface can fail on a tinted card — check the rendered combination, and treat 4.5:1 as the floor for body text.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; gap: 6px; width: 290px; font-size: .82rem; }\n    .p { display: flex; justify-content: space-between; align-items: center; padding: .6rem .8rem; border-radius: 9px; }\n    .p b { font-size: .7rem; font-family: ui-monospace, monospace; opacity: .85; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"p\" style=\"background:#151b2a;color:#e7ebf3\">Primary on surface<b>13.9:1 AAA</b></div>\n  <div class=\"p\" style=\"background:#151b2a;color:#8b93a7\">Muted on surface<b>4.8:1 AA</b></div>\n  <div class=\"p\" style=\"background:#7c5cff;color:#ffffff\">White on violet<b>4.6:1 AA</b></div>\n  <div class=\"p\" style=\"background:#c2891a;color:#1a1204\">Dark on amber<b>9.2:1 AAA</b></div></div>\n</body>\n</html>\n"
+}

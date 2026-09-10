@@ -1,0 +1,50 @@
+{
+  "id": "dashed-grid",
+  "title": "Dashed Grid",
+  "summary": "A grid drawn with dashed rather than solid rules.",
+  "description": "A grid drawn with dashed rather than solid rules. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "grid",
+    "dashed",
+    "guides",
+    "design-tool"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Rule colour",
+      "default": "rgba(148,163,184,.3)"
+    },
+    {
+      "name": "--s",
+      "description": "Cell size",
+      "default": "44px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Design canvases and wireframe modes. Sizing each layer to a 1px axis keeps the dashes on the lines rather than filling the field.",
+  "path": "effects/patterns-textures/dashed-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dashed Grid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dashed-grid\",\n    \"title\": \"Dashed Grid\",\n    \"summary\": \"A grid drawn with dashed rather than solid rules.\",\n    \"description\": \"A grid drawn with dashed rather than solid rules. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"grid\", \"dashed\", \"guides\", \"design-tool\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Rule colour\", \"default\": \"rgba(148,163,184,.3)\" },\n      { \"name\": \"--s\", \"description\": \"Cell size\", \"default\": \"44px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Design canvases and wireframe modes. Sizing each layer to a 1px axis keeps the dashes on the lines rather than filling the field.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: rgba(148,163,184,.3); --s: 44px; }\n    .bg { background-color: #0b0d12;\n      background-image: repeating-linear-gradient(90deg, var(--c) 0 6px, transparent 6px 12px),\n        repeating-linear-gradient(0deg, var(--c) 0 6px, transparent 6px 12px);\n      background-size: 1px var(--s), var(--s) 1px; background-repeat: repeat-y, repeat-x; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

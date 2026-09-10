@@ -1,0 +1,50 @@
+{
+  "id": "vapor-sunset-gradient",
+  "title": "Retro Sunset",
+  "summary": "A banded sun sinking into a gradient horizon.",
+  "description": "A banded sun sinking into a gradient horizon.",
+  "theme": "vaporwave-synthwave",
+  "themeTitle": "Vaporwave & Synthwave",
+  "categories": [
+    "retro",
+    "vaporwave"
+  ],
+  "tags": [
+    "vaporwave",
+    "retro",
+    "80s",
+    "sunset",
+    "sun",
+    "bands",
+    "gradient"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Sky top",
+      "default": "#2b1055"
+    },
+    {
+      "name": "--b",
+      "description": "Sky bottom",
+      "default": "#ff6b9d"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "The signature synthwave sun. The horizontal banding comes from a repeating mask, not from stripes drawn on top.",
+  "path": "effects/vaporwave-synthwave/vapor-sunset-gradient.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Retro Sunset</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"vapor-sunset-gradient\",\n    \"title\": \"Retro Sunset\",\n    \"summary\": \"A banded sun sinking into a gradient horizon.\",\n    \"description\": \"A banded sun sinking into a gradient horizon.\",\n    \"theme\": \"vaporwave-synthwave\",\n    \"categories\": [\"retro\", \"vaporwave\"],\n    \"tags\": [\"vaporwave\", \"retro\", \"80s\", \"sunset\", \"sun\", \"bands\", \"gradient\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Sky top\", \"default\": \"#2b1055\" },\n      { \"name\": \"--b\", \"description\": \"Sky bottom\", \"default\": \"#ff6b9d\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"The signature synthwave sun. The horizontal banding comes from a repeating mask, not from stripes drawn on top.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 190px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #2b1055, #7b2d8e 55%, #ff6b9d); }\n    .fx .sun { position: absolute; bottom: 26%; left: 50%; translate: -50% 0; width: 130px; height: 130px; border-radius: 50%;\n      background: linear-gradient(180deg, #fde68a, #ff2d95);\n      -webkit-mask-image: repeating-linear-gradient(180deg, #000 0 10px, transparent 10px 14px);\n      mask-image: repeating-linear-gradient(180deg, #000 0 10px, transparent 10px 14px); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"sun\"></span></div>\n</body>\n</html>\n"
+}

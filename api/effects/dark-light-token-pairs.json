@@ -1,0 +1,49 @@
+{
+  "id": "dark-light-token-pairs",
+  "title": "Theme Token Pairs",
+  "summary": "The same tokens resolved in both themes.",
+  "description": "The same tokens resolved in both themes.",
+  "theme": "color-systems",
+  "themeTitle": "Color Systems",
+  "categories": [
+    "color",
+    "reference"
+  ],
+  "tags": [
+    "color",
+    "tokens",
+    "theming",
+    "dark-mode",
+    "tokens",
+    "pairs"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+  "customization": [
+    {
+      "name": "--surface-l",
+      "description": "Light surface",
+      "default": "#ffffff"
+    },
+    {
+      "name": "--surface-d",
+      "description": "Dark surface",
+      "default": "#0f1420"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Theming. Dark mode is a designed set of values, not an inversion: surfaces lighten as they rise, and accent colours usually need more lightness and less chroma on dark.",
+  "path": "effects/color-systems/dark-light-token-pairs.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Theme Token Pairs</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dark-light-token-pairs\",\n    \"title\": \"Theme Token Pairs\",\n    \"summary\": \"The same tokens resolved in both themes.\",\n    \"description\": \"The same tokens resolved in both themes.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"color\", \"reference\"],\n    \"tags\": [\"color\", \"tokens\", \"theming\", \"dark-mode\", \"tokens\", \"pairs\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.\",\n    \"customization\": [\n      { \"name\": \"--surface-l\", \"description\": \"Light surface\", \"default\": \"#ffffff\" },\n      { \"name\": \"--surface-d\", \"description\": \"Dark surface\", \"default\": \"#0f1420\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Theming. Dark mode is a designed set of values, not an inversion: surfaces lighten as they rise, and accent colours usually need more lightness and less chroma on dark.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 10px; width: 300px; }\n    .pane { flex: 1; border-radius: 12px; padding: .8rem; font-size: .78rem; }\n    .light { background: #ffffff; color: #0f172a; border: 1px solid #e2e8f0; }\n    .dark { background: #0f1420; color: #e7ebf3; border: 1px solid #263149; }\n    .row { display: flex; justify-content: space-between; padding: .2rem 0; }\n    .light .muted { color: #64748b; } .dark .muted { color: #8b93a7; }\n    .sw { width: 14px; height: 14px; border-radius: 4px; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"pane light\"><div class=\"row\"><span>surface</span><span class=\"sw\" style=\"background:#ffffff;border:1px solid #cbd5e1\"></span></div>\n  <div class=\"row\"><span>text</span><span class=\"sw\" style=\"background:#0f172a\"></span></div>\n  <div class=\"row muted\"><span>muted</span><span class=\"sw\" style=\"background:#64748b\"></span></div>\n  <div class=\"row\"><span>accent</span><span class=\"sw\" style=\"background:#6544e0\"></span></div></div>\n  <div class=\"pane dark\"><div class=\"row\"><span>surface</span><span class=\"sw\" style=\"background:#0f1420;border:1px solid #263149\"></span></div>\n  <div class=\"row\"><span>text</span><span class=\"sw\" style=\"background:#e7ebf3\"></span></div>\n  <div class=\"row muted\"><span>muted</span><span class=\"sw\" style=\"background:#8b93a7\"></span></div>\n  <div class=\"row\"><span>accent</span><span class=\"sw\" style=\"background:#8f74f4\"></span></div></div></div>\n</body>\n</html>\n"
+}

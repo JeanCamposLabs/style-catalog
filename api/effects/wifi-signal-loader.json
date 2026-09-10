@@ -1,0 +1,49 @@
+{
+  "id": "wifi-signal-loader",
+  "title": "Wi‑Fi Signal",
+  "summary": "Three arcs and a dot light up outward like a connecting signal.",
+  "description": "Each arc is a bordered circle clipped to its top quarter; sequential delays make the signal climb from dot to outer arc.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "status"
+  ],
+  "tags": [
+    "wifi",
+    "signal",
+    "connect",
+    "arcs",
+    "network"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Signal color",
+      "default": "#38bdf8"
+    },
+    {
+      "name": "--dur",
+      "description": "Cycle",
+      "default": "1.5s"
+    }
+  ],
+  "variations": [
+    "Red arcs for a failed connection",
+    "Hold the full signal at the end",
+    "Mirror it for an upload indicator"
+  ],
+  "related": [],
+  "ai_usage": "Connectivity and sync states. Each arc uses border-top-color plus a rotate(45deg) so only the top quarter shows; stagger animation-delay by a third of the cycle for the climbing read.",
+  "path": "effects/loaders-spinners/wifi-signal-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Wi‑Fi Signal</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"wifi-signal-loader\",\n    \"title\": \"Wi‑Fi Signal\",\n    \"summary\": \"Three arcs and a dot light up outward like a connecting signal.\",\n    \"description\": \"Each arc is a bordered circle clipped to its top quarter; sequential delays make the signal climb from dot to outer arc.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"status\"],\n    \"tags\": [\"wifi\", \"signal\", \"connect\", \"arcs\", \"network\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Signal color\", \"default\": \"#38bdf8\" },\n      { \"name\": \"--dur\", \"description\": \"Cycle\", \"default\": \"1.5s\" }\n    ],\n    \"variations\": [\"Red arcs for a failed connection\", \"Hold the full signal at the end\", \"Mirror it for an upload indicator\"],\n    \"ai_usage\": \"Connectivity and sync states. Each arc uses border-top-color plus a rotate(45deg) so only the top quarter shows; stagger animation-delay by a third of the cycle for the climbing read.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #38bdf8; --dur: 1.5s; }\n    .wifi { position: relative; width: 96px; height: 60px; display: grid; place-items: end center; }\n    .wifi i { position: absolute; bottom: 0; border: 7px solid transparent; border-top-color: var(--c); border-radius: 50%;\n      transform: rotate(-45deg); opacity: .18; animation: sig var(--dur) ease-in-out infinite; animation-delay: calc(var(--i) * .22s); }\n    .wifi i:nth-child(1) { width: 34px; height: 34px; }\n    .wifi i:nth-child(2) { width: 62px; height: 62px; }\n    .wifi i:nth-child(3) { width: 90px; height: 90px; }\n    .wifi .dot { position: absolute; bottom: 2px; width: 10px; height: 10px; border-radius: 50%; background: var(--c);\n      animation: sig var(--dur) ease-in-out infinite; opacity: .18; }\n    @keyframes sig { 0%, 60%, 100% { opacity: .18; } 30% { opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"wifi\" role=\"status\" aria-label=\"Connecting\">\n    <span class=\"dot\"></span>\n    <i style=\"--i:1\"></i><i style=\"--i:2\"></i><i style=\"--i:3\"></i>\n  </div>\n</body>\n</html>\n"
+}

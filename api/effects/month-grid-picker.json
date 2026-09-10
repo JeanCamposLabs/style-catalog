@@ -1,0 +1,44 @@
+{
+  "id": "month-grid-picker",
+  "title": "Month Grid",
+  "summary": "A month calendar with today, selected, and disabled days.",
+  "description": "A month calendar with today, selected, and disabled days.",
+  "theme": "calendar-time",
+  "themeTitle": "Calendar & Time",
+  "categories": [
+    "calendar",
+    "time"
+  ],
+  "tags": [
+    "calendar",
+    "date",
+    "calendar",
+    "month",
+    "picker",
+    "date"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Selected colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Date pickers. Grid navigation must work with arrow keys and the focused day must be the only tab stop (roving tabindex).",
+  "path": "effects/calendar-time/month-grid-picker.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Month Grid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"month-grid-picker\",\n    \"title\": \"Month Grid\",\n    \"summary\": \"A month calendar with today, selected, and disabled days.\",\n    \"description\": \"A month calendar with today, selected, and disabled days.\",\n    \"theme\": \"calendar-time\",\n    \"categories\": [\"calendar\", \"time\"],\n    \"tags\": [\"calendar\", \"date\", \"calendar\", \"month\", \"picker\", \"date\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Selected colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Date pickers. Grid navigation must work with arrow keys and the focused day must be the only tab stop (roving tabindex).\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 260px; padding: 1rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }\n    .fx .hd { display: flex; justify-content: space-between; align-items: center; margin-bottom: .8rem; font-weight: 700; font-size: .9rem; }\n    .fx .hd button { border: 0; background: transparent; color: #8b93a7; font: inherit; cursor: pointer; }\n    .fx .g { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; text-align: center; }\n    .fx .g span { font-size: .68rem; color: #64748b; padding: .3rem 0; }\n    .fx .g button { aspect-ratio: 1; border: 0; border-radius: 9px; background: transparent; color: #cbd5e1;\n      font: inherit; font-size: .8rem; cursor: pointer; }\n    .fx .g button:hover { background: #22304a; }\n    .fx .g button.today { box-shadow: inset 0 0 0 1px #7c5cff; }\n    .fx .g button[aria-pressed=\"true\"] { background: #7c5cff; color: #fff; }\n    .fx .g button[disabled] { color: #3b465e; cursor: not-allowed; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"hd\"><button type=\"button\" aria-label=\"Previous month\">‹</button>September 2026<button type=\"button\" aria-label=\"Next month\">›</button></div>\n  <div class=\"g\" role=\"grid\"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>\n  <button disabled>31</button><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button>\n  <button>7</button><button>8</button><button>9</button><button class=\"today\">10</button><button>11</button><button>12</button><button>13</button>\n  <button>14</button><button aria-pressed=\"true\">15</button><button>16</button><button>17</button><button>18</button><button>19</button><button>20</button></div></div>\n</body>\n</html>\n"
+}

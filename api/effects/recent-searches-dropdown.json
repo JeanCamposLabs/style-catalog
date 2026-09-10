@@ -1,0 +1,44 @@
+{
+  "id": "recent-searches-dropdown",
+  "title": "Recent Searches",
+  "summary": "A dropdown of recent and suggested queries.",
+  "description": "A dropdown of recent and suggested queries.",
+  "theme": "search-ui",
+  "themeTitle": "Search UI",
+  "categories": [
+    "search",
+    "filter"
+  ],
+  "tags": [
+    "search",
+    "find",
+    "recent",
+    "history",
+    "suggestions",
+    "dropdown"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Panel background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Empty-query state of a search field. Recent queries are the highest-value suggestion you can offer; let users remove individual entries.",
+  "path": "effects/search-ui/recent-searches-dropdown.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Recent Searches</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"recent-searches-dropdown\",\n    \"title\": \"Recent Searches\",\n    \"summary\": \"A dropdown of recent and suggested queries.\",\n    \"description\": \"A dropdown of recent and suggested queries.\",\n    \"theme\": \"search-ui\",\n    \"categories\": [\"search\", \"filter\"],\n    \"tags\": [\"search\", \"find\", \"recent\", \"history\", \"suggestions\", \"dropdown\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Panel background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Empty-query state of a search field. Recent queries are the highest-value suggestion you can offer; let users remove individual entries.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; }\n    .fx input { width: 100%; padding: .75rem .9rem; border-radius: 12px 12px 0 0; border: 1px solid #2b3450; border-bottom: 0;\n      background: #151b2a; color: #e7ebf3; font: inherit; }\n    .fx .panel { border: 1px solid #2b3450; border-radius: 0 0 12px 12px; background: #141a28; padding: .4rem; }\n    .fx .grp { padding: .3rem .6rem; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }\n    .fx .it { display: flex; align-items: center; gap: .5rem; padding: .4rem .6rem; border-radius: 8px; color: #cbd5e1; font-size: .85rem; }\n    .fx .it:hover { background: #22304a; }\n    .fx .it .x { margin-left: auto; color: #64748b; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><input type=\"search\" aria-label=\"Search\" placeholder=\"Search specimens\" />\n  <div class=\"panel\"><div class=\"grp\">Recent</div>\n  <div class=\"it\">⏱ gradient border <span class=\"x\">×</span></div><div class=\"it\">⏱ skeleton loader <span class=\"x\">×</span></div>\n  <div class=\"grp\">Trending</div><div class=\"it\">↗ glassmorphism</div><div class=\"it\">↗ scroll reveal</div></div></div>\n</body>\n</html>\n"
+}

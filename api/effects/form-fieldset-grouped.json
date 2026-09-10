@@ -1,0 +1,44 @@
+{
+  "id": "form-fieldset-grouped",
+  "title": "Grouped Fieldset",
+  "summary": "Related options grouped with a legend.",
+  "description": "Related options grouped with a legend.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "form",
+    "input",
+    "fieldset",
+    "legend",
+    "group",
+    "radio"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Any group of related controls. A fieldset with a legend is what tells screen-reader users the question the options answer; a styled heading does not.",
+  "path": "effects/forms-inputs/form-fieldset-grouped.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Grouped Fieldset</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"form-fieldset-grouped\",\n    \"title\": \"Grouped Fieldset\",\n    \"summary\": \"Related options grouped with a legend.\",\n    \"description\": \"Related options grouped with a legend.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"form\", \"input\", \"fieldset\", \"legend\", \"group\", \"radio\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Any group of related controls. A fieldset with a legend is what tells screen-reader users the question the options answer; a styled heading does not.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; border: 1px solid #2b3450; border-radius: 12px; padding: .9rem 1rem 1rem; }\n    .fx legend { padding: 0 .4rem; font-size: .78rem; color: #b9a5ff; }\n    .fx label { display: flex; align-items: flex-start; gap: .6rem; padding: .35rem 0; color: #cbd5e1; font-size: .86rem; }\n    .fx input { accent-color: #7c5cff; margin-top: .2rem; }\n    .fx small { display: block; color: #64748b; font-size: .76rem; }\n  </style>\n</head>\n<body>\n  <fieldset class=\"fx\"><legend>Deployment target</legend>\n  <label><input type=\"radio\" name=\"dt\" checked /><span>Production<small>Live for all visitors</small></span></label>\n  <label><input type=\"radio\" name=\"dt\" /><span>Preview<small>Shareable URL, noindex</small></span></label></fieldset>\n</body>\n</html>\n"
+}

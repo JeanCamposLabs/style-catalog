@@ -1,0 +1,44 @@
+{
+  "id": "button-icon-only-grid",
+  "title": "Icon Button Set",
+  "summary": "A toolbar of icon-only buttons with hidden labels.",
+  "description": "A toolbar of icon-only buttons with hidden labels.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "action"
+  ],
+  "tags": [
+    "button",
+    "action",
+    "icons",
+    "toolbar",
+    "labels",
+    "compact"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Editor toolbars. Every icon button needs a visually-hidden label; a title attribute alone is unreliable across screen readers and invisible on touch.",
+  "path": "effects/buttons/button-icon-only-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Icon Button Set</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"button-icon-only-grid\",\n    \"title\": \"Icon Button Set\",\n    \"summary\": \"A toolbar of icon-only buttons with hidden labels.\",\n    \"description\": \"A toolbar of icon-only buttons with hidden labels.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"action\"],\n    \"tags\": [\"button\", \"action\", \"icons\", \"toolbar\", \"labels\", \"compact\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Editor toolbars. Every icon button needs a visually-hidden label; a title attribute alone is unreliable across screen readers and invisible on touch.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 4px; padding: 4px; border-radius: 12px; background: #151b2a; border: 1px solid #263149; }\n    .fx button { width: 38px; height: 38px; border: 0; border-radius: 9px; background: transparent; color: #cbd5e1;\n      font-size: 1rem; cursor: pointer; }\n    .fx button:hover { background: #22304a; color: #fff; }\n    .fx button[aria-pressed=\"true\"] { background: #7c5cff; color: #fff; }\n    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"group\" aria-label=\"Text formatting\">\n    <button type=\"button\" aria-pressed=\"true\"><b>B</b><span class=\"sr\">Bold</span></button>\n    <button type=\"button\" aria-pressed=\"false\"><i>I</i><span class=\"sr\">Italic</span></button>\n    <button type=\"button\" aria-pressed=\"false\"><u>U</u><span class=\"sr\">Underline</span></button></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "y2k-rainbow-divider",
+  "title": "Rainbow Rule",
+  "summary": "A chunky rainbow divider bar.",
+  "description": "A chunky rainbow divider bar.",
+  "theme": "brutalism-y2k",
+  "themeTitle": "Brutalism & Y2K",
+  "categories": [
+    "brutalism",
+    "y2k"
+  ],
+  "tags": [
+    "brutalism",
+    "raw",
+    "rainbow",
+    "divider",
+    "rule",
+    "retro"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+  "customization": [
+    {
+      "name": "--h",
+      "description": "Rule height",
+      "default": "14px"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Personal-site nostalgia. Hard colour stops (0 %) give the flat bands of a 90s GIF rule rather than a modern smooth gradient.",
+  "path": "effects/brutalism-y2k/y2k-rainbow-divider.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rainbow Rule</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"y2k-rainbow-divider\",\n    \"title\": \"Rainbow Rule\",\n    \"summary\": \"A chunky rainbow divider bar.\",\n    \"description\": \"A chunky rainbow divider bar.\",\n    \"theme\": \"brutalism-y2k\",\n    \"categories\": [\"brutalism\", \"y2k\"],\n    \"tags\": [\"brutalism\", \"raw\", \"rainbow\", \"divider\", \"rule\", \"retro\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.\",\n    \"customization\": [\n      { \"name\": \"--h\", \"description\": \"Rule height\", \"default\": \"14px\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Personal-site nostalgia. Hard colour stops (0 %) give the flat bands of a 90s GIF rule rather than a modern smooth gradient.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; height: 14px; border: 2px solid #0b0d12;\n      background: linear-gradient(90deg, #ef4444 0 16.6%, #f59e0b 0 33.3%, #eab308 0 50%, #22c55e 0 66.6%, #3b82f6 0 83.3%, #a855f7 0); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

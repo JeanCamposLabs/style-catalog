@@ -1,0 +1,50 @@
+{
+  "id": "gear-pair-loader",
+  "title": "Meshing Gears",
+  "summary": "Two SVG gears turn in opposite directions at speeds set by their tooth counts.",
+  "description": "The smaller gear rotates faster by exactly its gear ratio, which is what makes the mesh look mechanically correct rather than arbitrary.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "mechanical"
+  ],
+  "tags": [
+    "gears",
+    "svg",
+    "rotate",
+    "mechanical",
+    "ratio"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Gear color",
+      "default": "#94a3b8"
+    },
+    {
+      "name": "--dur",
+      "description": "Large gear period",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Three gears in a chain",
+    "Metallic gradient fill",
+    "Pause on hover to inspect the mesh"
+  ],
+  "related": [],
+  "ai_usage": "Settings, processing, or build pipelines. If you change tooth counts, change the durations by the same ratio (12 teeth vs 8 teeth → 3s vs 2s) or the teeth will visibly slip through each other.",
+  "path": "effects/loaders-spinners/gear-pair-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Meshing Gears</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"gear-pair-loader\",\n    \"title\": \"Meshing Gears\",\n    \"summary\": \"Two SVG gears turn in opposite directions at speeds set by their tooth counts.\",\n    \"description\": \"The smaller gear rotates faster by exactly its gear ratio, which is what makes the mesh look mechanically correct rather than arbitrary.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"mechanical\"],\n    \"tags\": [\"gears\", \"svg\", \"rotate\", \"mechanical\", \"ratio\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Gear color\", \"default\": \"#94a3b8\" },\n      { \"name\": \"--dur\", \"description\": \"Large gear period\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Three gears in a chain\", \"Metallic gradient fill\", \"Pause on hover to inspect the mesh\"],\n    \"ai_usage\": \"Settings, processing, or build pipelines. If you change tooth counts, change the durations by the same ratio (12 teeth vs 8 teeth → 3s vs 2s) or the teeth will visibly slip through each other.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #94a3b8; --dur: 3s; }\n    .gears { width: 150px; }\n    .gears svg { width: 100%; display: block; }\n    .gears .g1 { transform-origin: 46px 52px; animation: spin var(--dur) linear infinite; }\n    .gears .g2 { transform-origin: 104px 44px; animation: spin calc(var(--dur) * .66) linear infinite reverse; }\n    .gears path, .gears circle { fill: var(--c); }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"gears\" role=\"status\" aria-label=\"Processing\">\n    <svg viewBox=\"0 0 150 100\" aria-hidden=\"true\">\n      <g class=\"g1\"><path d=\"M46 22l5 8a24 24 0 0 1 8 3l9-3 6 10-7 6a24 24 0 0 1 0 9l7 6-6 10-9-3a24 24 0 0 1-8 3l-5 8H34l-5-8a24 24 0 0 1-8-3l-9 3-6-10 7-6a24 24 0 0 1 0-9l-7-6 6-10 9 3a24 24 0 0 1 8-3l5-8z\"/><circle cx=\"46\" cy=\"52\" r=\"9\" fill=\"#0b0d12\"/></g>\n      <g class=\"g2\"><path d=\"M104 20l4 6a18 18 0 0 1 6 2l7-2 4 8-5 4a18 18 0 0 1 0 7l5 4-4 8-7-2a18 18 0 0 1-6 2l-4 6h-9l-4-6a18 18 0 0 1-6-2l-7 2-4-8 5-4a18 18 0 0 1 0-7l-5-4 4-8 7 2a18 18 0 0 1 6-2l4-6z\"/><circle cx=\"104\" cy=\"44\" r=\"7\" fill=\"#0b0d12\"/></g>\n    </svg>\n  </div>\n</body>\n</html>\n"
+}

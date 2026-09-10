@@ -1,0 +1,45 @@
+{
+  "id": "cursor-crosshair-guides",
+  "title": "Crosshair Guides",
+  "summary": "Full-width guide lines follow the pointer like a design tool.",
+  "description": "Two one-pixel fixed lines track the pointer axes, with a coordinate readout in the corner.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "tool"
+  ],
+  "tags": [
+    "crosshair",
+    "guides",
+    "coordinates",
+    "design-tool",
+    "precision"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Guide color",
+      "default": "rgba(45,212,191,.6)"
+    }
+  ],
+  "variations": [
+    "Snap the guides to a grid",
+    "Show the hex colour under the pointer",
+    "Lock a guide on click"
+  ],
+  "related": [],
+  "ai_usage": "Design tools, canvases, and data plots. Use transform (not left/top) on the guides so they stay on the compositor, and keep the readout in a separate element updated in the same frame.",
+  "path": "effects/cursors-pointers/cursor-crosshair-guides.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Crosshair Guides</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-crosshair-guides\",\n    \"title\": \"Crosshair Guides\",\n    \"summary\": \"Full-width guide lines follow the pointer like a design tool.\",\n    \"description\": \"Two one-pixel fixed lines track the pointer axes, with a coordinate readout in the corner.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"tool\"],\n    \"tags\": [\"crosshair\", \"guides\", \"coordinates\", \"design-tool\", \"precision\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Guide color\", \"default\": \"rgba(45,212,191,.6)\" }\n    ],\n    \"variations\": [\"Snap the guides to a grid\", \"Show the hex colour under the pointer\", \"Lock a guide on click\"],\n    \"ai_usage\": \"Design tools, canvases, and data plots. Use transform (not left/top) on the guides so they stay on the compositor, and keep the readout in a separate element updated in the same frame.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { cursor: crosshair; }\n    :root { --c: rgba(45,212,191,.6); }\n    .gx, .gy { position: fixed; background: var(--c); pointer-events: none; }\n    .gx { left: 0; right: 0; height: 1px; top: 0; }\n    .gy { top: 0; bottom: 0; width: 1px; left: 0; }\n    .read { position: fixed; right: 12px; bottom: 12px; font-family: ui-monospace, monospace; font-size: .8rem;\n      color: #2dd4bf; background: #0e1520; padding: .3rem .6rem; border-radius: 6px; border: 1px solid #1c2b3a; }\n    .hint { color: #8b93a7; }\n  </style>\n</head>\n<body>\n  <p class=\"hint\">Design-tool guides</p>\n  <div class=\"gx\" aria-hidden=\"true\"></div><div class=\"gy\" aria-hidden=\"true\"></div>\n  <div class=\"read\" id=\"rd\">0, 0</div>\n  <script>\n    (function () {\n      var gx = document.querySelector(\".gx\"), gy = document.querySelector(\".gy\"), rd = document.getElementById(\"rd\");\n      addEventListener(\"pointermove\", function (e) {\n        gx.style.transform = \"translateY(\" + e.clientY + \"px)\";\n        gy.style.transform = \"translateX(\" + e.clientX + \"px)\";\n        rd.textContent = e.clientX + \", \" + e.clientY;\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "receipt-strip",
+  "title": "Receipt",
+  "summary": "A thermal receipt with a torn bottom edge.",
+  "description": "A thermal receipt with a torn bottom edge.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "receipt",
+    "thermal",
+    "torn",
+    "ecommerce"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--paper",
+      "description": "Paper colour",
+      "default": "#fafaf9"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Order confirmations and invoices. A repeating circular mask gives the perforated tear; monospace type completes the read.",
+  "path": "effects/paper-print/receipt-strip.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Receipt</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"receipt-strip\",\n    \"title\": \"Receipt\",\n    \"summary\": \"A thermal receipt with a torn bottom edge.\",\n    \"description\": \"A thermal receipt with a torn bottom edge.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"receipt\", \"thermal\", \"torn\", \"ecommerce\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--paper\", \"description\": \"Paper colour\", \"default\": \"#fafaf9\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Order confirmations and invoices. A repeating circular mask gives the perforated tear; monospace type completes the read.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 200px; padding: 1rem 1.1rem 1.6rem; background: #fafaf9; color: #1c1917;\n      font-family: ui-monospace, Menlo, monospace; font-size: .78rem;\n      -webkit-mask-image: radial-gradient(circle 6px at 6px 100%, transparent 6px, #000 7px);\n      mask-image: radial-gradient(circle 6px at 6px 100%, transparent 6px, #000 7px);\n      -webkit-mask-size: 12px 100%; mask-size: 12px 100%; }\n    .fx .row { display: flex; justify-content: space-between; padding: .12rem 0; }\n    .fx .tot { border-top: 1px dashed #a8a29e; margin-top: .5rem; padding-top: .4rem; font-weight: 700; }\n    .fx h3 { margin: 0 0 .6rem; text-align: center; font-size: .85rem; letter-spacing: .1em; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><h3>ORDER #4821</h3><div class=\"row\"><span>Sticker pack</span><span>9.00</span></div>\n  <div class=\"row\"><span>Shipping</span><span>3.50</span></div><div class=\"row tot\"><span>TOTAL</span><span>12.50</span></div></div>\n</body>\n</html>\n"
+}

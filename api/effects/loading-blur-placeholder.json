@@ -1,0 +1,44 @@
+{
+  "id": "loading-blur-placeholder",
+  "title": "Blur-Up Image",
+  "summary": "A blurred placeholder resolving into the full image.",
+  "description": "A blurred placeholder resolving into the full image.",
+  "theme": "empty-skeleton-states",
+  "themeTitle": "Empty & Loading States",
+  "categories": [
+    "state",
+    "empty"
+  ],
+  "tags": [
+    "state",
+    "placeholder",
+    "blur-up",
+    "progressive",
+    "image",
+    "placeholder"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.",
+  "customization": [
+    {
+      "name": "--blur",
+      "description": "Placeholder blur",
+      "default": "18px"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Image loading. Ship a tiny blurred base64 preview and cross-fade to the full image on load; it removes the layout flash without a spinner.",
+  "path": "effects/empty-skeleton-states/loading-blur-placeholder.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Blur-Up Image</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"loading-blur-placeholder\",\n    \"title\": \"Blur-Up Image\",\n    \"summary\": \"A blurred placeholder resolving into the full image.\",\n    \"description\": \"A blurred placeholder resolving into the full image.\",\n    \"theme\": \"empty-skeleton-states\",\n    \"categories\": [\"state\", \"empty\"],\n    \"tags\": [\"state\", \"placeholder\", \"blur-up\", \"progressive\", \"image\", \"placeholder\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.\",\n    \"customization\": [\n      { \"name\": \"--blur\", \"description\": \"Placeholder blur\", \"default\": \"18px\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Image loading. Ship a tiny blurred base64 preview and cross-fade to the full image on load; it removes the layout flash without a spinner.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 260px; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden; }\n    .fx .lo { position: absolute; inset: 0; filter: blur(18px); transform: scale(1.1);\n      background: linear-gradient(135deg, #7c5cff, #2dd4bf); }\n    .fx .hi { position: absolute; inset: 0; background: conic-gradient(from 160deg at 40% 35%, #7c5cff, #2dd4bf, #f472b6, #7c5cff);\n      animation: reveal 3s ease-in-out infinite; }\n    @keyframes reveal { 0%, 30% { opacity: 0; } 60%, 100% { opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"lo\"></div><div class=\"hi\"></div></div>\n</body>\n</html>\n"
+}

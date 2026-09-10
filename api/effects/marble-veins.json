@@ -1,0 +1,45 @@
+{
+  "id": "marble-veins",
+  "title": "Marble",
+  "summary": "Soft veined stone.",
+  "description": "Soft veined stone. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "marble",
+    "stone",
+    "veins",
+    "luxury"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--vein",
+      "description": "Vein strength",
+      "default": "0.05"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Luxury and editorial surfaces. Layer at least two vein angles at different spacings — a single set of diagonal lines never reads as stone.",
+  "path": "effects/patterns-textures/marble-veins.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Marble</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"marble-veins\",\n    \"title\": \"Marble\",\n    \"summary\": \"Soft veined stone.\",\n    \"description\": \"Soft veined stone. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"marble\", \"stone\", \"veins\", \"luxury\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--vein\", \"description\": \"Vein strength\", \"default\": \"0.05\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Luxury and editorial surfaces. Layer at least two vein angles at different spacings — a single set of diagonal lines never reads as stone.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    .bg { background-color: #1b2029;\n      background-image: radial-gradient(ellipse at 20% 30%, rgba(255,255,255,.09), transparent 45%),\n        radial-gradient(ellipse at 70% 60%, rgba(255,255,255,.06), transparent 40%),\n        repeating-linear-gradient(52deg, transparent 0 40px, rgba(255,255,255,.05) 40px 42px, transparent 42px 90px),\n        repeating-linear-gradient(38deg, transparent 0 60px, rgba(255,255,255,.035) 60px 61px, transparent 61px 130px); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

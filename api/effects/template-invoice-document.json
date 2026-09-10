@@ -1,0 +1,44 @@
+{
+  "id": "template-invoice-document",
+  "title": "Invoice",
+  "summary": "A printable invoice with totals.",
+  "description": "A printable invoice with totals.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "page"
+  ],
+  "tags": [
+    "template",
+    "page",
+    "invoice",
+    "document",
+    "print",
+    "billing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+  "customization": [
+    {
+      "name": "--paper",
+      "description": "Paper colour",
+      "default": "#f8f5ee"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Billing documents. Use a real table with a tfoot for totals so the document prints correctly across pages and remains machine-readable.",
+  "path": "effects/website-templates/template-invoice-document.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Invoice</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"template-invoice-document\",\n    \"title\": \"Invoice\",\n    \"summary\": \"A printable invoice with totals.\",\n    \"description\": \"A printable invoice with totals.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"page\"],\n    \"tags\": [\"template\", \"page\", \"invoice\", \"document\", \"print\", \"billing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.\",\n    \"customization\": [\n      { \"name\": \"--paper\", \"description\": \"Paper colour\", \"default\": \"#f8f5ee\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Billing documents. Use a real table with a tfoot for totals so the document prints correctly across pages and remains machine-readable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { padding: 1.4rem; max-width: 32rem; margin: 0 auto; background: #f8f5ee; color: #1f2937; }\n    .top { display: flex; justify-content: space-between; margin-bottom: 1.4rem; }\n    h1 { margin: 0; font-size: 1.4rem; }\n    .top .meta { text-align: right; font-size: .78rem; color: #4b5563; line-height: 1.6; }\n    .parties { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; font-size: .8rem; line-height: 1.6; }\n    .parties b { display: block; color: #111827; }\n    table { width: 100%; border-collapse: collapse; font-size: .82rem; }\n    th { text-align: left; border-bottom: 2px solid #1f2937; padding: .4rem 0; font-size: .7rem; text-transform: uppercase; }\n    td { padding: .45rem 0; border-bottom: 1px solid #d6cfc0; }\n    td:last-child, th:last-child { text-align: right; font-variant-numeric: tabular-nums; }\n    tfoot td { border: 0; font-weight: 700; padding-top: .6rem; }\n    .note { margin-top: 1.2rem; font-size: .74rem; color: #6b7280; }\n  </style>\n</head>\n<body>\n  <div class=\"top\"><h1>Invoice</h1><div class=\"meta\"><b>#2026-0412</b><br>Issued 10 Sept 2026<br>Due 24 Sept 2026</div></div>\n  <div class=\"parties\"><div><b>From</b>Style Catalog Ltd<br>Lisbon, PT</div><div><b>To</b>Analytical Engine Co<br>London, UK</div></div>\n  <table><caption class=\"sr\" style=\"position:absolute;left:-9999px\">Invoice lines</caption>\n  <thead><tr><th scope=\"col\">Description</th><th scope=\"col\">Qty</th><th scope=\"col\">Amount</th></tr></thead>\n  <tbody><tr><td>Studio plan · annual</td><td>1</td><td>288.00</td></tr><tr><td>Additional seats</td><td>4</td><td>96.00</td></tr>\n  <tr><td>VAT (23%)</td><td></td><td>88.32</td></tr></tbody>\n  <tfoot><tr><td>Total due</td><td></td><td>€472.32</td></tr></tfoot></table>\n  <p class=\"note\">Payable by bank transfer within 14 days. Late payments accrue statutory interest.</p>\n</body>\n</html>\n"
+}

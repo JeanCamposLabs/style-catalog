@@ -1,0 +1,44 @@
+{
+  "id": "blur-focus-text",
+  "title": "Blur Focus In",
+  "summary": "The headline resolves from a heavy blur into sharp type.",
+  "description": "Animating the filter blur alongside a small scale gives the read of a camera pulling focus rather than a plain fade.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "entrance"
+  ],
+  "tags": [
+    "blur",
+    "focus",
+    "entrance",
+    "reveal",
+    "filter"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Focus duration",
+      "default": "1.2s"
+    }
+  ],
+  "variations": [
+    "Blur out on exit",
+    "Per-letter focus with delays",
+    "Combine with a letter-spacing collapse"
+  ],
+  "related": [],
+  "ai_usage": "Hero entrances and section reveals. Animate filter: blur() plus letter-spacing together — the spacing collapse is what makes it feel like focus rather than a dissolve. Skip the blur under reduced motion.",
+  "path": "effects/text-effects/blur-focus-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Blur Focus In</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"blur-focus-text\",\n    \"title\": \"Blur Focus In\",\n    \"summary\": \"The headline resolves from a heavy blur into sharp type.\",\n    \"description\": \"Animating the filter blur alongside a small scale gives the read of a camera pulling focus rather than a plain fade.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"entrance\"],\n    \"tags\": [\"blur\", \"focus\", \"entrance\", \"reveal\", \"filter\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Focus duration\", \"default\": \"1.2s\" }\n    ],\n    \"variations\": [\"Blur out on exit\", \"Per-letter focus with delays\", \"Combine with a letter-spacing collapse\"],\n    \"ai_usage\": \"Hero entrances and section reveals. Animate filter: blur() plus letter-spacing together — the spacing collapse is what makes it feel like focus rather than a dissolve. Skip the blur under reduced motion.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: 1.2s; }\n    .focus { font-size: clamp(2rem, 8vw, 4rem); font-weight: 800;\n      animation: focusin var(--dur) cubic-bezier(.25,.46,.45,.94) both infinite alternate; }\n    @keyframes focusin {\n      from { filter: blur(12px); letter-spacing: .4em; opacity: .4; }\n      to { filter: blur(0); letter-spacing: 0; opacity: 1; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      .focus { animation: none; filter: none; letter-spacing: 0; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"focus\">In Focus</h1>\n</body>\n</html>\n"
+}

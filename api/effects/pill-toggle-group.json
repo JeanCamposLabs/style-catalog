@@ -1,0 +1,50 @@
+{
+  "id": "pill-toggle-group",
+  "title": "Segmented Pill Toggle",
+  "summary": "A sliding pill follows the selected option in a segmented control.",
+  "description": "One absolutely positioned thumb translates between segments, so the highlight moves continuously rather than blinking between states.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "toggle"
+  ],
+  "tags": [
+    "segmented",
+    "toggle",
+    "pill",
+    "tabs",
+    "slider"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--thumb",
+      "description": "Thumb color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Slide duration",
+      "default": "0.3s"
+    }
+  ],
+  "variations": [
+    "Three or more segments",
+    "Icons instead of labels",
+    "Vertical orientation"
+  ],
+  "related": [],
+  "ai_usage": "View switchers and filters. Implement as radio inputs (or role=tablist) so keyboard and screen-reader behaviour is free; the thumb reads its x-offset from the checked index via a CSS variable.",
+  "path": "effects/buttons/pill-toggle-group.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Segmented Pill Toggle</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"pill-toggle-group\",\n    \"title\": \"Segmented Pill Toggle\",\n    \"summary\": \"A sliding pill follows the selected option in a segmented control.\",\n    \"description\": \"One absolutely positioned thumb translates between segments, so the highlight moves continuously rather than blinking between states.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"toggle\"],\n    \"tags\": [\"segmented\", \"toggle\", \"pill\", \"tabs\", \"slider\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--thumb\", \"description\": \"Thumb color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Slide duration\", \"default\": \"0.3s\" }\n    ],\n    \"variations\": [\"Three or more segments\", \"Icons instead of labels\", \"Vertical orientation\"],\n    \"ai_usage\": \"View switchers and filters. Implement as radio inputs (or role=tablist) so keyboard and screen-reader behaviour is free; the thumb reads its x-offset from the checked index via a CSS variable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --thumb: #7c5cff; --dur: .3s; }\n    .pillg { position: relative; display: inline-flex; padding: 4px; border-radius: 999px; background: #151b2a; border: 1px solid #263149; }\n    .pillg .thumb { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px) / 3); border-radius: 999px;\n      background: var(--thumb); transition: transform var(--dur) cubic-bezier(.7,0,.2,1); }\n    .pillg button { position: relative; z-index: 2; padding: .55rem 1.3rem; border-radius: 999px; background: transparent;\n      color: #94a3b8; font-weight: 700; transition: color var(--dur); }\n    .pillg button[aria-pressed=\"true\"] { color: #fff; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"pillg\" id=\"pg\" role=\"group\" aria-label=\"View\">\n    <span class=\"thumb\" aria-hidden=\"true\"></span>\n    <button type=\"button\" aria-pressed=\"true\">Day</button>\n    <button type=\"button\" aria-pressed=\"false\">Week</button>\n    <button type=\"button\" aria-pressed=\"false\">Month</button>\n  </div>\n  <script>\n    (function () {\n      var g = document.getElementById(\"pg\"), thumb = g.querySelector(\".thumb\");\n      var btns = [].slice.call(g.querySelectorAll(\"button\"));\n      btns.forEach(function (b, i) {\n        b.addEventListener(\"click\", function () {\n          btns.forEach(function (o) { o.setAttribute(\"aria-pressed\", \"false\"); });\n          b.setAttribute(\"aria-pressed\", \"true\");\n          thumb.style.transform = \"translateX(\" + i * 100 + \"%)\";\n        });\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

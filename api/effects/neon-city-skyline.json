@@ -1,0 +1,45 @@
+{
+  "id": "neon-city-skyline",
+  "title": "Neon Skyline",
+  "summary": "A layered city silhouette with lit windows.",
+  "description": "A layered city silhouette with lit windows.",
+  "theme": "neon-cyberpunk",
+  "themeTitle": "Neon & Cyberpunk",
+  "categories": [
+    "neon",
+    "cyberpunk"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "dark",
+    "skyline",
+    "city",
+    "silhouette",
+    "night"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+  "customization": [
+    {
+      "name": "--glow",
+      "description": "Skyline glow",
+      "default": "rgba(168,85,247,.5)"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Night-city scenes. Lit windows are the cheapest way to add life — scatter a handful with a warm glow rather than modelling the buildings.",
+  "path": "effects/neon-cyberpunk/neon-city-skyline.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neon Skyline</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-city-skyline\",\n    \"title\": \"Neon Skyline\",\n    \"summary\": \"A layered city silhouette with lit windows.\",\n    \"description\": \"A layered city silhouette with lit windows.\",\n    \"theme\": \"neon-cyberpunk\",\n    \"categories\": [\"neon\", \"cyberpunk\"],\n    \"tags\": [\"neon\", \"glow\", \"dark\", \"skyline\", \"city\", \"silhouette\", \"night\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.\",\n    \"customization\": [\n      { \"name\": \"--glow\", \"description\": \"Skyline glow\", \"default\": \"rgba(168,85,247,.5)\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Night-city scenes. Lit windows are the cheapest way to add life — scatter a handful with a warm glow rather than modelling the buildings.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 300px; height: 180px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #2a0a3d, #0a0316); }\n    .fx .b { position: absolute; bottom: 0; background: #06010f; box-shadow: 0 0 22px rgba(168,85,247,.5); }\n    .fx .w { position: absolute; width: 3px; height: 3px; background: #fbbf24; box-shadow: 0 0 5px #fbbf24; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">\n    <span class=\"b\" style=\"left:8%;width:38px;height:90px\"></span><span class=\"b\" style=\"left:26%;width:28px;height:130px\"></span>\n    <span class=\"b\" style=\"left:44%;width:44px;height:70px\"></span><span class=\"b\" style=\"left:66%;width:32px;height:112px\"></span>\n    <span class=\"b\" style=\"left:84%;width:36px;height:84px\"></span>\n    <span class=\"w\" style=\"left:14%;bottom:60px\"></span><span class=\"w\" style=\"left:30%;bottom:100px\"></span>\n    <span class=\"w\" style=\"left:52%;bottom:40px\"></span><span class=\"w\" style=\"left:72%;bottom:80px\"></span>\n  </div>\n</body>\n</html>\n"
+}

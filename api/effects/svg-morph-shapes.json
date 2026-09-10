@@ -1,0 +1,50 @@
+{
+  "id": "svg-morph-shapes",
+  "title": "Shape Morph",
+  "summary": "One path morphing between three silhouettes.",
+  "description": "One path morphing between three silhouettes.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "vector"
+  ],
+  "tags": [
+    "svg",
+    "vector",
+    "morph",
+    "path",
+    "d-property",
+    "shapes"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Shape colour",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Morph cycle",
+      "default": "6s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Logo and icon transitions. Animating the d property needs the same command sequence and point count in every keyframe; unequal paths snap instead of morphing.",
+  "path": "effects/svg-effects/svg-morph-shapes.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Shape Morph</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-morph-shapes\",\n    \"title\": \"Shape Morph\",\n    \"summary\": \"One path morphing between three silhouettes.\",\n    \"description\": \"One path morphing between three silhouettes.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"vector\"],\n    \"tags\": [\"svg\", \"vector\", \"morph\", \"path\", \"d-property\", \"shapes\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Shape colour\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Morph cycle\", \"default\": \"6s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Logo and icon transitions. Animating the d property needs the same command sequence and point count in every keyframe; unequal paths snap instead of morphing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 170px; }\n    .fx svg { width: 100%; display: block; }\n    .fx path { fill: #7c5cff; animation: morph 6s ease-in-out infinite; }\n    @keyframes morph {\n      0%, 100% { d: path(\"M85 10 L160 85 L85 160 L10 85 Z\"); }\n      33% { d: path(\"M85 12 L158 60 L130 150 L40 150 L12 60 Z\"); }\n      66% { d: path(\"M85 20 C130 20 160 50 160 90 C160 130 130 160 85 160 C40 160 10 130 10 90 C10 50 40 20 85 20 Z\"); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><svg viewBox=\"0 0 170 170\" aria-hidden=\"true\"><path d=\"M85 10 L160 85 L85 160 L10 85 Z\"/></svg></div>\n</body>\n</html>\n"
+}

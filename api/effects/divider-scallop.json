@@ -1,0 +1,44 @@
+{
+  "id": "divider-scallop",
+  "title": "Scalloped Divider",
+  "summary": "A row of half-circles along the edge.",
+  "description": "A row of half-circles along the edge. Purely decorative and self-contained, so it drops between any two sections.",
+  "theme": "dividers-shapes",
+  "themeTitle": "Dividers & Shapes",
+  "categories": [
+    "divider",
+    "shape"
+  ],
+  "tags": [
+    "divider",
+    "separator",
+    "scallop",
+    "circles",
+    "mask",
+    "decorative"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Scallop radius",
+      "default": "14px"
+    }
+  ],
+  "variations": [
+    "Flip vertically for the opposite section",
+    "Recolour to match the next section"
+  ],
+  "related": [],
+  "ai_usage": "Tickets, coupons, and playful headers. The mask tile width must be twice the circle radius or the scallops overlap.",
+  "path": "effects/dividers-shapes/divider-scallop.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scalloped Divider</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"divider-scallop\",\n    \"title\": \"Scalloped Divider\",\n    \"summary\": \"A row of half-circles along the edge.\",\n    \"description\": \"A row of half-circles along the edge. Purely decorative and self-contained, so it drops between any two sections.\",\n    \"theme\": \"dividers-shapes\",\n    \"categories\": [\"divider\", \"shape\"],\n    \"tags\": [\"divider\", \"separator\", \"scallop\", \"circles\", \"mask\", \"decorative\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dividers are decorative: mark them aria-hidden so they are not announced as content.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Scallop radius\", \"default\": \"14px\" }\n    ],\n    \"variations\": [\"Flip vertically for the opposite section\", \"Recolour to match the next section\"],\n    \"ai_usage\": \"Tickets, coupons, and playful headers. The mask tile width must be twice the circle radius or the scallops overlap.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }\n    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }\n    .stage { width: min(92vw, 340px); }\n    .divider { height: 24px; background: #7c5cff;\n      -webkit-mask-image: radial-gradient(circle 14px at 50% 0, transparent 14px, #000 15px);\n      mask-image: radial-gradient(circle 14px at 50% 0, transparent 14px, #000 15px);\n      -webkit-mask-size: 28px 100%; mask-size: 28px 100%; }\n  </style>\n</head>\n<body>\n  <div class=\"stage\"><div class=\"top\">Section one</div><div class=\"divider\" aria-hidden=\"true\"></div><div class=\"bottom\">Section two</div></div>\n</body>\n</html>\n"
+}

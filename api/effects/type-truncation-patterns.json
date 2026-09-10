@@ -1,0 +1,44 @@
+{
+  "id": "type-truncation-patterns",
+  "title": "Truncation Patterns",
+  "summary": "Single-line, multi-line, and middle truncation.",
+  "description": "Single-line, multi-line, and middle truncation.",
+  "theme": "typography-systems",
+  "themeTitle": "Typography Systems",
+  "categories": [
+    "typography",
+    "reference"
+  ],
+  "tags": [
+    "typography",
+    "type",
+    "truncation",
+    "ellipsis",
+    "line-clamp",
+    "overflow"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+  "customization": [
+    {
+      "name": "--lines",
+      "description": "Clamp lines",
+      "default": "2"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Dense lists. Truncate at the end for titles and in the middle for file paths and IDs, where the tail carries the meaning; always expose the full string via title or a tooltip.",
+  "path": "effects/typography-systems/type-truncation-patterns.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Truncation Patterns</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"type-truncation-patterns\",\n    \"title\": \"Truncation Patterns\",\n    \"summary\": \"Single-line, multi-line, and middle truncation.\",\n    \"description\": \"Single-line, multi-line, and middle truncation.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"reference\"],\n    \"tags\": [\"typography\", \"type\", \"truncation\", \"ellipsis\", \"line-clamp\", \"overflow\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.\",\n    \"customization\": [\n      { \"name\": \"--lines\", \"description\": \"Clamp lines\", \"default\": \"2\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Dense lists. Truncate at the end for titles and in the middle for file paths and IDs, where the tail carries the meaning; always expose the full string via title or a tooltip.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; display: grid; gap: .8rem; font-size: .85rem; color: #cbd5e1; }\n    .fx .lbl { font-size: .68rem; color: #64748b; font-family: ui-monospace, monospace; margin-bottom: .2rem; }\n    .one { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n    .two { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }\n    .mid { display: flex; }\n    .mid span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n    .mid span:last-child { flex: none; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div><div class=\"lbl\">single line</div><div class=\"one\">quarterly-financial-projection-2026-final-v7.xlsx</div></div>\n  <div><div class=\"lbl\">two-line clamp</div><div class=\"two\">Every specimen in this catalogue ships as a single self-contained HTML file with an embedded metadata block.</div></div>\n  <div><div class=\"lbl\">middle truncation</div><div class=\"mid\"><span>/Users/jean/projects/style-catalog/effects/backgrounds</span><span>/aurora.html</span></div></div></div>\n</body>\n</html>\n"
+}

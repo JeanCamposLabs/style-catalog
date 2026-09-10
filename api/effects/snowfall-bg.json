@@ -1,0 +1,49 @@
+{
+  "id": "snowfall-bg",
+  "title": "Snowfall",
+  "summary": "Layered snow at three depths falls at three speeds.",
+  "description": "Three tiled radial-gradient layers scroll at different rates, which produces parallax depth with zero particles.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "seasonal"
+  ],
+  "tags": [
+    "snow",
+    "parallax",
+    "winter",
+    "particles",
+    "seasonal"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Snow color",
+      "default": "#fff"
+    },
+    {
+      "name": "--dur",
+      "description": "Near layer speed",
+      "default": "9s"
+    }
+  ],
+  "variations": [
+    "Add wind with a horizontal drift",
+    "Warm gold for falling leaves",
+    "Denser near layer for a blizzard"
+  ],
+  "related": [],
+  "ai_usage": "Seasonal themes without a particle library. Each layer is a background-image of dots with its own size and animation duration; the speed ratio (1 : 1.6 : 2.4) is what creates the depth.",
+  "path": "effects/backgrounds/snowfall-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Snowfall</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"snowfall-bg\",\n    \"title\": \"Snowfall\",\n    \"summary\": \"Layered snow at three depths falls at three speeds.\",\n    \"description\": \"Three tiled radial-gradient layers scroll at different rates, which produces parallax depth with zero particles.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"seasonal\"],\n    \"tags\": [\"snow\", \"parallax\", \"winter\", \"particles\", \"seasonal\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Snow color\", \"default\": \"#fff\" },\n      { \"name\": \"--dur\", \"description\": \"Near layer speed\", \"default\": \"9s\" }\n    ],\n    \"variations\": [\"Add wind with a horizontal drift\", \"Warm gold for falling leaves\", \"Denser near layer for a blizzard\"],\n    \"ai_usage\": \"Seasonal themes without a particle library. Each layer is a background-image of dots with its own size and animation duration; the speed ratio (1 : 1.6 : 2.4) is what creates the depth.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: #fff; --dur: 9s; }\n    .bg { background: linear-gradient(#0b1220, #131c2e); }\n    .bg i { position: absolute; inset: -100% 0 0 0; height: 200%;\n      background-image: radial-gradient(var(--c) var(--r), transparent var(--r));\n      background-size: var(--s) var(--s); opacity: var(--o); animation: fall var(--d) linear infinite; }\n    @keyframes fall { to { transform: translateY(50%); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\">\n    <i style=\"--r:1.6px;--s:70px;--o:.9;--d:9s\"></i>\n    <i style=\"--r:1.1px;--s:110px;--o:.6;--d:14s\"></i>\n    <i style=\"--r:.8px;--s:160px;--o:.4;--d:21s\"></i>\n  </div>\n</body>\n</html>\n"
+}

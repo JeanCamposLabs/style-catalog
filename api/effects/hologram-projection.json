@@ -1,0 +1,44 @@
+{
+  "id": "hologram-projection",
+  "title": "Hologram Projection",
+  "summary": "A projected figure with scanlines and a glow base.",
+  "description": "A projected figure with scanlines and a glow base.",
+  "theme": "holographic-metallic",
+  "themeTitle": "Holographic & Metallic",
+  "categories": [
+    "material",
+    "holographic"
+  ],
+  "tags": [
+    "holographic",
+    "metallic",
+    "hologram",
+    "projection",
+    "scanlines",
+    "sci-fi"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Hologram colour",
+      "default": "#22d3ee"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Sci-fi and AI-assistant visuals. The elliptical glow at the base is what implies a projector; without it the figure just looks tinted.",
+  "path": "effects/holographic-metallic/hologram-projection.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hologram Projection</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hologram-projection\",\n    \"title\": \"Hologram Projection\",\n    \"summary\": \"A projected figure with scanlines and a glow base.\",\n    \"description\": \"A projected figure with scanlines and a glow base.\",\n    \"theme\": \"holographic-metallic\",\n    \"categories\": [\"material\", \"holographic\"],\n    \"tags\": [\"holographic\", \"metallic\", \"hologram\", \"projection\", \"scanlines\", \"sci-fi\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Iridescent surfaces have unpredictable local contrast — never place body text directly on one.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Hologram colour\", \"default\": \"#22d3ee\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Sci-fi and AI-assistant visuals. The elliptical glow at the base is what implies a projector; without it the figure just looks tinted.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 200px; height: 200px; display: grid; place-items: center; }\n    .fx .fig { font-size: 4rem; color: #22d3ee; filter: drop-shadow(0 0 14px #22d3ee); opacity: .85;\n      animation: flick 4s steps(1) infinite; }\n    .fx::before { content: \"\"; position: absolute; inset: 0;\n      background: repeating-linear-gradient(180deg, rgba(34,211,238,.12) 0 2px, transparent 2px 5px); pointer-events: none; }\n    .fx .base { position: absolute; bottom: 8px; width: 130px; height: 18px; border-radius: 50%;\n      background: radial-gradient(ellipse, rgba(34,211,238,.6), transparent 70%); }\n    @keyframes flick { 0%, 88%, 100% { opacity: .85; } 90% { opacity: .5; } 92% { opacity: .95; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"fig\" aria-hidden=\"true\">🛸</span><span class=\"base\"></span></div>\n</body>\n</html>\n"
+}

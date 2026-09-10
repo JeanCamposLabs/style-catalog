@@ -1,0 +1,48 @@
+{
+  "id": "layered-paper-shadow",
+  "title": "Layered Paper Shadow",
+  "summary": "Six stacked shadows imitate a real light falloff.",
+  "description": "Doubling blur and offset across several shadows approximates physical penumbra far better than one big blur.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "shadow"
+  ],
+  "tags": [
+    "elevation",
+    "layered-shadow",
+    "depth",
+    "material",
+    "realistic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--h",
+      "description": "Elevation multiplier",
+      "default": "1"
+    },
+    {
+      "name": "--tint",
+      "description": "Shadow tint",
+      "default": "rgba(2,6,23,.5)"
+    }
+  ],
+  "variations": [
+    "Warmer shadow tint",
+    "Tighter stack for low elevation",
+    "Coloured shadow matching the surface"
+  ],
+  "related": [],
+  "ai_usage": "Any raised surface. Use a stack where each layer roughly doubles the previous blur and offset — a single 40px blur reads as fog, while the stack reads as light.",
+  "path": "effects/borders-shadows/layered-paper-shadow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Layered Paper Shadow</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"layered-paper-shadow\",\n    \"title\": \"Layered Paper Shadow\",\n    \"summary\": \"Six stacked shadows imitate a real light falloff.\",\n    \"description\": \"Doubling blur and offset across several shadows approximates physical penumbra far better than one big blur.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"shadow\"],\n    \"tags\": [\"elevation\", \"layered-shadow\", \"depth\", \"material\", \"realistic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--h\", \"description\": \"Elevation multiplier\", \"default\": \"1\" },\n      { \"name\": \"--tint\", \"description\": \"Shadow tint\", \"default\": \"rgba(2,6,23,.5)\" }\n    ],\n    \"variations\": [\"Warmer shadow tint\", \"Tighter stack for low elevation\", \"Coloured shadow matching the surface\"],\n    \"ai_usage\": \"Any raised surface. Use a stack where each layer roughly doubles the previous blur and offset — a single 40px blur reads as fog, while the stack reads as light.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --h: 1; --tint: rgba(2,6,23,.5); }\n    .demo { background: #151b2a; border-radius: 16px;\n      box-shadow: 0 calc(1px * var(--h)) calc(2px * var(--h)) var(--tint), 0 calc(2px * var(--h)) calc(4px * var(--h)) var(--tint),\n        0 calc(4px * var(--h)) calc(8px * var(--h)) var(--tint), 0 calc(8px * var(--h)) calc(16px * var(--h)) var(--tint),\n        0 calc(16px * var(--h)) calc(32px * var(--h)) var(--tint); }\n  </style>\n</head>\n<body>\n  <div class=\"demo\"><h3>Layered elevation</h3><p>Five shadows, one believable light.</p></div>\n</body>\n</html>\n"
+}

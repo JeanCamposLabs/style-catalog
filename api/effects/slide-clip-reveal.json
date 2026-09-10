@@ -1,0 +1,48 @@
+{
+  "id": "slide-clip-reveal",
+  "title": "Clip Reveal",
+  "summary": "A wipe uncovers the element from left to right.",
+  "description": "A wipe uncovers the element from left to right. Applied once on load with animation-fill-mode: both so the element holds its final state.",
+  "theme": "transitions-animations",
+  "themeTitle": "Transitions & Animations",
+  "categories": [
+    "animation",
+    "entrance"
+  ],
+  "tags": [
+    "entrance",
+    "reveal",
+    "clip-path",
+    "wipe",
+    "reveal"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Animation duration",
+      "default": ".7s"
+    },
+    {
+      "name": "--ease",
+      "description": "Timing function",
+      "default": "cubic-bezier(.2,.8,.3,1)"
+    }
+  ],
+  "variations": [
+    "Stagger across a list with animation-delay",
+    "Play on scroll with IntersectionObserver"
+  ],
+  "related": [],
+  "ai_usage": "Text and image reveals. clip-path keeps the element's box intact, so surrounding layout never shifts during the wipe.",
+  "path": "effects/transitions-animations/slide-clip-reveal.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Clip Reveal</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"slide-clip-reveal\",\n    \"title\": \"Clip Reveal\",\n    \"summary\": \"A wipe uncovers the element from left to right.\",\n    \"description\": \"A wipe uncovers the element from left to right. Applied once on load with animation-fill-mode: both so the element holds its final state.\",\n    \"theme\": \"transitions-animations\",\n    \"categories\": [\"animation\", \"entrance\"],\n    \"tags\": [\"entrance\", \"reveal\", \"clip-path\", \"wipe\", \"reveal\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Animation duration\", \"default\": \".7s\" },\n      { \"name\": \"--ease\", \"description\": \"Timing function\", \"default\": \"cubic-bezier(.2,.8,.3,1)\" }\n    ],\n    \"variations\": [\"Stagger across a list with animation-delay\", \"Play on scroll with IntersectionObserver\"],\n    \"ai_usage\": \"Text and image reveals. clip-path keeps the element's box intact, so surrounding layout never shifts during the wipe.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: .7s; --ease: cubic-bezier(.2,.8,.3,1); }\n    .card { width: 230px; padding: 1.5rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149;\n      animation: slide-clip-reveal var(--dur) var(--ease) both infinite alternate; }\n    .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    @keyframes slide-clip-reveal {\n      from { clip-path: inset(0 100% 0 0); }\n      to { clip-path: inset(0 0 0 0); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      .card { animation: none; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\"><h3>Clip Reveal</h3><p>A wipe uncovers the element from left to right.</p></div>\n</body>\n</html>\n"
+}

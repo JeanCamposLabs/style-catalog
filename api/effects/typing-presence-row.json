@@ -1,0 +1,44 @@
+{
+  "id": "typing-presence-row",
+  "title": "Presence Row",
+  "summary": "Online status dots on a list of contacts.",
+  "description": "Online status dots on a list of contacts.",
+  "theme": "social-ui",
+  "themeTitle": "Social UI",
+  "categories": [
+    "social",
+    "feed"
+  ],
+  "tags": [
+    "social",
+    "community",
+    "presence",
+    "online",
+    "status",
+    "contacts"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+  "customization": [
+    {
+      "name": "--on",
+      "description": "Online colour",
+      "default": "#34d399"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Contact lists. Pair the status dot with text ('Online', 'Away') — a coloured dot is the classic colour-only signal.",
+  "path": "effects/social-ui/typing-presence-row.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Presence Row</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"typing-presence-row\",\n    \"title\": \"Presence Row\",\n    \"summary\": \"Online status dots on a list of contacts.\",\n    \"description\": \"Online status dots on a list of contacts.\",\n    \"theme\": \"social-ui\",\n    \"categories\": [\"social\", \"feed\"],\n    \"tags\": [\"social\", \"community\", \"presence\", \"online\", \"status\", \"contacts\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.\",\n    \"customization\": [\n      { \"name\": \"--on\", \"description\": \"Online colour\", \"default\": \"#34d399\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Contact lists. Pair the status dot with text ('Online', 'Away') — a coloured dot is the classic colour-only signal.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 260px; }\n    .r { display: flex; align-items: center; gap: .7rem; padding: .5rem .6rem; border-radius: 10px; font-size: .88rem; color: #cbd5e1; }\n    .r:hover { background: #151b2a; }\n    .r .av { position: relative; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;\n      font-weight: 800; color: #0b0d12; font-size: .75rem; }\n    .r .st { position: absolute; right: -1px; bottom: -1px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #0b0d12; }\n    .r .away .st, .r .st.away { background: #fbbf24; }\n    .r .st.on { background: #34d399; }\n    .r .st.off { background: #64748b; }\n    .r small { display: block; color: #8b93a7; font-size: .74rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"r\"><span class=\"av\" style=\"background:#7c5cff\">A<span class=\"st on\"></span></span><span>Ada<small>Online</small></span></div>\n  <div class=\"r\"><span class=\"av\" style=\"background:#2dd4bf\">M<span class=\"st away\"></span></span><span>Max<small>Away</small></span></div>\n  <div class=\"r\"><span class=\"av\" style=\"background:#64748b\">S<span class=\"st off\"></span></span><span>Sam<small>Offline</small></span></div></div>\n</body>\n</html>\n"
+}

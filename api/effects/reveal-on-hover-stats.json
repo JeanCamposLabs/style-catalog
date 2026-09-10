@@ -1,0 +1,44 @@
+{
+  "id": "reveal-on-hover-stats",
+  "title": "Stat Reveal Card",
+  "summary": "A summary card that swaps its label for detail on hover.",
+  "description": "Two stacked layers cross-fade and slide in opposite directions, so the swap reads as one motion.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "data"
+  ],
+  "tags": [
+    "stats",
+    "reveal",
+    "swap",
+    "dashboard",
+    "card"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Swap duration",
+      "default": "0.3s"
+    }
+  ],
+  "variations": [
+    "Reveal a sparkline instead",
+    "Flip rather than slide",
+    "Keep both visible on wide screens"
+  ],
+  "related": [],
+  "ai_usage": "Dashboards where space is tight. Both layers must occupy the same grid cell (grid-area: 1/1) so the card never changes size during the swap.",
+  "path": "effects/hover-interactions/reveal-on-hover-stats.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stat Reveal Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"reveal-on-hover-stats\",\n    \"title\": \"Stat Reveal Card\",\n    \"summary\": \"A summary card that swaps its label for detail on hover.\",\n    \"description\": \"Two stacked layers cross-fade and slide in opposite directions, so the swap reads as one motion.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"data\"],\n    \"tags\": [\"stats\", \"reveal\", \"swap\", \"dashboard\", \"card\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Swap duration\", \"default\": \"0.3s\" }\n    ],\n    \"variations\": [\"Reveal a sparkline instead\", \"Flip rather than slide\", \"Keep both visible on wide screens\"],\n    \"ai_usage\": \"Dashboards where space is tight. Both layers must occupy the same grid cell (grid-area: 1/1) so the card never changes size during the swap.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: .3s; }\n    .stat { width: 200px; height: 120px; border-radius: 16px; background: #151b2a; border: 1px solid #263149;\n      display: grid; place-items: center; overflow: hidden; cursor: pointer; }\n    .stat > div { grid-area: 1 / 1; text-align: center; transition: transform var(--dur) ease, opacity var(--dur) ease; }\n    .stat .front .n { font-size: 2rem; font-weight: 900; }\n    .stat .front .l { color: #8b93a7; font-size: .85rem; }\n    .stat .back { opacity: 0; transform: translateY(12px); color: #2dd4bf; font-weight: 700; }\n    .stat:hover .front, .stat:focus-visible .front { opacity: 0; transform: translateY(-12px); }\n    .stat:hover .back, .stat:focus-visible .back { opacity: 1; transform: translateY(0); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"stat\" tabindex=\"0\">\n    <div class=\"front\"><div class=\"n\">2,481</div><div class=\"l\">Active users</div></div>\n    <div class=\"back\">↑ 12.4% vs last week</div>\n  </div>\n</body>\n</html>\n"
+}

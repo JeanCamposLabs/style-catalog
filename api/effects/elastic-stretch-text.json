@@ -1,0 +1,49 @@
+{
+  "id": "elastic-stretch-text",
+  "title": "Elastic Stretch",
+  "summary": "Letters stretch apart and snap back on a spring curve.",
+  "description": "Animating letter-spacing with an overshooting bezier makes the word breathe without any per-character markup.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "animation"
+  ],
+  "tags": [
+    "elastic",
+    "letter-spacing",
+    "spring",
+    "kinetic",
+    "loop"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Cycle",
+      "default": "2.4s"
+    },
+    {
+      "name": "--sp",
+      "description": "Peak spacing",
+      "default": "0.35em"
+    }
+  ],
+  "variations": [
+    "Stretch on hover only",
+    "Add a scaleX squash",
+    "Stagger per word in a sentence"
+  ],
+  "related": [],
+  "ai_usage": "Kinetic typography and loading titles. letter-spacing animates cheaply but forces layout — keep it to a single short heading, and center the text so the growth is symmetric.",
+  "path": "effects/text-effects/elastic-stretch-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Elastic Stretch</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"elastic-stretch-text\",\n    \"title\": \"Elastic Stretch\",\n    \"summary\": \"Letters stretch apart and snap back on a spring curve.\",\n    \"description\": \"Animating letter-spacing with an overshooting bezier makes the word breathe without any per-character markup.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"animation\"],\n    \"tags\": [\"elastic\", \"letter-spacing\", \"spring\", \"kinetic\", \"loop\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Cycle\", \"default\": \"2.4s\" },\n      { \"name\": \"--sp\", \"description\": \"Peak spacing\", \"default\": \"0.35em\" }\n    ],\n    \"variations\": [\"Stretch on hover only\", \"Add a scaleX squash\", \"Stagger per word in a sentence\"],\n    \"ai_usage\": \"Kinetic typography and loading titles. letter-spacing animates cheaply but forces layout — keep it to a single short heading, and center the text so the growth is symmetric.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: 2.4s; --sp: .35em; }\n    .stretch { font-size: clamp(1.8rem, 7vw, 3.2rem); font-weight: 800; text-align: center;\n      animation: stretch var(--dur) cubic-bezier(.34,1.56,.64,1) infinite alternate; }\n    @keyframes stretch { from { letter-spacing: 0; } to { letter-spacing: var(--sp); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"stretch\">ELASTIC</h1>\n</body>\n</html>\n"
+}

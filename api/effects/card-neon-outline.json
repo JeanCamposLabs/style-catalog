@@ -1,0 +1,44 @@
+{
+  "id": "card-neon-outline",
+  "title": "Neon Card",
+  "summary": "A dark card with a saturated glowing edge.",
+  "description": "A dark card with a saturated glowing edge. Self-contained card markup you can drop into a grid.",
+  "theme": "cards-surfaces",
+  "themeTitle": "Cards & Surfaces",
+  "categories": [
+    "card",
+    "surface"
+  ],
+  "tags": [
+    "card",
+    "surface",
+    "neon",
+    "glow",
+    "dark",
+    "cyberpunk"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Neon colour",
+      "default": "#ff2d95"
+    }
+  ],
+  "variations": [
+    "Adapt for a light theme",
+    "Add a media area at the top"
+  ],
+  "related": [],
+  "ai_usage": "Dark, high-energy interfaces. Keep body text at normal weight and near-white — glowing text over a glowing border destroys readability.",
+  "path": "effects/cards-surfaces/card-neon-outline.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neon Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-neon-outline\",\n    \"title\": \"Neon Card\",\n    \"summary\": \"A dark card with a saturated glowing edge.\",\n    \"description\": \"A dark card with a saturated glowing edge. Self-contained card markup you can drop into a grid.\",\n    \"theme\": \"cards-surfaces\",\n    \"categories\": [\"card\", \"surface\"],\n    \"tags\": [\"card\", \"surface\", \"neon\", \"glow\", \"dark\", \"cyberpunk\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A clickable card needs one real link or button inside it; never attach a click handler to a bare div.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Neon colour\", \"default\": \"#ff2d95\" }\n    ],\n    \"variations\": [\"Adapt for a light theme\", \"Add a media area at the top\"],\n    \"ai_usage\": \"Dark, high-energy interfaces. Keep body text at normal weight and near-white — glowing text over a glowing border destroys readability.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }\n    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }\n    .card { background: #12101c; border: 1px solid #ff2d95; box-shadow: 0 0 12px rgba(255,45,149,.55), inset 0 0 18px rgba(255,45,149,.18); }\n    .card p { color: #c3b3c9; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <article class=\"card\"><h3>Neon Card</h3><p>A dark card with a saturated glowing edge.</p></article>\n</body>\n</html>\n"
+}

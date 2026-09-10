@@ -1,0 +1,44 @@
+{
+  "id": "template-recipe-page",
+  "title": "Recipe Page",
+  "summary": "Ingredients, steps, and timings.",
+  "description": "Ingredients, steps, and timings.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "page"
+  ],
+  "tags": [
+    "template",
+    "page",
+    "recipe",
+    "ingredients",
+    "steps",
+    "content"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+  "customization": [
+    {
+      "name": "--hero",
+      "description": "Hero height",
+      "default": "130px"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Recipe and instruction pages. Use an ordered list for steps and mark up quantities consistently; recipe structured data depends on that separation.",
+  "path": "effects/website-templates/template-recipe-page.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Recipe Page</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"template-recipe-page\",\n    \"title\": \"Recipe Page\",\n    \"summary\": \"Ingredients, steps, and timings.\",\n    \"description\": \"Ingredients, steps, and timings.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"page\"],\n    \"tags\": [\"template\", \"page\", \"recipe\", \"ingredients\", \"steps\", \"content\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.\",\n    \"customization\": [\n      { \"name\": \"--hero\", \"description\": \"Hero height\", \"default\": \"130px\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Recipe and instruction pages. Use an ordered list for steps and mark up quantities consistently; recipe structured data depends on that separation.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { padding: 1.4rem; max-width: 32rem; margin: 0 auto; }\n    .hero { height: 130px; border-radius: 16px; background: conic-gradient(from 150deg at 40% 35%, #c2891a, #d1478c, #7c5cff); margin-bottom: 1rem; }\n    h1 { margin: 0 0 .3rem; font-size: 1.5rem; }\n    .meta { display: flex; gap: 1rem; color: #64748b; font-size: .78rem; margin-bottom: 1.1rem; }\n    h2 { margin: 1.2rem 0 .5rem; font-size: 1rem; }\n    ul.ing { margin: 0; padding: 0; list-style: none; }\n    ul.ing li { display: flex; justify-content: space-between; padding: .35rem 0; border-bottom: 1px solid #1e2740;\n      color: #cbd5e1; font-size: .86rem; }\n    ul.ing b { color: #8b93a7; font-weight: 500; font-variant-numeric: tabular-nums; }\n    ol.steps { margin: 0; padding-left: 1.2rem; color: #cbd5e1; font-size: .88rem; line-height: 1.7; }\n    ol.steps li { margin-bottom: .5rem; }\n  </style>\n</head>\n<body>\n  <div class=\"hero\" role=\"img\" aria-label=\"Dish photograph\"></div>\n  <h1>Slow-roast tomato pasta</h1><div class=\"meta\"><span>Serves 4</span><span>15 min prep</span><span>90 min cook</span></div>\n  <main><h2>Ingredients</h2><ul class=\"ing\"><li>Cherry tomatoes<b>800 g</b></li><li>Garlic cloves<b>6</b></li>\n  <li>Olive oil<b>60 ml</b></li><li>Rigatoni<b>400 g</b></li></ul>\n  <h2>Method</h2><ol class=\"steps\"><li>Heat the oven to 140°C.</li>\n  <li>Toss the tomatoes and garlic in oil, roast for 90 minutes until collapsed.</li>\n  <li>Cook the pasta until just short of al dente, reserving a cup of water.</li>\n  <li>Fold everything together, loosening with the pasta water.</li></ol></main>\n</body>\n</html>\n"
+}

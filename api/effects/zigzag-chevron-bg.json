@@ -1,0 +1,49 @@
+{
+  "id": "zigzag-chevron-bg",
+  "title": "Zigzag Chevrons",
+  "summary": "A crisp chevron pattern that scrolls diagonally.",
+  "description": "Four corner-anchored gradients per tile build the zigzag; animating background-position by one tile keeps the scroll seamless.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "zigzag",
+    "chevron",
+    "pattern",
+    "geometric",
+    "scroll"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Chevron color",
+      "default": "#1c2333"
+    },
+    {
+      "name": "--s",
+      "description": "Tile size",
+      "default": "40px"
+    }
+  ],
+  "variations": [
+    "Vertical chevrons",
+    "Two-color alternating rows",
+    "Static version for print"
+  ],
+  "related": [],
+  "ai_usage": "Sports, packaging, and bold editorial. The zigzag needs four gradients (two 45deg, two -45deg) at opposite background-positions; fewer produce stripes, not chevrons.",
+  "path": "effects/backgrounds/zigzag-chevron-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Zigzag Chevrons</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"zigzag-chevron-bg\",\n    \"title\": \"Zigzag Chevrons\",\n    \"summary\": \"A crisp chevron pattern that scrolls diagonally.\",\n    \"description\": \"Four corner-anchored gradients per tile build the zigzag; animating background-position by one tile keeps the scroll seamless.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"zigzag\", \"chevron\", \"pattern\", \"geometric\", \"scroll\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Chevron color\", \"default\": \"#1c2333\" },\n      { \"name\": \"--s\", \"description\": \"Tile size\", \"default\": \"40px\" }\n    ],\n    \"variations\": [\"Vertical chevrons\", \"Two-color alternating rows\", \"Static version for print\"],\n    \"ai_usage\": \"Sports, packaging, and bold editorial. The zigzag needs four gradients (two 45deg, two -45deg) at opposite background-positions; fewer produce stripes, not chevrons.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #1c2333; --s: 40px; }\n    .bg { background-color: #0b0d12;\n      background-image: linear-gradient(135deg, var(--a) 25%, transparent 25%),\n        linear-gradient(225deg, var(--a) 25%, transparent 25%),\n        linear-gradient(45deg, var(--a) 25%, transparent 25%),\n        linear-gradient(315deg, var(--a) 25%, transparent 25%);\n      background-position: calc(var(--s) / 2) 0, calc(var(--s) / 2) 0, 0 0, 0 0;\n      background-size: var(--s) var(--s);\n      animation: scroll 4s linear infinite; }\n    @keyframes scroll { to { background-position: calc(var(--s) / 2) var(--s), calc(var(--s) / 2) var(--s), 0 var(--s), 0 var(--s); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

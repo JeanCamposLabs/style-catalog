@@ -1,0 +1,44 @@
+{
+  "id": "modal-command-overlay",
+  "title": "Command Overlay",
+  "summary": "A centred search overlay with grouped results.",
+  "description": "A centred search overlay with grouped results.",
+  "theme": "modals-overlays",
+  "themeTitle": "Modals & Overlays",
+  "categories": [
+    "modal",
+    "overlay"
+  ],
+  "tags": [
+    "modal",
+    "dialog",
+    "command-palette",
+    "search",
+    "overlay",
+    "keyboard"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Overlay background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Keyboard-first apps. Keep the selected row scrolled into view and expose it with aria-activedescendant so screen readers follow the arrow keys.",
+  "path": "effects/modals-overlays/modal-command-overlay.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Command Overlay</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"modal-command-overlay\",\n    \"title\": \"Command Overlay\",\n    \"summary\": \"A centred search overlay with grouped results.\",\n    \"description\": \"A centred search overlay with grouped results.\",\n    \"theme\": \"modals-overlays\",\n    \"categories\": [\"modal\", \"overlay\"],\n    \"tags\": [\"modal\", \"dialog\", \"command-palette\", \"search\", \"overlay\", \"keyboard\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Overlay background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Keyboard-first apps. Keep the selected row scrolled into view and expose it with aria-activedescendant so screen readers follow the arrow keys.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .ov { width: 320px; border-radius: 16px; background: #141a28; border: 1px solid #2b3450; box-shadow: 0 30px 70px rgba(0,0,0,.6); overflow: hidden; }\n    .ov input { width: 100%; padding: .95rem 1.1rem; border: 0; border-bottom: 1px solid #22304a; background: transparent; color: #e7ebf3; font: inherit; }\n    .ov input:focus { outline: none; }\n    .ov .grp { padding: .5rem .4rem; }\n    .ov .lbl { padding: .2rem .7rem; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }\n    .ov .it { display: flex; justify-content: space-between; padding: .5rem .7rem; border-radius: 8px; color: #cbd5e1; font-size: .88rem; }\n    .ov .it.on { background: #22304a; color: #fff; }\n    .ov kbd { color: #64748b; font-size: .75rem; }\n  </style>\n</head>\n<body>\n  <div class=\"ov\" role=\"dialog\" aria-label=\"Command palette\"><input type=\"text\" placeholder=\"Type a command…\" aria-label=\"Command\" />\n  <div class=\"grp\"><div class=\"lbl\">Actions</div>\n  <div class=\"it on\">New project <kbd>⌘N</kbd></div><div class=\"it\">Invite teammate</div></div>\n  <div class=\"grp\"><div class=\"lbl\">Navigate</div><div class=\"it\">Go to settings <kbd>G S</kbd></div></div></div>\n</body>\n</html>\n"
+}

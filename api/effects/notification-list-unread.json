@@ -1,0 +1,44 @@
+{
+  "id": "notification-list-unread",
+  "title": "Notification List",
+  "summary": "Unread rows marked with a dot and tint.",
+  "description": "Unread rows marked with a dot and tint.",
+  "theme": "social-ui",
+  "themeTitle": "Social UI",
+  "categories": [
+    "social",
+    "feed"
+  ],
+  "tags": [
+    "social",
+    "community",
+    "notifications",
+    "unread",
+    "list",
+    "inbox"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Unread colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Notification inboxes. Mark unread with a dot plus a tint plus text — a tint alone is invisible on many displays and to many users.",
+  "path": "effects/social-ui/notification-list-unread.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Notification List</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"notification-list-unread\",\n    \"title\": \"Notification List\",\n    \"summary\": \"Unread rows marked with a dot and tint.\",\n    \"description\": \"Unread rows marked with a dot and tint.\",\n    \"theme\": \"social-ui\",\n    \"categories\": [\"social\", \"feed\"],\n    \"tags\": [\"social\", \"community\", \"notifications\", \"unread\", \"list\", \"inbox\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Unread colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Notification inboxes. Mark unread with a dot plus a tint plus text — a tint alone is invisible on many displays and to many users.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; border-radius: 14px; overflow: hidden; background: #151b2a; border: 1px solid #263149; }\n    .fx .n { display: flex; gap: .7rem; padding: .8rem .9rem; border-bottom: 1px solid #1e2740; font-size: .85rem; }\n    .fx .n:last-child { border-bottom: 0; }\n    .fx .n.unread { background: #171d33; }\n    .fx .dot { width: 8px; height: 8px; border-radius: 50%; background: #7c5cff; margin-top: .4rem; flex: none; }\n    .fx .n:not(.unread) .dot { background: transparent; }\n    .fx p { margin: 0; color: #cbd5e1; line-height: 1.45; }\n    .fx span { color: #8b93a7; font-size: .74rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"n unread\"><span class=\"dot\"></span><div><p><b>Ada</b> replied to your post</p><span>2h ago</span></div></div>\n  <div class=\"n unread\"><span class=\"dot\"></span><div><p><b>Max</b> started following you</p><span>5h ago</span></div></div>\n  <div class=\"n\"><span class=\"dot\"></span><div><p>Your export finished</p><span>Yesterday</span></div></div></div>\n</body>\n</html>\n"
+}

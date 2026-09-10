@@ -1,0 +1,50 @@
+{
+  "id": "copy-feedback-button",
+  "title": "Copy with Feedback",
+  "summary": "A copy button that swaps to a checkmark and back after a moment.",
+  "description": "The label crossfades to a success state on a timer, giving the confirmation users need without a toast.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "state"
+  ],
+  "tags": [
+    "copy",
+    "clipboard",
+    "feedback",
+    "success",
+    "utility"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--ok",
+      "description": "Success color",
+      "default": "#34d399"
+    },
+    {
+      "name": "--hold",
+      "description": "How long the check stays",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Tooltip confirmation instead",
+    "Shake on failure",
+    "Icon-only compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Code blocks, tokens, share links. Use navigator.clipboard.writeText and only show success in the .then — showing it optimistically lies when the API is blocked. Announce with aria-live so the swap is not silent.",
+  "path": "effects/buttons/copy-feedback-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Copy with Feedback</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"copy-feedback-button\",\n    \"title\": \"Copy with Feedback\",\n    \"summary\": \"A copy button that swaps to a checkmark and back after a moment.\",\n    \"description\": \"The label crossfades to a success state on a timer, giving the confirmation users need without a toast.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"state\"],\n    \"tags\": [\"copy\", \"clipboard\", \"feedback\", \"success\", \"utility\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--ok\", \"description\": \"Success color\", \"default\": \"#34d399\" },\n      { \"name\": \"--hold\", \"description\": \"How long the check stays\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Tooltip confirmation instead\", \"Shake on failure\", \"Icon-only compact variant\"],\n    \"ai_usage\": \"Code blocks, tokens, share links. Use navigator.clipboard.writeText and only show success in the .then — showing it optimistically lies when the API is blocked. Announce with aria-live so the swap is not silent.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --ok: #34d399; --hold: 1.6s; }\n    .copy { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.1rem; border-radius: 10px;\n      background: #151b2a; border: 1px solid #263149; color: #cbd5e1; font-weight: 600; transition: color .2s, border-color .2s; }\n    .copy.is-ok { color: var(--ok); border-color: var(--ok); }\n    .copy .ic { font-family: ui-monospace, monospace; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"copy\" id=\"cp\" type=\"button\"><span class=\"ic\" aria-hidden=\"true\">⧉</span><span id=\"cl\">Copy token</span></button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"cp\"), l = document.getElementById(\"cl\");\n      b.addEventListener(\"click\", function () {\n        b.classList.add(\"is-ok\"); l.textContent = \"Copied\";\n        setTimeout(function () { b.classList.remove(\"is-ok\"); l.textContent = \"Copy token\"; }, 1600);\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

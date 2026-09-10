@@ -1,0 +1,44 @@
+{
+  "id": "shape-burst-star",
+  "title": "Starburst Badge",
+  "summary": "A many-pointed burst for callouts.",
+  "description": "A many-pointed burst for callouts. Purely decorative and self-contained, so it drops between any two sections.",
+  "theme": "dividers-shapes",
+  "themeTitle": "Dividers & Shapes",
+  "categories": [
+    "divider",
+    "shape"
+  ],
+  "tags": [
+    "divider",
+    "separator",
+    "starburst",
+    "badge",
+    "sale",
+    "callout"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Burst colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Flip vertically for the opposite section",
+    "Recolour to match the next section"
+  ],
+  "related": [],
+  "ai_usage": "Sale flashes and 90s-style callouts. Twenty alternating radius points give a convincing burst; fewer points read as a gear.",
+  "path": "effects/dividers-shapes/shape-burst-star.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Starburst Badge</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"shape-burst-star\",\n    \"title\": \"Starburst Badge\",\n    \"summary\": \"A many-pointed burst for callouts.\",\n    \"description\": \"A many-pointed burst for callouts. Purely decorative and self-contained, so it drops between any two sections.\",\n    \"theme\": \"dividers-shapes\",\n    \"categories\": [\"divider\", \"shape\"],\n    \"tags\": [\"divider\", \"separator\", \"starburst\", \"badge\", \"sale\", \"callout\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dividers are decorative: mark them aria-hidden so they are not announced as content.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Burst colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Flip vertically for the opposite section\", \"Recolour to match the next section\"],\n    \"ai_usage\": \"Sale flashes and 90s-style callouts. Twenty alternating radius points give a convincing burst; fewer points read as a gear.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }\n    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }\n    .stage { width: min(92vw, 340px); }\n    .stage { display: grid; place-items: center; padding: 1.4rem 0; }\n    .burst { width: 140px; height: 140px; display: grid; place-items: center; background: #fbbf24; color: #2a1a02;\n      font-weight: 900; text-align: center; font-size: .95rem; line-height: 1.1;\n      clip-path: polygon(50% 0, 61% 17%, 79% 9%, 79% 29%, 98% 32%, 85% 47%, 100% 61%, 81% 66%, 84% 86%, 65% 80%, 55% 98%, 44% 81%, 25% 88%, 26% 68%, 7% 62%, 20% 47%, 6% 33%, 25% 28%, 23% 8%, 42% 16%); }\n  </style>\n</head>\n<body>\n  <div class=\"stage\"><div class=\"burst\">50%<br>OFF</div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "lava-lamp-bg",
+  "title": "Lava Lamp",
+  "summary": "Two blurred blobs rise, merge, and separate behind a warm gradient.",
+  "description": "Heavy blur on overlapping shapes makes them fuse when they touch, reproducing the lava-lamp merge without a goo filter.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "ambient"
+  ],
+  "tags": [
+    "lava-lamp",
+    "blobs",
+    "blur",
+    "retro",
+    "ambient"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Blob A",
+      "default": "#f97316"
+    },
+    {
+      "name": "--b",
+      "description": "Blob B",
+      "default": "#ef4444"
+    },
+    {
+      "name": "--dur",
+      "description": "Rise period",
+      "default": "14s"
+    }
+  ],
+  "variations": [
+    "Cool blue-green lamp",
+    "Add a third blob at a different speed",
+    "Slow it right down for an idle screen"
+  ],
+  "related": [],
+  "ai_usage": "Ambient, retro, and chill-out interfaces. The merge illusion needs blur radius greater than the gap between blobs; if they never appear to fuse, increase blur rather than moving them closer.",
+  "path": "effects/backgrounds/lava-lamp-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Lava Lamp</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"lava-lamp-bg\",\n    \"title\": \"Lava Lamp\",\n    \"summary\": \"Two blurred blobs rise, merge, and separate behind a warm gradient.\",\n    \"description\": \"Heavy blur on overlapping shapes makes them fuse when they touch, reproducing the lava-lamp merge without a goo filter.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"ambient\"],\n    \"tags\": [\"lava-lamp\", \"blobs\", \"blur\", \"retro\", \"ambient\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Blob A\", \"default\": \"#f97316\" },\n      { \"name\": \"--b\", \"description\": \"Blob B\", \"default\": \"#ef4444\" },\n      { \"name\": \"--dur\", \"description\": \"Rise period\", \"default\": \"14s\" }\n    ],\n    \"variations\": [\"Cool blue-green lamp\", \"Add a third blob at a different speed\", \"Slow it right down for an idle screen\"],\n    \"ai_usage\": \"Ambient, retro, and chill-out interfaces. The merge illusion needs blur radius greater than the gap between blobs; if they never appear to fuse, increase blur rather than moving them closer.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #f97316; --b: #ef4444; --dur: 14s; }\n    .bg { background: radial-gradient(circle at 50% 120%, #2a1206, #0b0d12 70%); overflow: hidden; filter: blur(0); }\n    .bg i { position: absolute; left: 50%; width: 180px; height: 220px; border-radius: 50%; filter: blur(30px); opacity: .85; }\n    .bg i:nth-child(1) { background: var(--a); margin-left: -140px; animation: rise var(--dur) ease-in-out infinite alternate; }\n    .bg i:nth-child(2) { background: var(--b); margin-left: -20px; animation: rise calc(var(--dur) * 1.4) ease-in-out infinite alternate-reverse; }\n    @keyframes rise { from { transform: translateY(40%) scale(1); } to { transform: translateY(-40%) scale(1.3); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"><i></i><i></i></div>\n</body>\n</html>\n"
+}

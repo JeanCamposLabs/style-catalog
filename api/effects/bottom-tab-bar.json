@@ -1,0 +1,43 @@
+{
+  "id": "bottom-tab-bar",
+  "title": "Mobile Tab Bar",
+  "summary": "A five-item bottom bar with an indicator that slides between tabs.",
+  "description": "The active pill slides instead of jumping, which reads as one navigation rather than five separate states.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation"
+  ],
+  "tags": [
+    "tabs",
+    "mobile",
+    "bottom-bar",
+    "indicator",
+    "app"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Badge counts on tabs",
+    "Centre action button"
+  ],
+  "related": [],
+  "ai_usage": "Mobile app shells. Use role=tablist only if the tabs really swap panels in place; for page navigation use plain links with aria-current.",
+  "path": "effects/navigation-menus/bottom-tab-bar.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Mobile Tab Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bottom-tab-bar\",\n    \"title\": \"Mobile Tab Bar\",\n    \"summary\": \"A five-item bottom bar with an indicator that slides between tabs.\",\n    \"description\": \"The active pill slides instead of jumping, which reads as one navigation rather than five separate states.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\"],\n    \"tags\": [\"tabs\", \"mobile\", \"bottom-bar\", \"indicator\", \"app\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Badge counts on tabs\", \"Centre action button\"],\n    \"ai_usage\": \"Mobile app shells. Use role=tablist only if the tabs really swap panels in place; for page navigation use plain links with aria-current.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .tb { display: flex; position: relative; width: 320px; padding: .5rem; background: #10141f; border: 1px solid #1f2740; border-radius: 20px; }\n    .tb a { flex: 1; display: grid; gap: 2px; justify-items: center; padding: .5rem 0; color: #8b93a7; text-decoration: none; font-size: .7rem; }\n    .tb a .ic { font-size: 1.1rem; }\n    .tb a[aria-current] { color: var(--c, #7c5cff); }\n    .tb .ind { position: absolute; bottom: 6px; left: .5rem; width: calc((100% - 1rem) / 5); height: 3px; border-radius: 99px;\n      background: var(--c, #7c5cff); transition: transform .3s cubic-bezier(.7,0,.2,1); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <nav class=\"tb\" id=\"tb\" aria-label=\"Sections\">\n    <span class=\"ind\" aria-hidden=\"true\"></span>\n    <a href=\"#\" aria-current=\"page\"><span class=\"ic\" aria-hidden=\"true\">⌂</span>Home</a>\n    <a href=\"#\"><span class=\"ic\" aria-hidden=\"true\">⌕</span>Search</a>\n    <a href=\"#\"><span class=\"ic\" aria-hidden=\"true\">＋</span>Create</a>\n    <a href=\"#\"><span class=\"ic\" aria-hidden=\"true\">♥</span>Saved</a>\n    <a href=\"#\"><span class=\"ic\" aria-hidden=\"true\">☺</span>You</a>\n  </nav>\n  <script>\n    (function () {\n      var bar = document.getElementById(\"tb\"), ind = bar.querySelector(\".ind\");\n      var links = [].slice.call(bar.querySelectorAll(\"a\"));\n      links.forEach(function (a, i) {\n        a.addEventListener(\"click\", function (e) {\n          e.preventDefault();\n          links.forEach(function (o) { o.removeAttribute(\"aria-current\"); });\n          a.setAttribute(\"aria-current\", \"page\");\n          ind.style.transform = \"translateX(\" + i * 100 + \"%)\";\n        });\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

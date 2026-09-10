@@ -1,0 +1,45 @@
+{
+  "id": "vapor-holo-card",
+  "title": "Hologram Card",
+  "summary": "An iridescent card with a shifting sheen.",
+  "description": "An iridescent card with a shifting sheen.",
+  "theme": "vaporwave-synthwave",
+  "themeTitle": "Vaporwave & Synthwave",
+  "categories": [
+    "retro",
+    "vaporwave"
+  ],
+  "tags": [
+    "vaporwave",
+    "retro",
+    "80s",
+    "holographic",
+    "iridescent",
+    "card",
+    "sheen"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Sheen period",
+      "default": "7s"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Collectible and premium cards. Colour-dodge blending on a rotating conic gradient is what produces the oil-slick shimmer.",
+  "path": "effects/vaporwave-synthwave/vapor-holo-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hologram Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"vapor-holo-card\",\n    \"title\": \"Hologram Card\",\n    \"summary\": \"An iridescent card with a shifting sheen.\",\n    \"description\": \"An iridescent card with a shifting sheen.\",\n    \"theme\": \"vaporwave-synthwave\",\n    \"categories\": [\"retro\", \"vaporwave\"],\n    \"tags\": [\"vaporwave\", \"retro\", \"80s\", \"holographic\", \"iridescent\", \"card\", \"sheen\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Sheen period\", \"default\": \"7s\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Collectible and premium cards. Colour-dodge blending on a rotating conic gradient is what produces the oil-slick shimmer.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 190px; height: 260px; border-radius: 16px; overflow: hidden;\n      background: linear-gradient(160deg, #1e1b4b, #4c1d95); border: 1px solid rgba(255,255,255,.25); }\n    .fx::after { content: \"\"; position: absolute; inset: -50%; mix-blend-mode: color-dodge; opacity: .5;\n      background: conic-gradient(from 0deg, #ff2d95, #fbbf24, #22d3ee, #a855f7, #ff2d95);\n      animation: spin 7s linear infinite; filter: blur(24px); }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

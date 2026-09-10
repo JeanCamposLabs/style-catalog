@@ -1,0 +1,49 @@
+{
+  "id": "validated-field",
+  "title": "Inline Validation Field",
+  "summary": "A field that validates as you type and explains the rule.",
+  "description": "Validation appears after the first blur rather than on every keystroke, so users are not scolded mid-typing.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "validation"
+  ],
+  "tags": [
+    "validation",
+    "error",
+    "inline",
+    "feedback",
+    "form"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "The message is linked with aria-describedby and marked aria-live, and the invalid state is shown with an icon plus text, not just red.",
+  "customization": [
+    {
+      "name": "--bad",
+      "description": "Error colour",
+      "default": "#f87171"
+    },
+    {
+      "name": "--ok",
+      "description": "Valid colour",
+      "default": "#34d399"
+    }
+  ],
+  "variations": [
+    "Success checkmark",
+    "Password rule checklist"
+  ],
+  "related": [],
+  "ai_usage": "Signup and checkout forms. Validate on blur first, then on input once the field has been touched; never validate on every keystroke from empty.",
+  "path": "effects/forms-inputs/validated-field.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Inline Validation Field</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"validated-field\",\n    \"title\": \"Inline Validation Field\",\n    \"summary\": \"A field that validates as you type and explains the rule.\",\n    \"description\": \"Validation appears after the first blur rather than on every keystroke, so users are not scolded mid-typing.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"validation\"],\n    \"tags\": [\"validation\", \"error\", \"inline\", \"feedback\", \"form\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"The message is linked with aria-describedby and marked aria-live, and the invalid state is shown with an icon plus text, not just red.\",\n    \"customization\": [\n      { \"name\": \"--bad\", \"description\": \"Error colour\", \"default\": \"#f87171\" },\n      { \"name\": \"--ok\", \"description\": \"Valid colour\", \"default\": \"#34d399\" }\n    ],\n    \"variations\": [\"Success checkmark\", \"Password rule checklist\"],\n    \"ai_usage\": \"Signup and checkout forms. Validate on blur first, then on input once the field has been touched; never validate on every keystroke from empty.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .vf { width: 300px; }\n    .vf label { display: block; font-size: .82rem; color: #8b93a7; margin-bottom: .3rem; }\n    .vf input { width: 100%; padding: .8rem 1rem; border-radius: 12px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; }\n    .vf.is-bad input { border-color: var(--bad, #f87171); }\n    .vf.is-ok input { border-color: var(--ok, #34d399); }\n    .vf .msg { margin-top: .4rem; font-size: .82rem; color: #8b93a7; min-height: 1.2em; }\n    .vf.is-bad .msg { color: var(--bad, #f87171); }\n    .vf.is-ok .msg { color: var(--ok, #34d399); }\n  </style>\n</head>\n<body>\n  <div class=\"vf\" id=\"vf\"><label for=\"em\">Email</label>\n  <input id=\"em\" type=\"email\" aria-describedby=\"m1\" placeholder=\"you@company.com\" />\n  <p class=\"msg\" id=\"m1\" aria-live=\"polite\">We only use this for receipts.</p></div>\n  <script>\n    (function () {\n      var w = document.getElementById(\"vf\"), i = document.getElementById(\"em\"), m = document.getElementById(\"m1\"), touched = false;\n      function check() {\n        if (!touched) return;\n        var ok = /^[^@s]+@[^@s]+.[^@s]+$/.test(i.value);\n        w.classList.toggle(\"is-ok\", ok); w.classList.toggle(\"is-bad\", !ok);\n        m.textContent = ok ? \"✓ Looks good\" : \"✕ Enter a valid email address\";\n      }\n      i.addEventListener(\"blur\", function () { touched = true; check(); });\n      i.addEventListener(\"input\", check);\n    })();\n  </script>\n</body>\n</html>\n"
+}

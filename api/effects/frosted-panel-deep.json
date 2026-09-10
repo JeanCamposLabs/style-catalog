@@ -1,0 +1,48 @@
+{
+  "id": "frosted-panel-deep",
+  "title": "Deep Frosted Panel",
+  "summary": "Heavy backdrop blur with saturation boost and a bright edge.",
+  "description": "Saturation is the detail most glass effects miss — blur alone turns the backdrop grey and lifeless.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass"
+  ],
+  "tags": [
+    "glassmorphism",
+    "backdrop-filter",
+    "saturate",
+    "frost",
+    "panel"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.",
+  "customization": [
+    {
+      "name": "--blur",
+      "description": "Backdrop blur",
+      "default": "18px"
+    },
+    {
+      "name": "--sat",
+      "description": "Saturation boost",
+      "default": "1.6"
+    }
+  ],
+  "variations": [
+    "Lighter frost for readability",
+    "Tinted glass",
+    "Noise overlay to reduce banding"
+  ],
+  "related": [],
+  "ai_usage": "Overlays on colourful backdrops. Always pair backdrop-filter: blur() with saturate(1.4–1.8) and a 1px top highlight; add a solid fallback background for browsers without backdrop-filter.",
+  "path": "effects/glass-neumorphism/frosted-panel-deep.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Deep Frosted Panel</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"frosted-panel-deep\",\n    \"title\": \"Deep Frosted Panel\",\n    \"summary\": \"Heavy backdrop blur with saturation boost and a bright edge.\",\n    \"description\": \"Saturation is the detail most glass effects miss — blur alone turns the backdrop grey and lifeless.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\"],\n    \"tags\": [\"glassmorphism\", \"backdrop-filter\", \"saturate\", \"frost\", \"panel\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.\",\n    \"customization\": [\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur\", \"default\": \"18px\" },\n      { \"name\": \"--sat\", \"description\": \"Saturation boost\", \"default\": \"1.6\" }\n    ],\n    \"variations\": [\"Lighter frost for readability\", \"Tinted glass\", \"Noise overlay to reduce banding\"],\n    \"ai_usage\": \"Overlays on colourful backdrops. Always pair backdrop-filter: blur() with saturate(1.4–1.8) and a 1px top highlight; add a solid fallback background for browsers without backdrop-filter.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: conic-gradient(from 200deg at 30% 30%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }\n    :root { --blur: 18px; --sat: 1.6; }\n    .glass { width: 260px; padding: 1.6rem; border-radius: 20px; color: #fff;\n      background: rgba(255,255,255,.12); backdrop-filter: blur(var(--blur)) saturate(var(--sat));\n      -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--sat));\n      border: 1px solid rgba(255,255,255,.28); box-shadow: 0 18px 50px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.4); }\n    .glass h3 { margin: 0 0 .4rem; }\n    .glass p { margin: 0; opacity: .8; font-size: .88rem; }\n  </style>\n</head>\n<body>\n  <div class=\"glass\"><h3>Frosted</h3><p>Blur plus saturation.</p></div>\n</body>\n</html>\n"
+}

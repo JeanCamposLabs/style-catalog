@@ -1,0 +1,44 @@
+{
+  "id": "avatar-badge-role",
+  "title": "Role Badge",
+  "summary": "An avatar with a small role indicator.",
+  "description": "An avatar with a small role indicator.",
+  "theme": "avatars-identity",
+  "themeTitle": "Avatars & Identity",
+  "categories": [
+    "avatar",
+    "identity"
+  ],
+  "tags": [
+    "avatar",
+    "identity",
+    "role",
+    "badge",
+    "admin",
+    "indicator"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Badge colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Team lists where role matters. The badge must have its own accessible label — a crown glyph is not self-describing.",
+  "path": "effects/avatars-identity/avatar-badge-role.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Role Badge</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"avatar-badge-role\",\n    \"title\": \"Role Badge\",\n    \"summary\": \"An avatar with a small role indicator.\",\n    \"description\": \"An avatar with a small role indicator.\",\n    \"theme\": \"avatars-identity\",\n    \"categories\": [\"avatar\", \"identity\"],\n    \"tags\": [\"avatar\", \"identity\", \"role\", \"badge\", \"admin\", \"indicator\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Badge colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Team lists where role matters. The badge must have its own accessible label — a crown glyph is not self-describing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 60px; height: 60px; }\n    .fx .a { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(150deg, #c2891a, #7c2d12);\n      display: grid; place-items: center; font-weight: 800; color: #2a1a02; }\n    .fx .b { position: absolute; right: -4px; bottom: -4px; width: 24px; height: 24px; border-radius: 50%;\n      background: #7c5cff; color: #fff; display: grid; place-items: center; font-size: .7rem; border: 2px solid #0b0d12; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"a\" role=\"img\" aria-label=\"Max Rivera\">MR</span>\n  <span class=\"b\" role=\"img\" aria-label=\"Workspace admin\">★</span></div>\n</body>\n</html>\n"
+}

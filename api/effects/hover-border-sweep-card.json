@@ -1,0 +1,44 @@
+{
+  "id": "hover-border-sweep-card",
+  "title": "Border Sweep",
+  "summary": "A line travelling around the card edge on hover.",
+  "description": "A line travelling around the card edge on hover.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "interaction"
+  ],
+  "tags": [
+    "hover",
+    "pointer",
+    "border",
+    "sweep",
+    "conic",
+    "card"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every hover state here is mirrored on :focus-visible so keyboard users get the same information.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Sweep colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Premium card grids. The mask-composite trick confines the rotating gradient to the border ring; without it the sweep washes over the card content.",
+  "path": "effects/hover-interactions/hover-border-sweep-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Border Sweep</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hover-border-sweep-card\",\n    \"title\": \"Border Sweep\",\n    \"summary\": \"A line travelling around the card edge on hover.\",\n    \"description\": \"A line travelling around the card edge on hover.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"interaction\"],\n    \"tags\": [\"hover\", \"pointer\", \"border\", \"sweep\", \"conic\", \"card\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every hover state here is mirrored on :focus-visible so keyboard users get the same information.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Sweep colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Premium card grids. The mask-composite trick confines the rotating gradient to the border ring; without it the sweep washes over the card content.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { position: relative; width: 250px; padding: 1.4rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }\n    .card::before { content: \"\"; position: absolute; inset: 0; border-radius: inherit; padding: 1px; opacity: 0;\n      background: conic-gradient(from var(--a, 0deg), transparent 0 75%, #2dd4bf 88%, transparent);\n      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);\n      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);\n      -webkit-mask-composite: xor; mask-composite: exclude; transition: opacity .3s; animation: sweep 2.5s linear infinite; }\n    .card:hover::before, .card:focus-within::before { opacity: 1; }\n    .card h3 { margin: 0 0 .3rem; font-size: 1rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .85rem; }\n    @keyframes sweep { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <article class=\"card\" tabindex=\"0\"><h3>Hover me</h3><p>A light travels the border.</p></article>\n</body>\n</html>\n"
+}

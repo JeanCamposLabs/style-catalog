@@ -1,0 +1,44 @@
+{
+  "id": "popover-menu-dropdown",
+  "title": "Dropdown Menu Popover",
+  "summary": "An action menu with separators and a destructive item.",
+  "description": "An action menu with separators and a destructive item.",
+  "theme": "tooltips-popovers",
+  "themeTitle": "Tooltips & Popovers",
+  "categories": [
+    "tooltip",
+    "overlay"
+  ],
+  "tags": [
+    "tooltip",
+    "popover",
+    "menu",
+    "dropdown",
+    "actions",
+    "shortcut"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Menu background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Row and card actions. Use role=menu with menuitem children and support arrow-key navigation plus type-ahead; a plain list of buttons is not a menu.",
+  "path": "effects/tooltips-popovers/popover-menu-dropdown.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dropdown Menu Popover</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"popover-menu-dropdown\",\n    \"title\": \"Dropdown Menu Popover\",\n    \"summary\": \"An action menu with separators and a destructive item.\",\n    \"description\": \"An action menu with separators and a destructive item.\",\n    \"theme\": \"tooltips-popovers\",\n    \"categories\": [\"tooltip\", \"overlay\"],\n    \"tags\": [\"tooltip\", \"popover\", \"menu\", \"dropdown\", \"actions\", \"shortcut\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Menu background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Row and card actions. Use role=menu with menuitem children and support arrow-key navigation plus type-ahead; a plain list of buttons is not a menu.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .dd { position: relative; display: inline-block; }\n    .dd > button { padding: .55rem 1rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; cursor: pointer; }\n    .menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 190px; padding: .3rem; border-radius: 12px;\n      background: #141a28; border: 1px solid #2b3450; box-shadow: 0 18px 44px rgba(0,0,0,.55); display: none; }\n    .dd.is-open .menu { display: block; }\n    .menu button { display: flex; justify-content: space-between; width: 100%; padding: .5rem .65rem; border: 0; border-radius: 8px;\n      background: transparent; color: #cbd5e1; font: inherit; font-size: .88rem; cursor: pointer; text-align: left; }\n    .menu button:hover { background: #22304a; color: #fff; }\n    .menu button.danger { color: #f87171; }\n    .menu hr { border: 0; border-top: 1px solid #22304a; margin: .3rem 0; }\n    .menu kbd { color: #64748b; font-size: .75rem; }\n  </style>\n</head>\n<body>\n  <span class=\"dd\" id=\"dd\"><button type=\"button\" aria-expanded=\"false\" aria-haspopup=\"menu\">Actions ▾</button>\n  <div class=\"menu\" role=\"menu\"><button role=\"menuitem\" type=\"button\">Duplicate <kbd>⌘D</kbd></button>\n  <button role=\"menuitem\" type=\"button\">Move to…</button><hr>\n  <button role=\"menuitem\" type=\"button\" class=\"danger\">Delete <kbd>⌫</kbd></button></div></span>\n  <script>\n    (function () {\n      var d = document.getElementById(\"dd\"), b = d.querySelector(\"button\");\n      b.addEventListener(\"click\", function () { b.setAttribute(\"aria-expanded\", String(d.classList.toggle(\"is-open\"))); });\n      addEventListener(\"keydown\", function (e) { if (e.key === \"Escape\") { d.classList.remove(\"is-open\"); b.setAttribute(\"aria-expanded\", \"false\"); } });\n    })();\n  </script>\n</body>\n</html>\n"
+}

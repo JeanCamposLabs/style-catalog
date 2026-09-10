@@ -1,0 +1,44 @@
+{
+  "id": "input-otp-paste-friendly",
+  "title": "Paste-Friendly Code",
+  "summary": "A single field styled as separate boxes.",
+  "description": "A single field styled as separate boxes.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "form",
+    "input",
+    "otp",
+    "code",
+    "paste",
+    "letter-spacing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Focus colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Verification codes. One input with letter-spacing keeps paste and autofill working, which the six-separate-inputs pattern usually breaks.",
+  "path": "effects/forms-inputs/input-otp-paste-friendly.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Paste-Friendly Code</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"input-otp-paste-friendly\",\n    \"title\": \"Paste-Friendly Code\",\n    \"summary\": \"A single field styled as separate boxes.\",\n    \"description\": \"A single field styled as separate boxes.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"form\", \"input\", \"otp\", \"code\", \"paste\", \"letter-spacing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Focus colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Verification codes. One input with letter-spacing keeps paste and autofill working, which the six-separate-inputs pattern usually breaks.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 260px; }\n    .fx input { width: 100%; padding: .9rem 0; border: 0; background: transparent; color: #e7ebf3;\n      font-family: ui-monospace, monospace; font-size: 1.6rem; letter-spacing: 2.35ch; text-indent: 1.1ch; }\n    .fx input:focus { outline: none; }\n    .fx .boxes { position: absolute; inset: 0; display: flex; gap: 8px; pointer-events: none; }\n    .fx .boxes i { flex: 1; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a; }\n    .fx input:focus + .boxes i:first-child { border-color: #7c5cff; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><label class=\"sr\" for=\"otp\" style=\"position:absolute;left:-9999px\">Verification code</label>\n  <input id=\"otp\" type=\"text\" inputmode=\"numeric\" maxlength=\"4\" value=\"42\" autocomplete=\"one-time-code\" />\n  <span class=\"boxes\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i></span></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "follow-button-states",
+  "title": "Follow Button",
+  "summary": "Follow, following, and unfollow-on-hover states.",
+  "description": "Follow, following, and unfollow-on-hover states.",
+  "theme": "social-ui",
+  "themeTitle": "Social UI",
+  "categories": [
+    "social",
+    "feed"
+  ],
+  "tags": [
+    "social",
+    "community",
+    "follow",
+    "state",
+    "hover",
+    "social"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Follow colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Follow controls. Changing the label to 'Unfollow' on hover is conventional, but keep the accessible name stable at 'Following' so it is not announced as changing.",
+  "path": "effects/social-ui/follow-button-states.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Follow Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"follow-button-states\",\n    \"title\": \"Follow Button\",\n    \"summary\": \"Follow, following, and unfollow-on-hover states.\",\n    \"description\": \"Follow, following, and unfollow-on-hover states.\",\n    \"theme\": \"social-ui\",\n    \"categories\": [\"social\", \"feed\"],\n    \"tags\": [\"social\", \"community\", \"follow\", \"state\", \"hover\", \"social\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Follow colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Follow controls. Changing the label to 'Unfollow' on hover is conventional, but keep the accessible name stable at 'Following' so it is not announced as changing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { padding: .5rem 1.2rem; border-radius: 999px; border: 1px solid #7c5cff; background: #7c5cff; color: #fff;\n      font: inherit; font-weight: 700; font-size: .85rem; cursor: pointer; min-width: 110px; }\n    .fx[aria-pressed=\"true\"] { background: transparent; color: #e7ebf3; border-color: #3b465e; }\n    .fx[aria-pressed=\"true\"]:hover { border-color: #f87171; color: #f87171; }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-pressed=\"false\" id=\"fb\">Follow</button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"fb\");\n      b.addEventListener(\"click\", function () {\n        var on = b.getAttribute(\"aria-pressed\") !== \"true\";\n        b.setAttribute(\"aria-pressed\", String(on));\n        b.textContent = on ? \"Following\" : \"Follow\";\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

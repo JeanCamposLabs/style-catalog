@@ -1,0 +1,44 @@
+{
+  "id": "paper-sheet-shadow",
+  "title": "Paper Sheet",
+  "summary": "A sheet with a soft curl shadow at its base.",
+  "description": "A sheet with a soft curl shadow at its base.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "sheet",
+    "shadow",
+    "curl",
+    "stock"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--stock",
+      "description": "Paper colour",
+      "default": "#f8f5ee"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Documents and print previews. The curl comes from a second blurred shadow behind the sheet's lower edge, not from a rotation.",
+  "path": "effects/paper-print/paper-sheet-shadow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Paper Sheet</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"paper-sheet-shadow\",\n    \"title\": \"Paper Sheet\",\n    \"summary\": \"A sheet with a soft curl shadow at its base.\",\n    \"description\": \"A sheet with a soft curl shadow at its base.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"sheet\", \"shadow\", \"curl\", \"stock\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--stock\", \"description\": \"Paper colour\", \"default\": \"#f8f5ee\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Documents and print previews. The curl comes from a second blurred shadow behind the sheet's lower edge, not from a rotation.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 230px; padding: 1.4rem; background: #f8f5ee; color: #1f2937;\n      box-shadow: 0 1px 1px rgba(0,0,0,.15), 0 10px 20px -8px rgba(0,0,0,.4); border-radius: 2px; }\n    .fx::after { content: \"\"; position: absolute; left: 8%; right: 8%; bottom: 2px; height: 12px; border-radius: 50%;\n      box-shadow: 0 12px 14px rgba(0,0,0,.4); z-index: -1; }\n    .fx h3 { margin: 0 0 .4rem; font-size: 1rem; }\n    .fx p { margin: 0; font-size: .85rem; color: #4b5563; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><h3>Memo</h3><p>A single sheet with a curled shadow.</p></div>\n</body>\n</html>\n"
+}

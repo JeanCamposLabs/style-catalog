@@ -1,0 +1,44 @@
+{
+  "id": "template-settings-page",
+  "title": "Settings Page",
+  "summary": "Grouped preferences with controls.",
+  "description": "Grouped preferences with controls.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "page"
+  ],
+  "tags": [
+    "template",
+    "page",
+    "settings",
+    "preferences",
+    "toggles",
+    "account"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+  "customization": [
+    {
+      "name": "--on",
+      "description": "On colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Account settings. Group related preferences under headings, save immediately with a confirmation rather than a Save button, and describe what each toggle changes.",
+  "path": "effects/website-templates/template-settings-page.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Settings Page</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"template-settings-page\",\n    \"title\": \"Settings Page\",\n    \"summary\": \"Grouped preferences with controls.\",\n    \"description\": \"Grouped preferences with controls.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"page\"],\n    \"tags\": [\"template\", \"page\", \"settings\", \"preferences\", \"toggles\", \"account\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.\",\n    \"customization\": [\n      { \"name\": \"--on\", \"description\": \"On colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Account settings. Group related preferences under headings, save immediately with a confirmation rather than a Save button, and describe what each toggle changes.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { padding: 1.4rem; max-width: 32rem; margin: 0 auto; }\n    h1 { margin: 0 0 1.1rem; font-size: 1.4rem; }\n    section { margin-bottom: 1.4rem; }\n    h2 { margin: 0 0 .6rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }\n    .row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .8rem 1rem;\n      border-radius: 12px; background: #151b2a; border: 1px solid #263149; margin-bottom: 6px; }\n    .row b { display: block; font-size: .9rem; }\n    .row span { color: #8b93a7; font-size: .78rem; }\n    .sw { position: relative; width: 44px; height: 26px; border-radius: 99px; background: #2b3450; border: 0; cursor: pointer; flex: none; }\n    .sw::after { content: \"\"; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%;\n      background: #fff; transition: transform .25s; }\n    .sw[aria-pressed=\"true\"] { background: #10a894; }\n    .sw[aria-pressed=\"true\"]::after { transform: translateX(18px); }\n    select { padding: .4rem .6rem; border-radius: 8px; border: 1px solid #2b3450; background: #10141f; color: #cbd5e1; font: inherit; font-size: .82rem; }\n  </style>\n</head>\n<body>\n  <h1>Settings</h1>\n  <section><h2>Appearance</h2>\n  <div class=\"row\"><div><b>Theme</b><span>Follows your system by default</span></div>\n  <select aria-label=\"Theme\"><option>System</option><option>Dark</option><option>Light</option></select></div>\n  <div class=\"row\"><div><b>Reduce motion</b><span>Disables non-essential animation</span></div>\n  <button class=\"sw\" type=\"button\" aria-pressed=\"true\" aria-label=\"Reduce motion\"></button></div></section>\n  <section><h2>Notifications</h2>\n  <div class=\"row\"><div><b>New specimens</b><span>Monthly digest by email</span></div>\n  <button class=\"sw\" type=\"button\" aria-pressed=\"true\" aria-label=\"New specimen emails\"></button></div>\n  <div class=\"row\"><div><b>Build failures</b><span>Immediate alert</span></div>\n  <button class=\"sw\" type=\"button\" aria-pressed=\"false\" aria-label=\"Build failure alerts\"></button></div></section>\n</body>\n</html>\n"
+}

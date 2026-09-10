@@ -1,0 +1,44 @@
+{
+  "id": "layout-split-screen-hero",
+  "title": "Split Hero",
+  "summary": "A two-panel hero with copy and visual.",
+  "description": "A two-panel hero with copy and visual.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "structure"
+  ],
+  "tags": [
+    "layout",
+    "grid",
+    "split",
+    "hero",
+    "two-panel",
+    "landing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+  "customization": [
+    {
+      "name": "--ratio",
+      "description": "Split ratio",
+      "default": "1fr 1fr"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Landing pages. Keep the copy panel first in the DOM so it is read before the decorative half regardless of which side it appears on visually.",
+  "path": "effects/layout-archetypes/layout-split-screen-hero.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Split Hero</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"layout-split-screen-hero\",\n    \"title\": \"Split Hero\",\n    \"summary\": \"A two-panel hero with copy and visual.\",\n    \"description\": \"A two-panel hero with copy and visual.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"structure\"],\n    \"tags\": [\"layout\", \"grid\", \"split\", \"hero\", \"two-panel\", \"landing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.\",\n    \"customization\": [\n      { \"name\": \"--ratio\", \"description\": \"Split ratio\", \"default\": \"1fr 1fr\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Landing pages. Keep the copy panel first in the DOM so it is read before the decorative half regardless of which side it appears on visually.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: 1fr 1fr; width: 300px; height: 180px; border-radius: 16px; overflow: hidden; }\n    .fx .copy { background: #10141f; padding: 1rem; display: grid; align-content: center; gap: .4rem; }\n    .fx h3 { margin: 0; font-size: 1.05rem; }\n    .fx p { margin: 0; color: #8b93a7; font-size: .78rem; line-height: 1.5; }\n    .fx .art { background: conic-gradient(from 160deg at 40% 35%, #7c5cff, #2dd4bf, #d1478c); }\n    @media (max-width: 420px) { .fx { grid-template-columns: 1fr; } }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"copy\"><h3>Ship faster</h3><p>A thousand ready-made effects, all offline.</p></div><div class=\"art\"></div></div>\n</body>\n</html>\n"
+}

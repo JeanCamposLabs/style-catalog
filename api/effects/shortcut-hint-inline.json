@@ -1,0 +1,44 @@
+{
+  "id": "shortcut-hint-inline",
+  "title": "Inline Shortcut Hint",
+  "summary": "Menu rows showing their shortcuts.",
+  "description": "Menu rows showing their shortcuts.",
+  "theme": "keyboard-input",
+  "themeTitle": "Keyboard & Input",
+  "categories": [
+    "keyboard",
+    "input"
+  ],
+  "tags": [
+    "keyboard",
+    "shortcut",
+    "shortcut",
+    "menu",
+    "kbd",
+    "hint"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Menu background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Menus and command lists. Detect the platform and render ⌘ or Ctrl accordingly; showing Mac symbols to Windows users is the most common shortcut bug.",
+  "path": "effects/keyboard-input/shortcut-hint-inline.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Inline Shortcut Hint</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"shortcut-hint-inline\",\n    \"title\": \"Inline Shortcut Hint\",\n    \"summary\": \"Menu rows showing their shortcuts.\",\n    \"description\": \"Menu rows showing their shortcuts.\",\n    \"theme\": \"keyboard-input\",\n    \"categories\": [\"keyboard\", \"input\"],\n    \"tags\": [\"keyboard\", \"shortcut\", \"shortcut\", \"menu\", \"kbd\", \"hint\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Menu background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Menus and command lists. Detect the platform and render ⌘ or Ctrl accordingly; showing Mac symbols to Windows users is the most common shortcut bug.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; padding: .35rem; border-radius: 12px; background: #141a28; border: 1px solid #2b3450; }\n    .fx .it { display: flex; justify-content: space-between; align-items: center; padding: .45rem .65rem;\n      border-radius: 8px; color: #cbd5e1; font-size: .86rem; }\n    .fx .it:hover { background: #22304a; }\n    .fx kbd { padding: .1rem .35rem; border-radius: 5px; background: #1c2437; border: 1px solid #2b3450;\n      border-bottom-width: 2px; font-family: ui-monospace, monospace; font-size: .7rem; color: #cbd5e1; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"menu\"><div class=\"it\" role=\"menuitem\">New specimen <kbd>⌘N</kbd></div>\n  <div class=\"it\" role=\"menuitem\">Search <kbd>/</kbd></div><div class=\"it\" role=\"menuitem\">Toggle theme <kbd>⇧D</kbd></div></div>\n</body>\n</html>\n"
+}

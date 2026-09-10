@@ -1,0 +1,44 @@
+{
+  "id": "review-stars-breakdown",
+  "title": "Review Breakdown",
+  "summary": "Star distribution bars beside an average score.",
+  "description": "Star distribution bars beside an average score.",
+  "theme": "ecommerce-ui",
+  "themeTitle": "E-commerce UI",
+  "categories": [
+    "ecommerce",
+    "commerce"
+  ],
+  "tags": [
+    "ecommerce",
+    "shop",
+    "reviews",
+    "stars",
+    "distribution",
+    "ratings"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Star colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Product reviews. The distribution matters more than the average — a 4.2 from a bimodal split means something different from a 4.2 clustered at 4.",
+  "path": "effects/ecommerce-ui/review-stars-breakdown.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Review Breakdown</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"review-stars-breakdown\",\n    \"title\": \"Review Breakdown\",\n    \"summary\": \"Star distribution bars beside an average score.\",\n    \"description\": \"Star distribution bars beside an average score.\",\n    \"theme\": \"ecommerce-ui\",\n    \"categories\": [\"ecommerce\", \"commerce\"],\n    \"tags\": [\"ecommerce\", \"shop\", \"reviews\", \"stars\", \"distribution\", \"ratings\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Price, stock, and discount information must be in text, never only a colour or a badge shape.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Star colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Product reviews. The distribution matters more than the average — a 4.2 from a bimodal split means something different from a 4.2 clustered at 4.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 1.2rem; width: 300px; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }\n    .fx .avg { text-align: center; }\n    .fx .avg .n { font-size: 2.2rem; font-weight: 900; line-height: 1; }\n    .fx .avg .s { color: #fbbf24; font-size: .8rem; }\n    .fx .avg .c { color: #8b93a7; font-size: .72rem; }\n    .fx .rows { flex: 1; display: grid; gap: 5px; align-content: center; }\n    .fx .row { display: flex; align-items: center; gap: .5rem; font-size: .72rem; color: #8b93a7; }\n    .fx .t { flex: 1; height: 6px; border-radius: 99px; background: #22304a; overflow: hidden; }\n    .fx .t i { display: block; height: 100%; background: #fbbf24; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"avg\"><div class=\"n\">4.2</div><div class=\"s\">★★★★☆</div><div class=\"c\">214 reviews</div></div>\n  <div class=\"rows\"><div class=\"row\">5<span class=\"t\"><i style=\"width:62%\"></i></span></div>\n  <div class=\"row\">4<span class=\"t\"><i style=\"width:22%\"></i></span></div>\n  <div class=\"row\">3<span class=\"t\"><i style=\"width:8%\"></i></span></div>\n  <div class=\"row\">2<span class=\"t\"><i style=\"width:4%\"></i></span></div>\n  <div class=\"row\">1<span class=\"t\"><i style=\"width:4%\"></i></span></div></div></div>\n</body>\n</html>\n"
+}

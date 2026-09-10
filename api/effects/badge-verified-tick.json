@@ -1,0 +1,44 @@
+{
+  "id": "badge-verified-tick",
+  "title": "Verified Badge",
+  "summary": "A verification tick beside a display name.",
+  "description": "A verification tick beside a display name.",
+  "theme": "social-ui",
+  "themeTitle": "Social UI",
+  "categories": [
+    "social",
+    "feed"
+  ],
+  "tags": [
+    "social",
+    "community",
+    "verified",
+    "badge",
+    "tick",
+    "identity"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Badge colour",
+      "default": "#38bdf8"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Identity markers. The tick needs an accessible label ('Verified account') — a decorative glyph beside a name communicates nothing to screen readers.",
+  "path": "effects/social-ui/badge-verified-tick.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Verified Badge</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"badge-verified-tick\",\n    \"title\": \"Verified Badge\",\n    \"summary\": \"A verification tick beside a display name.\",\n    \"description\": \"A verification tick beside a display name.\",\n    \"theme\": \"social-ui\",\n    \"categories\": [\"social\", \"feed\"],\n    \"tags\": [\"social\", \"community\", \"verified\", \"badge\", \"tick\", \"identity\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Badge colour\", \"default\": \"#38bdf8\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Identity markers. The tick needs an accessible label ('Verified account') — a decorative glyph beside a name communicates nothing to screen readers.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: inline-flex; align-items: center; gap: .35rem; font-weight: 700; }\n    .fx .v { width: 18px; height: 18px; border-radius: 50%; background: #38bdf8; color: #04222b; display: grid;\n      place-items: center; font-size: .7rem; font-weight: 900; }\n  </style>\n</head>\n<body>\n  <span class=\"fx\">Jean Campos <span class=\"v\" role=\"img\" aria-label=\"Verified account\">✓</span></span>\n</body>\n</html>\n"
+}

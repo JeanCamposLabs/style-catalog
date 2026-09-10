@@ -1,0 +1,46 @@
+{
+  "id": "cursor-eraser-reveal",
+  "title": "Scratch to Reveal",
+  "summary": "A cover layer erased by the pointer.",
+  "description": "A cover layer erased by the pointer.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "pointer"
+  ],
+  "tags": [
+    "cursor",
+    "pointer",
+    "scratch",
+    "erase",
+    "reveal",
+    "canvas"
+  ],
+  "tech": [
+    "css",
+    "js",
+    "canvas"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Eraser radius",
+      "default": "18px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Scratch-card promotions. Use destination-out compositing to erase, and always provide a Reveal button — a scratch gesture is impossible for keyboard and many motor-impaired users.",
+  "path": "effects/cursors-pointers/cursor-eraser-reveal.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scratch to Reveal</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-eraser-reveal\",\n    \"title\": \"Scratch to Reveal\",\n    \"summary\": \"A cover layer erased by the pointer.\",\n    \"description\": \"A cover layer erased by the pointer.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\"],\n    \"tags\": [\"cursor\", \"pointer\", \"scratch\", \"erase\", \"reveal\", \"canvas\"],\n    \"tech\": [\"css\", \"js\", \"canvas\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Eraser radius\", \"default\": \"18px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Scratch-card promotions. Use destination-out compositing to erase, and always provide a Reveal button — a scratch gesture is impossible for keyboard and many motor-impaired users.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 150px; border-radius: 14px; overflow: hidden; cursor: crosshair; }\n    .fx .under { position: absolute; inset: 0; display: grid; place-items: center;\n      background: linear-gradient(150deg, #7c5cff, #2dd4bf); color: #0b0d12; font-weight: 900; font-size: 1.2rem; }\n    .fx canvas { position: absolute; inset: 0; width: 100%; height: 100%; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"sr\"><div class=\"under\">YOU WON</div><canvas id=\"sc2\"></canvas></div>\n  <script>\n    (function () {\n      var c = document.getElementById(\"sc2\"), x = c.getContext(\"2d\");\n      c.width = 280; c.height = 150;\n      x.fillStyle = \"#2b3450\"; x.fillRect(0, 0, 280, 150);\n      x.globalCompositeOperation = \"destination-out\";\n      c.addEventListener(\"pointermove\", function (e) {\n        var r = c.getBoundingClientRect();\n        x.beginPath(); x.arc(e.clientX - r.left, e.clientY - r.top, 18, 0, 6.283); x.fill();\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

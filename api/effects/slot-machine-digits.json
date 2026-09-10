@@ -1,0 +1,50 @@
+{
+  "id": "slot-machine-digits",
+  "title": "Slot Machine Digits",
+  "summary": "Number reels spin vertically and snap to the final figure.",
+  "description": "Each reel is a column of digits translated by a multiple of the line height, so the stop always lands exactly on a glyph.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "animation"
+  ],
+  "tags": [
+    "counter",
+    "reel",
+    "digits",
+    "slot",
+    "stats"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--h",
+      "description": "Digit height",
+      "default": "54px"
+    },
+    {
+      "name": "--dur",
+      "description": "Spin duration",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Blur the reel mid-spin",
+    "Different delay per column",
+    "Loop for an odometer"
+  ],
+  "related": [],
+  "ai_usage": "Stat counters and score reveals. Translate by calc(var(--digit) * var(--h) * -1) with a single cubic-bezier so the reel decelerates into place; a linear stop looks like a jump cut.",
+  "path": "effects/text-effects/slot-machine-digits.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Slot Machine Digits</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"slot-machine-digits\",\n    \"title\": \"Slot Machine Digits\",\n    \"summary\": \"Number reels spin vertically and snap to the final figure.\",\n    \"description\": \"Each reel is a column of digits translated by a multiple of the line height, so the stop always lands exactly on a glyph.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"animation\"],\n    \"tags\": [\"counter\", \"reel\", \"digits\", \"slot\", \"stats\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--h\", \"description\": \"Digit height\", \"default\": \"54px\" },\n      { \"name\": \"--dur\", \"description\": \"Spin duration\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Blur the reel mid-spin\", \"Different delay per column\", \"Loop for an odometer\"],\n    \"ai_usage\": \"Stat counters and score reveals. Translate by calc(var(--digit) * var(--h) * -1) with a single cubic-bezier so the reel decelerates into place; a linear stop looks like a jump cut.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --h: 54px; --dur: 1.6s; }\n    .slot { display: flex; gap: 6px; font-variant-numeric: tabular-nums; }\n    .reel { height: var(--h); overflow: hidden; width: 40px; border-radius: 8px; background: #15192a; }\n    .reel div { transition: transform var(--dur) cubic-bezier(.16,1,.3,1); }\n    .reel span { display: block; height: var(--h); line-height: var(--h); text-align: center; font-size: 2rem; font-weight: 800; }\n  </style>\n</head>\n<body>\n  <div class=\"slot\" id=\"slot\" aria-label=\"Value\"></div>\n  <script>\n    (function () {\n      var target = \"42\", host = document.getElementById(\"slot\");\n      target.split(\"\").forEach(function (d, i) {\n        var reel = document.createElement(\"div\"); reel.className = \"reel\";\n        var strip = document.createElement(\"div\");\n        for (var r = 0; r < 3; r++) for (var n = 0; n <= 9; n++) {\n          var s = document.createElement(\"span\"); s.textContent = n; strip.appendChild(s);\n        }\n        reel.appendChild(strip); host.appendChild(reel);\n        setTimeout(function () {\n          strip.style.transform = \"translateY(\" + (-(20 + Number(d)) * 54) + \"px)\";\n        }, 120 + i * 160);\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "caution-tape-border",
+  "title": "Hazard Stripe Border",
+  "summary": "A diagonal hazard stripe frames the panel.",
+  "description": "A repeating-linear-gradient border-image applies the stripes to the edge without a wrapper element.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border"
+  ],
+  "tags": [
+    "hazard",
+    "caution",
+    "stripes",
+    "border-image",
+    "warning"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Stripe A",
+      "default": "#fbbf24"
+    },
+    {
+      "name": "--b",
+      "description": "Stripe B",
+      "default": "#0b0d12"
+    },
+    {
+      "name": "--w",
+      "description": "Border width",
+      "default": "10px"
+    }
+  ],
+  "variations": [
+    "Red and white for danger",
+    "Animate the stripes to march",
+    "Thinner border for a subtle warning"
+  ],
+  "related": [],
+  "ai_usage": "Destructive zones, staging banners, and maintenance states. border-image with a repeating gradient and border-image-slice:1 is the only way to get a patterned border without extra markup.",
+  "path": "effects/borders-shadows/caution-tape-border.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hazard Stripe Border</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"caution-tape-border\",\n    \"title\": \"Hazard Stripe Border\",\n    \"summary\": \"A diagonal hazard stripe frames the panel.\",\n    \"description\": \"A repeating-linear-gradient border-image applies the stripes to the edge without a wrapper element.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\"],\n    \"tags\": [\"hazard\", \"caution\", \"stripes\", \"border-image\", \"warning\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Stripe A\", \"default\": \"#fbbf24\" },\n      { \"name\": \"--b\", \"description\": \"Stripe B\", \"default\": \"#0b0d12\" },\n      { \"name\": \"--w\", \"description\": \"Border width\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Red and white for danger\", \"Animate the stripes to march\", \"Thinner border for a subtle warning\"],\n    \"ai_usage\": \"Destructive zones, staging banners, and maintenance states. border-image with a repeating gradient and border-image-slice:1 is the only way to get a patterned border without extra markup.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --a: #fbbf24; --b: #0b0d12; --w: 10px; }\n    .demo { background: #151b2a; border: var(--w) solid transparent;\n      border-image: repeating-linear-gradient(45deg, var(--a) 0 10px, var(--b) 10px 20px) 1; }\n  </style>\n</head>\n<body>\n  <div class=\"demo\"><h3>Staging only</h3><p>Do not deploy from here.</p></div>\n</body>\n</html>\n"
+}

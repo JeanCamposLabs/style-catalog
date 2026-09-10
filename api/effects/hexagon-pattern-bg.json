@@ -1,0 +1,54 @@
+{
+  "id": "hexagon-pattern-bg",
+  "title": "Hexagon Mesh",
+  "summary": "A honeycomb lattice from two staggered gradient layers.",
+  "description": "Sixty-degree gradient stripes offset by half a tile interlock into hexagons — no SVG and no per-cell markup.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "hexagon",
+    "honeycomb",
+    "tile",
+    "geometric",
+    "pattern"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Cell color",
+      "default": "#161d2c"
+    },
+    {
+      "name": "--bg",
+      "description": "Gap color",
+      "default": "#0b0d12"
+    },
+    {
+      "name": "--s",
+      "description": "Cell size",
+      "default": "56px"
+    }
+  ],
+  "variations": [
+    "Filled hexes instead of outlines",
+    "Animate a hue shift per row",
+    "Mask to a circle for a badge"
+  ],
+  "related": [],
+  "ai_usage": "Tech, gaming, and science backgrounds. The stagger is the whole trick: give the second layer a background-position offset of half the tile in both axes.",
+  "path": "effects/backgrounds/hexagon-pattern-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hexagon Mesh</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hexagon-pattern-bg\",\n    \"title\": \"Hexagon Mesh\",\n    \"summary\": \"A honeycomb lattice from two staggered gradient layers.\",\n    \"description\": \"Sixty-degree gradient stripes offset by half a tile interlock into hexagons — no SVG and no per-cell markup.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"hexagon\", \"honeycomb\", \"tile\", \"geometric\", \"pattern\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Cell color\", \"default\": \"#161d2c\" },\n      { \"name\": \"--bg\", \"description\": \"Gap color\", \"default\": \"#0b0d12\" },\n      { \"name\": \"--s\", \"description\": \"Cell size\", \"default\": \"56px\" }\n    ],\n    \"variations\": [\"Filled hexes instead of outlines\", \"Animate a hue shift per row\", \"Mask to a circle for a badge\"],\n    \"ai_usage\": \"Tech, gaming, and science backgrounds. The stagger is the whole trick: give the second layer a background-position offset of half the tile in both axes.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: #161d2c; --bg: #0b0d12; --s: 56px; }\n    .bg { background-color: var(--bg);\n      background-image: radial-gradient(circle farthest-side at 0 50%, var(--c) 24%, transparent 25%),\n        radial-gradient(circle farthest-side at 100% 50%, var(--c) 24%, transparent 25%);\n      background-size: var(--s) calc(var(--s) * 1.732);\n      background-position: 0 0, 0 0; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

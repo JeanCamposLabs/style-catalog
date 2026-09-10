@@ -1,0 +1,44 @@
+{
+  "id": "post-card-feed",
+  "title": "Feed Post",
+  "summary": "A post with author, body, and action row.",
+  "description": "A post with author, body, and action row.",
+  "theme": "social-ui",
+  "themeTitle": "Social UI",
+  "categories": [
+    "social",
+    "feed"
+  ],
+  "tags": [
+    "social",
+    "community",
+    "post",
+    "feed",
+    "author",
+    "actions"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Social feeds. Use a real <article> per post with the author in a heading so screen-reader users can jump between posts.",
+  "path": "effects/social-ui/post-card-feed.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Feed Post</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"post-card-feed\",\n    \"title\": \"Feed Post\",\n    \"summary\": \"A post with author, body, and action row.\",\n    \"description\": \"A post with author, body, and action row.\",\n    \"theme\": \"social-ui\",\n    \"categories\": [\"social\", \"feed\"],\n    \"tags\": [\"social\", \"community\", \"post\", \"feed\", \"author\", \"actions\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Social feeds. Use a real <article> per post with the author in a heading so screen-reader users can jump between posts.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; padding: 1rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }\n    .fx .hd { display: flex; align-items: center; gap: .7rem; margin-bottom: .7rem; }\n    .fx .av { width: 38px; height: 38px; border-radius: 50%; background: conic-gradient(from 30deg, #7c5cff, #2dd4bf);\n      display: grid; place-items: center; font-weight: 800; color: #0b0d12; font-size: .8rem; }\n    .fx b { font-size: .9rem; display: block; }\n    .fx .hd span { font-size: .75rem; color: #8b93a7; }\n    .fx p { margin: 0 0 .9rem; font-size: .9rem; line-height: 1.55; color: #cbd5e1; }\n    .fx .acts { display: flex; gap: 1.2rem; color: #8b93a7; font-size: .82rem; }\n    .fx .acts button { border: 0; background: none; color: inherit; font: inherit; cursor: pointer; display: flex; gap: .3rem; }\n    .fx .acts button:hover { color: #e7ebf3; }\n  </style>\n</head>\n<body>\n  <article class=\"fx\"><div class=\"hd\"><div class=\"av\">JC</div><div><b>Jean Campos</b><span>@jean · 2h</span></div></div>\n  <p>Shipped 1,000 new specimens to the catalogue today. All zero-dependency, all self-contained.</p>\n  <div class=\"acts\"><button type=\"button\">♥ 128</button><button type=\"button\">💬 24</button><button type=\"button\">↻ 12</button></div></article>\n</body>\n</html>\n"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "leather-grain",
+  "title": "Leather",
+  "summary": "Pebbled leather with soft highlights.",
+  "description": "Pebbled leather with soft highlights. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "leather",
+    "pebble",
+    "skeuomorphic",
+    "material"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--tint",
+      "description": "Leather tone",
+      "default": "#2e1f18"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Skeuomorphic panels and premium goods. Use several dot layers at different tile sizes so the pebbling never visibly repeats.",
+  "path": "effects/patterns-textures/leather-grain.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Leather</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"leather-grain\",\n    \"title\": \"Leather\",\n    \"summary\": \"Pebbled leather with soft highlights.\",\n    \"description\": \"Pebbled leather with soft highlights. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"leather\", \"pebble\", \"skeuomorphic\", \"material\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--tint\", \"description\": \"Leather tone\", \"default\": \"#2e1f18\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Skeuomorphic panels and premium goods. Use several dot layers at different tile sizes so the pebbling never visibly repeats.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    .bg { background-color: #2e1f18;\n      background-image: radial-gradient(circle at 20% 25%, rgba(255,255,255,.05) 0 2px, transparent 3px),\n        radial-gradient(circle at 60% 55%, rgba(255,255,255,.04) 0 2px, transparent 3px),\n        radial-gradient(circle at 80% 20%, rgba(0,0,0,.3) 0 2px, transparent 3px),\n        radial-gradient(circle at 35% 75%, rgba(0,0,0,.25) 0 2px, transparent 3px);\n      background-size: 26px 26px, 34px 34px, 30px 30px, 40px 40px; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

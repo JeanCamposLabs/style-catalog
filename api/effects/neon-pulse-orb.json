@@ -1,0 +1,45 @@
+{
+  "id": "neon-pulse-orb",
+  "title": "Pulsing Orb",
+  "summary": "A glowing sphere that breathes.",
+  "description": "A glowing sphere that breathes.",
+  "theme": "neon-cyberpunk",
+  "themeTitle": "Neon & Cyberpunk",
+  "categories": [
+    "neon",
+    "cyberpunk"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "dark",
+    "orb",
+    "pulse",
+    "sphere",
+    "energy"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Orb colour",
+      "default": "#a855f7"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "AI, energy, and status orbs. Animate the glow and scale together; scaling alone looks like a zoom rather than a pulse.",
+  "path": "effects/neon-cyberpunk/neon-pulse-orb.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Pulsing Orb</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-pulse-orb\",\n    \"title\": \"Pulsing Orb\",\n    \"summary\": \"A glowing sphere that breathes.\",\n    \"description\": \"A glowing sphere that breathes.\",\n    \"theme\": \"neon-cyberpunk\",\n    \"categories\": [\"neon\", \"cyberpunk\"],\n    \"tags\": [\"neon\", \"glow\", \"dark\", \"orb\", \"pulse\", \"sphere\", \"energy\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Orb colour\", \"default\": \"#a855f7\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"AI, energy, and status orbs. Animate the glow and scale together; scaling alone looks like a zoom rather than a pulse.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #a855f7 40%, #4c1d95);\n      box-shadow: 0 0 40px #a855f7, 0 0 90px rgba(168,85,247,.6); animation: breathe 3s ease-in-out infinite alternate; }\n    @keyframes breathe { to { box-shadow: 0 0 60px #a855f7, 0 0 140px rgba(168,85,247,.75); transform: scale(1.06); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

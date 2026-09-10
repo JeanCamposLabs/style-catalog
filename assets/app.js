@@ -282,7 +282,7 @@
         applyFrame(ifr); freezeFrame(ifr); ifr._loaded = true;
         if (el.classList.contains("is-hover")) goLive();
       });
-      poster.addEventListener("error", function () { el.classList.add("no-poster"); mountFrame(el); });
+      poster.addEventListener("error", function () { el.classList.add("no-poster"); mountWhenNear(el); });
       var goLive = function () { el.classList.add("is-live"); playFrame(ifr); };
       var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
       if (!(reduce && reduce.matches)) {
@@ -306,12 +306,45 @@
     var ifr = el.querySelector("iframe");
     if (ifr && !ifr.getAttribute("src") && ifr.dataset.src) ifr.setAttribute("src", ifr.dataset.src);
   }
+
+  /* Poster-less cards fall back to the frozen iframe, but mounting a thousand of
+     them at once would stall the compositor — so the fallback waits until the
+     card is near the viewport. One shared observer, not one per card. */
+  var nearObserver = window.IntersectionObserver
+    ? new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          nearObserver.unobserve(en.target);
+          mountFrame(en.target);
+        });
+      }, { rootMargin: "400px 0px" })
+    : null;
+  function mountWhenNear(el) {
+    if (nearObserver) nearObserver.observe(el); else mountFrame(el);
+  }
+
+  /* The catalogue is large (1000+ specimens), so cards are created in chunks
+     across idle callbacks instead of in one synchronous pass — the first screen
+     paints immediately and the rest fills in without blocking input. render()
+     already skips ids it has no element for, so a partial grid is safe. */
   function buildGrid() {
-    var grid = $("#grid"), frag = document.createDocumentFragment();
-    CATALOG.effects.forEach(function (e) {
-      var el = card(e); cardEls[e.id] = el; frag.appendChild(el);
-    });
-    grid.appendChild(frag);
+    var grid = $("#grid"), list = CATALOG.effects, i = 0;
+    var CHUNK = 60;
+    var schedule = window.requestIdleCallback
+      ? function (fn) { window.requestIdleCallback(fn, { timeout: 250 }); }
+      : function (fn) { setTimeout(fn, 0); };
+    function step() {
+      var frag = document.createDocumentFragment(), end = Math.min(i + CHUNK, list.length);
+      for (; i < end; i++) {
+        var e = list[i], el = card(e);
+        cardEls[e.id] = el;
+        frag.appendChild(el);
+      }
+      grid.appendChild(frag);
+      render();
+      if (i < list.length) schedule(step);
+    }
+    step();
   }
 
   var visibleCards = []; // matched cards in visual order, for arrow-key nav

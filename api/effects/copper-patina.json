@@ -1,0 +1,44 @@
+{
+  "id": "copper-patina",
+  "title": "Copper Patina",
+  "summary": "Aged copper with verdigris blooms.",
+  "description": "Aged copper with verdigris blooms.",
+  "theme": "holographic-metallic",
+  "themeTitle": "Holographic & Metallic",
+  "categories": [
+    "material",
+    "holographic"
+  ],
+  "tags": [
+    "holographic",
+    "metallic",
+    "copper",
+    "patina",
+    "verdigris",
+    "aged"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+  "customization": [
+    {
+      "name": "--base",
+      "description": "Copper tone",
+      "default": "#7c4a2d"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Heritage and artisanal branding. Overlapping soft verdigris blooms at different opacities read as oxidation; hard-edged spots read as stains.",
+  "path": "effects/holographic-metallic/copper-patina.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Copper Patina</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"copper-patina\",\n    \"title\": \"Copper Patina\",\n    \"summary\": \"Aged copper with verdigris blooms.\",\n    \"description\": \"Aged copper with verdigris blooms.\",\n    \"theme\": \"holographic-metallic\",\n    \"categories\": [\"material\", \"holographic\"],\n    \"tags\": [\"holographic\", \"metallic\", \"copper\", \"patina\", \"verdigris\", \"aged\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Iridescent surfaces have unpredictable local contrast — never place body text directly on one.\",\n    \"customization\": [\n      { \"name\": \"--base\", \"description\": \"Copper tone\", \"default\": \"#7c4a2d\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Heritage and artisanal branding. Overlapping soft verdigris blooms at different opacities read as oxidation; hard-edged spots read as stains.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 240px; height: 150px; border-radius: 12px; background-color: #7c4a2d;\n      background-image: radial-gradient(circle at 22% 30%, rgba(45,212,191,.55) 0 14%, transparent 15%),\n        radial-gradient(circle at 68% 62%, rgba(45,212,191,.4) 0 18%, transparent 19%),\n        radial-gradient(circle at 84% 22%, rgba(20,120,110,.5) 0 12%, transparent 13%),\n        radial-gradient(circle at 40% 82%, rgba(45,212,191,.3) 0 16%, transparent 17%);\n      box-shadow: inset 0 0 40px rgba(0,0,0,.5); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "newspaper-column",
+  "title": "Newspaper Column",
+  "summary": "Justified serif columns with a drop cap.",
+  "description": "Justified serif columns with a drop cap.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "newspaper",
+    "columns",
+    "dropcap",
+    "editorial"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--paper",
+      "description": "Newsprint colour",
+      "default": "#f4f1e8"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Editorial pastiche. CSS columns plus ::first-letter give the whole newspaper read; add hyphens:auto or justified narrow columns produce rivers.",
+  "path": "effects/paper-print/newspaper-column.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Newspaper Column</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"newspaper-column\",\n    \"title\": \"Newspaper Column\",\n    \"summary\": \"Justified serif columns with a drop cap.\",\n    \"description\": \"Justified serif columns with a drop cap.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"newspaper\", \"columns\", \"dropcap\", \"editorial\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--paper\", \"description\": \"Newsprint colour\", \"default\": \"#f4f1e8\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Editorial pastiche. CSS columns plus ::first-letter give the whole newspaper read; add hyphens:auto or justified narrow columns produce rivers.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 270px; padding: 1.2rem; background: #f4f1e8; color: #1c1917; font-family: Georgia, \"Times New Roman\", serif; }\n    .fx h3 { margin: 0 0 .5rem; font-size: 1.2rem; text-align: center; text-transform: uppercase; letter-spacing: .04em;\n      border-bottom: 2px solid #1c1917; padding-bottom: .3rem; }\n    .fx .cols { column-count: 2; column-gap: 1rem; column-rule: 1px solid #d6d3d1; font-size: .74rem; text-align: justify; hyphens: auto; }\n    .fx .cols p { margin: 0 0 .5rem; }\n    .fx .cols p:first-child::first-letter { float: left; font-size: 2.4rem; line-height: .8; padding: .1rem .2rem 0 0; font-weight: 700; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><h3>The Daily Build</h3><div class=\"cols\">\n  <p>Overnight the catalogue grew again, with new specimens arriving from every corner of the stylesheet.</p>\n  <p>Observers noted the absence of external dependencies, a fact greeted with quiet approval.</p></div></div>\n</body>\n</html>\n"
+}
