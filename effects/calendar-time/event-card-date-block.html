@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Event Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "event-card-date-block",
+    "title": "Event Card",
+    "summary": "An event with a prominent date block.",
+    "description": "An event with a prominent date block.",
+    "theme": "calendar-time",
+    "categories": ["calendar", "time"],
+    "tags": ["calendar", "date", "event", "date", "card", "listing"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+    "customization": [
+      { "name": "--c", "description": "Month colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Event listings. The stacked month/day block is scannable at a glance; still wrap the full date in a <time datetime> for machines."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 1rem; width: 290px; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }
+    .fx .d { width: 56px; text-align: center; border-radius: 10px; overflow: hidden; flex: none; background: #1c2437; }
+    .fx .d .m { background: #7c5cff; color: #fff; font-size: .68rem; font-weight: 800; padding: .2rem 0; letter-spacing: .08em; }
+    .fx .d .n { font-size: 1.5rem; font-weight: 900; padding: .3rem 0; }
+    .fx b { display: block; font-size: .95rem; }
+    .fx span { display: block; color: #8b93a7; font-size: .8rem; margin-top: .2rem; }
+  </style>
+</head>
+<body>
+  <article class="fx"><div class="d"><div class="m">SEP</div><div class="n">18</div></div>
+  <div><b>Catalogue release party</b><span><time datetime="2026-09-18T19:00">19:00</time> · Lisbon · 42 going</span></div></article>
+</body>
+</html>

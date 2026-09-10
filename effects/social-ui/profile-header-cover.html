@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile Header</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "profile-header-cover",
+    "title": "Profile Header",
+    "summary": "A cover image with an overlapping avatar and stats.",
+    "description": "A cover image with an overlapping avatar and stats.",
+    "theme": "social-ui",
+    "categories": ["social", "feed"],
+    "tags": ["social", "community", "profile", "header", "cover", "stats"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+    "customization": [
+      { "name": "--c", "description": "Avatar colour", "default": "#fbbf24" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Profile pages. The negative margin that lifts the avatar over the cover must be paired with a border in the page background colour to read as a cut-out."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; border-radius: 16px; overflow: hidden; background: #151b2a; border: 1px solid #263149; }
+    .fx .cover { height: 80px; background: conic-gradient(from 140deg at 40% 30%, #7c5cff, #2dd4bf, #f472b6); }
+    .fx .body { padding: 0 1rem 1rem; margin-top: -28px; }
+    .fx .av { width: 60px; height: 60px; border-radius: 50%; border: 3px solid #151b2a; display: grid; place-items: center;
+      font-weight: 800; color: #0b0d12; background: #fbbf24; }
+    .fx b { display: block; margin-top: .5rem; }
+    .fx .h { color: #8b93a7; font-size: .8rem; }
+    .fx .stats { display: flex; gap: 1.2rem; margin-top: .7rem; font-size: .82rem; }
+    .fx .stats span { color: #8b93a7; }
+    .fx .stats b { display: inline; color: #e7ebf3; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="cover"></div><div class="body"><div class="av">JC</div>
+  <b>Jean Campos</b><div class="h">@jean · Design engineer</div>
+  <div class="stats"><span><b>1,181</b> specimens</span><span><b>4.2k</b> followers</span></div></div></div>
+</body>
+</html>

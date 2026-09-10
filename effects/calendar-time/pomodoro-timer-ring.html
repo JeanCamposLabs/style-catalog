@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pomodoro Timer</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "pomodoro-timer-ring",
+    "title": "Pomodoro Timer",
+    "summary": "A work timer with a draining ring and session dots.",
+    "description": "A work timer with a draining ring and session dots.",
+    "theme": "calendar-time",
+    "categories": ["calendar", "time"],
+    "tags": ["calendar", "date", "pomodoro", "timer", "focus", "sessions"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+    "customization": [
+      { "name": "--p", "description": "Time remaining", "default": "68" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Focus tools. Show completed sessions as dots so the cycle position is visible at a glance without reading the timer."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; justify-items: center; gap: .8rem; }
+    .ring { position: relative; width: 140px; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;
+      background: conic-gradient(#f87171 calc(var(--p) * 1%), #22304a 0);
+      -webkit-mask: radial-gradient(farthest-side, transparent 70%, #000 71%); mask: radial-gradient(farthest-side, transparent 70%, #000 71%); }
+    .wrap { position: relative; display: grid; place-items: center; }
+    .wrap b { position: absolute; font-size: 1.6rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+    .dots { display: flex; gap: 6px; }
+    .dots i { width: 9px; height: 9px; border-radius: 50%; background: #22304a; }
+    .dots i.on { background: #f87171; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="wrap"><div class="ring" style="--p:68" role="timer" aria-label="17 minutes remaining"></div><b>17:04</b></div>
+  <div class="dots" aria-label="2 of 4 sessions complete"><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+</body>
+</html>

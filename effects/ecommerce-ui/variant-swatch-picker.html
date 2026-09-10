@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Variant Picker</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "variant-swatch-picker",
+    "title": "Variant Picker",
+    "summary": "Colour and size selectors with an out-of-stock state.",
+    "description": "Colour and size selectors with an out-of-stock state.",
+    "theme": "ecommerce-ui",
+    "categories": ["ecommerce", "commerce"],
+    "tags": ["ecommerce", "shop", "variant", "swatch", "size", "stock"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+    "customization": [
+      { "name": "--c", "description": "Selected colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Product options. Out-of-stock variants must be visibly and semantically disabled, with the reason stated — greying them out alone leaves users guessing."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 250px; }
+    .fx h4 { margin: 0 0 .5rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: #8b93a7; }
+    .fx .row { display: flex; gap: .5rem; margin-bottom: 1rem; }
+    .fx .sw { width: 34px; height: 34px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }
+    .fx .sw[aria-pressed="true"] { border-color: #e7ebf3; outline: 2px solid #0b0d12; }
+    .fx .sz { min-width: 42px; padding: .4rem .6rem; border-radius: 9px; border: 1px solid #2b3450; background: #151b2a;
+      color: #cbd5e1; font: inherit; font-size: .85rem; cursor: pointer; }
+    .fx .sz[aria-pressed="true"] { border-color: #7c5cff; background: #1e1740; color: #fff; }
+    .fx .sz[disabled] { opacity: .4; cursor: not-allowed; text-decoration: line-through; }
+  </style>
+</head>
+<body>
+  <div class="fx"><h4>Colour</h4><div class="row">
+    <button class="sw" type="button" aria-pressed="true" aria-label="Violet" style="background:#7c5cff"></button>
+    <button class="sw" type="button" aria-pressed="false" aria-label="Teal" style="background:#2dd4bf"></button>
+    <button class="sw" type="button" aria-pressed="false" aria-label="Sand" style="background:#d6bfa0"></button></div>
+  <h4>Size</h4><div class="row"><button class="sz" type="button" aria-pressed="false">S</button>
+  <button class="sz" type="button" aria-pressed="true">M</button>
+  <button class="sz" type="button" aria-pressed="false" disabled>L (sold out)</button></div></div>
+</body>
+</html>

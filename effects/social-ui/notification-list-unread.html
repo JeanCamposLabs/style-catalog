@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notification List</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "notification-list-unread",
+    "title": "Notification List",
+    "summary": "Unread rows marked with a dot and tint.",
+    "description": "Unread rows marked with a dot and tint.",
+    "theme": "social-ui",
+    "categories": ["social", "feed"],
+    "tags": ["social", "community", "notifications", "unread", "list", "inbox"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+    "customization": [
+      { "name": "--c", "description": "Unread colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Notification inboxes. Mark unread with a dot plus a tint plus text — a tint alone is invisible on many displays and to many users."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; border-radius: 14px; overflow: hidden; background: #151b2a; border: 1px solid #263149; }
+    .fx .n { display: flex; gap: .7rem; padding: .8rem .9rem; border-bottom: 1px solid #1e2740; font-size: .85rem; }
+    .fx .n:last-child { border-bottom: 0; }
+    .fx .n.unread { background: #171d33; }
+    .fx .dot { width: 8px; height: 8px; border-radius: 50%; background: #7c5cff; margin-top: .4rem; flex: none; }
+    .fx .n:not(.unread) .dot { background: transparent; }
+    .fx p { margin: 0; color: #cbd5e1; line-height: 1.45; }
+    .fx span { color: #8b93a7; font-size: .74rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="n unread"><span class="dot"></span><div><p><b>Ada</b> replied to your post</p><span>2h ago</span></div></div>
+  <div class="n unread"><span class="dot"></span><div><p><b>Max</b> started following you</p><span>5h ago</span></div></div>
+  <div class="n"><span class="dot"></span><div><p>Your export finished</p><span>Yesterday</span></div></div></div>
+</body>
+</html>

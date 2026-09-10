@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Follow Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "follow-button-states",
+    "title": "Follow Button",
+    "summary": "Follow, following, and unfollow-on-hover states.",
+    "description": "Follow, following, and unfollow-on-hover states.",
+    "theme": "social-ui",
+    "categories": ["social", "feed"],
+    "tags": ["social", "community", "follow", "state", "hover", "social"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+    "customization": [
+      { "name": "--c", "description": "Follow colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Follow controls. Changing the label to 'Unfollow' on hover is conventional, but keep the accessible name stable at 'Following' so it is not announced as changing."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { padding: .5rem 1.2rem; border-radius: 999px; border: 1px solid #7c5cff; background: #7c5cff; color: #fff;
+      font: inherit; font-weight: 700; font-size: .85rem; cursor: pointer; min-width: 110px; }
+    .fx[aria-pressed="true"] { background: transparent; color: #e7ebf3; border-color: #3b465e; }
+    .fx[aria-pressed="true"]:hover { border-color: #f87171; color: #f87171; }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button" aria-pressed="false" id="fb">Follow</button>
+  <script>
+    (function () {
+      var b = document.getElementById("fb");
+      b.addEventListener("click", function () {
+        var on = b.getAttribute("aria-pressed") !== "true";
+        b.setAttribute("aria-pressed", String(on));
+        b.textContent = on ? "Following" : "Follow";
+      });
+    })();
+  </script>
+</body>
+</html>

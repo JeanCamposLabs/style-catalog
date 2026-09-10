@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Low Stock Meter</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "stock-urgency-bar",
+    "title": "Low Stock Meter",
+    "summary": "A bar showing how little stock remains.",
+    "description": "A bar showing how little stock remains.",
+    "theme": "ecommerce-ui",
+    "categories": ["ecommerce", "commerce"],
+    "tags": ["ecommerce", "shop", "stock", "urgency", "scarcity", "inventory"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+    "customization": [
+      { "name": "--p", "description": "Stock remaining", "default": "18" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Product pages. Only show scarcity when it is true — fabricated urgency is a dark pattern and increasingly a legal risk."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 250px; }
+    .fx .bar { height: 7px; border-radius: 99px; background: #22304a; overflow: hidden; }
+    .fx .bar i { display: block; height: 100%; width: calc(var(--p) * 1%); background: #f97316; }
+    .fx p { margin: .5rem 0 0; font-size: .82rem; color: #fdba74; }
+  </style>
+</head>
+<body>
+  <div class="fx" style="--p:18"><div class="bar" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"><i></i></div>
+  <p>Only 4 left in stock</p></div>
+</body>
+</html>

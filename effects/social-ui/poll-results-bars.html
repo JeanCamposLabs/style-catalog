@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poll Results</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "poll-results-bars",
+    "title": "Poll Results",
+    "summary": "Vote bars with percentages and a chosen option.",
+    "description": "Vote bars with percentages and a chosen option.",
+    "theme": "social-ui",
+    "categories": ["social", "feed"],
+    "tags": ["social", "community", "poll", "votes", "results", "bars"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+    "customization": [
+      { "name": "--c", "description": "Bar colour", "default": "rgba(124,92,255,.28)" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Polls and surveys. Show both the percentage and the raw count; percentages alone hide a sample of twelve people."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .fx .q { font-weight: 700; margin-bottom: .8rem; font-size: .92rem; }
+    .fx .o { position: relative; padding: .55rem .8rem; border-radius: 10px; background: #151b2a; border: 1px solid #263149;
+      margin-bottom: .5rem; overflow: hidden; font-size: .86rem; display: flex; justify-content: space-between; }
+    .fx .o i { position: absolute; inset: 0 auto 0 0; width: calc(var(--p) * 1%); background: rgba(124,92,255,.28); }
+    .fx .o.mine { border-color: #7c5cff; }
+    .fx .o span { position: relative; }
+    .fx .tot { color: #8b93a7; font-size: .76rem; margin-top: .3rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="q">Which theme should we expand next?</div>
+  <div class="o mine" style="--p:52"><i></i><span>Motion principles ✓</span><span>52%</span></div>
+  <div class="o" style="--p:31"><i></i><span>Data visualisation</span><span>31%</span></div>
+  <div class="o" style="--p:17"><i></i><span>Retro web</span><span>17%</span></div>
+  <div class="tot">1,284 votes · 2 days left</div></div>
+</body>
+</html>
