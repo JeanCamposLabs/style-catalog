@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Framed Gradient Edge</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gradient-border-frame-bg",
+    "title": "Framed Gradient Edge",
+    "summary": "A luminous gradient frame hugs the viewport edges.",
+    "description": "A masked gradient border on a fixed overlay draws attention inward without touching the content layer.",
+    "theme": "backgrounds",
+    "categories": ["background", "overlay"],
+    "tags": ["frame", "border", "gradient", "mask", "overlay"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Frame color A", "default": "#7c5cff" },
+      { "name": "--b", "description": "Frame color B", "default": "#2dd4bf" },
+      { "name": "--w", "description": "Frame thickness", "default": "3px" }
+    ],
+    "variations": ["Animate the gradient angle", "Only glow on one edge", "Pulse during a live session"],
+    "ai_usage": "Recording indicators, focus modes, and live states. The mask-composite trick (two masks, xor) is the portable way to show only the border of a gradient-filled box."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: #7c5cff; --b: #2dd4bf; --w: 3px; }
+    .bg { background: #0b0d12; }
+    .frame { position: fixed; inset: 0; pointer-events: none; padding: var(--w);
+      background: linear-gradient(135deg, var(--a), var(--b), var(--a)); background-size: 200% 200%;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; animation: slide 6s linear infinite; }
+    @keyframes slide { to { background-position: 200% 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div><div class="frame" aria-hidden="true"></div>
+</body>
+</html>

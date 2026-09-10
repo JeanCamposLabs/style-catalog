@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vignette Overlay</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "vignette-overlay",
+    "title": "Vignette Overlay",
+    "summary": "A soft darkening at the edges that focuses attention on the centre.",
+    "description": "A single radial-gradient with a transparent core and dark rim; the falloff distance matters more than the darkness.",
+    "theme": "backgrounds",
+    "categories": ["background", "overlay"],
+    "tags": ["vignette", "focus", "radial-gradient", "photo", "subtle"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--str", "description": "Vignette strength", "default": "0.65" },
+      { "name": "--start", "description": "Where the fade begins", "default": "45%" }
+    ],
+    "variations": ["Colored vignette for mood", "Tighter falloff for a spotlight", "Animate the strength on hover"],
+    "ai_usage": "Layer over hero images and video. Keep the transparent core large (start the fade at 40–55%) — an early fade darkens the subject and looks like a mistake."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --str: .65; --start: 45%; }
+    .bg { background: linear-gradient(135deg, #23304a, #0b0d12); }
+    .vig { position: fixed; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent var(--start), rgba(0,0,0,var(--str)) 100%); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div><div class="vig" aria-hidden="true"></div>
+</body>
+</html>

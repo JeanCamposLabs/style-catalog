@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seigaiha Waves</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "seigaiha-waves-bg",
+    "title": "Seigaiha Waves",
+    "summary": "The Japanese overlapping-wave pattern in concentric arcs.",
+    "description": "Layered repeating-radial-gradients offset by half a tile produce the traditional fish-scale wave motif.",
+    "theme": "backgrounds",
+    "categories": ["background", "pattern"],
+    "tags": ["seigaiha", "japanese", "waves", "traditional", "pattern"],
+    "tech": ["css"],
+    "era": "timeless",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Arc color", "default": "#2dd4bf" },
+      { "name": "--bg", "description": "Ground color", "default": "#0b0d12" },
+      { "name": "--s", "description": "Tile size", "default": "60px" }
+    ],
+    "variations": ["Indigo and white for a classic look", "Larger tiles for a bold graphic", "Animate a slow horizontal drift"],
+    "ai_usage": "Japanese-inspired, editorial, and packaging designs. The stagger between the two layers must be exactly half the tile in both axes or the scales will not interlock."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: #2dd4bf; --bg: #0b0d12; --s: 60px; }
+    .bg { background-color: var(--bg);
+      background-image: repeating-radial-gradient(circle at 0 100%, transparent 0 12px, var(--c) 12px 14px, transparent 14px 26px, var(--c) 26px 28px, transparent 28px 40px),
+        repeating-radial-gradient(circle at 100% 100%, transparent 0 12px, var(--c) 12px 14px, transparent 14px 26px, var(--c) 26px 28px, transparent 28px 40px);
+      background-size: var(--s) calc(var(--s) / 2); opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

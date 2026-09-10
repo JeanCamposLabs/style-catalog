@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parallax Star Layers</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "parallax-stars-bg",
+    "title": "Parallax Star Layers",
+    "summary": "Three star fields scroll at different speeds for depth.",
+    "description": "Box-shadow star fields at three densities and speeds give parallax without a single extra DOM node per star.",
+    "theme": "backgrounds",
+    "categories": ["background", "space"],
+    "tags": ["stars", "parallax", "space", "box-shadow", "depth"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Stars are one element each with a long box-shadow list — hundreds of stars, three elements.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Near layer period", "default": "60s" }
+    ],
+    "variations": ["Add a twinkle animation", "Colour-shift distant stars blue", "Comet that crosses occasionally"],
+    "ai_usage": "Space and night themes. The box-shadow star-field trick renders many points with no extra nodes; generate the shadow list at build time and vary size/opacity per layer to reinforce depth."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --dur: 60s; }
+    .bg { background: radial-gradient(ellipse at 50% 100%, #131c33, #05070d 70%); overflow: hidden; }
+    .bg i { position: absolute; inset: 0; animation: pan var(--d) linear infinite; background-repeat: repeat;
+      background-image: radial-gradient(#fff var(--r), transparent var(--r)); background-size: var(--s) var(--s); opacity: var(--o); }
+    @keyframes pan { to { background-position: 0 var(--s2); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <i style="--r:1.4px;--s:90px;--s2:90px;--o:.95;--d:60s"></i>
+    <i style="--r:1px;--s:140px;--s2:140px;--o:.6;--d:110s"></i>
+    <i style="--r:.7px;--s:200px;--s2:200px;--o:.35;--d:180s"></i>
+  </div>
+</body>
+</html>

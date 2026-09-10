@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rain Streaks</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "rain-streaks-bg",
+    "title": "Rain Streaks",
+    "summary": "Thin diagonal streaks fall across a stormy gradient.",
+    "description": "A repeating-linear-gradient of thin transparent stripes animated on the Y axis makes continuous rain with one element.",
+    "theme": "backgrounds",
+    "categories": ["background", "weather"],
+    "tags": ["rain", "weather", "streaks", "gradient", "storm"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Streak color", "default": "rgba(180,210,255,.28)" },
+      { "name": "--dur", "description": "Fall speed", "default": "0.7s" }
+    ],
+    "variations": ["Heavier rain via tighter stripes", "Add an occasional lightning flash", "Angle the rain further for wind"],
+    "ai_usage": "Weather widgets and moody hero sections. The rain must be angled (100–105deg) and the animation distance equal to the gradient period, or the streaks appear to stutter mid-fall."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(180,210,255,.28); --dur: .7s; }
+    .bg { background: linear-gradient(180deg, #0a111d, #111a2b); }
+    .bg::after { content: ""; position: absolute; inset: -20%;
+      background-image: repeating-linear-gradient(102deg, transparent 0 22px, var(--c) 22px 23px);
+      animation: rain var(--dur) linear infinite; }
+    @keyframes rain { to { transform: translateY(23px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

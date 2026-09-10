@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radial Spotlight</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "spotlight-radial-bg",
+    "title": "Radial Spotlight",
+    "summary": "A single warm light pool centred behind the content.",
+    "description": "One large radial gradient over a near-black ground; the falloff distance is the only knob that matters.",
+    "theme": "backgrounds",
+    "categories": ["background", "gradient"],
+    "tags": ["spotlight", "radial", "glow", "hero", "minimal"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Light color", "default": "#7c5cff" },
+      { "name": "--size", "description": "Pool size", "default": "70%" },
+      { "name": "--str", "description": "Light strength", "default": "0.35" }
+    ],
+    "variations": ["Two overlapping pools", "Move the light to a corner", "Pulse the strength slowly"],
+    "ai_usage": "The cheapest way to give a dark hero focus. One radial-gradient with a colour at low alpha, sized 60–80% — anything smaller reads as a bright dot behind the headline."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: #7c5cff; --size: 70%; --str: .35; }
+    .bg { background: radial-gradient(circle var(--size) at 50% 30%, color-mix(in srgb, var(--c) calc(var(--str) * 100%), transparent), transparent 70%), #0b0d12; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

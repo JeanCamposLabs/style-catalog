@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tartan Plaid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "plaid-tartan-bg",
+    "title": "Tartan Plaid",
+    "summary": "Crossed bands of colour in a repeating tartan sett.",
+    "description": "Two identical stripe sets, one rotated 90°, blended with transparency give the woven overlap of real tartan.",
+    "theme": "backgrounds",
+    "categories": ["background", "pattern"],
+    "tags": ["plaid", "tartan", "woven", "fabric", "textile"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Band A", "default": "#7f1d1d" },
+      { "name": "--b", "description": "Band B", "default": "#14532d" },
+      { "name": "--line", "description": "Overcheck", "default": "#fbbf24" }
+    ],
+    "variations": ["Muted heather palette", "Larger sett for upholstery", "Diagonal tartan by rotating the whole layer"],
+    "ai_usage": "Fashion, seasonal, and heritage designs. Both stripe layers must use partial alpha so the crossings darken — opaque stripes lose the woven look entirely."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: #7f1d1d; --b: #14532d; --line: #fbbf24; }
+    .bg { background-color: #0b0d12;
+      background-image:
+        repeating-linear-gradient(90deg, rgba(127,29,29,.55) 0 40px, transparent 40px 90px, rgba(20,83,45,.5) 90px 130px, transparent 130px 180px, rgba(251,191,36,.5) 180px 184px, transparent 184px 220px),
+        repeating-linear-gradient(0deg, rgba(127,29,29,.55) 0 40px, transparent 40px 90px, rgba(20,83,45,.5) 90px 130px, transparent 130px 180px, rgba(251,191,36,.5) 180px 184px, transparent 184px 220px); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

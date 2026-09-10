@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aurora Ribbons</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "aurora-ribbons-bg",
+    "title": "Aurora Ribbons",
+    "summary": "Vertical light curtains sway and change colour.",
+    "description": "Tall blurred gradient columns skew and translate independently, producing the curtain motion aurora photos actually show.",
+    "theme": "backgrounds",
+    "categories": ["background", "ambient"],
+    "tags": ["aurora", "ribbons", "curtain", "night", "ambient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Sway period", "default": "14s" }
+    ],
+    "variations": ["Pink and violet substorm palette", "Fewer, wider curtains", "Add a star layer behind"],
+    "ai_usage": "Night, arctic, and dreamy themes. Curtains must be vertical, blurred, and skewed — a horizontal blurred gradient reads as a sunset, not an aurora."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background: linear-gradient(180deg, #04070f 0%, #071427 60%, #04070f 100%); overflow: hidden; }
+    .bg i { position: absolute; top: -20%; height: 140%; width: 26vw; filter: blur(38px); opacity: .55;
+      animation: sway var(--d) ease-in-out infinite alternate; }
+    @keyframes sway {
+      from { transform: translateX(-6vw) skewX(-8deg) scaleY(1); }
+      to { transform: translateX(8vw) skewX(10deg) scaleY(1.12); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <i style="left:6%;background:linear-gradient(180deg,transparent,#34d399,transparent);--d:14s"></i>
+    <i style="left:34%;background:linear-gradient(180deg,transparent,#22d3ee,transparent);--d:19s"></i>
+    <i style="left:62%;background:linear-gradient(180deg,transparent,#a78bfa,transparent);--d:23s"></i>
+  </div>
+</body>
+</html>

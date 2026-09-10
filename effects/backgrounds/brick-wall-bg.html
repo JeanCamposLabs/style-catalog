@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brick Wall</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "brick-wall-bg",
+    "title": "Brick Wall",
+    "summary": "Staggered brick courses with mortar gaps.",
+    "description": "Alternate rows offset by half a brick via two background layers with different positions.",
+    "theme": "backgrounds",
+    "categories": ["background", "texture"],
+    "tags": ["brick", "wall", "masonry", "texture", "offset"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--brick", "description": "Brick color", "default": "#3a2320" },
+      { "name": "--mortar", "description": "Mortar color", "default": "#1a1614" },
+      { "name": "--w", "description": "Brick width", "default": "64px" }
+    ],
+    "variations": ["Whitewashed brick", "Add noise for texture", "Vary brick tones per row with nth-child"],
+    "ai_usage": "Industrial, café, and loft aesthetics. The half-brick offset between alternating rows is the entire pattern; without it the wall reads as a plain grid."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --brick: #3a2320; --mortar: #1a1614; --w: 64px; }
+    .bg { background-color: var(--mortar);
+      background-image: linear-gradient(335deg, transparent 0, transparent 0),
+        linear-gradient(var(--brick) 28px, transparent 28px), linear-gradient(90deg, var(--brick) 60px, transparent 60px);
+      background-size: 100% 100%, var(--w) 32px, var(--w) 32px;
+      background-position: 0 0, 0 0, 0 0; }
+    .bg::after { content: ""; position: absolute; inset: 0;
+      background-image: linear-gradient(var(--brick) 28px, transparent 28px), linear-gradient(90deg, var(--brick) 60px, transparent 60px);
+      background-size: var(--w) 32px, var(--w) 32px; background-position: 32px 16px, 32px 16px; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

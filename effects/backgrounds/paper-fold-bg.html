@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Folded Paper</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "paper-fold-bg",
+    "title": "Folded Paper",
+    "summary": "Soft creases divide the surface into folded panels.",
+    "description": "Alternating light and shadow gradients along fold lines imply a sheet that has been folded and flattened.",
+    "theme": "backgrounds",
+    "categories": ["background", "paper"],
+    "tags": ["fold", "paper", "crease", "texture", "subtle"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--paper", "description": "Paper color", "default": "#151a26" },
+      { "name": "--crease", "description": "Crease strength", "default": "0.5" }
+    ],
+    "variations": ["Diagonal folds", "Deeper creases for heavier stock", "Add grain for realism"],
+    "ai_usage": "Editorial, packaging, and invitation designs. Fold lines need both a highlight and a shadow immediately adjacent — a single dark line reads as a printed rule, not a crease."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --paper: #151a26; --crease: .5; }
+    .bg { background-color: var(--paper);
+      background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 1px, transparent 1px 2px, rgba(0,0,0,.28) 2px 3px, transparent 3px 160px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 2px, rgba(0,0,0,.22) 2px 3px, transparent 3px 140px); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>
