@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stacked Progress Bar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "progress-stacked-bar",
+    "title": "Stacked Progress Bar",
+    "summary": "One bar split into labelled categories.",
+    "description": "One bar split into labelled categories.",
+    "theme": "progress-meters",
+    "categories": ["progress", "meter"],
+    "tags": ["progress", "indicator", "stacked", "segments", "breakdown", "storage"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+    "customization": [
+      { "name": "--a", "description": "Segment A", "default": "#7c5cff" },
+      { "name": "--b", "description": "Segment B", "default": "#2dd4bf" },
+      { "name": "--c", "description": "Segment C", "default": "#fbbf24" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Storage and budget breakdowns. Always ship a key: segment colours mean nothing without labels, and the segments are too small for inline text."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .sb { width: 300px; }
+    .sb .bar { display: flex; height: 16px; border-radius: 999px; overflow: hidden; background: #22304a; }
+    .sb .bar i { height: 100%; }
+    .sb .key { display: flex; gap: 1rem; margin-top: .7rem; font-size: .78rem; color: #8b93a7; }
+    .sb .key span { display: inline-flex; align-items: center; gap: .35rem; }
+    .sb .key b { width: 9px; height: 9px; border-radius: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sb"><div class="bar" role="img" aria-label="Documents 45%, media 28%, other 12%">
+    <i style="width:45%;background:#7c5cff"></i><i style="width:28%;background:#2dd4bf"></i><i style="width:12%;background:#fbbf24"></i>
+  </div><div class="key"><span><b style="background:#7c5cff"></b>Docs</span><span><b style="background:#2dd4bf"></b>Media</span><span><b style="background:#fbbf24"></b>Other</span></div></div>
+</body>
+</html>

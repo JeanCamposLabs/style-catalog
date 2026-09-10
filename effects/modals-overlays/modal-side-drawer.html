@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Side Drawer</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "modal-side-drawer",
+    "title": "Side Drawer",
+    "summary": "A panel that slides in from the right over a dimmed page.",
+    "description": "A panel that slides in from the right over a dimmed page.",
+    "theme": "modals-overlays",
+    "categories": ["modal", "overlay"],
+    "tags": ["modal", "dialog", "drawer", "side", "panel", "navigation"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.",
+    "customization": [
+      { "name": "--w", "description": "Drawer width", "default": "210px" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Filters, settings, and mobile navigation. Animate transform, not width or right — layout-driven drawers stutter on low-end devices."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .stage { position: relative; width: 330px; height: 250px; border-radius: 18px; overflow: hidden; background: #10141f; border: 1px solid #263149; }
+    .stage .content { padding: 1.2rem; color: #8b93a7; font-size: .9rem; }
+    .scrim { position: absolute; inset: 0; background: rgba(4,7,14,.6); opacity: 0; transition: opacity .3s; }
+    .drawer { position: absolute; top: 0; bottom: 0; right: 0; width: 210px; padding: 1.1rem; background: #1a2130;
+      transform: translateX(100%); transition: transform .32s cubic-bezier(.7,0,.2,1); }
+    .stage.is-open .drawer { transform: none; }
+    .stage.is-open .scrim { opacity: 1; }
+    .drawer h3 { margin: 0 0 .6rem; font-size: 1rem; }
+    .drawer a { display: block; padding: .45rem 0; color: #cbd5e1; text-decoration: none; font-size: .9rem; }
+    button { padding: .5rem 1rem; border-radius: 9px; border: 0; background: #7c5cff; color: #fff; font: inherit; cursor: pointer; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage is-open" id="dr"><div class="content">Slide-in panel.<br><br><button type="button" id="tgd">Toggle</button></div>
+  <div class="scrim"></div><nav class="drawer" aria-label="Filters"><h3>Filters</h3><a href="#">Recent</a><a href="#">Starred</a><a href="#">Shared</a><a href="#">Archived</a></nav></div>
+  <script>
+    (function () {
+      var d = document.getElementById("dr");
+      document.getElementById("tgd").addEventListener("click", function () { d.classList.toggle("is-open"); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checklist Progress</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "progress-checklist",
+    "title": "Checklist Progress",
+    "summary": "A list where completion drives a summary bar.",
+    "description": "A list where completion drives a summary bar.",
+    "theme": "progress-meters",
+    "categories": ["progress", "meter"],
+    "tags": ["progress", "indicator", "checklist", "tasks", "onboarding", "completion"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+    "customization": [
+      { "name": "--c", "description": "Complete colour", "default": "#34d399" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Onboarding and setup guides. Show the count as text as well as the bar — 3 of 5 is more motivating than an unlabelled 60%."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .cl { width: 280px; }
+    .cl .bar { height: 6px; border-radius: 99px; background: #22304a; overflow: hidden; margin-bottom: .9rem; }
+    .cl .bar i { display: block; height: 100%; width: 60%; background: #34d399; }
+    .cl ul { list-style: none; margin: 0; padding: 0; }
+    .cl li { display: flex; gap: .6rem; align-items: center; padding: .35rem 0; color: #cbd5e1; font-size: .9rem; }
+    .cl li.done { color: #8b93a7; text-decoration: line-through; }
+    .cl .box { width: 18px; height: 18px; border-radius: 6px; border: 1.5px solid #3b465e; display: grid; place-items: center; font-size: .7rem; }
+    .cl li.done .box { background: #34d399; border-color: #34d399; color: #052e2b; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cl"><div class="bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><i></i></div>
+  <ul><li class="done"><span class="box">✓</span>Create account</li><li class="done"><span class="box">✓</span>Verify email</li>
+  <li class="done"><span class="box">✓</span>Invite team</li><li><span class="box"></span>Connect repo</li><li><span class="box"></span>First deploy</li></ul></div>
+</body>
+</html>

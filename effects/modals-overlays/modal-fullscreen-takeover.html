@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fullscreen Takeover</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "modal-fullscreen-takeover",
+    "title": "Fullscreen Takeover",
+    "summary": "A panel that expands from a card to fill the frame.",
+    "description": "A panel that expands from a card to fill the frame.",
+    "theme": "modals-overlays",
+    "categories": ["modal", "overlay"],
+    "tags": ["modal", "dialog", "expand", "takeover", "shared-element", "transition"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.",
+    "customization": [
+      { "name": "--dur", "description": "Expand duration", "default": "0.45s" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Shared-element transitions. Animating one element from card to fullscreen preserves context far better than cross-fading two separate views."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .stage { position: relative; width: 320px; height: 220px; border-radius: 18px; overflow: hidden; background: #10141f; border: 1px solid #263149; }
+    .card { position: absolute; top: 20px; left: 20px; width: 130px; height: 90px; border-radius: 14px;
+      background: linear-gradient(135deg, #7c5cff, #2dd4bf); cursor: pointer; border: 0;
+      transition: all .45s cubic-bezier(.7,0,.2,1); }
+    .stage.is-open .card { top: 0; left: 0; width: 100%; height: 100%; border-radius: 0; }
+    .body { position: absolute; inset: 0; padding: 1.4rem; color: #0b0d12; opacity: 0; transition: opacity .3s .15s; pointer-events: none; }
+    .stage.is-open .body { opacity: 1; pointer-events: auto; }
+    .body h3 { margin: 0 0 .4rem; }
+    .body p { margin: 0 0 1rem; font-size: .88rem; }
+    .body button { padding: .45rem 1rem; border-radius: 8px; border: 0; background: #0b0d12; color: #fff; font: inherit; cursor: pointer; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage" id="tk"><button class="card" type="button" id="opn" aria-expanded="false" aria-label="Expand card"></button>
+  <div class="body"><h3>Expanded</h3><p>The same element grew to fill the frame.</p><button type="button" id="cls">Close</button></div></div>
+  <script>
+    (function () {
+      var s = document.getElementById("tk");
+      document.getElementById("opn").addEventListener("click", function () { s.classList.add("is-open"); });
+      document.getElementById("cls").addEventListener("click", function () { s.classList.remove("is-open"); });
+    })();
+  </script>
+</body>
+</html>

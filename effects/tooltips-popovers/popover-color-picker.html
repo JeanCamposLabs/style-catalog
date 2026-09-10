@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Popover Colour Picker</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "popover-color-picker",
+    "title": "Popover Colour Picker",
+    "summary": "A swatch grid that opens from a trigger.",
+    "description": "A swatch grid that opens from a trigger.",
+    "theme": "tooltips-popovers",
+    "categories": ["tooltip", "overlay"],
+    "tags": ["tooltip", "popover", "color", "picker", "swatches", "popover"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.",
+    "customization": [
+      { "name": "--cols", "description": "Swatch columns", "default": "5" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Theme and label pickers. Name every swatch in its accessible label; a grid of unlabelled colour buttons is unusable without sight."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .cp { position: relative; display: inline-block; }
+    .cp > button { display: flex; align-items: center; gap: .5rem; padding: .5rem .8rem; border-radius: 10px;
+      border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; cursor: pointer; }
+    .cp .dot { width: 18px; height: 18px; border-radius: 5px; background: #7c5cff; }
+    .panel { position: absolute; top: calc(100% + 8px); left: 0; padding: .6rem; border-radius: 12px; background: #141a28;
+      border: 1px solid #2b3450; display: none; grid-template-columns: repeat(5, 26px); gap: 6px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+    .cp.is-open .panel { display: grid; }
+    .panel button { width: 26px; height: 26px; border-radius: 7px; border: 0; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <span class="cp" id="cp"><button type="button" aria-expanded="false"><span class="dot" id="dot"></span>Accent</button>
+  <div class="panel" role="group" aria-label="Accent colour">
+    <button type="button" aria-label="Violet" style="background:#7c5cff"></button>
+    <button type="button" aria-label="Teal" style="background:#2dd4bf"></button>
+    <button type="button" aria-label="Pink" style="background:#f472b6"></button>
+    <button type="button" aria-label="Amber" style="background:#fbbf24"></button>
+    <button type="button" aria-label="Sky" style="background:#38bdf8"></button>
+  </div></span>
+  <script>
+    (function () {
+      var cp = document.getElementById("cp"), b = cp.querySelector("button"), dot = document.getElementById("dot");
+      b.addEventListener("click", function () { b.setAttribute("aria-expanded", String(cp.classList.toggle("is-open"))); });
+      cp.querySelector(".panel").addEventListener("click", function (e) {
+        var s = e.target.closest("button"); if (!s) return;
+        dot.style.background = getComputedStyle(s).backgroundColor;
+        cp.classList.remove("is-open"); b.setAttribute("aria-expanded", "false");
+      });
+    })();
+  </script>
+</body>
+</html>

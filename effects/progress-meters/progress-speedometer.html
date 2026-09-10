@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Speedometer</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "progress-speedometer",
+    "title": "Speedometer",
+    "summary": "A dial with tick marks and a rotating needle.",
+    "description": "A dial with tick marks and a rotating needle.",
+    "theme": "progress-meters",
+    "categories": ["progress", "meter"],
+    "tags": ["progress", "indicator", "speedometer", "dial", "needle", "ticks"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+    "customization": [
+      { "name": "--p", "description": "Value", "default": "62" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Performance and speed readouts. Map 0–100% to 180° of rotation (1.8° per percent) so the needle sweeps the whole dial exactly."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .sp { position: relative; width: 200px; height: 120px; overflow: hidden; }
+    .sp .face { width: 200px; height: 200px; border-radius: 50%; background: repeating-conic-gradient(from 180deg, #3b465e 0 1deg, transparent 1deg 15deg);
+      -webkit-mask: radial-gradient(farthest-side, transparent 72%, #000 73%); mask: radial-gradient(farthest-side, transparent 72%, #000 73%); }
+    .sp .needle { position: absolute; left: 50%; bottom: 0; width: 3px; height: 84px; background: #f87171; transform-origin: 50% 100%;
+      transform: translateX(-50%) rotate(calc(-90deg + var(--p) * 1.8deg)); border-radius: 2px; transition: transform .6s cubic-bezier(.34,1.56,.64,1); }
+    .sp .hub { position: absolute; left: 50%; bottom: -8px; translate: -50% 0; width: 18px; height: 18px; border-radius: 50%; background: #e7ebf3; }
+    .rd { text-align: center; margin-top: .4rem; font-weight: 800; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div><div class="sp" style="--p:62" role="meter" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" aria-label="Speed">
+    <div class="face"></div><div class="needle"></div><div class="hub"></div></div><div class="rd">62 Mbps</div></div>
+</body>
+</html>

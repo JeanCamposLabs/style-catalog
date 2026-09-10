@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thermometer Meter</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "progress-thermometer",
+    "title": "Thermometer Meter",
+    "summary": "A vertical bulb thermometer.",
+    "description": "A vertical bulb thermometer.",
+    "theme": "progress-meters",
+    "categories": ["progress", "meter"],
+    "tags": ["progress", "indicator", "thermometer", "vertical", "temperature", "fundraising"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+    "customization": [
+      { "name": "--p", "description": "Percent filled", "default": "64" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Fundraising totals and temperature. Anchor the fill to the bulb so a low percentage still shows colour at the base."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .th { position: relative; width: 44px; height: 190px; display: grid; place-items: end center; }
+    .th .tube { position: absolute; top: 0; width: 18px; height: 160px; border-radius: 999px 999px 0 0; background: #22304a; overflow: hidden; }
+    .th .fill { position: absolute; bottom: 0; width: 100%; height: calc(var(--p) * 1%); background: linear-gradient(#f87171, #fbbf24); }
+    .th .bulb { width: 42px; height: 42px; border-radius: 50%; background: #f87171; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="th" style="--p:64" role="img" aria-label="64 percent of goal"><div class="tube"><div class="fill"></div></div><div class="bulb"></div></div>
+</body>
+</html>
