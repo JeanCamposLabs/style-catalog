@@ -1,9 +1,9 @@
 {
   "name": "style-catalog",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "counts": {
     "themes": 22,
-    "effects": 176
+    "effects": 181
   },
   "themes": [
     {
@@ -20,7 +20,7 @@
       "description": "Full UI blocks that compose multiple effects together — heroes, pricing cards, navbars, CTAs, and forms. Copy a whole section, not just one trick.",
       "icon": "🧩",
       "order": 5,
-      "count": 4
+      "count": 5
     },
     {
       "slug": "text-effects",
@@ -60,7 +60,7 @@
       "description": "Accessible, styled form controls — floating labels, toggles, animated checkboxes, and custom sliders.",
       "icon": "📝",
       "order": 45,
-      "count": 7
+      "count": 8
     },
     {
       "slug": "loaders-spinners",
@@ -148,7 +148,7 @@
       "description": "Nostalgia from the 90s/2000s web — marquees, blink, starfields, visitor counters, and rainbow text. Modern, accessible reimplementations of deprecated tags.",
       "icon": "💾",
       "order": 140,
-      "count": 4
+      "count": 5
     },
     {
       "slug": "color-systems",
@@ -156,7 +156,7 @@
       "description": "Design-choice references (beyond single effects) — palettes, gradient libraries, and semantic color tokens you can copy as CSS custom properties.",
       "icon": "🎨",
       "order": 200,
-      "count": 4
+      "count": 5
     },
     {
       "slug": "typography-systems",
@@ -180,7 +180,7 @@
       "description": "Motion-design references — easing curves and a duration scale, as copy-ready tokens for consistent animation.",
       "icon": "🌀",
       "order": 230,
-      "count": 3
+      "count": 4
     }
   ],
   "facets": {
@@ -193,7 +193,7 @@
       {
         "slug": "combos-recipes",
         "title": "Combination Recipes",
-        "count": 4
+        "count": 5
       },
       {
         "slug": "text-effects",
@@ -218,7 +218,7 @@
       {
         "slug": "forms-inputs",
         "title": "Forms & Inputs",
-        "count": 7
+        "count": 8
       },
       {
         "slug": "loaders-spinners",
@@ -273,12 +273,12 @@
       {
         "slug": "retro-web",
         "title": "Retro Web",
-        "count": 4
+        "count": 5
       },
       {
         "slug": "color-systems",
         "title": "Color Systems",
-        "count": 4
+        "count": 5
       },
       {
         "slug": "typography-systems",
@@ -293,21 +293,21 @@
       {
         "slug": "motion-principles",
         "title": "Motion Principles",
-        "count": 3
+        "count": 4
       }
     ],
     "tech": [
       {
         "value": "css",
-        "count": 172
+        "count": 177
       },
       {
         "value": "js",
-        "count": 70
+        "count": 73
       },
       {
         "value": "html",
-        "count": 38
+        "count": 41
       },
       {
         "value": "svg",
@@ -321,11 +321,11 @@
     "difficulty": [
       {
         "value": "intermediate",
-        "count": 84
+        "count": 87
       },
       {
         "value": "beginner",
-        "count": 78
+        "count": 80
       },
       {
         "value": "advanced",
@@ -335,11 +335,11 @@
     "era": [
       {
         "value": "2020s",
-        "count": 124
+        "count": 126
       },
       {
         "value": "timeless",
-        "count": 25
+        "count": 27
       },
       {
         "value": "2010s",
@@ -347,7 +347,7 @@
       },
       {
         "value": "1990s",
-        "count": 4
+        "count": 5
       },
       {
         "value": "2000s",
@@ -372,11 +372,11 @@
         "count": 19
       },
       {
-        "value": "hover",
-        "count": 13
+        "value": "reference",
+        "count": 15
       },
       {
-        "value": "reference",
+        "value": "hover",
         "count": 13
       },
       {
@@ -409,7 +409,7 @@
       },
       {
         "value": "form",
-        "count": 8
+        "count": 9
       },
       {
         "value": "image",
@@ -417,6 +417,22 @@
       },
       {
         "value": "navigation",
+        "count": 8
+      },
+      {
+        "value": "color",
+        "count": 7
+      },
+      {
+        "value": "design-tokens",
+        "count": 7
+      },
+      {
+        "value": "layout",
+        "count": 7
+      },
+      {
+        "value": "retro",
         "count": 7
       },
       {
@@ -428,19 +444,7 @@
         "count": 6
       },
       {
-        "value": "color",
-        "count": 6
-      },
-      {
         "value": "cursor",
-        "count": 6
-      },
-      {
-        "value": "layout",
-        "count": 6
-      },
-      {
-        "value": "retro",
         "count": 6
       },
       {
@@ -452,15 +456,15 @@
         "count": 5
       },
       {
-        "value": "design-tokens",
-        "count": 5
-      },
-      {
         "value": "feedback",
         "count": 5
       },
       {
         "value": "filter",
+        "count": 5
+      },
+      {
+        "value": "input",
         "count": 5
       },
       {
@@ -496,11 +500,11 @@
         "count": 4
       },
       {
-        "value": "input",
+        "value": "micro-interaction",
         "count": 4
       },
       {
-        "value": "micro-interaction",
+        "value": "motion",
         "count": 4
       },
       {
@@ -533,10 +537,6 @@
       },
       {
         "value": "menu",
-        "count": 3
-      },
-      {
-        "value": "motion",
         "count": 3
       },
       {
@@ -597,6 +597,10 @@
       },
       {
         "value": "dropdown",
+        "count": 2
+      },
+      {
+        "value": "easing",
         "count": 2
       },
       {
@@ -684,6 +688,10 @@
         "count": 2
       },
       {
+        "value": "accessibility",
+        "count": 1
+      },
+      {
         "value": "accordion",
         "count": 1
       },
@@ -705,6 +713,10 @@
       },
       {
         "value": "auth",
+        "count": 1
+      },
+      {
+        "value": "block",
         "count": 1
       },
       {
@@ -740,6 +752,10 @@
         "count": 1
       },
       {
+        "value": "counter",
+        "count": 1
+      },
+      {
         "value": "css",
         "count": 1
       },
@@ -761,6 +777,10 @@
       },
       {
         "value": "decoration",
+        "count": 1
+      },
+      {
+        "value": "decorative",
         "count": 1
       },
       {
@@ -792,11 +812,11 @@
         "count": 1
       },
       {
-        "value": "duration",
+        "value": "drag-and-drop",
         "count": 1
       },
       {
-        "value": "easing",
+        "value": "duration",
         "count": 1
       },
       {
@@ -829,6 +849,10 @@
       },
       {
         "value": "fonts",
+        "count": 1
+      },
+      {
+        "value": "footer",
         "count": 1
       },
       {
@@ -889,6 +913,10 @@
       },
       {
         "value": "morph",
+        "count": 1
+      },
+      {
+        "value": "nostalgia",
         "count": 1
       },
       {
@@ -960,6 +988,10 @@
         "count": 1
       },
       {
+        "value": "upload",
+        "count": 1
+      },
+      {
         "value": "utility",
         "count": 1
       },
@@ -998,15 +1030,19 @@
         "count": 8
       },
       {
+        "value": "grid",
+        "count": 8
+      },
+      {
         "value": "reveal",
         "count": 8
       },
       {
-        "value": "glow",
-        "count": 7
+        "value": "tokens",
+        "count": 8
       },
       {
-        "value": "grid",
+        "value": "glow",
         "count": 7
       },
       {
@@ -1030,6 +1066,10 @@
         "count": 6
       },
       {
+        "value": "progress",
+        "count": 6
+      },
+      {
         "value": "rotate",
         "count": 6
       },
@@ -1038,8 +1078,8 @@
         "count": 6
       },
       {
-        "value": "tokens",
-        "count": 6
+        "value": "90s",
+        "count": 5
       },
       {
         "value": "accessible",
@@ -1078,20 +1118,12 @@
         "count": 5
       },
       {
-        "value": "progress",
-        "count": 5
-      },
-      {
         "value": "saas",
         "count": 5
       },
       {
         "value": "stroke",
         "count": 5
-      },
-      {
-        "value": "90s",
-        "count": 4
       },
       {
         "value": "ambient",
@@ -1130,6 +1162,10 @@
         "count": 4
       },
       {
+        "value": "input",
+        "count": 4
+      },
+      {
         "value": "loader",
         "count": 4
       },
@@ -1147,6 +1183,14 @@
       },
       {
         "value": "particles",
+        "count": 4
+      },
+      {
+        "value": "responsive",
+        "count": 4
+      },
+      {
+        "value": "retro",
         "count": 4
       },
       {
@@ -1210,6 +1254,10 @@
         "count": 3
       },
       {
+        "value": "columns",
+        "count": 3
+      },
+      {
         "value": "conic",
         "count": 3
       },
@@ -1230,15 +1278,19 @@
         "count": 3
       },
       {
+        "value": "form",
+        "count": 3
+      },
+      {
         "value": "frosted",
         "count": 3
       },
       {
-        "value": "glitch",
+        "value": "geocities",
         "count": 3
       },
       {
-        "value": "input",
+        "value": "glitch",
         "count": 3
       },
       {
@@ -1247,6 +1299,10 @@
       },
       {
         "value": "kinetic",
+        "count": 3
+      },
+      {
+        "value": "linear",
         "count": 3
       },
       {
@@ -1266,11 +1322,23 @@
         "count": 3
       },
       {
+        "value": "motion",
+        "count": 3
+      },
+      {
         "value": "noise",
         "count": 3
       },
       {
+        "value": "nostalgia",
+        "count": 3
+      },
+      {
         "value": "organic",
+        "count": 3
+      },
+      {
+        "value": "palette",
         "count": 3
       },
       {
@@ -1283,14 +1351,6 @@
       },
       {
         "value": "radial",
-        "count": 3
-      },
-      {
-        "value": "responsive",
-        "count": 3
-      },
-      {
-        "value": "retro",
         "count": 3
       },
       {
@@ -1326,6 +1386,10 @@
         "count": 3
       },
       {
+        "value": "accessibility",
+        "count": 2
+      },
+      {
         "value": "agency",
         "count": 2
       },
@@ -1359,6 +1423,10 @@
       },
       {
         "value": "auth",
+        "count": 2
+      },
+      {
+        "value": "auto-fit",
         "count": 2
       },
       {
@@ -1410,10 +1478,6 @@
         "count": 2
       },
       {
-        "value": "columns",
-        "count": 2
-      },
-      {
         "value": "comparison",
         "count": 2
       },
@@ -1462,6 +1526,10 @@
         "count": 2
       },
       {
+        "value": "easing",
+        "count": 2
+      },
+      {
         "value": "entrance",
         "count": 2
       },
@@ -1499,14 +1567,6 @@
       },
       {
         "value": "focus",
-        "count": 2
-      },
-      {
-        "value": "form",
-        "count": 2
-      },
-      {
-        "value": "geocities",
         "count": 2
       },
       {
@@ -1578,10 +1638,6 @@
         "count": 2
       },
       {
-        "value": "linear",
-        "count": 2
-      },
-      {
         "value": "link",
         "count": 2
       },
@@ -1614,10 +1670,6 @@
         "count": 2
       },
       {
-        "value": "motion",
-        "count": 2
-      },
-      {
         "value": "music",
         "count": 2
       },
@@ -1634,15 +1686,7 @@
         "count": 2
       },
       {
-        "value": "nostalgia",
-        "count": 2
-      },
-      {
         "value": "orbit",
-        "count": 2
-      },
-      {
-        "value": "palette",
         "count": 2
       },
       {
@@ -1702,6 +1746,10 @@
         "count": 2
       },
       {
+        "value": "spring",
+        "count": 2
+      },
+      {
         "value": "stroke-dashoffset",
         "count": 2
       },
@@ -1742,6 +1790,10 @@
         "count": 2
       },
       {
+        "value": "timing-function",
+        "count": 2
+      },
+      {
         "value": "topbar",
         "count": 2
       },
@@ -1755,6 +1807,10 @@
       },
       {
         "value": "validation",
+        "count": 2
+      },
+      {
+        "value": "visitor-counter",
         "count": 2
       },
       {
@@ -1783,6 +1839,10 @@
       },
       {
         "value": "50-50",
+        "count": 1
+      },
+      {
+        "value": "a11y",
         "count": 1
       },
       {
@@ -1850,15 +1910,15 @@
         "count": 1
       },
       {
+        "value": "audit",
+        "count": 1
+      },
+      {
         "value": "aurora-ui",
         "count": 1
       },
       {
         "value": "auto-advance",
-        "count": 1
-      },
-      {
-        "value": "auto-fit",
         "count": 1
       },
       {
@@ -1923,6 +1983,10 @@
       },
       {
         "value": "blobs",
+        "count": 1
+      },
+      {
+        "value": "block",
         "count": 1
       },
       {
@@ -2066,6 +2130,10 @@
         "count": 1
       },
       {
+        "value": "color",
+        "count": 1
+      },
+      {
         "value": "color-space",
         "count": 1
       },
@@ -2098,6 +2166,10 @@
         "count": 1
       },
       {
+        "value": "contrast",
+        "count": 1
+      },
+      {
         "value": "corner",
         "count": 1
       },
@@ -2119,6 +2191,10 @@
       },
       {
         "value": "crop",
+        "count": 1
+      },
+      {
+        "value": "crt",
         "count": 1
       },
       {
@@ -2147,6 +2223,10 @@
       },
       {
         "value": "cylinder",
+        "count": 1
+      },
+      {
+        "value": "damping",
         "count": 1
       },
       {
@@ -2234,7 +2314,19 @@
         "count": 1
       },
       {
+        "value": "drag-and-drop",
+        "count": 1
+      },
+      {
+        "value": "dragover",
+        "count": 1
+      },
+      {
         "value": "draw-on",
+        "count": 1
+      },
+      {
+        "value": "dropzone",
         "count": 1
       },
       {
@@ -2251,10 +2343,6 @@
       },
       {
         "value": "earthy",
-        "count": 1
-      },
-      {
-        "value": "easing",
         "count": 1
       },
       {
@@ -2318,6 +2406,10 @@
         "count": 1
       },
       {
+        "value": "file-upload",
+        "count": 1
+      },
+      {
         "value": "film",
         "count": 1
       },
@@ -2363,6 +2455,10 @@
       },
       {
         "value": "food",
+        "count": 1
+      },
+      {
+        "value": "footer",
         "count": 1
       },
       {
@@ -2447,6 +2543,10 @@
       },
       {
         "value": "highlight",
+        "count": 1
+      },
+      {
+        "value": "hit-counter",
         "count": 1
       },
       {
@@ -2546,6 +2646,14 @@
         "count": 1
       },
       {
+        "value": "led",
+        "count": 1
+      },
+      {
+        "value": "legal",
+        "count": 1
+      },
+      {
         "value": "library",
         "count": 1
       },
@@ -2586,6 +2694,10 @@
         "count": 1
       },
       {
+        "value": "links",
+        "count": 1
+      },
+      {
         "value": "linktree",
         "count": 1
       },
@@ -2615,6 +2727,10 @@
       },
       {
         "value": "lqip",
+        "count": 1
+      },
+      {
+        "value": "luminance",
         "count": 1
       },
       {
@@ -2742,6 +2858,10 @@
         "count": 1
       },
       {
+        "value": "newsletter",
+        "count": 1
+      },
+      {
         "value": "northern-lights",
         "count": 1
       },
@@ -2762,6 +2882,10 @@
         "count": 1
       },
       {
+        "value": "odometer",
+        "count": 1
+      },
+      {
         "value": "oklch",
         "count": 1
       },
@@ -2775,6 +2899,10 @@
       },
       {
         "value": "overlay",
+        "count": 1
+      },
+      {
+        "value": "overshoot",
         "count": 1
       },
       {
@@ -2819,6 +2947,10 @@
       },
       {
         "value": "physical",
+        "count": 1
+      },
+      {
+        "value": "physics",
         "count": 1
       },
       {
@@ -2910,11 +3042,19 @@
         "count": 1
       },
       {
+        "value": "queue",
+        "count": 1
+      },
+      {
         "value": "rainbow",
         "count": 1
       },
       {
         "value": "ratings",
+        "count": 1
+      },
+      {
+        "value": "ratio",
         "count": 1
       },
       {
@@ -3026,6 +3166,10 @@
         "count": 1
       },
       {
+        "value": "scanlines",
+        "count": 1
+      },
+      {
         "value": "schedule",
         "count": 1
       },
@@ -3070,6 +3214,10 @@
         "count": 1
       },
       {
+        "value": "seven-segment",
+        "count": 1
+      },
+      {
         "value": "shake",
         "count": 1
       },
@@ -3099,6 +3247,10 @@
       },
       {
         "value": "signature",
+        "count": 1
+      },
+      {
+        "value": "site-footer",
         "count": 1
       },
       {
@@ -3167,10 +3319,6 @@
       },
       {
         "value": "spotify",
-        "count": 1
-      },
-      {
-        "value": "spring",
         "count": 1
       },
       {
@@ -3310,10 +3458,6 @@
         "count": 1
       },
       {
-        "value": "timing-function",
-        "count": 1
-      },
-      {
         "value": "toc",
         "count": 1
       },
@@ -3382,10 +3526,6 @@
         "count": 1
       },
       {
-        "value": "visitor-counter",
-        "count": 1
-      },
-      {
         "value": "vw",
         "count": 1
       },
@@ -3399,6 +3539,10 @@
       },
       {
         "value": "wash",
+        "count": 1
+      },
+      {
+        "value": "wcag",
         "count": 1
       },
       {
@@ -5232,6 +5376,68 @@
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Semantic Color Tokens</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"semantic-color-tokens\",\n    \"title\": \"Semantic Color Tokens\",\n    \"summary\": \"A two-tier color token system (primitive scale → semantic roles) as copy-ready CSS custom properties.\",\n    \"description\": \"A reference specimen, not an animation: defines a primitive color scale (--blue-50…900 etc.) and maps it to semantic roles (--color-bg, --color-text, --color-primary, --color-danger…). This is the backbone of a themeable design system.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"design-tokens\", \"color\", \"theming\", \"reference\"],\n    \"tags\": [\"tokens\", \"design-system\", \"palette\", \"semantic\", \"css-variables\", \"theming\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers (CSS custom properties).\",\n    \"performance_notes\": \"Variables only; no runtime cost.\",\n    \"accessibility_notes\": \"Token pairs are chosen for WCAG contrast (text-on-bg, text-on-primary). When adding tokens, verify contrast ratios (>=4.5:1 for body text).\",\n    \"customization\": [\n      { \"name\": \"primitive scale\", \"description\": \"Raw hues with numeric steps (50-900)\", \"default\": \"see :root\" },\n      { \"name\": \"semantic roles\", \"description\": \"Intent-named vars mapping to primitives\", \"default\": \"see :root\" }\n    ],\n    \"variations\": [\"Add a [data-theme=light] override block\", \"Extend with success/warning/info roles\", \"Generate the scale with oklch() for perceptual uniformity\"],\n    \"related\": [\"gradient-library\", \"dark-mode-tokens\", \"type-scale\"],\n    \"ai_usage\": \"This is a copy-paste DESIGN TOKEN foundation, not a visual effect. Lift the :root block into your project. Use the TWO-TIER pattern: primitives (--blue-500) hold raw values; semantic tokens (--color-primary: var(--blue-500)) express intent and are what components reference. Never hardcode hex in components — reference semantic tokens so themes/dark-mode swap cleanly. Verify contrast for every text/bg pairing you introduce.\"\n  }\n  </script>\n  <style>\n    :root {\n      /* primitives */\n      --gray-50:#f8fafc; --gray-100:#eef1f6; --gray-300:#cbd3e1; --gray-500:#64748b; --gray-700:#334155; --gray-900:#0f172a;\n      --violet-300:#c4b5fd; --violet-500:#7c5cff; --violet-700:#5b3ee0;\n      --teal-500:#2dd4bf; --red-500:#ef4444; --amber-500:#f59e0b; --green-500:#22c55e;\n      /* semantic roles (dark theme) */\n      --color-bg: var(--gray-900); --color-surface:#151925; --color-border:#262c3d;\n      --color-text: var(--gray-50); --color-text-muted: var(--gray-500);\n      --color-primary: var(--violet-500); --color-primary-text:#fff;\n      --color-danger: var(--red-500); --color-warning: var(--amber-500); --color-success: var(--green-500);\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: var(--color-bg); color: var(--color-text); font-family: system-ui, sans-serif; padding: 1.2rem; overflow:auto; }\n    h2 { margin: 0 0 1rem; font-size: 1.1rem; }\n    .group { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted); margin: 1rem 0 .4rem; }\n    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px,1fr)); gap: .5rem; }\n    .sw { border-radius: 10px; padding: .7rem; border: 1px solid var(--color-border); font-size: .72rem; }\n    .sw b { display: block; font-size: .8rem; }\n    .chip { height: 26px; border-radius: 6px; margin-bottom: .4rem; border: 1px solid rgba(255,255,255,.1); }\n  </style>\n</head>\n<body>\n  <h2>Semantic tokens (dark theme)</h2>\n  <div class=\"swatches\">\n    <div class=\"sw\"><div class=\"chip\" style=\"background:var(--color-bg)\"></div><b>bg</b>gray-900</div>\n    <div class=\"sw\"><div class=\"chip\" style=\"background:var(--color-surface)\"></div><b>surface</b></div>\n    <div class=\"sw\"><div class=\"chip\" style=\"background:var(--color-primary)\"></div><b>primary</b>violet-500</div>\n    <div class=\"sw\"><div class=\"chip\" style=\"background:var(--color-success)\"></div><b>success</b></div>\n    <div class=\"sw\"><div class=\"chip\" style=\"background:var(--color-warning)\"></div><b>warning</b></div>\n    <div class=\"sw\"><div class=\"chip\" style=\"background:var(--color-danger)\"></div><b>danger</b></div>\n  </div>\n  <p class=\"group\">Primitive scale (excerpt)</p>\n  <div class=\"swatches\">\n    <div class=\"sw\"><div class=\"chip\" style=\"background:var(--violet-300)\"></div><b>violet-300</b></div>\n    <div class=\"sw\"><div class=\"chip\" style=\"background:var(--violet-500)\"></div><b>violet-500</b></div>\n    <div class=\"sw\"><div class=\"chip\" style=\"background:var(--violet-700)\"></div><b>violet-700</b></div>\n    <div class=\"sw\"><div class=\"chip\" style=\"background:var(--teal-500)\"></div><b>teal-500</b></div>\n  </div>\n</body>\n</html>\n"
     },
     {
+      "id": "contrast-grid",
+      "title": "WCAG Contrast Grid",
+      "summary": "Every foreground/background pair in a palette, scored against WCAG 2.1 contrast thresholds and labelled AAA / AA / AA-Large / fail.",
+      "description": "A palette is only usable in the combinations that actually pass contrast, and that is not obvious by eye — mid-tone accents on dark surfaces fail far more often than designers expect. This specimen takes a set of tokens, computes the real WCAG 2.1 contrast ratio for every foreground-on-background pair, and renders the matrix with each cell showing its ratio and grade. The maths is the spec formula, not an approximation: sRGB channels are linearised, relative luminance is weighted 0.2126/0.7152/0.0722, and the ratio is (L_light + 0.05) / (L_dark + 0.05).",
+      "theme": "color-systems",
+      "themeTitle": "Color Systems",
+      "categories": [
+        "color",
+        "accessibility",
+        "design-tokens",
+        "reference"
+      ],
+      "tags": [
+        "contrast",
+        "wcag",
+        "accessibility",
+        "a11y",
+        "color",
+        "palette",
+        "tokens",
+        "luminance",
+        "ratio",
+        "audit"
+      ],
+      "tech": [
+        "css",
+        "js"
+      ],
+      "era": "timeless",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers. Plain DOM and arithmetic, no color-space APIs required.",
+      "performance_notes": "One pass over N×N pairs at load; a 6-token palette is 36 cells. Nothing animates and nothing recomputes unless the palette changes.",
+      "accessibility_notes": "The grid is a real table with scope-ed headers, so it reads correctly in a screen reader. Grade is never carried by colour alone — every cell states its ratio and its grade as text. Note WCAG 2.1 ratios ignore how the eye actually responds at low luminance; APCA (WCAG 3 draft) scores dark-mode pairs more faithfully, so treat a bare pass on dark surfaces as a floor, not a target.",
+      "customization": [
+        {
+          "name": "PALETTE",
+          "description": "The tokens to cross-check — swap in your own name/hex pairs",
+          "default": "6 tokens"
+        },
+        {
+          "name": "thresholds",
+          "description": "WCAG 2.1 cutoffs: 7 = AAA, 4.5 = AA, 3 = AA Large (18pt+/14pt bold) and non-text UI",
+          "default": "7 / 4.5 / 3"
+        }
+      ],
+      "variations": [
+        "Restrict rows to text tokens and columns to surface tokens — the pairs you would actually ship",
+        "Emit the failures as a build-time check that fails CI when a shipped pair regresses",
+        "Score with APCA instead for dark-heavy interfaces",
+        "Add a column for the smallest passing font size per pair"
+      ],
+      "related": [
+        "semantic-color-tokens",
+        "dark-mode-tokens",
+        "oklch-gradient"
+      ],
+      "ai_usage": "Use this to audit a palette BEFORE committing tokens, and to answer 'can I put this colour on that one'. Drop your tokens into PALETTE as {name, hex} and read the matrix.\n\nThe formula, if you are reimplementing it: convert each sRGB channel to 0–1, linearise with c <= 0.03928 ? c/12.92 : ((c+0.055)/1.055)^2.4, take L = 0.2126R + 0.7152G + 0.0722B, then ratio = (Llighter + 0.05) / (Ldarker + 0.05). Ratio runs 1 (identical) to 21 (black on white). Thresholds: 4.5 for body text (AA), 7 for AAA, 3 for large text (18pt / 14pt bold) and for non-text UI such as icons, focus rings, and input borders.\n\nApply it: body copy needs 4.5 minimum — do not ship a 3.2 accent as a text colour just because it looks fine to you on a calibrated display. Placeholder text, disabled states, and thin icon strokes are the usual silent failures. Contrast is symmetric, so the matrix is mirrored; you only need one triangle.\n\nCaveats worth passing on: WCAG 2.1 is known to be lenient on dark backgrounds and harsh on mid-tones, so a 4.6 on a near-black surface can still read poorly — prefer APCA there. And never encode pass/fail in colour alone in your own UI; state the number.",
+      "path": "effects/color-systems/contrast-grid.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>WCAG Contrast Grid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"contrast-grid\",\n    \"title\": \"WCAG Contrast Grid\",\n    \"summary\": \"Every foreground/background pair in a palette, scored against WCAG 2.1 contrast thresholds and labelled AAA / AA / AA-Large / fail.\",\n    \"description\": \"A palette is only usable in the combinations that actually pass contrast, and that is not obvious by eye — mid-tone accents on dark surfaces fail far more often than designers expect. This specimen takes a set of tokens, computes the real WCAG 2.1 contrast ratio for every foreground-on-background pair, and renders the matrix with each cell showing its ratio and grade. The maths is the spec formula, not an approximation: sRGB channels are linearised, relative luminance is weighted 0.2126/0.7152/0.0722, and the ratio is (L_light + 0.05) / (L_dark + 0.05).\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"color\", \"accessibility\", \"design-tokens\", \"reference\"],\n    \"tags\": [\"contrast\", \"wcag\", \"accessibility\", \"a11y\", \"color\", \"palette\", \"tokens\", \"luminance\", \"ratio\", \"audit\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers. Plain DOM and arithmetic, no color-space APIs required.\",\n    \"performance_notes\": \"One pass over N×N pairs at load; a 6-token palette is 36 cells. Nothing animates and nothing recomputes unless the palette changes.\",\n    \"accessibility_notes\": \"The grid is a real table with scope-ed headers, so it reads correctly in a screen reader. Grade is never carried by colour alone — every cell states its ratio and its grade as text. Note WCAG 2.1 ratios ignore how the eye actually responds at low luminance; APCA (WCAG 3 draft) scores dark-mode pairs more faithfully, so treat a bare pass on dark surfaces as a floor, not a target.\",\n    \"customization\": [\n      { \"name\": \"PALETTE\", \"description\": \"The tokens to cross-check — swap in your own name/hex pairs\", \"default\": \"6 tokens\" },\n      { \"name\": \"thresholds\", \"description\": \"WCAG 2.1 cutoffs: 7 = AAA, 4.5 = AA, 3 = AA Large (18pt+/14pt bold) and non-text UI\", \"default\": \"7 / 4.5 / 3\" }\n    ],\n    \"variations\": [\n      \"Restrict rows to text tokens and columns to surface tokens — the pairs you would actually ship\",\n      \"Emit the failures as a build-time check that fails CI when a shipped pair regresses\",\n      \"Score with APCA instead for dark-heavy interfaces\",\n      \"Add a column for the smallest passing font size per pair\"\n    ],\n    \"related\": [\"semantic-color-tokens\", \"dark-mode-tokens\", \"oklch-gradient\"],\n    \"ai_usage\": \"Use this to audit a palette BEFORE committing tokens, and to answer 'can I put this colour on that one'. Drop your tokens into PALETTE as {name, hex} and read the matrix.\\n\\nThe formula, if you are reimplementing it: convert each sRGB channel to 0–1, linearise with c <= 0.03928 ? c/12.92 : ((c+0.055)/1.055)^2.4, take L = 0.2126R + 0.7152G + 0.0722B, then ratio = (Llighter + 0.05) / (Ldarker + 0.05). Ratio runs 1 (identical) to 21 (black on white). Thresholds: 4.5 for body text (AA), 7 for AAA, 3 for large text (18pt / 14pt bold) and for non-text UI such as icons, focus rings, and input borders.\\n\\nApply it: body copy needs 4.5 minimum — do not ship a 3.2 accent as a text colour just because it looks fine to you on a calibrated display. Placeholder text, disabled states, and thin icon strokes are the usual silent failures. Contrast is symmetric, so the matrix is mirrored; you only need one triangle.\\n\\nCaveats worth passing on: WCAG 2.1 is known to be lenient on dark backgrounds and harsh on mid-tones, so a 4.6 on a near-black surface can still read poorly — prefer APCA there. And never encode pass/fail in colour alone in your own UI; state the number.\"\n  }\n  </script>\n  <style>\n    :root {\n      --bg: #0b0d12;\n      --surface: #12151f;\n      --line: #262c3d;\n      --text: #e7ebf3;\n      --muted: #8b93a7;\n      --pass: #2dd4bf;\n      --warn: #f5b445;\n      --fail: #f2555a;\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body {\n      background: var(--bg); color: var(--text);\n      font-family: system-ui, sans-serif; padding: 1rem;\n      display: grid; align-content: center; justify-items: center;\n    }\n    table { border-collapse: collapse; font-size: .62rem; }\n    caption {\n      caption-side: top; text-align: left; padding-bottom: .6rem;\n      font-size: .7rem; color: var(--muted); letter-spacing: .04em;\n    }\n    caption b { color: var(--text); font-weight: 600; letter-spacing: 0; }\n    th, td { border: 1px solid var(--line); padding: .3rem .34rem; text-align: center; }\n    thead th, tbody th { background: var(--surface); color: var(--muted); font-weight: 500; }\n    tbody th { text-align: right; }\n    .sw {\n      display: inline-block; width: 9px; height: 9px; border-radius: 2px;\n      margin-right: .28rem; vertical-align: -1px; border: 1px solid #ffffff22;\n    }\n    td { font-family: ui-monospace, Menlo, monospace; line-height: 1.25; }\n    td .r { display: block; font-size: .68rem; font-weight: 600; }\n    td .g { display: block; font-size: .52rem; letter-spacing: .06em; opacity: .85; }\n    /* The ratio is drawn in the actual fg-on-bg pair, so a failing pair looks\n       as bad as it scores. The grade beneath it carries an auto-picked ink so\n       the reading is never itself a contrast failure. */\n    td .g { border-radius: 3px; padding: 0 .2rem; font-weight: 700; }\n    .self { color: #4a5268; }\n  </style>\n</head>\n<body>\n  <table id=\"grid\">\n    <caption><b>WCAG 2.1 contrast</b> — foreground (row) on background (column)</caption>\n  </table>\n\n  <script>\n    // Swap these for your own tokens; everything below is derived.\n    var PALETTE = [\n      { name: \"text\",    hex: \"#e7ebf3\" },\n      { name: \"muted\",   hex: \"#8b93a7\" },\n      { name: \"accent\",  hex: \"#7c5cff\" },\n      { name: \"accent-2\",hex: \"#2dd4bf\" },\n      { name: \"surface\", hex: \"#12151f\" },\n      { name: \"bg\",      hex: \"#0b0d12\" }\n    ];\n\n    // WCAG 2.1 relative luminance: linearise each sRGB channel, then weight it.\n    function luminance(hex) {\n      var n = parseInt(hex.slice(1), 16);\n      var ch = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(function (v) {\n        var c = v / 255;\n        return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);\n      });\n      return 0.2126 * ch[0] + 0.7152 * ch[1] + 0.0722 * ch[2];\n    }\n    function ratio(a, b) {\n      var la = luminance(a), lb = luminance(b);\n      var hi = Math.max(la, lb), lo = Math.min(la, lb);\n      return (hi + 0.05) / (lo + 0.05);\n    }\n    // WCAG 2.1 cutoffs. 3 also covers non-text UI (icons, focus rings, borders).\n    function grade(r) {\n      if (r >= 7) return { cls: \"aaa\", label: \"AAA\" };\n      if (r >= 4.5) return { cls: \"aa\", label: \"AA\" };\n      if (r >= 3) return { cls: \"aal\", label: \"AA LG\" };\n      return { cls: \"no\", label: \"FAIL\" };\n    }\n\n    // Black or white ink, whichever scores higher against this background.\n    function pickInk(hex) {\n      var onWhite = ratio(hex, \"#ffffff\"), onBlack = ratio(hex, \"#000000\");\n      return onBlack >= onWhite\n        ? { fg: \"#000000\", bg: \"#ffffffcc\" }\n        : { fg: \"#ffffff\", bg: \"#00000099\" };\n    }\n\n    var table = document.getElementById(\"grid\");\n    var head = document.createElement(\"thead\");\n    var hr = document.createElement(\"tr\");\n    hr.appendChild(document.createElement(\"td\"));\n    PALETTE.forEach(function (c) {\n      var th = document.createElement(\"th\");\n      th.scope = \"col\";\n      th.innerHTML = '<span class=\"sw\" style=\"background:' + c.hex + '\"></span>' + c.name;\n      hr.appendChild(th);\n    });\n    head.appendChild(hr);\n    table.appendChild(head);\n\n    var body = document.createElement(\"tbody\");\n    PALETTE.forEach(function (fg) {\n      var tr = document.createElement(\"tr\");\n      var th = document.createElement(\"th\");\n      th.scope = \"row\";\n      th.innerHTML = '<span class=\"sw\" style=\"background:' + fg.hex + '\"></span>' + fg.name;\n      tr.appendChild(th);\n      PALETTE.forEach(function (bg) {\n        var td = document.createElement(\"td\");\n        if (fg.hex === bg.hex) {\n          td.className = \"self\";\n          td.innerHTML = '<span class=\"r\">—</span><span class=\"g\">SAME</span>';\n        } else {\n          var r = ratio(fg.hex, bg.hex), g = grade(r);\n          td.style.background = bg.hex;\n          td.style.color = fg.hex;\n          var ink = pickInk(bg.hex);\n          // Grade is stated as text, never carried by colour alone.\n          td.innerHTML =\n            '<span class=\"r\">' + r.toFixed(2) + '</span>' +\n            '<span class=\"g\" style=\"color:' + ink.fg + ';background:' + ink.bg + '\">' + g.label + '</span>';\n        }\n        tr.appendChild(td);\n      });\n      body.appendChild(tr);\n    });\n    table.appendChild(body);\n  </script>\n</body>\n</html>\n"
+    },
+    {
       "id": "glass-navbar",
       "title": "Glass Navbar (composed)",
       "summary": "A sticky frosted-glass navigation bar with animated underline links and a gradient CTA.",
@@ -5451,6 +5657,78 @@
       "ai_usage": "A ready 'featured plan' card. The gradient edge uses background: solid padding-box, gradient border-box with a transparent border. On hover/focus-within it lifts (translateY) and deepens its colored glow. The CTA is a ghost button that fills on hover. For a full pricing section, render three of these and only give the middle one the gradient border + glow to mark it as recommended.",
       "path": "effects/combos-recipes/pricing-card.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Pricing Card (composed)</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"pricing-card\",\n    \"title\": \"Pricing Card (composed)\",\n    \"summary\": \"A 'featured' pricing card combining a gradient border, hover lift, colored glow, and a fill-sweep button.\",\n    \"description\": \"Composes gradient-border + card-lift + glow-shadow + fill-sweep-button into a polished, highlight-worthy pricing tier card.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"recipe\", \"pricing\", \"card\"],\n    \"tags\": [\"pricing\", \"card\", \"gradient-border\", \"lift\", \"glow\", \"cta\", \"composition\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (uses the padding-box/border-box gradient-border trick).\",\n    \"performance_notes\": \"Static gradient border + transform/shadow on hover. Cheap.\",\n    \"accessibility_notes\": \"Real list + button with focus ring. Hover lift also triggers on :focus-within. Contrast preserved.\",\n    \"customization\": [\n      { \"name\": \"--accent / --accent-2\", \"description\": \"Brand gradient\", \"default\": \"#7c5cff / #2dd4bf\" },\n      { \"name\": \"content\", \"description\": \"Plan name, price, features\", \"default\": \"edit markup\" }\n    ],\n    \"variations\": [\"Three-up pricing row with the middle one featured\", \"Monthly/annual toggle\", \"Add a 'Most popular' ribbon\"],\n    \"related\": [\"gradient-border\", \"card-lift\", \"glow-shadow\", \"fill-sweep-button\"],\n    \"ai_usage\": \"A ready 'featured plan' card. The gradient edge uses background: solid padding-box, gradient border-box with a transparent border. On hover/focus-within it lifts (translateY) and deepens its colored glow. The CTA is a ghost button that fills on hover. For a full pricing section, render three of these and only give the middle one the gradient border + glow to mark it as recommended.\"\n  }\n  </script>\n  <style>\n    :root { --accent: #7c5cff; --accent-2: #2dd4bf; --bg: #11141c; }\n    * { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; padding: 1rem; }\n    .price-card {\n      width: 300px; padding: 2rem; border-radius: 20px; color: #e7ebf3;\n      border: 2px solid transparent;\n      background: linear-gradient(var(--bg), var(--bg)) padding-box,\n                  linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;\n      box-shadow: 0 10px 30px rgba(124,92,255,.18);\n      transition: transform .25s ease, box-shadow .25s ease;\n    }\n    .price-card:hover, .price-card:focus-within {\n      transform: translateY(-8px);\n      box-shadow: 0 24px 60px color-mix(in srgb, var(--accent) 45%, transparent);\n    }\n    .badge { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;\n      color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent-2)); padding: .25rem .6rem; border-radius: 999px; }\n    .price { font-size: 3rem; font-weight: 900; margin: .8rem 0 0; }\n    .price small { font-size: 1rem; color: #8b93a7; font-weight: 500; }\n    ul { list-style: none; padding: 0; margin: 1.2rem 0; }\n    li { padding: .4rem 0; color: #b7bdcc; } li::before { content: \"✓ \"; color: var(--accent-2); font-weight: 800; }\n    .buy {\n      position: relative; overflow: hidden; width: 100%; cursor: pointer; isolation: isolate;\n      background: transparent; border: 2px solid var(--accent); color: #fff;\n      padding: .8rem; border-radius: 12px; font-size: 1rem; font-weight: 700; transition: color .3s;\n    }\n    .buy::before { content: \"\"; position: absolute; inset: 0; z-index: -1; transform: scaleX(0); transform-origin: left;\n      background: linear-gradient(135deg, var(--accent), var(--accent-2)); transition: transform .3s; }\n    .buy:hover::before, .buy:focus-visible::before { transform: scaleX(1); }\n    .buy:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }\n    @media (prefers-reduced-motion: reduce) { .price-card, .buy, .buy::before { transition: none; } }\n  </style>\n</head>\n<body>\n  <article class=\"price-card\">\n    <span class=\"badge\">Most popular</span>\n    <p class=\"price\">$29<small>/mo</small></p>\n    <ul>\n      <li>Unlimited projects</li>\n      <li>Priority support</li>\n      <li>Advanced analytics</li>\n      <li>Team collaboration</li>\n    </ul>\n    <button class=\"buy\">Choose Pro</button>\n  </article>\n</body>\n</html>\n"
+    },
+    {
+      "id": "site-footer",
+      "title": "Site Footer Block",
+      "summary": "A complete multi-column site footer — brand, link columns, newsletter capture, social row, and a legal bar.",
+      "description": "The block every site needs and no component library ships well. Four link columns and a brand block sit in an auto-fitting grid that collapses to a single column on narrow screens without a media query, a newsletter field pairs input and button on one row, and a legal bar carries copyright, locale, and the policy links that have to be one click from every page. Link hover uses a background-size underline sweep rather than text-decoration so it animates, and the whole block is one <footer> with real nav landmarks.",
+      "theme": "combos-recipes",
+      "themeTitle": "Combination Recipes",
+      "categories": [
+        "layout",
+        "footer",
+        "navigation",
+        "block"
+      ],
+      "tags": [
+        "footer",
+        "site-footer",
+        "columns",
+        "newsletter",
+        "links",
+        "legal",
+        "responsive",
+        "grid",
+        "auto-fit",
+        "block"
+      ],
+      "tech": [
+        "css",
+        "html"
+      ],
+      "era": "timeless",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All modern browsers. The link columns reflow on width via grid auto-fit + minmax with no JS; a single max-width query drops the brand above the columns on phones.",
+      "performance_notes": "Static layout, no animation beyond link hover transitions on background-size. Nothing here triggers layout on interaction.",
+      "accessibility_notes": "Link groups are <nav> landmarks with aria-label so screen-reader users can skip between them, and each column heading is a real <h2> the groups are labelled by. The newsletter input has a visually-hidden <label> rather than a placeholder standing in for one. Muted link text is held at 4.5:1 against the footer surface — footers are where contrast most often quietly fails.",
+      "customization": [
+        {
+          "name": "--surface",
+          "description": "Footer background — usually one step off the page background",
+          "default": "#0f1219"
+        },
+        {
+          "name": "--muted",
+          "description": "Link and body text colour; keep it at 4.5:1 on --surface",
+          "default": "#98a0b4"
+        },
+        {
+          "name": "--accent",
+          "description": "Hover colour and newsletter button fill",
+          "default": "#7c5cff"
+        },
+        {
+          "name": "min column width",
+          "description": "The minmax() floor on .cols that decides when link columns wrap",
+          "default": "100px"
+        }
+      ],
+      "variations": [
+        "Drop the newsletter row for a marketing-light or internal product",
+        "Add a locale/currency switcher to the legal bar",
+        "Collapse each column into a <details> accordion on mobile",
+        "Add a status-page indicator dot beside the brand"
+      ],
+      "related": [
+        "glass-navbar",
+        "hero-section",
+        "pricing-card"
+      ],
+      "ai_usage": "Drop-in site footer. Use it as the closing block of a marketing site, docs site, or app shell; it is deliberately generic so you can delete columns rather than invent them.\n\nStructure to keep: one <footer> landmark, each link group a <nav aria-label> containing a real heading, the newsletter input paired with a visually-hidden <label> (a placeholder is not a label — it vanishes on focus and many screen readers skip it), and the legal bar last.\n\nLayout gotcha worth copying exactly: the brand block and the link columns are TWO nested grids. If you put the brand in the same repeat(auto-fit, minmax(...)) row as the nav columns, the brand track absorbs the free space, auto-fit resolves to a single track, and every column stacks into one tall list. Keep .cols as its own grid so auto-fit only measures the columns.\n\nTune: --surface one step off your page background so the footer reads as a distinct region, --muted at or above 4.5:1 against it, and --accent for hover plus the button. Raise the minmax floor if your link labels are long, or columns will wrap mid-word.\n\nAvoid: burying the privacy/terms links (they must be reachable from every page), using placeholder text as the newsletter label, dropping muted text below 4.5:1 because 'it is only the footer' — that is the single most common contrast failure on a shipped site — and stuffing every route in here. Four columns of six links is the practical ceiling before it becomes a sitemap nobody reads.",
+      "path": "effects/combos-recipes/site-footer.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Site Footer Block</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"site-footer\",\n    \"title\": \"Site Footer Block\",\n    \"summary\": \"A complete multi-column site footer — brand, link columns, newsletter capture, social row, and a legal bar.\",\n    \"description\": \"The block every site needs and no component library ships well. Four link columns and a brand block sit in an auto-fitting grid that collapses to a single column on narrow screens without a media query, a newsletter field pairs input and button on one row, and a legal bar carries copyright, locale, and the policy links that have to be one click from every page. Link hover uses a background-size underline sweep rather than text-decoration so it animates, and the whole block is one <footer> with real nav landmarks.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"layout\", \"footer\", \"navigation\", \"block\"],\n    \"tags\": [\"footer\", \"site-footer\", \"columns\", \"newsletter\", \"links\", \"legal\", \"responsive\", \"grid\", \"auto-fit\", \"block\"],\n    \"tech\": [\"css\", \"html\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers. The link columns reflow on width via grid auto-fit + minmax with no JS; a single max-width query drops the brand above the columns on phones.\",\n    \"performance_notes\": \"Static layout, no animation beyond link hover transitions on background-size. Nothing here triggers layout on interaction.\",\n    \"accessibility_notes\": \"Link groups are <nav> landmarks with aria-label so screen-reader users can skip between them, and each column heading is a real <h2> the groups are labelled by. The newsletter input has a visually-hidden <label> rather than a placeholder standing in for one. Muted link text is held at 4.5:1 against the footer surface — footers are where contrast most often quietly fails.\",\n    \"customization\": [\n      { \"name\": \"--surface\", \"description\": \"Footer background — usually one step off the page background\", \"default\": \"#0f1219\" },\n      { \"name\": \"--muted\", \"description\": \"Link and body text colour; keep it at 4.5:1 on --surface\", \"default\": \"#98a0b4\" },\n      { \"name\": \"--accent\", \"description\": \"Hover colour and newsletter button fill\", \"default\": \"#7c5cff\" },\n      { \"name\": \"min column width\", \"description\": \"The minmax() floor on .cols that decides when link columns wrap\", \"default\": \"100px\" }\n    ],\n    \"variations\": [\n      \"Drop the newsletter row for a marketing-light or internal product\",\n      \"Add a locale/currency switcher to the legal bar\",\n      \"Collapse each column into a <details> accordion on mobile\",\n      \"Add a status-page indicator dot beside the brand\"\n    ],\n    \"related\": [\"glass-navbar\", \"hero-section\", \"pricing-card\"],\n    \"ai_usage\": \"Drop-in site footer. Use it as the closing block of a marketing site, docs site, or app shell; it is deliberately generic so you can delete columns rather than invent them.\\n\\nStructure to keep: one <footer> landmark, each link group a <nav aria-label> containing a real heading, the newsletter input paired with a visually-hidden <label> (a placeholder is not a label — it vanishes on focus and many screen readers skip it), and the legal bar last.\\n\\nLayout gotcha worth copying exactly: the brand block and the link columns are TWO nested grids. If you put the brand in the same repeat(auto-fit, minmax(...)) row as the nav columns, the brand track absorbs the free space, auto-fit resolves to a single track, and every column stacks into one tall list. Keep .cols as its own grid so auto-fit only measures the columns.\\n\\nTune: --surface one step off your page background so the footer reads as a distinct region, --muted at or above 4.5:1 against it, and --accent for hover plus the button. Raise the minmax floor if your link labels are long, or columns will wrap mid-word.\\n\\nAvoid: burying the privacy/terms links (they must be reachable from every page), using placeholder text as the newsletter label, dropping muted text below 4.5:1 because 'it is only the footer' — that is the single most common contrast failure on a shipped site — and stuffing every route in here. Four columns of six links is the practical ceiling before it becomes a sitemap nobody reads.\"\n  }\n  </script>\n  <style>\n    :root {\n      --page: #0b0d12;\n      --surface: #0f1219;\n      --line: #232838;\n      --text: #e7ebf3;\n      --muted: #98a0b4;\n      --accent: #7c5cff;\n      --radius: 10px;\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body {\n      background: var(--page); color: var(--text);\n      font-family: system-ui, -apple-system, sans-serif;\n      display: grid; align-content: center; padding: .8rem;\n    }\n    .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }\n\n    footer {\n      background: var(--surface);\n      border: 1px solid var(--line);\n      border-radius: var(--radius);\n      padding: 1.3rem 1.5rem 1rem;\n      font-size: .7rem; line-height: 1.6;\n    }\n    /* Brand and link-columns are two separate grids. Putting the nav tracks in\n       the same repeat(auto-fit) as the fixed brand track starves them: the\n       brand eats the free space, auto-fit resolves to one track, and every\n       column stacks. Nesting keeps auto-fit measuring only its own row. */\n    .top {\n      display: grid;\n      grid-template-columns: minmax(180px, 1.35fr) 2.4fr;\n      gap: 1.4rem;\n      padding-bottom: 1.1rem;\n      border-bottom: 1px solid var(--line);\n    }\n    .cols {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));\n      gap: 1.2rem;\n    }\n    @media (max-width: 460px) { .top { grid-template-columns: 1fr; } }\n    .brand strong { display: block; font-size: .95rem; letter-spacing: -.02em; margin-bottom: .3rem; }\n    .brand p { margin: 0 0 .8rem; color: var(--muted); max-width: 24ch; }\n\n    .news { display: flex; gap: .35rem; }\n    .news input {\n      flex: 1 1 auto; min-width: 0; padding: .42rem .55rem;\n      background: #0b0e15; color: var(--text);\n      border: 1px solid var(--line); border-radius: 7px;\n      font: inherit;\n    }\n    .news input::placeholder { color: #5d6478; }\n    .news input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }\n    .news button {\n      padding: .42rem .7rem; border: 0; border-radius: 7px;\n      background: var(--accent); color: #fff; font: inherit; font-weight: 600;\n      cursor: pointer; transition: filter .18s;\n    }\n    .news button:hover { filter: brightness(1.12); }\n\n    nav h2 {\n      font-size: .64rem; text-transform: uppercase; letter-spacing: .09em;\n      color: var(--text); margin: 0 0 .5rem; font-weight: 600;\n    }\n    nav ul { list-style: none; margin: 0; padding: 0; }\n    a {\n      color: var(--muted); text-decoration: none;\n      /* Animatable underline: a gradient sized from 0 to full width on hover. */\n      background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;\n      transition: background-size .22s cubic-bezier(.22,1,.36,1), color .22s;\n    }\n    a:hover, a:focus-visible { color: var(--text); background-size: 100% 1px; }\n    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }\n\n    .bar {\n      display: flex; flex-wrap: wrap; gap: .4rem 1rem;\n      align-items: center; justify-content: space-between;\n      padding-top: .85rem; color: var(--muted); font-size: .64rem;\n    }\n    .bar ul { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; margin: 0; padding: 0; }\n    .social { display: flex; gap: .55rem; }\n    .social a {\n      width: 24px; height: 24px; display: grid; place-items: center;\n      border: 1px solid var(--line); border-radius: 6px; background: none;\n      transition: border-color .2s, color .2s;\n    }\n    .social a:hover { border-color: var(--accent); color: var(--text); }\n    .social svg { width: 12px; height: 12px; fill: currentColor; }\n\n    @media (prefers-reduced-motion: reduce) { a, .news button { transition: none; } }\n  </style>\n</head>\n<body>\n  <footer>\n    <div class=\"top\">\n      <div class=\"brand\">\n        <strong>Northwind</strong>\n        <p>Infrastructure for teams that ship on Fridays.</p>\n        <form class=\"news\" onsubmit=\"return false\">\n          <label class=\"sr\" for=\"nl\">Email address for the newsletter</label>\n          <input id=\"nl\" type=\"email\" placeholder=\"you@company.com\" autocomplete=\"email\" />\n          <button type=\"submit\">Subscribe</button>\n        </form>\n      </div>\n\n      <div class=\"cols\">\n      <nav aria-labelledby=\"f-prod\">\n        <h2 id=\"f-prod\">Product</h2>\n        <ul>\n          <li><a href=\"#\">Overview</a></li>\n          <li><a href=\"#\">Pricing</a></li>\n          <li><a href=\"#\">Changelog</a></li>\n          <li><a href=\"#\">Roadmap</a></li>\n        </ul>\n      </nav>\n\n      <nav aria-labelledby=\"f-dev\">\n        <h2 id=\"f-dev\">Developers</h2>\n        <ul>\n          <li><a href=\"#\">Documentation</a></li>\n          <li><a href=\"#\">API reference</a></li>\n          <li><a href=\"#\">Status</a></li>\n          <li><a href=\"#\">Open source</a></li>\n        </ul>\n      </nav>\n\n      <nav aria-labelledby=\"f-co\">\n        <h2 id=\"f-co\">Company</h2>\n        <ul>\n          <li><a href=\"#\">About</a></li>\n          <li><a href=\"#\">Careers</a></li>\n          <li><a href=\"#\">Blog</a></li>\n          <li><a href=\"#\">Contact</a></li>\n        </ul>\n      </nav>\n      </div>\n    </div>\n\n    <div class=\"bar\">\n      <span>© 2026 Northwind Systems, Inc.</span>\n      <ul>\n        <li><a href=\"#\">Privacy</a></li>\n        <li><a href=\"#\">Terms</a></li>\n        <li><a href=\"#\">Security</a></li>\n      </ul>\n      <div class=\"social\">\n        <a href=\"#\" aria-label=\"GitHub\"><svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 0a8 8 0 0 0-2.5 15.6c.4.1.5-.2.5-.4v-1.4c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.2 1.9.9 2.4.7 0-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1 0-.2-.3-1 .1-2.1 0 0 .7-.2 2.2.8a7.6 7.6 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.4 1.1.1 1.9.1 2.1.5.5.8 1.2.8 2.1 0 3.1-1.8 3.8-3.6 4 .3.3.5.8.5 1.6v2.2c0 .2.1.5.6.4A8 8 0 0 0 8 0z\"/></svg></a>\n        <a href=\"#\" aria-label=\"LinkedIn\"><svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M3.6 5.3H.9V16h2.7V5.3zM2.2 0a1.6 1.6 0 1 0 0 3.1 1.6 1.6 0 0 0 0-3.1zM16 16h-2.7v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.4-2 2.7V16H6.9V5.3h2.6v1.5h.1c.4-.7 1.3-1.5 2.7-1.5 2.8 0 3.7 1.9 3.7 4.3V16z\"/></svg></a>\n        <a href=\"#\" aria-label=\"RSS feed\"><svg viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2 11a3 3 0 0 1 3 3H2v-3zm0-4.2a7.2 7.2 0 0 1 7.2 7.2H7A5 5 0 0 0 2 9V6.8zm0-4.3A11.5 11.5 0 0 1 13.5 14h-2.2A9.3 9.3 0 0 0 2 4.7V2.5z\"/></svg></a>\n      </div>\n    </div>\n  </footer>\n</body>\n</html>\n"
     },
     {
       "id": "spotlight-cursor",
@@ -5876,6 +6154,78 @@
       "ai_usage": "Use for volume, price, opacity, etc. Keep the native <input type=range> for accessibility; style ::-webkit-slider-thumb and ::-moz-range-thumb plus the track. For the filled portion, set a --fill percentage from JS on 'input' (value normalized to 0-100%) and paint the track with a linear-gradient hard-stop at --fill. Always pair with a <label>.",
       "path": "effects/forms-inputs/custom-range-slider.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Custom Range Slider</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"custom-range-slider\",\n    \"title\": \"Custom Range Slider\",\n    \"summary\": \"A styled range input with a gradient-filled track that follows the thumb.\",\n    \"description\": \"Styles the native <input type=range> thumb and track cross-browser, and uses a CSS variable updated on input to paint the filled portion of the track up to the current value.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"slider\", \"control\"],\n    \"tags\": [\"range\", \"slider\", \"input\", \"fill\", \"thumb\", \"accessible\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; thumb/track styling needs ::-webkit-slider-thumb and ::-moz-range-thumb.\",\n    \"performance_notes\": \"Updates one CSS var on input; trivial.\",\n    \"accessibility_notes\": \"Built on a real <input type=range>, so it is keyboard-operable (arrows) and announces value. Provide a <label> and aria-valuetext if the raw number needs units/context.\",\n    \"customization\": [\n      { \"name\": \"--accent\", \"description\": \"Filled track + thumb color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--track\", \"description\": \"Empty track color\", \"default\": \"#2a3142\" }\n    ],\n    \"variations\": [\"Show a value tooltip above the thumb\", \"Stepped/ticked slider\", \"Dual-thumb range (needs two inputs)\"],\n    \"related\": [\"before-after-slider\", \"toggle-switch\"],\n    \"ai_usage\": \"Use for volume, price, opacity, etc. Keep the native <input type=range> for accessibility; style ::-webkit-slider-thumb and ::-moz-range-thumb plus the track. For the filled portion, set a --fill percentage from JS on 'input' (value normalized to 0-100%) and paint the track with a linear-gradient hard-stop at --fill. Always pair with a <label>.\"\n  }\n  </script>\n  <style>\n    :root { --accent: #7c5cff; --track: #2a3142; --fill: 50%; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; font-family: system-ui, sans-serif; }\n    .range {\n      -webkit-appearance: none; appearance: none; width: 280px; height: 8px; border-radius: 999px; outline: none;\n      background: linear-gradient(90deg, var(--accent) var(--fill), var(--track) var(--fill));\n    }\n    .range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%;\n      background: #fff; border: 3px solid var(--accent); cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.5); }\n    .range::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 3px solid var(--accent); cursor: pointer; }\n    .range:focus-visible { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 35%, transparent); }\n  </style>\n</head>\n<body>\n  <input class=\"range\" type=\"range\" min=\"0\" max=\"100\" value=\"50\" aria-label=\"Volume\" id=\"r\" />\n  <script>\n    var r = document.getElementById(\"r\");\n    function paint() { r.style.setProperty(\"--fill\", ((r.value - r.min) / (r.max - r.min) * 100) + \"%\"); }\n    r.addEventListener(\"input\", paint); paint();\n  </script>\n</body>\n</html>\n"
+    },
+    {
+      "id": "file-dropzone",
+      "title": "File Drop Zone",
+      "summary": "Drag-and-drop upload area with a dashed target, live drag state, and a queued file list with progress bars.",
+      "description": "A drop target that is also a real file input, which is the part most implementations get wrong. The dashed frame lifts and tints on dragover, driven by a drag counter so that dragging across a child element does not flicker the state off and on. Dropped or picked files land in a queue with a type icon, a human-readable size, and a progress bar; the label wraps a visually-hidden <input type=\"file\"> so the whole zone is clickable, focusable, and operable from the keyboard without a single extra listener.",
+      "theme": "forms-inputs",
+      "themeTitle": "Forms & Inputs",
+      "categories": [
+        "form",
+        "input",
+        "upload",
+        "drag-and-drop"
+      ],
+      "tags": [
+        "file-upload",
+        "dropzone",
+        "drag-and-drop",
+        "input",
+        "form",
+        "progress",
+        "queue",
+        "dragover",
+        "accessibility"
+      ],
+      "tech": [
+        "css",
+        "js",
+        "html"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "All modern browsers. Drag-and-drop needs a pointer; the wrapped file input is the fallback everywhere else, including touch and keyboard.",
+      "performance_notes": "Listeners are bound once on the zone plus a window-level guard that stops the browser navigating away when a file is dropped outside it. Rendering is one row per file. Progress here is simulated on a timer — swap it for real XHR/fetch upload events.",
+      "accessibility_notes": "The zone is a <label> wrapping a visually-hidden (not display:none) file input, so it stays in the tab order, announces as a file control, and opens the picker on Enter or Space with no key handling of our own. Drag state is decorative only — every action is reachable without dragging. The queue is an aria-live=\"polite\" region so added files are announced once. Focus is shown with a real outline, and the dashed border is not the only cue for the drag state.",
+      "customization": [
+        {
+          "name": "--accent",
+          "description": "Active/dragover tint and progress fill",
+          "default": "#7c5cff"
+        },
+        {
+          "name": "--line",
+          "description": "Resting dashed border colour",
+          "default": "#2b3145"
+        },
+        {
+          "name": "accept",
+          "description": "Restrict pickable types on the input; validate again on drop, since dropping bypasses accept",
+          "default": "unset"
+        },
+        {
+          "name": "MAX_MB",
+          "description": "Client-side size guard — always re-check server side",
+          "default": "10"
+        }
+      ],
+      "variations": [
+        "Paste-to-upload by listening for paste and reading event.clipboardData.files",
+        "Image thumbnails via URL.createObjectURL, revoked on removal",
+        "Chunked/resumable upload for large files",
+        "Restrict to a single file and replace rather than append"
+      ],
+      "related": [
+        "floating-label-input",
+        "password-strength",
+        "tag-input"
+      ],
+      "ai_usage": "Use for any file intake — attachments, avatar/logo upload, CSV import, document submission.\n\nThe one structural rule: the drop zone must wrap a real <input type=\"file\">, hidden with the clip-rect visually-hidden pattern, NOT display:none or visibility:hidden — those remove it from the accessibility tree and the tab order, and you lose keyboard and touch users, who cannot drag anything. Wrapping it in a <label> gives you click-to-open, focus, and Enter/Space activation for free; do not reimplement those with key handlers.\n\nDrag state: dragenter/dragleave fire for every child element, so track a depth counter (++ on enter, -- on leave, active while > 0) instead of toggling a boolean, or the highlight strobes. Call preventDefault in dragover or the drop never fires, and add a window-level dragover/drop guard so a missed drop does not navigate the page to the file.\n\nValidate on both paths: the accept attribute filters the picker but does NOT filter drops, so re-check type and size in your drop handler, and re-check everything server side regardless. Progress here is a timer stub — replace it with xhr.upload.onprogress, or fetch with a streamed body, and handle failure per row rather than failing the whole queue.\n\nAvoid: making drag the only way in, blocking the UI during upload, silently dropping files that exceed a limit (say which file and why), and forgetting to revoke object URLs if you add thumbnails.",
+      "path": "effects/forms-inputs/file-dropzone.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>File Drop Zone</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"file-dropzone\",\n    \"title\": \"File Drop Zone\",\n    \"summary\": \"Drag-and-drop upload area with a dashed target, live drag state, and a queued file list with progress bars.\",\n    \"description\": \"A drop target that is also a real file input, which is the part most implementations get wrong. The dashed frame lifts and tints on dragover, driven by a drag counter so that dragging across a child element does not flicker the state off and on. Dropped or picked files land in a queue with a type icon, a human-readable size, and a progress bar; the label wraps a visually-hidden <input type=\\\"file\\\"> so the whole zone is clickable, focusable, and operable from the keyboard without a single extra listener.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\", \"upload\", \"drag-and-drop\"],\n    \"tags\": [\"file-upload\", \"dropzone\", \"drag-and-drop\", \"input\", \"form\", \"progress\", \"queue\", \"dragover\", \"accessibility\"],\n    \"tech\": [\"css\", \"js\", \"html\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers. Drag-and-drop needs a pointer; the wrapped file input is the fallback everywhere else, including touch and keyboard.\",\n    \"performance_notes\": \"Listeners are bound once on the zone plus a window-level guard that stops the browser navigating away when a file is dropped outside it. Rendering is one row per file. Progress here is simulated on a timer — swap it for real XHR/fetch upload events.\",\n    \"accessibility_notes\": \"The zone is a <label> wrapping a visually-hidden (not display:none) file input, so it stays in the tab order, announces as a file control, and opens the picker on Enter or Space with no key handling of our own. Drag state is decorative only — every action is reachable without dragging. The queue is an aria-live=\\\"polite\\\" region so added files are announced once. Focus is shown with a real outline, and the dashed border is not the only cue for the drag state.\",\n    \"customization\": [\n      { \"name\": \"--accent\", \"description\": \"Active/dragover tint and progress fill\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--line\", \"description\": \"Resting dashed border colour\", \"default\": \"#2b3145\" },\n      { \"name\": \"accept\", \"description\": \"Restrict pickable types on the input; validate again on drop, since dropping bypasses accept\", \"default\": \"unset\" },\n      { \"name\": \"MAX_MB\", \"description\": \"Client-side size guard — always re-check server side\", \"default\": \"10\" }\n    ],\n    \"variations\": [\n      \"Paste-to-upload by listening for paste and reading event.clipboardData.files\",\n      \"Image thumbnails via URL.createObjectURL, revoked on removal\",\n      \"Chunked/resumable upload for large files\",\n      \"Restrict to a single file and replace rather than append\"\n    ],\n    \"related\": [\"floating-label-input\", \"password-strength\", \"tag-input\"],\n    \"ai_usage\": \"Use for any file intake — attachments, avatar/logo upload, CSV import, document submission.\\n\\nThe one structural rule: the drop zone must wrap a real <input type=\\\"file\\\">, hidden with the clip-rect visually-hidden pattern, NOT display:none or visibility:hidden — those remove it from the accessibility tree and the tab order, and you lose keyboard and touch users, who cannot drag anything. Wrapping it in a <label> gives you click-to-open, focus, and Enter/Space activation for free; do not reimplement those with key handlers.\\n\\nDrag state: dragenter/dragleave fire for every child element, so track a depth counter (++ on enter, -- on leave, active while > 0) instead of toggling a boolean, or the highlight strobes. Call preventDefault in dragover or the drop never fires, and add a window-level dragover/drop guard so a missed drop does not navigate the page to the file.\\n\\nValidate on both paths: the accept attribute filters the picker but does NOT filter drops, so re-check type and size in your drop handler, and re-check everything server side regardless. Progress here is a timer stub — replace it with xhr.upload.onprogress, or fetch with a streamed body, and handle failure per row rather than failing the whole queue.\\n\\nAvoid: making drag the only way in, blocking the UI during upload, silently dropping files that exceed a limit (say which file and why), and forgetting to revoke object URLs if you add thumbnails.\"\n  }\n  </script>\n  <style>\n    :root {\n      --bg: #0b0d12;\n      --surface: #12151f;\n      --line: #2b3145;\n      --text: #e7ebf3;\n      --muted: #8b93a7;\n      --accent: #7c5cff;\n      --ok: #2dd4bf;\n      --radius: 12px;\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body {\n      background: var(--bg); color: var(--text);\n      font-family: system-ui, -apple-system, sans-serif;\n      display: grid; place-content: center; padding: 1rem;\n    }\n    .wrap { width: min(400px, 92vw); }\n\n    /* Visually hidden but still focusable and announced — never display:none. */\n    .sr {\n      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;\n      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;\n    }\n\n    .zone {\n      display: grid; place-items: center; gap: .3rem;\n      padding: 1.4rem 1rem; text-align: center; cursor: pointer;\n      background: var(--surface);\n      border: 2px dashed var(--line);\n      border-radius: var(--radius);\n      transition: border-color .18s, background .18s, transform .18s cubic-bezier(.22,1,.36,1);\n    }\n    .zone:hover { border-color: #3c4460; }\n    .zone.is-over {\n      border-color: var(--accent);\n      background: color-mix(in srgb, var(--accent) 12%, var(--surface));\n      transform: scale(1.015);\n    }\n    /* Focus lives on the input, so mirror it onto the label. */\n    .zone:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }\n\n    .zone svg { width: 26px; height: 26px; stroke: var(--accent); fill: none; stroke-width: 1.6; }\n    .zone b { font-size: .82rem; font-weight: 600; }\n    .zone small { font-size: .66rem; color: var(--muted); }\n\n    ul { list-style: none; margin: .7rem 0 0; padding: 0; display: grid; gap: .4rem; }\n    li {\n      display: grid; grid-template-columns: 26px 1fr auto; align-items: center; gap: .55rem;\n      padding: .45rem .55rem; background: var(--surface);\n      border: 1px solid var(--line); border-radius: 8px;\n    }\n    .ext {\n      font-size: .52rem; font-weight: 700; letter-spacing: .03em; text-align: center;\n      padding: .25rem 0; border-radius: 4px;\n      background: color-mix(in srgb, var(--accent) 22%, transparent); color: #cdbfff;\n    }\n    .meta { min-width: 0; }\n    .name { font-size: .7rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n    .size { font-size: .6rem; color: var(--muted); }\n    .bar { height: 3px; margin-top: .3rem; background: #202638; border-radius: 999px; overflow: hidden; }\n    .bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .25s linear; }\n    li.done .bar i { background: var(--ok); }\n    .rm {\n      border: 0; background: none; color: var(--muted); cursor: pointer;\n      font-size: .9rem; line-height: 1; padding: .2rem .3rem; border-radius: 5px;\n    }\n    .rm:hover { color: var(--text); background: #ffffff12; }\n    .rm:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }\n\n    @media (prefers-reduced-motion: reduce) {\n      .zone, .bar i { transition: none; }\n      .zone.is-over { transform: none; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\">\n    <label class=\"zone\" id=\"zone\">\n      <input class=\"sr\" type=\"file\" id=\"picker\" multiple />\n      <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n        <path d=\"M12 16V4m0 0L8 8m4-4 4 4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n        <path d=\"M3 15v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3\" stroke-linecap=\"round\"/>\n      </svg>\n      <b>Drop files here</b>\n      <small>or click to browse · up to 10&nbsp;MB each</small>\n    </label>\n\n    <ul id=\"queue\" aria-live=\"polite\" aria-label=\"Selected files\"></ul>\n  </div>\n\n  <script>\n    var MAX_MB = 10;\n    var zone = document.getElementById(\"zone\");\n    var picker = document.getElementById(\"picker\");\n    var queue = document.getElementById(\"queue\");\n    var reduce = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    var depth = 0;   // dragenter/dragleave fire per child; count instead of toggling\n\n    function human(bytes) {\n      if (bytes < 1024) return bytes + \" B\";\n      var kb = bytes / 1024;\n      if (kb < 1024) return kb.toFixed(0) + \" KB\";\n      return (kb / 1024).toFixed(1) + \" MB\";\n    }\n    function extOf(name) {\n      var i = name.lastIndexOf(\".\");\n      return (i > -1 ? name.slice(i + 1) : \"?\").slice(0, 4).toUpperCase();\n    }\n\n    function addRow(file) {\n      var li = document.createElement(\"li\");\n      var tooBig = file.size > MAX_MB * 1024 * 1024;\n\n      var ext = document.createElement(\"span\");\n      ext.className = \"ext\"; ext.textContent = extOf(file.name);\n\n      var meta = document.createElement(\"div\");\n      meta.className = \"meta\";\n      var name = document.createElement(\"div\");\n      name.className = \"name\"; name.textContent = file.name;\n      var size = document.createElement(\"div\");\n      size.className = \"size\";\n      // Say which file failed and why — never drop it silently.\n      size.textContent = tooBig ? human(file.size) + \" · too large, max \" + MAX_MB + \" MB\" : human(file.size);\n      if (tooBig) size.style.color = \"#f2555a\";\n      var bar = document.createElement(\"div\");\n      bar.className = \"bar\";\n      var fill = document.createElement(\"i\");\n      bar.appendChild(fill);\n      meta.appendChild(name); meta.appendChild(size);\n      if (!tooBig) meta.appendChild(bar);\n\n      var rm = document.createElement(\"button\");\n      rm.className = \"rm\"; rm.type = \"button\";\n      rm.setAttribute(\"aria-label\", \"Remove \" + file.name);\n      rm.textContent = \"×\";\n      rm.onclick = function () { li.remove(); };\n\n      li.appendChild(ext); li.appendChild(meta); li.appendChild(rm);\n      queue.appendChild(li);\n\n      // Stub progress. Replace with xhr.upload.onprogress for a real upload.\n      if (!tooBig) {\n        if (reduce) { fill.style.width = \"100%\"; li.classList.add(\"done\"); return; }\n        var pct = 0;\n        var timer = setInterval(function () {\n          pct = Math.min(pct + 8 + Math.random() * 14, 100);\n          fill.style.width = pct + \"%\";\n          if (pct >= 100) { clearInterval(timer); li.classList.add(\"done\"); }\n        }, 140);\n      }\n    }\n\n    function accept(list) {\n      for (var i = 0; i < list.length; i++) addRow(list[i]);\n    }\n\n    picker.addEventListener(\"change\", function () { accept(picker.files); picker.value = \"\"; });\n\n    // dragover must preventDefault or the drop event never fires.\n    zone.addEventListener(\"dragover\", function (e) { e.preventDefault(); });\n    zone.addEventListener(\"dragenter\", function (e) {\n      e.preventDefault(); depth++; zone.classList.add(\"is-over\");\n    });\n    zone.addEventListener(\"dragleave\", function () {\n      if (--depth <= 0) { depth = 0; zone.classList.remove(\"is-over\"); }\n    });\n    zone.addEventListener(\"drop\", function (e) {\n      e.preventDefault(); depth = 0; zone.classList.remove(\"is-over\");\n      // accept=\"\" filters the picker but NOT drops — validate here too.\n      if (e.dataTransfer && e.dataTransfer.files) accept(e.dataTransfer.files);\n    });\n\n    // Without this, a file dropped outside the zone navigates the page to it.\n    window.addEventListener(\"dragover\", function (e) { e.preventDefault(); });\n    window.addEventListener(\"drop\", function (e) { e.preventDefault(); });\n\n    // Seed the queue so the specimen shows its resting state.\n    [\n      { name: \"quarterly-report.pdf\", size: 2411724 },\n      { name: \"hero-banner@2x.png\", size: 845213 }\n    ].forEach(addRow);\n  </script>\n</body>\n</html>\n"
     },
     {
       "id": "floating-label-input",
@@ -7903,6 +8253,81 @@
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Motion Duration Scale</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"duration-scale\",\n    \"title\": \"Motion Duration Scale\",\n    \"summary\": \"A small set of duration tokens (instant→slow) mapped to UI scenarios, demonstrated live.\",\n    \"description\": \"Defines --dur-fast/base/slow tokens and shows the same animation at each speed, with guidance on which to use where — the timing half of a motion system.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"duration\", \"design-tokens\", \"reference\"],\n    \"tags\": [\"duration\", \"timing\", \"tokens\", \"motion\", \"speed\", \"animation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All browsers.\",\n    \"performance_notes\": \"Trivial.\",\n    \"accessibility_notes\": \"Keep UI transitions short (<300ms) to feel responsive; long durations frustrate. All motion respects prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur-fast/base/slow\", \"description\": \"Duration tokens\", \"default\": \"120ms / 240ms / 400ms\" }\n    ],\n    \"variations\": [\"Add --dur-instant (80ms) for micro-feedback\", \"Scale durations with distance/size traveled\", \"Pair each duration with a default easing\"],\n    \"related\": [\"easing-showcase\"],\n    \"ai_usage\": \"The timing half of a motion system. Store --dur-fast (~120ms, hovers/toggles/micro-feedback), --dur-base (~240ms, most transitions, dropdowns), --dur-slow (~400ms, larger surfaces/modals/page-level). Larger/farther-moving elements get longer durations; small UI feedback stays fast. Reference tokens in all transitions for consistency, and combine with the easing tokens. Keep everything under ~400ms for UI.\"\n  }\n  </script>\n  <style>\n    :root { --dur-fast: 120ms; --dur-base: 240ms; --dur-slow: 400ms; --ease: cubic-bezier(.22,1,.36,1); }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body { background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif; padding: 1.2rem; display: grid; align-content: center; gap: 1rem; }\n    .lane { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: .8rem; }\n    .lane span { font-family: ui-monospace, monospace; font-size: .72rem; color: #8b93a7; }\n    .track { height: 26px; background: #151925; border: 1px solid #262c3d; border-radius: 999px; position: relative; overflow: hidden; }\n    .bar { position: absolute; inset: 3px auto 3px 3px; width: 20px; border-radius: 999px; background: linear-gradient(135deg,#7c5cff,#2dd4bf); }\n    .d1 { animation: slide var(--dur-fast) var(--ease) infinite alternate; }\n    .d2 { animation: slide var(--dur-base) var(--ease) infinite alternate; }\n    .d3 { animation: slide var(--dur-slow) var(--ease) infinite alternate; }\n    @keyframes slide { to { transform: translateX(calc(100% + 200px)); } }\n    @media (prefers-reduced-motion: reduce) { .bar { animation: none; } }\n    .note { color: #b7bdcc; font-size: .8rem; }\n  </style>\n</head>\n<body>\n  <div class=\"lane\"><span>--dur-fast 120ms</span><div class=\"track\"><div class=\"bar d1\"></div></div></div>\n  <div class=\"lane\"><span>--dur-base 240ms</span><div class=\"track\"><div class=\"bar d2\"></div></div></div>\n  <div class=\"lane\"><span>--dur-slow 400ms</span><div class=\"track\"><div class=\"bar d3\"></div></div></div>\n  <p class=\"note\">fast = hovers/toggles · base = dropdowns/most transitions · slow = modals/page-level</p>\n</body>\n</html>\n"
     },
     {
+      "id": "spring-physics",
+      "title": "Spring Physics Easing",
+      "summary": "Spring curves as pure CSS linear() tokens, racing a plain ease-out so you can see the overshoot and settle.",
+      "description": "A cubic-bezier can never leave the 0–1 range on the way out, so it can ease but never overshoot. A damped spring can. Each lane here runs the same travel through a different timing function against a dashed target line: the ease-out lane stops dead on the line, while the spring lanes sail past it and settle back. The spring curves are sampled from a damped harmonic oscillator and baked into CSS linear() tokens, so they need no JavaScript and no animation library.",
+      "theme": "motion-principles",
+      "themeTitle": "Motion Principles",
+      "categories": [
+        "motion",
+        "easing",
+        "design-tokens",
+        "reference"
+      ],
+      "tags": [
+        "spring",
+        "easing",
+        "linear",
+        "overshoot",
+        "damping",
+        "motion",
+        "tokens",
+        "timing-function",
+        "physics"
+      ],
+      "tech": [
+        "css"
+      ],
+      "era": "2020s",
+      "difficulty": "intermediate",
+      "dependencies": [],
+      "browser_support": "linear() easing: Chrome 113+, Firefox 112+, Safari 17.2+. Older browsers ignore the unknown timing function and fall back to the ease declared before it, so motion still happens, just without overshoot.",
+      "performance_notes": "Four compositor-friendly loops. linear() costs no more than a cubic-bezier — it is resolved once, not sampled per frame. Animating transform rather than left keeps every lane off the layout path.",
+      "accessibility_notes": "All motion stops under prefers-reduced-motion and each dot rests on its target. Overshoot draws the eye, so keep it for small, self-contained elements (toasts, badges, toggles) and off anything a user is reading or aiming at.",
+      "customization": [
+        {
+          "name": "--spring-gentle",
+          "description": "8% overshoot, settles fast — the safe default for UI",
+          "default": "linear(...) sampled at d=8, w=10"
+        },
+        {
+          "name": "--spring-stiff",
+          "description": "7% overshoot with a quicker settle — good for toggles and tabs",
+          "default": "linear(...) sampled at d=12, w=14"
+        },
+        {
+          "name": "--spring-bouncy",
+          "description": "42% overshoot with visible secondary bounces — playful, use sparingly",
+          "default": "linear(...) sampled at d=5, w=18"
+        },
+        {
+          "name": "--travel",
+          "description": "How far the dot moves; overshoot is a multiple of this, so leave room after it",
+          "default": "62%"
+        },
+        {
+          "name": "duration",
+          "description": "Springs read as stiffer when shortened; retune damping rather than going below ~300ms",
+          "default": "1.5s"
+        }
+      ],
+      "variations": [
+        "Sample your own: x(t) = 1 - e^(-d·t)·(cos(w·t) + (d/w)·sin(w·t)), t from 0 to 1",
+        "Raise w for more oscillations, raise d to damp them out sooner",
+        "Apply to scale instead of translate for a pop-in",
+        "Pair with @starting-style for an entrance that springs on first paint"
+      ],
+      "related": [
+        "easing-showcase",
+        "duration-scale",
+        "stagger-choreography"
+      ],
+      "ai_usage": "Use when motion should feel physical rather than merely timed — a toast landing, a toggle knob, a badge popping in, a card snapping to a grid slot. Store the three linear() values as --spring-gentle / --spring-stiff / --spring-bouncy tokens and reference them in animation or transition, exactly like a cubic-bezier token.\n\nPick by overshoot budget: gentle (8%) for anything routine, stiff (7%, faster settle) for state toggles, bouncy (42%) only for deliberate delight on small elements. The overshoot is a MULTIPLE of the animated distance, so a bouncy 300px slide overshoots by 126px — reserve the space or it clips.\n\nGenerate your own from a damped harmonic oscillator: x(t) = 1 - e^(-d*t)*(cos(w*t) + (d/w)*sin(w*t)) sampled evenly over t in [0,1]; higher w = more oscillations, higher d = faster damping. Pin the first sample to 0 and the last to 1 so the animation starts and ends exactly on its endpoints.\n\nAvoid springing anything large or text-bearing (it induces motion sickness and hurts readability), springing a property that triggers layout (animate transform, not width/left/top), and springing an element the user is trying to click — it moves the target out from under the pointer. Always ship the reduced-motion guard.",
+      "path": "effects/motion-principles/spring-physics.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Spring Physics Easing</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"spring-physics\",\n    \"title\": \"Spring Physics Easing\",\n    \"summary\": \"Spring curves as pure CSS linear() tokens, racing a plain ease-out so you can see the overshoot and settle.\",\n    \"description\": \"A cubic-bezier can never leave the 0–1 range on the way out, so it can ease but never overshoot. A damped spring can. Each lane here runs the same travel through a different timing function against a dashed target line: the ease-out lane stops dead on the line, while the spring lanes sail past it and settle back. The spring curves are sampled from a damped harmonic oscillator and baked into CSS linear() tokens, so they need no JavaScript and no animation library.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"easing\", \"design-tokens\", \"reference\"],\n    \"tags\": [\"spring\", \"easing\", \"linear\", \"overshoot\", \"damping\", \"motion\", \"tokens\", \"timing-function\", \"physics\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"linear() easing: Chrome 113+, Firefox 112+, Safari 17.2+. Older browsers ignore the unknown timing function and fall back to the ease declared before it, so motion still happens, just without overshoot.\",\n    \"performance_notes\": \"Four compositor-friendly loops. linear() costs no more than a cubic-bezier — it is resolved once, not sampled per frame. Animating transform rather than left keeps every lane off the layout path.\",\n    \"accessibility_notes\": \"All motion stops under prefers-reduced-motion and each dot rests on its target. Overshoot draws the eye, so keep it for small, self-contained elements (toasts, badges, toggles) and off anything a user is reading or aiming at.\",\n    \"customization\": [\n      { \"name\": \"--spring-gentle\", \"description\": \"8% overshoot, settles fast — the safe default for UI\", \"default\": \"linear(...) sampled at d=8, w=10\" },\n      { \"name\": \"--spring-stiff\", \"description\": \"7% overshoot with a quicker settle — good for toggles and tabs\", \"default\": \"linear(...) sampled at d=12, w=14\" },\n      { \"name\": \"--spring-bouncy\", \"description\": \"42% overshoot with visible secondary bounces — playful, use sparingly\", \"default\": \"linear(...) sampled at d=5, w=18\" },\n      { \"name\": \"--travel\", \"description\": \"How far the dot moves; overshoot is a multiple of this, so leave room after it\", \"default\": \"62%\" },\n      { \"name\": \"duration\", \"description\": \"Springs read as stiffer when shortened; retune damping rather than going below ~300ms\", \"default\": \"1.5s\" }\n    ],\n    \"variations\": [\n      \"Sample your own: x(t) = 1 - e^(-d·t)·(cos(w·t) + (d/w)·sin(w·t)), t from 0 to 1\",\n      \"Raise w for more oscillations, raise d to damp them out sooner\",\n      \"Apply to scale instead of translate for a pop-in\",\n      \"Pair with @starting-style for an entrance that springs on first paint\"\n    ],\n    \"related\": [\"easing-showcase\", \"duration-scale\", \"stagger-choreography\"],\n    \"ai_usage\": \"Use when motion should feel physical rather than merely timed — a toast landing, a toggle knob, a badge popping in, a card snapping to a grid slot. Store the three linear() values as --spring-gentle / --spring-stiff / --spring-bouncy tokens and reference them in animation or transition, exactly like a cubic-bezier token.\\n\\nPick by overshoot budget: gentle (8%) for anything routine, stiff (7%, faster settle) for state toggles, bouncy (42%) only for deliberate delight on small elements. The overshoot is a MULTIPLE of the animated distance, so a bouncy 300px slide overshoots by 126px — reserve the space or it clips.\\n\\nGenerate your own from a damped harmonic oscillator: x(t) = 1 - e^(-d*t)*(cos(w*t) + (d/w)*sin(w*t)) sampled evenly over t in [0,1]; higher w = more oscillations, higher d = faster damping. Pin the first sample to 0 and the last to 1 so the animation starts and ends exactly on its endpoints.\\n\\nAvoid springing anything large or text-bearing (it induces motion sickness and hurts readability), springing a property that triggers layout (animate transform, not width/left/top), and springing an element the user is trying to click — it moves the target out from under the pointer. Always ship the reduced-motion guard.\"\n  }\n  </script>\n  <style>\n    :root {\n      /* Sampled from x(t) = 1 - e^(-d·t)·(cos(w·t) + (d/w)·sin(w·t)), 40 even steps. */\n      --spring-gentle: linear(0, 0.0447, 0.1546, 0.2992, 0.4547, 0.6047, 0.7383, 0.8498, 0.9372, 1.0009, 1.0436, 1.0686, 1.0796, 1.0803, 1.074, 1.0636, 1.0513, 1.0388, 1.0271, 1.017, 1.0089, 1.0026, 0.9982, 0.9954, 0.9939, 0.9934, 0.9937, 0.9943, 0.9953, 0.9963, 0.9973, 0.9982, 0.9989, 0.9995, 1, 1.0003, 1.0004, 1.0005, 1.0005, 1.0005, 1);\n      --spring-stiff: linear(0, 0.0864, 0.2772, 0.4954, 0.6944, 0.8516, 0.9611, 1.0274, 1.0594, 1.0677, 1.0616, 1.0486, 1.0338, 1.0204, 1.0098, 1.0025, 0.9981, 0.9959, 0.9954, 0.9958, 0.9967, 0.9977, 0.9986, 0.9993, 0.9998, 1.0001, 1.0003, 1.0003, 1.0003, 1.0002, 1.0002, 1.0001, 1, 1, 1, 1, 1, 1, 1, 1, 1);\n      --spring-bouncy: linear(0, 0.0987, 0.3464, 0.6632, 0.9737, 1.2206, 1.371, 1.4178, 1.3751, 1.2708, 1.1382, 1.0087, 0.9063, 0.8442, 0.8254, 0.8439, 0.8878, 0.9433, 0.9973, 1.0398, 1.0654, 1.0729, 1.065, 1.0465, 1.0232, 1.0008, 0.9831, 0.9725, 0.9695, 0.973, 0.9808, 0.9905, 0.9998, 1.0072, 1.0115, 1.0127, 1.0112, 1.008, 1.0039, 1, 1);\n      --ease-out: cubic-bezier(.22,1,.36,1);\n      --travel: 62%;\n      --accent: #7c5cff;\n      --accent-2: #2dd4bf;\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body {\n      background: #0b0d12; color: #e7ebf3; font-family: system-ui, sans-serif;\n      padding: 1.3rem; display: grid; align-content: center; gap: .75rem;\n    }\n    .head { font-size: .72rem; color: #8b93a7; margin: 0 0 .25rem; }\n    .head b { color: #e7ebf3; font-weight: 600; }\n    .head i { font-style: normal; color: #5f6883; }\n    .lane { display: grid; grid-template-columns: 116px 1fr; align-items: center; gap: .8rem; }\n    .lane b { font-family: ui-monospace, Menlo, monospace; font-size: .68rem; font-weight: 500; color: #8b93a7; }\n    .track {\n      position: relative; height: 24px; border-radius: 999px;\n      background: #151925; border: 1px solid #262c3d;\n    }\n    /* The target the motion is aiming at — anything past this line is overshoot. */\n    .track::after {\n      content: \"\"; position: absolute; top: -4px; bottom: -4px;\n      left: calc(var(--travel) + 12px); width: 1px;\n      background: repeating-linear-gradient(#3d465e 0 3px, transparent 3px 6px);\n    }\n    .dot {\n      position: absolute; top: 3px; left: 0; margin-left: 3px;\n      width: 18px; height: 18px; border-radius: 50%;\n      background: linear-gradient(135deg, var(--accent), var(--accent-2));\n      /* Delay phases the first cycle so a static capture lands mid-overshoot\n         rather than on the return leg, where every lane looks identical. */\n      animation: run 1.5s var(--ease) 1.1s infinite;\n    }\n    .s1 { --ease: var(--ease-out); }\n    .s2 { --ease: var(--spring-gentle); }\n    .s3 { --ease: var(--spring-stiff); }\n    .s4 { --ease: var(--spring-bouncy); }\n\n    /* Per-segment timing: the spring drives the outbound leg only. A reversed\n       spring would overshoot backwards past its own origin, which no spring does.\n       The 0% frame deliberately declares NO timing function so the segment\n       inherits each lane's own --ease; var() does not resolve for\n       animation-timing-function inside a keyframe, it silently falls back and\n       every lane ends up moving identically. */\n    @keyframes run {\n      0%   { left: 0; }\n      55%  { left: var(--travel); animation-timing-function: cubic-bezier(.65,0,.35,1); }\n      82%  { left: var(--travel); animation-timing-function: cubic-bezier(.65,0,.35,1); }\n      100% { left: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      .dot { animation: none; left: var(--travel); }\n    }\n  </style>\n</head>\n<body>\n  <p class=\"head\"><b>Springs overshoot; cubic-beziers cannot.</b> <i>Dashed line = target.</i></p>\n  <div class=\"lane\"><b>ease-out</b><div class=\"track\"><div class=\"dot s1\"></div></div></div>\n  <div class=\"lane\"><b>--spring-gentle</b><div class=\"track\"><div class=\"dot s2\"></div></div></div>\n  <div class=\"lane\"><b>--spring-stiff</b><div class=\"track\"><div class=\"dot s3\"></div></div></div>\n  <div class=\"lane\"><b>--spring-bouncy</b><div class=\"track\"><div class=\"dot s4\"></div></div></div>\n</body>\n</html>\n"
+    },
+    {
       "id": "stagger-choreography",
       "title": "Stagger Choreography",
       "summary": "A list whose items animate in one after another with an incremental delay.",
@@ -8417,6 +8842,85 @@
       "ai_usage": "Retro/playful headings and easter eggs. Apply a rainbow linear-gradient clipped to text, then animate filter: hue-rotate(0 → 360deg) for the cycling. Keep to large text for readability and disable animation under reduced motion. For a per-letter wave, wrap letters in spans and stagger animation-delay.",
       "path": "effects/retro-web/rainbow-text.html",
       "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rainbow Cycling Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"rainbow-text\",\n    \"title\": \"Rainbow Cycling Text\",\n    \"summary\": \"Text that cycles through the rainbow via an animated hue rotation — peak GeoCities energy.\",\n    \"description\": \"Fills text with a rainbow gradient (background-clip) and animates the hue with a filter or moving gradient, recreating the animated rainbow text of the early personal web.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"text\", \"color\"],\n    \"tags\": [\"rainbow\", \"hue\", \"90s\", \"geocities\", \"colorful\", \"nostalgia\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers; needs -webkit-background-clip: text.\",\n    \"performance_notes\": \"Animating hue-rotate filter or background-position; cheap for a heading.\",\n    \"accessibility_notes\": \"Rainbow text can be low-contrast and hard to read; keep it to large display headings, not body copy. Animation stops under prefers-reduced-motion (static rainbow remains).\",\n    \"customization\": [\n      { \"name\": \"--rate\", \"description\": \"Hue cycle duration\", \"default\": \"4s\" }\n    ],\n    \"variations\": [\"Per-letter rainbow with staggered hue\", \"Static rainbow (no animation)\", \"Pair with a comic-sans retro vibe\"],\n    \"related\": [\"gradient-text\", \"blink-text\"],\n    \"ai_usage\": \"Retro/playful headings and easter eggs. Apply a rainbow linear-gradient clipped to text, then animate filter: hue-rotate(0 → 360deg) for the cycling. Keep to large text for readability and disable animation under reduced motion. For a per-letter wave, wrap letters in spans and stagger animation-delay.\"\n  }\n  </script>\n  <style>\n    :root { --rate: 4s; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #1a0033; font-family: \"Comic Sans MS\", \"Trebuchet MS\", sans-serif; }\n    .rainbow {\n      font-size: 3rem; font-weight: 900;\n      background: linear-gradient(90deg, #ff0000, #ff8800, #ffee00, #00cc00, #0088ff, #8800ff, #ff0000);\n      -webkit-background-clip: text; background-clip: text; color: transparent;\n      animation: hue var(--rate) linear infinite;\n    }\n    @keyframes hue { to { filter: hue-rotate(360deg); } }\n    @media (prefers-reduced-motion: reduce) { .rainbow { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"rainbow\">~ Welcome ~</div>\n</body>\n</html>\n"
+    },
+    {
+      "id": "visitor-counter",
+      "title": "Retro Visitor Counter",
+      "summary": "A 90s odometer hit counter in seven-segment digits, rolling up to its total with a CRT glow.",
+      "description": "The web-ring era's status symbol: a zero-padded odometer proving people had actually been here. The originals were server-rendered GIFs from a CGI script; this is a CSS rebuild — each digit is a seven-segment cell drawn with a monospace glyph and a lit/unlit colour pair, wrapped in a beveled cabinet with a scanline overlay and a phosphor glow. The count rolls up on load with an ease-out so it decelerates into its final value like a mechanical wheel losing momentum.",
+      "theme": "retro-web",
+      "themeTitle": "Retro Web",
+      "categories": [
+        "retro",
+        "nostalgia",
+        "counter",
+        "decorative"
+      ],
+      "tags": [
+        "retro",
+        "90s",
+        "visitor-counter",
+        "hit-counter",
+        "odometer",
+        "seven-segment",
+        "led",
+        "crt",
+        "scanlines",
+        "geocities",
+        "nostalgia"
+      ],
+      "tech": [
+        "css",
+        "js",
+        "html"
+      ],
+      "era": "1990s",
+      "difficulty": "beginner",
+      "dependencies": [],
+      "browser_support": "All modern browsers. The glow uses text-shadow, not filter, so it stays cheap.",
+      "performance_notes": "One rAF loop for roughly a second at load, then completely idle. Only the digit text changes; the cabinet, bevel, and scanlines are static paint.",
+      "accessibility_notes": "The counter is wrapped in an aria-live=\"off\" region with a plain-text label, so a screen reader announces the final figure once rather than every intermediate frame. Under prefers-reduced-motion the roll-up is skipped and the final number is rendered immediately. The lit-digit colour clears 4.5:1 on the cabinet background.",
+      "customization": [
+        {
+          "name": "--led",
+          "description": "Lit segment colour",
+          "default": "#37ff6d"
+        },
+        {
+          "name": "--led-off",
+          "description": "Unlit segment ghost — keep it barely visible for the real LCD look",
+          "default": "#123d1e"
+        },
+        {
+          "name": "--cabinet",
+          "description": "Counter body colour",
+          "default": "#0a0a0a"
+        },
+        {
+          "name": "data-count",
+          "description": "The number to roll to; digit count is derived from its padded width",
+          "default": "1048576"
+        },
+        {
+          "name": "PAD",
+          "description": "How many digits to zero-pad to",
+          "default": "7"
+        }
+      ],
+      "variations": [
+        "Amber (#ffb000) or CRT-blue LEDs instead of green",
+        "Flip-digit split-flap styling rather than seven-segment",
+        "Add the obligatory \"You are visitor number\" banner and a hit-counter GIF border",
+        "Drive it from a real count and roll only the delta since last visit"
+      ],
+      "related": [
+        "retro-90s-homepage",
+        "marquee-scroll",
+        "blink-text"
+      ],
+      "ai_usage": "Purely nostalgic decoration — use it on a retro/90s pastiche, a launch or waitlist page wanting a knowing wink, or a stats readout that benefits from an odometer feel. Do NOT use it as a serious analytics display; a rolling number is hard to read mid-animation and the format caps out at its padded width.\n\nIntegrate: put the target number in data-count on the counter element and set PAD to the digit width you want; the script zero-pads and rolls from zero on load with an ease-out. To show a real figure, fetch it and set data-count before calling roll() — do not animate on every poll, only when the value actually changes, or it never settles.\n\nTune --led / --led-off / --cabinet as a set: the unlit ghost should be a very dark tint of the lit colour, not grey, or it stops reading as an LCD. Keep the roll under about 1.2s; longer reads as broken rather than mechanical.\n\nAvoid: announcing intermediate values to screen readers (keep aria-live off and label the final number), rolling a number that changes constantly, and using the green-on-black as a text colour anywhere else — it is tuned for large digits, not body copy. Ship the reduced-motion guard; a spinning odometer is exactly the kind of motion it exists to stop.",
+      "path": "effects/retro-web/visitor-counter.html",
+      "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Retro Visitor Counter</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"visitor-counter\",\n    \"title\": \"Retro Visitor Counter\",\n    \"summary\": \"A 90s odometer hit counter in seven-segment digits, rolling up to its total with a CRT glow.\",\n    \"description\": \"The web-ring era's status symbol: a zero-padded odometer proving people had actually been here. The originals were server-rendered GIFs from a CGI script; this is a CSS rebuild — each digit is a seven-segment cell drawn with a monospace glyph and a lit/unlit colour pair, wrapped in a beveled cabinet with a scanline overlay and a phosphor glow. The count rolls up on load with an ease-out so it decelerates into its final value like a mechanical wheel losing momentum.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"nostalgia\", \"counter\", \"decorative\"],\n    \"tags\": [\"retro\", \"90s\", \"visitor-counter\", \"hit-counter\", \"odometer\", \"seven-segment\", \"led\", \"crt\", \"scanlines\", \"geocities\", \"nostalgia\"],\n    \"tech\": [\"css\", \"js\", \"html\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers. The glow uses text-shadow, not filter, so it stays cheap.\",\n    \"performance_notes\": \"One rAF loop for roughly a second at load, then completely idle. Only the digit text changes; the cabinet, bevel, and scanlines are static paint.\",\n    \"accessibility_notes\": \"The counter is wrapped in an aria-live=\\\"off\\\" region with a plain-text label, so a screen reader announces the final figure once rather than every intermediate frame. Under prefers-reduced-motion the roll-up is skipped and the final number is rendered immediately. The lit-digit colour clears 4.5:1 on the cabinet background.\",\n    \"customization\": [\n      { \"name\": \"--led\", \"description\": \"Lit segment colour\", \"default\": \"#37ff6d\" },\n      { \"name\": \"--led-off\", \"description\": \"Unlit segment ghost — keep it barely visible for the real LCD look\", \"default\": \"#123d1e\" },\n      { \"name\": \"--cabinet\", \"description\": \"Counter body colour\", \"default\": \"#0a0a0a\" },\n      { \"name\": \"data-count\", \"description\": \"The number to roll to; digit count is derived from its padded width\", \"default\": \"1048576\" },\n      { \"name\": \"PAD\", \"description\": \"How many digits to zero-pad to\", \"default\": \"7\" }\n    ],\n    \"variations\": [\n      \"Amber (#ffb000) or CRT-blue LEDs instead of green\",\n      \"Flip-digit split-flap styling rather than seven-segment\",\n      \"Add the obligatory \\\"You are visitor number\\\" banner and a hit-counter GIF border\",\n      \"Drive it from a real count and roll only the delta since last visit\"\n    ],\n    \"related\": [\"retro-90s-homepage\", \"marquee-scroll\", \"blink-text\"],\n    \"ai_usage\": \"Purely nostalgic decoration — use it on a retro/90s pastiche, a launch or waitlist page wanting a knowing wink, or a stats readout that benefits from an odometer feel. Do NOT use it as a serious analytics display; a rolling number is hard to read mid-animation and the format caps out at its padded width.\\n\\nIntegrate: put the target number in data-count on the counter element and set PAD to the digit width you want; the script zero-pads and rolls from zero on load with an ease-out. To show a real figure, fetch it and set data-count before calling roll() — do not animate on every poll, only when the value actually changes, or it never settles.\\n\\nTune --led / --led-off / --cabinet as a set: the unlit ghost should be a very dark tint of the lit colour, not grey, or it stops reading as an LCD. Keep the roll under about 1.2s; longer reads as broken rather than mechanical.\\n\\nAvoid: announcing intermediate values to screen readers (keep aria-live off and label the final number), rolling a number that changes constantly, and using the green-on-black as a text colour anywhere else — it is tuned for large digits, not body copy. Ship the reduced-motion guard; a spinning odometer is exactly the kind of motion it exists to stop.\"\n  }\n  </script>\n  <style>\n    :root {\n      --led: #37ff6d;\n      --led-off: #123d1e;\n      --cabinet: #0a0a0a;\n      --bezel: #2a2a2a;\n      --page: #1b1b22;\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; height: 100%; }\n    body {\n      background:\n        repeating-linear-gradient(45deg, #17171d 0 10px, #1b1b22 10px 20px);\n      color: #cfd4e0; font-family: Verdana, Geneva, system-ui, sans-serif;\n      display: grid; place-content: center; gap: .9rem; justify-items: center; padding: 1rem;\n    }\n    .label { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: #9aa0b0; }\n\n    .counter {\n      display: flex; gap: 4px; padding: 10px 12px;\n      background: var(--cabinet);\n      border: 3px solid var(--bezel);\n      border-radius: 6px;\n      /* Chunky beveled cabinet: light top-left, dark bottom-right. */\n      box-shadow:\n        inset 2px 2px 0 #3d3d3d, inset -2px -2px 0 #000,\n        0 0 0 2px #000, 0 6px 18px #000a;\n      position: relative;\n    }\n    /* CRT scanlines over the digits. */\n    .counter::after {\n      content: \"\"; position: absolute; inset: 0; pointer-events: none;\n      border-radius: 3px;\n      background: repeating-linear-gradient(#0000 0 2px, #00000066 2px 3px);\n    }\n    .digit {\n      width: 30px; padding: 6px 0;\n      font-family: ui-monospace, \"DejaVu Sans Mono\", Menlo, monospace;\n      font-size: 2.1rem; line-height: 1; font-weight: 700; text-align: center;\n      color: var(--led);\n      background: #050805;\n      border: 1px solid #1d1d1d;\n      text-shadow: 0 0 6px var(--led), 0 0 14px #37ff6d66;\n      position: relative;\n    }\n    /* The unlit \"8\" ghosting behind every digit — the LCD tell. */\n    .digit::before {\n      content: \"8\"; position: absolute; inset: 6px 0;\n      color: var(--led-off); text-shadow: none;\n    }\n    .digit span { position: relative; }\n\n    .caption { font-size: .62rem; color: #6f7686; letter-spacing: .06em; }\n  </style>\n</head>\n<body>\n  <p class=\"label\">You are visitor number</p>\n  <div class=\"counter\" id=\"counter\" data-count=\"1048576\" aria-live=\"off\"></div>\n  <p class=\"caption\">since October 1998</p>\n\n  <script>\n    var PAD = 7, DURATION = 1100;\n    var el = document.getElementById(\"counter\");\n    var target = parseInt(el.getAttribute(\"data-count\"), 10) || 0;\n    var reduce = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n    function render(value) {\n      var str = String(Math.max(0, Math.round(value))).padStart(PAD, \"0\").slice(-PAD);\n      // Only the glyph changes; the cells themselves are built once.\n      for (var i = 0; i < PAD; i++) el.children[i].firstChild.textContent = str[i];\n    }\n    for (var i = 0; i < PAD; i++) {\n      var cell = document.createElement(\"div\");\n      cell.className = \"digit\";\n      cell.appendChild(document.createElement(\"span\"));\n      el.appendChild(cell);\n    }\n    // Label the settled figure for assistive tech, not every rolling frame.\n    el.setAttribute(\"aria-label\", target.toLocaleString(\"en-US\") + \" visitors\");\n\n    function roll(ts0) {\n      var start = null;\n      function step(ts) {\n        if (start === null) start = ts;\n        var t = Math.min((ts - start) / DURATION, 1);\n        var eased = 1 - Math.pow(1 - t, 3);   // ease-out cubic: decelerates like a wheel\n        render(target * eased);\n        if (t < 1) requestAnimationFrame(step);\n      }\n      requestAnimationFrame(step);\n    }\n\n    render(reduce ? target : 0);\n    if (!reduce) roll();\n  </script>\n</body>\n</html>\n"
     },
     {
       "id": "starfield",

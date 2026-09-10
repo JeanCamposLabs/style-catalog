@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Retro Visitor Counter</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "visitor-counter",
+    "title": "Retro Visitor Counter",
+    "summary": "A 90s odometer hit counter in seven-segment digits, rolling up to its total with a CRT glow.",
+    "description": "The web-ring era's status symbol: a zero-padded odometer proving people had actually been here. The originals were server-rendered GIFs from a CGI script; this is a CSS rebuild — each digit is a seven-segment cell drawn with a monospace glyph and a lit/unlit colour pair, wrapped in a beveled cabinet with a scanline overlay and a phosphor glow. The count rolls up on load with an ease-out so it decelerates into its final value like a mechanical wheel losing momentum.",
+    "theme": "retro-web",
+    "categories": ["retro", "nostalgia", "counter", "decorative"],
+    "tags": ["retro", "90s", "visitor-counter", "hit-counter", "odometer", "seven-segment", "led", "crt", "scanlines", "geocities", "nostalgia"],
+    "tech": ["css", "js", "html"],
+    "era": "1990s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers. The glow uses text-shadow, not filter, so it stays cheap.",
+    "performance_notes": "One rAF loop for roughly a second at load, then completely idle. Only the digit text changes; the cabinet, bevel, and scanlines are static paint.",
+    "accessibility_notes": "The counter is wrapped in an aria-live=\"off\" region with a plain-text label, so a screen reader announces the final figure once rather than every intermediate frame. Under prefers-reduced-motion the roll-up is skipped and the final number is rendered immediately. The lit-digit colour clears 4.5:1 on the cabinet background.",
+    "customization": [
+      { "name": "--led", "description": "Lit segment colour", "default": "#37ff6d" },
+      { "name": "--led-off", "description": "Unlit segment ghost — keep it barely visible for the real LCD look", "default": "#123d1e" },
+      { "name": "--cabinet", "description": "Counter body colour", "default": "#0a0a0a" },
+      { "name": "data-count", "description": "The number to roll to; digit count is derived from its padded width", "default": "1048576" },
+      { "name": "PAD", "description": "How many digits to zero-pad to", "default": "7" }
+    ],
+    "variations": [
+      "Amber (#ffb000) or CRT-blue LEDs instead of green",
+      "Flip-digit split-flap styling rather than seven-segment",
+      "Add the obligatory \"You are visitor number\" banner and a hit-counter GIF border",
+      "Drive it from a real count and roll only the delta since last visit"
+    ],
+    "related": ["retro-90s-homepage", "marquee-scroll", "blink-text"],
+    "ai_usage": "Purely nostalgic decoration — use it on a retro/90s pastiche, a launch or waitlist page wanting a knowing wink, or a stats readout that benefits from an odometer feel. Do NOT use it as a serious analytics display; a rolling number is hard to read mid-animation and the format caps out at its padded width.\n\nIntegrate: put the target number in data-count on the counter element and set PAD to the digit width you want; the script zero-pads and rolls from zero on load with an ease-out. To show a real figure, fetch it and set data-count before calling roll() — do not animate on every poll, only when the value actually changes, or it never settles.\n\nTune --led / --led-off / --cabinet as a set: the unlit ghost should be a very dark tint of the lit colour, not grey, or it stops reading as an LCD. Keep the roll under about 1.2s; longer reads as broken rather than mechanical.\n\nAvoid: announcing intermediate values to screen readers (keep aria-live off and label the final number), rolling a number that changes constantly, and using the green-on-black as a text colour anywhere else — it is tuned for large digits, not body copy. Ship the reduced-motion guard; a spinning odometer is exactly the kind of motion it exists to stop."
+  }
+  </script>
+  <style>
+    :root {
+      --led: #37ff6d;
+      --led-off: #123d1e;
+      --cabinet: #0a0a0a;
+      --bezel: #2a2a2a;
+      --page: #1b1b22;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background:
+        repeating-linear-gradient(45deg, #17171d 0 10px, #1b1b22 10px 20px);
+      color: #cfd4e0; font-family: Verdana, Geneva, system-ui, sans-serif;
+      display: grid; place-content: center; gap: .9rem; justify-items: center; padding: 1rem;
+    }
+    .label { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: #9aa0b0; }
+
+    .counter {
+      display: flex; gap: 4px; padding: 10px 12px;
+      background: var(--cabinet);
+      border: 3px solid var(--bezel);
+      border-radius: 6px;
+      /* Chunky beveled cabinet: light top-left, dark bottom-right. */
+      box-shadow:
+        inset 2px 2px 0 #3d3d3d, inset -2px -2px 0 #000,
+        0 0 0 2px #000, 0 6px 18px #000a;
+      position: relative;
+    }
+    /* CRT scanlines over the digits. */
+    .counter::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      border-radius: 3px;
+      background: repeating-linear-gradient(#0000 0 2px, #00000066 2px 3px);
+    }
+    .digit {
+      width: 30px; padding: 6px 0;
+      font-family: ui-monospace, "DejaVu Sans Mono", Menlo, monospace;
+      font-size: 2.1rem; line-height: 1; font-weight: 700; text-align: center;
+      color: var(--led);
+      background: #050805;
+      border: 1px solid #1d1d1d;
+      text-shadow: 0 0 6px var(--led), 0 0 14px #37ff6d66;
+      position: relative;
+    }
+    /* The unlit "8" ghosting behind every digit — the LCD tell. */
+    .digit::before {
+      content: "8"; position: absolute; inset: 6px 0;
+      color: var(--led-off); text-shadow: none;
+    }
+    .digit span { position: relative; }
+
+    .caption { font-size: .62rem; color: #6f7686; letter-spacing: .06em; }
+  </style>
+</head>
+<body>
+  <p class="label">You are visitor number</p>
+  <div class="counter" id="counter" data-count="1048576" aria-live="off"></div>
+  <p class="caption">since October 1998</p>
+
+  <script>
+    var PAD = 7, DURATION = 1100;
+    var el = document.getElementById("counter");
+    var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function render(value) {
+      var str = String(Math.max(0, Math.round(value))).padStart(PAD, "0").slice(-PAD);
+      // Only the glyph changes; the cells themselves are built once.
+      for (var i = 0; i < PAD; i++) el.children[i].firstChild.textContent = str[i];
+    }
+    for (var i = 0; i < PAD; i++) {
+      var cell = document.createElement("div");
+      cell.className = "digit";
+      cell.appendChild(document.createElement("span"));
+      el.appendChild(cell);
+    }
+    // Label the settled figure for assistive tech, not every rolling frame.
+    el.setAttribute("aria-label", target.toLocaleString("en-US") + " visitors");
+
+    function roll(ts0) {
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var t = Math.min((ts - start) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - t, 3);   // ease-out cubic: decelerates like a wheel
+        render(target * eased);
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    render(reduce ? target : 0);
+    if (!reduce) roll();
+  </script>
+</body>
+</html>
