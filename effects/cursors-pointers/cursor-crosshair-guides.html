@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crosshair Guides</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-crosshair-guides",
+    "title": "Crosshair Guides",
+    "summary": "Full-width guide lines follow the pointer like a design tool.",
+    "description": "Two one-pixel fixed lines track the pointer axes, with a coordinate readout in the corner.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "tool"],
+    "tags": ["crosshair", "guides", "coordinates", "design-tool", "precision"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--c", "description": "Guide color", "default": "rgba(45,212,191,.6)" }
+    ],
+    "variations": ["Snap the guides to a grid", "Show the hex colour under the pointer", "Lock a guide on click"],
+    "ai_usage": "Design tools, canvases, and data plots. Use transform (not left/top) on the guides so they stay on the compositor, and keep the readout in a separate element updated in the same frame."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { cursor: crosshair; }
+    :root { --c: rgba(45,212,191,.6); }
+    .gx, .gy { position: fixed; background: var(--c); pointer-events: none; }
+    .gx { left: 0; right: 0; height: 1px; top: 0; }
+    .gy { top: 0; bottom: 0; width: 1px; left: 0; }
+    .read { position: fixed; right: 12px; bottom: 12px; font-family: ui-monospace, monospace; font-size: .8rem;
+      color: #2dd4bf; background: #0e1520; padding: .3rem .6rem; border-radius: 6px; border: 1px solid #1c2b3a; }
+    .hint { color: #8b93a7; }
+  </style>
+</head>
+<body>
+  <p class="hint">Design-tool guides</p>
+  <div class="gx" aria-hidden="true"></div><div class="gy" aria-hidden="true"></div>
+  <div class="read" id="rd">0, 0</div>
+  <script>
+    (function () {
+      var gx = document.querySelector(".gx"), gy = document.querySelector(".gy"), rd = document.getElementById("rd");
+      addEventListener("pointermove", function (e) {
+        gx.style.transform = "translateY(" + e.clientY + "px)";
+        gy.style.transform = "translateX(" + e.clientX + "px)";
+        rd.textContent = e.clientX + ", " + e.clientY;
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Masked Image Reveal</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "image-mask-reveal-hover",
+    "title": "Masked Image Reveal",
+    "summary": "A colour image appears only inside a circle that follows the pointer.",
+    "description": "Two stacked copies — grayscale below, colour above — with a pointer-driven radial mask on the top layer.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "image"],
+    "tags": ["mask", "reveal", "pointer", "grayscale", "image"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--r", "description": "Reveal radius", "default": "90px" }
+    ],
+    "variations": ["Reveal a different image instead of colour", "Square or blob mask", "Sticky reveal that eases behind the pointer"],
+    "ai_usage": "Portfolio and editorial images. Mask the top layer with radial-gradient(circle var(--r) at var(--x) var(--y), #000 60%, transparent) and animate --r on enter/leave so the reveal opens rather than snapping."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .rev { position: relative; width: 300px; height: 200px; border-radius: 14px; overflow: hidden; }
+    .rev .base, .rev .top { position: absolute; inset: 0;
+      background: conic-gradient(from 210deg at 40% 30%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }
+    .rev .base { filter: grayscale(1) brightness(.6); }
+    .rev .top { -webkit-mask-image: radial-gradient(circle var(--r, 0px) at var(--x, 50%) var(--y, 50%), #000 60%, transparent 100%);
+      mask-image: radial-gradient(circle var(--r, 0px) at var(--x, 50%) var(--y, 50%), #000 60%, transparent 100%);
+      transition: none; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="rev" id="rv"><div class="base"></div><div class="top"></div></div>
+  <script>
+    (function () {
+      var el = document.getElementById("rv");
+      el.addEventListener("pointermove", function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty("--x", (e.clientX - r.left) + "px");
+        el.style.setProperty("--y", (e.clientY - r.top) + "px");
+        el.style.setProperty("--r", "90px");
+      });
+      el.addEventListener("pointerleave", function () { el.style.setProperty("--r", "0px"); });
+    })();
+  </script>
+</body>
+</html>

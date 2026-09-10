@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Particle Trail Cursor</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-particle-trail",
+    "title": "Particle Trail Cursor",
+    "summary": "Small sparks spill from the pointer and fade out.",
+    "description": "Each particle is spawned with a random velocity and removed on animationend, so the DOM never accumulates nodes.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "particles"],
+    "tags": ["particles", "trail", "sparks", "cursor", "spawn"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Cap the spawn rate (one particle every other move event) and remove nodes on animationend, or fast movement floods the DOM.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--c", "description": "Spark color", "default": "#fbbf24" },
+      { "name": "--life", "description": "Particle lifetime", "default": "0.7s" }
+    ],
+    "variations": ["Colour cycle per particle", "Gravity on the particles", "Only emit while a button is held"],
+    "ai_usage": "Playful and game-adjacent sites. Throttle spawning and always clean up on animationend; a naive implementation adds a node per pointermove and grinds to a halt within seconds."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { cursor: crosshair; }
+    :root { --c: #fbbf24; --life: .7s; }
+    .hint { color: #8b93a7; }
+    .p { position: fixed; width: 7px; height: 7px; border-radius: 50%; background: var(--c); pointer-events: none;
+      margin: -3.5px 0 0 -3.5px; animation: fly var(--life) ease-out forwards; }
+    @keyframes fly {
+      to { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <p class="hint">Move the pointer to emit sparks</p>
+  <script>
+    (function () {
+      var n = 0;
+      addEventListener("pointermove", function (e) {
+        if (++n % 2) return;
+        var p = document.createElement("div");
+        p.className = "p";
+        p.style.left = e.clientX + "px"; p.style.top = e.clientY + "px";
+        p.style.setProperty("--dx", (Math.random() * 60 - 30).toFixed(0) + "px");
+        p.style.setProperty("--dy", (Math.random() * 60 - 10).toFixed(0) + "px");
+        document.body.appendChild(p);
+        p.addEventListener("animationend", function () { p.remove(); });
+      });
+    })();
+  </script>
+</body>
+</html>

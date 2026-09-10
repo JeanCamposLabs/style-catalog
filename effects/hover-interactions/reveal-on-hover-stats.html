@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stat Reveal Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "reveal-on-hover-stats",
+    "title": "Stat Reveal Card",
+    "summary": "A summary card that swaps its label for detail on hover.",
+    "description": "Two stacked layers cross-fade and slide in opposite directions, so the swap reads as one motion.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "data"],
+    "tags": ["stats", "reveal", "swap", "dashboard", "card"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Swap duration", "default": "0.3s" }
+    ],
+    "variations": ["Reveal a sparkline instead", "Flip rather than slide", "Keep both visible on wide screens"],
+    "ai_usage": "Dashboards where space is tight. Both layers must occupy the same grid cell (grid-area: 1/1) so the card never changes size during the swap."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: .3s; }
+    .stat { width: 200px; height: 120px; border-radius: 16px; background: #151b2a; border: 1px solid #263149;
+      display: grid; place-items: center; overflow: hidden; cursor: pointer; }
+    .stat > div { grid-area: 1 / 1; text-align: center; transition: transform var(--dur) ease, opacity var(--dur) ease; }
+    .stat .front .n { font-size: 2rem; font-weight: 900; }
+    .stat .front .l { color: #8b93a7; font-size: .85rem; }
+    .stat .back { opacity: 0; transform: translateY(12px); color: #2dd4bf; font-weight: 700; }
+    .stat:hover .front, .stat:focus-visible .front { opacity: 0; transform: translateY(-12px); }
+    .stat:hover .back, .stat:focus-visible .back { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stat" tabindex="0">
+    <div class="front"><div class="n">2,481</div><div class="l">Active users</div></div>
+    <div class="back">↑ 12.4% vs last week</div>
+  </div>
+</body>
+</html>

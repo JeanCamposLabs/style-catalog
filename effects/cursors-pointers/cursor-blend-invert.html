@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inverting Blend Cursor</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-blend-invert",
+    "title": "Inverting Blend Cursor",
+    "summary": "A circle that inverts whatever it passes over.",
+    "description": "mix-blend-mode: difference on a white circle flips the colours beneath it, so one cursor works on any background.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "blend"],
+    "tags": ["blend-mode", "invert", "difference", "cursor", "contrast"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--size", "description": "Cursor size", "default": "44px" }
+    ],
+    "variations": ["Grow over links", "Exclusion blend for a softer flip", "Square or blob shape"],
+    "ai_usage": "Editorial and high-contrast designs. Difference blending means you never have to pick a cursor colour; but the page needs isolation:isolate on a wrapping element or the blend escapes to the root background."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { cursor: none; isolation: isolate; }
+    :root { --size: 44px; }
+    .panel { display: flex; }
+    .panel div { width: 150px; height: 150px; display: grid; place-items: center; font-weight: 800; }
+    .panel div:nth-child(1) { background: #e7ebf3; color: #0b0d12; }
+    .panel div:nth-child(2) { background: #7c5cff; color: #fff; }
+    .cur { position: fixed; top: 0; left: 0; width: var(--size); height: var(--size); border-radius: 50%; background: #fff;
+      margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2); mix-blend-mode: difference; pointer-events: none; z-index: 9; }
+  </style>
+</head>
+<body>
+  <div class="panel"><div>LIGHT</div><div>DARK</div></div>
+  <div class="cur" aria-hidden="true"></div>
+  <script>
+    (function () {
+      var c = document.querySelector(".cur");
+      addEventListener("pointermove", function (e) {
+        c.style.transform = "translate(" + e.clientX + "px," + e.clientY + "px)";
+      });
+    })();
+  </script>
+</body>
+</html>

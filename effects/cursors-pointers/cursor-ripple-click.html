@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Click Ripple Anywhere</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-ripple-click",
+    "title": "Click Ripple Anywhere",
+    "summary": "Every click sends a ripple out from the exact contact point.",
+    "description": "A short-lived absolutely positioned ring is spawned per click and removed when its animation ends.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "feedback"],
+    "tags": ["ripple", "click", "feedback", "spawn", "pointer"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--c", "description": "Ripple color", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Ripple duration", "default": "0.6s" }
+    ],
+    "variations": ["Different colour for right-click", "Ripple on keyboard activation too", "Concentric double ripple"],
+    "ai_usage": "Kiosk, demo, and screen-recording contexts where clicks must be visible. Spawn on pointerdown (not click) so the feedback appears at press time, and always remove the node on animationend."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #7c5cff; --dur: .6s; }
+    .hint { color: #8b93a7; }
+    .rp { position: fixed; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%;
+      border: 2px solid var(--c); pointer-events: none; animation: out var(--dur) ease-out forwards; }
+    @keyframes out { to { transform: scale(6); opacity: 0; } }
+  </style>
+</head>
+<body>
+  <p class="hint">Click anywhere</p>
+  <script>
+    (function () {
+      addEventListener("pointerdown", function (e) {
+        var r = document.createElement("div");
+        r.className = "rp"; r.style.left = e.clientX + "px"; r.style.top = e.clientY + "px";
+        document.body.appendChild(r);
+        r.addEventListener("animationend", function () { r.remove(); });
+      });
+    })();
+  </script>
+</body>
+</html>

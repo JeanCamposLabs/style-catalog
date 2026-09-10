@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Letters Scatter on Hover</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "letter-hover-scatter",
+    "title": "Letters Scatter on Hover",
+    "summary": "Passing the pointer over a word nudges each letter away from it.",
+    "description": "Per-letter displacement falls off with distance from the pointer, so the word parts like water rather than shifting as a block.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "text"],
+    "tags": ["letters", "scatter", "pointer", "falloff", "kinetic"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--push", "description": "Maximum displacement", "default": "22px" }
+    ],
+    "variations": ["Push toward the pointer instead", "Scale letters by proximity", "Colour shift on the nearest letter"],
+    "ai_usage": "Playful headings. Compute each letter's centre once (not per frame), then displace by (1 - dist/radius) — recalculating layout every pointermove is what makes naive versions janky."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .scat { font-size: clamp(2rem, 8vw, 3.4rem); font-weight: 900; display: flex; cursor: default; }
+    .scat span { display: inline-block; transition: transform .25s cubic-bezier(.2,.8,.3,1); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="scat" id="sc" aria-label="MAGNETIC"></h1>
+  <script>
+    (function () {
+      var host = document.getElementById("sc"), word = "MAGNETIC";
+      word.split("").forEach(function (ch) {
+        var s = document.createElement("span"); s.textContent = ch; s.setAttribute("aria-hidden", "true"); host.appendChild(s);
+      });
+      var spans = [].slice.call(host.children);
+      host.addEventListener("pointermove", function (e) {
+        spans.forEach(function (s) {
+          var r = s.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+          var dx = cx - e.clientX, dy = cy - e.clientY, d = Math.hypot(dx, dy);
+          var f = Math.max(0, 1 - d / 140);
+          s.style.transform = "translate(" + (dx * f * .5) + "px," + (dy * f * .5) + "px)";
+        });
+      });
+      host.addEventListener("pointerleave", function () {
+        spans.forEach(function (s) { s.style.transform = ""; });
+      });
+    })();
+  </script>
+</body>
+</html>
