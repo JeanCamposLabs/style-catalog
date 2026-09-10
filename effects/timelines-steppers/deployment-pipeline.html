@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pipeline Stages</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "deployment-pipeline",
+    "title": "Pipeline Stages",
+    "summary": "CI stages with pass, running, and pending states.",
+    "description": "CI stages with pass, running, and pending states.",
+    "theme": "timelines-steppers",
+    "categories": ["timeline", "stepper"],
+    "tags": ["timeline", "sequence", "pipeline", "ci", "stages", "build"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+    "customization": [
+      { "name": "--ok", "description": "Passing colour", "default": "#10a894" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "CI dashboards. Each stage needs an icon plus a word; a row of coloured pills is unreadable the moment the build fails and someone screenshots it in greyscale."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: center; gap: .3rem; width: 300px; }
+    .p { flex: 1; padding: .55rem .3rem; border-radius: 8px; text-align: center; font-size: .74rem; background: #1c2437; color: #8b93a7; }
+    .p.ok { background: rgba(16,168,148,.16); color: #10a894; }
+    .p.run { background: rgba(124,92,255,.16); color: #b9a5ff; }
+    .ar { color: #3b465e; font-size: .7rem; }
+    .spin { display: inline-block; width: 9px; height: 9px; border: 2px solid rgba(185,165,255,.35); border-top-color: #b9a5ff;
+      border-radius: 50%; animation: sp .8s linear infinite; vertical-align: -1px; margin-right: .2rem; }
+    @keyframes sp { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="p ok">✓ Lint</span><span class="ar">›</span><span class="p ok">✓ Test</span>
+  <span class="ar">›</span><span class="p run"><span class="spin"></span>Build</span><span class="ar">›</span><span class="p">Deploy</span></div>
+</body>
+</html>

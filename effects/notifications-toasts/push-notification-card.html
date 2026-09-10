@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Push Notification</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "push-notification-card",
+    "title": "Push Notification",
+    "summary": "An OS-style notification card with app identity.",
+    "description": "An OS-style notification card with app identity.",
+    "theme": "notifications-toasts",
+    "categories": ["notification", "feedback"],
+    "tags": ["notification", "feedback", "push", "os", "card", "mobile"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+    "customization": [
+      { "name": "--bg", "description": "Card background", "default": "rgba(26,33,48,.9)" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Push and system notifications. Lead with the app name and timestamp, then the actionable sentence; body text beyond two lines gets truncated by the OS anyway."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: .8rem; width: 290px; padding: .8rem .9rem; border-radius: 16px;
+      background: rgba(26,33,48,.9); backdrop-filter: blur(12px); border: 1px solid #2b3450; }
+    .fx .ic { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(150deg, #7c5cff, #2dd4bf); flex: none; }
+    .fx .hd { display: flex; justify-content: space-between; font-size: .72rem; color: #8b93a7; }
+    .fx b { display: block; font-size: .86rem; margin: .1rem 0; }
+    .fx p { margin: 0; color: #8b93a7; font-size: .8rem; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="status"><span class="ic" aria-hidden="true"></span>
+  <div><div class="hd"><span>Style Catalog</span><span>now</span></div><b>Build succeeded</b>
+  <p>1,181 specimens deployed to Pages.</p></div></div>
+</body>
+</html>

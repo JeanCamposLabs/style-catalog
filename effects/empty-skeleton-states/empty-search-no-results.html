@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>No Search Results</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "empty-search-no-results",
+    "title": "No Search Results",
+    "summary": "A zero-results state that suggests recovery.",
+    "description": "A zero-results state that suggests recovery.",
+    "theme": "empty-skeleton-states",
+    "categories": ["state", "empty"],
+    "tags": ["state", "placeholder", "no-results", "search", "suggestions", "recovery"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.",
+    "customization": [
+      { "name": "--c", "description": "Suggestion border", "default": "#2b3450" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Search dead ends. Echo the query, then offer concrete escape routes (clear a filter, try a related term) — 'no results found' alone leaves users stuck."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; padding: 1.6rem 1.2rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; text-align: center; }
+    .fx .q { display: inline-block; padding: .15rem .5rem; border-radius: 6px; background: #1e2740; color: #cbd5e1;
+      font-family: ui-monospace, monospace; font-size: .8rem; }
+    .fx h3 { margin: .8rem 0 .3rem; font-size: .98rem; }
+    .fx p { margin: 0 0 1rem; color: #8b93a7; font-size: .84rem; }
+    .fx .sug { display: flex; gap: .4rem; justify-content: center; flex-wrap: wrap; }
+    .fx .sug button { padding: .3rem .7rem; border-radius: 99px; border: 1px solid #2b3450; background: transparent;
+      color: #cbd5e1; font: inherit; font-size: .78rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="status"><span class="q">parallax neon</span><h3>No specimens match</h3>
+  <p>Try removing a filter or searching a related tag.</p>
+  <div class="sug"><button type="button">parallax</button><button type="button">neon</button><button type="button">Clear filters</button></div></div>
+</body>
+</html>

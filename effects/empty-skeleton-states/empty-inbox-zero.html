@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inbox Zero</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "empty-inbox-zero",
+    "title": "Inbox Zero",
+    "summary": "A cleared-queue celebration state.",
+    "description": "A cleared-queue celebration state.",
+    "theme": "empty-skeleton-states",
+    "categories": ["state", "empty"],
+    "tags": ["state", "placeholder", "inbox-zero", "complete", "celebration", "done"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.",
+    "customization": [
+      { "name": "--ok", "description": "Accent colour", "default": "#10a894" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "A finished queue. Celebrate briefly and stop — a persistent animation on an empty inbox is noise the user has to look at every day."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; padding: 2rem 1.4rem; border-radius: 16px; background: #101f1b; border: 1px solid #1c4a41; text-align: center; }
+    .fx .ic { font-size: 2.2rem; }
+    .fx h3 { margin: .7rem 0 .3rem; font-size: 1rem; color: #b8f0e5; }
+    .fx p { margin: 0; color: #7fbfb3; font-size: .85rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="status"><div class="ic" aria-hidden="true">🎉</div><h3>All caught up</h3>
+  <p>No pending reviews. The next batch arrives Monday.</p></div>
+</body>
+</html>

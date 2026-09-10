@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vertical Timeline</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "timeline-vertical-rail",
+    "title": "Vertical Timeline",
+    "summary": "Events on a rail with dated entries.",
+    "description": "Events on a rail with dated entries.",
+    "theme": "timelines-steppers",
+    "categories": ["timeline", "stepper"],
+    "tags": ["timeline", "sequence", "vertical", "rail", "events", "history"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+    "customization": [
+      { "name": "--c", "description": "Dot colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Changelogs and histories. Use an <ol> with <time datetime> per entry; the rail is decoration and belongs in pseudo-elements, not extra list items."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .fx .ev { display: grid; grid-template-columns: 16px 1fr; gap: .8rem; }
+    .fx .rail { display: grid; justify-items: center; }
+    .fx .dot { width: 12px; height: 12px; border-radius: 50%; background: #7c5cff; margin-top: 4px; }
+    .fx .line { width: 2px; flex: 1; background: #2b3450; height: 100%; }
+    .fx .body { padding-bottom: 1.1rem; }
+    .fx b { font-size: .9rem; }
+    .fx time { display: block; color: #8b93a7; font-size: .74rem; margin-bottom: .2rem; }
+    .fx p { margin: 0; color: #8b93a7; font-size: .82rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <ol class="fx" style="list-style:none;margin:0;padding:0">
+    <li class="ev"><span class="rail"><span class="dot"></span><span class="line"></span></span>
+    <div class="body"><time datetime="2026-09-10">10 Sept</time><b>1,000 specimens</b><p>Catalogue passes four figures.</p></div></li>
+    <li class="ev"><span class="rail"><span class="dot" style="background:#2dd4bf"></span><span class="line"></span></span>
+    <div class="body"><time datetime="2026-08-22">22 Aug</time><b>MCP server</b><p>Zero-dependency stdio server ships.</p></div></li>
+    <li class="ev"><span class="rail"><span class="dot" style="background:#8b93a7"></span></span>
+    <div class="body"><time datetime="2026-07-04">4 July</time><b>First commit</b><p>Nine effects, one theme.</p></div></li></ol>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Consent Bar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cookie-consent-bar",
+    "title": "Consent Bar",
+    "summary": "A cookie notice with equal-weight accept and reject.",
+    "description": "A cookie notice with equal-weight accept and reject.",
+    "theme": "notifications-toasts",
+    "categories": ["notification", "feedback"],
+    "tags": ["notification", "feedback", "consent", "cookies", "privacy", "gdpr"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+    "customization": [
+      { "name": "--c", "description": "Accept colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Consent notices. Reject must be as easy to find and click as Accept — a de-emphasised reject button is a dark pattern and is explicitly non-compliant in the EU."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }
+    .fx p { margin: 0 0 .8rem; font-size: .82rem; color: #cbd5e1; line-height: 1.5; }
+    .fx a { color: #b9a5ff; }
+    .fx .row { display: flex; gap: .5rem; }
+    .fx button { flex: 1; padding: .5rem; border-radius: 9px; font: inherit; font-size: .82rem; cursor: pointer; border: 1px solid #2b3450; }
+    .fx .acc { background: #7c5cff; border-color: #7c5cff; color: #fff; font-weight: 700; }
+    .fx .rej { background: transparent; color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="dialog" aria-label="Cookie consent"><p>We use analytics cookies to understand which specimens get used. <a href="#">Details</a></p>
+  <div class="row"><button class="rej" type="button">Reject all</button><button class="acc" type="button">Accept all</button></div></div>
+</body>
+</html>

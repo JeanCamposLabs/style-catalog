@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vertical Stepper</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "stepper-vertical-panels",
+    "title": "Vertical Stepper",
+    "summary": "Steps that expand to reveal their content.",
+    "description": "Steps that expand to reveal their content.",
+    "theme": "timelines-steppers",
+    "categories": ["timeline", "stepper"],
+    "tags": ["timeline", "sequence", "vertical", "stepper", "expand", "guided"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+    "customization": [
+      { "name": "--c", "description": "Active colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Guided setup flows. Only the active step shows its panel; keep completed panels collapsible rather than removed so users can go back and check what they entered."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .s { display: grid; grid-template-columns: 26px 1fr; gap: .8rem; }
+    .s .rail { display: grid; justify-items: center; }
+    .s .d { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: .78rem;
+      font-weight: 800; background: #1c2437; border: 2px solid #2b3450; color: #8b93a7; }
+    .s.done .d { background: #10a894; border-color: #10a894; color: #04241f; }
+    .s.now .d { border-color: #7c5cff; color: #b9a5ff; }
+    .s .line { width: 2px; flex: 1; background: #2b3450; height: 100%; }
+    .s .body { padding-bottom: 1rem; }
+    .s b { font-size: .88rem; color: #cbd5e1; }
+    .s.now b { color: #e7ebf3; }
+    .s .panel { display: none; margin-top: .5rem; padding: .7rem .8rem; border-radius: 10px; background: #151b2a;
+      border: 1px solid #263149; color: #8b93a7; font-size: .8rem; line-height: 1.5; }
+    .s.now .panel { display: block; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="s done"><span class="rail"><span class="d">✓</span><span class="line"></span></span>
+  <div class="body"><b>Connect repository</b></div></div>
+  <div class="s now"><span class="rail"><span class="d">2</span><span class="line"></span></span>
+  <div class="body"><b>Choose a branch</b><div class="panel">Builds will run on every push to the branch you select.</div></div></div>
+  <div class="s"><span class="rail"><span class="d">3</span></span><div class="body"><b>Deploy</b></div></div></div>
+</body>
+</html>
