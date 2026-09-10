@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Underline Input</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "underline-input",
+    "title": "Underline Input",
+    "summary": "A minimal field with only a baseline rule that grows on focus.",
+    "description": "The rule scales from the centre on focus, so the field feels like it opens rather than switching colour.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input"],
+    "tags": ["underline", "minimal", "focus", "material", "field"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Focus colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Label that floats on focus", "Error state in red"],
+    "ai_usage": "Dense forms where boxes feel heavy. Keep the resting rule visible at 3:1 contrast — an invisible resting state makes the field undiscoverable."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .f { position: relative; width: 280px; }
+    .f input { width: 100%; padding: .7rem .2rem; background: transparent; border: 0; border-bottom: 1px solid #3b465e;
+      color: #e7ebf3; font: inherit; }
+    .f input:focus { outline: none; }
+    .f .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--c, #7c5cff);
+      transform: scaleX(0); transition: transform .3s cubic-bezier(.2,.8,.3,1); }
+    .f input:focus ~ .bar { transform: scaleX(1); }
+    .f label { display: block; margin-bottom: .3rem; font-size: .8rem; color: #8b93a7; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="f"><label for="e1">Work email</label><input id="e1" type="email" placeholder="you@company.com" /><span class="bar"></span></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile Tab Bar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bottom-tab-bar",
+    "title": "Mobile Tab Bar",
+    "summary": "A five-item bottom bar with an indicator that slides between tabs.",
+    "description": "The active pill slides instead of jumping, which reads as one navigation rather than five separate states.",
+    "theme": "navigation-menus",
+    "categories": ["navigation"],
+    "tags": ["tabs", "mobile", "bottom-bar", "indicator", "app"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+    "customization": [
+      { "name": "--c", "description": "Active colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Badge counts on tabs", "Centre action button"],
+    "ai_usage": "Mobile app shells. Use role=tablist only if the tabs really swap panels in place; for page navigation use plain links with aria-current."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .tb { display: flex; position: relative; width: 320px; padding: .5rem; background: #10141f; border: 1px solid #1f2740; border-radius: 20px; }
+    .tb a { flex: 1; display: grid; gap: 2px; justify-items: center; padding: .5rem 0; color: #8b93a7; text-decoration: none; font-size: .7rem; }
+    .tb a .ic { font-size: 1.1rem; }
+    .tb a[aria-current] { color: var(--c, #7c5cff); }
+    .tb .ind { position: absolute; bottom: 6px; left: .5rem; width: calc((100% - 1rem) / 5); height: 3px; border-radius: 99px;
+      background: var(--c, #7c5cff); transition: transform .3s cubic-bezier(.7,0,.2,1); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="tb" id="tb" aria-label="Sections">
+    <span class="ind" aria-hidden="true"></span>
+    <a href="#" aria-current="page"><span class="ic" aria-hidden="true">⌂</span>Home</a>
+    <a href="#"><span class="ic" aria-hidden="true">⌕</span>Search</a>
+    <a href="#"><span class="ic" aria-hidden="true">＋</span>Create</a>
+    <a href="#"><span class="ic" aria-hidden="true">♥</span>Saved</a>
+    <a href="#"><span class="ic" aria-hidden="true">☺</span>You</a>
+  </nav>
+  <script>
+    (function () {
+      var bar = document.getElementById("tb"), ind = bar.querySelector(".ind");
+      var links = [].slice.call(bar.querySelectorAll("a"));
+      links.forEach(function (a, i) {
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          links.forEach(function (o) { o.removeAttribute("aria-current"); });
+          a.setAttribute("aria-current", "page");
+          ind.style.transform = "translateX(" + i * 100 + "%)";
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

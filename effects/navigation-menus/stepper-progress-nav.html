@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Step Navigation</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "stepper-progress-nav",
+    "title": "Step Navigation",
+    "summary": "A numbered step bar showing done, current, and upcoming stages.",
+    "description": "Three visually distinct states plus a connecting line make progress legible at a glance.",
+    "theme": "navigation-menus",
+    "categories": ["navigation"],
+    "tags": ["steps", "wizard", "progress", "checkout", "stages"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+    "customization": [
+      { "name": "--done", "description": "Completed colour", "default": "#34d399" },
+      { "name": "--now", "description": "Current colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Vertical stepper", "Clickable completed steps"],
+    "ai_usage": "Checkouts and multi-step forms. Mark the current step with aria-current=step and give completed steps a tick as well as a colour."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .steps { display: flex; align-items: center; width: 330px; }
+    .steps .s { display: grid; gap: .4rem; justify-items: center; font-size: .75rem; color: #8b93a7; }
+    .steps .dot { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 700;
+      background: #1c2437; color: #8b93a7; border: 2px solid #2b3450; }
+    .steps .s.done .dot { background: var(--done, #34d399); border-color: var(--done, #34d399); color: #06281c; }
+    .steps .s.now .dot { border-color: var(--now, #7c5cff); color: #b9a5ff; }
+    .steps .s.now { color: #e7ebf3; }
+    .steps .line { flex: 1; height: 2px; background: #2b3450; margin: 0 .4rem; margin-bottom: 1.1rem; }
+    .steps .line.done { background: var(--done, #34d399); }
+  </style>
+</head>
+<body>
+  <ol class="steps" style="list-style:none;padding:0;margin:0">
+    <li class="s done"><span class="dot">✓</span>Cart</li>
+    <li class="line done" aria-hidden="true"></li>
+    <li class="s now" aria-current="step"><span class="dot">2</span>Shipping</li>
+    <li class="line" aria-hidden="true"></li>
+    <li class="s"><span class="dot">3</span>Payment</li>
+  </ol>
+</body>
+</html>

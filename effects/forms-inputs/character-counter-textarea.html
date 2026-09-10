@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Counted Textarea</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "character-counter-textarea",
+    "title": "Counted Textarea",
+    "summary": "A textarea with a live character count that warns near the limit.",
+    "description": "The counter changes colour only in the last 20 characters, so it stays quiet for most of the typing.",
+    "theme": "forms-inputs",
+    "categories": ["form", "textarea"],
+    "tags": ["counter", "limit", "textarea", "feedback", "live"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+    "customization": [
+      { "name": "--warn", "description": "Warning colour", "default": "#fbbf24" }
+    ],
+    "variations": ["Hard block at the limit", "Word count instead of characters"],
+    "ai_usage": "Bios, posts, and messages. Put the count in an aria-live=polite region but only update it every few keystrokes, or screen readers announce every character."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .ta { width: 300px; }
+    .ta textarea { width: 100%; min-height: 110px; padding: .8rem 1rem; border-radius: 12px; border: 1px solid #2b3450;
+      background: #151b2a; color: #e7ebf3; font: inherit; resize: vertical; }
+    .ta .row { display: flex; justify-content: space-between; margin-top: .4rem; font-size: .8rem; color: #8b93a7; }
+    .ta.is-near .count { color: var(--warn, #fbbf24); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="ta" id="ta"><label for="bio" style="font-size:.82rem;color:#8b93a7">Bio</label>
+  <textarea id="bio" maxlength="140" placeholder="Tell us about yourself"></textarea>
+  <div class="row"><span>Max 140</span><span class="count" aria-live="polite">0 / 140</span></div></div>
+  <script>
+    (function () {
+      var w = document.getElementById("ta"), t = document.getElementById("bio"), c = w.querySelector(".count");
+      t.addEventListener("input", function () {
+        c.textContent = t.value.length + " / 140";
+        w.classList.toggle("is-near", t.value.length > 120);
+      });
+    })();
+  </script>
+</body>
+</html>

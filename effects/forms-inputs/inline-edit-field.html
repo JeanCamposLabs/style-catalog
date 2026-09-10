@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Click to Edit</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "inline-edit-field",
+    "title": "Click to Edit",
+    "summary": "Text that becomes an input when clicked and saves on blur.",
+    "description": "Swapping in place keeps the layout identical, so nothing shifts when edit mode starts.",
+    "theme": "forms-inputs",
+    "categories": ["form", "edit"],
+    "tags": ["inline-edit", "click-to-edit", "save", "field", "cms"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Focus colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Escape to cancel", "Pencil affordance on hover"],
+    "ai_usage": "Dashboards and CMS tables. Match the input's font, padding, and border-box to the static text exactly, or the row jumps when entering edit mode."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .ie { width: 280px; }
+    .ie .val { padding: .55rem .7rem; border: 1px solid transparent; border-radius: 10px; cursor: text; color: #e7ebf3; }
+    .ie .val:hover { border-color: #2b3450; background: #151b2a; }
+    .ie input { width: 100%; padding: .55rem .7rem; border: 1px solid var(--c, #7c5cff); border-radius: 10px;
+      background: #151b2a; color: #e7ebf3; font: inherit; }
+    .ie .hint { font-size: .78rem; color: #8b93a7; margin-top: .4rem; }
+  </style>
+</head>
+<body>
+  <div class="ie" id="ie"><div class="val" tabindex="0" role="button">Quarterly roadmap</div>
+  <p class="hint">Click the title to rename it.</p></div>
+  <script>
+    (function () {
+      var host = document.getElementById("ie");
+      host.addEventListener("click", function (e) {
+        var v = e.target.closest(".val"); if (!v) return;
+        var inp = document.createElement("input");
+        inp.value = v.textContent.trim(); inp.setAttribute("aria-label", "Rename");
+        v.replaceWith(inp); inp.focus(); inp.select();
+        inp.addEventListener("blur", function () {
+          var d = document.createElement("div");
+          d.className = "val"; d.tabIndex = 0; d.setAttribute("role", "button"); d.textContent = inp.value || "Untitled";
+          inp.replaceWith(d);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

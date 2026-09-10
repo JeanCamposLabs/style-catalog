@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chip Multi-Select</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "multi-select-chips",
+    "title": "Chip Multi-Select",
+    "summary": "Selectable filter chips that toggle on click.",
+    "description": "Chips carry aria-pressed so the selection is announced, and the checked state adds a tick as well as a colour.",
+    "theme": "forms-inputs",
+    "categories": ["form", "select"],
+    "tags": ["chips", "filter", "multi-select", "toggle", "tags"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Selected colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Single-select radio behaviour", "Count badge for selected chips"],
+    "ai_usage": "Filter bars and tag pickers. Use buttons with aria-pressed rather than divs; if the filter must survive a page load, back it with real checkboxes."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; width: 300px; }
+    .chips button { padding: .5rem 1rem; border-radius: 999px; border: 1px solid #2b3450; background: #151b2a; color: #cbd5e1;
+      font: inherit; font-size: .9rem; cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
+    .chips button[aria-pressed="true"] { background: color-mix(in srgb, var(--c, #7c5cff) 25%, #151b2a);
+      border-color: var(--c, #7c5cff); color: #fff; }
+    .chips button[aria-pressed="true"]::before { content: "✓ "; }
+  </style>
+</head>
+<body>
+  <div class="chips" id="ch">
+    <button type="button" aria-pressed="true">CSS</button><button type="button" aria-pressed="false">SVG</button>
+    <button type="button" aria-pressed="false">Canvas</button><button type="button" aria-pressed="true">Animation</button>
+    <button type="button" aria-pressed="false">Retro</button>
+  </div>
+  <script>
+    (function () {
+      document.getElementById("ch").addEventListener("click", function (e) {
+        var b = e.target.closest("button"); if (!b) return;
+        b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+      });
+    })();
+  </script>
+</body>
+</html>

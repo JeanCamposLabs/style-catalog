@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Underlined Tabs</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "pill-tabs-underline",
+    "title": "Underlined Tabs",
+    "summary": "Horizontal tabs with a sliding underline indicator.",
+    "description": "The underline is one element that translates and resizes to the active tab, so it never leaves gaps.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "tabs"],
+    "tags": ["tabs", "underline", "indicator", "slide", "panel"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+    "customization": [
+      { "name": "--c", "description": "Indicator colour", "default": "#2dd4bf" }
+    ],
+    "variations": ["Scrollable tabs on mobile", "Icons above labels"],
+    "ai_usage": "Content switchers. Measure the active tab's offsetLeft/offsetWidth to size the indicator, and re-measure on resize or the underline drifts after a layout change."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .tabs { position: relative; display: flex; gap: 1.4rem; border-bottom: 1px solid #1f2740; padding-bottom: .6rem; }
+    .tabs button { border: 0; background: transparent; color: #8b93a7; font: inherit; font-weight: 600; cursor: pointer; padding: 0; }
+    .tabs button[aria-selected="true"] { color: #e7ebf3; }
+    .tabs .ind { position: absolute; bottom: -1px; height: 2px; background: var(--c, #2dd4bf); transition: transform .3s, width .3s; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs" id="tabs" role="tablist" aria-label="Views">
+    <button role="tab" aria-selected="true" type="button">Overview</button>
+    <button role="tab" aria-selected="false" type="button">Activity</button>
+    <button role="tab" aria-selected="false" type="button">Members</button>
+    <span class="ind" aria-hidden="true"></span>
+  </div>
+  <script>
+    (function () {
+      var host = document.getElementById("tabs"), ind = host.querySelector(".ind");
+      var tabs = [].slice.call(host.querySelectorAll("button"));
+      function move(t) {
+        ind.style.width = t.offsetWidth + "px";
+        ind.style.transform = "translateX(" + t.offsetLeft + "px)";
+      }
+      tabs.forEach(function (t) {
+        t.addEventListener("click", function () {
+          tabs.forEach(function (o) { o.setAttribute("aria-selected", "false"); });
+          t.setAttribute("aria-selected", "true"); move(t);
+        });
+      });
+      move(tabs[0]);
+    })();
+  </script>
+</body>
+</html>

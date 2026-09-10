@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Icon Sidebar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "vertical-sidebar-nav",
+    "title": "Icon Sidebar",
+    "summary": "A collapsed icon rail that expands labels on hover.",
+    "description": "The rail widens rather than overlaying, so content reflows predictably instead of being covered.",
+    "theme": "navigation-menus",
+    "categories": ["navigation"],
+    "tags": ["sidebar", "rail", "icons", "expand", "app-shell"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+    "customization": [
+      { "name": "--w", "description": "Collapsed width", "default": "62px" },
+      { "name": "--wide", "description": "Expanded width", "default": "190px" }
+    ],
+    "variations": ["Pin the expanded state", "Tooltips instead of expansion"],
+    "ai_usage": "App shells. Keep text labels in the DOM (not title attributes) and hide them with overflow so screen readers always read the real label."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --w: 62px; --wide: 190px; }
+    .rail { width: var(--w); height: 320px; padding: .6rem; background: #10141f; border: 1px solid #1f2740; border-radius: 16px;
+      overflow: hidden; transition: width .3s cubic-bezier(.7,0,.2,1); }
+    .rail:hover, .rail:focus-within { width: var(--wide); }
+    .rail a { display: flex; align-items: center; gap: .9rem; padding: .7rem .75rem; border-radius: 10px; color: #8b93a7;
+      text-decoration: none; white-space: nowrap; }
+    .rail a:hover, .rail a:focus-visible { background: #1c2437; color: #e7ebf3; }
+    .rail a .ic { flex: none; width: 20px; text-align: center; }
+    .rail a[aria-current] { background: #221c3f; color: #b9a5ff; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="rail" aria-label="Main">
+    <a href="#" aria-current="page"><span class="ic" aria-hidden="true">◱</span> Dashboard</a>
+    <a href="#"><span class="ic" aria-hidden="true">◷</span> Activity</a>
+    <a href="#"><span class="ic" aria-hidden="true">◫</span> Projects</a>
+    <a href="#"><span class="ic" aria-hidden="true">⚙</span> Settings</a>
+  </nav>
+</body>
+</html>

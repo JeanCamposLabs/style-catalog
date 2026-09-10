@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swatch Picker</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "color-swatch-picker",
+    "title": "Swatch Picker",
+    "summary": "A row of colour swatches with a selected ring.",
+    "description": "The selected ring sits outside the swatch so the colour itself is never obscured by the indicator.",
+    "theme": "forms-inputs",
+    "categories": ["form", "color"],
+    "tags": ["color", "swatch", "picker", "selection", "palette"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Each swatch has an accessible name — a colour alone cannot be perceived by every user.",
+    "customization": [
+      { "name": "--ring", "description": "Selection ring", "default": "#fff" }
+    ],
+    "variations": ["Custom colour via <input type=color>", "Two-row palette with shades"],
+    "ai_usage": "Theme and product-variant pickers. Always name the colour in the accessible label; use outline (not border) for the selection so the swatch size never changes."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .sw { display: flex; gap: 10px; }
+    .sw button { width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer; }
+    .sw button[aria-pressed="true"] { outline: 2px solid var(--ring, #fff); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <div class="sw" id="sw" role="group" aria-label="Accent colour">
+    <button type="button" aria-pressed="true" aria-label="Violet" style="background:#7c5cff"></button>
+    <button type="button" aria-pressed="false" aria-label="Teal" style="background:#2dd4bf"></button>
+    <button type="button" aria-pressed="false" aria-label="Pink" style="background:#f472b6"></button>
+    <button type="button" aria-pressed="false" aria-label="Amber" style="background:#fbbf24"></button>
+  </div>
+  <script>
+    (function () {
+      var g = document.getElementById("sw");
+      g.addEventListener("click", function (e) {
+        var b = e.target.closest("button"); if (!b) return;
+        g.querySelectorAll("button").forEach(function (o) { o.setAttribute("aria-pressed", "false"); });
+        b.setAttribute("aria-pressed", "true");
+      });
+    })();
+  </script>
+</body>
+</html>
