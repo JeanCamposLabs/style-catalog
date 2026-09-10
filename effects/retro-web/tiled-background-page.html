@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tiled Wallpaper</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "tiled-background-page",
+    "title": "Tiled Wallpaper",
+    "summary": "The repeating background-image page style.",
+    "description": "The repeating background-image page style.",
+    "theme": "retro-web",
+    "categories": ["retro", "nostalgia"],
+    "tags": ["retro", "nostalgia", "wallpaper", "tiled", "background", "90s"],
+    "tech": ["css"],
+    "era": "1990s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+    "customization": [
+      { "name": "--bg", "description": "Wallpaper colour", "default": "#202060" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Personal-page pastiche. Recreate the tile with CSS gradients rather than a GIF — same look, no request, and it scales on high-DPI screens."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; height: 180px; border: 3px ridge #c0c0c0; padding: 1rem; color: #fff;
+      font-family: "Times New Roman", serif; text-shadow: 2px 2px 0 #000;
+      background-color: #202060;
+      background-image: radial-gradient(circle at 8px 8px, rgba(255,255,255,.28) 0 3px, transparent 4px),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.06) 0 8px, transparent 8px 16px);
+      background-size: 24px 24px, 32px 32px; }
+    .fx h3 { margin: 0 0 .5rem; font-size: 1.2rem; }
+    .fx p { margin: 0; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><h3>Welcome to my homepage!</h3><p>Best viewed in 800×600.</p></div>
+</body>
+</html>

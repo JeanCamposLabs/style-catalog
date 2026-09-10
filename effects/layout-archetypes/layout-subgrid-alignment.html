@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subgrid Alignment</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "layout-subgrid-alignment",
+    "title": "Subgrid Alignment",
+    "summary": "Card internals aligned across a row.",
+    "description": "Card internals aligned across a row.",
+    "theme": "layout-archetypes",
+    "categories": ["layout", "structure"],
+    "tags": ["layout", "grid", "subgrid", "alignment", "cards", "grid"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+    "customization": [
+      { "name": "--cols", "description": "Column count", "default": "3" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Card rows where titles and prices must line up. subgrid lets children participate in the parent's tracks, which is the only way to align internals across siblings without fixed heights."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 300px; }
+    .c { display: grid; grid-template-rows: subgrid; grid-row: span 3; gap: 6px; padding: .7rem;
+      border-radius: 12px; background: #151b2a; border: 1px solid #263149; }
+    .fx { grid-template-rows: auto auto auto; }
+    .c h4 { margin: 0; font-size: .8rem; }
+    .c p { margin: 0; color: #8b93a7; font-size: .7rem; line-height: 1.4; }
+    .c b { font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="c"><h4>Starter</h4><p>For solo work</p><b>$12</b></div>
+  <div class="c"><h4>Studio plan</h4><p>For small teams that ship often</p><b>$24</b></div>
+  <div class="c"><h4>Scale</h4><p>Unlimited</p><b>$99</b></div></div>
+</body>
+</html>

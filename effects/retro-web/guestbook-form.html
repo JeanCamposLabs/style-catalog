@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guestbook</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "guestbook-form",
+    "title": "Guestbook",
+    "summary": "A 90s guestbook entry form.",
+    "description": "A 90s guestbook entry form.",
+    "theme": "retro-web",
+    "categories": ["retro", "nostalgia"],
+    "tags": ["retro", "nostalgia", "guestbook", "form", "90s", "windows"],
+    "tech": ["css"],
+    "era": "1990s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+    "customization": [
+      { "name": "--bg", "description": "Panel colour", "default": "#c0c0c0" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Retro-web pastiche. Recreate the era with border-style outset/inset and the system font stack rather than images; the result stays selectable and accessible."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; padding: 1rem; background: #c0c0c0; border: 3px outset #fff; color: #000;
+      font-family: "MS Sans Serif", Tahoma, sans-serif; font-size: .8rem; }
+    .fx h3 { margin: 0 0 .7rem; font-size: .95rem; text-align: center; text-decoration: underline; }
+    .fx label { display: block; margin-bottom: .2rem; }
+    .fx input, .fx textarea { width: 100%; margin-bottom: .6rem; padding: .3rem; border: 2px inset #fff; font: inherit; }
+    .fx button { padding: .3rem 1rem; border: 2px outset #fff; background: #c0c0c0; font: inherit; cursor: pointer; }
+    .fx button:active { border-style: inset; }
+  </style>
+</head>
+<body>
+  <form class="fx"><h3>Sign my guestbook!</h3><label for="gn">Your name:</label><input id="gn" type="text" />
+  <label for="gm">Message:</label><textarea id="gm" rows="2"></textarea><button type="button">Submit</button></form>
+</body>
+</html>

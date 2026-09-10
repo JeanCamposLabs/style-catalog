@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bento Grid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "layout-bento-asymmetric",
+    "title": "Bento Grid",
+    "summary": "Asymmetric tiles of different spans.",
+    "description": "Asymmetric tiles of different spans.",
+    "theme": "layout-archetypes",
+    "categories": ["layout", "structure"],
+    "tags": ["layout", "grid", "bento", "asymmetric", "spans", "dashboard"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+    "customization": [
+      { "name": "--rows", "description": "Row height", "default": "56px" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Feature and dashboard grids. Vary spans, not gaps, and keep every tile aligned to the same track sizes — arbitrary sizes turn a bento into a collage."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 56px; gap: 8px; width: 300px; }
+    .fx div { border-radius: 12px; background: #151b2a; border: 1px solid #263149; display: grid; place-items: center;
+      color: #8b93a7; font-size: .74rem; }
+    .a { grid-column: span 2; grid-row: span 2; } .b { grid-column: span 2; } .c { grid-column: span 2; }
+    .d { grid-column: span 4; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="a">feature</div><div class="b">stat</div><div class="c">stat</div><div class="d">wide</div></div>
+</body>
+</html>

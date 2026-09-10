@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Shell</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "layout-dashboard-shell",
+    "title": "Dashboard Shell",
+    "summary": "Rail, header, and content region.",
+    "description": "Rail, header, and content region.",
+    "theme": "layout-archetypes",
+    "categories": ["layout", "structure"],
+    "tags": ["layout", "grid", "dashboard", "shell", "rail", "app"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+    "customization": [
+      { "name": "--rail", "description": "Rail width", "default": "44px" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Admin interfaces. Give the shell its own grid and let each region scroll independently; a single page scroll makes the rail and header disappear when users need them most."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template: "rail hd" 34px "rail main" 1fr / 44px 1fr; gap: 6px; width: 300px; height: 190px; }
+    .fx > * { background: #151b2a; border: 1px solid #263149; border-radius: 10px; }
+    .rail { grid-area: rail; display: grid; align-content: start; gap: 6px; padding: 6px; }
+    .rail i { height: 28px; border-radius: 7px; background: #1e2740; }
+    .rail i:first-child { background: #7c5cff; }
+    .hd { grid-area: hd; }
+    .main { grid-area: main; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 6px; background: #10141f; }
+    .main div { border-radius: 8px; background: #151b2a; border: 1px solid #263149; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="rail"><i></i><i></i><i></i></div><div class="hd"></div>
+  <div class="main"><div></div><div></div><div></div><div></div></div></div>
+</body>
+</html>

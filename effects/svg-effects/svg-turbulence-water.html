@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Turbulent Ripple</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-turbulence-water",
+    "title": "Turbulent Ripple",
+    "summary": "Vector art rippling through a turbulence filter.",
+    "description": "Vector art rippling through a turbulence filter.",
+    "theme": "svg-effects",
+    "categories": ["svg", "vector"],
+    "tags": ["svg", "vector", "turbulence", "displacement", "ripple", "filter"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+    "customization": [
+      { "name": "--scale", "description": "Displacement", "default": "12" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Water and heat distortion. Animate baseFrequency with SMIL rather than the displacement scale — scale jumps read as a glitch, frequency shifts read as flowing."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 220px; }
+    .fx svg { width: 100%; display: block; }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 220 140" aria-hidden="true">
+    <defs><filter id="wv"><feTurbulence type="fractalNoise" baseFrequency="0.01 0.04" numOctaves="2" result="n">
+      <animate attributeName="baseFrequency" dur="10s" values="0.01 0.04;0.02 0.06;0.01 0.04" repeatCount="indefinite"/></feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="12" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2dd4bf"/>
+    <stop offset="1" stop-color="#0c4a6e"/></linearGradient></defs>
+    <rect width="220" height="140" rx="14" fill="url(#wg)" filter="url(#wv)"/></svg></div>
+</body>
+</html>

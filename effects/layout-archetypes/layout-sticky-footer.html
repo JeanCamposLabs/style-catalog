@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sticky Footer</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "layout-sticky-footer",
+    "title": "Sticky Footer",
+    "summary": "A footer pinned to the bottom on short pages.",
+    "description": "A footer pinned to the bottom on short pages.",
+    "theme": "layout-archetypes",
+    "categories": ["layout", "structure"],
+    "tags": ["layout", "grid", "sticky-footer", "grid-rows", "layout", "classic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+    "customization": [
+      { "name": "--h", "description": "Container height", "default": "190px" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Short pages. grid-template-rows: auto 1fr auto solves the sticky footer in one declaration — no min-height calc, no negative margins, no flexbox hacks."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template-rows: auto 1fr auto; width: 290px; height: 190px; border-radius: 14px;
+      overflow: hidden; border: 1px solid #263149; font-size: .8rem; }
+    .fx header, .fx footer { background: #1c2437; color: #8b93a7; padding: .6rem .9rem; }
+    .fx main { background: #10141f; color: #cbd5e1; padding: .9rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><header>Header</header><main>Short content.</main><footer>Footer stays at the bottom</footer></div>
+</body>
+</html>

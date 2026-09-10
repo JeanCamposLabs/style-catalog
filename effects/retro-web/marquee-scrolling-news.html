@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marquee Ticker</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "marquee-scrolling-news",
+    "title": "Marquee Ticker",
+    "summary": "A scrolling news bar, accessibly rebuilt.",
+    "description": "A scrolling news bar, accessibly rebuilt.",
+    "theme": "retro-web",
+    "categories": ["retro", "nostalgia"],
+    "tags": ["retro", "nostalgia", "marquee", "ticker", "scroll", "90s"],
+    "tech": ["css"],
+    "era": "1990s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+    "customization": [
+      { "name": "--dur", "description": "Scroll period", "default": "12s" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Retro tickers. Never use the deprecated <marquee> tag: it cannot be paused, ignores reduced motion, and hides text from find-in-page. Pause on hover as this one does."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; overflow: hidden; padding: .5rem 0; background: #000; border: 2px inset #808080; }
+    .fx b { display: inline-block; white-space: nowrap; color: #0f0; font-family: ui-monospace, monospace;
+      animation: slide 12s linear infinite; }
+    .fx:hover b { animation-play-state: paused; }
+    @keyframes slide { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><b>*** BREAKING: catalogue passes 1,000 specimens *** all zero-dependency *** ***</b></div>
+</body>
+</html>

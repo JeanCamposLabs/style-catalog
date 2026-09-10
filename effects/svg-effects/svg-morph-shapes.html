@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shape Morph</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-morph-shapes",
+    "title": "Shape Morph",
+    "summary": "One path morphing between three silhouettes.",
+    "description": "One path morphing between three silhouettes.",
+    "theme": "svg-effects",
+    "categories": ["svg", "vector"],
+    "tags": ["svg", "vector", "morph", "path", "d-property", "shapes"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+    "customization": [
+      { "name": "--c", "description": "Shape colour", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Morph cycle", "default": "6s" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Logo and icon transitions. Animating the d property needs the same command sequence and point count in every keyframe; unequal paths snap instead of morphing."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 170px; }
+    .fx svg { width: 100%; display: block; }
+    .fx path { fill: #7c5cff; animation: morph 6s ease-in-out infinite; }
+    @keyframes morph {
+      0%, 100% { d: path("M85 10 L160 85 L85 160 L10 85 Z"); }
+      33% { d: path("M85 12 L158 60 L130 150 L40 150 L12 60 Z"); }
+      66% { d: path("M85 20 C130 20 160 50 160 90 C160 130 130 160 85 160 C40 160 10 130 10 90 C10 50 40 20 85 20 Z"); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 170 170" aria-hidden="true"><path d="M85 10 L160 85 L85 160 L10 85 Z"/></svg></div>
+</body>
+</html>
