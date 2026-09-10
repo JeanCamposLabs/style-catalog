@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Button with Count</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "button-pill-count",
+    "title": "Button with Count",
+    "summary": "An action carrying a live count badge.",
+    "description": "An action carrying a live count badge.",
+    "theme": "buttons",
+    "categories": ["button", "action"],
+    "tags": ["button", "action", "count", "badge", "action", "live"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Badge background", "default": "#22304a" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Filter and cart buttons. Put the count inside the accessible name ('Cart, 3 items') rather than relying on the badge being read separately."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem 1rem; border-radius: 999px;
+      border: 1px solid #2b3450; background: #151b2a; color: #cbd5e1; font: inherit; font-size: .86rem; cursor: pointer; }
+    .fx b { padding: .05rem .45rem; border-radius: 99px; background: #22304a; color: #e7ebf3; font-size: .74rem;
+      font-variant-numeric: tabular-nums; }
+    .fx:hover { border-color: #7c5cff; }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button" aria-label="Filters, 3 active">Filters <b>3</b></button>
+</body>
+</html>

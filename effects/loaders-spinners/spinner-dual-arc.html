@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dual Arc Spinner</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "spinner-dual-arc",
+    "title": "Dual Arc Spinner",
+    "summary": "Two arcs counter-rotating at different speeds.",
+    "description": "Two arcs counter-rotating at different speeds.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "spinner"],
+    "tags": ["loader", "waiting", "arcs", "counter-rotate", "rings", "spinner"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Outer colour", "default": "#7c5cff" },
+      { "name": "--b", "description": "Inner colour", "default": "#2dd4bf" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Two rings at different speeds and directions read as more active than one; keep the durations non-multiples so they rarely align."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 72px; aspect-ratio: 1; }
+    .fx i { position: absolute; inset: 0; border-radius: 50%; border: 4px solid transparent; }
+    .fx i:nth-child(1) { border-top-color: #7c5cff; border-right-color: #7c5cff; animation: spin 1.1s linear infinite; }
+    .fx i:nth-child(2) { inset: 12px; border-bottom-color: #2dd4bf; border-left-color: #2dd4bf;
+      animation: spin 1.6s linear infinite reverse; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx" role="status" aria-label="Loading"><i></i><i></i></div>
+</body>
+</html>

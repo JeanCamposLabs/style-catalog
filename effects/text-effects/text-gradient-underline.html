@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gradient Underline</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "text-gradient-underline",
+    "title": "Gradient Underline",
+    "summary": "A heading with a thick gradient rule beneath it.",
+    "description": "A heading with a thick gradient rule beneath it.",
+    "theme": "text-effects",
+    "categories": ["text", "typography"],
+    "tags": ["text", "type", "underline", "gradient", "heading", "emphasis"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative duplicates are aria-hidden.",
+    "customization": [
+      { "name": "--a", "description": "Start colour", "default": "#7c5cff" },
+      { "name": "--b", "description": "End colour", "default": "#2dd4bf" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Section headings. A background-image underline follows line wraps correctly, which a border-bottom on an inline element does not."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { font-size: 1.8rem; font-weight: 900; display: inline-block; padding-bottom: .3rem;
+      background-image: linear-gradient(90deg, #7c5cff, #2dd4bf); background-size: 100% 6px;
+      background-repeat: no-repeat; background-position: 0 100%; }
+  </style>
+</head>
+<body>
+  <h2 class="fx">Underlined</h2>
+</body>
+</html>

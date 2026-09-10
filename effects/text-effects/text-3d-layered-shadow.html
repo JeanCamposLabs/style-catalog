@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layered 3D Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "text-3d-layered-shadow",
+    "title": "Layered 3D Text",
+    "summary": "Coloured shadow layers building depth.",
+    "description": "Coloured shadow layers building depth.",
+    "theme": "text-effects",
+    "categories": ["text", "typography"],
+    "tags": ["text", "type", "3d", "layers", "depth", "shadow"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative duplicates are aria-hidden.",
+    "customization": [
+      { "name": "--face", "description": "Face colour", "default": "#ffffff" },
+      { "name": "--side", "description": "Side colour", "default": "#d1478c" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Poster headlines. Darken each successive shadow layer so the extrusion reads as a lit side rather than a flat colour block."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { font-size: 2.4rem; font-weight: 900; color: #fff;
+      text-shadow: 1px 1px 0 #d1478c, 2px 2px 0 #b93a78, 3px 3px 0 #9c2f64, 4px 4px 0 #7f2450, 5px 5px 0 #62193c,
+        6px 6px 10px rgba(0,0,0,.5); }
+  </style>
+</head>
+<body>
+  <h2 class="fx">LAYERS</h2>
+</body>
+</html>

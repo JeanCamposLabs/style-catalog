@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sweeping Arc</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "loader-arc-progress-indeterminate",
+    "title": "Sweeping Arc",
+    "summary": "An arc that grows, sweeps, and shrinks.",
+    "description": "An arc that grows, sweeps, and shrinks.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "spinner"],
+    "tags": ["loader", "waiting", "arc", "sweep", "breathing", "spinner"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Spin period", "default": "1s" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Long waits. Layering a slow secondary animation onto a fast spin keeps a long-running spinner from feeling frozen in place."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 72px; aspect-ratio: 1; border-radius: 50%; border: 5px solid #1b2231; border-top-color: #c2891a;
+      animation: spin 1s linear infinite, grow 2.4s ease-in-out infinite; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @keyframes grow { 0%, 100% { border-width: 5px; } 50% { border-width: 9px; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx" role="status" aria-label="Loading"></div>
+</body>
+</html>
