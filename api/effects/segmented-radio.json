@@ -1,0 +1,43 @@
+{
+  "id": "segmented-radio",
+  "title": "Segmented Radio Group",
+  "summary": "Radio buttons styled as a joined segmented control.",
+  "description": "Real radios underneath mean arrow-key navigation and form submission work with no JS at all.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "radio"
+  ],
+  "tags": [
+    "radio",
+    "segmented",
+    "group",
+    "control",
+    "native"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Selected colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Icons above labels",
+    "Full-width on mobile"
+  ],
+  "related": [],
+  "ai_usage": "Mutually exclusive options with three or fewer choices. Style :checked + label; never rebuild radio semantics with buttons unless you also implement roving tabindex.",
+  "path": "effects/forms-inputs/segmented-radio.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Segmented Radio Group</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"segmented-radio\",\n    \"title\": \"Segmented Radio Group\",\n    \"summary\": \"Radio buttons styled as a joined segmented control.\",\n    \"description\": \"Real radios underneath mean arrow-key navigation and form submission work with no JS at all.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"radio\"],\n    \"tags\": [\"radio\", \"segmented\", \"group\", \"control\", \"native\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Selected colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Icons above labels\", \"Full-width on mobile\"],\n    \"ai_usage\": \"Mutually exclusive options with three or fewer choices. Style :checked + label; never rebuild radio semantics with buttons unless you also implement roving tabindex.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .sg { display: inline-flex; background: #151b2a; border: 1px solid #2b3450; border-radius: 12px; padding: 4px; }\n    .sg input { position: absolute; opacity: 0; }\n    .sg label { padding: .55rem 1.1rem; border-radius: 9px; color: #8b93a7; font-size: .9rem; cursor: pointer; transition: background .2s, color .2s; }\n    .sg input:checked + label { background: var(--c, #7c5cff); color: #fff; }\n    .sg input:focus-visible + label { outline: 2px solid #fff; outline-offset: 2px; }\n  </style>\n</head>\n<body>\n  <div class=\"sg\">\n    <input type=\"radio\" name=\"v\" id=\"v1\" checked /><label for=\"v1\">Grid</label>\n    <input type=\"radio\" name=\"v\" id=\"v2\" /><label for=\"v2\">List</label>\n    <input type=\"radio\" name=\"v\" id=\"v3\" /><label for=\"v3\">Table</label>\n  </div>\n</body>\n</html>\n"
+}

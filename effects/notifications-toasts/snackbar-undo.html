@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Undo Snackbar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "snackbar-undo",
+    "title": "Undo Snackbar",
+    "summary": "A destructive action with a time-boxed undo.",
+    "description": "A destructive action with a time-boxed undo.",
+    "theme": "notifications-toasts",
+    "categories": ["notification", "feedback"],
+    "tags": ["notification", "feedback", "undo", "snackbar", "destructive", "timer"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+    "customization": [
+      { "name": "--c", "description": "Undo colour", "default": "#2dd4bf" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Reversible destructive actions. Undo is better than a confirm dialog for common operations; show the remaining time and keep the action for at least five seconds."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: center; gap: 1rem; width: 290px; padding: .75rem .9rem .75rem 1rem;
+      border-radius: 12px; background: #1a2130; color: #e7ebf3; font-size: .86rem; position: relative; overflow: hidden; }
+    .fx p { margin: 0; flex: 1; }
+    .fx button { border: 0; background: none; color: #2dd4bf; font: inherit; font-weight: 700; cursor: pointer; }
+    .fx .bar { position: absolute; left: 0; bottom: 0; height: 3px; background: #2dd4bf; width: 100%;
+      animation: drain 6s linear forwards; }
+    @keyframes drain { to { width: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx" role="status"><p>3 specimens deleted</p><button type="button">Undo</button><span class="bar"></span></div>
+</body>
+</html>

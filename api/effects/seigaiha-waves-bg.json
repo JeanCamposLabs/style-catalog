@@ -1,0 +1,54 @@
+{
+  "id": "seigaiha-waves-bg",
+  "title": "Seigaiha Waves",
+  "summary": "The Japanese overlapping-wave pattern in concentric arcs.",
+  "description": "Layered repeating-radial-gradients offset by half a tile produce the traditional fish-scale wave motif.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "seigaiha",
+    "japanese",
+    "waves",
+    "traditional",
+    "pattern"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "timeless",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Arc color",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--bg",
+      "description": "Ground color",
+      "default": "#0b0d12"
+    },
+    {
+      "name": "--s",
+      "description": "Tile size",
+      "default": "60px"
+    }
+  ],
+  "variations": [
+    "Indigo and white for a classic look",
+    "Larger tiles for a bold graphic",
+    "Animate a slow horizontal drift"
+  ],
+  "related": [],
+  "ai_usage": "Japanese-inspired, editorial, and packaging designs. The stagger between the two layers must be exactly half the tile in both axes or the scales will not interlock.",
+  "path": "effects/backgrounds/seigaiha-waves-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Seigaiha Waves</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"seigaiha-waves-bg\",\n    \"title\": \"Seigaiha Waves\",\n    \"summary\": \"The Japanese overlapping-wave pattern in concentric arcs.\",\n    \"description\": \"Layered repeating-radial-gradients offset by half a tile produce the traditional fish-scale wave motif.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"seigaiha\", \"japanese\", \"waves\", \"traditional\", \"pattern\"],\n    \"tech\": [\"css\"],\n    \"era\": \"timeless\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Arc color\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--bg\", \"description\": \"Ground color\", \"default\": \"#0b0d12\" },\n      { \"name\": \"--s\", \"description\": \"Tile size\", \"default\": \"60px\" }\n    ],\n    \"variations\": [\"Indigo and white for a classic look\", \"Larger tiles for a bold graphic\", \"Animate a slow horizontal drift\"],\n    \"ai_usage\": \"Japanese-inspired, editorial, and packaging designs. The stagger between the two layers must be exactly half the tile in both axes or the scales will not interlock.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: #2dd4bf; --bg: #0b0d12; --s: 60px; }\n    .bg { background-color: var(--bg);\n      background-image: repeating-radial-gradient(circle at 0 100%, transparent 0 12px, var(--c) 12px 14px, transparent 14px 26px, var(--c) 26px 28px, transparent 28px 40px),\n        repeating-radial-gradient(circle at 100% 100%, transparent 0 12px, var(--c) 12px 14px, transparent 14px 26px, var(--c) 26px 28px, transparent 28px 40px);\n      background-size: var(--s) calc(var(--s) / 2); opacity: 1; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

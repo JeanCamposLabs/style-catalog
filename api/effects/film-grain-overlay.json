@@ -1,0 +1,49 @@
+{
+  "id": "film-grain-overlay",
+  "title": "Film Grain Overlay",
+  "summary": "An animated grain layer that sits over any content.",
+  "description": "A tiled SVG turbulence texture jitters between eight positions, so the grain resamples like real film rather than sitting still.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "overlay"
+  ],
+  "tags": [
+    "grain",
+    "film",
+    "noise",
+    "overlay",
+    "texture"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "One tiled texture with a stepped transform — cheaper than re-generating noise per frame. Keep opacity low.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--o",
+      "description": "Grain opacity",
+      "default": "0.28"
+    },
+    {
+      "name": "--dur",
+      "description": "Jitter period",
+      "default": "0.8s"
+    }
+  ],
+  "variations": [
+    "Static grain (no animation)",
+    "Coarser grain for Super 8",
+    "Colored grain for a processing error look"
+  ],
+  "related": [],
+  "ai_usage": "Overlay this on photos, videos, or whole pages to kill digital flatness. Use pointer-events:none and mix-blend-mode:overlay, and step the transform (steps(8)) instead of easing — smooth motion looks like a moving texture, not grain.",
+  "path": "effects/backgrounds/film-grain-overlay.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Film Grain Overlay</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"film-grain-overlay\",\n    \"title\": \"Film Grain Overlay\",\n    \"summary\": \"An animated grain layer that sits over any content.\",\n    \"description\": \"A tiled SVG turbulence texture jitters between eight positions, so the grain resamples like real film rather than sitting still.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"overlay\"],\n    \"tags\": [\"grain\", \"film\", \"noise\", \"overlay\", \"texture\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"One tiled texture with a stepped transform — cheaper than re-generating noise per frame. Keep opacity low.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--o\", \"description\": \"Grain opacity\", \"default\": \"0.28\" },\n      { \"name\": \"--dur\", \"description\": \"Jitter period\", \"default\": \"0.8s\" }\n    ],\n    \"variations\": [\"Static grain (no animation)\", \"Coarser grain for Super 8\", \"Colored grain for a processing error look\"],\n    \"ai_usage\": \"Overlay this on photos, videos, or whole pages to kill digital flatness. Use pointer-events:none and mix-blend-mode:overlay, and step the transform (steps(8)) instead of easing — smooth motion looks like a moving texture, not grain.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --o: .28; --dur: .8s; }\n    .bg { background: linear-gradient(135deg, #1a2333, #0b0d12); }\n    .grain { position: fixed; inset: -50%; pointer-events: none; opacity: var(--o); mix-blend-mode: overlay;\n      background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\");\n      animation: jitter var(--dur) steps(8) infinite; }\n    @keyframes jitter {\n      0% { transform: translate(0, 0); } 25% { transform: translate(-3%, 2%); }\n      50% { transform: translate(2%, -3%); } 75% { transform: translate(-2%, -2%); } 100% { transform: translate(3%, 1%); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div><div class=\"grain\" aria-hidden=\"true\"></div>\n</body>\n</html>\n"
+}

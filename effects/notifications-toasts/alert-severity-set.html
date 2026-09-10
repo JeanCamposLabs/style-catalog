@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Severity Set</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "alert-severity-set",
+    "title": "Severity Set",
+    "summary": "Four alert levels with icons and labels.",
+    "description": "Four alert levels with icons and labels.",
+    "theme": "notifications-toasts",
+    "categories": ["notification", "feedback"],
+    "tags": ["notification", "feedback", "severity", "alerts", "semantic", "system"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+    "customization": [
+      { "name": "--info", "description": "Info colour", "default": "#2f7cc9" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "The alert vocabulary for a design system. Status colours are reserved — never reuse them as chart series — and each level ships with its own glyph and word."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; gap: .5rem; width: 300px; }
+    .a { display: flex; gap: .6rem; padding: .6rem .8rem; border-radius: 10px; font-size: .82rem; align-items: center; }
+    .info { background: rgba(47,124,201,.14); color: #8ec1f0; border: 1px solid rgba(47,124,201,.5); }
+    .ok { background: rgba(16,168,148,.14); color: #7fd8cb; border: 1px solid rgba(16,168,148,.5); }
+    .warn { background: rgba(194,137,26,.14); color: #ecc57c; border: 1px solid rgba(194,137,26,.5); }
+    .bad { background: rgba(209,71,140,.14); color: #f0a3c6; border: 1px solid rgba(209,71,140,.5); }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="a info"><span aria-hidden="true">ⓘ</span>Scheduled maintenance on Sunday</div>
+  <div class="a ok"><span aria-hidden="true">✓</span>All services operational</div>
+  <div class="a warn"><span aria-hidden="true">▲</span>API latency above target</div>
+  <div class="a bad" role="alert"><span aria-hidden="true">■</span>Poster generation failed</div></div>
+</body>
+</html>

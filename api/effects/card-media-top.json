@@ -1,0 +1,44 @@
+{
+  "id": "card-media-top",
+  "title": "Media Card",
+  "summary": "A card with a 16:9 media area above the copy.",
+  "description": "A card with a 16:9 media area above the copy. Self-contained card markup you can drop into a grid.",
+  "theme": "cards-surfaces",
+  "themeTitle": "Cards & Surfaces",
+  "categories": [
+    "card",
+    "surface"
+  ],
+  "tags": [
+    "card",
+    "surface",
+    "media",
+    "image",
+    "aspect-ratio",
+    "grid"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+  "customization": [
+    {
+      "name": "--ratio",
+      "description": "Media ratio",
+      "default": "16 / 9"
+    }
+  ],
+  "variations": [
+    "Adapt for a light theme",
+    "Add a media area at the top"
+  ],
+  "related": [],
+  "ai_usage": "Article and product grids. Fix the media with aspect-ratio so cards in a row stay the same height regardless of image dimensions.",
+  "path": "effects/cards-surfaces/card-media-top.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Media Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-media-top\",\n    \"title\": \"Media Card\",\n    \"summary\": \"A card with a 16:9 media area above the copy.\",\n    \"description\": \"A card with a 16:9 media area above the copy. Self-contained card markup you can drop into a grid.\",\n    \"theme\": \"cards-surfaces\",\n    \"categories\": [\"card\", \"surface\"],\n    \"tags\": [\"card\", \"surface\", \"media\", \"image\", \"aspect-ratio\", \"grid\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A clickable card needs one real link or button inside it; never attach a click handler to a bare div.\",\n    \"customization\": [\n      { \"name\": \"--ratio\", \"description\": \"Media ratio\", \"default\": \"16 / 9\" }\n    ],\n    \"variations\": [\"Adapt for a light theme\", \"Add a media area at the top\"],\n    \"ai_usage\": \"Article and product grids. Fix the media with aspect-ratio so cards in a row stay the same height regardless of image dimensions.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }\n    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }\n    .card { background: #151b2a; border: 1px solid #263149; padding: 0; overflow: hidden; }\n    .card .media { aspect-ratio: 16 / 9; background: conic-gradient(from 200deg at 40% 35%, #7c5cff, #2dd4bf, #f472b6); }\n    .card .body { padding: 1.2rem 1.4rem 1.4rem; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <article class=\"card\"><div class=\"media\"></div><div class=\"body\"><h3>Media Card</h3><p>Fixed aspect ratio keeps the grid even.</p></div></article>\n</body>\n</html>\n"
+}

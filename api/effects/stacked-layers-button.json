@@ -1,0 +1,54 @@
+{
+  "id": "stacked-layers-button",
+  "title": "Stacked Layers Button",
+  "summary": "Colored layers fan out behind the button on hover.",
+  "description": "Two offset copies slide out at different distances, implying a stack of cards behind the face.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "hover"
+  ],
+  "tags": [
+    "stack",
+    "layers",
+    "offset",
+    "depth",
+    "hover"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Face color",
+      "default": "#e7ebf3"
+    },
+    {
+      "name": "--l1",
+      "description": "First layer",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--l2",
+      "description": "Second layer",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Fan on the vertical axis",
+    "More layers",
+    "Rotate each layer slightly"
+  ],
+  "related": [],
+  "ai_usage": "Playful CTAs and card-based UIs. Layers are absolutely positioned siblings behind the label; move them with transform only and keep the face opaque so the offsets read as depth.",
+  "path": "effects/buttons/stacked-layers-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stacked Layers Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"stacked-layers-button\",\n    \"title\": \"Stacked Layers Button\",\n    \"summary\": \"Colored layers fan out behind the button on hover.\",\n    \"description\": \"Two offset copies slide out at different distances, implying a stack of cards behind the face.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"hover\"],\n    \"tags\": [\"stack\", \"layers\", \"offset\", \"depth\", \"hover\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Face color\", \"default\": \"#e7ebf3\" },\n      { \"name\": \"--l1\", \"description\": \"First layer\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--l2\", \"description\": \"Second layer\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Fan on the vertical axis\", \"More layers\", \"Rotate each layer slightly\"],\n    \"ai_usage\": \"Playful CTAs and card-based UIs. Layers are absolutely positioned siblings behind the label; move them with transform only and keep the face opaque so the offsets read as depth.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #e7ebf3; --l1: #7c5cff; --l2: #2dd4bf; }\n    .stk { position: relative; display: inline-block; }\n    .stk i { position: absolute; inset: 0; border-radius: 12px; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }\n    .stk i:nth-of-type(1) { background: var(--l1); }\n    .stk i:nth-of-type(2) { background: var(--l2); }\n    .stk button { position: relative; z-index: 2; padding: .95rem 2.2rem; border-radius: 12px; background: var(--c);\n      color: #0b0d12; font-weight: 800; }\n    .stk:hover i:nth-of-type(1) { transform: translate(6px, 6px); }\n    .stk:hover i:nth-of-type(2) { transform: translate(12px, 12px); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <span class=\"stk\"><i aria-hidden=\"true\"></i><i aria-hidden=\"true\"></i><button type=\"button\">Stacked</button></span>\n</body>\n</html>\n"
+}

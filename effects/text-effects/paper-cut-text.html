@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paper Cut Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "paper-cut-text",
+    "title": "Paper Cut Text",
+    "summary": "Layered paper shapes with soft shadows form a die-cut headline.",
+    "description": "Two offset text layers in tinted paper colors plus a diffuse shadow give the stacked-cardstock look of paper-cut craft.",
+    "theme": "text-effects",
+    "categories": ["text", "material"],
+    "tags": ["papercut", "layers", "craft", "shadow", "tactile"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--top", "description": "Top sheet", "default": "#fef3c7" },
+      { "name": "--mid", "description": "Middle sheet", "default": "#fbbf24" },
+      { "name": "--bot", "description": "Bottom sheet", "default": "#b45309" }
+    ],
+    "variations": ["More layers for deeper relief", "Rotate each layer a degree", "Cut-out variant with a background image"],
+    "ai_usage": "Craft, editorial, or children's-product branding. Offsets should be small (2–4px) and the shadow wide and soft; hard shadows turn it into a 3D extrude instead of stacked paper."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --top: #fef3c7; --mid: #fbbf24; --bot: #b45309; }
+    .pc { position: relative; font-size: clamp(2.2rem, 9vw, 4rem); font-weight: 900; color: var(--top);
+      text-shadow: 3px 3px 0 var(--mid), 6px 6px 0 var(--bot), 10px 12px 20px rgba(0,0,0,.45); }
+  </style>
+</head>
+<body>
+  <h1 class="pc">PAPERCUT</h1>
+</body>
+</html>

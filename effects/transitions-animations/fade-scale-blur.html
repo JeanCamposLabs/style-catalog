@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soft Focus In</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "fade-scale-blur",
+    "title": "Soft Focus In",
+    "summary": "Scale, opacity, and blur resolve together.",
+    "description": "Scale, opacity, and blur resolve together. Applied once on load with animation-fill-mode: both so the element holds its final state.",
+    "theme": "transitions-animations",
+    "categories": ["animation", "entrance"],
+    "tags": ["entrance", "reveal", "blur", "scale", "premium"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.",
+    "customization": [
+      { "name": "--dur", "description": "Animation duration", "default": ".6s" },
+      { "name": "--ease", "description": "Timing function", "default": "cubic-bezier(.2,.8,.3,1)" }
+    ],
+    "variations": ["Stagger across a list with animation-delay", "Play on scroll with IntersectionObserver"],
+    "ai_usage": "The premium modal entrance. Animating three properties at once is fine here because they all finish together — stagger them and it reads as sloppy."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: .6s; --ease: cubic-bezier(.2,.8,.3,1); }
+    .card { width: 230px; padding: 1.5rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149;
+      animation: fade-scale-blur var(--dur) var(--ease) both infinite alternate; }
+    .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    @keyframes fade-scale-blur {
+      from { opacity: 0; transform: scale(1.06); filter: blur(8px); }
+      to { opacity: 1; transform: none; filter: blur(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card"><h3>Soft Focus In</h3><p>Scale, opacity, and blur resolve together.</p></div>
+</body>
+</html>

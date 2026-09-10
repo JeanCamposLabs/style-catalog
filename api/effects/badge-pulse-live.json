@@ -1,0 +1,44 @@
+{
+  "id": "badge-pulse-live",
+  "title": "Live Badge",
+  "summary": "A pulsing dot marks a live stream.",
+  "description": "A pulsing dot marks a live stream. Small self-contained component ready to drop into a list or card.",
+  "theme": "badges-tags",
+  "themeTitle": "Badges & Tags",
+  "categories": [
+    "badge",
+    "label"
+  ],
+  "tags": [
+    "badge",
+    "label",
+    "live",
+    "pulse",
+    "stream",
+    "status"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Live colour",
+      "default": "#f87171"
+    }
+  ],
+  "variations": [
+    "Add a size variant",
+    "Map colours to semantic tokens"
+  ],
+  "related": [],
+  "ai_usage": "Live streams and active sessions. The pulse must stop under reduced motion; the LIVE text alone still conveys the state.",
+  "path": "effects/badges-tags/badge-pulse-live.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Live Badge</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"badge-pulse-live\",\n    \"title\": \"Live Badge\",\n    \"summary\": \"A pulsing dot marks a live stream.\",\n    \"description\": \"A pulsing dot marks a live stream. Small self-contained component ready to drop into a list or card.\",\n    \"theme\": \"badges-tags\",\n    \"categories\": [\"badge\", \"label\"],\n    \"tags\": [\"badge\", \"label\", \"live\", \"pulse\", \"stream\", \"status\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Status must never be colour-only: pair every badge colour with a label, icon, or shape.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Live colour\", \"default\": \"#f87171\" }\n    ],\n    \"variations\": [\"Add a size variant\", \"Map colours to semantic tokens\"],\n    \"ai_usage\": \"Live streams and active sessions. The pulse must stop under reduced motion; the LIVE text alone still conveys the state.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .b { display: inline-flex; align-items: center; gap: .45rem; padding: .3rem .8rem; border-radius: 999px;\n      background: rgba(248,113,113,.14); color: #f87171; font-size: .78rem; font-weight: 800; letter-spacing: .06em; }\n    .b i { position: relative; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }\n    .b i::after { content: \"\"; position: absolute; inset: 0; border-radius: 50%; background: currentColor;\n      animation: ping 1.6s cubic-bezier(0,.2,.8,1) infinite; }\n    @keyframes ping { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(3); opacity: 0; } }\n  </style>\n</head>\n<body>\n  <span class=\"b\"><i aria-hidden=\"true\"></i>LIVE</span>\n</body>\n</html>\n"
+}

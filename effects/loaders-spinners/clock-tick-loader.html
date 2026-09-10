@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ticking Clock</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "clock-tick-loader",
+    "title": "Ticking Clock",
+    "summary": "A clock face whose hands advance in discrete steps, not a smooth sweep.",
+    "description": "steps() timing on the second hand reproduces the mechanical tick that a linear rotation never captures; the minute hand runs twelve times slower.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "time"],
+    "tags": ["clock", "steps", "tick", "time", "hands"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Hand color", "default": "#e7ebf3" },
+      { "name": "--a", "description": "Second-hand color", "default": "#f87171" },
+      { "name": "--dur", "description": "Full revolution", "default": "6s" }
+    ],
+    "variations": ["Real time via JS instead of a loop", "Digital readout under the face", "Slow the tick for a lazier feel"],
+    "ai_usage": "Wait states with an implied duration ('this takes a minute'). The tick comes from animation-timing-function: steps(12) — change the step count to control how mechanical it feels. For a real clock, set the initial rotation from Date and let CSS run the animation."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #e7ebf3; --a: #f87171; --dur: 6s; }
+    .clock { position: relative; width: 96px; aspect-ratio: 1; border-radius: 50%; border: 3px solid #2a3348;
+      background: radial-gradient(circle, #141a28, #0d1220); }
+    .clock i { position: absolute; left: 50%; bottom: 50%; transform-origin: 50% 100%; border-radius: 2px; }
+    .clock .min { width: 4px; height: 30px; margin-left: -2px; background: var(--c); animation: spin calc(var(--dur) * 12) steps(60) infinite; }
+    .clock .sec { width: 2px; height: 38px; margin-left: -1px; background: var(--a); animation: spin var(--dur) steps(12) infinite; }
+    .clock .pin { position: absolute; inset: 50% auto auto 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px;
+      border-radius: 50%; background: var(--a); }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="clock" role="status" aria-label="Loading"><i class="min"></i><i class="sec"></i><span class="pin"></span></div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Numbered Stepper</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "stepper-horizontal-numbered",
+    "title": "Numbered Stepper",
+    "summary": "Steps with numbers, ticks, and a connecting rail.",
+    "description": "Steps with numbers, ticks, and a connecting rail.",
+    "theme": "timelines-steppers",
+    "categories": ["timeline", "stepper"],
+    "tags": ["timeline", "sequence", "stepper", "numbered", "progress", "wizard"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+    "customization": [
+      { "name": "--c", "description": "Active colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Multi-step forms. Completed steps show a tick, not just a colour; the active step carries aria-current=step so its position is announced."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: flex-start; width: 300px; }
+    .st { flex: 1; display: grid; justify-items: center; gap: .4rem; text-align: center; font-size: .72rem; color: #8b93a7; }
+    .st .d { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 800;
+      background: #1c2437; border: 2px solid #2b3450; }
+    .st.done .d { background: #10a894; border-color: #10a894; color: #04241f; }
+    .st.now .d { border-color: #7c5cff; color: #b9a5ff; }
+    .st.now { color: #e7ebf3; }
+    .ln { flex: 0 0 auto; width: 28px; height: 2px; background: #2b3450; margin-top: 14px; }
+    .ln.done { background: #10a894; }
+  </style>
+</head>
+<body>
+  <ol class="fx" style="list-style:none;margin:0;padding:0"><li class="st done"><span class="d">✓</span>Account</li>
+  <li class="ln done" aria-hidden="true"></li><li class="st done"><span class="d">✓</span>Profile</li>
+  <li class="ln" aria-hidden="true"></li><li class="st now" aria-current="step"><span class="d">3</span>Billing</li>
+  <li class="ln" aria-hidden="true"></li><li class="st"><span class="d">4</span>Done</li></ol>
+</body>
+</html>

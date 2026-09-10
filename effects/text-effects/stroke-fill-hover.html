@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Outline to Fill</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "stroke-fill-hover",
+    "title": "Outline to Fill",
+    "summary": "Hollow type fills with color from the bottom up on hover.",
+    "description": "A clipped duplicate whose height animates from zero fills the outline, so the stroke stays crisp throughout.",
+    "theme": "text-effects",
+    "categories": ["text", "hover"],
+    "tags": ["outline", "fill", "hover", "text-stroke", "clip"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Fill color", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Fill duration", "default": "0.45s" }
+    ],
+    "variations": ["Fill from the left instead", "Gradient fill", "Fill on scroll-into-view"],
+    "ai_usage": "Big navigational headings and menu links. The overlay copy must sit exactly on top (position:absolute; inset:0) and use the same font metrics; animate clip-path inset rather than height for sub-pixel accuracy."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #7c5cff; --dur: .45s; }
+    .sf { position: relative; font-size: clamp(2.2rem, 9vw, 4.2rem); font-weight: 900; color: transparent;
+      -webkit-text-stroke: 2px #e7ebf3; cursor: pointer; }
+    .sf span { position: absolute; inset: 0; color: var(--c); -webkit-text-stroke: 0;
+      clip-path: inset(100% 0 0 0); transition: clip-path var(--dur) cubic-bezier(.2,.8,.3,1); }
+    .sf:hover span { clip-path: inset(0 0 0 0); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="sf">HOVER<span aria-hidden="true">HOVER</span></h1>
+</body>
+</html>

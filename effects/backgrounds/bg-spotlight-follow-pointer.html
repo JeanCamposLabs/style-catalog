@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pointer Spotlight</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bg-spotlight-follow-pointer",
+    "title": "Pointer Spotlight",
+    "summary": "A light pool that follows the pointer.",
+    "description": "A light pool that follows the pointer.",
+    "theme": "backgrounds",
+    "categories": ["background", "surface"],
+    "tags": ["background", "spotlight", "pointer", "radial", "interactive"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--r", "description": "Spotlight radius", "default": "420px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Dark landing pages. Write pointer coordinates into custom properties and let a single radial gradient do the work — no per-frame DOM writes beyond two variables."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background: #0b0d12; }
+    .bg::after { content: ""; position: absolute; inset: 0;
+      background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgba(124,92,255,.28), transparent 65%); }
+  </style>
+</head>
+<body>
+  <div class="bg" id="sp"></div>
+  <script>
+    (function () {
+      var el = document.getElementById("sp");
+      addEventListener("pointermove", function (e) {
+        el.style.setProperty("--x", e.clientX + "px");
+        el.style.setProperty("--y", e.clientY + "px");
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stepped Slider</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "input-slider-steps-ticks",
+    "title": "Stepped Slider",
+    "summary": "A range with visible tick marks and labels.",
+    "description": "A range with visible tick marks and labels.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input"],
+    "tags": ["form", "input", "slider", "steps", "ticks", "range"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+    "customization": [
+      { "name": "--c", "description": "Accent", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Discrete choices on a continuum. Use the step attribute plus a datalist so keyboard arrows move between the same values the ticks show."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .fx input { width: 100%; accent-color: #7c5cff; }
+    .fx .ticks { display: flex; justify-content: space-between; margin-top: .3rem; font-size: .7rem; color: #64748b; }
+    .fx .ticks span { flex: 1; text-align: center; }
+    .fx .ticks span:first-child { text-align: left; }
+    .fx .ticks span:last-child { text-align: right; }
+  </style>
+</head>
+<body>
+  <div class="fx"><label for="sl" style="display:block;font-size:.8rem;color:#8b93a7;margin-bottom:.4rem">Blur radius</label>
+  <input id="sl" type="range" min="0" max="4" step="1" value="2" list="marks" />
+  <datalist id="marks"><option value="0"></option><option value="1"></option><option value="2"></option>
+  <option value="3"></option><option value="4"></option></datalist>
+  <div class="ticks"><span>None</span><span>4px</span><span>8px</span><span>16px</span><span>32px</span></div></div>
+</body>
+</html>

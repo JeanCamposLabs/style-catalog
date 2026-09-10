@@ -1,0 +1,44 @@
+{
+  "id": "table-zebra-dense",
+  "title": "Dense Zebra Table",
+  "summary": "Compact rows with alternating background.",
+  "description": "Compact rows with alternating background.",
+  "theme": "tables-data",
+  "themeTitle": "Tables & Data",
+  "categories": [
+    "table",
+    "data"
+  ],
+  "tags": [
+    "table",
+    "data",
+    "zebra",
+    "dense",
+    "compact",
+    "striping"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+  "customization": [
+    {
+      "name": "--zebra",
+      "description": "Stripe alpha",
+      "default": "0.025"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "Dense financial or log tables. Keep the zebra tint very low (2–4% alpha) and right-align numerics with tabular-nums so columns of digits line up.",
+  "path": "effects/tables-data/table-zebra-dense.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dense Zebra Table</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"table-zebra-dense\",\n    \"title\": \"Dense Zebra Table\",\n    \"summary\": \"Compact rows with alternating background.\",\n    \"description\": \"Compact rows with alternating background.\",\n    \"theme\": \"tables-data\",\n    \"categories\": [\"table\", \"data\"],\n    \"tags\": [\"table\", \"data\", \"zebra\", \"dense\", \"compact\", \"striping\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.\",\n    \"customization\": [\n      { \"name\": \"--zebra\", \"description\": \"Stripe alpha\", \"default\": \"0.025\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"Dense financial or log tables. Keep the zebra tint very low (2–4% alpha) and right-align numerics with tabular-nums so columns of digits line up.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; border-radius: 12px; overflow: hidden; border: 1px solid #263149; }\n    .fx table { width: 100%; border-collapse: collapse; font-size: .78rem; }\n    .fx th { background: #1c2437; color: #8b93a7; text-align: left; padding: .45rem .7rem; font-size: .68rem; text-transform: uppercase; }\n    .fx td { padding: .35rem .7rem; color: #cbd5e1; font-variant-numeric: tabular-nums; }\n    .fx tbody tr:nth-child(even) { background: rgba(255,255,255,.025); }\n    .fx td:last-child, .fx th:last-child { text-align: right; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><table><caption class=\"sr\" style=\"position:absolute;left:-9999px\">Usage by endpoint</caption>\n  <thead><tr><th scope=\"col\">Endpoint</th><th scope=\"col\">Calls</th></tr></thead>\n  <tbody><tr><td>/api/index.json</td><td>48,210</td></tr><tr><td>/api/themes.json</td><td>12,884</td></tr>\n  <tr><td>/api/effects/*.json</td><td>96,402</td></tr><tr><td>/catalog.json</td><td>3,118</td></tr>\n  <tr><td>/assets/catalog.js</td><td>21,006</td></tr></tbody></table></div>\n</body>\n</html>\n"
+}

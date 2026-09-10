@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dot Rail</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "nav-anchor-dot-rail",
+    "title": "Dot Rail",
+    "summary": "A vertical rail of section dots.",
+    "description": "A vertical rail of section dots.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "menu"],
+    "tags": ["navigation", "menu", "dots", "rail", "anchors", "fullpage"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+    "customization": [
+      { "name": "--c", "description": "Active colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Full-page scroll sites. Dots alone are unlabelled targets — reveal a name on hover and focus, and give every dot an accessible name regardless."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; gap: 12px; justify-items: center; }
+    .fx a { position: relative; width: 10px; height: 10px; border-radius: 50%; background: #2b3450; }
+    .fx a[aria-current] { background: #7c5cff; }
+    .fx a span { position: absolute; right: calc(100% + 10px); top: 50%; translate: 0 -50%; white-space: nowrap;
+      padding: .15rem .5rem; border-radius: 6px; background: #1c2437; color: #cbd5e1; font-size: .72rem;
+      opacity: 0; transition: opacity .2s; }
+    .fx a:hover span, .fx a:focus-visible span { opacity: 1; }
+  </style>
+</head>
+<body>
+  <nav class="fx" aria-label="Sections"><a href="#" aria-current="true" aria-label="Intro"><span>Intro</span></a>
+  <a href="#" aria-label="Features"><span>Features</span></a><a href="#" aria-label="Pricing"><span>Pricing</span></a>
+  <a href="#" aria-label="Contact"><span>Contact</span></a></nav>
+</body>
+</html>

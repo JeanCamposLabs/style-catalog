@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radial Ripple from Pointer</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "radial-ripple-click",
+    "title": "Radial Ripple from Pointer",
+    "summary": "A ripple starts exactly where the pointer lands, not at the centre.",
+    "description": "Click coordinates are written into CSS variables, so the expanding circle originates at the real contact point.",
+    "theme": "buttons",
+    "categories": ["button", "feedback"],
+    "tags": ["ripple", "material", "pointer", "feedback", "click"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Ripple color", "default": "rgba(255,255,255,.5)" },
+      { "name": "--dur", "description": "Ripple duration", "default": "0.6s" }
+    ],
+    "variations": ["Dark ripple for light buttons", "Ripple on keyboard activation from the centre", "Multiple concurrent ripples"],
+    "ai_usage": "Touch-first UIs. Read event.offsetX/Y, set --x/--y, and append a short-lived span; remove it on animationend so rapid clicks do not accumulate nodes."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: rgba(255,255,255,.5); --dur: .6s; }
+    .rip { position: relative; overflow: hidden; padding: 1rem 2.4rem; border-radius: 12px; background: #7c5cff;
+      color: #fff; font-weight: 700; }
+    .rip span.r { position: absolute; border-radius: 50%; background: var(--c); transform: translate(-50%, -50%) scale(0);
+      animation: rip var(--dur) ease-out forwards; pointer-events: none; }
+    @keyframes rip { to { transform: translate(-50%, -50%) scale(1); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="rip" id="rp" type="button">Tap anywhere</button>
+  <script>
+    (function () {
+      var b = document.getElementById("rp");
+      b.addEventListener("click", function (e) {
+        var r = document.createElement("span"), size = Math.max(b.offsetWidth, b.offsetHeight) * 2;
+        r.className = "r"; r.style.width = r.style.height = size + "px";
+        r.style.left = e.offsetX + "px"; r.style.top = e.offsetY + "px";
+        b.appendChild(r);
+        r.addEventListener("animationend", function () { r.remove(); });
+      });
+    })();
+  </script>
+</body>
+</html>

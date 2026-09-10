@@ -1,0 +1,43 @@
+{
+  "id": "clip-hexagon",
+  "title": "Hexagon Clip",
+  "summary": "A regular hexagon cut from any element.",
+  "description": "A regular hexagon cut from any element. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.",
+  "theme": "masks-clipping",
+  "themeTitle": "Masks & Clipping",
+  "categories": [
+    "mask",
+    "shape"
+  ],
+  "tags": [
+    "clip-path",
+    "mask",
+    "hexagon",
+    "polygon",
+    "geometric"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.",
+  "customization": [
+    {
+      "name": "--w",
+      "description": "Element width",
+      "default": "210px"
+    }
+  ],
+  "variations": [
+    "Animate the shape on hover",
+    "Combine with a gradient fill"
+  ],
+  "related": [],
+  "ai_usage": "Avatars, tech grids, and badges. The 25/75 x-positions produce a true regular hexagon only on a square box — on a rectangle adjust them to width/height ratio.",
+  "path": "effects/masks-clipping/clip-hexagon.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hexagon Clip</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"clip-hexagon\",\n    \"title\": \"Hexagon Clip\",\n    \"summary\": \"A regular hexagon cut from any element.\",\n    \"description\": \"A regular hexagon cut from any element. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.\",\n    \"theme\": \"masks-clipping\",\n    \"categories\": [\"mask\", \"shape\"],\n    \"tags\": [\"clip-path\", \"mask\", \"hexagon\", \"polygon\", \"geometric\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.\",\n    \"customization\": [\n      { \"name\": \"--w\", \"description\": \"Element width\", \"default\": \"210px\" }\n    ],\n    \"variations\": [\"Animate the shape on hover\", \"Combine with a gradient fill\"],\n    \"ai_usage\": \"Avatars, tech grids, and badges. The 25/75 x-positions produce a true regular hexagon only on a square box — on a rectangle adjust them to width/height ratio.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .art { width: 210px; height: 210px; background: conic-gradient(from 210deg at 40% 35%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }\n    .label { margin-top: .9rem; text-align: center; color: #8b93a7; font-size: .82rem; }\n    .shape { clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }\n  </style>\n</head>\n<body>\n  <div><div class=\"art shape\"></div><p class=\"label\">Hexagon Clip</p></div>\n</body>\n</html>\n"
+}

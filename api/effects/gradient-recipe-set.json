@@ -1,0 +1,49 @@
+{
+  "id": "gradient-recipe-set",
+  "title": "Gradient Recipes",
+  "summary": "Six reusable gradient formulas.",
+  "description": "Six reusable gradient formulas.",
+  "theme": "color-systems",
+  "themeTitle": "Color Systems",
+  "categories": [
+    "color",
+    "reference"
+  ],
+  "tags": [
+    "color",
+    "tokens",
+    "gradients",
+    "recipes",
+    "library",
+    "reference"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Start colour",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--b",
+      "description": "End colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "A copy-ready gradient set. Two-stop gradients between hues far apart on the wheel pass through grey — add a third stop at the midpoint to keep the transition saturated.",
+  "path": "effects/color-systems/gradient-recipe-set.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Gradient Recipes</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"gradient-recipe-set\",\n    \"title\": \"Gradient Recipes\",\n    \"summary\": \"Six reusable gradient formulas.\",\n    \"description\": \"Six reusable gradient formulas.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"color\", \"reference\"],\n    \"tags\": [\"color\", \"tokens\", \"gradients\", \"recipes\", \"library\", \"reference\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Start colour\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--b\", \"description\": \"End colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"A copy-ready gradient set. Two-stop gradients between hues far apart on the wheel pass through grey — add a third stop at the midpoint to keep the transition saturated.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 300px; }\n    .g { height: 74px; border-radius: 10px; position: relative; }\n    .g span { position: absolute; inset: auto 0 0 0; padding: .25rem .4rem; font-size: .62rem;\n      background: rgba(6,8,14,.6); color: #e7ebf3; border-radius: 0 0 10px 10px; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"g\" style=\"background:linear-gradient(135deg,#7c5cff,#2dd4bf)\"><span>duotone</span></div>\n  <div class=\"g\" style=\"background:linear-gradient(135deg,#7c5cff,#d1478c,#c2891a)\"><span>tri-stop</span></div>\n  <div class=\"g\" style=\"background:radial-gradient(circle at 30% 25%,#7c5cff,#0b0d12 75%)\"><span>spotlight</span></div>\n  <div class=\"g\" style=\"background:conic-gradient(from 200deg,#7c5cff,#2dd4bf,#c2891a,#7c5cff)\"><span>conic</span></div>\n  <div class=\"g\" style=\"background:linear-gradient(180deg,#0b0d12,#7c5cff)\"><span>fade up</span></div>\n  <div class=\"g\" style=\"background:linear-gradient(135deg,#10a894,#0b0d12 60%,#d1478c)\"><span>split</span></div></div>\n</body>\n</html>\n"
+}

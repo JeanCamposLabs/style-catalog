@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Price Comparison</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "price-tier-compare",
+    "title": "Price Comparison",
+    "summary": "Three price points with the middle recommended.",
+    "description": "Three price points with the middle recommended.",
+    "theme": "ecommerce-ui",
+    "categories": ["ecommerce", "commerce"],
+    "tags": ["ecommerce", "shop", "pricing", "tiers", "compare", "bundle"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+    "customization": [
+      { "name": "--c", "description": "Highlight", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Bundle and quantity pickers. Show the unit price alongside the total — that is the number shoppers actually compare."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 10px; }
+    .p { width: 96px; padding: 1rem .7rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; text-align: center; }
+    .p.on { border-color: #7c5cff; background: #191331; }
+    .p .n { font-size: .78rem; color: #8b93a7; }
+    .p .v { font-size: 1.4rem; font-weight: 900; margin: .3rem 0; }
+    .p .u { font-size: .7rem; color: #8b93a7; }
+    .p .tag { display: inline-block; margin-top: .5rem; padding: .1rem .45rem; border-radius: 99px; background: #7c5cff;
+      color: #fff; font-size: .62rem; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="p"><div class="n">1 pack</div><div class="v">$24</div><div class="u">$24 each</div></div>
+  <div class="p on"><div class="n">3 pack</div><div class="v">$59</div><div class="u">$19.67 each</div><span class="tag">BEST</span></div>
+  <div class="p"><div class="n">5 pack</div><div class="v">$99</div><div class="u">$19.80 each</div></div></div>
+</body>
+</html>

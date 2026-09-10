@@ -1,0 +1,45 @@
+{
+  "id": "neon-outline-icon-set",
+  "title": "Neon Icon Row",
+  "summary": "Three glowing outline icons with hover ignition.",
+  "description": "Three glowing outline icons with hover ignition.",
+  "theme": "neon-cyberpunk",
+  "themeTitle": "Neon & Cyberpunk",
+  "categories": [
+    "neon",
+    "cyberpunk"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "dark",
+    "icons",
+    "outline",
+    "hover",
+    "row"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Icon colour",
+      "default": "#22d3ee"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Icon navigation in dark UIs. Keep the resting state visible at 3:1 contrast so icons are discoverable before hover.",
+  "path": "effects/neon-cyberpunk/neon-outline-icon-set.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neon Icon Row</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-outline-icon-set\",\n    \"title\": \"Neon Icon Row\",\n    \"summary\": \"Three glowing outline icons with hover ignition.\",\n    \"description\": \"Three glowing outline icons with hover ignition.\",\n    \"theme\": \"neon-cyberpunk\",\n    \"categories\": [\"neon\", \"cyberpunk\"],\n    \"tags\": [\"neon\", \"glow\", \"dark\", \"icons\", \"outline\", \"hover\", \"row\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Icon colour\", \"default\": \"#22d3ee\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Icon navigation in dark UIs. Keep the resting state visible at 3:1 contrast so icons are discoverable before hover.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .row { display: flex; gap: 14px; }\n    .ic { width: 62px; height: 62px; border-radius: 14px; border: 2px solid #22d3ee; display: grid; place-items: center;\n      color: #22d3ee; font-size: 1.4rem; background: rgba(8,20,26,.6); transition: box-shadow .25s, color .25s; }\n    .ic:hover { color: #fff; box-shadow: 0 0 14px #22d3ee, inset 0 0 16px rgba(34,211,238,.35); }\n  </style>\n</head>\n<body>\n  <div class=\"row\"><span class=\"ic\">◈</span><span class=\"ic\">◉</span><span class=\"ic\">◬</span></div>\n</body>\n</html>\n"
+}

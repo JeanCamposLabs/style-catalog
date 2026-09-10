@@ -1,0 +1,44 @@
+{
+  "id": "video-player-controls",
+  "title": "Player Controls",
+  "summary": "A media control bar with a scrubber.",
+  "description": "A media control bar with a scrubber.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "media"
+  ],
+  "tags": [
+    "image",
+    "media",
+    "video",
+    "player",
+    "controls",
+    "scrubber"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Progress colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Custom media players. Keep the native <video> element and only restyle its controls; rebuilding playback from scratch loses captions, PiP, and keyboard shortcuts.",
+  "path": "effects/images-media/video-player-controls.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Player Controls</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"video-player-controls\",\n    \"title\": \"Player Controls\",\n    \"summary\": \"A media control bar with a scrubber.\",\n    \"description\": \"A media control bar with a scrubber.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"media\"],\n    \"tags\": [\"image\", \"media\", \"video\", \"player\", \"controls\", \"scrubber\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Progress colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Custom media players. Keep the native <video> element and only restyle its controls; rebuilding playback from scratch loses captions, PiP, and keyboard shortcuts.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; border-radius: 14px; overflow: hidden; background: #0b0d12; }\n    .fx .screen { aspect-ratio: 16 / 9; background: conic-gradient(from 160deg at 40% 35%, #1e1b4b, #7c5cff, #2dd4bf); }\n    .fx .bar { display: flex; align-items: center; gap: .6rem; padding: .6rem .8rem; background: #12161f; }\n    .fx button { width: 30px; height: 30px; border: 0; border-radius: 8px; background: transparent; color: #e7ebf3; cursor: pointer; }\n    .fx .track { flex: 1; height: 4px; border-radius: 99px; background: #2b3450; position: relative; }\n    .fx .track i { position: absolute; inset: 0 auto 0 0; width: 42%; border-radius: 99px; background: #7c5cff; }\n    .fx .track b { position: absolute; left: 42%; top: 50%; translate: -50% -50%; width: 11px; height: 11px;\n      border-radius: 50%; background: #fff; }\n    .fx .t { font-size: .72rem; color: #8b93a7; font-variant-numeric: tabular-nums; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"screen\"></div><div class=\"bar\"><button type=\"button\" aria-label=\"Play\">▶</button>\n  <span class=\"track\" role=\"slider\" aria-label=\"Seek\" aria-valuenow=\"42\" aria-valuemin=\"0\" aria-valuemax=\"100\"><i></i><b></b></span>\n  <span class=\"t\">1:24 / 3:18</span><button type=\"button\" aria-label=\"Mute\">🔊</button></div></div>\n</body>\n</html>\n"
+}

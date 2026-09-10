@@ -1,0 +1,44 @@
+{
+  "id": "input-tag-token-field",
+  "title": "Token Field",
+  "summary": "A field holding removable tokens plus free text.",
+  "description": "A field holding removable tokens plus free text.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "form",
+    "input",
+    "tokens",
+    "tags",
+    "chips",
+    "multi-value"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Token background",
+      "default": "#22304a"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Recipient and tag inputs. Backspace on an empty field should remove the last token, and each remove button needs a label naming its token.",
+  "path": "effects/forms-inputs/input-tag-token-field.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Token Field</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"input-tag-token-field\",\n    \"title\": \"Token Field\",\n    \"summary\": \"A field holding removable tokens plus free text.\",\n    \"description\": \"A field holding removable tokens plus free text.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"form\", \"input\", \"tokens\", \"tags\", \"chips\", \"multi-value\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Token background\", \"default\": \"#22304a\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Recipient and tag inputs. Backspace on an empty field should remove the last token, and each remove button needs a label naming its token.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; width: 280px; padding: .5rem; border-radius: 12px;\n      border: 1px solid #2b3450; background: #151b2a; }\n    .fx:focus-within { border-color: #7c5cff; }\n    .fx .tok { display: inline-flex; align-items: center; gap: .3rem; padding: .2rem .3rem .2rem .6rem; border-radius: 7px;\n      background: #22304a; color: #cbd5e1; font-size: .82rem; }\n    .fx .tok button { width: 18px; height: 18px; border: 0; border-radius: 5px; background: transparent; color: #8b93a7; cursor: pointer; }\n    .fx input { flex: 1; min-width: 80px; border: 0; background: transparent; color: #e7ebf3; font: inherit; padding: .25rem; }\n    .fx input:focus { outline: none; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"tok\">css<button type=\"button\" aria-label=\"Remove css\">×</button></span>\n  <span class=\"tok\">animation<button type=\"button\" aria-label=\"Remove animation\">×</button></span>\n  <label class=\"sr\" for=\"tk\" style=\"position:absolute;left:-9999px\">Add a tag</label>\n  <input id=\"tk\" type=\"text\" placeholder=\"Add a tag…\" /></div>\n</body>\n</html>\n"
+}

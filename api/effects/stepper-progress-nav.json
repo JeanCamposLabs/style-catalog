@@ -1,0 +1,47 @@
+{
+  "id": "stepper-progress-nav",
+  "title": "Step Navigation",
+  "summary": "A numbered step bar showing done, current, and upcoming stages.",
+  "description": "Three visually distinct states plus a connecting line make progress legible at a glance.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation"
+  ],
+  "tags": [
+    "steps",
+    "wizard",
+    "progress",
+    "checkout",
+    "stages"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+  "customization": [
+    {
+      "name": "--done",
+      "description": "Completed colour",
+      "default": "#34d399"
+    },
+    {
+      "name": "--now",
+      "description": "Current colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Vertical stepper",
+    "Clickable completed steps"
+  ],
+  "related": [],
+  "ai_usage": "Checkouts and multi-step forms. Mark the current step with aria-current=step and give completed steps a tick as well as a colour.",
+  "path": "effects/navigation-menus/stepper-progress-nav.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Step Navigation</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"stepper-progress-nav\",\n    \"title\": \"Step Navigation\",\n    \"summary\": \"A numbered step bar showing done, current, and upcoming stages.\",\n    \"description\": \"Three visually distinct states plus a connecting line make progress legible at a glance.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\"],\n    \"tags\": [\"steps\", \"wizard\", \"progress\", \"checkout\", \"stages\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.\",\n    \"customization\": [\n      { \"name\": \"--done\", \"description\": \"Completed colour\", \"default\": \"#34d399\" },\n      { \"name\": \"--now\", \"description\": \"Current colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Vertical stepper\", \"Clickable completed steps\"],\n    \"ai_usage\": \"Checkouts and multi-step forms. Mark the current step with aria-current=step and give completed steps a tick as well as a colour.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .steps { display: flex; align-items: center; width: 330px; }\n    .steps .s { display: grid; gap: .4rem; justify-items: center; font-size: .75rem; color: #8b93a7; }\n    .steps .dot { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 700;\n      background: #1c2437; color: #8b93a7; border: 2px solid #2b3450; }\n    .steps .s.done .dot { background: var(--done, #34d399); border-color: var(--done, #34d399); color: #06281c; }\n    .steps .s.now .dot { border-color: var(--now, #7c5cff); color: #b9a5ff; }\n    .steps .s.now { color: #e7ebf3; }\n    .steps .line { flex: 1; height: 2px; background: #2b3450; margin: 0 .4rem; margin-bottom: 1.1rem; }\n    .steps .line.done { background: var(--done, #34d399); }\n  </style>\n</head>\n<body>\n  <ol class=\"steps\" style=\"list-style:none;padding:0;margin:0\">\n    <li class=\"s done\"><span class=\"dot\">✓</span>Cart</li>\n    <li class=\"line done\" aria-hidden=\"true\"></li>\n    <li class=\"s now\" aria-current=\"step\"><span class=\"dot\">2</span>Shipping</li>\n    <li class=\"line\" aria-hidden=\"true\"></li>\n    <li class=\"s\"><span class=\"dot\">3</span>Payment</li>\n  </ol>\n</body>\n</html>\n"
+}

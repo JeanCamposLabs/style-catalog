@@ -1,0 +1,44 @@
+{
+  "id": "loader-line-scan",
+  "title": "Scanning Line",
+  "summary": "A line sweeping across a placeholder block.",
+  "description": "A line sweeping across a placeholder block.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "loader",
+    "waiting",
+    "scan",
+    "sweep",
+    "processing",
+    "analysis"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Scan period",
+      "default": "1.8s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Analysis and processing states. A scanning line implies work over a surface, which fits image or document processing better than a spinner does.",
+  "path": "effects/loaders-spinners/loader-line-scan.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scanning Line</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"loader-line-scan\",\n    \"title\": \"Scanning Line\",\n    \"summary\": \"A line sweeping across a placeholder block.\",\n    \"description\": \"A line sweeping across a placeholder block.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"loader\", \"waiting\", \"scan\", \"sweep\", \"processing\", \"analysis\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Scan period\", \"default\": \"1.8s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Analysis and processing states. A scanning line implies work over a surface, which fits image or document processing better than a spinner does.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 220px; height: 90px; border-radius: 12px; background: #151b2a; overflow: hidden;\n      border: 1px solid #263149; }\n    .fx i { position: absolute; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, transparent, #2dd4bf, transparent);\n      box-shadow: 0 0 14px #2dd4bf; animation: scan 1.8s ease-in-out infinite alternate; }\n    @keyframes scan { from { left: 4%; } to { left: 94%; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"status\" aria-label=\"Analysing\"><i></i></div>\n</body>\n</html>\n"
+}

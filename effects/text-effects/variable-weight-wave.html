@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weight Wave</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "variable-weight-wave",
+    "title": "Weight Wave",
+    "summary": "A wave of boldness travels through the sentence, letter by letter.",
+    "description": "Animating font-weight per character with an index delay makes the emphasis ripple through the line instead of jumping.",
+    "theme": "text-effects",
+    "categories": ["text", "typography"],
+    "tags": ["variable-font", "weight", "wave", "stagger", "kinetic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Wave period", "default": "2s" },
+      { "name": "--max", "description": "Peak weight", "default": "900" }
+    ],
+    "variations": ["Wave the width axis instead on a variable font", "Trigger on hover per letter", "Slow it down for an ambient logo"],
+    "ai_usage": "Works best with a true variable font where weight interpolates smoothly; with static families the browser snaps between the installed weights and the wave stutters. Keep it to one short line."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 2s; --max: 900; }
+    .vw { font-size: clamp(1.4rem, 5vw, 2.2rem); display: flex; }
+    .vw span { display: inline-block; font-weight: 300; animation: wt var(--dur) ease-in-out infinite;
+      animation-delay: calc(var(--i) * .07s); }
+    @keyframes wt { 0%, 100% { font-weight: 300; } 50% { font-weight: var(--max); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <p class="vw" aria-label="Variable weight">
+    <span aria-hidden="true" style="--i:0">V</span><span aria-hidden="true" style="--i:1">a</span><span aria-hidden="true" style="--i:2">r</span><span aria-hidden="true" style="--i:3">i</span><span aria-hidden="true" style="--i:4">a</span><span aria-hidden="true" style="--i:5">b</span><span aria-hidden="true" style="--i:6">l</span><span aria-hidden="true" style="--i:7">e</span>
+  </p>
+</body>
+</html>

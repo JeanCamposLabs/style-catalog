@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Focus Visible</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "focus-visible-only",
+    "title": "Focus Visible",
+    "summary": "Rings for keyboard users only.",
+    "description": "Rings for keyboard users only.",
+    "theme": "accessibility-patterns",
+    "categories": ["accessibility", "reference"],
+    "tags": ["accessibility", "a11y", "focus-visible", "keyboard", "ring", "heuristic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+    "customization": [
+      { "name": "--c", "description": "Ring colour", "default": "#10a894" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Use :focus-visible so a ring appears for keyboard and assistive input but not on mouse clicks. Never delete the ring outright — that is the single most common accessibility regression in modern CSS."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 10px; }
+    .fx button { padding: .7rem 1.2rem; border-radius: 10px; border: 1px solid #263149; background: #151b2a; color: #cbd5e1;
+      font: inherit; cursor: pointer; }
+    .always:focus { outline: 3px solid #d1478c; outline-offset: 3px; }
+    .smart:focus-visible { outline: 3px solid #10a894; outline-offset: 3px; }
+    .smart:focus:not(:focus-visible) { outline: none; }
+    .note { margin-top: .9rem; max-width: 280px; color: #8b93a7; font-size: .8rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div><div class="fx"><button class="always" type="button">Ring on any focus</button>
+  <button class="smart" type="button">Ring on keyboard only</button></div>
+  <p class="note">Click each button, then Tab to them. Only the second distinguishes pointer focus from keyboard focus.</p></div>
+</body>
+</html>

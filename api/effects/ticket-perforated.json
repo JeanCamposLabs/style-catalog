@@ -1,0 +1,44 @@
+{
+  "id": "ticket-perforated",
+  "title": "Event Ticket",
+  "summary": "A ticket with a perforated stub and a barcode.",
+  "description": "A ticket with a perforated stub and a barcode.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "ticket",
+    "perforation",
+    "stub",
+    "event"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--paper",
+      "description": "Ticket colour",
+      "default": "#fef9c3"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Events and boarding passes. Combine a dashed rule with notches punched by masks for a fully convincing perforation.",
+  "path": "effects/paper-print/ticket-perforated.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Event Ticket</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"ticket-perforated\",\n    \"title\": \"Event Ticket\",\n    \"summary\": \"A ticket with a perforated stub and a barcode.\",\n    \"description\": \"A ticket with a perforated stub and a barcode.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"ticket\", \"perforation\", \"stub\", \"event\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--paper\", \"description\": \"Ticket colour\", \"default\": \"#fef9c3\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Events and boarding passes. Combine a dashed rule with notches punched by masks for a fully convincing perforation.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; width: 280px; background: #fef9c3; color: #1c1917; border-radius: 10px; overflow: hidden;\n      font-family: ui-monospace, Menlo, monospace; }\n    .fx .main { flex: 1; padding: .9rem 1rem; }\n    .fx .stub { width: 74px; padding: .9rem .5rem; border-left: 2px dashed #a16207; display: grid; place-items: center; text-align: center; }\n    .fx .bars { width: 40px; height: 46px; background: repeating-linear-gradient(90deg, #1c1917 0 2px, transparent 2px 5px); }\n    .fx h3 { margin: 0 0 .3rem; font-size: .9rem; }\n    .fx small { color: #78716c; font-size: .7rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"main\"><h3>NIGHT MARKET</h3><small>Sat 12 Sept · 20:00 · Gate B</small></div>\n  <div class=\"stub\"><div class=\"bars\"></div></div></div>\n</body>\n</html>\n"
+}

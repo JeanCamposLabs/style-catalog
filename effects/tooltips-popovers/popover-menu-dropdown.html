@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dropdown Menu Popover</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "popover-menu-dropdown",
+    "title": "Dropdown Menu Popover",
+    "summary": "An action menu with separators and a destructive item.",
+    "description": "An action menu with separators and a destructive item.",
+    "theme": "tooltips-popovers",
+    "categories": ["tooltip", "overlay"],
+    "tags": ["tooltip", "popover", "menu", "dropdown", "actions", "shortcut"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.",
+    "customization": [
+      { "name": "--bg", "description": "Menu background", "default": "#141a28" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Row and card actions. Use role=menu with menuitem children and support arrow-key navigation plus type-ahead; a plain list of buttons is not a menu."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .dd { position: relative; display: inline-block; }
+    .dd > button { padding: .55rem 1rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; cursor: pointer; }
+    .menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 190px; padding: .3rem; border-radius: 12px;
+      background: #141a28; border: 1px solid #2b3450; box-shadow: 0 18px 44px rgba(0,0,0,.55); display: none; }
+    .dd.is-open .menu { display: block; }
+    .menu button { display: flex; justify-content: space-between; width: 100%; padding: .5rem .65rem; border: 0; border-radius: 8px;
+      background: transparent; color: #cbd5e1; font: inherit; font-size: .88rem; cursor: pointer; text-align: left; }
+    .menu button:hover { background: #22304a; color: #fff; }
+    .menu button.danger { color: #f87171; }
+    .menu hr { border: 0; border-top: 1px solid #22304a; margin: .3rem 0; }
+    .menu kbd { color: #64748b; font-size: .75rem; }
+  </style>
+</head>
+<body>
+  <span class="dd" id="dd"><button type="button" aria-expanded="false" aria-haspopup="menu">Actions ▾</button>
+  <div class="menu" role="menu"><button role="menuitem" type="button">Duplicate <kbd>⌘D</kbd></button>
+  <button role="menuitem" type="button">Move to…</button><hr>
+  <button role="menuitem" type="button" class="danger">Delete <kbd>⌫</kbd></button></div></span>
+  <script>
+    (function () {
+      var d = document.getElementById("dd"), b = d.querySelector("button");
+      b.addEventListener("click", function () { b.setAttribute("aria-expanded", String(d.classList.toggle("is-open"))); });
+      addEventListener("keydown", function (e) { if (e.key === "Escape") { d.classList.remove("is-open"); b.setAttribute("aria-expanded", "false"); } });
+    })();
+  </script>
+</body>
+</html>

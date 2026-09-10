@@ -1,0 +1,44 @@
+{
+  "id": "image-tilt-shine",
+  "title": "Tilt with Shine",
+  "summary": "An image that tilts and catches light with the pointer.",
+  "description": "An image that tilts and catches light with the pointer.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "media"
+  ],
+  "tags": [
+    "image",
+    "media",
+    "tilt",
+    "shine",
+    "pointer",
+    "3d"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+  "customization": [
+    {
+      "name": "--tilt",
+      "description": "Maximum tilt",
+      "default": "12deg"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Product and portfolio images. Tilt and highlight must share the same pointer position, or the light appears to come from a different direction than the tilt implies.",
+  "path": "effects/images-media/image-tilt-shine.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tilt with Shine</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"image-tilt-shine\",\n    \"title\": \"Tilt with Shine\",\n    \"summary\": \"An image that tilts and catches light with the pointer.\",\n    \"description\": \"An image that tilts and catches light with the pointer.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"media\"],\n    \"tags\": [\"image\", \"media\", \"tilt\", \"shine\", \"pointer\", \"3d\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.\",\n    \"customization\": [\n      { \"name\": \"--tilt\", \"description\": \"Maximum tilt\", \"default\": \"12deg\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Product and portfolio images. Tilt and highlight must share the same pointer position, or the light appears to come from a different direction than the tilt implies.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; position: relative;\n      transition: transform .2s ease-out; }\n    .fx .img { position: absolute; inset: 0; background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #c2891a); }\n    .fx .sh { position: absolute; inset: 0; background: radial-gradient(220px circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,.35), transparent 60%);\n      opacity: 0; transition: opacity .2s; }\n    .fx:hover .sh { opacity: 1; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"ti\"><div class=\"img\"></div><div class=\"sh\"></div></div>\n  <script>\n    (function () {\n      var el = document.getElementById(\"ti\");\n      el.addEventListener(\"pointermove\", function (e) {\n        var r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;\n        el.style.transform = \"perspective(700px) rotateY(\" + (x - .5) * 16 + \"deg) rotateX(\" + (.5 - y) * 16 + \"deg)\";\n        el.style.setProperty(\"--x\", x * 100 + \"%\");\n        el.style.setProperty(\"--y\", y * 100 + \"%\");\n      });\n      el.addEventListener(\"pointerleave\", function () { el.style.transform = \"\"; });\n    })();\n  </script>\n</body>\n</html>\n"
+}

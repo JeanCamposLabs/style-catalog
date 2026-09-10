@@ -1,0 +1,49 @@
+{
+  "id": "domino-dots-loader",
+  "title": "Domino Dots",
+  "summary": "A row of dots topples like dominoes and resets from the far end.",
+  "description": "Each dot rotates about its bottom-left corner on a shared keyframe with a stepped delay, producing the chain-reaction read.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "dots",
+    "domino",
+    "stagger",
+    "topple",
+    "rotate"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Dot color",
+      "default": "#f472b6"
+    },
+    {
+      "name": "--dur",
+      "description": "Cycle",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Reverse the fall direction",
+    "Use squares for a more literal domino",
+    "Speed up the reset half of the cycle"
+  ],
+  "related": [],
+  "ai_usage": "Playful loader for short waits. The mechanic is transform-origin: bottom left plus rotate(90deg); stagger with animation-delay: calc(var(--i) * .12s). Keep the row short (5–7 dots) or the cycle feels slow.",
+  "path": "effects/loaders-spinners/domino-dots-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Domino Dots</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"domino-dots-loader\",\n    \"title\": \"Domino Dots\",\n    \"summary\": \"A row of dots topples like dominoes and resets from the far end.\",\n    \"description\": \"Each dot rotates about its bottom-left corner on a shared keyframe with a stepped delay, producing the chain-reaction read.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"dots\", \"domino\", \"stagger\", \"topple\", \"rotate\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Dot color\", \"default\": \"#f472b6\" },\n      { \"name\": \"--dur\", \"description\": \"Cycle\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Reverse the fall direction\", \"Use squares for a more literal domino\", \"Speed up the reset half of the cycle\"],\n    \"ai_usage\": \"Playful loader for short waits. The mechanic is transform-origin: bottom left plus rotate(90deg); stagger with animation-delay: calc(var(--i) * .12s). Keep the row short (5–7 dots) or the cycle feels slow.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #f472b6; --dur: 1.6s; }\n    .dom { display: flex; gap: 6px; align-items: flex-end; height: 40px; }\n    .dom i { width: 12px; height: 30px; border-radius: 4px; background: var(--c); transform-origin: bottom left;\n      animation: fall var(--dur) ease-in-out infinite; animation-delay: calc(var(--i) * .13s); }\n    @keyframes fall {\n      0%, 10% { transform: rotate(0deg); }\n      40%, 60% { transform: rotate(84deg); }\n      90%, 100% { transform: rotate(0deg); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"dom\" role=\"status\" aria-label=\"Loading\">\n    <i style=\"--i:0\"></i><i style=\"--i:1\"></i><i style=\"--i:2\"></i><i style=\"--i:3\"></i><i style=\"--i:4\"></i><i style=\"--i:5\"></i>\n  </div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hotkey Overlay</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "hotkey-cheatsheet-overlay",
+    "title": "Hotkey Overlay",
+    "summary": "A full shortcut sheet triggered by ?",
+    "description": "A full shortcut sheet triggered by ?",
+    "theme": "keyboard-input",
+    "categories": ["keyboard", "input"],
+    "tags": ["keyboard", "shortcut", "cheatsheet", "overlay", "hotkeys", "help"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+    "customization": [
+      { "name": "--bg", "description": "Panel background", "default": "#141a28" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Keyboard-driven apps. Bind the sheet to ? and mention it in onboarding; an undiscoverable shortcut system is used by almost nobody."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; padding: 1.1rem; border-radius: 16px; background: #141a28; border: 1px solid #2b3450; }
+    .fx h3 { margin: 0 0 .8rem; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+    .fx h3 kbd { padding: .1rem .4rem; border-radius: 5px; background: #1c2437; border: 1px solid #2b3450;
+      font-family: ui-monospace, monospace; font-size: .7rem; color: #8b93a7; }
+    .fx .g { margin-bottom: .8rem; }
+    .fx .lbl { font-size: .66rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; margin-bottom: .3rem; }
+    .fx .r { display: flex; justify-content: space-between; padding: .2rem 0; color: #cbd5e1; font-size: .82rem; }
+    .fx .r kbd { padding: .05rem .35rem; border-radius: 4px; background: #1c2437; border: 1px solid #2b3450;
+      font-family: ui-monospace, monospace; font-size: .7rem; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="dialog" aria-label="Keyboard shortcuts"><h3>Shortcuts <kbd>Esc to close</kbd></h3>
+  <div class="g"><div class="lbl">Navigation</div><div class="r"><span>Search</span><kbd>/</kbd></div>
+  <div class="r"><span>Command palette</span><kbd>⌘K</kbd></div></div>
+  <div class="g"><div class="lbl">Actions</div><div class="r"><span>Copy for AI</span><kbd>C</kbd></div>
+  <div class="r"><span>Add to bundle</span><kbd>B</kbd></div></div></div>
+</body>
+</html>

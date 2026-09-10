@@ -1,0 +1,44 @@
+{
+  "id": "scrollspy-nav",
+  "title": "Scrollspy Table of Contents",
+  "summary": "A side list that highlights the section currently in view.",
+  "description": "IntersectionObserver drives the highlight, so it stays correct during fast scrolling and anchor jumps.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "scroll"
+  ],
+  "tags": [
+    "scrollspy",
+    "toc",
+    "intersection-observer",
+    "anchor",
+    "docs"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Progress line along the list",
+    "Nested sub-sections"
+  ],
+  "related": [],
+  "ai_usage": "Documentation and long articles. Use IntersectionObserver with a rootMargin like '-40% 0px -55%' so a heading activates when it reaches the upper third, not when it barely enters.",
+  "path": "effects/navigation-menus/scrollspy-nav.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scrollspy Table of Contents</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"scrollspy-nav\",\n    \"title\": \"Scrollspy Table of Contents\",\n    \"summary\": \"A side list that highlights the section currently in view.\",\n    \"description\": \"IntersectionObserver drives the highlight, so it stays correct during fast scrolling and anchor jumps.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"scroll\"],\n    \"tags\": [\"scrollspy\", \"toc\", \"intersection-observer\", \"anchor\", \"docs\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Progress line along the list\", \"Nested sub-sections\"],\n    \"ai_usage\": \"Documentation and long articles. Use IntersectionObserver with a rootMargin like '-40% 0px -55%' so a heading activates when it reaches the upper third, not when it barely enters.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; grid-template-columns: 150px 1fr; gap: 1.5rem; padding: 1.5rem; }\n    .toc { position: sticky; top: 1.5rem; align-self: start; list-style: none; margin: 0; padding: 0; font-size: .88rem; }\n    .toc a { display: block; padding: .35rem .6rem; border-left: 2px solid #1f2740; color: #8b93a7; text-decoration: none; }\n    .toc a.is-active { border-color: var(--c, #7c5cff); color: #e7ebf3; }\n    section { min-height: 60vh; padding-bottom: 1rem; }\n    h2 { margin: 0 0 .5rem; }\n    p { color: #8b93a7; max-width: 40ch; }\n  </style>\n</head>\n<body>\n  <ul class=\"toc\" id=\"toc\">\n    <li><a href=\"#s1\" class=\"is-active\">Install</a></li><li><a href=\"#s2\">Configure</a></li><li><a href=\"#s3\">Deploy</a></li>\n  </ul>\n  <main>\n    <section id=\"s1\"><h2>Install</h2><p>Scroll to watch the table of contents follow along.</p></section>\n    <section id=\"s2\"><h2>Configure</h2><p>Each heading activates as it reaches the upper third of the viewport.</p></section>\n    <section id=\"s3\"><h2>Deploy</h2><p>The observer handles fast scrolling without drift.</p></section>\n  </main>\n  <script>\n    (function () {\n      var links = [].slice.call(document.querySelectorAll(\".toc a\"));\n      var obs = new IntersectionObserver(function (entries) {\n        entries.forEach(function (en) {\n          if (!en.isIntersecting) return;\n          links.forEach(function (l) { l.classList.toggle(\"is-active\", l.getAttribute(\"href\") === \"#\" + en.target.id); });\n        });\n      }, { rootMargin: \"-30% 0px -60%\" });\n      document.querySelectorAll(\"section\").forEach(function (s) { obs.observe(s); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

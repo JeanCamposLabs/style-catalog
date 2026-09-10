@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Symbol Tile</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bg-tiled-emoji-pattern",
+    "title": "Symbol Tile",
+    "summary": "A repeating glyph pattern at low opacity.",
+    "description": "A repeating glyph pattern at low opacity.",
+    "theme": "backgrounds",
+    "categories": ["background", "surface"],
+    "tags": ["background", "glyphs", "tile", "pattern", "playful"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--o", "description": "Pattern opacity", "default": "0.12" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Playful section backdrops. Repeating a glyph is cheaper than an image tile, but keep the opacity under 15% and mark it aria-hidden so it is never read aloud."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background: #0b0d12; }
+    .bg i { position: absolute; inset: 0; opacity: .12; font-size: 28px; line-height: 46px; letter-spacing: 22px;
+      color: #7c5cff; overflow: hidden; word-break: break-all; user-select: none; }
+  </style>
+</head>
+<body>
+  <div class="bg"><i aria-hidden="true">◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇</i></div>
+</body>
+</html>

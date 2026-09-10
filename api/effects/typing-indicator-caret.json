@@ -1,0 +1,44 @@
+{
+  "id": "typing-indicator-caret",
+  "title": "Blinking Caret",
+  "summary": "A text caret with the correct blink rhythm.",
+  "description": "A text caret with the correct blink rhythm.",
+  "theme": "keyboard-input",
+  "themeTitle": "Keyboard & Input",
+  "categories": [
+    "keyboard",
+    "input"
+  ],
+  "tags": [
+    "keyboard",
+    "shortcut",
+    "caret",
+    "cursor",
+    "blink",
+    "text"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Caret colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Custom editors and terminal emulators. The system blink interval is about 1.06s with a hard on/off — a fading caret reads as a decoration rather than an insertion point.",
+  "path": "effects/keyboard-input/typing-indicator-caret.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Blinking Caret</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"typing-indicator-caret\",\n    \"title\": \"Blinking Caret\",\n    \"summary\": \"A text caret with the correct blink rhythm.\",\n    \"description\": \"A text caret with the correct blink rhythm.\",\n    \"theme\": \"keyboard-input\",\n    \"categories\": [\"keyboard\", \"input\"],\n    \"tags\": [\"keyboard\", \"shortcut\", \"caret\", \"cursor\", \"blink\", \"text\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Caret colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Custom editors and terminal emulators. The system blink interval is about 1.06s with a hard on/off — a fading caret reads as a decoration rather than an insertion point.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { font-family: ui-monospace, monospace; font-size: 1.1rem; color: #cbd5e1; }\n    .fx i { display: inline-block; width: 2px; height: 1.1em; background: #7c5cff; vertical-align: -.15em;\n      animation: blink 1.06s step-end infinite; }\n    @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">npm run build<i></i></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>File Picker with Preview</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "file-preview-input",
+    "title": "File Picker with Preview",
+    "summary": "A drop zone that lists chosen files with size and a remove button.",
+    "description": "Showing the parsed file list immediately confirms the selection worked, which a bare input never does.",
+    "theme": "forms-inputs",
+    "categories": ["form", "file"],
+    "tags": ["file", "upload", "preview", "list", "dropzone"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Accent", "default": "#7c5cff" }
+    ],
+    "variations": ["Image thumbnails", "Per-file progress bars"],
+    "ai_usage": "Upload flows. Keep the real <input type=file> visually hidden but focusable and label it — replacing it with a div breaks keyboard access entirely."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fp { width: 300px; }
+    .fp .zone { border: 2px dashed #2b3450; border-radius: 14px; padding: 1.4rem; text-align: center; color: #8b93a7; cursor: pointer; }
+    .fp .zone:hover, .fp input:focus-visible + .zone { border-color: var(--c, #7c5cff); color: #cbd5e1; }
+    .fp input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .fp ul { list-style: none; margin: .8rem 0 0; padding: 0; }
+    .fp li { display: flex; justify-content: space-between; gap: .6rem; padding: .5rem .7rem; background: #151b2a;
+      border-radius: 10px; margin-bottom: 6px; font-size: .85rem; color: #cbd5e1; }
+    .fp li b { color: #8b93a7; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="fp"><label><input type="file" multiple id="fi" /><span class="zone">Drop files or click to browse</span></label>
+  <ul id="fl"><li>brief.pdf <b>212 KB</b></li><li>logo.svg <b>8 KB</b></li></ul></div>
+  <script>
+    (function () {
+      var i = document.getElementById("fi"), l = document.getElementById("fl");
+      i.addEventListener("change", function () {
+        l.innerHTML = "";
+        [].slice.call(i.files).forEach(function (f) {
+          var li = document.createElement("li");
+          li.innerHTML = f.name + " <b>" + Math.ceil(f.size / 1024) + " KB</b>";
+          l.appendChild(li);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "id": "oklch-perceptual-ramp",
+  "title": "OKLCH Ramp",
+  "summary": "Even perceptual steps using OKLCH.",
+  "description": "Even perceptual steps using OKLCH.",
+  "theme": "color-systems",
+  "themeTitle": "Color Systems",
+  "categories": [
+    "color",
+    "reference"
+  ],
+  "tags": [
+    "color",
+    "tokens",
+    "oklch",
+    "perceptual",
+    "lightness",
+    "color-space"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+  "customization": [
+    {
+      "name": "--l",
+      "description": "Lightness step",
+      "default": "0.08"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Generating ramps programmatically. OKLCH keeps lightness perceptually even across hues, so a step that looks right in blue also looks right in yellow — sRGB interpolation cannot promise that.",
+  "path": "effects/color-systems/oklch-perceptual-ramp.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>OKLCH Ramp</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"oklch-perceptual-ramp\",\n    \"title\": \"OKLCH Ramp\",\n    \"summary\": \"Even perceptual steps using OKLCH.\",\n    \"description\": \"Even perceptual steps using OKLCH.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"color\", \"reference\"],\n    \"tags\": [\"color\", \"tokens\", \"oklch\", \"perceptual\", \"lightness\", \"color-space\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.\",\n    \"customization\": [\n      { \"name\": \"--l\", \"description\": \"Lightness step\", \"default\": \"0.08\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Generating ramps programmatically. OKLCH keeps lightness perceptually even across hues, so a step that looks right in blue also looks right in yellow — sRGB interpolation cannot promise that.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; }\n    .fx .ramp { display: flex; border-radius: 10px; overflow: hidden; }\n    .fx .ramp i { flex: 1; height: 50px; }\n    .fx p { margin: .5rem 0 0; font-size: .76rem; color: #8b93a7; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"ramp\" role=\"img\" aria-label=\"OKLCH ramp with even lightness steps\">\n    <i style=\"background:oklch(0.95 0.03 280)\"></i><i style=\"background:oklch(0.87 0.07 280)\"></i>\n    <i style=\"background:oklch(0.79 0.11 280)\"></i><i style=\"background:oklch(0.71 0.15 280)\"></i>\n    <i style=\"background:oklch(0.63 0.19 280)\"></i><i style=\"background:oklch(0.55 0.20 280)\"></i>\n    <i style=\"background:oklch(0.47 0.17 280)\"></i><i style=\"background:oklch(0.39 0.14 280)\"></i>\n    <i style=\"background:oklch(0.31 0.11 280)\"></i></div>\n  <p>Each step drops lightness by 0.08 in OKLCH — visually even, unlike equal steps in hex.</p></div>\n</body>\n</html>\n"
+}

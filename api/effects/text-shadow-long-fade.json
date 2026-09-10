@@ -1,0 +1,44 @@
+{
+  "id": "text-shadow-long-fade",
+  "title": "Fading Long Shadow",
+  "summary": "A long shadow that dissolves with distance.",
+  "description": "A long shadow that dissolves with distance.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "typography"
+  ],
+  "tags": [
+    "text",
+    "type",
+    "long-shadow",
+    "fade",
+    "mask",
+    "flat"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative duplicates are aria-hidden.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Shadow colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Flat-design headlines. Masking the shadow layer gives the fade that a stack of solid text-shadows cannot produce on its own.",
+  "path": "effects/text-effects/text-shadow-long-fade.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Fading Long Shadow</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"text-shadow-long-fade\",\n    \"title\": \"Fading Long Shadow\",\n    \"summary\": \"A long shadow that dissolves with distance.\",\n    \"description\": \"A long shadow that dissolves with distance.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"typography\"],\n    \"tags\": [\"text\", \"type\", \"long-shadow\", \"fade\", \"mask\", \"flat\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative duplicates are aria-hidden.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Shadow colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Flat-design headlines. Masking the shadow layer gives the fade that a stack of solid text-shadows cannot produce on its own.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; font-size: 2.6rem; font-weight: 900; color: #e7ebf3; }\n    .fx::after { content: attr(data-t); position: absolute; left: 0; top: 0; color: #7c5cff; z-index: -1;\n      text-shadow: 1px 1px #7c5cff, 2px 2px #7c5cff, 3px 3px #7c5cff, 4px 4px #7c5cff, 5px 5px #7c5cff,\n        6px 6px #7c5cff, 7px 7px #7c5cff, 8px 8px #7c5cff, 9px 9px #7c5cff, 10px 10px #7c5cff;\n      -webkit-mask-image: linear-gradient(135deg, #000, transparent 70%); mask-image: linear-gradient(135deg, #000, transparent 70%); }\n  </style>\n</head>\n<body>\n  <h2 class=\"fx\" data-t=\"FADE\">FADE</h2>\n</body>\n</html>\n"
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subtle Noise</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "subtle-noise-tile",
+    "title": "Subtle Noise",
+    "summary": "A quiet grain texture over a flat colour.",
+    "description": "A quiet grain texture over a flat colour. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "noise", "grain", "texture", "subtle"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--o", "description": "Grain opacity", "default": "0.3" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Add to any flat fill to remove the plastic look and hide gradient banding. Keep opacity under 0.35 or it reads as dirt."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --o: .3; }
+    .bg { background-color: #12161f; }
+    .bg::after { content: ""; position: absolute; inset: 0; opacity: var(--o); mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

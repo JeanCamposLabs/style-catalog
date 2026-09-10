@@ -1,0 +1,44 @@
+{
+  "id": "table-responsive-cards",
+  "title": "Responsive Table",
+  "summary": "Rows that become stacked cards on narrow screens.",
+  "description": "Rows that become stacked cards on narrow screens.",
+  "theme": "tables-data",
+  "themeTitle": "Tables & Data",
+  "categories": [
+    "table",
+    "data"
+  ],
+  "tags": [
+    "table",
+    "data",
+    "responsive",
+    "stacked",
+    "mobile",
+    "cards"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+  "customization": [
+    {
+      "name": "--bp",
+      "description": "Breakpoint",
+      "default": "560px"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "Tables on phones. Keep the real table markup and switch display modes in a media query; data-l attributes supply the labels in stacked mode without duplicating text in the DOM.",
+  "path": "effects/tables-data/table-responsive-cards.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Responsive Table</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"table-responsive-cards\",\n    \"title\": \"Responsive Table\",\n    \"summary\": \"Rows that become stacked cards on narrow screens.\",\n    \"description\": \"Rows that become stacked cards on narrow screens.\",\n    \"theme\": \"tables-data\",\n    \"categories\": [\"table\", \"data\"],\n    \"tags\": [\"table\", \"data\", \"responsive\", \"stacked\", \"mobile\", \"cards\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.\",\n    \"customization\": [\n      { \"name\": \"--bp\", \"description\": \"Breakpoint\", \"default\": \"560px\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"Tables on phones. Keep the real table markup and switch display modes in a media query; data-l attributes supply the labels in stacked mode without duplicating text in the DOM.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; }\n    .fx table { width: 100%; border-collapse: collapse; font-size: .82rem; }\n    .fx th { display: none; }\n    .fx tr { display: block; margin-bottom: 8px; border-radius: 12px; background: #151b2a; border: 1px solid #263149; padding: .6rem .8rem; }\n    .fx td { display: flex; justify-content: space-between; gap: 1rem; padding: .2rem 0; color: #cbd5e1; }\n    .fx td::before { content: attr(data-l); color: #8b93a7; font-size: .74rem; }\n    @media (min-width: 560px) {\n      .fx th { display: table-cell; }\n      .fx tr { display: table-row; }\n      .fx td { display: table-cell; }\n      .fx td::before { content: none; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><table><caption class=\"sr\" style=\"position:absolute;left:-9999px\">Plans</caption>\n  <thead><tr><th scope=\"col\">Plan</th><th scope=\"col\">Seats</th><th scope=\"col\">Price</th></tr></thead>\n  <tbody><tr><td data-l=\"Plan\">Starter</td><td data-l=\"Seats\">3</td><td data-l=\"Price\">$12</td></tr>\n  <tr><td data-l=\"Plan\">Studio</td><td data-l=\"Seats\">10</td><td data-l=\"Price\">$24</td></tr></tbody></table></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inner Stroke</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "inner-stroke-inset",
+    "title": "Inner Stroke",
+    "summary": "A hairline drawn inside the box that never affects layout.",
+    "description": "An inset box-shadow of 1px gives a crisp inner rule that, unlike a border, adds nothing to the element's size.",
+    "theme": "borders-shadows",
+    "categories": ["border"],
+    "tags": ["inset", "hairline", "box-shadow", "precision", "ui"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Stroke color", "default": "rgba(255,255,255,.14)" }
+    ],
+    "variations": ["Two-tone inner stroke for a bevel", "Only on the top edge", "Combine with an outer border"],
+    "ai_usage": "Design-system surfaces where 1px of layout shift matters. inset box-shadow keeps the border-box identical, which is why component libraries prefer it over a real border on hover states."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }
+    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    :root { --c: rgba(255,255,255,.14); }
+    .demo { background: #151b2a; border-radius: 14px; box-shadow: inset 0 0 0 1px var(--c), 0 10px 30px rgba(0,0,0,.4); }
+  </style>
+</head>
+<body>
+  <div class="demo"><h3>Inner stroke</h3><p>Hairline with zero layout cost.</p></div>
+</body>
+</html>

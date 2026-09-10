@@ -1,0 +1,44 @@
+{
+  "id": "bevel-button-95",
+  "title": "Windows 95 Button",
+  "summary": "The outset/inset bevel button.",
+  "description": "The outset/inset bevel button.",
+  "theme": "retro-web",
+  "themeTitle": "Retro Web",
+  "categories": [
+    "retro",
+    "nostalgia"
+  ],
+  "tags": [
+    "retro",
+    "nostalgia",
+    "windows-95",
+    "bevel",
+    "button",
+    "skeuomorphic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Face colour",
+      "default": "#c0c0c0"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Retro-desktop UIs. The 1px content shift on press is what made these buttons feel physical; the dotted inner focus ring is the era-correct focus indicator.",
+  "path": "effects/retro-web/bevel-button-95.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Windows 95 Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bevel-button-95\",\n    \"title\": \"Windows 95 Button\",\n    \"summary\": \"The outset/inset bevel button.\",\n    \"description\": \"The outset/inset bevel button.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"nostalgia\"],\n    \"tags\": [\"retro\", \"nostalgia\", \"windows-95\", \"bevel\", \"button\", \"skeuomorphic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Face colour\", \"default\": \"#c0c0c0\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Retro-desktop UIs. The 1px content shift on press is what made these buttons feel physical; the dotted inner focus ring is the era-correct focus indicator.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { padding: .4rem 1.4rem; background: #c0c0c0; color: #000; border: 2px outset #fff;\n      font-family: \"MS Sans Serif\", Tahoma, sans-serif; font-size: .82rem; cursor: pointer; }\n    .fx:active { border-style: inset; padding: .45rem 1.35rem .35rem 1.45rem; }\n    .fx:focus-visible { outline: 1px dotted #000; outline-offset: -5px; }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\">OK</button>\n</body>\n</html>\n"
+}

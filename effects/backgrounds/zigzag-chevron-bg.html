@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zigzag Chevrons</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "zigzag-chevron-bg",
+    "title": "Zigzag Chevrons",
+    "summary": "A crisp chevron pattern that scrolls diagonally.",
+    "description": "Four corner-anchored gradients per tile build the zigzag; animating background-position by one tile keeps the scroll seamless.",
+    "theme": "backgrounds",
+    "categories": ["background", "pattern"],
+    "tags": ["zigzag", "chevron", "pattern", "geometric", "scroll"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Chevron color", "default": "#1c2333" },
+      { "name": "--s", "description": "Tile size", "default": "40px" }
+    ],
+    "variations": ["Vertical chevrons", "Two-color alternating rows", "Static version for print"],
+    "ai_usage": "Sports, packaging, and bold editorial. The zigzag needs four gradients (two 45deg, two -45deg) at opposite background-positions; fewer produce stripes, not chevrons."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: #1c2333; --s: 40px; }
+    .bg { background-color: #0b0d12;
+      background-image: linear-gradient(135deg, var(--a) 25%, transparent 25%),
+        linear-gradient(225deg, var(--a) 25%, transparent 25%),
+        linear-gradient(45deg, var(--a) 25%, transparent 25%),
+        linear-gradient(315deg, var(--a) 25%, transparent 25%);
+      background-position: calc(var(--s) / 2) 0, calc(var(--s) / 2) 0, 0 0, 0 0;
+      background-size: var(--s) var(--s);
+      animation: scroll 4s linear infinite; }
+    @keyframes scroll { to { background-position: calc(var(--s) / 2) var(--s), calc(var(--s) / 2) var(--s), 0 var(--s), 0 var(--s); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trail Highlight Grid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-trail-card",
+    "title": "Trail Highlight Grid",
+    "summary": "A shared highlight follows the pointer across a grid of cards.",
+    "description": "One pointer listener on the grid feeds every card's gradient, so twenty cards cost one event handler.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "grid"],
+    "tags": ["grid", "spotlight", "pointer", "shared-listener", "performance"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "A single pointermove listener on the container updates CSS variables — attaching one per card is the common mistake that makes this pattern janky.",
+    "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Highlight color", "default": "rgba(124,92,255,.35)" }
+    ],
+    "variations": ["Highlight only the hovered card", "Colour per card category", "Add a border glow as well"],
+    "ai_usage": "Bento and feature grids. Delegate the pointermove to the grid, then set --x/--y per card relative to each card's own rect inside a single rAF batch."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .grid { display: grid; grid-template-columns: repeat(2, 150px); gap: 10px; }
+    .grid .c { position: relative; height: 110px; border-radius: 14px; background: #141a28; border: 1px solid #232c42;
+      overflow: hidden; display: grid; place-items: center; color: #8b93a7; font-weight: 700; }
+    .grid .c::before { content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .3s;
+      background: radial-gradient(120px circle at var(--x) var(--y), var(--c, rgba(124,92,255,.35)), transparent 70%); }
+    .grid:hover .c::before { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" id="gr">
+    <div class="c">API</div><div class="c">Webhooks</div><div class="c">Logs</div><div class="c">Billing</div>
+  </div>
+  <script>
+    (function () {
+      var g = document.getElementById("gr"), cards = [].slice.call(g.querySelectorAll(".c"));
+      g.addEventListener("pointermove", function (e) {
+        cards.forEach(function (c) {
+          var r = c.getBoundingClientRect();
+          c.style.setProperty("--x", (e.clientX - r.left) + "px");
+          c.style.setProperty("--y", (e.clientY - r.top) + "px");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

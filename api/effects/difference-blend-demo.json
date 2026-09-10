@@ -1,0 +1,44 @@
+{
+  "id": "difference-blend-demo",
+  "title": "Difference Blend",
+  "summary": "Colours subtract from each other for a psychedelic inversion.",
+  "description": "Colours subtract from each other for a psychedelic inversion. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.",
+  "theme": "blend-filters",
+  "themeTitle": "Blends & Filters",
+  "categories": [
+    "filter",
+    "color"
+  ],
+  "tags": [
+    "filter",
+    "css",
+    "difference",
+    "blend-mode",
+    "invert",
+    "experimental"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.",
+  "customization": [
+    {
+      "name": "--pattern",
+      "description": "Overlay pattern",
+      "default": "stripes"
+    }
+  ],
+  "variations": [
+    "Animate the filter value on hover",
+    "Apply to a whole section with backdrop-filter"
+  ],
+  "related": [],
+  "ai_usage": "Experimental and editorial design. Difference is also the reliable way to make an overlay legible on unknown backgrounds — white over anything inverts it.",
+  "path": "effects/blend-filters/difference-blend-demo.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Difference Blend</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"difference-blend-demo\",\n    \"title\": \"Difference Blend\",\n    \"summary\": \"Colours subtract from each other for a psychedelic inversion.\",\n    \"description\": \"Colours subtract from each other for a psychedelic inversion. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.\",\n    \"theme\": \"blend-filters\",\n    \"categories\": [\"filter\", \"color\"],\n    \"tags\": [\"filter\", \"css\", \"difference\", \"blend-mode\", \"invert\", \"experimental\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.\",\n    \"customization\": [\n      { \"name\": \"--pattern\", \"description\": \"Overlay pattern\", \"default\": \"stripes\" }\n    ],\n    \"variations\": [\"Animate the filter value on hover\", \"Apply to a whole section with backdrop-filter\"],\n    \"ai_usage\": \"Experimental and editorial design. Difference is also the reliable way to make an overlay legible on unknown backgrounds — white over anything inverts it.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; height: 170px; border-radius: 16px; overflow: hidden; position: relative;\n      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }\n    .label { margin-top: .8rem; text-align: center; color: #8b93a7; font-size: .82rem; }\n    .fx::after { content: \"\"; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, #fff 0 20px, #000 20px 40px); mix-blend-mode: difference; }\n  </style>\n</head>\n<body>\n  <div><div class=\"demo fx\"></div><p class=\"label\">Difference Blend</p></div>\n</body>\n</html>\n"
+}

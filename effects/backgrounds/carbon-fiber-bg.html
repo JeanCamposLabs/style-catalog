@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carbon Fibre</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "carbon-fiber-bg",
+    "title": "Carbon Fibre",
+    "summary": "A woven carbon-fibre weave from four tiny gradients.",
+    "description": "Two pairs of 45° gradients offset by half a tile create the over-under weave that a single gradient cannot.",
+    "theme": "backgrounds",
+    "categories": ["background", "texture"],
+    "tags": ["carbon-fiber", "weave", "texture", "material", "automotive"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Fibre highlight", "default": "#20242c" },
+      { "name": "--b", "description": "Fibre shadow", "default": "#14171d" },
+      { "name": "--s", "description": "Weave size", "default": "12px" }
+    ],
+    "variations": ["Larger weave for a coarser look", "Red or blue tinted fibre", "Add a gloss overlay"],
+    "ai_usage": "Automotive, audio, and hardware skins. Keep the tile small (8–14px); larger tiles expose the gradient trick and stop reading as material."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: #20242c; --b: #14171d; --s: 12px; }
+    .bg { background-color: var(--b);
+      background-image: linear-gradient(45deg, var(--a) 25%, transparent 25%, transparent 75%, var(--a) 75%),
+        linear-gradient(45deg, var(--a) 25%, transparent 25%, transparent 75%, var(--a) 75%);
+      background-size: var(--s) var(--s);
+      background-position: 0 0, calc(var(--s) / 2) calc(var(--s) / 2); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

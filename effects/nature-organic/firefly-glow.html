@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fireflies</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "firefly-glow",
+    "title": "Fireflies",
+    "summary": "Points of warm light drifting and blinking.",
+    "description": "Points of warm light drifting and blinking.",
+    "theme": "nature-organic",
+    "categories": ["nature", "organic"],
+    "tags": ["organic", "nature", "fireflies", "glow", "night", "ambient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Glow colour", "default": "#fbbf24" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Evening and forest scenes. Independent drift and blink cycles per firefly is what makes the field feel alive rather than choreographed."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 260px; height: 170px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(180deg, #0b1a12, #050b08); }
+    .fx i { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #fde68a;
+      box-shadow: 0 0 10px #fbbf24; animation: drift var(--d) ease-in-out infinite alternate, blink var(--b) ease-in-out infinite; }
+    @keyframes drift { from { transform: translate(0, 0); } to { transform: translate(var(--dx), var(--dy)); } }
+    @keyframes blink { 0%, 100% { opacity: .15; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="left:16%;top:30%;--d:6s;--b:2.4s;--dx:30px;--dy:-20px"></i>
+  <i style="left:52%;top:60%;--d:8s;--b:3.1s;--dx:-24px;--dy:-30px"></i>
+  <i style="left:76%;top:24%;--d:7s;--b:1.9s;--dx:-18px;--dy:26px"></i>
+  <i style="left:34%;top:74%;--d:9s;--b:2.7s;--dx:22px;--dy:-18px"></i></div>
+</body>
+</html>

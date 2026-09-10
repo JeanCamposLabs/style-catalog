@@ -1,0 +1,54 @@
+{
+  "id": "notebook-lines-bg",
+  "title": "Ruled Notebook",
+  "summary": "Lined paper with a red margin rule.",
+  "description": "A repeating horizontal rule plus one absolute vertical line reproduces school-exercise paper at any zoom.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "paper"
+  ],
+  "tags": [
+    "notebook",
+    "ruled",
+    "paper",
+    "margin",
+    "stationery"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--rule",
+      "description": "Rule color",
+      "default": "#1e2a3d"
+    },
+    {
+      "name": "--margin",
+      "description": "Margin color",
+      "default": "#f87171"
+    },
+    {
+      "name": "--h",
+      "description": "Line height",
+      "default": "28px"
+    }
+  ],
+  "variations": [
+    "Graph paper squares",
+    "Aged cream paper",
+    "Punch holes down the left edge"
+  ],
+  "related": [],
+  "ai_usage": "Note-taking apps, journals, and handwritten-style sections. Set the rule spacing equal to your text line-height so type sits on the lines instead of floating between them.",
+  "path": "effects/backgrounds/notebook-lines-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Ruled Notebook</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"notebook-lines-bg\",\n    \"title\": \"Ruled Notebook\",\n    \"summary\": \"Lined paper with a red margin rule.\",\n    \"description\": \"A repeating horizontal rule plus one absolute vertical line reproduces school-exercise paper at any zoom.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"paper\"],\n    \"tags\": [\"notebook\", \"ruled\", \"paper\", \"margin\", \"stationery\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--rule\", \"description\": \"Rule color\", \"default\": \"#1e2a3d\" },\n      { \"name\": \"--margin\", \"description\": \"Margin color\", \"default\": \"#f87171\" },\n      { \"name\": \"--h\", \"description\": \"Line height\", \"default\": \"28px\" }\n    ],\n    \"variations\": [\"Graph paper squares\", \"Aged cream paper\", \"Punch holes down the left edge\"],\n    \"ai_usage\": \"Note-taking apps, journals, and handwritten-style sections. Set the rule spacing equal to your text line-height so type sits on the lines instead of floating between them.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --rule: #1e2a3d; --margin: #f87171; --h: 28px; }\n    .bg { background-color: #0c1119;\n      background-image: repeating-linear-gradient(180deg, transparent 0 calc(var(--h) - 1px), var(--rule) calc(var(--h) - 1px) var(--h)); }\n    .bg::before { content: \"\"; position: absolute; top: 0; bottom: 0; left: 64px; width: 2px; background: var(--margin); opacity: .55; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

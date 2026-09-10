@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Organic Blob</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-blob-generator",
+    "title": "Organic Blob",
+    "summary": "A smooth blob built from cubic curves.",
+    "description": "A smooth blob built from cubic curves.",
+    "theme": "svg-effects",
+    "categories": ["svg", "vector"],
+    "tags": ["svg", "vector", "blob", "organic", "bezier", "decorative"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+    "customization": [
+      { "name": "--dur", "description": "Rotation period", "default": "20s" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Decorative shapes. Build blobs from cubic segments with mirrored control points so the outline stays smooth; polygon approximations show flat spots at large sizes."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 180px; }
+    .fx svg { width: 100%; display: block; }
+    .fx path { fill: url(#bg); animation: turn 20s linear infinite; transform-origin: center; }
+    @keyframes turn { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 180 180" aria-hidden="true">
+    <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/>
+    <stop offset="1" stop-color="#2dd4bf"/></linearGradient></defs>
+    <path d="M90 14 C130 14 166 44 166 84 C166 128 132 166 90 166 C46 166 14 130 14 88 C14 46 48 14 90 14 Z"/></svg></div>
+</body>
+</html>

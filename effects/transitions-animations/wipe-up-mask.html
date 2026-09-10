@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mask Wipe Up</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "wipe-up-mask",
+    "title": "Mask Wipe Up",
+    "summary": "A gradient mask reveals the element from the bottom.",
+    "description": "A gradient mask reveals the element from the bottom. Applied once on load with animation-fill-mode: both so the element holds its final state.",
+    "theme": "transitions-animations",
+    "categories": ["animation", "entrance"],
+    "tags": ["entrance", "reveal", "mask", "wipe", "soft"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.",
+    "customization": [
+      { "name": "--dur", "description": "Animation duration", "default": "1s" },
+      { "name": "--ease", "description": "Timing function", "default": "cubic-bezier(.2,.8,.3,1)" }
+    ],
+    "variations": ["Stagger across a list with animation-delay", "Play on scroll with IntersectionObserver"],
+    "ai_usage": "Softer than a clip-path wipe because the mask edge can be a gradient. Set mask-size: 100% 200% so there is room to travel."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 1s; --ease: cubic-bezier(.2,.8,.3,1); }
+    .card { width: 230px; padding: 1.5rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149;
+      animation: wipe-up-mask var(--dur) var(--ease) both infinite alternate; }
+    .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    @keyframes wipe-up-mask {
+      from { -webkit-mask-position: 0 -100%; mask-position: 0 -100%; opacity: .2; }
+      to { -webkit-mask-position: 0 0; mask-position: 0 0; opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card"><h3>Mask Wipe Up</h3><p>A gradient mask reveals the element from the bottom.</p></div>
+</body>
+</html>

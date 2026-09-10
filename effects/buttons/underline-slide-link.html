@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sliding Underline Link</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "underline-slide-link",
+    "title": "Sliding Underline Link",
+    "summary": "A text link whose underline slides out and back in from the other side.",
+    "description": "The underline scales to zero from the right and back in from the left, so hover-out feels intentional rather than a reversal.",
+    "theme": "buttons",
+    "categories": ["button", "link"],
+    "tags": ["link", "underline", "slide", "hover", "text"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Underline color", "default": "#2dd4bf" },
+      { "name": "--dur", "description": "Slide duration", "default": "0.3s" }
+    ],
+    "variations": ["Thicker rule for menu links", "Color change on the text as well", "Offset the rule further from the baseline"],
+    "ai_usage": "Body-copy links and text navigation. The direction switch is done by changing transform-origin between the base and :hover rules — one origin gives a plain grow/shrink instead."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #2dd4bf; --dur: .3s; }
+    .slink { position: relative; color: #e7ebf3; text-decoration: none; font-size: 1.2rem; font-weight: 600; }
+    .slink::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--c);
+      transform: scaleX(0); transform-origin: right; transition: transform var(--dur) ease; }
+    .slink:hover::after, .slink:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="slink" href="#">Read the documentation</a>
+</body>
+</html>

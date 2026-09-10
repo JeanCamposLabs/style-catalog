@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Circuit Board</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "circuit-board-bg",
+    "title": "Circuit Board",
+    "summary": "PCB traces and pads etched across a dark board.",
+    "description": "Right-angle gradient traces plus a dot layer for vias produce a plausible circuit without drawing a single path.",
+    "theme": "backgrounds",
+    "categories": ["background", "tech"],
+    "tags": ["circuit", "pcb", "tech", "traces", "hardware"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--trace", "description": "Trace color", "default": "rgba(52,211,153,.2)" },
+      { "name": "--board", "description": "Board color", "default": "#071410" }
+    ],
+    "variations": ["Animate a pulse along the traces", "Gold traces on green board", "Denser grid for a busier board"],
+    "ai_usage": "Hardware, embedded, and hacker aesthetics. Mixing a square grid with an offset dot grid is what sells it — traces alone read as graph paper."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --trace: rgba(52,211,153,.2); --board: #071410; }
+    .bg { background-color: var(--board);
+      background-image: linear-gradient(var(--trace) 2px, transparent 2px), linear-gradient(90deg, var(--trace) 2px, transparent 2px),
+        radial-gradient(circle, rgba(52,211,153,.45) 2px, transparent 3px);
+      background-size: 70px 70px, 70px 70px, 70px 70px;
+      background-position: 0 0, 0 0, 35px 35px; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

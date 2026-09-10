@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forced Colours</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "forced-colors-support",
+    "title": "Forced Colours",
+    "summary": "A component that survives Windows high-contrast mode.",
+    "description": "A component that survives Windows high-contrast mode.",
+    "theme": "accessibility-patterns",
+    "categories": ["accessibility", "reference"],
+    "tags": ["accessibility", "a11y", "forced-colors", "high-contrast", "windows", "system-colors"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+    "customization": [
+      { "name": "--c", "description": "Button colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Forced-colours mode replaces your palette with the user's. Give every meaningful boundary a real border (backgrounds are dropped) and use system colour keywords rather than fixed hex values."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; padding: 1.1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }
+    .fx button { display: flex; align-items: center; gap: .5rem; width: 100%; padding: .6rem .8rem; border-radius: 9px;
+      border: 1px solid transparent; background: #7c5cff; color: #fff; font: inherit; font-size: .85rem; cursor: pointer; }
+    .fx .ic { width: 16px; height: 16px; border-radius: 4px; background: currentColor; }
+    .fx .note { margin: .8rem 0 0; color: #8b93a7; font-size: .78rem; line-height: 1.5; }
+    @media (forced-colors: active) {
+      .fx button { border-color: ButtonText; forced-color-adjust: none; background: ButtonFace; color: ButtonText; }
+      .fx .ic { background: ButtonText; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><button type="button"><span class="ic" aria-hidden="true"></span>Publish catalogue</button>
+  <p class="note">In forced-colours mode the icon inherits currentColor and the border becomes visible, so the button never disappears.</p></div>
+</body>
+</html>

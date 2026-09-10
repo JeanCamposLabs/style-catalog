@@ -1,0 +1,45 @@
+{
+  "id": "vapor-palm-silhouette",
+  "title": "Palm Silhouette",
+  "summary": "Palm trees against a gradient sky.",
+  "description": "Palm trees against a gradient sky.",
+  "theme": "vaporwave-synthwave",
+  "themeTitle": "Vaporwave & Synthwave",
+  "categories": [
+    "retro",
+    "vaporwave"
+  ],
+  "tags": [
+    "vaporwave",
+    "retro",
+    "80s",
+    "palm",
+    "silhouette",
+    "tropical",
+    "sunset"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+  "customization": [
+    {
+      "name": "--sky",
+      "description": "Sky bottom",
+      "default": "#ff6b9d"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Tropical retro scenes. A clip-path frond shape on a pseudo-element keeps each palm to a single element.",
+  "path": "effects/vaporwave-synthwave/vapor-palm-silhouette.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Palm Silhouette</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"vapor-palm-silhouette\",\n    \"title\": \"Palm Silhouette\",\n    \"summary\": \"Palm trees against a gradient sky.\",\n    \"description\": \"Palm trees against a gradient sky.\",\n    \"theme\": \"vaporwave-synthwave\",\n    \"categories\": [\"retro\", \"vaporwave\"],\n    \"tags\": [\"vaporwave\", \"retro\", \"80s\", \"palm\", \"silhouette\", \"tropical\", \"sunset\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.\",\n    \"customization\": [\n      { \"name\": \"--sky\", \"description\": \"Sky bottom\", \"default\": \"#ff6b9d\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Tropical retro scenes. A clip-path frond shape on a pseudo-element keeps each palm to a single element.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 290px; height: 190px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #1b0b33, #ff6b9d); }\n    .fx .p { position: absolute; bottom: 0; width: 5px; background: #0a0316; }\n    .fx .p::before { content: \"\"; position: absolute; top: -12px; left: -22px; width: 50px; height: 26px; background: #0a0316;\n      border-radius: 50% 50% 0 0 / 100% 100% 0 0; clip-path: polygon(0 100%, 12% 20%, 28% 62%, 50% 0, 72% 62%, 88% 20%, 100% 100%); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"p\" style=\"left:18%;height:80px\"></span><span class=\"p\" style=\"left:74%;height:104px\"></span></div>\n</body>\n</html>\n"
+}

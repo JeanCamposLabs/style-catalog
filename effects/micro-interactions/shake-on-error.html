@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Error Shake</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shake-on-error",
+    "title": "Error Shake",
+    "summary": "A field that shakes once on invalid submit.",
+    "description": "A field that shakes once on invalid submit.",
+    "theme": "micro-interactions",
+    "categories": ["micro-interaction", "feedback"],
+    "tags": ["micro-interaction", "feedback", "shake", "error", "validation", "feedback"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+    "customization": [
+      { "name": "--bad", "description": "Error colour", "default": "#d1478c" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Invalid submissions. Shake once and never loop; the error message carries the meaning, the motion only points at where to look."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .fx input { width: 100%; padding: .8rem 1rem; border-radius: 12px; border: 1px solid #d1478c; background: #1f1218;
+      color: #e7ebf3; font: inherit; }
+    .fx.bad input { animation: shake .4s ease-in-out; }
+    .fx p { margin: .5rem 0 0; color: #f0a3c6; font-size: .8rem; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px); }
+      40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(2px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fx.bad input { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx bad"><input type="text" value="not-an-email" aria-invalid="true" aria-describedby="er" aria-label="Email" />
+  <p id="er" role="alert">Enter a valid email address</p></div>
+</body>
+</html>

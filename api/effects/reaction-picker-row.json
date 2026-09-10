@@ -1,0 +1,44 @@
+{
+  "id": "reaction-picker-row",
+  "title": "Reaction Picker",
+  "summary": "Emoji reactions that scale on hover.",
+  "description": "Emoji reactions that scale on hover.",
+  "theme": "social-ui",
+  "themeTitle": "Social UI",
+  "categories": [
+    "social",
+    "feed"
+  ],
+  "tags": [
+    "social",
+    "community",
+    "reactions",
+    "emoji",
+    "picker",
+    "hover"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Bar background",
+      "default": "#151b2a"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Reaction bars. Each emoji button needs a text label ('Like', 'Celebrate') — an emoji alone is announced inconsistently across screen readers.",
+  "path": "effects/social-ui/reaction-picker-row.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Reaction Picker</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"reaction-picker-row\",\n    \"title\": \"Reaction Picker\",\n    \"summary\": \"Emoji reactions that scale on hover.\",\n    \"description\": \"Emoji reactions that scale on hover.\",\n    \"theme\": \"social-ui\",\n    \"categories\": [\"social\", \"feed\"],\n    \"tags\": [\"social\", \"community\", \"reactions\", \"emoji\", \"picker\", \"hover\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Bar background\", \"default\": \"#151b2a\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Reaction bars. Each emoji button needs a text label ('Like', 'Celebrate') — an emoji alone is announced inconsistently across screen readers.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: .4rem; padding: .4rem; border-radius: 999px; background: #151b2a; border: 1px solid #263149; }\n    .fx button { width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; font-size: 1.25rem;\n      cursor: pointer; transition: transform .18s cubic-bezier(.34,1.56,.64,1), background .18s; }\n    .fx button:hover, .fx button:focus-visible { transform: scale(1.35) translateY(-4px); background: #22304a; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"group\" aria-label=\"React\">\n    <button type=\"button\" aria-label=\"Like\">👍</button><button type=\"button\" aria-label=\"Love\">❤️</button>\n    <button type=\"button\" aria-label=\"Celebrate\">🎉</button><button type=\"button\" aria-label=\"Insightful\">💡</button></div>\n</body>\n</html>\n"
+}

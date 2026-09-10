@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Drop Shadow</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-filter-drop-shadow",
+    "title": "SVG Drop Shadow",
+    "summary": "A shadow that follows an irregular path.",
+    "description": "A shadow that follows an irregular path.",
+    "theme": "svg-effects",
+    "categories": ["svg", "vector"],
+    "tags": ["svg", "vector", "filter", "drop-shadow", "irregular", "feDropShadow"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+    "customization": [
+      { "name": "--blur", "description": "Shadow blur", "default": "6" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Shadows on non-rectangular art. feDropShadow follows the alpha channel, so a star or blob casts a matching shadow that box-shadow never could."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 190px; }
+    .fx svg { width: 100%; display: block; overflow: visible; }
+    .fx path { fill: #2dd4bf; filter: url(#ds); }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 190 160" aria-hidden="true">
+    <defs><filter id="ds" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#0f766e" flood-opacity=".8"/></filter></defs>
+    <path d="M95 12 L120 62 L176 70 L136 110 L146 166 L95 140 L44 166 L54 110 L14 70 L70 62 Z"/></svg></div>
+</body>
+</html>

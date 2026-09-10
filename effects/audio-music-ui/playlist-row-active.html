@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Playlist Rows</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "playlist-row-active",
+    "title": "Playlist Rows",
+    "summary": "A track list with a playing indicator on the active row.",
+    "description": "A track list with a playing indicator on the active row.",
+    "theme": "audio-music-ui",
+    "categories": ["audio", "music"],
+    "tags": ["audio", "player", "playlist", "tracks", "active", "list"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Audio controls need real button semantics and state labels; a play/pause icon swap must also swap the accessible name.",
+    "customization": [
+      { "name": "--c", "description": "Active colour", "default": "#2dd4bf" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Track lists. Mark the current row with aria-current and an icon, not colour alone; the mini equalizer should stop when playback pauses."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; }
+    .fx .row { display: flex; align-items: center; gap: .8rem; padding: .55rem .7rem; border-radius: 10px; color: #cbd5e1; font-size: .88rem; }
+    .fx .row:hover { background: #151b2a; }
+    .fx .row.on { background: #1a1f36; color: #fff; }
+    .fx .num { width: 18px; text-align: right; color: #64748b; font-size: .8rem; }
+    .fx .row.on .num { color: #2dd4bf; }
+    .fx .t { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .fx .d { color: #64748b; font-size: .78rem; font-variant-numeric: tabular-nums; }
+    .fx .eq { display: none; gap: 2px; align-items: flex-end; height: 12px; }
+    .fx .row.on .eq { display: flex; }
+    .fx .eq i { width: 2px; background: #2dd4bf; animation: bob .6s ease-in-out infinite alternate; }
+    .fx .eq i:nth-child(2) { animation-duration: .45s; } .fx .eq i:nth-child(3) { animation-duration: .8s; }
+    @keyframes bob { from { height: 3px; } to { height: 12px; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="row"><span class="num">1</span><span class="t">Intro</span><span class="d">1:12</span></div>
+  <div class="row on" aria-current="true"><span class="num">2</span><span class="t">Nightcall</span>
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span class="d">4:18</span></div>
+  <div class="row"><span class="num">3</span><span class="t">Odd Look</span><span class="d">3:44</span></div></div>
+</body>
+</html>

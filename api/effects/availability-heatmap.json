@@ -1,0 +1,44 @@
+{
+  "id": "availability-heatmap",
+  "title": "Availability Heatmap",
+  "summary": "A week grid shaded by availability density.",
+  "description": "A week grid shaded by availability density.",
+  "theme": "calendar-time",
+  "themeTitle": "Calendar & Time",
+  "categories": [
+    "calendar",
+    "time"
+  ],
+  "tags": [
+    "calendar",
+    "date",
+    "heatmap",
+    "availability",
+    "calendar",
+    "density"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Density colour",
+      "default": "#34d399"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Scheduling tools and contribution graphs. Include a legend — an unlabelled colour ramp cannot be read quantitatively.",
+  "path": "effects/calendar-time/availability-heatmap.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Availability Heatmap</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"availability-heatmap\",\n    \"title\": \"Availability Heatmap\",\n    \"summary\": \"A week grid shaded by availability density.\",\n    \"description\": \"A week grid shaded by availability density.\",\n    \"theme\": \"calendar-time\",\n    \"categories\": [\"calendar\", \"time\"],\n    \"tags\": [\"calendar\", \"date\", \"heatmap\", \"availability\", \"calendar\", \"density\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Density colour\", \"default\": \"#34d399\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Scheduling tools and contribution graphs. Include a legend — an unlabelled colour ramp cannot be read quantitatively.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: auto repeat(7, 22px); gap: 3px; align-items: center; font-size: .68rem; color: #64748b; }\n    .fx i { width: 22px; height: 22px; border-radius: 5px; background: rgba(52,211,153,calc(var(--v) / 4)); }\n    .fx .lbl { text-align: right; padding-right: .4rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"lbl\">AM</span><i style=\"--v:1\"></i><i style=\"--v:3\"></i><i style=\"--v:4\"></i><i style=\"--v:2\"></i>\n  <i style=\"--v:4\"></i><i style=\"--v:0\"></i><i style=\"--v:0\"></i>\n  <span class=\"lbl\">PM</span><i style=\"--v:2\"></i><i style=\"--v:4\"></i><i style=\"--v:1\"></i><i style=\"--v:3\"></i>\n  <i style=\"--v:2\"></i><i style=\"--v:1\"></i><i style=\"--v:0\"></i></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "perspective-tilt-text",
+  "title": "Perspective Title",
+  "summary": "A headline lying back in 3D space, Star Wars crawl style.",
+  "description": "rotateX with a strong perspective plus a vertical gradient fade produces the receding crawl without any JS.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "3d"
+  ],
+  "tags": [
+    "perspective",
+    "crawl",
+    "3d",
+    "star-wars",
+    "retro"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--tilt",
+      "description": "Lay-back angle",
+      "default": "52deg"
+    },
+    {
+      "name": "--c",
+      "description": "Text color",
+      "default": "#ffd166"
+    }
+  ],
+  "variations": [
+    "Animate the text scrolling upward",
+    "Reduce the tilt for a subtle lean",
+    "Add a starfield behind it"
+  ],
+  "related": [],
+  "ai_usage": "Cinematic intros and retro sci-fi. Perspective must live on the parent and the rotation on the child; a mask-image fade at the far edge is what sells the distance.",
+  "path": "effects/text-effects/perspective-tilt-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Perspective Title</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"perspective-tilt-text\",\n    \"title\": \"Perspective Title\",\n    \"summary\": \"A headline lying back in 3D space, Star Wars crawl style.\",\n    \"description\": \"rotateX with a strong perspective plus a vertical gradient fade produces the receding crawl without any JS.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"3d\"],\n    \"tags\": [\"perspective\", \"crawl\", \"3d\", \"star-wars\", \"retro\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--tilt\", \"description\": \"Lay-back angle\", \"default\": \"52deg\" },\n      { \"name\": \"--c\", \"description\": \"Text color\", \"default\": \"#ffd166\" }\n    ],\n    \"variations\": [\"Animate the text scrolling upward\", \"Reduce the tilt for a subtle lean\", \"Add a starfield behind it\"],\n    \"ai_usage\": \"Cinematic intros and retro sci-fi. Perspective must live on the parent and the rotation on the child; a mask-image fade at the far edge is what sells the distance.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --tilt: 52deg; --c: #ffd166; }\n    .scene { perspective: 340px; width: 320px; }\n    .crawl { transform: rotateX(var(--tilt)); transform-origin: 50% 100%; color: var(--c); text-align: center;\n      font-weight: 900; font-size: 1.6rem; line-height: 1.35;\n      -webkit-mask-image: linear-gradient(transparent, #000 45%); mask-image: linear-gradient(transparent, #000 45%); }\n  </style>\n</head>\n<body>\n  <div class=\"scene\"><div class=\"crawl\">A LONG TIME AGO IN A STYLESHEET FAR, FAR AWAY</div></div>\n</body>\n</html>\n"
+}

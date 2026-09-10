@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spring vs Ease</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "spring-vs-ease",
+    "title": "Spring vs Ease",
+    "summary": "The same move with two personalities.",
+    "description": "The same move with two personalities.",
+    "theme": "motion-principles",
+    "categories": ["motion", "reference"],
+    "tags": ["motion", "easing", "spring", "overshoot", "easing", "personality"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+    "customization": [
+      { "name": "--spring", "description": "Spring curve", "default": "cubic-bezier(.34,1.56,.64,1)" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Choosing personality. A spring overshoots and settles, which suits playful accents; a standard ease never passes its target, which suits functional UI. Mixing both in one product feels inconsistent."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; display: grid; gap: .8rem; }
+    .lbl { font-size: .68rem; color: #64748b; font-family: ui-monospace, monospace; margin-bottom: .25rem; }
+    .t { height: 26px; border-radius: 99px; background: #151b2a; position: relative; }
+    .t i { position: absolute; top: 4px; left: 4px; width: 18px; height: 18px; border-radius: 50%; background: #d1478c; }
+    .e i { animation: go 1.6s cubic-bezier(.2,.8,.3,1) infinite alternate; }
+    .s i { animation: go 1.6s cubic-bezier(.34,1.56,.64,1) infinite alternate; }
+    @keyframes go { to { left: calc(100% - 22px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div><div class="lbl">ease · no overshoot</div><div class="t e"><i></i></div></div>
+  <div><div class="lbl">spring · overshoots and settles</div><div class="t s"><i></i></div></div></div>
+</body>
+</html>

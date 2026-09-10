@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fluttering Wings</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "butterfly-flutter",
+    "title": "Fluttering Wings",
+    "summary": "Wings beat with a slight body bob.",
+    "description": "Wings beat with a slight body bob.",
+    "theme": "nature-organic",
+    "categories": ["nature", "organic"],
+    "tags": ["organic", "nature", "butterfly", "wings", "flutter", "3d"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Wing colour", "default": "#7c3aed" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Delight moments and success states. rotateY around the inner edge (not scaleX) is what makes the wings look like they have depth."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 120px; height: 90px; display: grid; place-items: center; perspective: 300px; }
+    .fx .w { position: absolute; width: 46px; height: 60px; background: linear-gradient(160deg, #c084fc, #7c3aed);
+      border-radius: 60% 40% 50% 50% / 60% 60% 40% 40%; animation: flap .5s ease-in-out infinite alternate; }
+    .fx .l { right: 50%; transform-origin: right center; }
+    .fx .r { left: 50%; transform-origin: left center; animation-name: flapr; }
+    .fx .body { width: 6px; height: 46px; border-radius: 99px; background: #3b0764; z-index: 1; }
+    @keyframes flap { to { transform: rotateY(64deg); } }
+    @keyframes flapr { to { transform: rotateY(-64deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="w l"></span><span class="w r"></span><span class="body"></span></div>
+</body>
+</html>

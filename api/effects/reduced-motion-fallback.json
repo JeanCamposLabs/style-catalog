@@ -1,0 +1,44 @@
+{
+  "id": "reduced-motion-fallback",
+  "title": "Reduced Motion",
+  "summary": "The same component with and without motion.",
+  "description": "The same component with and without motion.",
+  "theme": "accessibility-patterns",
+  "themeTitle": "Accessibility Patterns",
+  "categories": [
+    "accessibility",
+    "reference"
+  ],
+  "tags": [
+    "accessibility",
+    "a11y",
+    "reduced-motion",
+    "prefers-reduced-motion",
+    "fallback",
+    "media-query"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Animation duration",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Every animated component. Reduce motion rather than removing meaning: keep the end state, drop the movement, and never leave an element stuck at opacity 0 because its entrance never ran.",
+  "path": "effects/accessibility-patterns/reduced-motion-fallback.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Reduced Motion</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"reduced-motion-fallback\",\n    \"title\": \"Reduced Motion\",\n    \"summary\": \"The same component with and without motion.\",\n    \"description\": \"The same component with and without motion.\",\n    \"theme\": \"accessibility-patterns\",\n    \"categories\": [\"accessibility\", \"reference\"],\n    \"tags\": [\"accessibility\", \"a11y\", \"reduced-motion\", \"prefers-reduced-motion\", \"fallback\", \"media-query\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Animation duration\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Every animated component. Reduce motion rather than removing meaning: keep the end state, drop the movement, and never leave an element stuck at opacity 0 because its entrance never ran.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 14px; align-items: center; }\n    .card { width: 120px; height: 120px; border-radius: 14px; background: linear-gradient(160deg, #7c5cff, #2dd4bf);\n      display: grid; place-items: center; color: #0b0d12; font-weight: 800; font-size: .8rem; text-align: center; padding: .5rem; }\n    .card.anim { animation: spin 3s linear infinite; }\n    .note { max-width: 250px; color: #8b93a7; font-size: .8rem; line-height: 1.5; }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) { .card.anim { animation: none; } }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"card anim\">Motion</div>\n  <p class=\"note\">Enable “Reduce motion” in your OS settings and the rotation stops — the component still shows its final state.</p></div>\n</body>\n</html>\n"
+}

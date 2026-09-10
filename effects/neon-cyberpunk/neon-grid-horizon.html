@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Horizon</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neon-grid-horizon",
+    "title": "Neon Horizon",
+    "summary": "A glowing grid receding to a neon sunset.",
+    "description": "A glowing grid receding to a neon sunset.",
+    "theme": "neon-cyberpunk",
+    "categories": ["neon", "cyberpunk"],
+    "tags": ["neon", "glow", "dark", "grid", "horizon", "sunset", "synthwave"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+    "customization": [
+      { "name": "--c", "description": "Grid colour", "default": "rgba(34,211,238,.6)" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Synthwave scenes. Perspective on an oversized grid layer plus a gradient sun is the whole composition — no 3D engine required."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 300px; height: 200px; overflow: hidden; border-radius: 14px;
+      background: linear-gradient(180deg, #1a0733 0 55%, #06010f 55%); }
+    .fx .sun { position: absolute; top: 18%; left: 50%; translate: -50% 0; width: 110px; height: 110px; border-radius: 50%;
+      background: linear-gradient(180deg, #fbbf24, #ff2d95); box-shadow: 0 0 60px rgba(255,45,149,.6); }
+    .fx .grid { position: absolute; left: -50%; right: -50%; bottom: -10%; height: 60%;
+      background-image: repeating-linear-gradient(90deg, rgba(34,211,238,.6) 0 2px, transparent 2px 46px),
+        repeating-linear-gradient(0deg, rgba(34,211,238,.6) 0 2px, transparent 2px 46px);
+      transform: perspective(160px) rotateX(66deg); transform-origin: bottom; }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="sun"></span><span class="grid"></span></div>
+</body>
+</html>

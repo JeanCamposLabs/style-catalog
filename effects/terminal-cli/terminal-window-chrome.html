@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terminal Window</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "terminal-window-chrome",
+    "title": "Terminal Window",
+    "summary": "A window with traffic-light controls and a prompt.",
+    "description": "A window with traffic-light controls and a prompt.",
+    "theme": "terminal-cli",
+    "categories": ["terminal", "code"],
+    "tags": ["terminal", "monospace", "window", "chrome", "prompt", "shell"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Terminal output should live in a real text element (not an image) so it can be selected, searched, and read aloud.",
+    "customization": [
+      { "name": "--bg", "description": "Terminal background", "default": "#0d1117" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Documentation and landing pages. Keep the command as selectable text — screenshots of terminals cannot be copied, which is the whole point of showing one."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; border-radius: 10px; overflow: hidden; background: #0d1117; border: 1px solid #21262d;
+      font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .82rem; }
+    .fx .bar { display: flex; align-items: center; gap: 6px; padding: .5rem .7rem; background: #161b22; }
+    .fx .bar i { width: 11px; height: 11px; border-radius: 50%; }
+    .fx .bar span { margin-left: auto; color: #6e7681; font-size: .72rem; }
+    .fx .body { padding: .8rem; color: #c9d1d9; line-height: 1.7; }
+    .fx .p { color: #3fb950; }
+    .fx .c { color: #58a6ff; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>zsh</span></div>
+  <div class="body"><span class="p">➜</span> <span class="c">style-catalog</span> npm run build<br>✓ Built catalog: 1181 effects.</div></div>
+</body>
+</html>

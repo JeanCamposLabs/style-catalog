@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memphis Confetti</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "memphis-confetti",
+    "title": "Memphis Confetti",
+    "summary": "Squiggles, dots, and dashes in 80s colours.",
+    "description": "Squiggles, dots, and dashes in 80s colours. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "memphis", "80s", "confetti", "playful"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--scale", "description": "Base tile", "default": "80px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "80s revival and playful branding. Mixing dot and dash layers at coprime tile sizes keeps the scatter from looking gridded."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background-color: #1a1030;
+      background-image: radial-gradient(circle at 20% 30%, #2dd4bf 0 4px, transparent 5px),
+        linear-gradient(45deg, transparent 46%, #f472b6 46% 54%, transparent 54%),
+        radial-gradient(circle at 75% 70%, #fbbf24 0 3px, transparent 4px),
+        linear-gradient(-30deg, transparent 47%, #7c5cff 47% 53%, transparent 53%);
+      background-size: 80px 80px, 60px 60px, 100px 100px, 120px 120px; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

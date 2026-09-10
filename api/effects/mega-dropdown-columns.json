@@ -1,0 +1,42 @@
+{
+  "id": "mega-dropdown-columns",
+  "title": "Column Mega Menu",
+  "summary": "A wide dropdown organised into labelled columns.",
+  "description": "Grouping links under headings turns a long list into a scannable map of the site.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation"
+  ],
+  "tags": [
+    "mega-menu",
+    "dropdown",
+    "columns",
+    "grouped",
+    "header"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Panel background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Featured promo column",
+    "Full-width panel"
+  ],
+  "related": [],
+  "ai_usage": "Large sites with many sections. Open on click (not hover) for touch parity, manage aria-expanded, and close on Escape and on outside click.",
+  "path": "effects/navigation-menus/mega-dropdown-columns.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Column Mega Menu</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"mega-dropdown-columns\",\n    \"title\": \"Column Mega Menu\",\n    \"summary\": \"A wide dropdown organised into labelled columns.\",\n    \"description\": \"Grouping links under headings turns a long list into a scannable map of the site.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\"],\n    \"tags\": [\"mega-menu\", \"dropdown\", \"columns\", \"grouped\", \"header\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Panel background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Featured promo column\", \"Full-width panel\"],\n    \"ai_usage\": \"Large sites with many sections. Open on click (not hover) for touch parity, manage aria-expanded, and close on Escape and on outside click.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .mm { position: relative; }\n    .mm > button { padding: .6rem 1rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; cursor: pointer; }\n    .mm .panel { position: absolute; top: calc(100% + 8px); left: 0; display: none; grid-template-columns: repeat(3, 130px);\n      gap: 1rem; padding: 1.1rem; background: var(--bg, #141a28); border: 1px solid #2b3450; border-radius: 14px;\n      box-shadow: 0 20px 50px rgba(0,0,0,.5); }\n    .mm.is-open .panel { display: grid; }\n    .mm h4 { margin: 0 0 .5rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: #8b93a7; }\n    .mm a { display: block; padding: .3rem 0; color: #cbd5e1; text-decoration: none; font-size: .9rem; }\n    .mm a:hover { color: #7c5cff; }\n  </style>\n</head>\n<body>\n  <div class=\"mm\" id=\"mm\">\n    <button type=\"button\" aria-expanded=\"false\">Products ▾</button>\n    <div class=\"panel\">\n      <div><h4>Build</h4><a href=\"#\">Editor</a><a href=\"#\">CLI</a><a href=\"#\">SDK</a></div>\n      <div><h4>Ship</h4><a href=\"#\">Deploy</a><a href=\"#\">Preview</a><a href=\"#\">Rollback</a></div>\n      <div><h4>Learn</h4><a href=\"#\">Docs</a><a href=\"#\">Guides</a><a href=\"#\">Changelog</a></div>\n    </div>\n  </div>\n  <script>\n    (function () {\n      var m = document.getElementById(\"mm\"), b = m.querySelector(\"button\");\n      b.addEventListener(\"click\", function () {\n        var open = m.classList.toggle(\"is-open\");\n        b.setAttribute(\"aria-expanded\", String(open));\n      });\n      addEventListener(\"keydown\", function (e) { if (e.key === \"Escape\") { m.classList.remove(\"is-open\"); b.setAttribute(\"aria-expanded\", \"false\"); } });\n    })();\n  </script>\n</body>\n</html>\n"
+}

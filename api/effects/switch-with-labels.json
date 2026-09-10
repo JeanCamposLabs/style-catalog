@@ -1,0 +1,48 @@
+{
+  "id": "switch-with-labels",
+  "title": "Labelled Switch",
+  "summary": "A toggle whose two states are named inside the track.",
+  "description": "Showing both labels means the state is readable without learning what the colour means.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "toggle"
+  ],
+  "tags": [
+    "switch",
+    "toggle",
+    "labels",
+    "state",
+    "accessible"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+  "customization": [
+    {
+      "name": "--on",
+      "description": "On colour",
+      "default": "#34d399"
+    },
+    {
+      "name": "--off",
+      "description": "Off colour",
+      "default": "#3b465e"
+    }
+  ],
+  "variations": [
+    "Icons instead of words",
+    "Three-state variant"
+  ],
+  "related": [],
+  "ai_usage": "Settings where the off state matters (Live/Draft, On/Off). Build on a real checkbox with :checked selectors so keyboard and forms work for free.",
+  "path": "effects/forms-inputs/switch-with-labels.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Labelled Switch</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"switch-with-labels\",\n    \"title\": \"Labelled Switch\",\n    \"summary\": \"A toggle whose two states are named inside the track.\",\n    \"description\": \"Showing both labels means the state is readable without learning what the colour means.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"toggle\"],\n    \"tags\": [\"switch\", \"toggle\", \"labels\", \"state\", \"accessible\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.\",\n    \"customization\": [\n      { \"name\": \"--on\", \"description\": \"On colour\", \"default\": \"#34d399\" },\n      { \"name\": \"--off\", \"description\": \"Off colour\", \"default\": \"#3b465e\" }\n    ],\n    \"variations\": [\"Icons instead of words\", \"Three-state variant\"],\n    \"ai_usage\": \"Settings where the off state matters (Live/Draft, On/Off). Build on a real checkbox with :checked selectors so keyboard and forms work for free.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .sw { display: inline-flex; align-items: center; cursor: pointer; }\n    .sw input { position: absolute; opacity: 0; }\n    .sw .track { position: relative; display: flex; align-items: center; width: 120px; height: 40px; border-radius: 999px;\n      background: var(--off, #3b465e); transition: background .25s; }\n    .sw .thumb { position: absolute; left: 4px; width: 54px; height: 32px; border-radius: 999px; background: #fff;\n      transition: transform .28s cubic-bezier(.7,0,.2,1); }\n    .sw span { flex: 1; text-align: center; font-size: .8rem; font-weight: 700; z-index: 1; color: #0b0d12; }\n    .sw span.off { color: #cbd5e1; }\n    .sw input:checked + .track { background: var(--on, #34d399); }\n    .sw input:checked + .track .thumb { transform: translateX(58px); }\n    .sw input:focus-visible + .track { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <label class=\"sw\"><input type=\"checkbox\" /><span class=\"track\"><span class=\"thumb\" aria-hidden=\"true\"></span><span>Live</span><span class=\"off\">Draft</span></span></label>\n</body>\n</html>\n"
+}

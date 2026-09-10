@@ -1,0 +1,44 @@
+{
+  "id": "day-schedule-column",
+  "title": "Day Schedule",
+  "summary": "An hour grid with positioned events.",
+  "description": "An hour grid with positioned events.",
+  "theme": "calendar-time",
+  "themeTitle": "Calendar & Time",
+  "categories": [
+    "calendar",
+    "time"
+  ],
+  "tags": [
+    "calendar",
+    "date",
+    "schedule",
+    "agenda",
+    "day",
+    "events"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Event colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Calendar day views. Position events by minute offset (top = minutes × pxPerMinute) rather than by row, so overlapping meetings can be laid out side by side.",
+  "path": "effects/calendar-time/day-schedule-column.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Day Schedule</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"day-schedule-column\",\n    \"title\": \"Day Schedule\",\n    \"summary\": \"An hour grid with positioned events.\",\n    \"description\": \"An hour grid with positioned events.\",\n    \"theme\": \"calendar-time\",\n    \"categories\": [\"calendar\", \"time\"],\n    \"tags\": [\"calendar\", \"date\", \"schedule\", \"agenda\", \"day\", \"events\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Event colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Calendar day views. Position events by minute offset (top = minutes × pxPerMinute) rather than by row, so overlapping meetings can be laid out side by side.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 250px; height: 220px; border-radius: 14px; background: #151b2a; border: 1px solid #263149;\n      overflow: hidden; font-size: .74rem; }\n    .fx .hours { position: absolute; inset: 0; }\n    .fx .hours div { height: 44px; border-bottom: 1px solid #1e2740; padding-left: .5rem; color: #64748b; }\n    .fx .ev { position: absolute; left: 44px; right: 8px; border-radius: 8px; padding: .35rem .5rem; color: #fff; font-weight: 600; }\n    .fx .now { position: absolute; left: 0; right: 0; height: 2px; background: #f87171; }\n    .fx .now::before { content: \"\"; position: absolute; left: 38px; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: #f87171; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"hours\"><div>09</div><div>10</div><div>11</div><div>12</div><div>13</div></div>\n  <div class=\"ev\" style=\"top:24px;height:38px;background:#7c5cff\">Standup</div>\n  <div class=\"ev\" style=\"top:96px;height:60px;background:#0f766e\">Design review</div>\n  <div class=\"now\" style=\"top:132px\"></div></div>\n</body>\n</html>\n"
+}

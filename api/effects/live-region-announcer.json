@@ -1,0 +1,44 @@
+{
+  "id": "live-region-announcer",
+  "title": "Live Region",
+  "summary": "Status updates announced without moving focus.",
+  "description": "Status updates announced without moving focus.",
+  "theme": "accessibility-patterns",
+  "themeTitle": "Accessibility Patterns",
+  "categories": [
+    "accessibility",
+    "reference"
+  ],
+  "tags": [
+    "accessibility",
+    "a11y",
+    "live-region",
+    "aria-live",
+    "status",
+    "announce"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Action colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Async results, filters, and toasts. Use aria-live=polite for status and role=alert for errors; the region must exist in the DOM before the text changes or nothing is announced.",
+  "path": "effects/accessibility-patterns/live-region-announcer.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Live Region</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"live-region-announcer\",\n    \"title\": \"Live Region\",\n    \"summary\": \"Status updates announced without moving focus.\",\n    \"description\": \"Status updates announced without moving focus.\",\n    \"theme\": \"accessibility-patterns\",\n    \"categories\": [\"accessibility\", \"reference\"],\n    \"tags\": [\"accessibility\", \"a11y\", \"live-region\", \"aria-live\", \"status\", \"announce\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These specimens are the accessibility reference — each demonstrates the correct semantics, not just the visual result.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Action colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Async results, filters, and toasts. Use aria-live=polite for status and role=alert for errors; the region must exist in the DOM before the text changes or nothing is announced.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; padding: 1.2rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }\n    .fx button { padding: .5rem 1.1rem; border: 0; border-radius: 9px; background: #7c5cff; color: #fff; font: inherit; cursor: pointer; }\n    .fx .status { margin-top: .9rem; padding: .6rem .8rem; border-radius: 9px; background: #10141f; color: #cbd5e1; font-size: .84rem; }\n    .fx .note { margin: .8rem 0 0; color: #8b93a7; font-size: .78rem; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><button type=\"button\" id=\"lb\">Apply filter</button>\n  <div class=\"status\" id=\"ls\" role=\"status\" aria-live=\"polite\">14 specimens shown</div>\n  <p class=\"note\">The status text changes without moving focus; screen readers announce it politely.</p></div>\n  <script>\n    (function () {\n      var b = document.getElementById(\"lb\"), s = document.getElementById(\"ls\"), n = 14;\n      b.addEventListener(\"click\", function () { n = n === 14 ? 132 : 14; s.textContent = n + \" specimens shown\"; });\n    })();\n  </script>\n</body>\n</html>\n"
+}

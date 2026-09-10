@@ -1,0 +1,44 @@
+{
+  "id": "astronaut-float",
+  "title": "Floating Astronaut",
+  "summary": "A figure drifting with a slow tumble.",
+  "description": "A figure drifting with a slow tumble.",
+  "theme": "space-cosmic",
+  "themeTitle": "Space & Cosmic",
+  "categories": [
+    "space",
+    "cosmic"
+  ],
+  "tags": [
+    "space",
+    "cosmic",
+    "astronaut",
+    "float",
+    "drift",
+    "zero-g"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Drift period",
+      "default": "7s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "404 and empty states. Combining a slow drift with an even slower rotation reads as weightlessness; either alone looks like a bounce or a spin.",
+  "path": "effects/space-cosmic/astronaut-float.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Floating Astronaut</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"astronaut-float\",\n    \"title\": \"Floating Astronaut\",\n    \"summary\": \"A figure drifting with a slow tumble.\",\n    \"description\": \"A figure drifting with a slow tumble.\",\n    \"theme\": \"space-cosmic\",\n    \"categories\": [\"space\", \"cosmic\"],\n    \"tags\": [\"space\", \"cosmic\", \"astronaut\", \"float\", \"drift\", \"zero-g\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Drift period\", \"default\": \"7s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"404 and empty states. Combining a slow drift with an even slower rotation reads as weightlessness; either alone looks like a bounce or a spin.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 200px; height: 180px; display: grid; place-items: center; background: radial-gradient(circle, #0b1226, #05070d);\n      border-radius: 14px; overflow: hidden; }\n    .fx .a { font-size: 3.4rem; animation: float 7s ease-in-out infinite alternate, tumble 18s linear infinite; }\n    @keyframes float { from { transform: translate(-14px, 10px); } to { transform: translate(16px, -12px); } }\n    @keyframes tumble { to { rotate: 360deg; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"a\" aria-hidden=\"true\">👨‍🚀</span></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ringed Planet</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "planet-with-rings",
+    "title": "Ringed Planet",
+    "summary": "A planet with a tilted ring system.",
+    "description": "A planet with a tilted ring system.",
+    "theme": "space-cosmic",
+    "categories": ["space", "cosmic"],
+    "tags": ["space", "cosmic", "planet", "rings", "saturn", "orbit"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+    "customization": [
+      { "name": "--c", "description": "Planet colour", "default": "#f97316" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Space themes and 404 pages. Two rings at different radii and opacities read as a ring system; one ring reads as a hoop."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 180px; height: 180px; display: grid; place-items: center; }
+    .fx .p { width: 110px; height: 110px; border-radius: 50%;
+      background: radial-gradient(circle at 34% 30%, #fde68a, #f97316 45%, #7c2d12); box-shadow: inset -14px -8px 26px rgba(0,0,0,.6); }
+    .fx .r { position: absolute; width: 180px; height: 180px; border-radius: 50%; border: 6px solid rgba(251,191,36,.55);
+      transform: rotateX(74deg) rotate(-16deg); }
+    .fx .r2 { width: 152px; height: 152px; border-width: 3px; border-color: rgba(251,191,36,.3); }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="r"></span><span class="r r2"></span><span class="p"></span></div>
+</body>
+</html>

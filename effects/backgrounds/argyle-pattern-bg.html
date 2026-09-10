@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Argyle</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "argyle-pattern-bg",
+    "title": "Argyle",
+    "summary": "Diamonds with crossing overcheck lines, knitwear style.",
+    "description": "A diamond lattice from two 45° gradient sets plus dashed diagonal overchecks, the way the pattern is actually knitted.",
+    "theme": "backgrounds",
+    "categories": ["background", "pattern"],
+    "tags": ["argyle", "diamond", "knit", "preppy", "textile"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Diamond color", "default": "#1e293b" },
+      { "name": "--line", "description": "Overcheck", "default": "rgba(251,191,36,.5)" },
+      { "name": "--s", "description": "Diamond size", "default": "70px" }
+    ],
+    "variations": ["Three-tone diamonds", "Larger scale for upholstery", "Remove the overcheck for plain harlequin"],
+    "ai_usage": "Fashion, golf, and preppy branding. The dashed overcheck lines at 45° are what distinguishes argyle from a plain harlequin diamond grid — do not omit them."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: #1e293b; --line: rgba(251,191,36,.5); --s: 70px; }
+    .bg { background-color: #0b0d12;
+      background-image: linear-gradient(45deg, var(--a) 25%, transparent 25% 75%, var(--a) 75%),
+        linear-gradient(-45deg, var(--a) 25%, transparent 25% 75%, var(--a) 75%),
+        repeating-linear-gradient(45deg, var(--line) 0 2px, transparent 2px 20px),
+        repeating-linear-gradient(-45deg, var(--line) 0 2px, transparent 2px 20px);
+      background-size: var(--s) var(--s), var(--s) var(--s), 100% 100%, 100% 100%; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

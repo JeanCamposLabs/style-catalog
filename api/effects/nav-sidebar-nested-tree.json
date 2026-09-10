@@ -1,0 +1,44 @@
+{
+  "id": "nav-sidebar-nested-tree",
+  "title": "Nested Tree Nav",
+  "summary": "A collapsible tree of sections.",
+  "description": "A collapsible tree of sections.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "tree",
+    "nested",
+    "collapse",
+    "sidebar"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#b9a5ff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Documentation sidebars. Building on <details> gives keyboard operation and correct disclosure semantics for free; remember to keep the active branch open on load.",
+  "path": "effects/navigation-menus/nav-sidebar-nested-tree.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Nested Tree Nav</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-sidebar-nested-tree\",\n    \"title\": \"Nested Tree Nav\",\n    \"summary\": \"A collapsible tree of sections.\",\n    \"description\": \"A collapsible tree of sections.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"tree\", \"nested\", \"collapse\", \"sidebar\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#b9a5ff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Documentation sidebars. Building on <details> gives keyboard operation and correct disclosure semantics for free; remember to keep the active branch open on load.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 240px; padding: .6rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; font-size: .86rem; }\n    .fx details { margin-bottom: 2px; }\n    .fx summary { display: flex; align-items: center; gap: .5rem; padding: .45rem .6rem; border-radius: 8px; cursor: pointer;\n      color: #cbd5e1; list-style: none; }\n    .fx summary::-webkit-details-marker { display: none; }\n    .fx summary:hover { background: #1e2740; }\n    .fx summary .ch { color: #64748b; transition: transform .2s; }\n    .fx details[open] summary .ch { transform: rotate(90deg); }\n    .fx a { display: block; padding: .35rem .6rem .35rem 1.9rem; border-radius: 8px; color: #8b93a7; text-decoration: none; }\n    .fx a:hover { background: #1e2740; color: #e7ebf3; }\n    .fx a[aria-current] { background: #1e1740; color: #b9a5ff; }\n  </style>\n</head>\n<body>\n  <nav class=\"fx\" aria-label=\"Docs\"><details open><summary><span class=\"ch\">›</span>Getting started</summary>\n  <a href=\"#\" aria-current=\"page\">Install</a><a href=\"#\">Scaffold an effect</a></details>\n  <details><summary><span class=\"ch\">›</span>Reference</summary><a href=\"#\">Metadata schema</a><a href=\"#\">API</a></details></nav>\n</body>\n</html>\n"
+}

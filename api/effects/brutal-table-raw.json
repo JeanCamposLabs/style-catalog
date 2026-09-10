@@ -1,0 +1,44 @@
+{
+  "id": "brutal-table-raw",
+  "title": "Raw Data Table",
+  "summary": "A table with visible borders and no polish.",
+  "description": "A table with visible borders and no polish.",
+  "theme": "brutalism-y2k",
+  "themeTitle": "Brutalism & Y2K",
+  "categories": [
+    "brutalism",
+    "y2k"
+  ],
+  "tags": [
+    "brutalism",
+    "raw",
+    "table",
+    "raw",
+    "data",
+    "grid"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+  "customization": [
+    {
+      "name": "--hd",
+      "description": "Header colour",
+      "default": "#ffe600"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Data-forward brutalist layouts. Keep real <th> elements with scope so the table stays machine-readable however raw it looks.",
+  "path": "effects/brutalism-y2k/brutal-table-raw.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Raw Data Table</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"brutal-table-raw\",\n    \"title\": \"Raw Data Table\",\n    \"summary\": \"A table with visible borders and no polish.\",\n    \"description\": \"A table with visible borders and no polish.\",\n    \"theme\": \"brutalism-y2k\",\n    \"categories\": [\"brutalism\", \"y2k\"],\n    \"tags\": [\"brutalism\", \"raw\", \"table\", \"raw\", \"data\", \"grid\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.\",\n    \"customization\": [\n      { \"name\": \"--hd\", \"description\": \"Header colour\", \"default\": \"#ffe600\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Data-forward brutalist layouts. Keep real <th> elements with scope so the table stays machine-readable however raw it looks.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { border-collapse: collapse; background: #fff; color: #0b0d12; font-family: \"Courier New\", monospace; font-size: .85rem; }\n    .fx th, .fx td { border: 2px solid #0b0d12; padding: .45rem .8rem; text-align: left; }\n    .fx th { background: #ffe600; text-transform: uppercase; font-size: .75rem; }\n    .fx tr:hover td { background: #e0f2fe; }\n  </style>\n</head>\n<body>\n  <table class=\"fx\"><thead><tr><th scope=\"col\">Build</th><th scope=\"col\">Status</th></tr></thead>\n  <tbody><tr><td>0.24.1</td><td>PASS</td></tr><tr><td>0.24.0</td><td>PASS</td></tr><tr><td>0.23.9</td><td>FAIL</td></tr></tbody></table>\n</body>\n</html>\n"
+}

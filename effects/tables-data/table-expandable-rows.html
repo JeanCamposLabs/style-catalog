@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expandable Rows</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "table-expandable-rows",
+    "title": "Expandable Rows",
+    "summary": "Rows that reveal detail panels underneath.",
+    "description": "Rows that reveal detail panels underneath.",
+    "theme": "tables-data",
+    "categories": ["table", "data"],
+    "tags": ["table", "data", "expandable", "detail", "accordion", "row"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+    "customization": [
+      { "name": "--bg", "description": "Detail background", "default": "#10141f" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Tables with secondary detail. Use aria-expanded on the row trigger and aria-controls pointing at the detail panel, so the relationship is exposed rather than implied by position."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; border-radius: 12px; overflow: hidden; border: 1px solid #263149; font-size: .82rem; }
+    .fx .r { display: flex; justify-content: space-between; align-items: center; padding: .6rem .8rem;
+      border-top: 1px solid #1e2740; color: #cbd5e1; cursor: pointer; }
+    .fx .r:first-child { border-top: 0; }
+    .fx .r .ch { color: #8b93a7; transition: transform .2s; }
+    .fx .r[aria-expanded="true"] .ch { transform: rotate(90deg); }
+    .fx .d { display: none; padding: .7rem .9rem; background: #10141f; color: #8b93a7; font-size: .78rem; line-height: 1.5; }
+    .fx .r[aria-expanded="true"] + .d { display: block; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="r" role="button" tabindex="0" aria-expanded="true"><span>ripple-button</span><span class="ch">›</span></div>
+  <div class="d">Buttons · CSS + JS · intermediate · 4 customization tokens.</div>
+  <div class="r" role="button" tabindex="0" aria-expanded="false"><span>aurora-background</span><span class="ch">›</span></div>
+  <div class="d">Backgrounds · CSS · beginner · 3 customization tokens.</div></div>
+</body>
+</html>

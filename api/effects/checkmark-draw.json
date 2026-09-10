@@ -1,0 +1,44 @@
+{
+  "id": "checkmark-draw",
+  "title": "Drawing Checkmark",
+  "summary": "A tick that draws itself inside a filling circle.",
+  "description": "A tick that draws itself inside a filling circle.",
+  "theme": "micro-interactions",
+  "themeTitle": "Micro-interactions",
+  "categories": [
+    "micro-interaction",
+    "feedback"
+  ],
+  "tags": [
+    "micro-interaction",
+    "feedback",
+    "checkmark",
+    "draw",
+    "success",
+    "confirm"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+  "customization": [
+    {
+      "name": "--ok",
+      "description": "Success colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Success confirmations. Sequence the circle pop and the tick draw — playing them together reads as a single static graphic appearing.",
+  "path": "effects/micro-interactions/checkmark-draw.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Drawing Checkmark</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"checkmark-draw\",\n    \"title\": \"Drawing Checkmark\",\n    \"summary\": \"A tick that draws itself inside a filling circle.\",\n    \"description\": \"A tick that draws itself inside a filling circle.\",\n    \"theme\": \"micro-interactions\",\n    \"categories\": [\"micro-interaction\", \"feedback\"],\n    \"tags\": [\"micro-interaction\", \"feedback\", \"checkmark\", \"draw\", \"success\", \"confirm\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.\",\n    \"customization\": [\n      { \"name\": \"--ok\", \"description\": \"Success colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Success confirmations. Sequence the circle pop and the tick draw — playing them together reads as a single static graphic appearing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 74px; height: 74px; border-radius: 50%; background: #10a894; display: grid; place-items: center;\n      animation: pop .4s cubic-bezier(.34,1.56,.64,1) both; }\n    .fx svg { width: 38px; }\n    .fx path { fill: none; stroke: #04241f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;\n      stroke-dasharray: 40; stroke-dashoffset: 40; animation: draw .35s ease-out .25s forwards; }\n    @keyframes pop { from { transform: scale(.4); opacity: 0; } }\n    @keyframes draw { to { stroke-dashoffset: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      .fx { animation: none; } .fx path { animation: none; stroke-dashoffset: 0; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"img\" aria-label=\"Success\"><svg viewBox=\"0 0 40 40\" aria-hidden=\"true\"><path d=\"M8 21 L17 30 L33 12\"/></svg></div>\n</body>\n</html>\n"
+}

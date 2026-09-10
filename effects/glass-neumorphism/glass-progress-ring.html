@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass Progress Ring</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-progress-ring",
+    "title": "Glass Progress Ring",
+    "summary": "A translucent ring over a colourful backdrop.",
+    "description": "A translucent ring over a colourful backdrop.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "surface"],
+    "tags": ["glass", "surface", "glass", "progress", "ring", "translucent"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+    "customization": [
+      { "name": "--p", "description": "Percent complete", "default": "68" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Progress over imagery. Both the filled and unfilled halves must be translucent white — an opaque track breaks the glass illusion instantly."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: linear-gradient(140deg, #7c3aed, #0ea5e9); }
+    .fx { position: relative; width: 130px; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;
+      background: conic-gradient(rgba(255,255,255,.85) calc(var(--p) * 1%), rgba(255,255,255,.22) 0);
+      -webkit-mask: radial-gradient(farthest-side, transparent 66%, #000 67%); mask: radial-gradient(farthest-side, transparent 66%, #000 67%); }
+    .wrap { position: relative; display: grid; place-items: center; }
+    .wrap b { position: absolute; color: #fff; font-size: 1.3rem; font-weight: 900; }
+  </style>
+</head>
+<body>
+  <div class="wrap"><div class="fx" style="--p:68" role="img" aria-label="68 percent complete"></div><b>68%</b></div>
+</body>
+</html>

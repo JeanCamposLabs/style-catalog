@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scatter Plot</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scatter-plot-svg",
+    "title": "Scatter Plot",
+    "summary": "Two measures plotted against each other with two categories.",
+    "description": "Two measures plotted against each other with two categories.",
+    "theme": "charts-dataviz",
+    "categories": ["chart", "dataviz"],
+    "tags": ["chart", "data", "scatter", "correlation", "two-measures", "points"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+    "customization": [
+      { "name": "--c1", "description": "Category one", "default": "#7c5cff" },
+      { "name": "--c3", "description": "Category two", "default": "#c2891a" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Relationships between two continuous measures. Give every point a 2px surface ring so overlapping marks stay countable, and keep marks at 8px or larger — smaller dots vanish at typical viewing distances."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;
+      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; width: 300px; }
+    .fx h4 { margin: 0 0 .6rem; font-size: .95rem; color: var(--ink); }
+    .fx .legend { display: flex; gap: 1rem; margin-bottom: .5rem; font-size: .76rem; color: var(--ink-2); }
+    .fx .legend span { display: inline-flex; align-items: center; gap: .35rem; }
+    .fx .legend i { width: 9px; height: 9px; border-radius: 50%; }
+    .fx svg { width: 100%; display: block; }
+    .fx .grid line { stroke: var(--grid); }
+    .fx circle { r: 5; stroke: var(--surface); stroke-width: 2; }
+    .fx .ax { display: flex; justify-content: space-between; font-size: .68rem; color: var(--ink-2); margin-top: .3rem; }
+  </style>
+</head>
+<body>
+  <figure class="fx" style="margin:0"><h4>Complexity vs runtime cost</h4>
+  <div class="legend"><span><i style="background:var(--c1)"></i>CSS only</span><span><i style="background:var(--c3)"></i>With JS</span></div>
+  <svg viewBox="0 0 300 140" role="img" aria-label="Scatter plot comparing complexity and runtime cost for CSS-only and JS-backed effects">
+    <g class="grid"><line x1="0" y1="35" x2="300" y2="35"/><line x1="0" y1="70" x2="300" y2="70"/><line x1="0" y1="105" x2="300" y2="105"/></g>
+    <circle cx="40" cy="112" fill="#7c5cff"/><circle cx="72" cy="96" fill="#7c5cff"/><circle cx="108" cy="104" fill="#7c5cff"/>
+    <circle cx="136" cy="80" fill="#7c5cff"/><circle cx="176" cy="88" fill="#7c5cff"/>
+    <circle cx="150" cy="52" fill="#c2891a"/><circle cx="196" cy="40" fill="#c2891a"/><circle cx="232" cy="56" fill="#c2891a"/>
+    <circle cx="264" cy="26" fill="#c2891a"/>
+  </svg><div class="ax"><span>Simple</span><span>Complex</span></div></figure>
+</body>
+</html>

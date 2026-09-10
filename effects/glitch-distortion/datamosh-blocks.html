@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Datamosh Blocks</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "datamosh-blocks",
+    "title": "Datamosh Blocks",
+    "summary": "Rectangular regions jumping out of alignment.",
+    "description": "Rectangular regions jumping out of alignment.",
+    "theme": "glitch-distortion",
+    "categories": ["glitch", "distortion"],
+    "tags": ["glitch", "distortion", "datamosh", "blocks", "tear", "corruption"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Glitch cycle", "default": "4s" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Corrupted-media aesthetics. Use steps(1) timing so the offsets snap between states — smooth interpolation reads as a wobble, not a glitch."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 250px; height: 160px; border-radius: 10px; overflow: hidden;
+      background: conic-gradient(from 160deg at 40% 30%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }
+    .fx i { position: absolute; inset: 0; background: inherit; animation: mosh 4s steps(1) infinite; }
+    .fx i:nth-child(2) { animation-delay: .6s; }
+    @keyframes mosh {
+      0%, 70%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+      74% { clip-path: inset(22% 0 60% 0); transform: translateX(14px); }
+      78% { clip-path: inset(58% 0 24% 0); transform: translateX(-18px); }
+      82% { clip-path: inset(40% 0 46% 0); transform: translateX(9px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i></i><i></i></div>
+</body>
+</html>

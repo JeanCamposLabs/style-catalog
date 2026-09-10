@@ -1,0 +1,49 @@
+{
+  "id": "progress-radial-dual",
+  "title": "Dual Ring Progress",
+  "summary": "Two concentric rings track two metrics at once.",
+  "description": "Two concentric rings track two metrics at once.",
+  "theme": "progress-meters",
+  "themeTitle": "Progress & Meters",
+  "categories": [
+    "progress",
+    "meter"
+  ],
+  "tags": [
+    "progress",
+    "indicator",
+    "rings",
+    "dual",
+    "conic",
+    "activity"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Outer percent",
+      "default": "78"
+    },
+    {
+      "name": "--b",
+      "description": "Inner percent",
+      "default": "46"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Activity and quota dashboards. Masked conic gradients keep both rings on one element each — no SVG, no per-ring path maths.",
+  "path": "effects/progress-meters/progress-radial-dual.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dual Ring Progress</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"progress-radial-dual\",\n    \"title\": \"Dual Ring Progress\",\n    \"summary\": \"Two concentric rings track two metrics at once.\",\n    \"description\": \"Two concentric rings track two metrics at once.\",\n    \"theme\": \"progress-meters\",\n    \"categories\": [\"progress\", \"meter\"],\n    \"tags\": [\"progress\", \"indicator\", \"rings\", \"dual\", \"conic\", \"activity\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Outer percent\", \"default\": \"78\" },\n      { \"name\": \"--b\", \"description\": \"Inner percent\", \"default\": \"46\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Activity and quota dashboards. Masked conic gradients keep both rings on one element each — no SVG, no per-ring path maths.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .d { position: relative; width: 150px; aspect-ratio: 1; }\n    .d .r { position: absolute; border-radius: 50%; }\n    .d .outer { inset: 0; background: conic-gradient(#7c5cff calc(var(--a) * 1%), #22304a 0);\n      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 12px), #000 0); mask: radial-gradient(farthest-side, transparent calc(100% - 12px), #000 0); }\n    .d .inner { inset: 20px; background: conic-gradient(#2dd4bf calc(var(--b) * 1%), #22304a 0);\n      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 12px), #000 0); mask: radial-gradient(farthest-side, transparent calc(100% - 12px), #000 0); }\n    .d .c { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"d\" style=\"--a:78;--b:46\" role=\"img\" aria-label=\"Move 78 percent, exercise 46 percent\">\n    <div class=\"r outer\"></div><div class=\"r inner\"></div><div class=\"c\">78%</div>\n  </div>\n</body>\n</html>\n"
+}

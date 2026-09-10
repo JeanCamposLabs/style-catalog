@@ -1,0 +1,44 @@
+{
+  "id": "shape-price-tag",
+  "title": "Price Tag",
+  "summary": "A tag shape with a punched hole.",
+  "description": "A tag shape with a punched hole. Purely decorative and self-contained, so it drops between any two sections.",
+  "theme": "dividers-shapes",
+  "themeTitle": "Dividers & Shapes",
+  "categories": [
+    "divider",
+    "shape"
+  ],
+  "tags": [
+    "divider",
+    "separator",
+    "price",
+    "tag",
+    "ecommerce",
+    "label"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Tag colour",
+      "default": "#34d399"
+    }
+  ],
+  "variations": [
+    "Flip vertically for the opposite section",
+    "Recolour to match the next section"
+  ],
+  "related": [],
+  "ai_usage": "Pricing and sale labels. The punched hole must sit clear of the clipped point, or it disappears into the notch.",
+  "path": "effects/dividers-shapes/shape-price-tag.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Price Tag</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"shape-price-tag\",\n    \"title\": \"Price Tag\",\n    \"summary\": \"A tag shape with a punched hole.\",\n    \"description\": \"A tag shape with a punched hole. Purely decorative and self-contained, so it drops between any two sections.\",\n    \"theme\": \"dividers-shapes\",\n    \"categories\": [\"divider\", \"shape\"],\n    \"tags\": [\"divider\", \"separator\", \"price\", \"tag\", \"ecommerce\", \"label\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dividers are decorative: mark them aria-hidden so they are not announced as content.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Tag colour\", \"default\": \"#34d399\" }\n    ],\n    \"variations\": [\"Flip vertically for the opposite section\", \"Recolour to match the next section\"],\n    \"ai_usage\": \"Pricing and sale labels. The punched hole must sit clear of the clipped point, or it disappears into the notch.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }\n    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }\n    .stage { width: min(92vw, 340px); }\n    .stage { display: grid; place-items: center; padding: 1.4rem 0; }\n    .tag { position: relative; padding: .8rem 1.4rem .8rem 2.2rem; background: #34d399; color: #052e2b; font-weight: 800;\n      clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%); }\n    .tag::before { content: \"\"; position: absolute; left: 18px; top: 50%; translate: 0 -50%; width: 8px; height: 8px;\n      border-radius: 50%; background: #0b0d12; }\n  </style>\n</head>\n<body>\n  <div class=\"stage\"><span class=\"tag\">$29</span></div>\n</body>\n</html>\n"
+}

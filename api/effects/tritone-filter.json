@@ -1,0 +1,54 @@
+{
+  "id": "tritone-filter",
+  "title": "Tritone",
+  "summary": "Three-tone grading across shadows, mids, and highlights.",
+  "description": "Three-tone grading across shadows, mids, and highlights. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.",
+  "theme": "blend-filters",
+  "themeTitle": "Blends & Filters",
+  "categories": [
+    "filter",
+    "color"
+  ],
+  "tags": [
+    "filter",
+    "css",
+    "tritone",
+    "grading",
+    "three-tone",
+    "print"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Shadow tone",
+      "default": "#1d4ed8"
+    },
+    {
+      "name": "--b",
+      "description": "Mid tone",
+      "default": "#f472b6"
+    },
+    {
+      "name": "--c",
+      "description": "Highlight",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Animate the filter value on hover",
+    "Apply to a whole section with backdrop-filter"
+  ],
+  "related": [],
+  "ai_usage": "Poster and album-art aesthetics. Hard gradient stops (not smooth ones) keep the three tones distinct instead of blending into a duotone.",
+  "path": "effects/blend-filters/tritone-filter.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tritone</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"tritone-filter\",\n    \"title\": \"Tritone\",\n    \"summary\": \"Three-tone grading across shadows, mids, and highlights.\",\n    \"description\": \"Three-tone grading across shadows, mids, and highlights. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.\",\n    \"theme\": \"blend-filters\",\n    \"categories\": [\"filter\", \"color\"],\n    \"tags\": [\"filter\", \"css\", \"tritone\", \"grading\", \"three-tone\", \"print\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Shadow tone\", \"default\": \"#1d4ed8\" },\n      { \"name\": \"--b\", \"description\": \"Mid tone\", \"default\": \"#f472b6\" },\n      { \"name\": \"--c\", \"description\": \"Highlight\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Animate the filter value on hover\", \"Apply to a whole section with backdrop-filter\"],\n    \"ai_usage\": \"Poster and album-art aesthetics. Hard gradient stops (not smooth ones) keep the three tones distinct instead of blending into a duotone.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; height: 170px; border-radius: 16px; overflow: hidden; position: relative;\n      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }\n    .label { margin-top: .8rem; text-align: center; color: #8b93a7; font-size: .82rem; }\n    .fx { filter: grayscale(1); }\n    .fx::after { content: \"\"; position: absolute; inset: 0; mix-blend-mode: color;\n      background: linear-gradient(135deg, #1d4ed8 0 35%, #f472b6 35% 70%, #fbbf24 70%); }\n  </style>\n</head>\n<body>\n  <div><div class=\"demo fx\"></div><p class=\"label\">Tritone</p></div>\n</body>\n</html>\n"
+}

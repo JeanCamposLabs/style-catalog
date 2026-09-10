@@ -1,0 +1,44 @@
+{
+  "id": "discount-code-field",
+  "title": "Promo Code Field",
+  "summary": "A code input with an applied-state chip.",
+  "description": "A code input with an applied-state chip.",
+  "theme": "ecommerce-ui",
+  "themeTitle": "E-commerce UI",
+  "categories": [
+    "ecommerce",
+    "commerce"
+  ],
+  "tags": [
+    "ecommerce",
+    "shop",
+    "promo",
+    "discount",
+    "code",
+    "checkout"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+  "customization": [
+    {
+      "name": "--ok",
+      "description": "Applied colour",
+      "default": "#34d399"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Cart pages. Show the applied discount as a removable chip with the amount saved — a silently applied code creates support tickets.",
+  "path": "effects/ecommerce-ui/discount-code-field.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Promo Code Field</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"discount-code-field\",\n    \"title\": \"Promo Code Field\",\n    \"summary\": \"A code input with an applied-state chip.\",\n    \"description\": \"A code input with an applied-state chip.\",\n    \"theme\": \"ecommerce-ui\",\n    \"categories\": [\"ecommerce\", \"commerce\"],\n    \"tags\": [\"ecommerce\", \"shop\", \"promo\", \"discount\", \"code\", \"checkout\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Price, stock, and discount information must be in text, never only a colour or a badge shape.\",\n    \"customization\": [\n      { \"name\": \"--ok\", \"description\": \"Applied colour\", \"default\": \"#34d399\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Cart pages. Show the applied discount as a removable chip with the amount saved — a silently applied code creates support tickets.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; }\n    .fx .row { display: flex; gap: .5rem; }\n    .fx input { flex: 1; padding: .65rem .8rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; }\n    .fx button { padding: .65rem 1rem; border: 0; border-radius: 10px; background: #22304a; color: #e7ebf3; font: inherit; cursor: pointer; }\n    .fx .chip { display: inline-flex; align-items: center; gap: .4rem; margin-top: .7rem; padding: .3rem .5rem .3rem .8rem;\n      border-radius: 99px; background: rgba(52,211,153,.14); color: #34d399; font-size: .82rem; font-weight: 700; }\n    .fx .chip button { width: 20px; height: 20px; border-radius: 50%; background: rgba(52,211,153,.25); color: #34d399; padding: 0; line-height: 1; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"row\"><input type=\"text\" aria-label=\"Promo code\" placeholder=\"Promo code\" /><button type=\"button\">Apply</button></div>\n  <span class=\"chip\">SPRING20 · −$23.60<button type=\"button\" aria-label=\"Remove promo code\">×</button></span></div>\n</body>\n</html>\n"
+}

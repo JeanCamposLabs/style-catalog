@@ -1,0 +1,44 @@
+{
+  "id": "notification-center-panel",
+  "title": "Notification Centre",
+  "summary": "A grouped panel with a mark-all action.",
+  "description": "A grouped panel with a mark-all action.",
+  "theme": "notifications-toasts",
+  "themeTitle": "Notifications & Toasts",
+  "categories": [
+    "notification",
+    "feedback"
+  ],
+  "tags": [
+    "notification",
+    "feedback",
+    "center",
+    "panel",
+    "grouped",
+    "inbox"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Unread colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Notification inboxes. Group by day, mark unread with a dot plus tint plus text, and always offer mark-all-read — an inbox users cannot clear becomes an inbox they stop opening.",
+  "path": "effects/notifications-toasts/notification-center-panel.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Notification Centre</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"notification-center-panel\",\n    \"title\": \"Notification Centre\",\n    \"summary\": \"A grouped panel with a mark-all action.\",\n    \"description\": \"A grouped panel with a mark-all action.\",\n    \"theme\": \"notifications-toasts\",\n    \"categories\": [\"notification\", \"feedback\"],\n    \"tags\": [\"notification\", \"feedback\", \"center\", \"panel\", \"grouped\", \"inbox\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Unread colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Notification inboxes. Group by day, mark unread with a dot plus tint plus text, and always offer mark-all-read — an inbox users cannot clear becomes an inbox they stop opening.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; border-radius: 14px; background: #151b2a; border: 1px solid #263149; overflow: hidden; }\n    .fx .hd { display: flex; justify-content: space-between; align-items: center; padding: .7rem .9rem;\n      border-bottom: 1px solid #1e2740; font-size: .88rem; }\n    .fx .hd button { border: 0; background: none; color: #7c5cff; font: inherit; font-size: .76rem; cursor: pointer; }\n    .fx .grp { padding: .5rem .9rem .2rem; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }\n    .fx .n { display: flex; gap: .6rem; padding: .5rem .9rem; font-size: .82rem; color: #cbd5e1; }\n    .fx .n.unread { background: #171d33; }\n    .fx .dot { width: 7px; height: 7px; border-radius: 50%; background: #7c5cff; margin-top: .4rem; flex: none; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"hd\"><span>Notifications</span><button type=\"button\">Mark all read</button></div>\n  <div class=\"grp\">Today</div><div class=\"n unread\"><span class=\"dot\"></span>Build 0.24.7 deployed</div>\n  <div class=\"n unread\"><span class=\"dot\"></span>Ada approved your PR</div>\n  <div class=\"grp\">Yesterday</div><div class=\"n\">Weekly digest ready</div></div>\n</body>\n</html>\n"
+}

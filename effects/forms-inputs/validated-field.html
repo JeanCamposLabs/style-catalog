@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inline Validation Field</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "validated-field",
+    "title": "Inline Validation Field",
+    "summary": "A field that validates as you type and explains the rule.",
+    "description": "Validation appears after the first blur rather than on every keystroke, so users are not scolded mid-typing.",
+    "theme": "forms-inputs",
+    "categories": ["form", "validation"],
+    "tags": ["validation", "error", "inline", "feedback", "form"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "The message is linked with aria-describedby and marked aria-live, and the invalid state is shown with an icon plus text, not just red.",
+    "customization": [
+      { "name": "--bad", "description": "Error colour", "default": "#f87171" },
+      { "name": "--ok", "description": "Valid colour", "default": "#34d399" }
+    ],
+    "variations": ["Success checkmark", "Password rule checklist"],
+    "ai_usage": "Signup and checkout forms. Validate on blur first, then on input once the field has been touched; never validate on every keystroke from empty."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .vf { width: 300px; }
+    .vf label { display: block; font-size: .82rem; color: #8b93a7; margin-bottom: .3rem; }
+    .vf input { width: 100%; padding: .8rem 1rem; border-radius: 12px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; }
+    .vf.is-bad input { border-color: var(--bad, #f87171); }
+    .vf.is-ok input { border-color: var(--ok, #34d399); }
+    .vf .msg { margin-top: .4rem; font-size: .82rem; color: #8b93a7; min-height: 1.2em; }
+    .vf.is-bad .msg { color: var(--bad, #f87171); }
+    .vf.is-ok .msg { color: var(--ok, #34d399); }
+  </style>
+</head>
+<body>
+  <div class="vf" id="vf"><label for="em">Email</label>
+  <input id="em" type="email" aria-describedby="m1" placeholder="you@company.com" />
+  <p class="msg" id="m1" aria-live="polite">We only use this for receipts.</p></div>
+  <script>
+    (function () {
+      var w = document.getElementById("vf"), i = document.getElementById("em"), m = document.getElementById("m1"), touched = false;
+      function check() {
+        if (!touched) return;
+        var ok = /^[^@s]+@[^@s]+.[^@s]+$/.test(i.value);
+        w.classList.toggle("is-ok", ok); w.classList.toggle("is-bad", !ok);
+        m.textContent = ok ? "✓ Looks good" : "✕ Enter a valid email address";
+      }
+      i.addEventListener("blur", function () { touched = true; check(); });
+      i.addEventListener("input", check);
+    })();
+  </script>
+</body>
+</html>

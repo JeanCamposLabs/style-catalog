@@ -1,0 +1,54 @@
+{
+  "id": "clock-tick-loader",
+  "title": "Ticking Clock",
+  "summary": "A clock face whose hands advance in discrete steps, not a smooth sweep.",
+  "description": "steps() timing on the second hand reproduces the mechanical tick that a linear rotation never captures; the minute hand runs twelve times slower.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "time"
+  ],
+  "tags": [
+    "clock",
+    "steps",
+    "tick",
+    "time",
+    "hands"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Hand color",
+      "default": "#e7ebf3"
+    },
+    {
+      "name": "--a",
+      "description": "Second-hand color",
+      "default": "#f87171"
+    },
+    {
+      "name": "--dur",
+      "description": "Full revolution",
+      "default": "6s"
+    }
+  ],
+  "variations": [
+    "Real time via JS instead of a loop",
+    "Digital readout under the face",
+    "Slow the tick for a lazier feel"
+  ],
+  "related": [],
+  "ai_usage": "Wait states with an implied duration ('this takes a minute'). The tick comes from animation-timing-function: steps(12) — change the step count to control how mechanical it feels. For a real clock, set the initial rotation from Date and let CSS run the animation.",
+  "path": "effects/loaders-spinners/clock-tick-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Ticking Clock</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"clock-tick-loader\",\n    \"title\": \"Ticking Clock\",\n    \"summary\": \"A clock face whose hands advance in discrete steps, not a smooth sweep.\",\n    \"description\": \"steps() timing on the second hand reproduces the mechanical tick that a linear rotation never captures; the minute hand runs twelve times slower.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"time\"],\n    \"tags\": [\"clock\", \"steps\", \"tick\", \"time\", \"hands\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Hand color\", \"default\": \"#e7ebf3\" },\n      { \"name\": \"--a\", \"description\": \"Second-hand color\", \"default\": \"#f87171\" },\n      { \"name\": \"--dur\", \"description\": \"Full revolution\", \"default\": \"6s\" }\n    ],\n    \"variations\": [\"Real time via JS instead of a loop\", \"Digital readout under the face\", \"Slow the tick for a lazier feel\"],\n    \"ai_usage\": \"Wait states with an implied duration ('this takes a minute'). The tick comes from animation-timing-function: steps(12) — change the step count to control how mechanical it feels. For a real clock, set the initial rotation from Date and let CSS run the animation.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #e7ebf3; --a: #f87171; --dur: 6s; }\n    .clock { position: relative; width: 96px; aspect-ratio: 1; border-radius: 50%; border: 3px solid #2a3348;\n      background: radial-gradient(circle, #141a28, #0d1220); }\n    .clock i { position: absolute; left: 50%; bottom: 50%; transform-origin: 50% 100%; border-radius: 2px; }\n    .clock .min { width: 4px; height: 30px; margin-left: -2px; background: var(--c); animation: spin calc(var(--dur) * 12) steps(60) infinite; }\n    .clock .sec { width: 2px; height: 38px; margin-left: -1px; background: var(--a); animation: spin var(--dur) steps(12) infinite; }\n    .clock .pin { position: absolute; inset: 50% auto auto 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px;\n      border-radius: 50%; background: var(--a); }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"clock\" role=\"status\" aria-label=\"Loading\"><i class=\"min\"></i><i class=\"sec\"></i><span class=\"pin\"></span></div>\n</body>\n</html>\n"
+}

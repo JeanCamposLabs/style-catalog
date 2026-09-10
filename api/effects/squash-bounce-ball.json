@@ -1,0 +1,54 @@
+{
+  "id": "squash-bounce-ball",
+  "title": "Squash & Stretch Ball",
+  "summary": "A ball bounces with real squash-and-stretch and a shadow that reacts to height.",
+  "description": "Two synchronized animations — the ball translating and squashing at the floor, the shadow scaling and fading — sell the weight that a plain translate cannot.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "animation"
+  ],
+  "tags": [
+    "bounce",
+    "squash-stretch",
+    "physics",
+    "ball",
+    "shadow"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Ball color",
+      "default": "#ffb020"
+    },
+    {
+      "name": "--dur",
+      "description": "Bounce period",
+      "default": "0.62s"
+    },
+    {
+      "name": "--h",
+      "description": "Bounce height",
+      "default": "62px"
+    }
+  ],
+  "variations": [
+    "Tint the shadow to match the ball",
+    "Add a second ball with a delay",
+    "Rotate the ball slightly for spin"
+  ],
+  "related": [],
+  "ai_usage": "The animation-principles demo of squash and stretch. Timing is the whole trick: use ease-in on the fall and ease-out on the rise (cubic-bezier(.3,0,.7,1) approximates both) and squash only in the two frames around contact.",
+  "path": "effects/loaders-spinners/squash-bounce-ball.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Squash & Stretch Ball</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"squash-bounce-ball\",\n    \"title\": \"Squash & Stretch Ball\",\n    \"summary\": \"A ball bounces with real squash-and-stretch and a shadow that reacts to height.\",\n    \"description\": \"Two synchronized animations — the ball translating and squashing at the floor, the shadow scaling and fading — sell the weight that a plain translate cannot.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"animation\"],\n    \"tags\": [\"bounce\", \"squash-stretch\", \"physics\", \"ball\", \"shadow\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Ball color\", \"default\": \"#ffb020\" },\n      { \"name\": \"--dur\", \"description\": \"Bounce period\", \"default\": \"0.62s\" },\n      { \"name\": \"--h\", \"description\": \"Bounce height\", \"default\": \"62px\" }\n    ],\n    \"variations\": [\"Tint the shadow to match the ball\", \"Add a second ball with a delay\", \"Rotate the ball slightly for spin\"],\n    \"ai_usage\": \"The animation-principles demo of squash and stretch. Timing is the whole trick: use ease-in on the fall and ease-out on the rise (cubic-bezier(.3,0,.7,1) approximates both) and squash only in the two frames around contact.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #ffb020; --dur: .62s; --h: 62px; }\n    .stage { display: grid; place-items: end center; height: 120px; }\n    .ball { width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #fff6, transparent 45%), var(--c);\n      animation: hop var(--dur) cubic-bezier(.3,0,.7,1) infinite alternate; transform-origin: 50% 100%; }\n    .shadow { width: 52px; height: 8px; border-radius: 50%; background: #000; opacity: .45; filter: blur(3px);\n      animation: shade var(--dur) cubic-bezier(.3,0,.7,1) infinite alternate; }\n    @keyframes hop {\n      0% { transform: translateY(0) scale(1.16, .84); }\n      14% { transform: translateY(-12px) scale(.94, 1.06); }\n      100% { transform: translateY(calc(var(--h) * -1)) scale(1); }\n    }\n    @keyframes shade { 0% { transform: scale(1); opacity: .45; } 100% { transform: scale(.5); opacity: .15; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"stage\"><div class=\"ball\"></div><div class=\"shadow\"></div></div>\n</body>\n</html>\n"
+}

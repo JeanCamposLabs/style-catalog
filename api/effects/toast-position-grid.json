@@ -1,0 +1,44 @@
+{
+  "id": "toast-position-grid",
+  "title": "Toast Positions",
+  "summary": "The six standard toast anchor positions.",
+  "description": "The six standard toast anchor positions.",
+  "theme": "notifications-toasts",
+  "themeTitle": "Notifications & Toasts",
+  "categories": [
+    "notification",
+    "feedback"
+  ],
+  "tags": [
+    "notification",
+    "feedback",
+    "positions",
+    "anchors",
+    "layout",
+    "reference"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active position",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Reference for placing a toast region. Bottom-centre suits mobile (thumb reach), top-right suits desktop; pick one per breakpoint and keep it consistent.",
+  "path": "effects/notifications-toasts/toast-position-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Toast Positions</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"toast-position-grid\",\n    \"title\": \"Toast Positions\",\n    \"summary\": \"The six standard toast anchor positions.\",\n    \"description\": \"The six standard toast anchor positions.\",\n    \"theme\": \"notifications-toasts\",\n    \"categories\": [\"notification\", \"feedback\"],\n    \"tags\": [\"notification\", \"feedback\", \"positions\", \"anchors\", \"layout\", \"reference\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active position\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Reference for placing a toast region. Bottom-centre suits mobile (thumb reach), top-right suits desktop; pick one per breakpoint and keep it consistent.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 300px; height: 190px; border-radius: 14px; background: #10141f; border: 1px solid #263149; }\n    .p { position: absolute; padding: .3rem .6rem; border-radius: 7px; background: #1e2740; color: #8b93a7; font-size: .68rem; }\n    .p.on { background: #7c5cff; color: #fff; }\n    .tl { top: 8px; left: 8px; } .tc { top: 8px; left: 50%; translate: -50% 0; } .tr { top: 8px; right: 8px; }\n    .bl { bottom: 8px; left: 8px; } .bc { bottom: 8px; left: 50%; translate: -50% 0; } .br { bottom: 8px; right: 8px; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"p tl\">top-left</span><span class=\"p tc\">top-center</span><span class=\"p tr on\">top-right</span>\n  <span class=\"p bl\">bottom-left</span><span class=\"p bc on\">bottom-center</span><span class=\"p br\">bottom-right</span></div>\n</body>\n</html>\n"
+}

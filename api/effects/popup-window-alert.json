@@ -1,0 +1,44 @@
+{
+  "id": "popup-window-alert",
+  "title": "Popup Window",
+  "summary": "A modal styled as a 90s alert box.",
+  "description": "A modal styled as a 90s alert box.",
+  "theme": "retro-web",
+  "themeTitle": "Retro Web",
+  "categories": [
+    "retro",
+    "nostalgia"
+  ],
+  "tags": [
+    "retro",
+    "nostalgia",
+    "popup",
+    "alert",
+    "dialog",
+    "90s"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+  "customization": [
+    {
+      "name": "--bar",
+      "description": "Title bar start",
+      "default": "#000080"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Retro-styled dialogs. Keep the modern semantics underneath — role=dialog, focus management, Escape to close — and only borrow the visual language.",
+  "path": "effects/retro-web/popup-window-alert.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Popup Window</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"popup-window-alert\",\n    \"title\": \"Popup Window\",\n    \"summary\": \"A modal styled as a 90s alert box.\",\n    \"description\": \"A modal styled as a 90s alert box.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"nostalgia\"],\n    \"tags\": [\"retro\", \"nostalgia\", \"popup\", \"alert\", \"dialog\", \"90s\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.\",\n    \"customization\": [\n      { \"name\": \"--bar\", \"description\": \"Title bar start\", \"default\": \"#000080\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Retro-styled dialogs. Keep the modern semantics underneath — role=dialog, focus management, Escape to close — and only borrow the visual language.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 260px; background: #c0c0c0; border: 2px outset #fff; font-family: \"MS Sans Serif\", Tahoma, sans-serif; color: #000; }\n    .fx .bar { display: flex; justify-content: space-between; align-items: center; padding: .2rem .3rem;\n      background: linear-gradient(90deg, #000080, #1084d0); color: #fff; font-size: .78rem; font-weight: 700; }\n    .fx .bar b { width: 16px; height: 14px; background: #c0c0c0; border: 1px outset #fff; text-align: center; line-height: 12px; font-size: .65rem; }\n    .fx .body { display: flex; gap: .7rem; padding: 1rem; font-size: .8rem; align-items: center; }\n    .fx .ic { font-size: 1.6rem; }\n    .fx .foot { display: flex; justify-content: center; padding: 0 1rem 1rem; }\n    .fx button { padding: .25rem 1.4rem; background: #c0c0c0; border: 2px outset #fff; font: inherit; font-size: .78rem; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"dialog\" aria-labelledby=\"pw\"><div class=\"bar\"><span id=\"pw\">Warning</span><b>×</b></div>\n  <div class=\"body\"><span class=\"ic\" aria-hidden=\"true\">⚠</span><span>Your browser does not support frames.</span></div>\n  <div class=\"foot\"><button type=\"button\">OK</button></div></div>\n</body>\n</html>\n"
+}

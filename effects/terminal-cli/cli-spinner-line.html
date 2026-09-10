@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CLI Spinner</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cli-spinner-line",
+    "title": "CLI Spinner",
+    "summary": "A braille spinner beside a status line.",
+    "description": "A braille spinner beside a status line.",
+    "theme": "terminal-cli",
+    "categories": ["terminal", "code"],
+    "tags": ["terminal", "monospace", "spinner", "braille", "cli", "status"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Terminal output should live in a real text element (not an image) so it can be selected, searched, and read aloud.",
+    "customization": [
+      { "name": "--c", "description": "Spinner colour", "default": "#58a6ff" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "CLI-flavoured web loaders. Rotate through braille frames with JS (CSS cannot animate content reliably across browsers) and keep a text status beside it."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: center; gap: .6rem; padding: .8rem 1rem; border-radius: 8px; background: #0d1117;
+      border: 1px solid #21262d; font-family: ui-monospace, monospace; font-size: .85rem; color: #c9d1d9; }
+    .fx .sp { width: 1ch; color: #58a6ff; animation: frames .8s steps(8) infinite; }
+    @keyframes frames {
+      0% { content: "⠋"; } 12.5% { content: "⠙"; } 25% { content: "⠹"; } 37.5% { content: "⠸"; }
+      50% { content: "⠼"; } 62.5% { content: "⠴"; } 75% { content: "⠦"; } 87.5% { content: "⠧"; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="sp" id="sp">⠋</span> Installing dependencies…</div>
+  <script>
+    (function () {
+      var f = "⠋⠙⠹⠸⠼⠴⠦⠧", i = 0, el = document.getElementById("sp");
+      setInterval(function () { el.textContent = f[i = (i + 1) % f.length]; }, 90);
+    })();
+  </script>
+</body>
+</html>

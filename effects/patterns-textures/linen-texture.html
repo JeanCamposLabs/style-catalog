@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Linen Weave</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "linen-texture",
+    "title": "Linen Weave",
+    "summary": "A fine woven cloth texture.",
+    "description": "A fine woven cloth texture. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "linen", "cloth", "fabric", "texture"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--a", "description": "Thread colour", "default": "rgba(255,255,255,.035)" },
+      { "name": "--s", "description": "Weave pitch", "default": "5px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Card and panel surfaces that need tactility. Keep the alpha very low (3–5%) — visible weave lines look like a bug at large sizes."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: rgba(255,255,255,.035); --s: 5px; }
+    .bg { background-color: #1a1f2b;
+      background-image: repeating-linear-gradient(0deg, var(--a) 0 1px, transparent 1px var(--s)),
+        repeating-linear-gradient(90deg, var(--a) 0 1px, transparent 1px var(--s)); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

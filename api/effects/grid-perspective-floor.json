@@ -1,0 +1,45 @@
+{
+  "id": "grid-perspective-floor",
+  "title": "Perspective Floor Grid",
+  "summary": "A grid receding toward a horizon.",
+  "description": "A grid receding toward a horizon. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "synthwave",
+    "perspective",
+    "grid",
+    "retro"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Grid colour",
+      "default": "rgba(255,45,149,.5)"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Synthwave and retro-futurist scenes. Apply perspective+rotateX to an oversized grid layer so the vanishing point sits above the element.",
+  "path": "effects/patterns-textures/grid-perspective-floor.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Perspective Floor Grid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"grid-perspective-floor\",\n    \"title\": \"Perspective Floor Grid\",\n    \"summary\": \"A grid receding toward a horizon.\",\n    \"description\": \"A grid receding toward a horizon. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"synthwave\", \"perspective\", \"grid\", \"retro\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Grid colour\", \"default\": \"rgba(255,45,149,.5)\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Synthwave and retro-futurist scenes. Apply perspective+rotateX to an oversized grid layer so the vanishing point sits above the element.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: rgba(255,45,149,.5); }\n    .bg { background: linear-gradient(#0b0d12 0 46%, #1a0a20 46%); overflow: hidden; perspective: 240px; }\n    .bg::after { content: \"\"; position: absolute; left: -80%; right: -80%; bottom: 0; height: 54%;\n      background-image: repeating-linear-gradient(90deg, var(--c) 0 2px, transparent 2px 60px),\n        repeating-linear-gradient(0deg, var(--c) 0 2px, transparent 2px 60px);\n      transform: rotateX(72deg); transform-origin: 50% 100%; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

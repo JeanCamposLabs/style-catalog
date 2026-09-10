@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marching Stripes</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bg-animated-stripes-diagonal",
+    "title": "Marching Stripes",
+    "summary": "Diagonal stripes travelling steadily.",
+    "description": "Diagonal stripes travelling steadily.",
+    "theme": "backgrounds",
+    "categories": ["background", "surface"],
+    "tags": ["background", "stripes", "march", "diagonal", "texture"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--w", "description": "Stripe width", "default": "24px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Loading surfaces and empty states. Match the translation distance to the gradient period (2× stripe width here) or the loop visibly stutters."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background: repeating-linear-gradient(60deg, #0e1220 0 24px, #131a2b 24px 48px);
+      animation: march 6s linear infinite; }
+    @keyframes march { to { background-position: 96px 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

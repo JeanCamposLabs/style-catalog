@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Charging Battery</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "battery-charge-loader",
+    "title": "Charging Battery",
+    "summary": "A battery fills in stages with a color that shifts from red to green.",
+    "description": "A single width animation drives the fill while a synchronized background-color keyframe walks the charge through danger, warning, and healthy hues.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "progress"],
+    "tags": ["battery", "charge", "progress", "color-shift", "device"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Charge cycle", "default": "3s" },
+      { "name": "--lo", "description": "Low color", "default": "#f87171" },
+      { "name": "--hi", "description": "Full color", "default": "#34d399" }
+    ],
+    "variations": ["Add a lightning bolt overlay", "Discharge animation in reverse", "Bind the width to a real percentage"],
+    "ai_usage": "Device, power, or sync UIs. Two properties animate on one timeline (width and background-color) — keep their keyframe percentages aligned or the color changes at the wrong fill level. For real state, set width inline and drop the animation."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 3s; --lo: #f87171; --hi: #34d399; }
+    .batt { position: relative; width: 96px; height: 46px; border: 3px solid #64748b; border-radius: 8px; padding: 4px; }
+    .batt::after { content: ""; position: absolute; right: -9px; top: 50%; transform: translateY(-50%);
+      width: 6px; height: 16px; background: #64748b; border-radius: 0 3px 3px 0; }
+    .batt .fill { height: 100%; width: 10%; border-radius: 3px; background: var(--lo); animation: charge var(--dur) ease-in-out infinite; }
+    @keyframes charge {
+      0% { width: 8%; background: var(--lo); }
+      45% { background: #fbbf24; }
+      100% { width: 100%; background: var(--hi); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="batt" role="status" aria-label="Charging"><div class="fill"></div></div>
+</body>
+</html>

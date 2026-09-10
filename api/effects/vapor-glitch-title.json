@@ -1,0 +1,45 @@
+{
+  "id": "vapor-glitch-title",
+  "title": "Glitch Title",
+  "summary": "A title with cyan and magenta ghosts.",
+  "description": "A title with cyan and magenta ghosts.",
+  "theme": "vaporwave-synthwave",
+  "themeTitle": "Vaporwave & Synthwave",
+  "categories": [
+    "retro",
+    "vaporwave"
+  ],
+  "tags": [
+    "vaporwave",
+    "retro",
+    "80s",
+    "glitch",
+    "chroma",
+    "title",
+    "split"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Glitch cycle",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Retro title cards. Offset the two ghost layers on different keyframe percentages so they never move together.",
+  "path": "effects/vaporwave-synthwave/vapor-glitch-title.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glitch Title</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"vapor-glitch-title\",\n    \"title\": \"Glitch Title\",\n    \"summary\": \"A title with cyan and magenta ghosts.\",\n    \"description\": \"A title with cyan and magenta ghosts.\",\n    \"theme\": \"vaporwave-synthwave\",\n    \"categories\": [\"retro\", \"vaporwave\"],\n    \"tags\": [\"vaporwave\", \"retro\", \"80s\", \"glitch\", \"chroma\", \"title\", \"split\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Glitch cycle\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Retro title cards. Offset the two ghost layers on different keyframe percentages so they never move together.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; font-size: 2.4rem; font-weight: 900; color: #fff; letter-spacing: .06em; }\n    .fx::before, .fx::after { content: attr(data-t); position: absolute; inset: 0; }\n    .fx::before { color: #22d3ee; animation: g1 3s steps(2) infinite; }\n    .fx::after { color: #ff2d95; animation: g2 3s steps(2) infinite; }\n    @keyframes g1 { 0%, 90%, 100% { transform: none; } 92% { transform: translate(-4px, 2px); } 96% { transform: translate(3px, -2px); } }\n    @keyframes g2 { 0%, 90%, 100% { transform: none; } 93% { transform: translate(4px, -2px); } 97% { transform: translate(-3px, 2px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" data-t=\"AESTHETIC\">AESTHETIC</div>\n</body>\n</html>\n"
+}

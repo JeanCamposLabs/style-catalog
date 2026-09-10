@@ -1,0 +1,49 @@
+{
+  "id": "text-long-shadow",
+  "title": "Long Shadow Text",
+  "summary": "A flat 45° shadow trails off every glyph into the distance.",
+  "description": "Dozens of one-pixel-stepped shadows in one color produce the hard-edged flat-design shadow that a blur can never make.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "flat"
+  ],
+  "tags": [
+    "long-shadow",
+    "flat-design",
+    "2010s",
+    "text-shadow",
+    "poster"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2010s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Text color",
+      "default": "#f8fafc"
+    },
+    {
+      "name": "--sh",
+      "description": "Shadow color",
+      "default": "#1f2937"
+    }
+  ],
+  "variations": [
+    "Fade the shadow with a gradient clip",
+    "Shorten it for a subtle offset",
+    "Match the shadow to the background hue"
+  ],
+  "related": [],
+  "ai_usage": "Flat-design posters and 2010s revivals. Generate the shadow list programmatically (Sass loop or JS) — each step must be exactly 1px in x and y for a clean edge. The shadow color should be darker than the background, never black on dark.",
+  "path": "effects/text-effects/text-long-shadow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Long Shadow Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"text-long-shadow\",\n    \"title\": \"Long Shadow Text\",\n    \"summary\": \"A flat 45° shadow trails off every glyph into the distance.\",\n    \"description\": \"Dozens of one-pixel-stepped shadows in one color produce the hard-edged flat-design shadow that a blur can never make.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"flat\"],\n    \"tags\": [\"long-shadow\", \"flat-design\", \"2010s\", \"text-shadow\", \"poster\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2010s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Text color\", \"default\": \"#f8fafc\" },\n      { \"name\": \"--sh\", \"description\": \"Shadow color\", \"default\": \"#1f2937\" }\n    ],\n    \"variations\": [\"Fade the shadow with a gradient clip\", \"Shorten it for a subtle offset\", \"Match the shadow to the background hue\"],\n    \"ai_usage\": \"Flat-design posters and 2010s revivals. Generate the shadow list programmatically (Sass loop or JS) — each step must be exactly 1px in x and y for a clean edge. The shadow color should be darker than the background, never black on dark.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .ls { font-size: clamp(2.4rem, 10vw, 5rem); font-weight: 900; color: var(--c, #f8fafc);\n      text-shadow: 1px 1px var(--sh), 2px 2px var(--sh), 3px 3px var(--sh), 4px 4px var(--sh), 5px 5px var(--sh),\n        6px 6px var(--sh), 7px 7px var(--sh), 8px 8px var(--sh), 9px 9px var(--sh), 10px 10px var(--sh),\n        11px 11px var(--sh), 12px 12px var(--sh), 13px 13px var(--sh), 14px 14px var(--sh), 15px 15px var(--sh),\n        16px 16px var(--sh), 17px 17px var(--sh), 18px 18px var(--sh), 19px 19px var(--sh), 20px 20px var(--sh); }\n    :root { --sh: #1f2937; }\n  </style>\n</head>\n<body>\n  <h1 class=\"ls\">FLAT</h1>\n</body>\n</html>\n"
+}

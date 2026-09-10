@@ -1,0 +1,44 @@
+{
+  "id": "rubber-stamp-mark",
+  "title": "Rubber Stamp",
+  "summary": "An angled ink stamp with worn edges.",
+  "description": "An angled ink stamp with worn edges.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "stamp",
+    "ink",
+    "approved",
+    "worn"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--ink",
+      "description": "Ink colour",
+      "default": "#b91c1c"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Approval and status marks. A noise mask eats away at the ink so the stamp looks pressed rather than printed.",
+  "path": "effects/paper-print/rubber-stamp-mark.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rubber Stamp</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"rubber-stamp-mark\",\n    \"title\": \"Rubber Stamp\",\n    \"summary\": \"An angled ink stamp with worn edges.\",\n    \"description\": \"An angled ink stamp with worn edges.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"stamp\", \"ink\", \"approved\", \"worn\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--ink\", \"description\": \"Ink colour\", \"default\": \"#b91c1c\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Approval and status marks. A noise mask eats away at the ink so the stamp looks pressed rather than printed.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: inline-block; padding: .5rem 1.1rem; border: 4px double #b91c1c; color: #b91c1c; border-radius: 6px;\n      font-weight: 900; letter-spacing: .18em; transform: rotate(-9deg); opacity: .85;\n      -webkit-mask-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2 1.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\");\n      mask-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2 1.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\"); }\n  </style>\n</head>\n<body>\n  <span class=\"fx\">APPROVED</span>\n</body>\n</html>\n"
+}

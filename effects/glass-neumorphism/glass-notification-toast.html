@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass Toast</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-notification-toast",
+    "title": "Glass Toast",
+    "summary": "A translucent notification over content.",
+    "description": "A translucent notification over content.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "surface"],
+    "tags": ["glass", "surface", "glass", "toast", "notification", "overlay"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+    "customization": [
+      { "name": "--blur", "description": "Backdrop blur", "default": "16px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Notifications over media. On glass, white text needs a text-shadow or a slightly more opaque panel — a bright backdrop can push contrast below 3:1 at any moment."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: conic-gradient(from 40deg at 60% 40%, #7c5cff, #2dd4bf, #d1478c, #7c5cff); }
+    .fx { display: flex; align-items: center; gap: .8rem; width: 280px; padding: .8rem 1rem; border-radius: 14px;
+      background: rgba(255,255,255,.18); backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7); border: 1px solid rgba(255,255,255,.35); color: #fff;
+      box-shadow: 0 16px 40px rgba(0,0,0,.3); }
+    .fx .ic { width: 26px; height: 26px; border-radius: 50%; background: rgba(255,255,255,.9); color: #0b0d12;
+      display: grid; place-items: center; font-weight: 900; flex: none; }
+    .fx p { margin: 0; font-size: .86rem; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="status"><span class="ic" aria-hidden="true">✓</span><p>Specimen added to your bundle</p></div>
+</body>
+</html>

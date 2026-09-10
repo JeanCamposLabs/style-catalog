@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rainbow Arc</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "rainbow-arc",
+    "title": "Rainbow Arc",
+    "summary": "A soft rainbow over a pale sky.",
+    "description": "A soft rainbow over a pale sky.",
+    "theme": "weather-ambient",
+    "categories": ["weather", "ambient"],
+    "tags": ["weather", "ambient", "rainbow", "arc", "sky", "weather"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+    "customization": [
+      { "name": "--o", "description": "Rainbow opacity", "default": "0.75" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "After-rain and pride themes. A masked conic ring plus a slight blur gives the soft-edged band a hard-stop gradient cannot."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 260px; height: 150px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(180deg, #bfdbfe, #e0f2fe); }
+    .fx .bow { position: absolute; bottom: -100px; left: 50%; translate: -50% 0; width: 240px; height: 240px; border-radius: 50%;
+      background: conic-gradient(from 180deg, #ef4444, #f59e0b, #eab308, #22c55e, #3b82f6, #a855f7, #ef4444);
+      -webkit-mask: radial-gradient(farthest-side, transparent 62%, #000 63%, #000 78%, transparent 79%);
+      mask: radial-gradient(farthest-side, transparent 62%, #000 63%, #000 78%, transparent 79%); opacity: .75; filter: blur(2px); }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="bow"></span></div>
+</body>
+</html>

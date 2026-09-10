@@ -1,0 +1,49 @@
+{
+  "id": "semantic-status-colors",
+  "title": "Semantic Status Set",
+  "summary": "Reserved colours for the four states.",
+  "description": "Reserved colours for the four states.",
+  "theme": "color-systems",
+  "themeTitle": "Color Systems",
+  "categories": [
+    "color",
+    "reference"
+  ],
+  "tags": [
+    "color",
+    "tokens",
+    "semantic",
+    "status",
+    "reserved",
+    "tokens"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+  "customization": [
+    {
+      "name": "--good",
+      "description": "Success",
+      "default": "#10a894"
+    },
+    {
+      "name": "--bad",
+      "description": "Danger",
+      "default": "#d1478c"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Status colours are reserved: never reuse them as chart series or brand accents. Each state ships with an icon and a word so it survives greyscale and colour-vision differences.",
+  "path": "effects/color-systems/semantic-status-colors.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Semantic Status Set</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"semantic-status-colors\",\n    \"title\": \"Semantic Status Set\",\n    \"summary\": \"Reserved colours for the four states.\",\n    \"description\": \"Reserved colours for the four states.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"color\", \"reference\"],\n    \"tags\": [\"color\", \"tokens\", \"semantic\", \"status\", \"reserved\", \"tokens\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.\",\n    \"customization\": [\n      { \"name\": \"--good\", \"description\": \"Success\", \"default\": \"#10a894\" },\n      { \"name\": \"--bad\", \"description\": \"Danger\", \"default\": \"#d1478c\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Status colours are reserved: never reuse them as chart series or brand accents. Each state ships with an icon and a word so it survives greyscale and colour-vision differences.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; gap: .5rem; width: 290px; }\n    .r { display: flex; align-items: center; gap: .6rem; padding: .6rem .8rem; border-radius: 10px; font-size: .84rem; }\n    .r b { margin-left: auto; font-family: ui-monospace, monospace; font-size: .72rem; opacity: .8; }\n    .good { background: rgba(16,168,148,.14); color: #7fd8cb; }\n    .warn { background: rgba(194,137,26,.14); color: #ecc57c; }\n    .bad { background: rgba(209,71,140,.14); color: #f0a3c6; }\n    .info { background: rgba(47,124,201,.14); color: #8ec1f0; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"r good\"><span aria-hidden=\"true\">✓</span>Success<b>#10a894</b></div>\n  <div class=\"r warn\"><span aria-hidden=\"true\">▲</span>Warning<b>#c2891a</b></div>\n  <div class=\"r bad\"><span aria-hidden=\"true\">■</span>Danger<b>#d1478c</b></div>\n  <div class=\"r info\"><span aria-hidden=\"true\">ⓘ</span>Info<b>#2f7cc9</b></div></div>\n</body>\n</html>\n"
+}

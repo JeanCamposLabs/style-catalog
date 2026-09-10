@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Self-Drawing Logo</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-stroke-dash-logo",
+    "title": "Self-Drawing Logo",
+    "summary": "A monogram that draws itself stroke by stroke.",
+    "description": "A monogram that draws itself stroke by stroke.",
+    "theme": "svg-effects",
+    "categories": ["svg", "vector"],
+    "tags": ["svg", "vector", "draw", "stroke-dashoffset", "logo", "monogram"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+    "customization": [
+      { "name": "--dur", "description": "Draw duration", "default": "3.5s" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Brand intros and loading states. Measure each path with getTotalLength() and set dasharray and dashoffset to that number; a guessed length leaves a gap or finishes early."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 160px; }
+    .fx svg { width: 100%; display: block; }
+    .fx path { fill: none; stroke: #2dd4bf; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 420; stroke-dashoffset: 420; animation: draw 3.5s ease-in-out infinite; }
+    .fx path:nth-of-type(2) { animation-delay: .5s; stroke: #7c5cff; }
+    @keyframes draw { 0% { stroke-dashoffset: 420; } 55%, 100% { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 160 120" aria-hidden="true">
+    <path d="M20 100 L45 20 L70 100"/><path d="M95 100 L95 20 L140 20 L140 60 L95 60"/></svg></div>
+</body>
+</html>

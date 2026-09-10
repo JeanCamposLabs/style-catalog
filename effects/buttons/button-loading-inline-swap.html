@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inline Loading Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "button-loading-inline-swap",
+    "title": "Inline Loading Button",
+    "summary": "A button that keeps its width while loading.",
+    "description": "A button that keeps its width while loading.",
+    "theme": "buttons",
+    "categories": ["button", "action"],
+    "tags": ["button", "action", "loading", "busy", "width", "state"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Button colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Form submissions. Set min-width from the widest label so the button never resizes mid-action, and set aria-busy so the state is announced rather than only shown."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { min-width: 150px; padding: .8rem 1.4rem; border: 0; border-radius: 11px; background: #7c5cff; color: #fff;
+      font: inherit; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; }
+    .fx .sp { width: 15px; height: 15px; border: 2px solid rgba(255,255,255,.35); border-top-color: #fff; border-radius: 50%;
+      animation: spin .8s linear infinite; }
+    .fx[aria-busy="true"] { opacity: .85; cursor: progress; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button" aria-busy="true"><span class="sp" aria-hidden="true"></span>Saving…</button>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hover Equalizer Rows</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "hover-sound-bars",
+    "title": "Hover Equalizer Rows",
+    "summary": "List rows sprout a small animated equalizer when hovered.",
+    "description": "The bars only animate while hovered, so an idle list stays completely still and cheap.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "list"],
+    "tags": ["equalizer", "list", "music", "hover", "bars"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Bar color", "default": "#2dd4bf" }
+    ],
+    "variations": ["Show a play icon instead when paused", "Persist bars on the active track", "Colour the active row"],
+    "ai_usage": "Music and podcast lists. Start the bar animation only on hover/active so an idle playlist has zero running animations — a common performance mistake in media UIs."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #2dd4bf; }
+    .tracks { list-style: none; margin: 0; padding: 0; width: 260px; }
+    .tracks li { display: flex; align-items: center; gap: .8rem; padding: .6rem .8rem; border-radius: 10px; color: #cbd5e1; cursor: pointer; }
+    .tracks li:hover { background: #151b2a; }
+    .tracks .eq { display: flex; gap: 3px; align-items: flex-end; height: 16px; width: 18px; }
+    .tracks .eq i { width: 3px; height: 4px; background: #3b465e; border-radius: 2px; }
+    .tracks li:hover .eq i { background: var(--c); animation: bob .7s ease-in-out infinite alternate; }
+    .tracks li:hover .eq i:nth-child(2) { animation-duration: .5s; }
+    .tracks li:hover .eq i:nth-child(3) { animation-duration: .9s; }
+    @keyframes bob { to { height: 16px; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <ul class="tracks">
+    <li><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span> Midnight City</li>
+    <li><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span> Nightcall</li>
+    <li><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span> Sunset Drive</li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kinetic Word Stack</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "kinetic-scale-words",
+    "title": "Kinetic Word Stack",
+    "summary": "Stacked words scale and fade in sequence like a title card.",
+    "description": "Each line runs the same scale-and-fade keyframe on a delayed loop, producing the punchy rhythm of motion-graphics titles.",
+    "theme": "text-effects",
+    "categories": ["text", "kinetic"],
+    "tags": ["kinetic", "title-card", "stack", "scale", "sequence"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Per-word beat", "default": "0.9s" }
+    ],
+    "variations": ["Alternate alignment per line", "Different color per word", "Hold the final state instead of looping"],
+    "ai_usage": "Video-style intros and bold marketing sections. Beat spacing matters more than the easing — keep each word's delay equal to the beat so the rhythm is even, and finish on the most important word."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: .9s; }
+    .kin { display: grid; gap: .1em; text-align: center; font-weight: 900; line-height: .95;
+      font-size: clamp(1.8rem, 8vw, 3.4rem); }
+    .kin span { opacity: 0; transform: scale(1.6); animation: pop calc(var(--dur) * 4) ease-out infinite;
+      animation-delay: calc(var(--i) * var(--dur)); }
+    @keyframes pop {
+      0% { opacity: 0; transform: scale(1.6); }
+      10%, 70% { opacity: 1; transform: scale(1); }
+      85%, 100% { opacity: 0; transform: scale(.9); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="kin" aria-label="Move fast think slow">
+    <span aria-hidden="true" style="--i:0">MOVE</span>
+    <span aria-hidden="true" style="--i:1">FAST</span>
+    <span aria-hidden="true" style="--i:2">THINK</span>
+    <span aria-hidden="true" style="--i:3">SLOW</span>
+  </div>
+</body>
+</html>

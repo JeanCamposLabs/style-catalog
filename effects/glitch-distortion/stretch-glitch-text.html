@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stretched Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "stretch-glitch-text",
+    "title": "Stretched Text",
+    "summary": "Text that periodically stretches horizontally.",
+    "description": "Text that periodically stretches horizontally.",
+    "theme": "glitch-distortion",
+    "categories": ["glitch", "distortion"],
+    "tags": ["glitch", "distortion", "stretch", "text", "glitch", "kinetic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Cycle", "default": "5s" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Glitch titles. Stepped scaleX keeps the distortion instantaneous; easing between the states looks like a rubber-band animation instead."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { font-size: 2.2rem; font-weight: 900; color: #e7ebf3; letter-spacing: .04em;
+      animation: stretch 5s steps(1) infinite; }
+    @keyframes stretch {
+      0%, 82%, 100% { transform: none; }
+      84% { transform: scaleX(1.5) skewX(-6deg); }
+      86% { transform: scaleX(.7); }
+      88% { transform: scaleX(1.2) skewX(4deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx">CORRUPTED</div>
+</body>
+</html>

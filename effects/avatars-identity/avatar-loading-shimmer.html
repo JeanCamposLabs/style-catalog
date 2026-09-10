@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avatar Skeleton</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "avatar-loading-shimmer",
+    "title": "Avatar Skeleton",
+    "summary": "A shimmering placeholder while the image loads.",
+    "description": "A shimmering placeholder while the image loads.",
+    "theme": "avatars-identity",
+    "categories": ["avatar", "identity"],
+    "tags": ["avatar", "identity", "skeleton", "loading", "placeholder", "shimmer"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+    "customization": [
+      { "name": "--dur", "description": "Shimmer period", "default": "1.6s" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Profile rows waiting on data. Match the placeholder circle to the real avatar diameter so the row does not resize when the image arrives."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: center; gap: .8rem; }
+    .a { width: 46px; height: 46px; border-radius: 50%; }
+    .l { display: grid; gap: 6px; }
+    .l i { height: 9px; border-radius: 5px; width: 120px; display: block; }
+    .l i.s { width: 70px; }
+    .sk { background: linear-gradient(90deg, #1b2231 25%, #2b3550 37%, #1b2231 63%); background-size: 400% 100%;
+      animation: sheen 1.6s ease-in-out infinite; }
+    @keyframes sheen { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx" aria-hidden="true"><span class="a sk"></span><span class="l"><i class="sk"></i><i class="s sk"></i></span></div>
+</body>
+</html>

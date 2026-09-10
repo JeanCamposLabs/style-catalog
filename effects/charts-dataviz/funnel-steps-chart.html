@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Funnel</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "funnel-steps-chart",
+    "title": "Funnel",
+    "summary": "Conversion stages with drop-off percentages.",
+    "description": "Conversion stages with drop-off percentages.",
+    "theme": "charts-dataviz",
+    "categories": ["chart", "dataviz"],
+    "tags": ["chart", "data", "funnel", "conversion", "stages", "dropoff"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+    "customization": [
+      { "name": "--c1", "description": "Bar colour", "default": "#7c5cff" },
+      { "name": "--c4", "description": "Drop-off colour", "default": "#d1478c" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Sequential conversion. Use plain left-aligned bars rather than a tapering trapezoid — the trapezoid distorts area and makes the drop-off look larger than it is."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;
+      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; width: 280px; }
+    .fx h4 { margin: 0 0 .9rem; font-size: .95rem; color: var(--ink); }
+    .fx .st { margin-bottom: .5rem; }
+    .fx .lbl { display: flex; justify-content: space-between; font-size: .78rem; color: var(--ink-2); margin-bottom: .25rem; }
+    .fx .lbl b { color: var(--ink); font-variant-numeric: tabular-nums; }
+    .fx .bar { height: 20px; border-radius: 4px; width: calc(var(--v) * 1%); background: var(--c1); }
+    .fx .drop { font-size: .7rem; color: var(--c4); margin-top: .15rem; }
+  </style>
+</head>
+<body>
+  <figure class="fx" style="margin:0"><h4>Signup funnel</h4>
+  <div class="st"><div class="lbl"><span>Visited</span><b>12,480</b></div><div class="bar" style="--v:100"></div></div>
+  <div class="st"><div class="lbl"><span>Started</span><b>6,120</b></div><div class="bar" style="--v:49"></div><div class="drop">−51%</div></div>
+  <div class="st"><div class="lbl"><span>Verified</span><b>3,940</b></div><div class="bar" style="--v:32"></div><div class="drop">−36%</div></div>
+  <div class="st"><div class="lbl"><span>Activated</span><b>2,180</b></div><div class="bar" style="--v:17"></div><div class="drop">−45%</div></div></figure>
+</body>
+</html>

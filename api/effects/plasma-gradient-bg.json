@@ -1,0 +1,44 @@
+{
+  "id": "plasma-gradient-bg",
+  "title": "Plasma Field",
+  "summary": "Four coloured light sources drift and blend into a shifting plasma.",
+  "description": "Overlapping radial gradients on independently animated layers create colour combinations no single gradient could hold.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "gradient"
+  ],
+  "tags": [
+    "plasma",
+    "gradient",
+    "blend",
+    "ambient",
+    "color"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Drift period",
+      "default": "20s"
+    }
+  ],
+  "variations": [
+    "Two-color scheme for restraint",
+    "Faster drift for energy",
+    "Add grain on top to reduce banding"
+  ],
+  "related": [],
+  "ai_usage": "Ambient hero backgrounds. Animate each colour layer separately with different durations and directions; a single animated multi-stop gradient always reads as a sliding stripe instead of a field.",
+  "path": "effects/backgrounds/plasma-gradient-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Plasma Field</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"plasma-gradient-bg\",\n    \"title\": \"Plasma Field\",\n    \"summary\": \"Four coloured light sources drift and blend into a shifting plasma.\",\n    \"description\": \"Overlapping radial gradients on independently animated layers create colour combinations no single gradient could hold.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"gradient\"],\n    \"tags\": [\"plasma\", \"gradient\", \"blend\", \"ambient\", \"color\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Drift period\", \"default\": \"20s\" }\n    ],\n    \"variations\": [\"Two-color scheme for restraint\", \"Faster drift for energy\", \"Add grain on top to reduce banding\"],\n    \"ai_usage\": \"Ambient hero backgrounds. Animate each colour layer separately with different durations and directions; a single animated multi-stop gradient always reads as a sliding stripe instead of a field.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --dur: 20s; }\n    .bg { background: #0b0d12; overflow: hidden; }\n    .bg i { position: absolute; width: 70vmax; height: 70vmax; border-radius: 50%; filter: blur(70px); opacity: .55;\n      animation: drift var(--d) ease-in-out infinite alternate; }\n    @keyframes drift {\n      from { transform: translate(-10%, -10%) scale(1); }\n      to { transform: translate(20%, 15%) scale(1.25); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\">\n    <i style=\"background:#7c5cff;top:-20%;left:-15%;--d:17s\"></i>\n    <i style=\"background:#2dd4bf;top:10%;right:-20%;--d:23s\"></i>\n    <i style=\"background:#f472b6;bottom:-25%;left:20%;--d:19s\"></i>\n    <i style=\"background:#38bdf8;bottom:-10%;right:5%;--d:27s\"></i>\n  </div>\n</body>\n</html>\n"
+}

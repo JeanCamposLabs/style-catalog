@@ -1,0 +1,44 @@
+{
+  "id": "fire-gradient-button",
+  "title": "Molten Button",
+  "summary": "A button with heat radiating from its edges.",
+  "description": "A button with heat radiating from its edges.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "button",
+    "heat",
+    "gradient",
+    "cta"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Heat colour",
+      "default": "#f97316"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "High-urgency CTAs. Keep the label dark on a hot gradient — light text over amber almost never reaches 4.5:1.",
+  "path": "effects/fire-water/fire-gradient-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Molten Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"fire-gradient-button\",\n    \"title\": \"Molten Button\",\n    \"summary\": \"A button with heat radiating from its edges.\",\n    \"description\": \"A button with heat radiating from its edges.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"button\", \"heat\", \"gradient\", \"cta\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Heat colour\", \"default\": \"#f97316\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"High-urgency CTAs. Keep the label dark on a hot gradient — light text over amber almost never reaches 4.5:1.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { padding: .95rem 2.1rem; border: 0; border-radius: 12px; cursor: pointer; color: #2a0d05; font-weight: 800;\n      background: linear-gradient(100deg, #fbbf24, #f97316, #dc2626, #f97316, #fbbf24); background-size: 300% 100%;\n      box-shadow: 0 0 24px rgba(249,115,22,.6); animation: shift 4s linear infinite; }\n    .fx:hover { box-shadow: 0 0 40px rgba(249,115,22,.9); }\n    @keyframes shift { to { background-position: 300% 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\">Ignite</button>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "nav-anchor-dot-rail",
+  "title": "Dot Rail",
+  "summary": "A vertical rail of section dots.",
+  "description": "A vertical rail of section dots.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "dots",
+    "rail",
+    "anchors",
+    "fullpage"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Full-page scroll sites. Dots alone are unlabelled targets — reveal a name on hover and focus, and give every dot an accessible name regardless.",
+  "path": "effects/navigation-menus/nav-anchor-dot-rail.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dot Rail</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-anchor-dot-rail\",\n    \"title\": \"Dot Rail\",\n    \"summary\": \"A vertical rail of section dots.\",\n    \"description\": \"A vertical rail of section dots.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"dots\", \"rail\", \"anchors\", \"fullpage\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Full-page scroll sites. Dots alone are unlabelled targets — reveal a name on hover and focus, and give every dot an accessible name regardless.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; gap: 12px; justify-items: center; }\n    .fx a { position: relative; width: 10px; height: 10px; border-radius: 50%; background: #2b3450; }\n    .fx a[aria-current] { background: #7c5cff; }\n    .fx a span { position: absolute; right: calc(100% + 10px); top: 50%; translate: 0 -50%; white-space: nowrap;\n      padding: .15rem .5rem; border-radius: 6px; background: #1c2437; color: #cbd5e1; font-size: .72rem;\n      opacity: 0; transition: opacity .2s; }\n    .fx a:hover span, .fx a:focus-visible span { opacity: 1; }\n  </style>\n</head>\n<body>\n  <nav class=\"fx\" aria-label=\"Sections\"><a href=\"#\" aria-current=\"true\" aria-label=\"Intro\"><span>Intro</span></a>\n  <a href=\"#\" aria-label=\"Features\"><span>Features</span></a><a href=\"#\" aria-label=\"Pricing\"><span>Pricing</span></a>\n  <a href=\"#\" aria-label=\"Contact\"><span>Contact</span></a></nav>\n</body>\n</html>\n"
+}

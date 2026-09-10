@@ -1,0 +1,44 @@
+{
+  "id": "advanced-search-builder",
+  "title": "Query Builder",
+  "summary": "Structured filter rows building a query.",
+  "description": "Structured filter rows building a query.",
+  "theme": "search-ui",
+  "themeTitle": "Search UI",
+  "categories": [
+    "search",
+    "filter"
+  ],
+  "tags": [
+    "search",
+    "find",
+    "query",
+    "builder",
+    "advanced",
+    "structured"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Field background",
+      "default": "#10141f"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Power-user filtering. Show the generated query string so users can learn the syntax and eventually skip the builder entirely.",
+  "path": "effects/search-ui/advanced-search-builder.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Query Builder</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"advanced-search-builder\",\n    \"title\": \"Query Builder\",\n    \"summary\": \"Structured filter rows building a query.\",\n    \"description\": \"Structured filter rows building a query.\",\n    \"theme\": \"search-ui\",\n    \"categories\": [\"search\", \"filter\"],\n    \"tags\": [\"search\", \"find\", \"query\", \"builder\", \"advanced\", \"structured\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Field background\", \"default\": \"#10141f\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Power-user filtering. Show the generated query string so users can learn the syntax and eventually skip the builder entirely.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }\n    .fx .row { display: flex; gap: .4rem; margin-bottom: .5rem; }\n    .fx select, .fx input { padding: .4rem .5rem; border-radius: 8px; border: 1px solid #2b3450; background: #10141f;\n      color: #cbd5e1; font: inherit; font-size: .8rem; min-width: 0; }\n    .fx input { flex: 1; }\n    .fx .add { border: 1px dashed #2b3450; background: transparent; color: #8b93a7; border-radius: 8px;\n      padding: .35rem .7rem; font: inherit; font-size: .78rem; cursor: pointer; }\n    .fx .q { margin-top: .7rem; padding: .5rem .6rem; border-radius: 8px; background: #10141f; color: #64748b;\n      font-family: ui-monospace, monospace; font-size: .72rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"row\"><select aria-label=\"Field\"><option>tech</option><option>theme</option></select>\n  <select aria-label=\"Operator\"><option>is</option><option>is not</option></select>\n  <input type=\"text\" value=\"svg\" aria-label=\"Value\" /></div>\n  <div class=\"row\"><select aria-label=\"Field\"><option>difficulty</option></select>\n  <select aria-label=\"Operator\"><option>is</option></select><input type=\"text\" value=\"advanced\" aria-label=\"Value\" /></div>\n  <button class=\"add\" type=\"button\">+ Add condition</button>\n  <div class=\"q\">tech:svg AND difficulty:advanced</div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "template-status-page",
+  "title": "Status Page",
+  "summary": "Service status with an incident history.",
+  "description": "Service status with an incident history.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "page"
+  ],
+  "tags": [
+    "template",
+    "page",
+    "status",
+    "uptime",
+    "incidents",
+    "monitoring"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+  "customization": [
+    {
+      "name": "--ok",
+      "description": "Operational colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Public status pages. Lead with one plain-language summary banner, then per-service detail; uptime bars need a legend or a tooltip because colour alone does not say what a segment means.",
+  "path": "effects/website-templates/template-status-page.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Status Page</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"template-status-page\",\n    \"title\": \"Status Page\",\n    \"summary\": \"Service status with an incident history.\",\n    \"description\": \"Service status with an incident history.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"page\"],\n    \"tags\": [\"template\", \"page\", \"status\", \"uptime\", \"incidents\", \"monitoring\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.\",\n    \"customization\": [\n      { \"name\": \"--ok\", \"description\": \"Operational colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Public status pages. Lead with one plain-language summary banner, then per-service detail; uptime bars need a legend or a tooltip because colour alone does not say what a segment means.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { padding: 1.4rem; max-width: 34rem; margin: 0 auto; }\n    h1 { margin: 0 0 .8rem; font-size: 1.4rem; }\n    .banner { display: flex; align-items: center; gap: .6rem; padding: .8rem 1rem; border-radius: 12px; margin-bottom: 1.2rem;\n      background: rgba(16,168,148,.14); color: #7fd8cb; border: 1px solid rgba(16,168,148,.4); font-weight: 700; font-size: .9rem; }\n    .svc { display: flex; justify-content: space-between; align-items: center; padding: .7rem .9rem; border-radius: 10px;\n      background: #151b2a; border: 1px solid #263149; margin-bottom: 6px; font-size: .88rem; }\n    .svc .st { font-size: .8rem; font-weight: 700; }\n    .ok { color: #7fd8cb; } .warn { color: #ecc57c; }\n    .bars { display: flex; gap: 2px; margin-top: .3rem; }\n    .bars i { width: 4px; height: 18px; border-radius: 2px; background: #10a894; }\n    .bars i.bad { background: #c2891a; }\n    h2 { margin: 1.4rem 0 .6rem; font-size: 1rem; }\n    .inc { padding: .7rem .9rem; border-radius: 10px; background: #151b2a; border: 1px solid #263149; font-size: .84rem; color: #8b93a7; }\n    .inc b { color: #e7ebf3; display: block; margin-bottom: .2rem; }\n  </style>\n</head>\n<body>\n  <h1>System status</h1>\n  <div class=\"banner\" role=\"status\"><span aria-hidden=\"true\">✓</span>All systems operational</div>\n  <main><div class=\"svc\"><div>Gallery<div class=\"bars\" role=\"img\" aria-label=\"90 days, 2 degraded\"><i></i><i></i><i class=\"bad\"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><span class=\"st ok\">Operational</span></div>\n  <div class=\"svc\"><div>JSON API<div class=\"bars\" role=\"img\" aria-label=\"90 days, no incidents\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><span class=\"st ok\">Operational</span></div>\n  <div class=\"svc\"><div>Poster pipeline<div class=\"bars\" role=\"img\" aria-label=\"90 days, 1 degraded\"><i></i><i></i><i></i><i></i><i class=\"bad\"></i><i></i><i></i><i></i><i></i><i></i></div></div><span class=\"st warn\">Degraded</span></div>\n  <h2>Recent incidents</h2><div class=\"inc\"><b>Poster generation delays · 8 Sept</b>Renders queued for 40 minutes after a runner outage. Resolved.</div></main>\n</body>\n</html>\n"
+}

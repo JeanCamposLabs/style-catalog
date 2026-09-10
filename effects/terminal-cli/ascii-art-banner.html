@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ASCII Banner</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "ascii-art-banner",
+    "title": "ASCII Banner",
+    "summary": "A block-letter ASCII banner.",
+    "description": "A block-letter ASCII banner.",
+    "theme": "terminal-cli",
+    "categories": ["terminal", "code"],
+    "tags": ["terminal", "monospace", "ascii", "banner", "art", "cli"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Terminal output should live in a real text element (not an image) so it can be selected, searched, and read aloud.",
+    "customization": [
+      { "name": "--c", "description": "Banner colour", "default": "#22d3ee" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "CLI splash screens and README headers. Use white-space:pre and a monospace stack; any proportional font destroys the alignment."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { padding: 1rem 1.2rem; border-radius: 8px; background: #05070d; color: #22d3ee; border: 1px solid #164e63;
+      font-family: ui-monospace, monospace; font-size: .6rem; line-height: 1.15; white-space: pre; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <pre class="fx">  ____   _  _____  _    _     ___   ____ 
+   / ___| /_\|_   _|/_\  | |   / _ \ / ___|
+  | |    //_\\ | | //_\\ | |  | | | | |  _ 
+  | |___/  _  \| |/  _  \| |__| |_| | |_| |
+   \____/_/ \_ \_/_/ \_ \_____\___/ \____|</pre>
+</body>
+</html>

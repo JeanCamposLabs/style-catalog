@@ -3,6 +3,70 @@
 All notable changes to Style Catalog are documented here.
 This project follows a loose semantic-versioning intent (see `PLAN.md` roadmap).
 
+## [0.25.0] — 2026-09-10
+
+### Added — 1,001 new specimens, 36 new themes
+
+The catalogue grows from 181 specimens across 22 themes to **1,182 across 58**.
+Every new file follows the existing contract: one self-contained HTML document,
+no external requests, an embedded `#effect-meta` block, a `prefers-reduced-motion`
+guard on anything that moves, and `ai_usage` written for a consuming agent rather
+than for a human browsing screenshots.
+
+**New themes (36).** Cards & Surfaces, Badges & Tags, Micro-interactions,
+Avatars & Identity, Keyboard & Input, Search UI, Tooltips & Popovers,
+Modals & Overlays, Notifications & Toasts, Progress & Meters,
+Empty & Loading States, Charts & Data Viz, Tables & Data,
+Timelines & Steppers, Masks & Clipping, Blends & Filters,
+Patterns & Textures, Dividers & Shapes, Neon & Cyberpunk,
+Vaporwave & Synthwave, Brutalism & Y2K, Holographic & Metallic,
+Nature & Organic, Space & Cosmic, Weather & Ambient, Fire & Water,
+Glitch & Distortion, Paper & Print, Game UI, Terminal & CLI,
+Audio & Music UI, E-commerce UI, Social UI, Calendar & Time,
+Particles & Physics, and Accessibility Patterns.
+
+**Existing themes expanded.** Buttons, Backgrounds, Text Effects,
+Loaders & Spinners, Transitions & Animations (45 entrance animations in one
+sweep), Hover Interactions, Cursors & Pointers, Forms & Inputs,
+Navigation & Menus, 3D Transforms, Scroll Effects, Images & Media,
+SVG Effects, Retro Web, Layout Archetypes, Glass & Neumorphism,
+Borders & Shadows, Typography Systems, Color Systems, Motion Principles,
+Combination Recipes, and Website Templates.
+
+**Data-viz palette is validated, not eyeballed.** The Charts & Data Viz theme
+uses one fixed categorical order — `#7c5cff`, `#10a894`, `#c2891a`, `#d1478c`,
+`#2f7cc9` — checked against a dark surface for lightness band, chroma floor,
+adjacent-pair CVD separation (worst pair ΔE 10.1 protan), normal-vision
+separation, and 3:1 contrast. Every multi-series chart ships a legend, and
+sequential ramps are single-hue.
+
+### Changed
+
+- **`assets/app.js` builds the grid in chunks.** 1,182 cards created in one
+  synchronous pass blocked first paint for seconds. Cards are now created 60 at
+  a time across idle callbacks, calling `render()` after each chunk; `render()`
+  already skipped ids without an element, so a partial grid was always safe.
+- **Poster-less cards mount their fallback iframe lazily.** The `no-poster`
+  fallback previously mounted immediately on the image `error` event — with a
+  thousand cards that is a thousand simultaneous iframes. A single shared
+  `IntersectionObserver` (400px root margin) now defers the mount until the card
+  approaches the viewport.
+- **`scripts/posters.mjs` gained `--missing`, `POSTER_CONCURRENCY`, and
+  `CHROMIUM_PATH`.** A full regeneration is now a multi-minute job, so
+  `npm run posters -- --missing` renders only specimens that have no poster yet
+  and keeps untouched posters out of the diff. `CHROMIUM_PATH` points the
+  launcher at a pre-installed browser, sidestepping a Playwright/browser-build
+  mismatch in sandboxed environments.
+- Poster thumbnails regenerated for all 1,182 specimens (`assets/posters/`).
+
+### Fixed
+
+- `brick-wall-bg` rendered as a flat colour — the running-bond offset layer was
+  never painted. Rebuilt from two offset gradient pairs.
+- `grid-perspective-floor` was clipped out of its own container by
+  `overflow: hidden`; the perspective now lives on the parent and the floor
+  stays inside the box.
+
 ## [0.24.0] — 2026-09-10
 
 ### Added — five specimens filling catalogue gaps

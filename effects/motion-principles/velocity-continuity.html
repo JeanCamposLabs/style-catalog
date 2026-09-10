@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Velocity Continuity</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "velocity-continuity",
+    "title": "Velocity Continuity",
+    "summary": "Motion that keeps momentum between phases.",
+    "description": "Motion that keeps momentum between phases.",
+    "theme": "motion-principles",
+    "categories": ["motion", "reference"],
+    "tags": ["motion", "easing", "velocity", "continuity", "momentum", "chaining"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+    "customization": [
+      { "name": "--dur", "description": "Sequence duration", "default": "2.6s" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Chained animations. When one motion hands off to another, match the exit velocity of the first to the entry velocity of the second — a hard stop between phases reads as two unrelated events."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; }
+    .t { height: 30px; border-radius: 99px; background: #151b2a; position: relative; margin-bottom: .8rem; }
+    .t i { position: absolute; top: 5px; left: 5px; width: 20px; height: 20px; border-radius: 50%; background: #c2891a; }
+    .bad i { animation: two 2.6s steps(1) infinite; }
+    .good i { animation: smooth 2.6s cubic-bezier(.4,0,.2,1) infinite; }
+    .lbl { font-size: .68rem; color: #64748b; font-family: ui-monospace, monospace; margin-bottom: .25rem; }
+    @keyframes two { 0%, 45% { left: 5px; } 50%, 100% { left: calc(100% - 25px); } }
+    @keyframes smooth { 0% { left: 5px; } 55%, 100% { left: calc(100% - 25px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="lbl">discontinuous — teleports</div><div class="t bad"><i></i></div>
+  <div class="lbl">continuous — keeps momentum</div><div class="t good"><i></i></div></div>
+</body>
+</html>

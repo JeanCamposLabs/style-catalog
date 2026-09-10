@@ -1,0 +1,54 @@
+{
+  "id": "rgb-shift-hover",
+  "title": "RGB Shift on Hover",
+  "summary": "Red and cyan ghosts split away from the text under the pointer.",
+  "description": "Two aria-hidden duplicates in red and cyan sit behind the text and separate on hover, mimicking chromatic aberration.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "hover"
+  ],
+  "tags": [
+    "chromatic-aberration",
+    "rgb-split",
+    "hover",
+    "glitch",
+    "3d-glasses"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Left ghost color",
+      "default": "#ff4d4d"
+    },
+    {
+      "name": "--b",
+      "description": "Right ghost color",
+      "default": "#4dd2ff"
+    },
+    {
+      "name": "--d",
+      "description": "Split distance",
+      "default": "4px"
+    }
+  ],
+  "variations": [
+    "Constant jitter instead of hover",
+    "Vertical split",
+    "Animate the split on page load"
+  ],
+  "related": [],
+  "ai_usage": "Hover treatment for links or titles in a technical or retro-futurist design. Duplicates go in data-text attributes rendered by ::before/::after so the DOM keeps a single text node.",
+  "path": "effects/text-effects/rgb-shift-hover.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>RGB Shift on Hover</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"rgb-shift-hover\",\n    \"title\": \"RGB Shift on Hover\",\n    \"summary\": \"Red and cyan ghosts split away from the text under the pointer.\",\n    \"description\": \"Two aria-hidden duplicates in red and cyan sit behind the text and separate on hover, mimicking chromatic aberration.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"hover\"],\n    \"tags\": [\"chromatic-aberration\", \"rgb-split\", \"hover\", \"glitch\", \"3d-glasses\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Left ghost color\", \"default\": \"#ff4d4d\" },\n      { \"name\": \"--b\", \"description\": \"Right ghost color\", \"default\": \"#4dd2ff\" },\n      { \"name\": \"--d\", \"description\": \"Split distance\", \"default\": \"4px\" }\n    ],\n    \"variations\": [\"Constant jitter instead of hover\", \"Vertical split\", \"Animate the split on page load\"],\n    \"ai_usage\": \"Hover treatment for links or titles in a technical or retro-futurist design. Duplicates go in data-text attributes rendered by ::before/::after so the DOM keeps a single text node.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --r: #ff4d4d; --b: #4dd2ff; --d: 4px; }\n    .rgb { position: relative; font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 900; cursor: default; }\n    .rgb::before, .rgb::after { content: attr(data-text); position: absolute; inset: 0; transition: transform .25s ease; }\n    .rgb::before { color: var(--r); z-index: -1; }\n    .rgb::after { color: var(--b); z-index: -2; }\n    .rgb:hover::before { transform: translate(calc(var(--d) * -1), calc(var(--d) * -.5)); }\n    .rgb:hover::after { transform: translate(var(--d), calc(var(--d) * .5)); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"rgb\" data-text=\"ABERRATION\">ABERRATION</h1>\n</body>\n</html>\n"
+}

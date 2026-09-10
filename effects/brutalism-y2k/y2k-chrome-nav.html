@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chrome Nav Bar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "y2k-chrome-nav",
+    "title": "Chrome Nav Bar",
+    "summary": "A metallic navigation bar with bevelled tabs.",
+    "description": "A metallic navigation bar with bevelled tabs.",
+    "theme": "brutalism-y2k",
+    "categories": ["brutalism", "y2k"],
+    "tags": ["brutalism", "raw", "chrome", "nav", "bevel", "metal"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+    "customization": [
+      { "name": "--c", "description": "Metal tone", "default": "#94a3b8" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Y2K and skeuomorphic revivals. Every element gets a light-to-dark vertical gradient plus a 1px white inset — that pairing is the whole look."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 3px; padding: 5px; border-radius: 10px;
+      background: linear-gradient(180deg, #f8fafc, #94a3b8); box-shadow: inset 0 1px 0 #fff, 0 6px 16px rgba(0,0,0,.4); }
+    .fx a { padding: .5rem 1rem; border-radius: 7px; color: #1e293b; text-decoration: none; font-weight: 700; font-size: .85rem;
+      background: linear-gradient(180deg, #fff, #cbd5e1); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,.3); }
+    .fx a:hover { background: linear-gradient(180deg, #e0f2fe, #7dd3fc); }
+  </style>
+</head>
+<body>
+  <nav class="fx"><a href="#">Home</a><a href="#">Gallery</a><a href="#">Guestbook</a></nav>
+</body>
+</html>

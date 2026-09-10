@@ -1,0 +1,44 @@
+{
+  "id": "card-stack-3d-deck",
+  "title": "3D Card Deck",
+  "summary": "Cards receding into depth with a fan on hover.",
+  "description": "Cards receding into depth with a fan on hover.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "transform"
+  ],
+  "tags": [
+    "3d",
+    "transform",
+    "deck",
+    "stack",
+    "depth",
+    "fan"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--gap",
+      "description": "Depth gap",
+      "default": "30px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Collection previews. Translate on Z rather than scaling so the perspective does the shrinking for you and the cards stay geometrically consistent.",
+  "path": "effects/3d-transforms/card-stack-3d-deck.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>3D Card Deck</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-stack-3d-deck\",\n    \"title\": \"3D Card Deck\",\n    \"summary\": \"Cards receding into depth with a fan on hover.\",\n    \"description\": \"Cards receding into depth with a fan on hover.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"transform\"],\n    \"tags\": [\"3d\", \"transform\", \"deck\", \"stack\", \"depth\", \"fan\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--gap\", \"description\": \"Depth gap\", \"default\": \"30px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Collection previews. Translate on Z rather than scaling so the perspective does the shrinking for you and the cards stay geometrically consistent.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .deck { position: relative; width: 170px; height: 220px; perspective: 900px; }\n    .c { position: absolute; inset: 0; border-radius: 16px; background: linear-gradient(160deg, #1b2338, #10141f);\n      border: 1px solid #2b3450; transition: transform .45s cubic-bezier(.2,.8,.3,1); transform-style: preserve-3d; }\n    .c:nth-child(1) { transform: translateZ(-60px) translateY(18px); }\n    .c:nth-child(2) { transform: translateZ(-30px) translateY(9px); }\n    .deck:hover .c:nth-child(1) { transform: translateZ(-60px) translateY(18px) rotate(-10deg) translateX(-40px); }\n    .deck:hover .c:nth-child(2) { transform: translateZ(-30px) translateY(9px) rotate(-4deg) translateX(-16px); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"deck\"><div class=\"c\"></div><div class=\"c\"></div><div class=\"c\"></div></div>\n</body>\n</html>\n"
+}

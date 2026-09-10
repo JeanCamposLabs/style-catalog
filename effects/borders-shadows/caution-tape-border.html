@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hazard Stripe Border</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "caution-tape-border",
+    "title": "Hazard Stripe Border",
+    "summary": "A diagonal hazard stripe frames the panel.",
+    "description": "A repeating-linear-gradient border-image applies the stripes to the edge without a wrapper element.",
+    "theme": "borders-shadows",
+    "categories": ["border"],
+    "tags": ["hazard", "caution", "stripes", "border-image", "warning"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Stripe A", "default": "#fbbf24" },
+      { "name": "--b", "description": "Stripe B", "default": "#0b0d12" },
+      { "name": "--w", "description": "Border width", "default": "10px" }
+    ],
+    "variations": ["Red and white for danger", "Animate the stripes to march", "Thinner border for a subtle warning"],
+    "ai_usage": "Destructive zones, staging banners, and maintenance states. border-image with a repeating gradient and border-image-slice:1 is the only way to get a patterned border without extra markup."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }
+    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    :root { --a: #fbbf24; --b: #0b0d12; --w: 10px; }
+    .demo { background: #151b2a; border: var(--w) solid transparent;
+      border-image: repeating-linear-gradient(45deg, var(--a) 0 10px, var(--b) 10px 20px) 1; }
+  </style>
+</head>
+<body>
+  <div class="demo"><h3>Staging only</h3><p>Do not deploy from here.</p></div>
+</body>
+</html>

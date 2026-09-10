@@ -1,0 +1,44 @@
+{
+  "id": "variant-swatch-picker",
+  "title": "Variant Picker",
+  "summary": "Colour and size selectors with an out-of-stock state.",
+  "description": "Colour and size selectors with an out-of-stock state.",
+  "theme": "ecommerce-ui",
+  "themeTitle": "E-commerce UI",
+  "categories": [
+    "ecommerce",
+    "commerce"
+  ],
+  "tags": [
+    "ecommerce",
+    "shop",
+    "variant",
+    "swatch",
+    "size",
+    "stock"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Selected colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Compact variant for dense lists"
+  ],
+  "related": [],
+  "ai_usage": "Product options. Out-of-stock variants must be visibly and semantically disabled, with the reason stated — greying them out alone leaves users guessing.",
+  "path": "effects/ecommerce-ui/variant-swatch-picker.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Variant Picker</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"variant-swatch-picker\",\n    \"title\": \"Variant Picker\",\n    \"summary\": \"Colour and size selectors with an out-of-stock state.\",\n    \"description\": \"Colour and size selectors with an out-of-stock state.\",\n    \"theme\": \"ecommerce-ui\",\n    \"categories\": [\"ecommerce\", \"commerce\"],\n    \"tags\": [\"ecommerce\", \"shop\", \"variant\", \"swatch\", \"size\", \"stock\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Price, stock, and discount information must be in text, never only a colour or a badge shape.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Selected colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Compact variant for dense lists\"],\n    \"ai_usage\": \"Product options. Out-of-stock variants must be visibly and semantically disabled, with the reason stated — greying them out alone leaves users guessing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; }\n    .fx h4 { margin: 0 0 .5rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: #8b93a7; }\n    .fx .row { display: flex; gap: .5rem; margin-bottom: 1rem; }\n    .fx .sw { width: 34px; height: 34px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }\n    .fx .sw[aria-pressed=\"true\"] { border-color: #e7ebf3; outline: 2px solid #0b0d12; }\n    .fx .sz { min-width: 42px; padding: .4rem .6rem; border-radius: 9px; border: 1px solid #2b3450; background: #151b2a;\n      color: #cbd5e1; font: inherit; font-size: .85rem; cursor: pointer; }\n    .fx .sz[aria-pressed=\"true\"] { border-color: #7c5cff; background: #1e1740; color: #fff; }\n    .fx .sz[disabled] { opacity: .4; cursor: not-allowed; text-decoration: line-through; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><h4>Colour</h4><div class=\"row\">\n    <button class=\"sw\" type=\"button\" aria-pressed=\"true\" aria-label=\"Violet\" style=\"background:#7c5cff\"></button>\n    <button class=\"sw\" type=\"button\" aria-pressed=\"false\" aria-label=\"Teal\" style=\"background:#2dd4bf\"></button>\n    <button class=\"sw\" type=\"button\" aria-pressed=\"false\" aria-label=\"Sand\" style=\"background:#d6bfa0\"></button></div>\n  <h4>Size</h4><div class=\"row\"><button class=\"sz\" type=\"button\" aria-pressed=\"false\">S</button>\n  <button class=\"sz\" type=\"button\" aria-pressed=\"true\">M</button>\n  <button class=\"sz\" type=\"button\" aria-pressed=\"false\" disabled>L (sold out)</button></div></div>\n</body>\n</html>\n"
+}

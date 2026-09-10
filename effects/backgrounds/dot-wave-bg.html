@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dot Wave Field</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "dot-wave-bg",
+    "title": "Dot Wave Field",
+    "summary": "A grid of dots whose scale ripples outward in a wave.",
+    "description": "Per-dot delays computed from distance to the centre make the ripple radiate instead of sweeping in rows.",
+    "theme": "backgrounds",
+    "categories": ["background", "grid"],
+    "tags": ["dots", "wave", "ripple", "grid", "kinetic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Roughly 100 small elements animating transform only — fine, but do not scale this to thousands of dots.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Dot color", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Ripple period", "default": "2.6s" }
+    ],
+    "variations": ["Opacity ripple instead of scale", "Follow the pointer with JS", "Colour shift along the wave"],
+    "ai_usage": "Interactive hero sections and data-flavoured backdrops. Compute the delay from the dot's distance to the wave origin — a linear index delay produces a diagonal sweep, not a circular ripple."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: #7c5cff; --dur: 2.6s; }
+    .bg { background: #0b0d12; display: grid; place-items: center; }
+    .field { display: grid; grid-template-columns: repeat(12, 26px); gap: 0; }
+    .field i { width: 26px; height: 26px; display: grid; place-items: center; }
+    .field i::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--c);
+      animation: pulse var(--dur) ease-in-out infinite; animation-delay: calc(var(--d) * .08s); }
+    @keyframes pulse { 0%, 100% { transform: scale(.5); opacity: .3; } 50% { transform: scale(1.6); opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"><div class="field" id="f" aria-hidden="true"></div></div>
+  <script>
+    (function () {
+      var f = document.getElementById("f"), cols = 12, rows = 8;
+      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+        var i = document.createElement("i");
+        var d = Math.sqrt(Math.pow(c - cols / 2, 2) + Math.pow(r - rows / 2, 2));
+        i.style.setProperty("--d", d.toFixed(2));
+        f.appendChild(i);
+      }
+    })();
+  </script>
+</body>
+</html>

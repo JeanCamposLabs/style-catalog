@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inline Banner</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "banner-inline-warning",
+    "title": "Inline Banner",
+    "summary": "A page-level warning with an action.",
+    "description": "A page-level warning with an action.",
+    "theme": "notifications-toasts",
+    "categories": ["notification", "feedback"],
+    "tags": ["notification", "feedback", "banner", "warning", "inline", "action"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+    "customization": [
+      { "name": "--warn", "description": "Warning colour", "default": "#c2891a" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Account and configuration warnings. Persistent banners must be dismissible or resolvable — a permanent warning teaches users to ignore the pattern."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: .8rem; width: 300px; padding: .9rem 1rem; border-radius: 12px;
+      background: #211a08; border: 1px solid #c2891a; color: #f3e3c0; }
+    .fx .ic { flex: none; color: #c2891a; font-size: 1.1rem; }
+    .fx b { display: block; font-size: .88rem; margin-bottom: .15rem; color: #fff; }
+    .fx p { margin: 0 0 .6rem; font-size: .82rem; line-height: 1.5; }
+    .fx button { padding: .35rem .8rem; border: 0; border-radius: 8px; background: #c2891a; color: #211a08;
+      font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="alert"><span class="ic" aria-hidden="true">▲</span>
+  <div><b>Payment method expiring</b><p>Your card ends 09/26. Update it to avoid interruption.</p>
+  <button type="button">Update card</button></div></div>
+</body>
+</html>

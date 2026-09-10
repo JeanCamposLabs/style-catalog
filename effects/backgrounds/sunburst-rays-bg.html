@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sunburst Rays</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "sunburst-rays-bg",
+    "title": "Sunburst Rays",
+    "summary": "Radiating wedges spread from a corner and rotate slowly.",
+    "description": "A repeating-conic-gradient produces the rays in one declaration; rotating the whole layer avoids the banding an animated gradient angle would cause.",
+    "theme": "backgrounds",
+    "categories": ["background", "retro"],
+    "tags": ["sunburst", "rays", "conic-gradient", "retro", "radial"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Ray color", "default": "rgba(251,191,36,.18)" },
+      { "name": "--dur", "description": "Rotation", "default": "40s" }
+    ],
+    "variations": ["Centre the burst for a mandala", "More rays for a finer fan", "Static version for a poster"],
+    "ai_usage": "Retro posters, sales banners, and anime-style emphasis. repeating-conic-gradient(from 0deg, color 0 6deg, transparent 6deg 12deg) is the whole pattern; rotate the element rather than animating the from-angle."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: rgba(251,191,36,.18); --dur: 40s; }
+    .bg { background: radial-gradient(circle at 50% 50%, #1a1408, #0b0d12 70%); overflow: hidden; }
+    .bg i { position: absolute; inset: -50%;
+      background: repeating-conic-gradient(from 0deg, var(--a) 0 6deg, transparent 6deg 14deg);
+      animation: spin var(--dur) linear infinite; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"><i></i></div>
+</body>
+</html>

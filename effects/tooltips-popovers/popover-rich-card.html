@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rich Popover</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "popover-rich-card",
+    "title": "Rich Popover",
+    "summary": "A click popover with a heading, body, and actions.",
+    "description": "A click popover with a heading, body, and actions.",
+    "theme": "tooltips-popovers",
+    "categories": ["tooltip", "overlay"],
+    "tags": ["tooltip", "popover", "popover", "click", "rich", "actions"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.",
+    "customization": [
+      { "name": "--bg", "description": "Panel background", "default": "#141a28" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Anything with interactive content. Popovers open on click, trap nothing but return focus to the trigger on close, and dismiss on Escape and outside click."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .pop { position: relative; display: inline-block; }
+    .pop > button { padding: .6rem 1.1rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; cursor: pointer; }
+    .panel { position: absolute; top: calc(100% + 10px); left: 0; width: 250px; padding: 1rem; border-radius: 14px;
+      background: #141a28; border: 1px solid #2b3450; box-shadow: 0 20px 50px rgba(0,0,0,.55); display: none; }
+    .pop.is-open .panel { display: block; }
+    .panel h4 { margin: 0 0 .35rem; font-size: .95rem; }
+    .panel p { margin: 0 0 .9rem; color: #8b93a7; font-size: .85rem; line-height: 1.5; }
+    .panel .acts { display: flex; gap: .5rem; }
+    .panel button { padding: .4rem .8rem; border-radius: 8px; border: 0; font: inherit; font-size: .82rem; cursor: pointer; }
+    .panel .primary { background: #7c5cff; color: #fff; }
+    .panel .ghost { background: transparent; color: #8b93a7; }
+  </style>
+</head>
+<body>
+  <span class="pop" id="pop"><button type="button" aria-expanded="false">Share ▾</button>
+  <div class="panel" role="dialog" aria-label="Share options"><h4>Share this project</h4>
+  <p>Anyone with the link can view the current version.</p>
+  <div class="acts"><button class="primary" type="button">Copy link</button><button class="ghost" type="button">Settings</button></div></div></span>
+  <script>
+    (function () {
+      var p = document.getElementById("pop"), b = p.querySelector("button");
+      b.addEventListener("click", function () { b.setAttribute("aria-expanded", String(p.classList.toggle("is-open"))); });
+      addEventListener("keydown", function (e) { if (e.key === "Escape") { p.classList.remove("is-open"); b.setAttribute("aria-expanded", "false"); } });
+    })();
+  </script>
+</body>
+</html>

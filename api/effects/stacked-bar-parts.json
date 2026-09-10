@@ -1,0 +1,54 @@
+{
+  "id": "stacked-bar-parts",
+  "title": "Stacked Bars",
+  "summary": "Part-to-whole composition per category.",
+  "description": "Part-to-whole composition per category.",
+  "theme": "charts-dataviz",
+  "themeTitle": "Charts & Data Viz",
+  "categories": [
+    "chart",
+    "dataviz"
+  ],
+  "tags": [
+    "chart",
+    "data",
+    "stacked",
+    "composition",
+    "part-to-whole",
+    "segments"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+  "customization": [
+    {
+      "name": "--c1",
+      "description": "Segment one",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--c2",
+      "description": "Segment two",
+      "default": "#10a894"
+    },
+    {
+      "name": "--c3",
+      "description": "Segment three",
+      "default": "#c2891a"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "Showing composition when the total also matters. A 2px surface-coloured gap between segments keeps them legible without borders. Only the bottom segment is easy to compare across bars — if every part needs comparing, use grouped bars instead.",
+  "path": "effects/charts-dataviz/stacked-bar-parts.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stacked Bars</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"stacked-bar-parts\",\n    \"title\": \"Stacked Bars\",\n    \"summary\": \"Part-to-whole composition per category.\",\n    \"description\": \"Part-to-whole composition per category.\",\n    \"theme\": \"charts-dataviz\",\n    \"categories\": [\"chart\", \"dataviz\"],\n    \"tags\": [\"chart\", \"data\", \"stacked\", \"composition\", \"part-to-whole\", \"segments\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.\",\n    \"customization\": [\n      { \"name\": \"--c1\", \"description\": \"Segment one\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--c2\", \"description\": \"Segment two\", \"default\": \"#10a894\" },\n      { \"name\": \"--c3\", \"description\": \"Segment three\", \"default\": \"#c2891a\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"Showing composition when the total also matters. A 2px surface-coloured gap between segments keeps them legible without borders. Only the bottom segment is easy to compare across bars — if every part needs comparing, use grouped bars instead.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;\n      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; width: 300px; }\n    .fx h4 { margin: 0 0 .8rem; font-size: .95rem; color: var(--ink); }\n    .fx .legend { display: flex; gap: 1rem; margin-bottom: .8rem; font-size: .76rem; color: var(--ink-2); }\n    .fx .legend span { display: inline-flex; align-items: center; gap: .35rem; }\n    .fx .legend i { width: 10px; height: 10px; border-radius: 3px; }\n    .fx .plot { display: flex; align-items: flex-end; gap: 14px; height: 140px; }\n    .fx .st { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; height: 100%; }\n    .fx .st i { border-radius: 2px; height: calc(var(--v) * 1%); }\n    .fx .st i:first-child { border-radius: 4px 4px 2px 2px; }\n    .fx .axis { display: flex; gap: 14px; margin-top: .4rem; }\n    .fx .axis span { flex: 1; text-align: center; font-size: .7rem; color: var(--ink-2); }\n  </style>\n</head>\n<body>\n  <figure class=\"fx\" style=\"margin:0\"><h4>Effects by tech</h4>\n  <div class=\"legend\"><span><i style=\"background:var(--c1)\"></i>CSS</span><span><i style=\"background:var(--c2)\"></i>SVG</span><span><i style=\"background:var(--c3)\"></i>JS</span></div>\n  <div class=\"plot\" role=\"img\" aria-label=\"Stacked bars of CSS, SVG and JS counts across three quarters\">\n    <div class=\"st\"><i style=\"--v:20;background:var(--c3)\"></i><i style=\"--v:22;background:var(--c2)\"></i><i style=\"--v:44;background:var(--c1)\"></i></div>\n    <div class=\"st\"><i style=\"--v:16;background:var(--c3)\"></i><i style=\"--v:26;background:var(--c2)\"></i><i style=\"--v:52;background:var(--c1)\"></i></div>\n    <div class=\"st\"><i style=\"--v:14;background:var(--c3)\"></i><i style=\"--v:20;background:var(--c2)\"></i><i style=\"--v:66;background:var(--c1)\"></i></div></div>\n  <div class=\"axis\"><span>Q1</span><span>Q2</span><span>Q3</span></div></figure>\n</body>\n</html>\n"
+}

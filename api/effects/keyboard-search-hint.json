@@ -1,0 +1,44 @@
+{
+  "id": "keyboard-search-hint",
+  "title": "Search Shortcut Hint",
+  "summary": "A field showing its keyboard shortcut.",
+  "description": "A field showing its keyboard shortcut.",
+  "theme": "search-ui",
+  "themeTitle": "Search UI",
+  "categories": [
+    "search",
+    "filter"
+  ],
+  "tags": [
+    "search",
+    "find",
+    "shortcut",
+    "hint",
+    "kbd",
+    "affordance"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Field background",
+      "default": "#151b2a"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Search entry points in keyboard-first apps. Show the shortcut in the resting state so it is discoverable without documentation.",
+  "path": "effects/search-ui/keyboard-search-hint.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Search Shortcut Hint</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"keyboard-search-hint\",\n    \"title\": \"Search Shortcut Hint\",\n    \"summary\": \"A field showing its keyboard shortcut.\",\n    \"description\": \"A field showing its keyboard shortcut.\",\n    \"theme\": \"search-ui\",\n    \"categories\": [\"search\", \"filter\"],\n    \"tags\": [\"search\", \"find\", \"shortcut\", \"hint\", \"kbd\", \"affordance\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Field background\", \"default\": \"#151b2a\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Search entry points in keyboard-first apps. Show the shortcut in the resting state so it is discoverable without documentation.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; align-items: center; gap: .6rem; width: 280px; padding: .65rem .8rem; border-radius: 12px;\n      border: 1px solid #2b3450; background: #151b2a; color: #8b93a7; font-size: .88rem; cursor: text; }\n    .fx kbd { margin-left: auto; padding: .12rem .4rem; border-radius: 5px; background: #1c2437; border: 1px solid #2b3450;\n      border-bottom-width: 2px; font-family: ui-monospace, monospace; font-size: .72rem; color: #cbd5e1; }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-label=\"Search, press slash\"><span aria-hidden=\"true\">⌕</span> Search specimens <kbd>/</kbd></button>\n</body>\n</html>\n"
+}

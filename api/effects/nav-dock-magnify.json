@@ -1,0 +1,44 @@
+{
+  "id": "nav-dock-magnify",
+  "title": "Magnifying Dock",
+  "summary": "Icons that scale by proximity to the pointer.",
+  "description": "Icons that scale by proximity to the pointer.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "dock",
+    "magnify",
+    "proximity",
+    "macos"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--max",
+      "description": "Maximum scale",
+      "default": "1.6"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Toolbars and app docks. Scale by distance from the pointer with a falloff, and always keep the untouched size a comfortable hit target — magnification is not a substitute for size.",
+  "path": "effects/navigation-menus/nav-dock-magnify.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Magnifying Dock</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-dock-magnify\",\n    \"title\": \"Magnifying Dock\",\n    \"summary\": \"Icons that scale by proximity to the pointer.\",\n    \"description\": \"Icons that scale by proximity to the pointer.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"dock\", \"magnify\", \"proximity\", \"macos\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--max\", \"description\": \"Maximum scale\", \"default\": \"1.6\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Toolbars and app docks. Scale by distance from the pointer with a falloff, and always keep the untouched size a comfortable hit target — magnification is not a substitute for size.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; align-items: flex-end; gap: 8px; padding: 8px 12px; border-radius: 18px; background: #151b2a;\n      border: 1px solid #263149; }\n    .fx button { width: 42px; height: 42px; border: 0; border-radius: 12px; background: #1e2740; color: #cbd5e1;\n      font-size: 1.1rem; cursor: pointer; transition: transform .18s cubic-bezier(.2,.8,.3,1); transform-origin: bottom; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"dk\" role=\"toolbar\" aria-label=\"Dock\">\n    <button type=\"button\" aria-label=\"Home\">⌂</button><button type=\"button\" aria-label=\"Search\">⌕</button>\n    <button type=\"button\" aria-label=\"Library\">▣</button><button type=\"button\" aria-label=\"Settings\">⚙</button></div>\n  <script>\n    (function () {\n      var d = document.getElementById(\"dk\"), bs = [].slice.call(d.querySelectorAll(\"button\"));\n      d.addEventListener(\"pointermove\", function (e) {\n        bs.forEach(function (b) {\n          var r = b.getBoundingClientRect(), c = r.left + r.width / 2;\n          var f = Math.max(0, 1 - Math.abs(e.clientX - c) / 110);\n          b.style.transform = \"scale(\" + (1 + f * .6) + \")\";\n        });\n      });\n      d.addEventListener(\"pointerleave\", function () { bs.forEach(function (b) { b.style.transform = \"\"; }); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

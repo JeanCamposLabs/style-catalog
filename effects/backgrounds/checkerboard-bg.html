@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkerboard</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "checkerboard-bg",
+    "title": "Checkerboard",
+    "summary": "A classic two-tone checker built from two offset conic gradients.",
+    "description": "One conic-gradient tile with four quadrants tiles into a perfect checker at any size.",
+    "theme": "backgrounds",
+    "categories": ["background", "pattern"],
+    "tags": ["checker", "conic-gradient", "tile", "retro", "pattern"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Square A", "default": "#11161f" },
+      { "name": "--b", "description": "Square B", "default": "#0b0d12" },
+      { "name": "--s", "description": "Square size", "default": "40px" }
+    ],
+    "variations": ["Rotate 45° for a diamond check", "Animate the tile size", "High-contrast racing flag"],
+    "ai_usage": "Transparency indicators, retro sections, and image placeholders. conic-gradient(#a 0 25%, #b 0 50%, #a 0 75%, #b 0) with background-size: 2×square is the shortest correct checker in CSS."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: #11161f; --b: #0b0d12; --s: 40px; }
+    .bg { background: conic-gradient(var(--a) 0 25%, var(--b) 0 50%, var(--a) 0 75%, var(--b) 0);
+      background-size: var(--s) var(--s); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

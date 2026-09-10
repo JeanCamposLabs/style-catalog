@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team Page</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "template-team-page",
+    "title": "Team Page",
+    "summary": "Member cards with roles and links.",
+    "description": "Member cards with roles and links.",
+    "theme": "website-templates",
+    "categories": ["template", "page"],
+    "tags": ["template", "page", "team", "people", "about", "cards"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+    "customization": [
+      { "name": "--cols", "description": "Column count", "default": "2" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "About and team pages. Put each person's name in a heading so the page has a usable outline, and keep role text short enough to fit one line at card width."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { padding: 1.4rem; max-width: 32rem; margin: 0 auto; }
+    h1 { margin: 0 0 .3rem; font-size: 1.5rem; }
+    .sub { margin: 0 0 1.2rem; color: #8b93a7; font-size: .88rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .m { padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; text-align: center; }
+    .m .av { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto .6rem; display: grid; place-items: center;
+      font-weight: 800; color: #0b0d12; font-size: .9rem; }
+    .m b { display: block; font-size: .9rem; }
+    .m span { color: #8b93a7; font-size: .78rem; }
+    .m a { display: inline-block; margin-top: .5rem; color: #b9a5ff; text-decoration: none; font-size: .76rem; }
+  </style>
+</head>
+<body>
+  <h1>The team</h1><p class="sub">Four people and a very patient build server.</p>
+  <div class="grid"><article class="m"><div class="av" style="background:#7c5cff">JC</div><b>Jean Campos</b><span>Design engineer</span><br><a href="#">Profile</a></article>
+  <article class="m"><div class="av" style="background:#10a894">AL</div><b>Ada Lovelace</b><span>Systems</span><br><a href="#">Profile</a></article>
+  <article class="m"><div class="av" style="background:#c2891a">MR</div><b>Max Rivera</b><span>Accessibility</span><br><a href="#">Profile</a></article>
+  <article class="m"><div class="av" style="background:#d1478c">SK</div><b>Sam Kaur</b><span>Docs</span><br><a href="#">Profile</a></article></div>
+</body>
+</html>

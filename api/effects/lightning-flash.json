@@ -1,0 +1,44 @@
+{
+  "id": "lightning-flash",
+  "title": "Lightning Flash",
+  "summary": "An infrequent bright flash over a storm sky.",
+  "description": "An infrequent bright flash over a storm sky.",
+  "theme": "weather-ambient",
+  "themeTitle": "Weather & Ambient",
+  "categories": [
+    "weather",
+    "ambient"
+  ],
+  "tags": [
+    "weather",
+    "ambient",
+    "lightning",
+    "storm",
+    "flash",
+    "weather"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Flash interval",
+      "default": "7s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Storm scenes. Keep flashes rare and brief, cap opacity around 0.5, and disable under reduced motion — rapid full-screen flashes are a genuine accessibility hazard.",
+  "path": "effects/weather-ambient/lightning-flash.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Lightning Flash</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"lightning-flash\",\n    \"title\": \"Lightning Flash\",\n    \"summary\": \"An infrequent bright flash over a storm sky.\",\n    \"description\": \"An infrequent bright flash over a storm sky.\",\n    \"theme\": \"weather-ambient\",\n    \"categories\": [\"weather\", \"ambient\"],\n    \"tags\": [\"weather\", \"ambient\", \"lightning\", \"storm\", \"flash\", \"weather\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Flash interval\", \"default\": \"7s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Storm scenes. Keep flashes rare and brief, cap opacity around 0.5, and disable under reduced motion — rapid full-screen flashes are a genuine accessibility hazard.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 250px; height: 170px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #111827, #1f2937); }\n    .fx::after { content: \"\"; position: absolute; inset: 0; background: #dbeafe; opacity: 0;\n      animation: flash 7s steps(1) infinite; }\n    .fx .bolt { position: absolute; top: 20%; left: 46%; width: 4px; height: 70px; background: #fde68a; opacity: 0;\n      clip-path: polygon(40% 0, 100% 42%, 55% 44%, 100% 100%, 0 52%, 45% 50%);\n      animation: flash 7s steps(1) infinite; }\n    @keyframes flash { 0%, 88%, 100% { opacity: 0; } 89% { opacity: .55; } 90% { opacity: 0; } 91% { opacity: .35; } 92% { opacity: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"bolt\"></span></div>\n</body>\n</html>\n"
+}

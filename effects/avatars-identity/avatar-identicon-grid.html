@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Identicon</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "avatar-identicon-grid",
+    "title": "Identicon",
+    "summary": "A deterministic pattern generated from a seed.",
+    "description": "A deterministic pattern generated from a seed.",
+    "theme": "avatars-identity",
+    "categories": ["avatar", "identity"],
+    "tags": ["avatar", "identity", "identicon", "generated", "deterministic", "seed"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+    "customization": [
+      { "name": "--c", "description": "Pattern colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Anonymous or unset profile images. Mirror the left columns onto the right so the pattern is symmetric, which is what makes identicons recognisable rather than noisy."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 10px; }
+    .id { width: 52px; height: 52px; border-radius: 12px; display: grid; grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr); overflow: hidden; background: #151b2a; }
+    .id i { background: var(--c); }
+    .id i.off { background: transparent; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="id" style="--c:#7c5cff" role="img" aria-label="Identicon for user 8f2a">
+    <i class="off"></i><i></i><i class="off"></i><i></i><i class="off"></i>
+    <i></i><i></i><i></i><i></i><i></i>
+    <i></i><i class="off"></i><i></i><i class="off"></i><i></i>
+    <i class="off"></i><i></i><i></i><i></i><i class="off"></i>
+    <i></i><i class="off"></i><i class="off"></i><i class="off"></i><i></i></div>
+  <div class="id" style="--c:#10a894" role="img" aria-label="Identicon for user c71e">
+    <i></i><i class="off"></i><i></i><i class="off"></i><i></i>
+    <i class="off"></i><i></i><i></i><i></i><i class="off"></i>
+    <i></i><i></i><i class="off"></i><i></i><i></i>
+    <i class="off"></i><i class="off"></i><i></i><i class="off"></i><i class="off"></i>
+    <i></i><i></i><i class="off"></i><i></i><i></i></div></div>
+</body>
+</html>

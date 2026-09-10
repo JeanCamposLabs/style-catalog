@@ -1,0 +1,55 @@
+{
+  "id": "houndstooth",
+  "title": "Houndstooth",
+  "summary": "The classic broken-check textile pattern.",
+  "description": "The classic broken-check textile pattern. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "houndstooth",
+    "textile",
+    "fashion",
+    "check"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Light tone",
+      "default": "#e7ebf3"
+    },
+    {
+      "name": "--b",
+      "description": "Dark tone",
+      "default": "#0b0d12"
+    },
+    {
+      "name": "--s",
+      "description": "Tile size",
+      "default": "40px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Fashion and heritage branding. The offset third layer is what breaks the checks into the dogtooth shape — remove it and you get a plain diamond check.",
+  "path": "effects/patterns-textures/houndstooth.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Houndstooth</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"houndstooth\",\n    \"title\": \"Houndstooth\",\n    \"summary\": \"The classic broken-check textile pattern.\",\n    \"description\": \"The classic broken-check textile pattern. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"houndstooth\", \"textile\", \"fashion\", \"check\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Light tone\", \"default\": \"#e7ebf3\" },\n      { \"name\": \"--b\", \"description\": \"Dark tone\", \"default\": \"#0b0d12\" },\n      { \"name\": \"--s\", \"description\": \"Tile size\", \"default\": \"40px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Fashion and heritage branding. The offset third layer is what breaks the checks into the dogtooth shape — remove it and you get a plain diamond check.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #e7ebf3; --b: #0b0d12; --s: 40px; }\n    .bg { background-color: var(--b);\n      background-image: linear-gradient(-45deg, var(--a) 25%, transparent 25% 75%, var(--a) 75%),\n        linear-gradient(45deg, var(--a) 25%, transparent 25% 75%, var(--a) 75%),\n        linear-gradient(-45deg, var(--b) 12%, transparent 12% 88%, var(--b) 88%);\n      background-size: var(--s) var(--s); background-position: 0 0, calc(var(--s) / 2) calc(var(--s) / 2), 0 0; }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

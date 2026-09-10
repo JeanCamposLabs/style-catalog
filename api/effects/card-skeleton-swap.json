@@ -1,0 +1,44 @@
+{
+  "id": "card-skeleton-swap",
+  "title": "Card with Skeleton State",
+  "summary": "The loading and loaded states of the same card, side by side.",
+  "description": "The loading and loaded states of the same card, side by side. Self-contained card markup you can drop into a grid.",
+  "theme": "cards-surfaces",
+  "themeTitle": "Cards & Surfaces",
+  "categories": [
+    "card",
+    "surface"
+  ],
+  "tags": [
+    "card",
+    "surface",
+    "skeleton",
+    "loading",
+    "placeholder",
+    "state"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Shimmer period",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Adapt for a light theme",
+    "Add a media area at the top"
+  ],
+  "related": [],
+  "ai_usage": "Ship the skeleton with the same dimensions as the real card so nothing shifts when content arrives — that jump is the main cause of layout-shift complaints.",
+  "path": "effects/cards-surfaces/card-skeleton-swap.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Card with Skeleton State</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-skeleton-swap\",\n    \"title\": \"Card with Skeleton State\",\n    \"summary\": \"The loading and loaded states of the same card, side by side.\",\n    \"description\": \"The loading and loaded states of the same card, side by side. Self-contained card markup you can drop into a grid.\",\n    \"theme\": \"cards-surfaces\",\n    \"categories\": [\"card\", \"surface\"],\n    \"tags\": [\"card\", \"surface\", \"skeleton\", \"loading\", \"placeholder\", \"state\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A clickable card needs one real link or button inside it; never attach a click handler to a bare div.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Shimmer period\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Adapt for a light theme\", \"Add a media area at the top\"],\n    \"ai_usage\": \"Ship the skeleton with the same dimensions as the real card so nothing shifts when content arrives — that jump is the main cause of layout-shift complaints.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }\n    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }\n    .row { display: flex; gap: 14px; }\n    .card { background: #151b2a; border: 1px solid #263149; width: 200px; }\n    .sk { height: 12px; border-radius: 6px; margin-bottom: 10px;\n      background: linear-gradient(90deg, #1b2231 25%, #2b3550 37%, #1b2231 63%); background-size: 400% 100%;\n      animation: sheen 1.6s ease-in-out infinite; }\n    .sk.t { height: 18px; width: 60%; }\n    @keyframes sheen { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"row\">\n    <article class=\"card\"><div class=\"sk t\"></div><div class=\"sk\"></div><div class=\"sk\" style=\"width:80%\"></div></article>\n    <article class=\"card\"><h3>Loaded</h3><p>Same box, real content.</p></article>\n  </div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Achievement Unlocked</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "achievement-toast",
+    "title": "Achievement Unlocked",
+    "summary": "A trophy popup that slides in and shines.",
+    "description": "A trophy popup that slides in and shines.",
+    "theme": "game-ui",
+    "categories": ["game", "ui"],
+    "tags": ["game", "hud", "achievement", "trophy", "toast", "reward"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+    "customization": [
+      { "name": "--c", "description": "Trophy colour", "default": "#fbbf24" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Reward moments. Announce it with an aria-live region as well — an achievement that only appears visually is missed by screen-reader players."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; display: flex; align-items: center; gap: .9rem; width: 280px; padding: .8rem 1rem;
+      border-radius: 12px; overflow: hidden; background: linear-gradient(120deg, #1c1917, #292524);
+      border: 1px solid #a16207; animation: slidein .6s cubic-bezier(.34,1.56,.64,1) both; }
+    .fx::after { content: ""; position: absolute; top: 0; bottom: 0; width: 50%; left: -60%;
+      background: linear-gradient(90deg, transparent, rgba(251,191,36,.35), transparent); transform: skewX(-20deg);
+      animation: shine 2.6s ease-in-out 1s infinite; }
+    .fx .tr { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; font-size: 1.4rem;
+      background: linear-gradient(160deg, #fde68a, #b45309); }
+    .fx b { display: block; font-size: .9rem; color: #fde68a; }
+    .fx span { font-size: .78rem; color: #a8a29e; }
+    @keyframes slidein { from { opacity: 0; transform: translateX(40px); } }
+    @keyframes shine { 0% { left: -60%; } 45%, 100% { left: 140%; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx" role="status"><span class="tr" aria-hidden="true">🏆</span><div><b>Achievement unlocked</b><span>Catalogued 1,000 specimens</span></div></div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inverted Cutout Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cutout-hover-button",
+    "title": "Inverted Cutout Button",
+    "summary": "On hover the fill and the label swap places instantly along a diagonal.",
+    "description": "A skewed pseudo-element wipes across, and mix-blend-mode: difference flips the label color exactly where it passes.",
+    "theme": "buttons",
+    "categories": ["button", "hover"],
+    "tags": ["blend-mode", "invert", "wipe", "brutalist", "hover"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Fill color", "default": "#e7ebf3" },
+      { "name": "--dur", "description": "Wipe duration", "default": "0.35s" }
+    ],
+    "variations": ["Vertical wipe", "Two-color difference blend", "Instant swap with no easing for a brutalist feel"],
+    "ai_usage": "Editorial and brutalist designs. mix-blend-mode: difference on the label means you never have to manage two color states — but it requires isolation on the button so the blend does not reach the page."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #e7ebf3; --dur: .35s; }
+    .cut { position: relative; isolation: isolate; overflow: hidden; padding: 1rem 2.4rem; background: transparent;
+      border: 2px solid var(--c); color: var(--c); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .cut span { position: relative; mix-blend-mode: difference; }
+    .cut::before { content: ""; position: absolute; inset: -2px; background: var(--c); transform: translateX(-101%) skewX(-12deg);
+      transition: transform var(--dur) cubic-bezier(.7,0,.2,1); }
+    .cut:hover::before { transform: translateX(0) skewX(-12deg); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="cut" type="button"><span>Invert</span></button>
+</body>
+</html>

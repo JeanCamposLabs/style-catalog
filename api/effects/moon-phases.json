@@ -1,0 +1,44 @@
+{
+  "id": "moon-phases",
+  "title": "Moon Phases",
+  "summary": "Eight phases rendered with masked circles.",
+  "description": "Eight phases rendered with masked circles.",
+  "theme": "space-cosmic",
+  "themeTitle": "Space & Cosmic",
+  "categories": [
+    "space",
+    "cosmic"
+  ],
+  "tags": [
+    "space",
+    "cosmic",
+    "moon",
+    "phases",
+    "astronomy",
+    "calendar"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Moon colour",
+      "default": "#e2e8f0"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Calendars and astronomy widgets. A shadow disc translated and scaled horizontally reproduces every phase from one element.",
+  "path": "effects/space-cosmic/moon-phases.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Moon Phases</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"moon-phases\",\n    \"title\": \"Moon Phases\",\n    \"summary\": \"Eight phases rendered with masked circles.\",\n    \"description\": \"Eight phases rendered with masked circles.\",\n    \"theme\": \"space-cosmic\",\n    \"categories\": [\"space\", \"cosmic\"],\n    \"tags\": [\"space\", \"cosmic\", \"moon\", \"phases\", \"astronomy\", \"calendar\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Moon colour\", \"default\": \"#e2e8f0\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Calendars and astronomy widgets. A shadow disc translated and scaled horizontally reproduces every phase from one element.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 10px; flex-wrap: wrap; width: 280px; justify-content: center; }\n    .fx i { width: 44px; height: 44px; border-radius: 50%; background: #e2e8f0; position: relative; overflow: hidden; }\n    .fx i::after { content: \"\"; position: absolute; inset: 0; background: #0b0d12; border-radius: 50%;\n      transform: translateX(var(--x)) scaleX(var(--sx)); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--x:0%;--sx:1\"></i><i style=\"--x:-70%;--sx:1\"></i><i style=\"--x:-100%;--sx:1\"></i>\n  <i style=\"--x:-100%;--sx:.4\"></i><i style=\"--x:100%;--sx:.4\"></i><i style=\"--x:100%;--sx:1\"></i><i style=\"--x:70%;--sx:1\"></i></div>\n</body>\n</html>\n"
+}

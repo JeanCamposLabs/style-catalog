@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arrow Shape</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "clip-arrow-right",
+    "title": "Arrow Shape",
+    "summary": "A right-pointing arrow block.",
+    "description": "A right-pointing arrow block. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.",
+    "theme": "masks-clipping",
+    "categories": ["mask", "shape"],
+    "tags": ["clip-path", "mask", "arrow", "direction", "polygon"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.",
+    "customization": [
+      { "name": "--head", "description": "Arrowhead width", "default": "35%" }
+    ],
+    "variations": ["Animate the shape on hover", "Combine with a gradient fill"],
+    "ai_usage": "Process diagrams and CTAs. Chain several of these with negative margins to build a breadcrumb-style step bar."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .art { width: 210px; height: 210px; background: conic-gradient(from 210deg at 40% 35%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }
+    .label { margin-top: .9rem; text-align: center; color: #8b93a7; font-size: .82rem; }
+    .shape { clip-path: polygon(0 20%, 65% 20%, 65% 0, 100% 50%, 65% 100%, 65% 80%, 0 80%); }
+  </style>
+</head>
+<body>
+  <div><div class="art shape"></div><p class="label">Arrow Shape</p></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "id": "squish-button",
+  "title": "Squish Button",
+  "summary": "The button squashes under the press and springs back on release.",
+  "description": "An overshooting release curve plus a horizontal squash on :active mimics a soft physical key.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "press"
+  ],
+  "tags": [
+    "squish",
+    "press",
+    "spring",
+    "tactile",
+    "active"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Button color",
+      "default": "#f472b6"
+    },
+    {
+      "name": "--dur",
+      "description": "Release spring",
+      "default": "0.4s"
+    }
+  ],
+  "variations": [
+    "Deeper squash for a rubber feel",
+    "Add a shadow that flattens on press",
+    "Pair with haptics on touch"
+  ],
+  "related": [],
+  "ai_usage": "Mobile and playful UIs. The trick is asymmetric timing: instant on :active (transition-duration ~0s) and springy on release (cubic-bezier(.34,1.56,.64,1)) — equal timings feel mushy.",
+  "path": "effects/buttons/squish-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Squish Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"squish-button\",\n    \"title\": \"Squish Button\",\n    \"summary\": \"The button squashes under the press and springs back on release.\",\n    \"description\": \"An overshooting release curve plus a horizontal squash on :active mimics a soft physical key.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"press\"],\n    \"tags\": [\"squish\", \"press\", \"spring\", \"tactile\", \"active\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Button color\", \"default\": \"#f472b6\" },\n      { \"name\": \"--dur\", \"description\": \"Release spring\", \"default\": \"0.4s\" }\n    ],\n    \"variations\": [\"Deeper squash for a rubber feel\", \"Add a shadow that flattens on press\", \"Pair with haptics on touch\"],\n    \"ai_usage\": \"Mobile and playful UIs. The trick is asymmetric timing: instant on :active (transition-duration ~0s) and springy on release (cubic-bezier(.34,1.56,.64,1)) — equal timings feel mushy.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #f472b6; --dur: .4s; }\n    .squish { padding: 1rem 2.4rem; border-radius: 16px; background: var(--c); color: #23102a; font-weight: 800;\n      box-shadow: 0 8px 0 color-mix(in srgb, var(--c) 55%, #000); transition: transform var(--dur) cubic-bezier(.34,1.56,.64,1), box-shadow var(--dur); }\n    .squish:active { transform: translateY(6px) scale(1.06, .9); box-shadow: 0 2px 0 color-mix(in srgb, var(--c) 55%, #000); transition-duration: .05s; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"squish\" type=\"button\">Press me</button>\n</body>\n</html>\n"
+}

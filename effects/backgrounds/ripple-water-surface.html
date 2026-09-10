@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Water Ripples</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "ripple-water-surface",
+    "title": "Water Ripples",
+    "summary": "Expanding rings spread from three points on a dark pool.",
+    "description": "Each ripple scales up while its border thins and fades, matching how a real ripple loses energy as it spreads.",
+    "theme": "backgrounds",
+    "categories": ["background", "water"],
+    "tags": ["ripple", "water", "rings", "expand", "ambient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Ripple color", "default": "rgba(125,211,252,.4)" },
+      { "name": "--dur", "description": "Ripple lifetime", "default": "4s" }
+    ],
+    "variations": ["Ripple on click at the pointer", "Warmer colour for lava", "Fewer, larger ripples"],
+    "ai_usage": "Calm, meditative sections and water themes. Fade the border-width as well as the opacity while scaling — constant stroke width makes the ring look like a growing circle instead of a wave."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(125,211,252,.4); --dur: 4s; }
+    .bg { background: radial-gradient(ellipse at 50% 60%, #08202e, #050b12 70%); overflow: hidden; }
+    .bg i { position: absolute; width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--c);
+      animation: spread var(--dur) ease-out infinite; animation-delay: var(--dl); }
+    @keyframes spread {
+      0% { transform: scale(.2); opacity: 1; border-width: 4px; }
+      100% { transform: scale(9); opacity: 0; border-width: 1px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <i style="left:22%;top:34%;--dl:0s"></i>
+    <i style="left:64%;top:52%;--dl:1.3s"></i>
+    <i style="left:44%;top:72%;--dl:2.6s"></i>
+  </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nested Task Progress</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "progress-tree-loading",
+    "title": "Nested Task Progress",
+    "summary": "A parent task whose bar aggregates its children.",
+    "description": "A parent task whose bar aggregates its children.",
+    "theme": "progress-meters",
+    "categories": ["progress", "meter"],
+    "tags": ["progress", "indicator", "nested", "aggregate", "tasks", "build"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+    "customization": [
+      { "name": "--p", "description": "Aggregate percent", "default": "55" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Build pipelines and multi-stage jobs. Derive the parent value from the children rather than tracking it separately, or the two will disagree."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .tp { width: 300px; font-size: .88rem; }
+    .tp .p { display: flex; justify-content: space-between; color: #e7ebf3; font-weight: 700; margin-bottom: .4rem; }
+    .tp .bar { height: 7px; border-radius: 99px; background: #22304a; overflow: hidden; margin-bottom: .8rem; }
+    .tp .bar i { display: block; height: 100%; width: calc(var(--p) * 1%); background: #7c5cff; }
+    .tp .kid { display: flex; align-items: center; gap: .6rem; padding: .25rem 0 .25rem 1rem; color: #8b93a7; }
+    .tp .kid .mini { flex: 1; height: 4px; border-radius: 99px; background: #22304a; overflow: hidden; }
+    .tp .kid .mini i { display: block; height: 100%; background: #2dd4bf; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="tp" style="--p:55"><div class="p"><span>Build pipeline</span><span>55%</span></div>
+  <div class="bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"><i></i></div>
+  <div class="kid">Install<span class="mini"><i style="width:100%"></i></span></div>
+  <div class="kid">Compile<span class="mini"><i style="width:65%"></i></span></div>
+  <div class="kid">Test<span class="mini"><i style="width:0%"></i></span></div></div>
+</body>
+</html>

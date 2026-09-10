@@ -1,0 +1,44 @@
+{
+  "id": "firefly-glow",
+  "title": "Fireflies",
+  "summary": "Points of warm light drifting and blinking.",
+  "description": "Points of warm light drifting and blinking.",
+  "theme": "nature-organic",
+  "themeTitle": "Nature & Organic",
+  "categories": [
+    "nature",
+    "organic"
+  ],
+  "tags": [
+    "organic",
+    "nature",
+    "fireflies",
+    "glow",
+    "night",
+    "ambient"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Glow colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Evening and forest scenes. Independent drift and blink cycles per firefly is what makes the field feel alive rather than choreographed.",
+  "path": "effects/nature-organic/firefly-glow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Fireflies</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"firefly-glow\",\n    \"title\": \"Fireflies\",\n    \"summary\": \"Points of warm light drifting and blinking.\",\n    \"description\": \"Points of warm light drifting and blinking.\",\n    \"theme\": \"nature-organic\",\n    \"categories\": [\"nature\", \"organic\"],\n    \"tags\": [\"organic\", \"nature\", \"fireflies\", \"glow\", \"night\", \"ambient\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Glow colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Evening and forest scenes. Independent drift and blink cycles per firefly is what makes the field feel alive rather than choreographed.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 260px; height: 170px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #0b1a12, #050b08); }\n    .fx i { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #fde68a;\n      box-shadow: 0 0 10px #fbbf24; animation: drift var(--d) ease-in-out infinite alternate, blink var(--b) ease-in-out infinite; }\n    @keyframes drift { from { transform: translate(0, 0); } to { transform: translate(var(--dx), var(--dy)); } }\n    @keyframes blink { 0%, 100% { opacity: .15; } 50% { opacity: 1; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"left:16%;top:30%;--d:6s;--b:2.4s;--dx:30px;--dy:-20px\"></i>\n  <i style=\"left:52%;top:60%;--d:8s;--b:3.1s;--dx:-24px;--dy:-30px\"></i>\n  <i style=\"left:76%;top:24%;--d:7s;--b:1.9s;--dx:-18px;--dy:26px\"></i>\n  <i style=\"left:34%;top:74%;--d:9s;--b:2.7s;--dx:22px;--dy:-18px\"></i></div>\n</body>\n</html>\n"
+}

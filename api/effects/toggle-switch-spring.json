@@ -1,0 +1,44 @@
+{
+  "id": "toggle-switch-spring",
+  "title": "Springy Toggle",
+  "summary": "A switch whose knob stretches as it travels.",
+  "description": "A switch whose knob stretches as it travels.",
+  "theme": "micro-interactions",
+  "themeTitle": "Micro-interactions",
+  "categories": [
+    "micro-interaction",
+    "feedback"
+  ],
+  "tags": [
+    "micro-interaction",
+    "feedback",
+    "toggle",
+    "switch",
+    "spring",
+    "press"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+  "customization": [
+    {
+      "name": "--on",
+      "description": "On colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Settings toggles. The knob widening on press is the detail that makes a switch feel physical; keep the travel spring under 350ms so it never feels sluggish.",
+  "path": "effects/micro-interactions/toggle-switch-spring.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Springy Toggle</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"toggle-switch-spring\",\n    \"title\": \"Springy Toggle\",\n    \"summary\": \"A switch whose knob stretches as it travels.\",\n    \"description\": \"A switch whose knob stretches as it travels.\",\n    \"theme\": \"micro-interactions\",\n    \"categories\": [\"micro-interaction\", \"feedback\"],\n    \"tags\": [\"micro-interaction\", \"feedback\", \"toggle\", \"switch\", \"spring\", \"press\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.\",\n    \"customization\": [\n      { \"name\": \"--on\", \"description\": \"On colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Settings toggles. The knob widening on press is the detail that makes a switch feel physical; keep the travel spring under 350ms so it never feels sluggish.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 62px; height: 34px; border-radius: 99px; border: 0; background: #2b3450; cursor: pointer;\n      transition: background .25s; }\n    .fx::after { content: \"\"; position: absolute; top: 4px; left: 4px; width: 26px; height: 26px; border-radius: 99px;\n      background: #fff; transition: transform .32s cubic-bezier(.34,1.56,.64,1), width .2s; }\n    .fx[aria-pressed=\"true\"] { background: #10a894; }\n    .fx[aria-pressed=\"true\"]::after { transform: translateX(28px); }\n    .fx:active::after { width: 32px; }\n    .fx:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-pressed=\"false\" aria-label=\"Enable notifications\" id=\"tg\"></button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"tg\");\n      b.addEventListener(\"click\", function () {\n        b.setAttribute(\"aria-pressed\", b.getAttribute(\"aria-pressed\") === \"true\" ? \"false\" : \"true\");\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

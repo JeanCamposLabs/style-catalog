@@ -1,0 +1,44 @@
+{
+  "id": "template-error-500-page",
+  "title": "Server Error Page",
+  "summary": "A 500 page with recovery options.",
+  "description": "A 500 page with recovery options.",
+  "theme": "website-templates",
+  "themeTitle": "Website Templates",
+  "categories": [
+    "template",
+    "page"
+  ],
+  "tags": [
+    "template",
+    "page",
+    "error",
+    "500",
+    "recovery",
+    "page"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Action colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Server-error pages. Give a reference ID users can quote to support and at least one working escape route; a bare error code generates support load rather than resolving it.",
+  "path": "effects/website-templates/template-error-500-page.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Server Error Page</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"template-error-500-page\",\n    \"title\": \"Server Error Page\",\n    \"summary\": \"A 500 page with recovery options.\",\n    \"description\": \"A 500 page with recovery options.\",\n    \"theme\": \"website-templates\",\n    \"categories\": [\"template\", \"page\"],\n    \"tags\": [\"template\", \"page\", \"error\", \"500\", \"recovery\", \"page\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Action colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Server-error pages. Give a reference ID users can quote to support and at least one working escape route; a bare error code generates support load rather than resolving it.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; place-items: center; min-height: 100vh; padding: 1.4rem; text-align: center; }\n    .wrap { max-width: 24rem; }\n    .code { font-size: 4rem; font-weight: 900; line-height: 1; background: linear-gradient(135deg, #d1478c, #c2891a);\n      -webkit-background-clip: text; background-clip: text; color: transparent; }\n    h1 { margin: .6rem 0 .4rem; font-size: 1.3rem; }\n    p { margin: 0 0 1.2rem; color: #8b93a7; font-size: .9rem; line-height: 1.6; }\n    .row { display: flex; gap: .5rem; justify-content: center; }\n    button, a.btn { padding: .6rem 1.2rem; border-radius: 10px; border: 1px solid #2b3450; background: transparent;\n      color: #cbd5e1; font: inherit; font-size: .86rem; cursor: pointer; text-decoration: none; }\n    .primary { background: #7c5cff; border-color: #7c5cff; color: #fff; font-weight: 700; }\n    .ref { margin-top: 1rem; font-family: ui-monospace, monospace; font-size: .72rem; color: #64748b; }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\"><div class=\"code\">500</div><h1>Something broke on our side</h1>\n  <p>The catalogue index failed to load. The team has been notified automatically.</p>\n  <div class=\"row\"><button class=\"primary\" type=\"button\">Try again</button><a class=\"btn\" href=\"#\">Status page</a></div>\n  <div class=\"ref\">Reference: 8f2a-4c19-b703</div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Date Range</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "date-range-picker-bar",
+    "title": "Date Range",
+    "summary": "A range selection with highlighted intermediate days.",
+    "description": "A range selection with highlighted intermediate days.",
+    "theme": "calendar-time",
+    "categories": ["calendar", "time"],
+    "tags": ["calendar", "date", "date-range", "picker", "selection", "filter"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+    "customization": [
+      { "name": "--c", "description": "Range colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Reports and bookings. Highlight the in-between days as a continuous band (square inner corners, rounded ends) so the range reads as one selection."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 260px; padding: 1rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }
+    .fx .g { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; text-align: center; }
+    .fx .g button { aspect-ratio: 1; border: 0; background: transparent; color: #cbd5e1; font: inherit; font-size: .8rem; cursor: pointer; }
+    .fx .g button.in { background: rgba(124,92,255,.2); }
+    .fx .g button.start { background: #7c5cff; color: #fff; border-radius: 9px 0 0 9px; }
+    .fx .g button.end { background: #7c5cff; color: #fff; border-radius: 0 9px 9px 0; }
+    .fx .lbl { margin-top: .8rem; font-size: .8rem; color: #8b93a7; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="g"><button>8</button><button>9</button><button class="start">10</button><button class="in">11</button>
+  <button class="in">12</button><button class="in">13</button><button class="end">14</button></div>
+  <div class="lbl">10 – 14 September · 5 nights</div></div>
+</body>
+</html>

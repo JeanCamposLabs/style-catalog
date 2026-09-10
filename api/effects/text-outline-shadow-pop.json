@@ -1,0 +1,44 @@
+{
+  "id": "text-outline-shadow-pop",
+  "title": "Sticker Text",
+  "summary": "Outlined text with a hard offset shadow.",
+  "description": "Outlined text with a hard offset shadow.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "typography"
+  ],
+  "tags": [
+    "text",
+    "type",
+    "sticker",
+    "outline",
+    "offset",
+    "bold"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative duplicates are aria-hidden.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Fill colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Playful and brutalist headlines. paint-order: stroke fill puts the outline behind the fill so the letterforms keep their intended weight.",
+  "path": "effects/text-effects/text-outline-shadow-pop.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sticker Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"text-outline-shadow-pop\",\n    \"title\": \"Sticker Text\",\n    \"summary\": \"Outlined text with a hard offset shadow.\",\n    \"description\": \"Outlined text with a hard offset shadow.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"typography\"],\n    \"tags\": [\"text\", \"type\", \"sticker\", \"outline\", \"offset\", \"bold\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative duplicates are aria-hidden.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Fill colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Playful and brutalist headlines. paint-order: stroke fill puts the outline behind the fill so the letterforms keep their intended weight.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { font-size: 2.6rem; font-weight: 900; color: #fbbf24; -webkit-text-stroke: 3px #0b0d12;\n      paint-order: stroke fill; text-shadow: 5px 5px 0 #0b0d12; letter-spacing: .02em; }\n  </style>\n</head>\n<body>\n  <h2 class=\"fx\">STICKER</h2>\n</body>\n</html>\n"
+}

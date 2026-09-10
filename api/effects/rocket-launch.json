@@ -1,0 +1,44 @@
+{
+  "id": "rocket-launch",
+  "title": "Rocket Launch",
+  "summary": "A rocket rising on a flickering exhaust plume.",
+  "description": "A rocket rising on a flickering exhaust plume.",
+  "theme": "space-cosmic",
+  "themeTitle": "Space & Cosmic",
+  "categories": [
+    "space",
+    "cosmic"
+  ],
+  "tags": [
+    "space",
+    "cosmic",
+    "rocket",
+    "launch",
+    "flame",
+    "startup"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Flame colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Launch and deploy moments. A fast stepped flicker on the plume plus slow hover on the body reads as thrust; matching their speeds looks like bouncing.",
+  "path": "effects/space-cosmic/rocket-launch.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rocket Launch</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"rocket-launch\",\n    \"title\": \"Rocket Launch\",\n    \"summary\": \"A rocket rising on a flickering exhaust plume.\",\n    \"description\": \"A rocket rising on a flickering exhaust plume.\",\n    \"theme\": \"space-cosmic\",\n    \"categories\": [\"space\", \"cosmic\"],\n    \"tags\": [\"space\", \"cosmic\", \"rocket\", \"launch\", \"flame\", \"startup\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Flame colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Launch and deploy moments. A fast stepped flicker on the plume plus slow hover on the body reads as thrust; matching their speeds looks like bouncing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 140px; height: 190px; display: grid; place-items: center; }\n    .fx .r { position: relative; width: 40px; height: 90px; border-radius: 50% 50% 12px 12px;\n      background: linear-gradient(160deg, #f8fafc, #94a3b8); animation: hover 2s ease-in-out infinite alternate; }\n    .fx .r::after { content: \"\"; position: absolute; top: 24px; left: 50%; translate: -50% 0; width: 16px; height: 16px;\n      border-radius: 50%; background: #38bdf8; box-shadow: inset 0 2px 4px rgba(0,0,0,.4); }\n    .fx .flame { position: absolute; top: 88px; left: 50%; translate: -50% 0; width: 22px; height: 40px;\n      border-radius: 50% 50% 60% 60% / 30% 30% 100% 100%; background: linear-gradient(180deg, #fbbf24, #ef4444);\n      animation: flicker .18s steps(2) infinite; }\n    @keyframes hover { to { transform: translateY(-10px); } }\n    @keyframes flicker { to { transform: scaleY(.8) scaleX(1.1); opacity: .85; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"r\"></span><span class=\"flame\"></span></div>\n</body>\n</html>\n"
+}

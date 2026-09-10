@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Temperature Scale</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "temperature-gradient-bar",
+    "title": "Temperature Scale",
+    "summary": "A colour scale from cold to hot with a marker.",
+    "description": "A colour scale from cold to hot with a marker.",
+    "theme": "weather-ambient",
+    "categories": ["weather", "ambient"],
+    "tags": ["weather", "ambient", "temperature", "scale", "gradient", "legend"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+    "customization": [
+      { "name": "--p", "description": "Marker position", "default": "62" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Weather and data legends. Always label the ends: a colour ramp without numbers cannot be read accurately by anyone."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .fx .bar { height: 14px; border-radius: 99px; background: linear-gradient(90deg, #38bdf8, #22c55e, #fbbf24, #ef4444); position: relative; }
+    .fx .pin { position: absolute; top: -5px; left: calc(var(--p) * 1%); translate: -50% 0; width: 5px; height: 24px;
+      border-radius: 3px; background: #fff; box-shadow: 0 0 0 2px #0b0d12; }
+    .fx .lb { display: flex; justify-content: space-between; margin-top: .5rem; font-size: .75rem; color: #8b93a7; }
+  </style>
+</head>
+<body>
+  <div class="fx" style="--p:62"><div class="bar" role="img" aria-label="18 degrees, mild"><span class="pin"></span></div>
+  <div class="lb"><span>-10°</span><span>0°</span><span>20°</span><span>40°</span></div></div>
+</body>
+</html>

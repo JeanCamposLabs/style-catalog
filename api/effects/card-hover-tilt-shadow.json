@@ -1,0 +1,44 @@
+{
+  "id": "card-hover-tilt-shadow",
+  "title": "Tilting Card",
+  "summary": "The card tips toward the pointer with a matching shadow.",
+  "description": "The card tips toward the pointer with a matching shadow. Self-contained card markup you can drop into a grid.",
+  "theme": "cards-surfaces",
+  "themeTitle": "Cards & Surfaces",
+  "categories": [
+    "card",
+    "surface"
+  ],
+  "tags": [
+    "card",
+    "surface",
+    "tilt",
+    "3d",
+    "hover",
+    "shadow"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+  "customization": [
+    {
+      "name": "--tilt",
+      "description": "Tilt angle",
+      "default": "6deg"
+    }
+  ],
+  "variations": [
+    "Adapt for a light theme",
+    "Add a media area at the top"
+  ],
+  "related": [],
+  "ai_usage": "Portfolio and product grids. Offset the shadow opposite the tilt direction so the light source stays consistent.",
+  "path": "effects/cards-surfaces/card-hover-tilt-shadow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tilting Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-hover-tilt-shadow\",\n    \"title\": \"Tilting Card\",\n    \"summary\": \"The card tips toward the pointer with a matching shadow.\",\n    \"description\": \"The card tips toward the pointer with a matching shadow. Self-contained card markup you can drop into a grid.\",\n    \"theme\": \"cards-surfaces\",\n    \"categories\": [\"card\", \"surface\"],\n    \"tags\": [\"card\", \"surface\", \"tilt\", \"3d\", \"hover\", \"shadow\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A clickable card needs one real link or button inside it; never attach a click handler to a bare div.\",\n    \"customization\": [\n      { \"name\": \"--tilt\", \"description\": \"Tilt angle\", \"default\": \"6deg\" }\n    ],\n    \"variations\": [\"Adapt for a light theme\", \"Add a media area at the top\"],\n    \"ai_usage\": \"Portfolio and product grids. Offset the shadow opposite the tilt direction so the light source stays consistent.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }\n    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }\n    .card { background: #151b2a; border: 1px solid #263149; transition: transform .3s ease, box-shadow .3s ease; }\n    .card:hover { transform: perspective(800px) rotateX(6deg) rotateY(-6deg) translateY(-4px);\n      box-shadow: -18px 22px 40px rgba(0,0,0,.5); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <article class=\"card\"><h3>Tilting Card</h3><p>The card tips toward the pointer with a matching shadow.</p></article>\n</body>\n</html>\n"
+}

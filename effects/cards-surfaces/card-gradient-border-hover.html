@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gradient Border Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-gradient-border-hover",
+    "title": "Gradient Border Card",
+    "summary": "A card whose border becomes a gradient on hover.",
+    "description": "A card whose border becomes a gradient on hover. Self-contained card markup you can drop into a grid.",
+    "theme": "cards-surfaces",
+    "categories": ["card", "surface"],
+    "tags": ["card", "surface", "gradient", "border", "hover", "mask"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+    "customization": [
+      { "name": "--a", "description": "Gradient start", "default": "#7c5cff" },
+      { "name": "--b", "description": "Gradient end", "default": "#2dd4bf" }
+    ],
+    "variations": ["Adapt for a light theme", "Add a media area at the top"],
+    "ai_usage": "Feature grids. Keep the resting border visible so the card has a defined edge before hover — hover-only borders make the grid look unfinished."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    .card { background: #151b2a; border: 1px solid #263149; transition: border-color .3s, transform .3s; position: relative; }
+    .card::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; opacity: 0;
+      background: linear-gradient(135deg, #7c5cff, #2dd4bf); transition: opacity .3s;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; }
+    .card:hover::before { opacity: 1; }
+    .card:hover { transform: translateY(-3px); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card"><h3>Gradient Border Card</h3><p>A card whose border becomes a gradient on hover.</p></article>
+</body>
+</html>

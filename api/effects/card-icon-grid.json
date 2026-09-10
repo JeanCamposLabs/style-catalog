@@ -1,0 +1,44 @@
+{
+  "id": "card-icon-grid",
+  "title": "Icon Feature Card",
+  "summary": "An icon block above a short feature description.",
+  "description": "An icon block above a short feature description. Self-contained card markup you can drop into a grid.",
+  "theme": "cards-surfaces",
+  "themeTitle": "Cards & Surfaces",
+  "categories": [
+    "card",
+    "surface"
+  ],
+  "tags": [
+    "card",
+    "surface",
+    "icon",
+    "feature",
+    "marketing",
+    "grid"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+  "customization": [
+    {
+      "name": "--g",
+      "description": "Icon gradient",
+      "default": "linear-gradient(135deg,#7c5cff,#2dd4bf)"
+    }
+  ],
+  "variations": [
+    "Adapt for a light theme",
+    "Add a media area at the top"
+  ],
+  "related": [],
+  "ai_usage": "Feature sections. Keep every icon block the same size across the grid so the headings share a baseline — mismatched icons are the usual cause of ragged feature rows.",
+  "path": "effects/cards-surfaces/card-icon-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Icon Feature Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-icon-grid\",\n    \"title\": \"Icon Feature Card\",\n    \"summary\": \"An icon block above a short feature description.\",\n    \"description\": \"An icon block above a short feature description. Self-contained card markup you can drop into a grid.\",\n    \"theme\": \"cards-surfaces\",\n    \"categories\": [\"card\", \"surface\"],\n    \"tags\": [\"card\", \"surface\", \"icon\", \"feature\", \"marketing\", \"grid\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A clickable card needs one real link or button inside it; never attach a click handler to a bare div.\",\n    \"customization\": [\n      { \"name\": \"--g\", \"description\": \"Icon gradient\", \"default\": \"linear-gradient(135deg,#7c5cff,#2dd4bf)\" }\n    ],\n    \"variations\": [\"Adapt for a light theme\", \"Add a media area at the top\"],\n    \"ai_usage\": \"Feature sections. Keep every icon block the same size across the grid so the headings share a baseline — mismatched icons are the usual cause of ragged feature rows.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }\n    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }\n    .card { background: #151b2a; border: 1px solid #263149; }\n    .card .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 1.2rem;\n      background: linear-gradient(135deg, #7c5cff, #2dd4bf); color: #0b0d12; margin-bottom: .9rem; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <article class=\"card\"><div class=\"ic\" aria-hidden=\"true\">⚡</div><h3>Instant deploys</h3><p>Ship in seconds with atomic rollbacks.</p></article>\n</body>\n</html>\n"
+}

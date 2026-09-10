@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Indeterminate Bar Set</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "progress-indeterminate-dots",
+    "title": "Indeterminate Bar Set",
+    "summary": "Three indeterminate bars at different speeds.",
+    "description": "Three indeterminate bars at different speeds.",
+    "theme": "progress-meters",
+    "categories": ["progress", "meter"],
+    "tags": ["progress", "indicator", "indeterminate", "unknown", "bars", "waiting"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+    "customization": [
+      { "name": "--c", "description": "Bar colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Parallel operations of unknown length. Different durations stop the bars from marching in lockstep, which otherwise reads as one animation."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .set { width: 300px; display: grid; gap: 12px; }
+    .set .t { height: 6px; border-radius: 99px; background: #22304a; overflow: hidden; position: relative; }
+    .set .t i { position: absolute; inset: 0 auto 0 0; width: 35%; border-radius: 99px; background: #7c5cff;
+      animation: run var(--d) cubic-bezier(.65,.05,.36,1) infinite; }
+    @keyframes run { 0% { left: -35%; } 100% { left: 100%; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="set"><div class="t"><i style="--d:1.3s"></i></div><div class="t"><i style="--d:1.7s"></i></div><div class="t"><i style="--d:2.1s"></i></div></div>
+</body>
+</html>

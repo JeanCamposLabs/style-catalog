@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chromatic Aberration</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "chromatic-aberration-filter",
+    "title": "Chromatic Aberration",
+    "summary": "Colour channels separated at the edges.",
+    "description": "Colour channels separated at the edges. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.",
+    "theme": "blend-filters",
+    "categories": ["filter", "color"],
+    "tags": ["filter", "css", "chromatic", "aberration", "lens", "glitch"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.",
+    "customization": [
+      { "name": "--split", "description": "Channel offset", "default": "3px" }
+    ],
+    "variations": ["Animate the filter value on hover", "Apply to a whole section with backdrop-filter"],
+    "ai_usage": "Lens realism and glitch aesthetics. Separate channels with feColorMatrix and offset them in opposite directions; a plain coloured overlay cannot do this."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; height: 170px; border-radius: 16px; overflow: hidden; position: relative;
+      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }
+    .label { margin-top: .8rem; text-align: center; color: #8b93a7; font-size: .82rem; }
+    .fx { position: relative; }
+    .fx::before, .fx::after { content: ""; position: absolute; inset: 0; background: inherit; }
+    .fx::before { filter: url(#redch); transform: translateX(-3px); mix-blend-mode: screen; }
+    .fx::after { filter: url(#cyanch); transform: translateX(3px); mix-blend-mode: screen; }
+    svg.defs { position: absolute; width: 0; height: 0; }
+  </style>
+</head>
+<body>
+  <div><div class="demo fx"></div><p class="label">Chromatic Aberration</p></div>
+  <svg class="defs" aria-hidden="true">
+    <filter id="redch"><feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
+    <filter id="cyanch"><feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/></filter>
+  </svg>
+</body>
+</html>

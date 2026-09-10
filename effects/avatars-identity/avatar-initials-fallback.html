@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Initials Fallback</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "avatar-initials-fallback",
+    "title": "Initials Fallback",
+    "summary": "Initials with a colour derived from the name.",
+    "description": "Initials with a colour derived from the name.",
+    "theme": "avatars-identity",
+    "categories": ["avatar", "identity"],
+    "tags": ["avatar", "identity", "initials", "fallback", "hash", "color"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+    "customization": [
+      { "name": "--c", "description": "Fallback colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "The image-missing case. Derive the background from a hash of the name so a person keeps the same colour everywhere, and check contrast against dark text."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 10px; }
+    .a { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-weight: 800;
+      color: #0b0d12; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="a" style="background:#7c5cff" role="img" aria-label="Jean Campos">JC</span>
+  <span class="a" style="background:#10a894" role="img" aria-label="Ada Lovelace">AL</span>
+  <span class="a" style="background:#c2891a" role="img" aria-label="Max Rivera">MR</span></div>
+</body>
+</html>

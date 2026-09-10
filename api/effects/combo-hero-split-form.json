@@ -1,0 +1,44 @@
+{
+  "id": "combo-hero-split-form",
+  "title": "Hero with Form",
+  "summary": "A headline beside an inline sign-up form.",
+  "description": "A headline beside an inline sign-up form.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "combo",
+    "section"
+  ],
+  "tags": [
+    "combo",
+    "block",
+    "hero",
+    "form",
+    "signup",
+    "landing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Action colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Landing pages with a single conversion goal. Ask for the minimum number of fields; every additional input measurably reduces completion.",
+  "path": "effects/combos-recipes/combo-hero-split-form.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hero with Form</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"combo-hero-split-form\",\n    \"title\": \"Hero with Form\",\n    \"summary\": \"A headline beside an inline sign-up form.\",\n    \"description\": \"A headline beside an inline sign-up form.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"combo\", \"section\"],\n    \"tags\": [\"combo\", \"block\", \"hero\", \"form\", \"signup\", \"landing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Action colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Landing pages with a single conversion goal. Ask for the minimum number of fields; every additional input measurably reduces completion.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; place-items: center; padding: 2rem 1rem; }\n    .fx { width: min(92vw, 310px); }\n    .fx h1 { margin: 0 0 .4rem; font-size: 1.7rem; line-height: 1.15; }\n    .fx .lede { margin: 0 0 1.1rem; color: #8b93a7; font-size: .9rem; line-height: 1.6; }\n    .fx form { display: grid; gap: .5rem; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }\n    .fx input { padding: .7rem .9rem; border-radius: 10px; border: 1px solid #2b3450; background: #10141f; color: #e7ebf3; font: inherit; font-size: .86rem; }\n    .fx button { padding: .7rem; border: 0; border-radius: 10px; background: #7c5cff; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }\n    .fx small { color: #64748b; font-size: .74rem; text-align: center; }\n  </style>\n</head>\n<body>\n  <section class=\"fx\"><h1>A museum of web effects, built for agents</h1>\n  <p class=\"lede\">1,181 self-contained specimens with machine-readable metadata.</p>\n  <form><label class=\"sr\" for=\"he\" style=\"position:absolute;left:-9999px\">Work email</label>\n  <input id=\"he\" type=\"email\" placeholder=\"you@studio.com\" /><button type=\"button\">Get access</button>\n  <small>No card required</small></form></section>\n</body>\n</html>\n"
+}

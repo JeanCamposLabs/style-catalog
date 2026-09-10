@@ -1,0 +1,44 @@
+{
+  "id": "avatar-loading-shimmer",
+  "title": "Avatar Skeleton",
+  "summary": "A shimmering placeholder while the image loads.",
+  "description": "A shimmering placeholder while the image loads.",
+  "theme": "avatars-identity",
+  "themeTitle": "Avatars & Identity",
+  "categories": [
+    "avatar",
+    "identity"
+  ],
+  "tags": [
+    "avatar",
+    "identity",
+    "skeleton",
+    "loading",
+    "placeholder",
+    "shimmer"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Shimmer period",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Profile rows waiting on data. Match the placeholder circle to the real avatar diameter so the row does not resize when the image arrives.",
+  "path": "effects/avatars-identity/avatar-loading-shimmer.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Avatar Skeleton</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"avatar-loading-shimmer\",\n    \"title\": \"Avatar Skeleton\",\n    \"summary\": \"A shimmering placeholder while the image loads.\",\n    \"description\": \"A shimmering placeholder while the image loads.\",\n    \"theme\": \"avatars-identity\",\n    \"categories\": [\"avatar\", \"identity\"],\n    \"tags\": [\"avatar\", \"identity\", \"skeleton\", \"loading\", \"placeholder\", \"shimmer\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Shimmer period\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Profile rows waiting on data. Match the placeholder circle to the real avatar diameter so the row does not resize when the image arrives.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; align-items: center; gap: .8rem; }\n    .a { width: 46px; height: 46px; border-radius: 50%; }\n    .l { display: grid; gap: 6px; }\n    .l i { height: 9px; border-radius: 5px; width: 120px; display: block; }\n    .l i.s { width: 70px; }\n    .sk { background: linear-gradient(90deg, #1b2231 25%, #2b3550 37%, #1b2231 63%); background-size: 400% 100%;\n      animation: sheen 1.6s ease-in-out infinite; }\n    @keyframes sheen { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" aria-hidden=\"true\"><span class=\"a sk\"></span><span class=\"l\"><i class=\"sk\"></i><i class=\"s sk\"></i></span></div>\n</body>\n</html>\n"
+}

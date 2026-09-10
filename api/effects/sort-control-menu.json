@@ -1,0 +1,44 @@
+{
+  "id": "sort-control-menu",
+  "title": "Sort Control",
+  "summary": "A sort selector with the active option ticked.",
+  "description": "A sort selector with the active option ticked.",
+  "theme": "search-ui",
+  "themeTitle": "Search UI",
+  "categories": [
+    "search",
+    "filter"
+  ],
+  "tags": [
+    "search",
+    "find",
+    "sort",
+    "menu",
+    "order",
+    "control"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#b9a5ff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Result ordering. Use role=menuitemradio with aria-checked so the current sort is announced, and show it on the trigger too.",
+  "path": "effects/search-ui/sort-control-menu.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sort Control</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"sort-control-menu\",\n    \"title\": \"Sort Control\",\n    \"summary\": \"A sort selector with the active option ticked.\",\n    \"description\": \"A sort selector with the active option ticked.\",\n    \"theme\": \"search-ui\",\n    \"categories\": [\"search\", \"filter\"],\n    \"tags\": [\"search\", \"find\", \"sort\", \"menu\", \"order\", \"control\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#b9a5ff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Result ordering. Use role=menuitemradio with aria-checked so the current sort is announced, and show it on the trigger too.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; display: inline-block; }\n    .fx > button { display: flex; align-items: center; gap: .5rem; padding: .5rem .9rem; border-radius: 10px;\n      border: 1px solid #2b3450; background: #151b2a; color: #cbd5e1; font: inherit; font-size: .85rem; cursor: pointer; }\n    .fx .menu { position: absolute; top: calc(100% + 6px); left: 0; min-width: 180px; padding: .3rem; border-radius: 11px;\n      background: #141a28; border: 1px solid #2b3450; box-shadow: 0 16px 38px rgba(0,0,0,.5); }\n    .fx .menu button { display: flex; justify-content: space-between; width: 100%; padding: .45rem .6rem; border: 0;\n      border-radius: 7px; background: transparent; color: #cbd5e1; font: inherit; font-size: .84rem; cursor: pointer; text-align: left; }\n    .fx .menu button:hover { background: #22304a; }\n    .fx .menu button[aria-checked=\"true\"] { color: #b9a5ff; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><button type=\"button\" aria-expanded=\"true\">Sort: Newest ▾</button>\n  <div class=\"menu\" role=\"menu\"><button role=\"menuitemradio\" aria-checked=\"true\" type=\"button\">Newest ✓</button>\n  <button role=\"menuitemradio\" aria-checked=\"false\" type=\"button\">Most used</button>\n  <button role=\"menuitemradio\" aria-checked=\"false\" type=\"button\">A–Z</button></div></div>\n</body>\n</html>\n"
+}

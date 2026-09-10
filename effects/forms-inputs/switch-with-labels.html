@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Labelled Switch</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "switch-with-labels",
+    "title": "Labelled Switch",
+    "summary": "A toggle whose two states are named inside the track.",
+    "description": "Showing both labels means the state is readable without learning what the colour means.",
+    "theme": "forms-inputs",
+    "categories": ["form", "toggle"],
+    "tags": ["switch", "toggle", "labels", "state", "accessible"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+    "customization": [
+      { "name": "--on", "description": "On colour", "default": "#34d399" },
+      { "name": "--off", "description": "Off colour", "default": "#3b465e" }
+    ],
+    "variations": ["Icons instead of words", "Three-state variant"],
+    "ai_usage": "Settings where the off state matters (Live/Draft, On/Off). Build on a real checkbox with :checked selectors so keyboard and forms work for free."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .sw { display: inline-flex; align-items: center; cursor: pointer; }
+    .sw input { position: absolute; opacity: 0; }
+    .sw .track { position: relative; display: flex; align-items: center; width: 120px; height: 40px; border-radius: 999px;
+      background: var(--off, #3b465e); transition: background .25s; }
+    .sw .thumb { position: absolute; left: 4px; width: 54px; height: 32px; border-radius: 999px; background: #fff;
+      transition: transform .28s cubic-bezier(.7,0,.2,1); }
+    .sw span { flex: 1; text-align: center; font-size: .8rem; font-weight: 700; z-index: 1; color: #0b0d12; }
+    .sw span.off { color: #cbd5e1; }
+    .sw input:checked + .track { background: var(--on, #34d399); }
+    .sw input:checked + .track .thumb { transform: translateX(58px); }
+    .sw input:focus-visible + .track { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <label class="sw"><input type="checkbox" /><span class="track"><span class="thumb" aria-hidden="true"></span><span>Live</span><span class="off">Draft</span></span></label>
+</body>
+</html>

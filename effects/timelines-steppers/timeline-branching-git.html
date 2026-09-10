@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Branch Graph</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "timeline-branching-git",
+    "title": "Branch Graph",
+    "summary": "A commit graph with a branch and a merge.",
+    "description": "A commit graph with a branch and a merge.",
+    "theme": "timelines-steppers",
+    "categories": ["timeline", "stepper"],
+    "tags": ["timeline", "sequence", "git", "branch", "merge", "graph"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+    "customization": [
+      { "name": "--main", "description": "Main branch", "default": "#7c5cff" },
+      { "name": "--feat", "description": "Feature branch", "default": "#10a894" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Version-control UIs. Colour each branch consistently and never recolour it when branches are filtered — colour follows the entity, not its position in the list."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 1rem; width: 280px; font-size: .82rem; }
+    .fx svg { width: 60px; flex: none; }
+    .fx .list { display: grid; gap: .95rem; padding-top: 2px; }
+    .fx .list div { color: #cbd5e1; }
+    .fx .list span { display: block; color: #8b93a7; font-size: .74rem; }
+    .fx circle { stroke: #0b0d12; stroke-width: 2; }
+    .fx path { fill: none; stroke-width: 2; }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 60 150" aria-hidden="true">
+    <path d="M14 10 L14 140" stroke="#7c5cff"/>
+    <path d="M14 44 C34 44 40 60 40 76 L40 96 C40 112 34 112 14 112" stroke="#10a894"/>
+    <circle cx="14" cy="14" r="6" fill="#7c5cff"/><circle cx="14" cy="44" r="6" fill="#7c5cff"/>
+    <circle cx="40" cy="78" r="6" fill="#10a894"/><circle cx="14" cy="112" r="6" fill="#7c5cff"/>
+    <circle cx="14" cy="140" r="6" fill="#7c5cff"/></svg>
+  <div class="list"><div>Bump version<span>main</span></div><div>Branch off<span>main</span></div>
+  <div>Add specimens<span>feature</span></div><div>Merge PR #412<span>main</span></div><div>Deploy<span>main</span></div></div></div>
+</body>
+</html>

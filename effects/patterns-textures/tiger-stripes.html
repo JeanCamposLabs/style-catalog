@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tiger Stripes</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "tiger-stripes",
+    "title": "Tiger Stripes",
+    "summary": "Irregular animal-print bands.",
+    "description": "Irregular animal-print bands. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "animal-print", "tiger", "stripes", "fashion"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--ground", "description": "Ground colour", "default": "#1a1208" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Fashion and bold branding. Three stripe layers at slightly different angles break the mechanical regularity of a single set."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background-color: #1a1208;
+      background-image: repeating-linear-gradient(80deg, #0b0d12 0 6px, transparent 6px 26px),
+        repeating-linear-gradient(96deg, #0b0d12 0 4px, transparent 4px 34px),
+        repeating-linear-gradient(70deg, #0b0d12 0 8px, transparent 8px 46px); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

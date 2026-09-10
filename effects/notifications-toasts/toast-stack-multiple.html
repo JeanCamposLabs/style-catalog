@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toast Stack</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "toast-stack-multiple",
+    "title": "Toast Stack",
+    "summary": "Several toasts stacked with depth.",
+    "description": "Several toasts stacked with depth.",
+    "theme": "notifications-toasts",
+    "categories": ["notification", "feedback"],
+    "tags": ["notification", "feedback", "stack", "multiple", "depth", "queue"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+    "customization": [
+      { "name": "--bg", "description": "Toast background", "default": "#1a2130" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Bursty notifications. Cap the visible stack at three and collapse the rest into a count — an unbounded stack covers the interface it is reporting on."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 290px; height: 130px; }
+    .t { position: absolute; left: 0; right: 0; padding: .75rem .9rem; border-radius: 12px; background: #1a2130;
+      border: 1px solid #2b3450; color: #cbd5e1; font-size: .84rem; box-shadow: 0 12px 26px rgba(0,0,0,.45); }
+    .t:nth-child(1) { top: 0; z-index: 3; }
+    .t:nth-child(2) { top: 10px; z-index: 2; transform: scale(.96); opacity: .8; }
+    .t:nth-child(3) { top: 20px; z-index: 1; transform: scale(.92); opacity: .6; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="t" role="status">Deploy finished in 42s</div><div class="t">Posters regenerated</div>
+  <div class="t">Catalogue rebuilt</div></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "id": "noise-texture-button",
+  "title": "Grainy Button",
+  "summary": "A soft gradient button with a fine film grain baked into the surface.",
+  "description": "An SVG fractal-noise data URI overlays the gradient at low opacity, killing the plastic look of a flat fill.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "texture"
+  ],
+  "tags": [
+    "grain",
+    "noise",
+    "texture",
+    "gradient",
+    "tactile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Gradient start",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--b",
+      "description": "Gradient end",
+      "default": "#f472b6"
+    },
+    {
+      "name": "--grain",
+      "description": "Grain opacity",
+      "default": "0.22"
+    }
+  ],
+  "variations": [
+    "Coarser grain via lower baseFrequency",
+    "Grain only on hover",
+    "Apply the same overlay to cards"
+  ],
+  "related": [],
+  "ai_usage": "Modern gradient-heavy brands. The grain is a base64-free inline SVG turbulence used as a background-image on a pseudo-element — cheaper and sharper than a raster texture, and it scales to any size.",
+  "path": "effects/buttons/noise-texture-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Grainy Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"noise-texture-button\",\n    \"title\": \"Grainy Button\",\n    \"summary\": \"A soft gradient button with a fine film grain baked into the surface.\",\n    \"description\": \"An SVG fractal-noise data URI overlays the gradient at low opacity, killing the plastic look of a flat fill.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"texture\"],\n    \"tags\": [\"grain\", \"noise\", \"texture\", \"gradient\", \"tactile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Gradient start\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--b\", \"description\": \"Gradient end\", \"default\": \"#f472b6\" },\n      { \"name\": \"--grain\", \"description\": \"Grain opacity\", \"default\": \"0.22\" }\n    ],\n    \"variations\": [\"Coarser grain via lower baseFrequency\", \"Grain only on hover\", \"Apply the same overlay to cards\"],\n    \"ai_usage\": \"Modern gradient-heavy brands. The grain is a base64-free inline SVG turbulence used as a background-image on a pseudo-element — cheaper and sharper than a raster texture, and it scales to any size.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --a: #7c5cff; --b: #f472b6; --grain: .22; }\n    .grainy { position: relative; overflow: hidden; padding: 1rem 2.4rem; border-radius: 14px;\n      background: linear-gradient(135deg, var(--a), var(--b)); color: #fff; font-weight: 800; isolation: isolate; }\n    .grainy::after { content: \"\"; position: absolute; inset: 0; opacity: var(--grain); mix-blend-mode: overlay;\n      background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\"); }\n  </style>\n</head>\n<body>\n  <button class=\"grainy\" type=\"button\">Textured</button>\n</body>\n</html>\n"
+}

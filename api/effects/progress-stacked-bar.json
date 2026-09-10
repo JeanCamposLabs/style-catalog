@@ -1,0 +1,54 @@
+{
+  "id": "progress-stacked-bar",
+  "title": "Stacked Progress Bar",
+  "summary": "One bar split into labelled categories.",
+  "description": "One bar split into labelled categories.",
+  "theme": "progress-meters",
+  "themeTitle": "Progress & Meters",
+  "categories": [
+    "progress",
+    "meter"
+  ],
+  "tags": [
+    "progress",
+    "indicator",
+    "stacked",
+    "segments",
+    "breakdown",
+    "storage"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Segment A",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--b",
+      "description": "Segment B",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--c",
+      "description": "Segment C",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Storage and budget breakdowns. Always ship a key: segment colours mean nothing without labels, and the segments are too small for inline text.",
+  "path": "effects/progress-meters/progress-stacked-bar.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stacked Progress Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"progress-stacked-bar\",\n    \"title\": \"Stacked Progress Bar\",\n    \"summary\": \"One bar split into labelled categories.\",\n    \"description\": \"One bar split into labelled categories.\",\n    \"theme\": \"progress-meters\",\n    \"categories\": [\"progress\", \"meter\"],\n    \"tags\": [\"progress\", \"indicator\", \"stacked\", \"segments\", \"breakdown\", \"storage\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Segment A\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--b\", \"description\": \"Segment B\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--c\", \"description\": \"Segment C\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Storage and budget breakdowns. Always ship a key: segment colours mean nothing without labels, and the segments are too small for inline text.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .sb { width: 300px; }\n    .sb .bar { display: flex; height: 16px; border-radius: 999px; overflow: hidden; background: #22304a; }\n    .sb .bar i { height: 100%; }\n    .sb .key { display: flex; gap: 1rem; margin-top: .7rem; font-size: .78rem; color: #8b93a7; }\n    .sb .key span { display: inline-flex; align-items: center; gap: .35rem; }\n    .sb .key b { width: 9px; height: 9px; border-radius: 3px; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"sb\"><div class=\"bar\" role=\"img\" aria-label=\"Documents 45%, media 28%, other 12%\">\n    <i style=\"width:45%;background:#7c5cff\"></i><i style=\"width:28%;background:#2dd4bf\"></i><i style=\"width:12%;background:#fbbf24\"></i>\n  </div><div class=\"key\"><span><b style=\"background:#7c5cff\"></b>Docs</span><span><b style=\"background:#2dd4bf\"></b>Media</span><span><b style=\"background:#fbbf24\"></b>Other</span></div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "pull-to-refresh-arc",
+  "title": "Pull to Refresh",
+  "summary": "An arc that fills as the list is pulled down.",
+  "description": "An arc that fills as the list is pulled down.",
+  "theme": "micro-interactions",
+  "themeTitle": "Micro-interactions",
+  "categories": [
+    "micro-interaction",
+    "feedback"
+  ],
+  "tags": [
+    "micro-interaction",
+    "feedback",
+    "pull-to-refresh",
+    "gesture",
+    "mobile",
+    "loading"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Indicator colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Mobile lists. Map the pull distance to the arc's rotation before release so the gesture feels connected, then hand over to a spin on commit.",
+  "path": "effects/micro-interactions/pull-to-refresh-arc.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Pull to Refresh</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"pull-to-refresh-arc\",\n    \"title\": \"Pull to Refresh\",\n    \"summary\": \"An arc that fills as the list is pulled down.\",\n    \"description\": \"An arc that fills as the list is pulled down.\",\n    \"theme\": \"micro-interactions\",\n    \"categories\": [\"micro-interaction\", \"feedback\"],\n    \"tags\": [\"micro-interaction\", \"feedback\", \"pull-to-refresh\", \"gesture\", \"mobile\", \"loading\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Indicator colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Mobile lists. Map the pull distance to the arc's rotation before release so the gesture feels connected, then hand over to a spin on commit.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 150px; border-radius: 14px; overflow: hidden; background: #151b2a;\n      border: 1px solid #263149; }\n    .fx .ind { position: absolute; top: 12px; left: 50%; translate: -50% 0; width: 28px; height: 28px; border-radius: 50%;\n      border: 3px solid #22304a; border-top-color: #7c5cff; animation: spin 1s linear infinite; }\n    .fx .list { position: absolute; inset: 52px 0 0 0; padding: 0 1rem; color: #8b93a7; font-size: .85rem; line-height: 2; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"ind\" role=\"status\" aria-label=\"Refreshing\"></span>\n  <div class=\"list\">Aurora background<br>Ripple button<br>Skeleton loader</div></div>\n</body>\n</html>\n"
+}

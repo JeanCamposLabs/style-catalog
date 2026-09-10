@@ -1,0 +1,44 @@
+{
+  "id": "stone-stack-balance",
+  "title": "Balanced Stones",
+  "summary": "Stacked pebbles that settle with a gentle wobble.",
+  "description": "Stacked pebbles that settle with a gentle wobble.",
+  "theme": "nature-organic",
+  "themeTitle": "Nature & Organic",
+  "categories": [
+    "nature",
+    "organic"
+  ],
+  "tags": [
+    "organic",
+    "nature",
+    "stones",
+    "balance",
+    "zen",
+    "stack"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Stone tone",
+      "default": "#94a3b8"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Meditation and wellness. Keep the wobble under 2° — larger angles break the sense of balance the motif depends on.",
+  "path": "effects/nature-organic/stone-stack-balance.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Balanced Stones</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"stone-stack-balance\",\n    \"title\": \"Balanced Stones\",\n    \"summary\": \"Stacked pebbles that settle with a gentle wobble.\",\n    \"description\": \"Stacked pebbles that settle with a gentle wobble.\",\n    \"theme\": \"nature-organic\",\n    \"categories\": [\"nature\", \"organic\"],\n    \"tags\": [\"organic\", \"nature\", \"stones\", \"balance\", \"zen\", \"stack\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Stone tone\", \"default\": \"#94a3b8\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Meditation and wellness. Keep the wobble under 2° — larger angles break the sense of balance the motif depends on.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; justify-items: center; gap: 3px; }\n    .fx i { border-radius: 50%; background: linear-gradient(160deg, #94a3b8, #475569);\n      box-shadow: inset -4px -3px 6px rgba(0,0,0,.35); animation: wobble 4s ease-in-out infinite; animation-delay: var(--dl); }\n    @keyframes wobble { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"width:34px;height:22px;--dl:0s\"></i><i style=\"width:52px;height:30px;--dl:.3s\"></i><i style=\"width:70px;height:34px;--dl:.6s\"></i></div>\n</body>\n</html>\n"
+}

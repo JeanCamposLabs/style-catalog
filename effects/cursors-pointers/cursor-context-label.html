@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contextual Cursor Label</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-context-label",
+    "title": "Contextual Cursor Label",
+    "summary": "The cursor grows into a labelled pill over interactive areas.",
+    "description": "Hovering an element with a data-cursor attribute expands the follower and prints that label inside it.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "pointer"],
+    "tags": ["cursor", "label", "context", "hover", "agency"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--c", "description": "Cursor color", "default": "#7c5cff" }
+    ],
+    "variations": ["Different colour per label", "Arrow icon for links", "Shrink back with a spring"],
+    "ai_usage": "Portfolio galleries ('View case', 'Drag', 'Play'). Read the label from a data attribute on hover so content authors control it without touching the cursor code; always keep a real title/aria-label on the element too."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { cursor: none; }
+    :root { --c: #7c5cff; }
+    .tiles { display: flex; gap: 12px; }
+    .tiles div { width: 130px; height: 130px; border-radius: 14px; display: grid; place-items: center; color: #cbd5e1;
+      background: #151b2a; border: 1px solid #263149; }
+    .cur { position: fixed; top: 0; left: 0; height: 16px; width: 16px; border-radius: 999px; background: var(--c);
+      display: grid; place-items: center; color: #fff; font-size: .78rem; font-weight: 700; white-space: nowrap;
+      margin: -8px 0 0 -8px; pointer-events: none; z-index: 9; overflow: hidden;
+      transition: width .25s cubic-bezier(.34,1.56,.64,1), height .25s, margin .25s; }
+    .cur.is-big { width: 92px; height: 34px; margin: -17px 0 0 -46px; }
+  </style>
+</head>
+<body>
+  <div class="tiles">
+    <div data-cursor="View case">Project A</div>
+    <div data-cursor="Play reel">Project B</div>
+    <div data-cursor="Drag">Project C</div>
+  </div>
+  <div class="cur" aria-hidden="true"><span></span></div>
+  <script>
+    (function () {
+      var c = document.querySelector(".cur"), label = c.querySelector("span");
+      addEventListener("pointermove", function (e) {
+        c.style.transform = "translate(" + e.clientX + "px," + e.clientY + "px)";
+      });
+      document.querySelectorAll("[data-cursor]").forEach(function (el) {
+        el.addEventListener("pointerenter", function () {
+          label.textContent = el.dataset.cursor; c.classList.add("is-big");
+        });
+        el.addEventListener("pointerleave", function () {
+          label.textContent = ""; c.classList.remove("is-big");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

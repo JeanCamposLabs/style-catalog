@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jittering Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scanline-jitter-card",
+    "title": "Jittering Card",
+    "summary": "A panel that shudders at random intervals.",
+    "description": "A panel that shudders at random intervals.",
+    "theme": "glitch-distortion",
+    "categories": ["glitch", "distortion"],
+    "tags": ["glitch", "distortion", "jitter", "shudder", "random", "panel"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Jitter cycle", "default": "6s" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Unstable or error states. Long quiet stretches between short bursts read as instability; continuous jitter just looks broken."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 230px; padding: 1.2rem; border-radius: 12px; background: #151b2a; border: 1px solid #263149; color: #e7ebf3;
+      animation: jit 6s steps(1) infinite; }
+    .fx h3 { margin: 0 0 .4rem; font-size: 1rem; }
+    .fx p { margin: 0; color: #8b93a7; font-size: .85rem; }
+    @keyframes jit {
+      0%, 90%, 100% { transform: none; filter: none; }
+      91% { transform: translate(3px, -2px); filter: hue-rotate(40deg); }
+      93% { transform: translate(-4px, 2px); }
+      95% { transform: translate(2px, 1px); filter: hue-rotate(-30deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><h3>Connection unstable</h3><p>Retrying in 3s…</p></div>
+</body>
+</html>

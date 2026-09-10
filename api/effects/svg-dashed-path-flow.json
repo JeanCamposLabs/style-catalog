@@ -1,0 +1,45 @@
+{
+  "id": "svg-dashed-path-flow",
+  "title": "Flowing Connector",
+  "summary": "A dashed connector with travelling dashes.",
+  "description": "A dashed connector with travelling dashes.",
+  "theme": "svg-effects",
+  "themeTitle": "SVG Effects",
+  "categories": [
+    "svg",
+    "vector"
+  ],
+  "tags": [
+    "svg",
+    "vector",
+    "connector",
+    "dashes",
+    "flow",
+    "diagram"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Flow period",
+      "default": "1.2s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Pipeline and architecture diagrams. Animate stroke-dashoffset by exactly one dash period so the flow loops without a visible jump.",
+  "path": "effects/svg-effects/svg-dashed-path-flow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Flowing Connector</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"svg-dashed-path-flow\",\n    \"title\": \"Flowing Connector\",\n    \"summary\": \"A dashed connector with travelling dashes.\",\n    \"description\": \"A dashed connector with travelling dashes.\",\n    \"theme\": \"svg-effects\",\n    \"categories\": [\"svg\", \"vector\"],\n    \"tags\": [\"svg\", \"vector\", \"connector\", \"dashes\", \"flow\", \"diagram\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Flow period\", \"default\": \"1.2s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Pipeline and architecture diagrams. Animate stroke-dashoffset by exactly one dash period so the flow loops without a visible jump.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; }\n    .fx svg { width: 100%; display: block; }\n    .fx .bg { fill: none; stroke: #22304a; stroke-width: 3; }\n    .fx .fl { fill: none; stroke: #2dd4bf; stroke-width: 3; stroke-dasharray: 10 14; animation: flow 1.2s linear infinite; }\n    .fx circle { fill: #151b2a; stroke: #2dd4bf; stroke-width: 2; }\n    @keyframes flow { to { stroke-dashoffset: -24; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><svg viewBox=\"0 0 250 90\" aria-hidden=\"true\">\n    <path class=\"bg\" d=\"M30 45 C90 45 90 20 125 20 C160 20 160 70 220 70\"/>\n    <path class=\"fl\" d=\"M30 45 C90 45 90 20 125 20 C160 20 160 70 220 70\"/>\n    <circle cx=\"30\" cy=\"45\" r=\"10\"/><circle cx=\"220\" cy=\"70\" r=\"10\"/></svg></div>\n</body>\n</html>\n"
+}

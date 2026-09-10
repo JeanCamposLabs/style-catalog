@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ridged Bevel</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "ridged-bevel-border",
+    "title": "Ridged Bevel",
+    "summary": "A raised bevel built from paired light and dark edges.",
+    "description": "Light on the top-left and shadow on the bottom-right reproduces the classic hard bevel from early GUIs.",
+    "theme": "borders-shadows",
+    "categories": ["border", "skeuomorphic"],
+    "tags": ["bevel", "ridge", "skeuomorphic", "retro", "3d"],
+    "tech": ["css"],
+    "era": "1990s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--light", "description": "Highlight", "default": "#4b5878" },
+      { "name": "--dark", "description": "Shade", "default": "#0a0d14" }
+    ],
+    "variations": ["Inset (sunken) variant", "Double bevel for a groove", "Windows-98 grey palette"],
+    "ai_usage": "Retro OS skins and skeuomorphic revivals. Light must come from the top-left in every element or the interface reads as inconsistent lighting; invert the pair for a sunken well."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }
+    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    :root { --light: #4b5878; --dark: #0a0d14; }
+    .demo { background: #1c2333; border-top: 2px solid var(--light); border-left: 2px solid var(--light);
+      border-bottom: 2px solid var(--dark); border-right: 2px solid var(--dark); }
+  </style>
+</head>
+<body>
+  <div class="demo"><h3>Raised panel</h3><p>Light from the top left.</p></div>
+</body>
+</html>

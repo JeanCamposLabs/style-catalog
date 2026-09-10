@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search Field with Clear</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "search-clear-input",
+    "title": "Search Field with Clear",
+    "summary": "A search box whose clear button appears only when there is text.",
+    "description": "The clear affordance is hidden while empty, so the field stays visually quiet until it has content.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input"],
+    "tags": ["search", "clear", "input", "affordance", "utility"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Accent", "default": "#2dd4bf" }
+    ],
+    "variations": ["Loading spinner while querying", "Keyboard shortcut hint on the right"],
+    "ai_usage": "Any search UI. Use type=search plus an explicit clear button — the native clear button is inconsistent across browsers and invisible in Firefox."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .sf { position: relative; width: 300px; }
+    .sf input { width: 100%; padding: .8rem 2.6rem .8rem 2.4rem; border-radius: 12px; border: 1px solid #2b3450;
+      background: #151b2a; color: #e7ebf3; font: inherit; }
+    .sf input:focus { outline: none; border-color: var(--c, #2dd4bf); }
+    .sf .ico { position: absolute; left: .8rem; top: 50%; translate: 0 -50%; color: #8b93a7; }
+    .sf .clr { position: absolute; right: .5rem; top: 50%; translate: 0 -50%; border: 0; background: #2b3450; color: #e7ebf3;
+      width: 24px; height: 24px; border-radius: 50%; cursor: pointer; display: none; }
+    .sf.has-value .clr { display: block; }
+  </style>
+</head>
+<body>
+  <div class="sf" id="sf"><span class="ico" aria-hidden="true">⌕</span>
+  <input type="search" aria-label="Search" placeholder="Search effects" />
+  <button class="clr" type="button" aria-label="Clear search">×</button></div>
+  <script>
+    (function () {
+      var w = document.getElementById("sf"), i = w.querySelector("input"), c = w.querySelector(".clr");
+      i.addEventListener("input", function () { w.classList.toggle("has-value", !!i.value); });
+      c.addEventListener("click", function () { i.value = ""; w.classList.remove("has-value"); i.focus(); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "id": "neon-wire-frame-cube",
+  "title": "Wireframe Cube",
+  "summary": "A rotating neon wireframe cube.",
+  "description": "A rotating neon wireframe cube.",
+  "theme": "neon-cyberpunk",
+  "themeTitle": "Neon & Cyberpunk",
+  "categories": [
+    "neon",
+    "cyberpunk"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "dark",
+    "3d",
+    "cube",
+    "wireframe",
+    "rotate"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Wire colour",
+      "default": "#ff2d95"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Sci-fi loaders and logos. Six bordered faces at ±half the cube size make the wireframe; the glow comes from paired outer and inset shadows.",
+  "path": "effects/neon-cyberpunk/neon-wire-frame-cube.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Wireframe Cube</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-wire-frame-cube\",\n    \"title\": \"Wireframe Cube\",\n    \"summary\": \"A rotating neon wireframe cube.\",\n    \"description\": \"A rotating neon wireframe cube.\",\n    \"theme\": \"neon-cyberpunk\",\n    \"categories\": [\"neon\", \"cyberpunk\"],\n    \"tags\": [\"neon\", \"glow\", \"dark\", \"3d\", \"cube\", \"wireframe\", \"rotate\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Wire colour\", \"default\": \"#ff2d95\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Sci-fi loaders and logos. Six bordered faces at ±half the cube size make the wireframe; the glow comes from paired outer and inset shadows.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .scene { perspective: 600px; }\n    .cube { position: relative; width: 110px; height: 110px; transform-style: preserve-3d; animation: spin 9s linear infinite; }\n    .cube div { position: absolute; inset: 0; border: 2px solid #ff2d95; box-shadow: 0 0 12px #ff2d95, inset 0 0 12px rgba(255,45,149,.5); }\n    .f1 { transform: translateZ(55px); } .f2 { transform: rotateY(180deg) translateZ(55px); }\n    .f3 { transform: rotateY(90deg) translateZ(55px); } .f4 { transform: rotateY(-90deg) translateZ(55px); }\n    .f5 { transform: rotateX(90deg) translateZ(55px); } .f6 { transform: rotateX(-90deg) translateZ(55px); }\n    @keyframes spin { to { transform: rotateX(360deg) rotateY(360deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"scene\"><div class=\"cube\"><div class=\"f1\"></div><div class=\"f2\"></div><div class=\"f3\"></div><div class=\"f4\"></div><div class=\"f5\"></div><div class=\"f6\"></div></div></div>\n</body>\n</html>\n"
+}

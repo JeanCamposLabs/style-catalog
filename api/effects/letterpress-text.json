@@ -1,0 +1,49 @@
+{
+  "id": "letterpress-text",
+  "title": "Letterpress Text",
+  "summary": "Text pressed into the surface with a one-pixel highlight below.",
+  "description": "A dark shadow above and a light one below invert the usual emboss, so the glyphs read as debossed into the panel.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "surface"
+  ],
+  "tags": [
+    "letterpress",
+    "deboss",
+    "emboss",
+    "subtle",
+    "texture"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--ink",
+      "description": "Text color",
+      "default": "#8d93a3"
+    },
+    {
+      "name": "--paper",
+      "description": "Surface color",
+      "default": "#20242e"
+    }
+  ],
+  "variations": [
+    "Emboss by flipping the shadow order",
+    "Colored highlight for a tinted press",
+    "Add a paper grain background"
+  ],
+  "related": [],
+  "ai_usage": "Works only on a mid-tone surface — letterpress is invisible on pure black or white because it needs room for both the highlight and the shade. Text color should be slightly darker than the panel.",
+  "path": "effects/text-effects/letterpress-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Letterpress Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"letterpress-text\",\n    \"title\": \"Letterpress Text\",\n    \"summary\": \"Text pressed into the surface with a one-pixel highlight below.\",\n    \"description\": \"A dark shadow above and a light one below invert the usual emboss, so the glyphs read as debossed into the panel.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"surface\"],\n    \"tags\": [\"letterpress\", \"deboss\", \"emboss\", \"subtle\", \"texture\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--ink\", \"description\": \"Text color\", \"default\": \"#8d93a3\" },\n      { \"name\": \"--paper\", \"description\": \"Surface color\", \"default\": \"#20242e\" }\n    ],\n    \"variations\": [\"Emboss by flipping the shadow order\", \"Colored highlight for a tinted press\", \"Add a paper grain background\"],\n    \"ai_usage\": \"Works only on a mid-tone surface — letterpress is invisible on pure black or white because it needs room for both the highlight and the shade. Text color should be slightly darker than the panel.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: #20242e; }\n    .lp { font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 800; color: var(--ink, #8d93a3);\n      text-shadow: 0 -1px 1px rgba(0,0,0,.7), 0 1px 1px rgba(255,255,255,.12); letter-spacing: .02em; }\n  </style>\n</head>\n<body>\n  <h1 class=\"lp\">Letterpress</h1>\n</body>\n</html>\n"
+}

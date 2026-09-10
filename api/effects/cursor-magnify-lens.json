@@ -1,0 +1,50 @@
+{
+  "id": "cursor-magnify-lens",
+  "title": "Magnifier Cursor",
+  "summary": "A circular lens under the pointer enlarges what is beneath it.",
+  "description": "A second, scaled copy of the content is offset so the magnified point stays exactly under the pointer.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "image"
+  ],
+  "tags": [
+    "magnifier",
+    "lens",
+    "zoom",
+    "pointer",
+    "image"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Lens radius",
+      "default": "70px"
+    },
+    {
+      "name": "--zoom",
+      "description": "Magnification",
+      "default": "2"
+    }
+  ],
+  "variations": [
+    "Square loupe",
+    "Zoom level on scroll",
+    "Show pixel coordinates in the lens"
+  ],
+  "related": [],
+  "ai_usage": "Product images, maps, and design tools. Offset the scaled copy by -(x * (zoom - 1)) in both axes; skipping that term makes the lens show the wrong part of the image.",
+  "path": "effects/cursors-pointers/cursor-magnify-lens.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Magnifier Cursor</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-magnify-lens\",\n    \"title\": \"Magnifier Cursor\",\n    \"summary\": \"A circular lens under the pointer enlarges what is beneath it.\",\n    \"description\": \"A second, scaled copy of the content is offset so the magnified point stays exactly under the pointer.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"image\"],\n    \"tags\": [\"magnifier\", \"lens\", \"zoom\", \"pointer\", \"image\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Lens radius\", \"default\": \"70px\" },\n      { \"name\": \"--zoom\", \"description\": \"Magnification\", \"default\": \"2\" }\n    ],\n    \"variations\": [\"Square loupe\", \"Zoom level on scroll\", \"Show pixel coordinates in the lens\"],\n    \"ai_usage\": \"Product images, maps, and design tools. Offset the scaled copy by -(x * (zoom - 1)) in both axes; skipping that term makes the lens show the wrong part of the image.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .zone { position: relative; width: 320px; height: 210px; border-radius: 14px; overflow: hidden; cursor: none;\n      background: repeating-linear-gradient(45deg, #7c5cff 0 18px, #2dd4bf 18px 36px); }\n    .zone .lens { position: absolute; width: calc(var(--r, 70px) * 2); height: calc(var(--r, 70px) * 2); border-radius: 50%;\n      border: 2px solid #fff; overflow: hidden; pointer-events: none; opacity: 0; transition: opacity .2s;\n      box-shadow: 0 10px 30px rgba(0,0,0,.5); }\n    .zone:hover .lens { opacity: 1; }\n    .zone .lens .inner { position: absolute; width: 320px; height: 210px; transform-origin: 0 0;\n      background: repeating-linear-gradient(45deg, #7c5cff 0 18px, #2dd4bf 18px 36px); }\n  </style>\n</head>\n<body>\n  <div class=\"zone\" id=\"zn\"><div class=\"lens\" aria-hidden=\"true\"><div class=\"inner\"></div></div></div>\n  <script>\n    (function () {\n      var z = document.getElementById(\"zn\"), lens = z.querySelector(\".lens\"), inner = lens.querySelector(\".inner\"), Z = 2, R = 70;\n      z.addEventListener(\"pointermove\", function (e) {\n        var r = z.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;\n        lens.style.left = (x - R) + \"px\"; lens.style.top = (y - R) + \"px\";\n        inner.style.transform = \"scale(\" + Z + \") translate(\" + (-x + R / Z) + \"px,\" + (-y + R / Z) + \"px)\";\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

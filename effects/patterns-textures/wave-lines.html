@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wave Lines</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "wave-lines",
+    "title": "Wave Lines",
+    "summary": "Parallel wavy rules across the surface.",
+    "description": "Parallel wavy rules across the surface. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "waves", "lines", "undulating", "water"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Line colour", "default": "rgba(45,212,191,.35)" },
+      { "name": "--s", "description": "Wavelength", "default": "30px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Water, audio, and calm themes. Two half-offset arc layers join into a continuous sine — a single layer produces disconnected humps."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(45,212,191,.35); --s: 30px; }
+    .bg { background-color: #0b0d12;
+      background-image: radial-gradient(circle at 50% 100%, transparent 0 12px, var(--c) 12px 14px, transparent 14px),
+        radial-gradient(circle at 50% 0, transparent 0 12px, var(--c) 12px 14px, transparent 14px);
+      background-size: var(--s) var(--s); background-position: 0 0, calc(var(--s) / 2) 0; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

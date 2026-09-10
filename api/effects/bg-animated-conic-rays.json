@@ -1,0 +1,43 @@
+{
+  "id": "bg-animated-conic-rays",
+  "title": "Rotating Rays",
+  "summary": "Soft conic rays turning slowly behind content.",
+  "description": "Soft conic rays turning slowly behind content.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "surface"
+  ],
+  "tags": [
+    "background",
+    "rays",
+    "conic",
+    "rotate",
+    "ambient"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Rotation period",
+      "default": "50s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Ambient hero backdrops. Keep the rotation very slow (40s+) and the ray alpha low; a fast conic sweep behind text is genuinely nauseating.",
+  "path": "effects/backgrounds/bg-animated-conic-rays.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Rotating Rays</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bg-animated-conic-rays\",\n    \"title\": \"Rotating Rays\",\n    \"summary\": \"Soft conic rays turning slowly behind content.\",\n    \"description\": \"Soft conic rays turning slowly behind content.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"surface\"],\n    \"tags\": [\"background\", \"rays\", \"conic\", \"rotate\", \"ambient\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"50s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Ambient hero backdrops. Keep the rotation very slow (40s+) and the ray alpha low; a fast conic sweep behind text is genuinely nauseating.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    .bg { background: #0b0d12; overflow: hidden; }\n    .bg i { position: absolute; inset: -40%;\n      background: repeating-conic-gradient(from 0deg, rgba(124,92,255,.12) 0 8deg, transparent 8deg 22deg);\n      animation: spin 50s linear infinite; }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"><i></i></div>\n</body>\n</html>\n"
+}

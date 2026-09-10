@@ -1,0 +1,44 @@
+{
+  "id": "mask-scroll-fade",
+  "title": "Scroll Fade Mask",
+  "summary": "A scrolling list that fades at the top and bottom.",
+  "description": "A scrolling list that fades at the top and bottom. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.",
+  "theme": "masks-clipping",
+  "themeTitle": "Masks & Clipping",
+  "categories": [
+    "mask",
+    "shape"
+  ],
+  "tags": [
+    "clip-path",
+    "mask",
+    "scroll",
+    "fade",
+    "list",
+    "mask"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.",
+  "customization": [
+    {
+      "name": "--fade",
+      "description": "Fade height",
+      "default": "12%"
+    }
+  ],
+  "variations": [
+    "Animate the shape on hover",
+    "Combine with a gradient fill"
+  ],
+  "related": [],
+  "ai_usage": "Any scrollable panel inside a card. Masking beats a gradient overlay because it works over any backdrop, including transparent or animated ones.",
+  "path": "effects/masks-clipping/mask-scroll-fade.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scroll Fade Mask</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"mask-scroll-fade\",\n    \"title\": \"Scroll Fade Mask\",\n    \"summary\": \"A scrolling list that fades at the top and bottom.\",\n    \"description\": \"A scrolling list that fades at the top and bottom. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.\",\n    \"theme\": \"masks-clipping\",\n    \"categories\": [\"mask\", \"shape\"],\n    \"tags\": [\"clip-path\", \"mask\", \"scroll\", \"fade\", \"list\", \"mask\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.\",\n    \"customization\": [\n      { \"name\": \"--fade\", \"description\": \"Fade height\", \"default\": \"12%\" }\n    ],\n    \"variations\": [\"Animate the shape on hover\", \"Combine with a gradient fill\"],\n    \"ai_usage\": \"Any scrollable panel inside a card. Masking beats a gradient overlay because it works over any backdrop, including transparent or animated ones.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .art { width: 210px; height: 210px; background: conic-gradient(from 210deg at 40% 35%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }\n    .label { margin-top: .9rem; text-align: center; color: #8b93a7; font-size: .82rem; }\n    .list { width: 240px; height: 180px; overflow: auto; padding: 0 .4rem;\n      -webkit-mask-image: linear-gradient(transparent, #000 12%, #000 88%, transparent);\n      mask-image: linear-gradient(transparent, #000 12%, #000 88%, transparent); }\n    .list div { padding: .6rem .8rem; margin-bottom: 6px; background: #151b2a; border-radius: 10px; color: #cbd5e1; font-size: .9rem; }\n  </style>\n</head>\n<body>\n  <div><div class=\"list\">\n    <div>Aurora deployment</div><div>Beta channel</div><div>Cache invalidation</div><div>Design tokens</div>\n    <div>Edge routing</div><div>Feature flags</div><div>Gateway limits</div>\n  </div><p class=\"label\">Scroll the list</p></div>\n</body>\n</html>\n"
+}

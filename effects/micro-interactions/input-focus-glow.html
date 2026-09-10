@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Focus Glow</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "input-focus-glow",
+    "title": "Focus Glow",
+    "summary": "A field whose border and glow bloom on focus.",
+    "description": "A field whose border and glow bloom on focus.",
+    "theme": "micro-interactions",
+    "categories": ["micro-interaction", "feedback"],
+    "tags": ["micro-interaction", "feedback", "focus", "glow", "input", "affordance"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+    "customization": [
+      { "name": "--c", "description": "Focus colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Form fields. A ring built from box-shadow does not change layout the way a thicker border does — and it still satisfies the visible-focus requirement."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; padding: .8rem 1rem; border-radius: 12px; border: 1px solid #2b3450; background: #151b2a;
+      color: #e7ebf3; font: inherit; transition: border-color .2s, box-shadow .2s; }
+    .fx::placeholder { color: #64748b; }
+    .fx:focus { outline: none; border-color: #7c5cff; box-shadow: 0 0 0 4px rgba(124,92,255,.18); }
+  </style>
+</head>
+<body>
+  <input class="fx" type="text" placeholder="Click or tab into this field" aria-label="Demo field" />
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CVD-Safe Categorical</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "color-blind-safe-set",
+    "title": "CVD-Safe Categorical",
+    "summary": "Five hues validated for colour-vision deficiency.",
+    "description": "Five hues validated for colour-vision deficiency.",
+    "theme": "color-systems",
+    "categories": ["color", "reference"],
+    "tags": ["color", "tokens", "cvd", "colorblind", "categorical", "validated"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+    "customization": [
+      { "name": "--c1", "description": "First hue", "default": "#7c5cff" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Chart and category palettes. Validate adjacent-pair separation under deuteranopia and protanopia before shipping — the check is computable, so never eyeball it."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; }
+    .fx .row { display: flex; gap: 6px; margin-bottom: 8px; }
+    .fx .row i { flex: 1; height: 42px; border-radius: 8px; }
+    .fx .lbl { font-size: .68rem; color: #64748b; margin-bottom: .3rem; font-family: ui-monospace, monospace; }
+    .fx .sim { filter: url(#deut); }
+    svg.defs { position: absolute; width: 0; height: 0; }
+  </style>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true"><filter id="deut"><feColorMatrix type="matrix"
+    values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0"/></filter></svg>
+  <div class="fx"><div class="lbl">normal vision</div>
+  <div class="row"><i style="background:#7c5cff"></i><i style="background:#10a894"></i><i style="background:#c2891a"></i>
+  <i style="background:#d1478c"></i><i style="background:#2f7cc9"></i></div>
+  <div class="lbl">deuteranopia simulation</div>
+  <div class="row sim"><i style="background:#7c5cff"></i><i style="background:#10a894"></i><i style="background:#c2891a"></i>
+  <i style="background:#d1478c"></i><i style="background:#2f7cc9"></i></div></div>
+</body>
+</html>

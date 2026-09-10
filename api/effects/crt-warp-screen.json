@@ -1,0 +1,44 @@
+{
+  "id": "crt-warp-screen",
+  "title": "CRT Warp",
+  "summary": "A curved screen with vignette and phosphor lines.",
+  "description": "A curved screen with vignette and phosphor lines.",
+  "theme": "glitch-distortion",
+  "themeTitle": "Glitch & Distortion",
+  "categories": [
+    "glitch",
+    "distortion"
+  ],
+  "tags": [
+    "glitch",
+    "distortion",
+    "crt",
+    "warp",
+    "phosphor",
+    "monitor"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Phosphor colour",
+      "default": "#4ade80"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Retro terminals. An asymmetric border-radius (30px / 22px) approximates the barrel curve without any filters.",
+  "path": "effects/glitch-distortion/crt-warp-screen.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>CRT Warp</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"crt-warp-screen\",\n    \"title\": \"CRT Warp\",\n    \"summary\": \"A curved screen with vignette and phosphor lines.\",\n    \"description\": \"A curved screen with vignette and phosphor lines.\",\n    \"theme\": \"glitch-distortion\",\n    \"categories\": [\"glitch\", \"distortion\"],\n    \"tags\": [\"glitch\", \"distortion\", \"crt\", \"warp\", \"phosphor\", \"monitor\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Phosphor colour\", \"default\": \"#4ade80\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Retro terminals. An asymmetric border-radius (30px / 22px) approximates the barrel curve without any filters.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 260px; height: 180px; border-radius: 30px / 22px; overflow: hidden;\n      background: radial-gradient(ellipse at center, #0f2318 0%, #050a07 85%); }\n    .fx::before { content: \"\"; position: absolute; inset: 0;\n      background: repeating-linear-gradient(180deg, rgba(0,0,0,.45) 0 2px, transparent 2px 4px); }\n    .fx .txt { position: absolute; inset: 0; display: grid; place-items: center; color: #4ade80;\n      font-family: ui-monospace, monospace; text-shadow: 0 0 6px #4ade80; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"txt\">NO SIGNAL</div></div>\n</body>\n</html>\n"
+}

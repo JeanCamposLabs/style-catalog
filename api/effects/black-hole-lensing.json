@@ -1,0 +1,44 @@
+{
+  "id": "black-hole-lensing",
+  "title": "Black Hole",
+  "summary": "An accretion disc bending light around a dark core.",
+  "description": "An accretion disc bending light around a dark core.",
+  "theme": "space-cosmic",
+  "themeTitle": "Space & Cosmic",
+  "categories": [
+    "space",
+    "cosmic"
+  ],
+  "tags": [
+    "space",
+    "cosmic",
+    "black-hole",
+    "accretion",
+    "disc",
+    "gravity"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Disc colour",
+      "default": "#f97316"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Sci-fi and data-gravity metaphors. A masked conic gradient plus a pure-black core is enough — the blur does the lensing work.",
+  "path": "effects/space-cosmic/black-hole-lensing.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Black Hole</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"black-hole-lensing\",\n    \"title\": \"Black Hole\",\n    \"summary\": \"An accretion disc bending light around a dark core.\",\n    \"description\": \"An accretion disc bending light around a dark core.\",\n    \"theme\": \"space-cosmic\",\n    \"categories\": [\"space\", \"cosmic\"],\n    \"tags\": [\"space\", \"cosmic\", \"black-hole\", \"accretion\", \"disc\", \"gravity\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Disc colour\", \"default\": \"#f97316\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Sci-fi and data-gravity metaphors. A masked conic gradient plus a pure-black core is enough — the blur does the lensing work.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 200px; height: 200px; display: grid; place-items: center; }\n    .fx .disc { position: absolute; width: 200px; height: 200px; border-radius: 50%;\n      background: conic-gradient(#fff, #fbbf24, #f97316, #7c2d12, #fbbf24, #fff); filter: blur(6px);\n      -webkit-mask: radial-gradient(farthest-side, transparent 42%, #000 44%); mask: radial-gradient(farthest-side, transparent 42%, #000 44%);\n      animation: spin 8s linear infinite; }\n    .fx .core { width: 84px; height: 84px; border-radius: 50%; background: #000; box-shadow: 0 0 40px 8px rgba(0,0,0,.9); z-index: 1; }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"disc\"></span><span class=\"core\"></span></div>\n</body>\n</html>\n"
+}

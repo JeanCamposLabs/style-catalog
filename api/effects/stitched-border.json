@@ -1,0 +1,49 @@
+{
+  "id": "stitched-border",
+  "title": "Stitched Edge",
+  "summary": "A dashed inner rule imitates thread stitching on a panel.",
+  "description": "An inset dashed border set inside a solid fill reads as stitching, especially with a leather-like ground.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border",
+    "skeuomorphic"
+  ],
+  "tags": [
+    "stitch",
+    "thread",
+    "leather",
+    "skeuomorphic",
+    "craft"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--thread",
+      "description": "Thread color",
+      "default": "#fbbf24"
+    },
+    {
+      "name": "--inset",
+      "description": "Stitch inset",
+      "default": "10px"
+    }
+  ],
+  "variations": [
+    "Zigzag stitch with a repeating gradient",
+    "Contrast thread colour",
+    "Add a subtle leather grain"
+  ],
+  "related": [],
+  "ai_usage": "Skeuomorphic and craft-themed UIs. Use a pseudo-element inset from the edge rather than a second border, so the stitch line can sit any distance from the panel edge.",
+  "path": "effects/borders-shadows/stitched-border.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stitched Edge</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"stitched-border\",\n    \"title\": \"Stitched Edge\",\n    \"summary\": \"A dashed inner rule imitates thread stitching on a panel.\",\n    \"description\": \"An inset dashed border set inside a solid fill reads as stitching, especially with a leather-like ground.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\", \"skeuomorphic\"],\n    \"tags\": [\"stitch\", \"thread\", \"leather\", \"skeuomorphic\", \"craft\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--thread\", \"description\": \"Thread color\", \"default\": \"#fbbf24\" },\n      { \"name\": \"--inset\", \"description\": \"Stitch inset\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Zigzag stitch with a repeating gradient\", \"Contrast thread colour\", \"Add a subtle leather grain\"],\n    \"ai_usage\": \"Skeuomorphic and craft-themed UIs. Use a pseudo-element inset from the edge rather than a second border, so the stitch line can sit any distance from the panel edge.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --thread: #fbbf24; --inset: 10px; }\n    .demo { position: relative; background: #2a1c14; border-radius: 12px; }\n    .demo::after { content: \"\"; position: absolute; inset: var(--inset); border: 2px dashed var(--thread); border-radius: 8px; opacity: .8; }\n  </style>\n</head>\n<body>\n  <div class=\"demo\"><h3>Stitched</h3><p>Thread inset from the edge.</p></div>\n</body>\n</html>\n"
+}

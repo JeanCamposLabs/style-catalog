@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Skyline</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neon-city-skyline",
+    "title": "Neon Skyline",
+    "summary": "A layered city silhouette with lit windows.",
+    "description": "A layered city silhouette with lit windows.",
+    "theme": "neon-cyberpunk",
+    "categories": ["neon", "cyberpunk"],
+    "tags": ["neon", "glow", "dark", "skyline", "city", "silhouette", "night"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+    "customization": [
+      { "name": "--glow", "description": "Skyline glow", "default": "rgba(168,85,247,.5)" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Night-city scenes. Lit windows are the cheapest way to add life — scatter a handful with a warm glow rather than modelling the buildings."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 300px; height: 180px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(180deg, #2a0a3d, #0a0316); }
+    .fx .b { position: absolute; bottom: 0; background: #06010f; box-shadow: 0 0 22px rgba(168,85,247,.5); }
+    .fx .w { position: absolute; width: 3px; height: 3px; background: #fbbf24; box-shadow: 0 0 5px #fbbf24; }
+  </style>
+</head>
+<body>
+  <div class="fx">
+    <span class="b" style="left:8%;width:38px;height:90px"></span><span class="b" style="left:26%;width:28px;height:130px"></span>
+    <span class="b" style="left:44%;width:44px;height:70px"></span><span class="b" style="left:66%;width:32px;height:112px"></span>
+    <span class="b" style="left:84%;width:36px;height:84px"></span>
+    <span class="w" style="left:14%;bottom:60px"></span><span class="w" style="left:30%;bottom:100px"></span>
+    <span class="w" style="left:52%;bottom:40px"></span><span class="w" style="left:72%;bottom:80px"></span>
+  </div>
+</body>
+</html>

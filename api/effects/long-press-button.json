@@ -1,0 +1,50 @@
+{
+  "id": "long-press-button",
+  "title": "Hold to Confirm",
+  "summary": "A destructive action that only fires after the ring finishes filling.",
+  "description": "The fill runs while the pointer is held and rewinds on release, making an accidental destructive click impossible.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "safety"
+  ],
+  "tags": [
+    "long-press",
+    "confirm",
+    "destructive",
+    "progress",
+    "safety"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Danger color",
+      "default": "#f87171"
+    },
+    {
+      "name": "--hold",
+      "description": "Hold duration",
+      "default": "1.4s"
+    }
+  ],
+  "variations": [
+    "Haptic pulse at completion",
+    "Text that counts down",
+    "Use for undo instead of delete"
+  ],
+  "related": [],
+  "ai_usage": "Irreversible actions where a modal would be heavy-handed. Fill on pointerdown, cancel on pointerup/pointerleave, and only fire on animationend — firing on a timer lets a released press still complete.",
+  "path": "effects/buttons/long-press-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hold to Confirm</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"long-press-button\",\n    \"title\": \"Hold to Confirm\",\n    \"summary\": \"A destructive action that only fires after the ring finishes filling.\",\n    \"description\": \"The fill runs while the pointer is held and rewinds on release, making an accidental destructive click impossible.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"safety\"],\n    \"tags\": [\"long-press\", \"confirm\", \"destructive\", \"progress\", \"safety\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Danger color\", \"default\": \"#f87171\" },\n      { \"name\": \"--hold\", \"description\": \"Hold duration\", \"default\": \"1.4s\" }\n    ],\n    \"variations\": [\"Haptic pulse at completion\", \"Text that counts down\", \"Use for undo instead of delete\"],\n    \"ai_usage\": \"Irreversible actions where a modal would be heavy-handed. Fill on pointerdown, cancel on pointerup/pointerleave, and only fire on animationend — firing on a timer lets a released press still complete.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #f87171; --hold: 1.4s; }\n    .hold { position: relative; overflow: hidden; padding: 1rem 2.2rem; border-radius: 12px; background: #2a1418;\n      border: 1px solid var(--c); color: var(--c); font-weight: 800; }\n    .hold span { position: relative; z-index: 2; }\n    .hold::before { content: \"\"; position: absolute; inset: 0; background: var(--c); transform: scaleX(0);\n      transform-origin: left; transition: transform .25s ease; }\n    .hold.is-holding::before { transform: scaleX(1); transition-duration: var(--hold); transition-timing-function: linear; }\n    .hold.is-done { color: #2a1418; }\n    .hold.is-done::before { transform: scaleX(1); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"hold\" id=\"hb\" type=\"button\"><span>Hold to delete</span></button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"hb\"), t;\n      function start() { b.classList.add(\"is-holding\"); t = setTimeout(done, 1400); }\n      function stop() { b.classList.remove(\"is-holding\"); clearTimeout(t); }\n      function done() { b.classList.remove(\"is-holding\"); b.classList.add(\"is-done\"); b.querySelector(\"span\").textContent = \"Deleted\"; \n        setTimeout(function () { b.classList.remove(\"is-done\"); b.querySelector(\"span\").textContent = \"Hold to delete\"; }, 1600); }\n      b.addEventListener(\"pointerdown\", start);\n      b.addEventListener(\"pointerup\", stop);\n      b.addEventListener(\"pointerleave\", stop);\n    })();\n  </script>\n</body>\n</html>\n"
+}

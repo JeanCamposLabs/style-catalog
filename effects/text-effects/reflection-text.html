@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reflected Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "reflection-text",
+    "title": "Reflected Text",
+    "summary": "A mirrored copy of the headline fades away below it, like type on wet glass.",
+    "description": "A duplicate is flipped with scaleY(-1) and masked by a linear-gradient so the reflection dissolves instead of ending abruptly.",
+    "theme": "text-effects",
+    "categories": ["text", "surface"],
+    "tags": ["reflection", "mirror", "mask", "glossy", "web20"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--gap", "description": "Distance to reflection", "default": "2px" },
+      { "name": "--fade", "description": "Reflection strength", "default": "0.35" }
+    ],
+    "variations": ["Blur the reflection for a rougher surface", "Skew it for an angled floor", "Animate a ripple across the mirror"],
+    "ai_usage": "The Web 2.0 gloss cue, still useful for product hero shots. Mirror with transform: scaleY(-1) and mask-image: linear-gradient(transparent 40%, #000) — set aria-hidden on the copy so the text is not announced twice."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .wrap { text-align: center; }
+    .refl, .mirror { font-size: clamp(2rem, 8vw, 3.8rem); font-weight: 800; margin: 0;
+      background: linear-gradient(180deg, #fff, #9aa4bb); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .mirror { transform: scaleY(-1); margin-top: var(--gap, 2px); opacity: var(--fade, .35);
+      -webkit-mask-image: linear-gradient(transparent 30%, #000); mask-image: linear-gradient(transparent 30%, #000); }
+  </style>
+</head>
+<body>
+  <div class="wrap"><h1 class="refl">Reflection</h1><div class="mirror" aria-hidden="true">Reflection</div></div>
+</body>
+</html>

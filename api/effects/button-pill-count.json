@@ -1,0 +1,44 @@
+{
+  "id": "button-pill-count",
+  "title": "Button with Count",
+  "summary": "An action carrying a live count badge.",
+  "description": "An action carrying a live count badge.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "action"
+  ],
+  "tags": [
+    "button",
+    "action",
+    "count",
+    "badge",
+    "action",
+    "live"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Badge background",
+      "default": "#22304a"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Filter and cart buttons. Put the count inside the accessible name ('Cart, 3 items') rather than relying on the badge being read separately.",
+  "path": "effects/buttons/button-pill-count.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Button with Count</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"button-pill-count\",\n    \"title\": \"Button with Count\",\n    \"summary\": \"An action carrying a live count badge.\",\n    \"description\": \"An action carrying a live count badge.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"action\"],\n    \"tags\": [\"button\", \"action\", \"count\", \"badge\", \"action\", \"live\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Badge background\", \"default\": \"#22304a\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Filter and cart buttons. Put the count inside the accessible name ('Cart, 3 items') rather than relying on the badge being read separately.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem 1rem; border-radius: 999px;\n      border: 1px solid #2b3450; background: #151b2a; color: #cbd5e1; font: inherit; font-size: .86rem; cursor: pointer; }\n    .fx b { padding: .05rem .45rem; border-radius: 99px; background: #22304a; color: #e7ebf3; font-size: .74rem;\n      font-variant-numeric: tabular-nums; }\n    .fx:hover { border-color: #7c5cff; }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-label=\"Filters, 3 active\">Filters <b>3</b></button>\n</body>\n</html>\n"
+}

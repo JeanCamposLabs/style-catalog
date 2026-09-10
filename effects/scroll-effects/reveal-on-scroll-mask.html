@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scroll Mask Reveal</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "reveal-on-scroll-mask",
+    "title": "Scroll Mask Reveal",
+    "summary": "Text uncovered by a mask as it enters view.",
+    "description": "Text uncovered by a mask as it enters view.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "motion"],
+    "tags": ["scroll", "mask", "reveal", "scroll", "text"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+    "customization": [
+      { "name": "--p", "description": "Reveal percentage", "default": "0%" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Editorial headlines. Mask to a low alpha rather than to transparent so the text stays legible before it is revealed — never gate readability behind scrolling."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { min-height: 220vh; }
+    .wrap { padding: 45vh 1.5rem; }
+    h2 { font-size: clamp(1.6rem, 6vw, 2.6rem); font-weight: 900; max-width: 16ch; line-height: 1.15;
+      -webkit-mask-image: linear-gradient(90deg, #000 0 var(--p, 0%), rgba(0,0,0,.15) var(--p, 0%));
+      mask-image: linear-gradient(90deg, #000 0 var(--p, 0%), rgba(0,0,0,.15) var(--p, 0%)); }
+  </style>
+</head>
+<body>
+  <div class="wrap"><h2 id="ht">Every specimen in this catalogue runs offline, with no dependencies.</h2></div>
+  <script>
+    (function () {
+      var h = document.getElementById("ht");
+      function upd() {
+        var r = h.getBoundingClientRect();
+        var p = Math.min(Math.max((innerHeight - r.top) / (innerHeight * .8), 0), 1);
+        h.style.setProperty("--p", (p * 100).toFixed(1) + "%");
+      }
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) { h.style.setProperty("--p", "100%"); return; }
+      addEventListener("scroll", upd, { passive: true }); upd();
+    })();
+  </script>
+</body>
+</html>

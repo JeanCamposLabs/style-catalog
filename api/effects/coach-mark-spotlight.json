@@ -1,0 +1,44 @@
+{
+  "id": "coach-mark-spotlight",
+  "title": "Coach Mark",
+  "summary": "An onboarding callout that spotlights one element.",
+  "description": "An onboarding callout that spotlights one element.",
+  "theme": "tooltips-popovers",
+  "themeTitle": "Tooltips & Popovers",
+  "categories": [
+    "tooltip",
+    "overlay"
+  ],
+  "tags": [
+    "tooltip",
+    "popover",
+    "onboarding",
+    "coach-mark",
+    "spotlight",
+    "tour"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Spotlight radius",
+      "default": "60px"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Product tours. Mask the scrim rather than moving the target element — reparenting the highlighted node breaks event handlers and focus order.",
+  "path": "effects/tooltips-popovers/coach-mark-spotlight.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Coach Mark</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"coach-mark-spotlight\",\n    \"title\": \"Coach Mark\",\n    \"summary\": \"An onboarding callout that spotlights one element.\",\n    \"description\": \"An onboarding callout that spotlights one element.\",\n    \"theme\": \"tooltips-popovers\",\n    \"categories\": [\"tooltip\", \"overlay\"],\n    \"tags\": [\"tooltip\", \"popover\", \"onboarding\", \"coach-mark\", \"spotlight\", \"tour\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Spotlight radius\", \"default\": \"60px\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Product tours. Mask the scrim rather than moving the target element — reparenting the highlighted node breaks event handlers and focus order.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .stage { position: relative; width: 320px; height: 200px; border-radius: 16px; background: #151b2a; border: 1px solid #263149; overflow: hidden; }\n    .target { position: absolute; top: 24px; left: 24px; padding: .5rem 1rem; border-radius: 9px; background: #7c5cff; color: #fff; font-weight: 700; z-index: 2; }\n    .scrim { position: absolute; inset: 0; background: rgba(4,7,14,.8);\n      -webkit-mask: radial-gradient(circle 62px at 76px 42px, transparent 60px, #000 62px); mask: radial-gradient(circle 62px at 76px 42px, transparent 60px, #000 62px); }\n    .call { position: absolute; top: 110px; left: 24px; width: 240px; padding: .9rem 1rem; border-radius: 12px;\n      background: #fff; color: #0b0d12; font-size: .85rem; z-index: 3; }\n    .call b { display: block; margin-bottom: .25rem; }\n  </style>\n</head>\n<body>\n  <div class=\"stage\"><span class=\"target\">Publish</span><div class=\"scrim\"></div>\n  <div class=\"call\"><b>Publish when ready</b>Your changes stay in draft until you publish.</div></div>\n</body>\n</html>\n"
+}

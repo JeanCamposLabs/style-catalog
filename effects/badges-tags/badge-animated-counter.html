@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rolling Count Badge</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "badge-animated-counter",
+    "title": "Rolling Count Badge",
+    "summary": "A count that rolls when it changes.",
+    "description": "A count that rolls when it changes. Small self-contained component ready to drop into a list or card.",
+    "theme": "badges-tags",
+    "categories": ["badge", "label"],
+    "tags": ["badge", "label", "counter", "roll", "animated", "live"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+    "customization": [
+      { "name": "--dur", "description": "Roll interval", "default": "5s" }
+    ],
+    "variations": ["Add a size variant", "Map colours to semantic tokens"],
+    "ai_usage": "Live counters (viewers, likes). Roll in whole line-height steps so digits always land aligned; announce updates sparingly with aria-live=polite."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .b { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .8rem; border-radius: 999px;
+      background: #1c2437; color: #cbd5e1; font-size: .85rem; font-weight: 700; }
+    .b .win { height: 1.2em; overflow: hidden; }
+    .b .win span { display: block; height: 1.2em; line-height: 1.2em; color: #34d399;
+      animation: roll 5s steps(5) infinite; }
+    @keyframes roll { to { transform: translateY(-600%); } }
+  </style>
+</head>
+<body>
+  <span class="b">Online <span class="win" aria-hidden="true"><span>128</span><span>129</span><span>131</span><span>134</span><span>136</span><span>128</span></span></span>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "id": "badge-keyboard-shortcut",
+  "title": "Keyboard Shortcut Badge",
+  "summary": "Keycaps showing a shortcut combination.",
+  "description": "Keycaps showing a shortcut combination. Small self-contained component ready to drop into a list or card.",
+  "theme": "badges-tags",
+  "themeTitle": "Badges & Tags",
+  "categories": [
+    "badge",
+    "label"
+  ],
+  "tags": [
+    "badge",
+    "label",
+    "keyboard",
+    "shortcut",
+    "kbd",
+    "hint"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Keycap background",
+      "default": "#1c2437"
+    }
+  ],
+  "variations": [
+    "Add a size variant",
+    "Map colours to semantic tokens"
+  ],
+  "related": [],
+  "ai_usage": "Command palettes and menus. Use the real <kbd> element so the shortcut is semantically marked up, and detect the platform to show ⌘ or Ctrl correctly.",
+  "path": "effects/badges-tags/badge-keyboard-shortcut.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Keyboard Shortcut Badge</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"badge-keyboard-shortcut\",\n    \"title\": \"Keyboard Shortcut Badge\",\n    \"summary\": \"Keycaps showing a shortcut combination.\",\n    \"description\": \"Keycaps showing a shortcut combination. Small self-contained component ready to drop into a list or card.\",\n    \"theme\": \"badges-tags\",\n    \"categories\": [\"badge\", \"label\"],\n    \"tags\": [\"badge\", \"label\", \"keyboard\", \"shortcut\", \"kbd\", \"hint\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Status must never be colour-only: pair every badge colour with a label, icon, or shape.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Keycap background\", \"default\": \"#1c2437\" }\n    ],\n    \"variations\": [\"Add a size variant\", \"Map colours to semantic tokens\"],\n    \"ai_usage\": \"Command palettes and menus. Use the real <kbd> element so the shortcut is semantically marked up, and detect the platform to show ⌘ or Ctrl correctly.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .combo { display: inline-flex; align-items: center; gap: .25rem; color: #8b93a7; font-size: .85rem; }\n    kbd { display: inline-block; padding: .2rem .45rem; border-radius: 6px; background: #1c2437; border: 1px solid #2b3450;\n      border-bottom-width: 2px; color: #e7ebf3; font-family: ui-monospace, Menlo, monospace; font-size: .78rem; }\n  </style>\n</head>\n<body>\n  <span class=\"combo\">Open palette <kbd>⌘</kbd><kbd>K</kbd></span>\n</body>\n</html>\n"
+}

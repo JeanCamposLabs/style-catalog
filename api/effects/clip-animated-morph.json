@@ -1,0 +1,44 @@
+{
+  "id": "clip-animated-morph",
+  "title": "Morphing Polygon",
+  "summary": "A polygon that animates between three shapes.",
+  "description": "A polygon that animates between three shapes. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.",
+  "theme": "masks-clipping",
+  "themeTitle": "Masks & Clipping",
+  "categories": [
+    "mask",
+    "shape"
+  ],
+  "tags": [
+    "clip-path",
+    "mask",
+    "morph",
+    "animated",
+    "polygon",
+    "kinetic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Morph cycle",
+      "default": "6s"
+    }
+  ],
+  "variations": [
+    "Animate the shape on hover",
+    "Combine with a gradient fill"
+  ],
+  "related": [],
+  "ai_usage": "Kinetic decorative shapes. Every keyframe must list the same number of points in the same order or the browser falls back to a hard cut.",
+  "path": "effects/masks-clipping/clip-animated-morph.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Morphing Polygon</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"clip-animated-morph\",\n    \"title\": \"Morphing Polygon\",\n    \"summary\": \"A polygon that animates between three shapes.\",\n    \"description\": \"A polygon that animates between three shapes. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.\",\n    \"theme\": \"masks-clipping\",\n    \"categories\": [\"mask\", \"shape\"],\n    \"tags\": [\"clip-path\", \"mask\", \"morph\", \"animated\", \"polygon\", \"kinetic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Morph cycle\", \"default\": \"6s\" }\n    ],\n    \"variations\": [\"Animate the shape on hover\", \"Combine with a gradient fill\"],\n    \"ai_usage\": \"Kinetic decorative shapes. Every keyframe must list the same number of points in the same order or the browser falls back to a hard cut.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .art { width: 210px; height: 210px; background: conic-gradient(from 210deg at 40% 35%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }\n    .label { margin-top: .9rem; text-align: center; color: #8b93a7; font-size: .82rem; }\n    .shape { animation: morph 6s ease-in-out infinite; }\n    @keyframes morph {\n      0%, 100% { clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }\n      33% { clip-path: polygon(50% 5%, 95% 30%, 80% 95%, 20% 95%, 5% 30%, 50% 5%); }\n      66% { clip-path: polygon(20% 0, 80% 0, 100% 60%, 50% 100%, 0 60%, 20% 0); }\n    }\n  </style>\n</head>\n<body>\n  <div><div class=\"art shape\"></div><p class=\"label\">Morphing Polygon</p></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "search-highlight-jump",
+  "title": "In-Page Find",
+  "summary": "A find bar with match count and navigation.",
+  "description": "A find bar with match count and navigation.",
+  "theme": "search-ui",
+  "themeTitle": "Search UI",
+  "categories": [
+    "search",
+    "filter"
+  ],
+  "tags": [
+    "search",
+    "find",
+    "find",
+    "in-page",
+    "matches",
+    "navigation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Bar background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Document and log viewers. Report 'n of m' matches and support Enter/Shift+Enter to step through — a find bar without match navigation is half a feature.",
+  "path": "effects/search-ui/search-highlight-jump.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>In-Page Find</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"search-highlight-jump\",\n    \"title\": \"In-Page Find\",\n    \"summary\": \"A find bar with match count and navigation.\",\n    \"description\": \"A find bar with match count and navigation.\",\n    \"theme\": \"search-ui\",\n    \"categories\": [\"search\", \"filter\"],\n    \"tags\": [\"search\", \"find\", \"find\", \"in-page\", \"matches\", \"navigation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Bar background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Document and log viewers. Report 'n of m' matches and support Enter/Shift+Enter to step through — a find bar without match navigation is half a feature.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; align-items: center; gap: .5rem; width: 290px; padding: .5rem .6rem; border-radius: 12px;\n      background: #141a28; border: 1px solid #2b3450; }\n    .fx input { flex: 1; min-width: 0; padding: .35rem .5rem; border: 0; background: transparent; color: #e7ebf3; font: inherit; font-size: .85rem; }\n    .fx input:focus { outline: none; }\n    .fx .n { font-size: .76rem; color: #64748b; font-variant-numeric: tabular-nums; }\n    .fx button { width: 26px; height: 26px; border: 0; border-radius: 7px; background: #1e2740; color: #cbd5e1; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"search\"><input type=\"text\" value=\"gradient\" aria-label=\"Find in page\" />\n  <span class=\"n\" role=\"status\">3 of 18</span><button type=\"button\" aria-label=\"Previous match\">↑</button>\n  <button type=\"button\" aria-label=\"Next match\">↓</button><button type=\"button\" aria-label=\"Close find bar\">×</button></div>\n</body>\n</html>\n"
+}

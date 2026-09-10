@@ -1,0 +1,44 @@
+{
+  "id": "version-history-list",
+  "title": "Version History",
+  "summary": "Releases with version tags and change counts.",
+  "description": "Releases with version tags and change counts.",
+  "theme": "timelines-steppers",
+  "themeTitle": "Timelines & Steppers",
+  "categories": [
+    "timeline",
+    "stepper"
+  ],
+  "tags": [
+    "timeline",
+    "sequence",
+    "versions",
+    "releases",
+    "changelog",
+    "history"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Tag colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Release histories. Mark the latest version distinctly and keep semantic version strings in a monospace face so the digits align down the column.",
+  "path": "effects/timelines-steppers/version-history-list.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Version History</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"version-history-list\",\n    \"title\": \"Version History\",\n    \"summary\": \"Releases with version tags and change counts.\",\n    \"description\": \"Releases with version tags and change counts.\",\n    \"theme\": \"timelines-steppers\",\n    \"categories\": [\"timeline\", \"stepper\"],\n    \"tags\": [\"timeline\", \"sequence\", \"versions\", \"releases\", \"changelog\", \"history\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Tag colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Release histories. Mark the latest version distinctly and keep semantic version strings in a monospace face so the digits align down the column.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; font-size: .84rem; }\n    .v { display: flex; gap: .8rem; padding: .6rem 0; border-bottom: 1px solid #1e2740; }\n    .v:last-child { border-bottom: 0; }\n    .v .tag { flex: none; padding: .12rem .5rem; border-radius: 6px; background: #1e1740; color: #b9a5ff;\n      font-family: ui-monospace, monospace; font-size: .74rem; height: fit-content; }\n    .v b { display: block; color: #e7ebf3; }\n    .v span { color: #8b93a7; font-size: .76rem; }\n    .v .latest { background: #7c5cff; color: #fff; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"v\"><span class=\"tag latest\">0.24.0</span><div><b>Catalogue expansion</b><span>552 new specimens · today</span></div></div>\n  <div class=\"v\"><span class=\"tag\">0.23.0</span><div><b>Poster pipeline</b><span>12 changes · 3 weeks ago</span></div></div>\n  <div class=\"v\"><span class=\"tag\">0.22.0</span><div><b>MCP server</b><span>8 changes · 2 months ago</span></div></div></div>\n</body>\n</html>\n"
+}

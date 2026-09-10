@@ -1,0 +1,44 @@
+{
+  "id": "type-monospace-code-style",
+  "title": "Code Typography",
+  "summary": "Monospace styling for inline and block code.",
+  "description": "Monospace styling for inline and block code.",
+  "theme": "typography-systems",
+  "themeTitle": "Typography Systems",
+  "categories": [
+    "typography",
+    "reference"
+  ],
+  "tags": [
+    "typography",
+    "type",
+    "code",
+    "monospace",
+    "inline",
+    "block"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Code background",
+      "default": "#1e2740"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Documentation. Set inline code at 0.88em (not a fixed size) so it scales with its context, and give block code its own line-height — monospace needs more leading than prose.",
+  "path": "effects/typography-systems/type-monospace-code-style.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Code Typography</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"type-monospace-code-style\",\n    \"title\": \"Code Typography\",\n    \"summary\": \"Monospace styling for inline and block code.\",\n    \"description\": \"Monospace styling for inline and block code.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"reference\"],\n    \"tags\": [\"typography\", \"type\", \"code\", \"monospace\", \"inline\", \"block\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Code background\", \"default\": \"#1e2740\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Documentation. Set inline code at 0.88em (not a fixed size) so it scales with its context, and give block code its own line-height — monospace needs more leading than prose.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; font-size: .88rem; line-height: 1.65; color: #cbd5e1; }\n    .fx code { padding: .1rem .35rem; border-radius: 5px; background: #1e2740; color: #b9a5ff;\n      font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em; }\n    .fx pre { margin: .7rem 0 0; padding: .8rem; border-radius: 10px; background: #10141f; overflow-x: auto;\n      font-family: ui-monospace, monospace; font-size: .78rem; line-height: 1.7; color: #c9d1d9; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">Run <code>npm run build</code> to regenerate the index.\n  <pre><code>const { catalog } = scanCatalog();\n  console.log(catalog.counts.effects);</code></pre></div>\n</body>\n</html>\n"
+}

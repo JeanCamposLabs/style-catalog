@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Range with Live Output</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "range-with-output",
+    "title": "Range with Live Output",
+    "summary": "A slider that prints its value in a bubble above the thumb.",
+    "description": "The bubble is positioned from the value as a percentage, so it tracks the thumb exactly at any width.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input"],
+    "tags": ["range", "slider", "output", "value", "tooltip"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Track fill", "default": "#7c5cff" }
+    ],
+    "variations": ["Stepped ticks under the track", "Dual-thumb range"],
+    "ai_usage": "Settings and price filters. Offset the bubble by (value% ) minus half the thumb width or it drifts at the extremes; keep the native input for keyboard support."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .rg { width: 300px; position: relative; padding-top: 2.4rem; }
+    .rg input { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 99px; background: #2b3450; }
+    .rg input::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+      background: var(--c, #7c5cff); border: 3px solid #0b0d12; cursor: pointer; }
+    .rg input::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--c, #7c5cff); border: 3px solid #0b0d12; }
+    .rg output { position: absolute; top: 0; transform: translateX(-50%); background: var(--c, #7c5cff); color: #fff;
+      padding: .2rem .5rem; border-radius: 6px; font-size: .8rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="rg"><output id="o" for="r">40</output><input id="r" type="range" min="0" max="100" value="40" aria-label="Volume" /></div>
+  <script>
+    (function () {
+      var r = document.getElementById("r"), o = document.getElementById("o");
+      function sync() { o.textContent = r.value; o.style.left = "calc(" + r.value + "% + " + (10 - r.value * .2) + "px)"; }
+      r.addEventListener("input", sync); sync();
+    })();
+  </script>
+</body>
+</html>

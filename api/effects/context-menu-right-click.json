@@ -1,0 +1,43 @@
+{
+  "id": "context-menu-right-click",
+  "title": "Custom Context Menu",
+  "summary": "A right-click menu that opens at the pointer and stays on screen.",
+  "description": "The menu is clamped to the viewport, so it flips near the edges instead of being cut off.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation"
+  ],
+  "tags": [
+    "context-menu",
+    "right-click",
+    "popup",
+    "clamp",
+    "desktop"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Menu background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Submenus on hover",
+    "Keyboard shortcut column"
+  ],
+  "related": [],
+  "ai_usage": "Desktop-style apps. Always preventDefault on contextmenu, clamp to innerWidth/Height, and provide the same actions through a keyboard-reachable menu button.",
+  "path": "effects/navigation-menus/context-menu-right-click.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Custom Context Menu</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"context-menu-right-click\",\n    \"title\": \"Custom Context Menu\",\n    \"summary\": \"A right-click menu that opens at the pointer and stays on screen.\",\n    \"description\": \"The menu is clamped to the viewport, so it flips near the edges instead of being cut off.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\"],\n    \"tags\": [\"context-menu\", \"right-click\", \"popup\", \"clamp\", \"desktop\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Menu background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Submenus on hover\", \"Keyboard shortcut column\"],\n    \"ai_usage\": \"Desktop-style apps. Always preventDefault on contextmenu, clamp to innerWidth/Height, and provide the same actions through a keyboard-reachable menu button.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .area { width: 300px; height: 180px; border-radius: 14px; border: 1px dashed #2b3450; display: grid; place-items: center;\n      color: #8b93a7; background: #10141f; }\n    .menu { position: fixed; display: none; min-width: 160px; padding: .3rem; background: var(--bg, #141a28);\n      border: 1px solid #2b3450; border-radius: 10px; box-shadow: 0 18px 40px rgba(0,0,0,.55); z-index: 5; }\n    .menu.is-open { display: block; }\n    .menu button { display: block; width: 100%; text-align: left; padding: .5rem .7rem; border: 0; border-radius: 7px;\n      background: transparent; color: #cbd5e1; font: inherit; font-size: .9rem; cursor: pointer; }\n    .menu button:hover { background: #22304a; color: #fff; }\n  </style>\n</head>\n<body>\n  <div class=\"area\" id=\"area\">Right-click inside this box</div>\n  <div class=\"menu\" id=\"menu\" role=\"menu\">\n    <button role=\"menuitem\" type=\"button\">Open</button>\n    <button role=\"menuitem\" type=\"button\">Duplicate</button>\n    <button role=\"menuitem\" type=\"button\">Rename</button>\n    <button role=\"menuitem\" type=\"button\">Delete</button>\n  </div>\n  <script>\n    (function () {\n      var area = document.getElementById(\"area\"), menu = document.getElementById(\"menu\");\n      area.addEventListener(\"contextmenu\", function (e) {\n        e.preventDefault();\n        menu.classList.add(\"is-open\");\n        var w = menu.offsetWidth, h = menu.offsetHeight;\n        menu.style.left = Math.min(e.clientX, innerWidth - w - 8) + \"px\";\n        menu.style.top = Math.min(e.clientY, innerHeight - h - 8) + \"px\";\n      });\n      addEventListener(\"click\", function () { menu.classList.remove(\"is-open\"); });\n      addEventListener(\"keydown\", function (e) { if (e.key === \"Escape\") menu.classList.remove(\"is-open\"); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

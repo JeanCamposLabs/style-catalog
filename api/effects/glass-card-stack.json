@@ -1,0 +1,43 @@
+{
+  "id": "glass-card-stack",
+  "title": "Stacked Glass Cards",
+  "summary": "Three frosted panels overlap at different depths.",
+  "description": "Stacking translucent panels compounds their blur, so each layer is visibly deeper than the one behind it.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass"
+  ],
+  "tags": [
+    "glass",
+    "stack",
+    "depth",
+    "layers",
+    "overlap"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.",
+  "customization": [
+    {
+      "name": "--gap",
+      "description": "Layer offset",
+      "default": "16px"
+    }
+  ],
+  "variations": [
+    "Fan the stack out on hover",
+    "More layers",
+    "Different tint per layer"
+  ],
+  "related": [],
+  "ai_usage": "Onboarding and feature reveals. Because backdrop-filter compounds, keep each panel's blur small (8–12px) — three panels at 20px blur produce mud.",
+  "path": "effects/glass-neumorphism/glass-card-stack.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stacked Glass Cards</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-card-stack\",\n    \"title\": \"Stacked Glass Cards\",\n    \"summary\": \"Three frosted panels overlap at different depths.\",\n    \"description\": \"Stacking translucent panels compounds their blur, so each layer is visibly deeper than the one behind it.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\"],\n    \"tags\": [\"glass\", \"stack\", \"depth\", \"layers\", \"overlap\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.\",\n    \"customization\": [\n      { \"name\": \"--gap\", \"description\": \"Layer offset\", \"default\": \"16px\" }\n    ],\n    \"variations\": [\"Fan the stack out on hover\", \"More layers\", \"Different tint per layer\"],\n    \"ai_usage\": \"Onboarding and feature reveals. Because backdrop-filter compounds, keep each panel's blur small (8–12px) — three panels at 20px blur produce mud.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: conic-gradient(from 140deg at 40% 30%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }\n    :root { --gap: 16px; }\n    .stack { position: relative; width: 240px; height: 160px; }\n    .stack div { position: absolute; inset: 0; border-radius: 18px; background: rgba(255,255,255,.13);\n      backdrop-filter: blur(10px) saturate(1.4); -webkit-backdrop-filter: blur(10px) saturate(1.4);\n      border: 1px solid rgba(255,255,255,.3); }\n    .stack div:nth-child(1) { transform: translate(calc(var(--gap) * -1), calc(var(--gap) * -1)) scale(.94); opacity: .7; }\n    .stack div:nth-child(2) { transform: translate(calc(var(--gap) * -.5), calc(var(--gap) * -.5)) scale(.97); opacity: .85; }\n    .stack div:nth-child(3) { display: grid; place-items: center; color: #fff; font-weight: 800; }\n  </style>\n</head>\n<body>\n  <div class=\"stack\"><div></div><div></div><div>Front</div></div>\n</body>\n</html>\n"
+}

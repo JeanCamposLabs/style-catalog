@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shifting Gradient Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gradient-shift-text",
+    "title": "Shifting Gradient Text",
+    "summary": "A wide multi-hue gradient slides continuously through the letterforms.",
+    "description": "Oversizing the background and animating its position makes the color travel rather than the text, so the glyph edges stay razor sharp.",
+    "theme": "text-effects",
+    "categories": ["text", "color"],
+    "tags": ["gradient", "animated", "background-clip", "color", "hero"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Loop time", "default": "5s" },
+      { "name": "--g", "description": "Gradient stops", "default": "#7c5cff,#2dd4bf,#f472b6,#7c5cff" }
+    ],
+    "variations": ["Slower for an ambient hero", "Diagonal angle for more movement", "Freeze it and shift on hover"],
+    "ai_usage": "Hero headlines that need life without motion sickness. Keep background-size at 300% and animate background-position; ensure the first and last stop match or the loop visibly snaps."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 5s; }
+    .gs { font-size: clamp(2.2rem, 9vw, 4.4rem); font-weight: 900;
+      background: linear-gradient(90deg, #7c5cff, #2dd4bf, #f472b6, #7c5cff);
+      background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: shift var(--dur) linear infinite; }
+    @keyframes shift { to { background-position: 300% 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="gs">Gradient Motion</h1>
+</body>
+</html>

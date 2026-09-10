@@ -1,0 +1,44 @@
+{
+  "id": "cursor-text-selection-style",
+  "title": "Styled Selection",
+  "summary": "Custom highlight colours for selected text.",
+  "description": "Custom highlight colours for selected text.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "pointer"
+  ],
+  "tags": [
+    "cursor",
+    "pointer",
+    "selection",
+    "highlight",
+    "branding",
+    "text"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Selection colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Brand detail on content sites. Set both background and colour in ::selection — overriding only the background can leave the text unreadable against your brand hue.",
+  "path": "effects/cursors-pointers/cursor-text-selection-style.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Styled Selection</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-text-selection-style\",\n    \"title\": \"Styled Selection\",\n    \"summary\": \"Custom highlight colours for selected text.\",\n    \"description\": \"Custom highlight colours for selected text.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\"],\n    \"tags\": [\"cursor\", \"pointer\", \"selection\", \"highlight\", \"branding\", \"text\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Selection colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Brand detail on content sites. Set both background and colour in ::selection — overriding only the background can leave the text unreadable against your brand hue.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; font-size: .95rem; line-height: 1.7; color: #cbd5e1; }\n    .fx ::selection { background: #7c5cff; color: #fff; }\n    .fx ::-moz-selection { background: #7c5cff; color: #fff; }\n    .fx .hint { display: block; margin-top: .7rem; font-size: .76rem; color: #64748b; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><p>Select this sentence to see the branded highlight colour.</p>\n  <span class=\"hint\">Both background and text colour are set, so contrast holds.</span></div>\n</body>\n</html>\n"
+}

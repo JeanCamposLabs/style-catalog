@@ -1,0 +1,55 @@
+{
+  "id": "basketweave",
+  "title": "Basket Weave",
+  "summary": "Interlaced horizontal and vertical bands.",
+  "description": "Interlaced horizontal and vertical bands. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "basketweave",
+    "weave",
+    "craft",
+    "texture"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Band colour",
+      "default": "#26314a"
+    },
+    {
+      "name": "--b",
+      "description": "Ground",
+      "default": "#131a28"
+    },
+    {
+      "name": "--s",
+      "description": "Weave size",
+      "default": "32px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Craft and material themes. The half-tile offset between the horizontal and vertical layers creates the over-under illusion.",
+  "path": "effects/patterns-textures/basketweave.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Basket Weave</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"basketweave\",\n    \"title\": \"Basket Weave\",\n    \"summary\": \"Interlaced horizontal and vertical bands.\",\n    \"description\": \"Interlaced horizontal and vertical bands. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"basketweave\", \"weave\", \"craft\", \"texture\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Band colour\", \"default\": \"#26314a\" },\n      { \"name\": \"--b\", \"description\": \"Ground\", \"default\": \"#131a28\" },\n      { \"name\": \"--s\", \"description\": \"Weave size\", \"default\": \"32px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Craft and material themes. The half-tile offset between the horizontal and vertical layers creates the over-under illusion.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #26314a; --b: #131a28; --s: 32px; }\n    .bg { background-color: var(--b);\n      background-image: linear-gradient(90deg, var(--a) 50%, transparent 50%), linear-gradient(var(--a) 50%, transparent 50%);\n      background-size: var(--s) var(--s);\n      background-position: 0 0, calc(var(--s) / 2) calc(var(--s) / 2); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart Summary</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cart-summary-panel",
+    "title": "Cart Summary",
+    "summary": "An order summary with subtotal, shipping, and total.",
+    "description": "An order summary with subtotal, shipping, and total.",
+    "theme": "ecommerce-ui",
+    "categories": ["ecommerce", "commerce"],
+    "tags": ["ecommerce", "shop", "cart", "summary", "checkout", "totals"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+    "customization": [
+      { "name": "--c", "description": "Action colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Checkout. Show every line item including tax and shipping before the total — surprise fees at the final step are the top cause of cart abandonment."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 260px; padding: 1.2rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }
+    .fx h4 { margin: 0 0 .9rem; font-size: 1rem; }
+    .fx .r { display: flex; justify-content: space-between; padding: .3rem 0; color: #8b93a7; font-size: .88rem; }
+    .fx .r.free { color: #34d399; }
+    .fx .tot { display: flex; justify-content: space-between; margin-top: .7rem; padding-top: .7rem;
+      border-top: 1px solid #263149; font-weight: 900; font-size: 1.1rem; color: #e7ebf3; }
+    .fx button { width: 100%; margin-top: 1rem; padding: .75rem; border: 0; border-radius: 11px; background: #7c5cff;
+      color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="fx"><h4>Order summary</h4><div class="r"><span>Subtotal</span><span>$118.00</span></div>
+  <div class="r free"><span>Shipping</span><span>Free</span></div><div class="r"><span>Tax</span><span>$9.44</span></div>
+  <div class="tot"><span>Total</span><span>$127.44</span></div><button type="button">Checkout</button></div>
+</body>
+</html>

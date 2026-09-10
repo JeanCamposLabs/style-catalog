@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Presence Ring</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "avatar-presence-ring",
+    "title": "Presence Ring",
+    "summary": "An avatar with an online status ring.",
+    "description": "An avatar with an online status ring.",
+    "theme": "avatars-identity",
+    "categories": ["avatar", "identity"],
+    "tags": ["avatar", "identity", "presence", "online", "status", "ring"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+    "customization": [
+      { "name": "--on", "description": "Online colour", "default": "#10a894" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Contact lists. The status dot needs a border in the page background colour so it reads as sitting on top; pair it with text in the accessible name."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 56px; height: 56px; }
+    .fx .a { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(150deg, #7c5cff, #2dd4bf);
+      display: grid; place-items: center; font-weight: 800; color: #0b0d12; }
+    .fx .s { position: absolute; right: 0; bottom: 0; width: 15px; height: 15px; border-radius: 50%;
+      background: #10a894; border: 3px solid #0b0d12; }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="a" role="img" aria-label="Jean Campos, online">JC</span><span class="s"></span></div>
+</body>
+</html>

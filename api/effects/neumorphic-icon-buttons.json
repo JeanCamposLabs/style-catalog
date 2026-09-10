@@ -1,0 +1,44 @@
+{
+  "id": "neumorphic-icon-buttons",
+  "title": "Soft Icon Buttons",
+  "summary": "Extruded round buttons with a pressed state.",
+  "description": "Extruded round buttons with a pressed state.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass",
+    "surface"
+  ],
+  "tags": [
+    "glass",
+    "surface",
+    "neumorphism",
+    "buttons",
+    "press",
+    "soft-ui"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Surface colour",
+      "default": "#232a3a"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Soft-UI toolbars. Swap outset shadows for inset ones on press, and add a colour change too — shadow inversion alone is imperceptible to many users.",
+  "path": "effects/glass-neumorphism/neumorphic-icon-buttons.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Soft Icon Buttons</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neumorphic-icon-buttons\",\n    \"title\": \"Soft Icon Buttons\",\n    \"summary\": \"Extruded round buttons with a pressed state.\",\n    \"description\": \"Extruded round buttons with a pressed state.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\", \"surface\"],\n    \"tags\": [\"glass\", \"surface\", \"neumorphism\", \"buttons\", \"press\", \"soft-ui\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Surface colour\", \"default\": \"#232a3a\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Soft-UI toolbars. Swap outset shadows for inset ones on press, and add a colour change too — shadow inversion alone is imperceptible to many users.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: #232a3a; }\n    .fx { display: flex; gap: 12px; }\n    .fx button { width: 52px; height: 52px; border: 0; border-radius: 50%; background: #232a3a; color: #cbd5e1;\n      font-size: 1.1rem; cursor: pointer; transition: box-shadow .15s, color .15s;\n      box-shadow: 5px 5px 10px rgba(0,0,0,.5), -5px -5px 10px rgba(255,255,255,.05); }\n    .fx button:active { color: #b9a5ff;\n      box-shadow: inset 5px 5px 10px rgba(0,0,0,.5), inset -5px -5px 10px rgba(255,255,255,.05); }\n    .fx button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 4px; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><button type=\"button\" aria-label=\"Previous\">⏮</button><button type=\"button\" aria-label=\"Play\">▶</button>\n  <button type=\"button\" aria-label=\"Next\">⏭</button></div>\n</body>\n</html>\n"
+}

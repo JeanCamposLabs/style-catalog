@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fading Stripes</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "stripes-fade",
+    "title": "Fading Stripes",
+    "summary": "Stripes that dissolve toward one edge.",
+    "description": "Stripes that dissolve toward one edge. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "stripes", "fade", "mask", "gradient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Stripe colour", "default": "rgba(124,92,255,.4)" },
+      { "name": "--s", "description": "Stripe pitch", "default": "12px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Section edges and hero bases. Masking a repeating pattern is always cheaper than generating a per-stripe opacity ramp."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(124,92,255,.4); --s: 12px; }
+    .bg { background-color: #0b0d12;
+      background-image: repeating-linear-gradient(90deg, var(--c) 0 2px, transparent 2px var(--s));
+      -webkit-mask-image: linear-gradient(90deg, #000, transparent); mask-image: linear-gradient(90deg, #000, transparent); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

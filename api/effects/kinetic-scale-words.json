@@ -1,0 +1,44 @@
+{
+  "id": "kinetic-scale-words",
+  "title": "Kinetic Word Stack",
+  "summary": "Stacked words scale and fade in sequence like a title card.",
+  "description": "Each line runs the same scale-and-fade keyframe on a delayed loop, producing the punchy rhythm of motion-graphics titles.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "kinetic"
+  ],
+  "tags": [
+    "kinetic",
+    "title-card",
+    "stack",
+    "scale",
+    "sequence"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Per-word beat",
+      "default": "0.9s"
+    }
+  ],
+  "variations": [
+    "Alternate alignment per line",
+    "Different color per word",
+    "Hold the final state instead of looping"
+  ],
+  "related": [],
+  "ai_usage": "Video-style intros and bold marketing sections. Beat spacing matters more than the easing — keep each word's delay equal to the beat so the rhythm is even, and finish on the most important word.",
+  "path": "effects/text-effects/kinetic-scale-words.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Kinetic Word Stack</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"kinetic-scale-words\",\n    \"title\": \"Kinetic Word Stack\",\n    \"summary\": \"Stacked words scale and fade in sequence like a title card.\",\n    \"description\": \"Each line runs the same scale-and-fade keyframe on a delayed loop, producing the punchy rhythm of motion-graphics titles.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"kinetic\"],\n    \"tags\": [\"kinetic\", \"title-card\", \"stack\", \"scale\", \"sequence\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Per-word beat\", \"default\": \"0.9s\" }\n    ],\n    \"variations\": [\"Alternate alignment per line\", \"Different color per word\", \"Hold the final state instead of looping\"],\n    \"ai_usage\": \"Video-style intros and bold marketing sections. Beat spacing matters more than the easing — keep each word's delay equal to the beat so the rhythm is even, and finish on the most important word.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: .9s; }\n    .kin { display: grid; gap: .1em; text-align: center; font-weight: 900; line-height: .95;\n      font-size: clamp(1.8rem, 8vw, 3.4rem); }\n    .kin span { opacity: 0; transform: scale(1.6); animation: pop calc(var(--dur) * 4) ease-out infinite;\n      animation-delay: calc(var(--i) * var(--dur)); }\n    @keyframes pop {\n      0% { opacity: 0; transform: scale(1.6); }\n      10%, 70% { opacity: 1; transform: scale(1); }\n      85%, 100% { opacity: 0; transform: scale(.9); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"kin\" aria-label=\"Move fast think slow\">\n    <span aria-hidden=\"true\" style=\"--i:0\">MOVE</span>\n    <span aria-hidden=\"true\" style=\"--i:1\">FAST</span>\n    <span aria-hidden=\"true\" style=\"--i:2\">THINK</span>\n    <span aria-hidden=\"true\" style=\"--i:3\">SLOW</span>\n  </div>\n</body>\n</html>\n"
+}

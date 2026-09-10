@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shattering Letters</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shatter-text",
+    "title": "Shattering Letters",
+    "summary": "Characters scatter outward and fall away, then reassemble.",
+    "description": "Per-letter translate, rotate, and fade on staggered delays reads as debris; the reverse half of the loop puts the word back together.",
+    "theme": "text-effects",
+    "categories": ["text", "animation"],
+    "tags": ["shatter", "explode", "letters", "stagger", "dramatic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Full cycle", "default": "3s" }
+    ],
+    "variations": ["Shatter on click instead of a loop", "Gravity: bias every letter downward", "Blur pieces as they leave"],
+    "ai_usage": "Destructive or dramatic moments — deletions, resets, errors. Give each letter its own --x/--y/--r values (hand-picked, not uniform) or the shatter looks like a symmetric bloom."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 3s; }
+    .shat { font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 900; display: flex; }
+    .shat span { display: inline-block; animation: shat var(--dur) ease-in-out infinite; animation-delay: calc(var(--i) * .04s); }
+    @keyframes shat {
+      0%, 30% { transform: none; opacity: 1; }
+      60% { transform: translate(var(--x), var(--y)) rotate(var(--r)); opacity: 0; }
+      80% { transform: translate(var(--x), var(--y)) rotate(var(--r)); opacity: 0; }
+      100% { transform: none; opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="shat" aria-label="Shatter">
+    <span aria-hidden="true" style="--i:0;--x:-40px;--y:-30px;--r:-28deg">S</span><span aria-hidden="true" style="--i:1;--x:24px;--y:-46px;--r:18deg">h</span><span aria-hidden="true" style="--i:2;--x:-18px;--y:40px;--r:32deg">a</span><span aria-hidden="true" style="--i:3;--x:44px;--y:26px;--r:-14deg">t</span><span aria-hidden="true" style="--i:4;--x:-52px;--y:12px;--r:22deg">t</span><span aria-hidden="true" style="--i:5;--x:12px;--y:-52px;--r:-36deg">e</span><span aria-hidden="true" style="--i:6;--x:38px;--y:38px;--r:26deg">r</span>
+  </h1>
+</body>
+</html>

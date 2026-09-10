@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dual Ring Progress</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "progress-radial-dual",
+    "title": "Dual Ring Progress",
+    "summary": "Two concentric rings track two metrics at once.",
+    "description": "Two concentric rings track two metrics at once.",
+    "theme": "progress-meters",
+    "categories": ["progress", "meter"],
+    "tags": ["progress", "indicator", "rings", "dual", "conic", "activity"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+    "customization": [
+      { "name": "--a", "description": "Outer percent", "default": "78" },
+      { "name": "--b", "description": "Inner percent", "default": "46" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Activity and quota dashboards. Masked conic gradients keep both rings on one element each — no SVG, no per-ring path maths."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .d { position: relative; width: 150px; aspect-ratio: 1; }
+    .d .r { position: absolute; border-radius: 50%; }
+    .d .outer { inset: 0; background: conic-gradient(#7c5cff calc(var(--a) * 1%), #22304a 0);
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 12px), #000 0); mask: radial-gradient(farthest-side, transparent calc(100% - 12px), #000 0); }
+    .d .inner { inset: 20px; background: conic-gradient(#2dd4bf calc(var(--b) * 1%), #22304a 0);
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 12px), #000 0); mask: radial-gradient(farthest-side, transparent calc(100% - 12px), #000 0); }
+    .d .c { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="d" style="--a:78;--b:46" role="img" aria-label="Move 78 percent, exercise 46 percent">
+    <div class="r outer"></div><div class="r inner"></div><div class="c">78%</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Molten Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "fire-gradient-button",
+    "title": "Molten Button",
+    "summary": "A button with heat radiating from its edges.",
+    "description": "A button with heat radiating from its edges.",
+    "theme": "fire-water",
+    "categories": ["elemental", "animation"],
+    "tags": ["elemental", "animated", "button", "heat", "gradient", "cta"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Heat colour", "default": "#f97316" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "High-urgency CTAs. Keep the label dark on a hot gradient — light text over amber almost never reaches 4.5:1."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { padding: .95rem 2.1rem; border: 0; border-radius: 12px; cursor: pointer; color: #2a0d05; font-weight: 800;
+      background: linear-gradient(100deg, #fbbf24, #f97316, #dc2626, #f97316, #fbbf24); background-size: 300% 100%;
+      box-shadow: 0 0 24px rgba(249,115,22,.6); animation: shift 4s linear infinite; }
+    .fx:hover { box-shadow: 0 0 40px rgba(249,115,22,.9); }
+    @keyframes shift { to { background-position: 300% 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button">Ignite</button>
+</body>
+</html>

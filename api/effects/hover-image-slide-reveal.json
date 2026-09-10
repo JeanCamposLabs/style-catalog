@@ -1,0 +1,44 @@
+{
+  "id": "hover-image-slide-reveal",
+  "title": "Image Slide Reveal",
+  "summary": "A second image sliding over the first.",
+  "description": "A second image sliding over the first.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "interaction"
+  ],
+  "tags": [
+    "hover",
+    "pointer",
+    "reveal",
+    "slide",
+    "image",
+    "gallery"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every hover state here is mirrored on :focus-visible so keyboard users get the same information.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Slide duration",
+      "default": "0.45s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Product alternates and before/after shots. Moving both layers at different rates gives a parallax feel that a single sliding layer lacks.",
+  "path": "effects/hover-interactions/hover-image-slide-reveal.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Image Slide Reveal</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hover-image-slide-reveal\",\n    \"title\": \"Image Slide Reveal\",\n    \"summary\": \"A second image sliding over the first.\",\n    \"description\": \"A second image sliding over the first.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"interaction\"],\n    \"tags\": [\"hover\", \"pointer\", \"reveal\", \"slide\", \"image\", \"gallery\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every hover state here is mirrored on :focus-visible so keyboard users get the same information.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Slide duration\", \"default\": \"0.45s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Product alternates and before/after shots. Moving both layers at different rates gives a parallax feel that a single sliding layer lacks.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 250px; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; }\n    .fx div { position: absolute; inset: 0; transition: transform .45s cubic-bezier(.7,0,.2,1); }\n    .fx .a { background: conic-gradient(from 160deg at 35% 30%, #7c5cff, #2dd4bf); }\n    .fx .b { background: conic-gradient(from 160deg at 35% 30%, #d1478c, #c2891a); transform: translateY(100%); }\n    .fx:hover .b, .fx:focus-within .b { transform: translateY(0); }\n    .fx:hover .a, .fx:focus-within .a { transform: translateY(-30%); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" tabindex=\"0\"><div class=\"a\"></div><div class=\"b\"></div></div>\n</body>\n</html>\n"
+}

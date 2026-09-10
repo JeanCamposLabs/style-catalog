@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gingham</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gingham-check",
+    "title": "Gingham",
+    "summary": "Semi-transparent crossing bands, picnic style.",
+    "description": "Semi-transparent crossing bands, picnic style. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "gingham", "check", "picnic", "fabric"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Check colour", "default": "rgba(248,113,113,.45)" },
+      { "name": "--s", "description": "Check size", "default": "30px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Food, market, and rustic themes. Both layers must use partial alpha so the crossings darken — that is the whole gingham effect."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(248,113,113,.45); --s: 30px; }
+    .bg { background-color: #0b0d12;
+      background-image: repeating-linear-gradient(90deg, var(--c) 0 var(--s), transparent var(--s) calc(var(--s) * 2)),
+        repeating-linear-gradient(0deg, var(--c) 0 var(--s), transparent var(--s) calc(var(--s) * 2)); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "id": "loader-text-dots",
+  "title": "Loading Ellipsis",
+  "summary": "A label with animated trailing dots.",
+  "description": "A label with animated trailing dots.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "loader",
+    "waiting",
+    "ellipsis",
+    "dots",
+    "text",
+    "inline"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Cycle",
+      "default": "1.4s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Inline waiting states. Animating width in ch steps keeps the label from shifting; animating the text content itself makes screen readers re-announce it constantly.",
+  "path": "effects/loaders-spinners/loader-text-dots.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Loading Ellipsis</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"loader-text-dots\",\n    \"title\": \"Loading Ellipsis\",\n    \"summary\": \"A label with animated trailing dots.\",\n    \"description\": \"A label with animated trailing dots.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"loader\", \"waiting\", \"ellipsis\", \"dots\", \"text\", \"inline\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Cycle\", \"default\": \"1.4s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Inline waiting states. Animating width in ch steps keeps the label from shifting; animating the text content itself makes screen readers re-announce it constantly.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { font-size: 1rem; color: #cbd5e1; font-family: ui-monospace, monospace; }\n    .fx i { display: inline-block; width: 1ch; animation: dots 1.4s steps(4) infinite; overflow: hidden; vertical-align: bottom; }\n    @keyframes dots { to { width: 4ch; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"status\">Generating posters<i>....</i></div>\n</body>\n</html>\n"
+}

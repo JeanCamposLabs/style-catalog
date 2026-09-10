@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hold to Confirm</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "long-press-button",
+    "title": "Hold to Confirm",
+    "summary": "A destructive action that only fires after the ring finishes filling.",
+    "description": "The fill runs while the pointer is held and rewinds on release, making an accidental destructive click impossible.",
+    "theme": "buttons",
+    "categories": ["button", "safety"],
+    "tags": ["long-press", "confirm", "destructive", "progress", "safety"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Danger color", "default": "#f87171" },
+      { "name": "--hold", "description": "Hold duration", "default": "1.4s" }
+    ],
+    "variations": ["Haptic pulse at completion", "Text that counts down", "Use for undo instead of delete"],
+    "ai_usage": "Irreversible actions where a modal would be heavy-handed. Fill on pointerdown, cancel on pointerup/pointerleave, and only fire on animationend — firing on a timer lets a released press still complete."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #f87171; --hold: 1.4s; }
+    .hold { position: relative; overflow: hidden; padding: 1rem 2.2rem; border-radius: 12px; background: #2a1418;
+      border: 1px solid var(--c); color: var(--c); font-weight: 800; }
+    .hold span { position: relative; z-index: 2; }
+    .hold::before { content: ""; position: absolute; inset: 0; background: var(--c); transform: scaleX(0);
+      transform-origin: left; transition: transform .25s ease; }
+    .hold.is-holding::before { transform: scaleX(1); transition-duration: var(--hold); transition-timing-function: linear; }
+    .hold.is-done { color: #2a1418; }
+    .hold.is-done::before { transform: scaleX(1); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="hold" id="hb" type="button"><span>Hold to delete</span></button>
+  <script>
+    (function () {
+      var b = document.getElementById("hb"), t;
+      function start() { b.classList.add("is-holding"); t = setTimeout(done, 1400); }
+      function stop() { b.classList.remove("is-holding"); clearTimeout(t); }
+      function done() { b.classList.remove("is-holding"); b.classList.add("is-done"); b.querySelector("span").textContent = "Deleted"; 
+        setTimeout(function () { b.classList.remove("is-done"); b.querySelector("span").textContent = "Hold to delete"; }, 1600); }
+      b.addEventListener("pointerdown", start);
+      b.addEventListener("pointerup", stop);
+      b.addEventListener("pointerleave", stop);
+    })();
+  </script>
+</body>
+</html>

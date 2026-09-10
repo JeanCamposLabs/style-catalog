@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CRT Warp</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "crt-warp-screen",
+    "title": "CRT Warp",
+    "summary": "A curved screen with vignette and phosphor lines.",
+    "description": "A curved screen with vignette and phosphor lines.",
+    "theme": "glitch-distortion",
+    "categories": ["glitch", "distortion"],
+    "tags": ["glitch", "distortion", "crt", "warp", "phosphor", "monitor"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Phosphor colour", "default": "#4ade80" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Retro terminals. An asymmetric border-radius (30px / 22px) approximates the barrel curve without any filters."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 260px; height: 180px; border-radius: 30px / 22px; overflow: hidden;
+      background: radial-gradient(ellipse at center, #0f2318 0%, #050a07 85%); }
+    .fx::before { content: ""; position: absolute; inset: 0;
+      background: repeating-linear-gradient(180deg, rgba(0,0,0,.45) 0 2px, transparent 2px 4px); }
+    .fx .txt { position: absolute; inset: 0; display: grid; place-items: center; color: #4ade80;
+      font-family: ui-monospace, monospace; text-shadow: 0 0 6px #4ade80; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="txt">NO SIGNAL</div></div>
+</body>
+</html>

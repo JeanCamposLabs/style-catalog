@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Extracted Palette</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "palette-from-image",
+    "title": "Extracted Palette",
+    "summary": "A palette derived from an image's dominant colours.",
+    "description": "A palette derived from an image's dominant colours.",
+    "theme": "color-systems",
+    "categories": ["color", "reference"],
+    "tags": ["color", "tokens", "extraction", "palette", "dominant", "image"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+    "customization": [
+      { "name": "--n", "description": "Swatch count", "default": "5" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Artwork-derived theming. Quantise in a perceptual space and then snap each swatch to the nearest step of your existing ramp — raw extracted colours rarely meet contrast requirements."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; }
+    .fx .img { height: 90px; border-radius: 12px; background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #c2891a, #d1478c, #7c5cff); }
+    .fx .row { display: flex; gap: 6px; margin-top: 8px; }
+    .fx .row i { flex: 1; height: 40px; border-radius: 8px; }
+    .fx p { margin: .5rem 0 0; font-size: .76rem; color: #8b93a7; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="img"></div><div class="row"><i style="background:#7c5cff"></i><i style="background:#2dd4bf"></i>
+  <i style="background:#c2891a"></i><i style="background:#d1478c"></i><i style="background:#1a1140"></i></div>
+  <p>Extracted swatches snapped to the nearest passing ramp step.</p></div>
+</body>
+</html>

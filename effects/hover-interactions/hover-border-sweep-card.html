@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Border Sweep</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "hover-border-sweep-card",
+    "title": "Border Sweep",
+    "summary": "A line travelling around the card edge on hover.",
+    "description": "A line travelling around the card edge on hover.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "interaction"],
+    "tags": ["hover", "pointer", "border", "sweep", "conic", "card"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every hover state here is mirrored on :focus-visible so keyboard users get the same information.",
+    "customization": [
+      { "name": "--c", "description": "Sweep colour", "default": "#2dd4bf" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Premium card grids. The mask-composite trick confines the rotating gradient to the border ring; without it the sweep washes over the card content."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { position: relative; width: 250px; padding: 1.4rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }
+    .card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; opacity: 0;
+      background: conic-gradient(from var(--a, 0deg), transparent 0 75%, #2dd4bf 88%, transparent);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; transition: opacity .3s; animation: sweep 2.5s linear infinite; }
+    .card:hover::before, .card:focus-within::before { opacity: 1; }
+    .card h3 { margin: 0 0 .3rem; font-size: 1rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .85rem; }
+    @keyframes sweep { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card" tabindex="0"><h3>Hover me</h3><p>A light travels the border.</p></article>
+</body>
+</html>

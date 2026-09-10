@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fluid Type with clamp()</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "type-fluid-clamp-scale",
+    "title": "Fluid Type with clamp()",
+    "summary": "Sizes that interpolate between viewport bounds.",
+    "description": "Sizes that interpolate between viewport bounds.",
+    "theme": "typography-systems",
+    "categories": ["typography", "reference"],
+    "tags": ["typography", "type", "fluid", "clamp", "viewport", "responsive"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+    "customization": [
+      { "name": "--min", "description": "Minimum size", "default": "1.5rem" },
+      { "name": "--max", "description": "Maximum size", "default": "2.6rem" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Responsive type without breakpoints. Always include a rem term in the middle value (1rem + 2.5vw) so the size still responds to the user's font-size setting — a pure vw value breaks zoom."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; display: grid; gap: .8rem; }
+    .fx h2 { margin: 0; font-size: clamp(1.5rem, 1rem + 2.5vw, 2.6rem); line-height: 1.15; }
+    .fx p { margin: 0; font-size: clamp(.9rem, .85rem + .3vw, 1.05rem); line-height: 1.6; color: #8b93a7; }
+    .fx code { display: block; margin-top: .4rem; padding: .5rem .7rem; border-radius: 8px; background: #10141f;
+      color: #b9a5ff; font-family: ui-monospace, monospace; font-size: .72rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><h2>Fluid headings resize with the viewport</h2>
+  <p>Resize the frame: the heading interpolates smoothly instead of jumping at breakpoints.</p>
+  <code>clamp(1.5rem, 1rem + 2.5vw, 2.6rem)</code></div>
+</body>
+</html>

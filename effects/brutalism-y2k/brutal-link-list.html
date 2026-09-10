@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raw Link List</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "brutal-link-list",
+    "title": "Raw Link List",
+    "summary": "Underlined system links with visible hover boxes.",
+    "description": "Underlined system links with visible hover boxes.",
+    "theme": "brutalism-y2k",
+    "categories": ["brutalism", "y2k"],
+    "tags": ["brutalism", "raw", "links", "raw", "default-styles", "html"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+    "customization": [
+      { "name": "--hl", "description": "Hover colour", "default": "#ffe600" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Deliberately unstyled aesthetics. Keeping the browser's default link blue and visited purple is the point — do not normalise them away."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 240px; background: #fff; border: 4px solid #0b0d12; padding: .6rem; font-family: "Times New Roman", serif; }
+    .fx a { display: block; padding: .4rem .5rem; color: #0000ee; font-size: 1.05rem; text-decoration: underline; }
+    .fx a:hover { background: #ffe600; color: #0b0d12; }
+    .fx a:visited { color: #551a8b; }
+  </style>
+</head>
+<body>
+  <nav class="fx"><a href="#">index</a><a href="#">about.txt</a><a href="#">works/</a><a href="#">contact</a></nav>
+</body>
+</html>

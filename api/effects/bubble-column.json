@@ -1,0 +1,44 @@
+{
+  "id": "bubble-column",
+  "title": "Bubble Column",
+  "summary": "Bubbles rising and wobbling in water.",
+  "description": "Bubbles rising and wobbling in water.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "bubbles",
+    "water",
+    "rise",
+    "underwater"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Bubble tint",
+      "default": "rgba(255,255,255,.14)"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Underwater and carbonation effects. Larger bubbles should rise faster; equal speeds across sizes break the illusion immediately.",
+  "path": "effects/fire-water/bubble-column.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Bubble Column</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bubble-column\",\n    \"title\": \"Bubble Column\",\n    \"summary\": \"Bubbles rising and wobbling in water.\",\n    \"description\": \"Bubbles rising and wobbling in water.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"bubbles\", \"water\", \"rise\", \"underwater\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Bubble tint\", \"default\": \"rgba(255,255,255,.14)\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Underwater and carbonation effects. Larger bubbles should rise faster; equal speeds across sizes break the illusion immediately.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 130px; height: 180px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #075985, #0c4a6e); }\n    .fx i { position: absolute; bottom: -20px; border-radius: 50%; border: 1px solid rgba(255,255,255,.6);\n      background: rgba(255,255,255,.14); animation: up var(--d) linear infinite; animation-delay: var(--dl); }\n    @keyframes up {\n      0% { transform: translate(0, 0); opacity: 0; }\n      15% { opacity: 1; }\n      100% { transform: translate(var(--dx), -200px); opacity: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"left:20%;width:14px;height:14px;--d:3s;--dl:0s;--dx:10px\"></i>\n  <i style=\"left:48%;width:9px;height:9px;--d:4s;--dl:-1.2s;--dx:-8px\"></i>\n  <i style=\"left:70%;width:18px;height:18px;--d:2.4s;--dl:-2s;--dx:6px\"></i></div>\n</body>\n</html>\n"
+}

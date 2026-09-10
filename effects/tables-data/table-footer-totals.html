@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Totals Footer</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "table-footer-totals",
+    "title": "Totals Footer",
+    "summary": "A table footer that sums the columns.",
+    "description": "A table footer that sums the columns.",
+    "theme": "tables-data",
+    "categories": ["table", "data"],
+    "tags": ["table", "data", "totals", "footer", "sum", "tfoot"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+    "customization": [
+      { "name": "--foot", "description": "Footer background", "default": "#171d33" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Financial tables. Use a real <tfoot> so the totals row is announced as a summary and stays with the table when it is printed across pages."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; border-radius: 12px; overflow: hidden; border: 1px solid #263149; }
+    .fx table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    .fx th { background: #1c2437; color: #8b93a7; text-align: left; padding: .5rem .8rem; font-size: .68rem; text-transform: uppercase; }
+    .fx td { padding: .5rem .8rem; border-top: 1px solid #1e2740; color: #cbd5e1; font-variant-numeric: tabular-nums; }
+    .fx tfoot td { border-top: 2px solid #2b3450; font-weight: 800; color: #e7ebf3; background: #171d33; }
+    .fx td:last-child, .fx th:last-child { text-align: right; }
+  </style>
+</head>
+<body>
+  <div class="fx"><table><caption class="sr" style="position:absolute;left:-9999px">Invoice lines</caption>
+  <thead><tr><th scope="col">Item</th><th scope="col">Amount</th></tr></thead>
+  <tbody><tr><td>Studio plan</td><td>$24.00</td></tr><tr><td>Extra seats (3)</td><td>$18.00</td></tr>
+  <tr><td>Tax</td><td>$8.40</td></tr></tbody>
+  <tfoot><tr><td>Total</td><td>$50.40</td></tr></tfoot></table></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "id": "empty-state-first-run",
+  "title": "First-Run Empty State",
+  "summary": "An illustrated empty state with one clear action.",
+  "description": "An illustrated empty state with one clear action.",
+  "theme": "empty-skeleton-states",
+  "themeTitle": "Empty & Loading States",
+  "categories": [
+    "state",
+    "empty"
+  ],
+  "tags": [
+    "state",
+    "placeholder",
+    "empty",
+    "first-run",
+    "onboarding",
+    "cta"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Action colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "First use of a feature. Name what will appear here, give exactly one action, and never use an empty state to apologise — it is an invitation, not an error.",
+  "path": "effects/empty-skeleton-states/empty-state-first-run.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>First-Run Empty State</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"empty-state-first-run\",\n    \"title\": \"First-Run Empty State\",\n    \"summary\": \"An illustrated empty state with one clear action.\",\n    \"description\": \"An illustrated empty state with one clear action.\",\n    \"theme\": \"empty-skeleton-states\",\n    \"categories\": [\"state\", \"empty\"],\n    \"tags\": [\"state\", \"placeholder\", \"empty\", \"first-run\", \"onboarding\", \"cta\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Action colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"First use of a feature. Name what will appear here, give exactly one action, and never use an empty state to apologise — it is an invitation, not an error.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; padding: 2rem 1.4rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; text-align: center; }\n    .fx .ic { font-size: 2.4rem; opacity: .6; }\n    .fx h3 { margin: .8rem 0 .3rem; font-size: 1rem; }\n    .fx p { margin: 0 0 1.2rem; color: #8b93a7; font-size: .85rem; line-height: 1.5; }\n    .fx button { padding: .55rem 1.3rem; border: 0; border-radius: 10px; background: #7c5cff; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"ic\" aria-hidden=\"true\">🗂</div><h3>No collections yet</h3>\n  <p>Collections group specimens so you can export a whole bundle at once.</p><button type=\"button\">New collection</button></div>\n</body>\n</html>\n"
+}

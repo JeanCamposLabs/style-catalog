@@ -1,0 +1,44 @@
+{
+  "id": "heat-haze",
+  "title": "Heat Haze",
+  "summary": "A shimmering distortion rising from a hot surface.",
+  "description": "A shimmering distortion rising from a hot surface.",
+  "theme": "weather-ambient",
+  "themeTitle": "Weather & Ambient",
+  "categories": [
+    "weather",
+    "ambient"
+  ],
+  "tags": [
+    "weather",
+    "ambient",
+    "heat",
+    "haze",
+    "distortion",
+    "desert"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Shimmer period",
+      "default": "2.4s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Desert and summer scenes. A striped mask over a small backdrop blur costs far less than a turbulence filter and reads the same at this scale.",
+  "path": "effects/weather-ambient/heat-haze.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Heat Haze</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"heat-haze\",\n    \"title\": \"Heat Haze\",\n    \"summary\": \"A shimmering distortion rising from a hot surface.\",\n    \"description\": \"A shimmering distortion rising from a hot surface.\",\n    \"theme\": \"weather-ambient\",\n    \"categories\": [\"weather\", \"ambient\"],\n    \"tags\": [\"weather\", \"ambient\", \"heat\", \"haze\", \"distortion\", \"desert\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Shimmer period\", \"default\": \"2.4s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Desert and summer scenes. A striped mask over a small backdrop blur costs far less than a turbulence filter and reads the same at this scale.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 250px; height: 160px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(180deg, #fbbf24, #b45309); }\n    .fx::after { content: \"\"; position: absolute; inset: 0; backdrop-filter: blur(1.5px);\n      -webkit-mask-image: repeating-linear-gradient(180deg, #000 0 4px, transparent 4px 9px);\n      mask-image: repeating-linear-gradient(180deg, #000 0 4px, transparent 4px 9px);\n      animation: shimmer 2.4s ease-in-out infinite alternate; }\n    @keyframes shimmer { from { transform: translateY(0) scaleX(1); } to { transform: translateY(-5px) scaleX(1.02); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

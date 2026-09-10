@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multiline Typewriter</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "typing-multiline",
+    "title": "Multiline Typewriter",
+    "summary": "Several lines type out in turn, with a caret that hands off between them.",
+    "description": "Each line has its own steps() width animation and delay; the caret border only shows on the line currently typing.",
+    "theme": "text-effects",
+    "categories": ["text", "animation"],
+    "tags": ["typewriter", "multiline", "steps", "caret", "terminal"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Caret color", "default": "#34d399" },
+      { "name": "--speed", "description": "Seconds per line", "default": "2s" }
+    ],
+    "variations": ["Loop the whole block", "Delete a line before the next", "Randomize the per-character speed with JS"],
+    "ai_usage": "Terminal and hero copy. Each line needs width in ch units matching its character count and steps(<chars>) timing — mismatched values cause the caret to drift ahead of the text. Fixed-width fonts only."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #34d399; --speed: 2s; }
+    .tw { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 1.05rem; color: #cbd5e1; }
+    .tw p { margin: .2rem 0; overflow: hidden; white-space: nowrap; width: 0;
+      border-right: 2px solid transparent; animation: type var(--speed) steps(var(--n)) forwards, caret .8s step-end infinite; }
+    .tw p:nth-child(1) { animation-delay: 0s, 0s; }
+    .tw p:nth-child(2) { animation-delay: var(--speed), var(--speed); }
+    .tw p:nth-child(3) { animation-delay: calc(var(--speed) * 2), calc(var(--speed) * 2); }
+    @keyframes type { to { width: calc(var(--n) * 1ch); } }
+    @keyframes caret { 0%, 100% { border-color: transparent; } 50% { border-color: var(--c); } }
+    @media (prefers-reduced-motion: reduce) {
+      .tw p { animation: none; width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="tw">
+    <p style="--n:22">$ npm run build --ok</p>
+    <p style="--n:26">> scanning effects/ ...</p>
+    <p style="--n:24">> 1181 effects, 0 errors</p>
+  </div>
+</body>
+</html>

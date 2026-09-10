@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scanning Line</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "loader-line-scan",
+    "title": "Scanning Line",
+    "summary": "A line sweeping across a placeholder block.",
+    "description": "A line sweeping across a placeholder block.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "spinner"],
+    "tags": ["loader", "waiting", "scan", "sweep", "processing", "analysis"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Pair every indicator with a visually-hidden aria-live status; motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Scan period", "default": "1.8s" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Analysis and processing states. A scanning line implies work over a surface, which fits image or document processing better than a spinner does."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 220px; height: 90px; border-radius: 12px; background: #151b2a; overflow: hidden;
+      border: 1px solid #263149; }
+    .fx i { position: absolute; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, transparent, #2dd4bf, transparent);
+      box-shadow: 0 0 14px #2dd4bf; animation: scan 1.8s ease-in-out infinite alternate; }
+    @keyframes scan { from { left: 4%; } to { left: 94%; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx" role="status" aria-label="Analysing"><i></i></div>
+</body>
+</html>

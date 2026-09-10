@@ -1,0 +1,44 @@
+{
+  "id": "holo-foil-card",
+  "title": "Holographic Foil",
+  "summary": "A card with an oil-slick sheen that rotates.",
+  "description": "A card with an oil-slick sheen that rotates.",
+  "theme": "holographic-metallic",
+  "themeTitle": "Holographic & Metallic",
+  "categories": [
+    "material",
+    "holographic"
+  ],
+  "tags": [
+    "holographic",
+    "metallic",
+    "foil",
+    "iridescent",
+    "dodge",
+    "trading-card"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Sheen period",
+      "default": "8s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Collectible cards and premium tiers. Colour-dodge blending on a rotating conic gradient is what produces the oil-slick shift; a static rainbow gradient never reads as foil.",
+  "path": "effects/holographic-metallic/holo-foil-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Holographic Foil</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"holo-foil-card\",\n    \"title\": \"Holographic Foil\",\n    \"summary\": \"A card with an oil-slick sheen that rotates.\",\n    \"description\": \"A card with an oil-slick sheen that rotates.\",\n    \"theme\": \"holographic-metallic\",\n    \"categories\": [\"material\", \"holographic\"],\n    \"tags\": [\"holographic\", \"metallic\", \"foil\", \"iridescent\", \"dodge\", \"trading-card\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Iridescent surfaces have unpredictable local contrast — never place body text directly on one.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Sheen period\", \"default\": \"8s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Collectible cards and premium tiers. Colour-dodge blending on a rotating conic gradient is what produces the oil-slick shift; a static rainbow gradient never reads as foil.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 200px; height: 270px; border-radius: 18px; overflow: hidden;\n      background: #0f0a1e; border: 1px solid rgba(255,255,255,.2); }\n    .fx::after { content: \"\"; position: absolute; inset: -50%; mix-blend-mode: color-dodge; filter: blur(26px); opacity: .55;\n      background: conic-gradient(from 0deg, #ff2d95, #fbbf24, #22d3ee, #a855f7, #ff2d95); animation: spin 8s linear infinite; }\n    .fx b { position: absolute; inset: auto 0 0 0; padding: 1rem; font-weight: 800; color: #fff; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><b>Holo Rare</b></div>\n</body>\n</html>\n"
+}

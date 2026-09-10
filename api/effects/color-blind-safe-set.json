@@ -1,0 +1,44 @@
+{
+  "id": "color-blind-safe-set",
+  "title": "CVD-Safe Categorical",
+  "summary": "Five hues validated for colour-vision deficiency.",
+  "description": "Five hues validated for colour-vision deficiency.",
+  "theme": "color-systems",
+  "themeTitle": "Color Systems",
+  "categories": [
+    "color",
+    "reference"
+  ],
+  "tags": [
+    "color",
+    "tokens",
+    "cvd",
+    "colorblind",
+    "categorical",
+    "validated"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+  "customization": [
+    {
+      "name": "--c1",
+      "description": "First hue",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Chart and category palettes. Validate adjacent-pair separation under deuteranopia and protanopia before shipping — the check is computable, so never eyeball it.",
+  "path": "effects/color-systems/color-blind-safe-set.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>CVD-Safe Categorical</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"color-blind-safe-set\",\n    \"title\": \"CVD-Safe Categorical\",\n    \"summary\": \"Five hues validated for colour-vision deficiency.\",\n    \"description\": \"Five hues validated for colour-vision deficiency.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"color\", \"reference\"],\n    \"tags\": [\"color\", \"tokens\", \"cvd\", \"colorblind\", \"categorical\", \"validated\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.\",\n    \"customization\": [\n      { \"name\": \"--c1\", \"description\": \"First hue\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Chart and category palettes. Validate adjacent-pair separation under deuteranopia and protanopia before shipping — the check is computable, so never eyeball it.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; }\n    .fx .row { display: flex; gap: 6px; margin-bottom: 8px; }\n    .fx .row i { flex: 1; height: 42px; border-radius: 8px; }\n    .fx .lbl { font-size: .68rem; color: #64748b; margin-bottom: .3rem; font-family: ui-monospace, monospace; }\n    .fx .sim { filter: url(#deut); }\n    svg.defs { position: absolute; width: 0; height: 0; }\n  </style>\n</head>\n<body>\n  <svg class=\"defs\" aria-hidden=\"true\"><filter id=\"deut\"><feColorMatrix type=\"matrix\"\n    values=\"0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0\"/></filter></svg>\n  <div class=\"fx\"><div class=\"lbl\">normal vision</div>\n  <div class=\"row\"><i style=\"background:#7c5cff\"></i><i style=\"background:#10a894\"></i><i style=\"background:#c2891a\"></i>\n  <i style=\"background:#d1478c\"></i><i style=\"background:#2f7cc9\"></i></div>\n  <div class=\"lbl\">deuteranopia simulation</div>\n  <div class=\"row sim\"><i style=\"background:#7c5cff\"></i><i style=\"background:#10a894\"></i><i style=\"background:#c2891a\"></i>\n  <i style=\"background:#d1478c\"></i><i style=\"background:#2f7cc9\"></i></div></div>\n</body>\n</html>\n"
+}

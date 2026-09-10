@@ -1,0 +1,44 @@
+{
+  "id": "rgb-split-image",
+  "title": "RGB Split",
+  "summary": "Red and cyan channels pulled apart.",
+  "description": "Red and cyan channels pulled apart.",
+  "theme": "glitch-distortion",
+  "themeTitle": "Glitch & Distortion",
+  "categories": [
+    "glitch",
+    "distortion"
+  ],
+  "tags": [
+    "glitch",
+    "distortion",
+    "rgb-split",
+    "chroma",
+    "channels",
+    "aberration"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--split",
+      "description": "Split distance",
+      "default": "5px"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Glitch and lens effects. Isolate channels with feColorMatrix and screen-blend them back — a coloured overlay cannot separate channels.",
+  "path": "effects/glitch-distortion/rgb-split-image.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>RGB Split</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"rgb-split-image\",\n    \"title\": \"RGB Split\",\n    \"summary\": \"Red and cyan channels pulled apart.\",\n    \"description\": \"Red and cyan channels pulled apart.\",\n    \"theme\": \"glitch-distortion\",\n    \"categories\": [\"glitch\", \"distortion\"],\n    \"tags\": [\"glitch\", \"distortion\", \"rgb-split\", \"chroma\", \"channels\", \"aberration\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--split\", \"description\": \"Split distance\", \"default\": \"5px\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Glitch and lens effects. Isolate channels with feColorMatrix and screen-blend them back — a coloured overlay cannot separate channels.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 230px; height: 150px; border-radius: 10px;\n      background: conic-gradient(from 180deg at 40% 35%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }\n    .fx::before, .fx::after { content: \"\"; position: absolute; inset: 0; border-radius: inherit; background: inherit;\n      mix-blend-mode: screen; }\n    .fx::before { filter: url(#rch); animation: sh 3s ease-in-out infinite alternate; }\n    .fx::after { filter: url(#cch); animation: sh 3s ease-in-out infinite alternate-reverse; }\n    svg.defs { position: absolute; width: 0; height: 0; }\n    @keyframes sh { from { transform: translateX(-5px); } to { transform: translateX(5px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <svg class=\"defs\" aria-hidden=\"true\">\n    <filter id=\"rch\"><feColorMatrix type=\"matrix\" values=\"1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0\"/></filter>\n    <filter id=\"cch\"><feColorMatrix type=\"matrix\" values=\"0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0\"/></filter>\n  </svg>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

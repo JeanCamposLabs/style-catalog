@@ -1,0 +1,54 @@
+{
+  "id": "carbon-fiber-bg",
+  "title": "Carbon Fibre",
+  "summary": "A woven carbon-fibre weave from four tiny gradients.",
+  "description": "Two pairs of 45° gradients offset by half a tile create the over-under weave that a single gradient cannot.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "texture"
+  ],
+  "tags": [
+    "carbon-fiber",
+    "weave",
+    "texture",
+    "material",
+    "automotive"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Fibre highlight",
+      "default": "#20242c"
+    },
+    {
+      "name": "--b",
+      "description": "Fibre shadow",
+      "default": "#14171d"
+    },
+    {
+      "name": "--s",
+      "description": "Weave size",
+      "default": "12px"
+    }
+  ],
+  "variations": [
+    "Larger weave for a coarser look",
+    "Red or blue tinted fibre",
+    "Add a gloss overlay"
+  ],
+  "related": [],
+  "ai_usage": "Automotive, audio, and hardware skins. Keep the tile small (8–14px); larger tiles expose the gradient trick and stop reading as material.",
+  "path": "effects/backgrounds/carbon-fiber-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Carbon Fibre</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"carbon-fiber-bg\",\n    \"title\": \"Carbon Fibre\",\n    \"summary\": \"A woven carbon-fibre weave from four tiny gradients.\",\n    \"description\": \"Two pairs of 45° gradients offset by half a tile create the over-under weave that a single gradient cannot.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"texture\"],\n    \"tags\": [\"carbon-fiber\", \"weave\", \"texture\", \"material\", \"automotive\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Fibre highlight\", \"default\": \"#20242c\" },\n      { \"name\": \"--b\", \"description\": \"Fibre shadow\", \"default\": \"#14171d\" },\n      { \"name\": \"--s\", \"description\": \"Weave size\", \"default\": \"12px\" }\n    ],\n    \"variations\": [\"Larger weave for a coarser look\", \"Red or blue tinted fibre\", \"Add a gloss overlay\"],\n    \"ai_usage\": \"Automotive, audio, and hardware skins. Keep the tile small (8–14px); larger tiles expose the gradient trick and stop reading as material.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #20242c; --b: #14171d; --s: 12px; }\n    .bg { background-color: var(--b);\n      background-image: linear-gradient(45deg, var(--a) 25%, transparent 25%, transparent 75%, var(--a) 75%),\n        linear-gradient(45deg, var(--a) 25%, transparent 25%, transparent 75%, var(--a) 75%);\n      background-size: var(--s) var(--s);\n      background-position: 0 0, calc(var(--s) / 2) calc(var(--s) / 2); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

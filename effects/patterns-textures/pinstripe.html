@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pinstripe</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "pinstripe",
+    "title": "Pinstripe",
+    "summary": "Hairline stripes on a dark ground, tailoring style.",
+    "description": "Hairline stripes on a dark ground, tailoring style. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "pinstripe", "hairline", "tailoring"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--line", "description": "Line colour", "default": "rgba(255,255,255,.12)" },
+      { "name": "--gap", "description": "Line spacing", "default": "14px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Formal and financial UIs. Keep the line at 1px and the gap at 12–18px; wider gaps read as a grid rather than pinstripe."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --line: rgba(255,255,255,.12); --gap: 14px; }
+    .bg { background-color: #10131c; background-image: repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px var(--gap)); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

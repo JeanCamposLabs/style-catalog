@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon Outline Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neon-outline-button",
+    "title": "Neon Outline Button",
+    "summary": "A hollow button whose border and label ignite on hover.",
+    "description": "Layered box-shadows inside and out plus a text glow turn a flat outline into a lit tube.",
+    "theme": "buttons",
+    "categories": ["button", "glow"],
+    "tags": ["neon", "outline", "glow", "hover", "dark-ui"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Neon color", "default": "#2dd4bf" },
+      { "name": "--dur", "description": "Ignite speed", "default": "0.25s" }
+    ],
+    "variations": ["Flicker on first hover", "Fill the button on active", "Different hue per action"],
+    "ai_usage": "Dark UIs, gaming, nightlife. The glow is three box-shadows (inset, small outer, large outer) plus a text-shadow — one shadow alone looks like a blur, not neon. Keep the resting state visible for accessibility."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --c: #2dd4bf; --dur: .25s; }
+    .neon { padding: .9rem 2rem; border-radius: 10px; background: transparent; color: var(--c);
+      border: 2px solid var(--c); font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      transition: box-shadow var(--dur), color var(--dur), text-shadow var(--dur); }
+    .neon:hover { color: #fff; text-shadow: 0 0 8px var(--c);
+      box-shadow: inset 0 0 14px color-mix(in srgb, var(--c) 45%, transparent), 0 0 10px var(--c), 0 0 30px color-mix(in srgb, var(--c) 60%, transparent); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="neon" type="button">Engage</button>
+</body>
+</html>

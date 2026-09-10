@@ -1,0 +1,44 @@
+{
+  "id": "torn-paper-edge",
+  "title": "Torn Edge",
+  "summary": "A sheet with a ripped bottom edge.",
+  "description": "A sheet with a ripped bottom edge.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "torn",
+    "rip",
+    "edge",
+    "collage"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--paper",
+      "description": "Paper colour",
+      "default": "#f8f5ee"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Collage and zine layouts. Irregular tooth heights are what make it read as a tear; regular spacing produces a decorative sawtooth.",
+  "path": "effects/paper-print/torn-paper-edge.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Torn Edge</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"torn-paper-edge\",\n    \"title\": \"Torn Edge\",\n    \"summary\": \"A sheet with a ripped bottom edge.\",\n    \"description\": \"A sheet with a ripped bottom edge.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"torn\", \"rip\", \"edge\", \"collage\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--paper\", \"description\": \"Paper colour\", \"default\": \"#f8f5ee\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Collage and zine layouts. Irregular tooth heights are what make it read as a tear; regular spacing produces a decorative sawtooth.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 230px; padding: 1.2rem 1.2rem 2rem; background: #f8f5ee; color: #1f2937; font-size: .85rem;\n      clip-path: polygon(0 0, 100% 0, 100% 88%, 94% 94%, 88% 87%, 80% 95%, 72% 88%, 63% 96%, 54% 88%, 45% 95%,\n        36% 87%, 28% 95%, 19% 88%, 10% 94%, 0 87%); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">This page was torn from a larger notebook.</div>\n</body>\n</html>\n"
+}

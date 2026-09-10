@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Line Icon Set</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-icon-line-set",
+    "title": "Line Icon Set",
+    "summary": "Six stroke icons sharing one grid and weight.",
+    "description": "Six stroke icons sharing one grid and weight.",
+    "theme": "svg-effects",
+    "categories": ["svg", "vector"],
+    "tags": ["svg", "vector", "icons", "stroke", "set", "consistency"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+    "customization": [
+      { "name": "--w", "description": "Stroke width", "default": "1.8" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Icon systems. Keep one grid size, one stroke width, and one cap style across the whole set — mixed stroke weights are the fastest way to make an icon set look bought rather than designed."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 12px; }
+    .fx svg { width: 32px; height: 32px; }
+    .fx path, .fx circle, .fx rect { fill: none; stroke: #cbd5e1; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M12 4v16"/></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16"/></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8 14H4z"/></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></div>
+</body>
+</html>

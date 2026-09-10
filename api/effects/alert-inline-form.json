@@ -1,0 +1,44 @@
+{
+  "id": "alert-inline-form",
+  "title": "Field Error Alert",
+  "summary": "A form-level error summary linking to fields.",
+  "description": "A form-level error summary linking to fields.",
+  "theme": "notifications-toasts",
+  "themeTitle": "Notifications & Toasts",
+  "categories": [
+    "notification",
+    "feedback"
+  ],
+  "tags": [
+    "notification",
+    "feedback",
+    "error",
+    "summary",
+    "form",
+    "validation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+  "customization": [
+    {
+      "name": "--bad",
+      "description": "Error colour",
+      "default": "#d1478c"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Form submission errors. An error summary at the top with in-page links to each field is the pattern that actually gets forms completed; move focus to it on submit.",
+  "path": "effects/notifications-toasts/alert-inline-form.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Field Error Alert</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"alert-inline-form\",\n    \"title\": \"Field Error Alert\",\n    \"summary\": \"A form-level error summary linking to fields.\",\n    \"description\": \"A form-level error summary linking to fields.\",\n    \"theme\": \"notifications-toasts\",\n    \"categories\": [\"notification\", \"feedback\"],\n    \"tags\": [\"notification\", \"feedback\", \"error\", \"summary\", \"form\", \"validation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.\",\n    \"customization\": [\n      { \"name\": \"--bad\", \"description\": \"Error colour\", \"default\": \"#d1478c\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Form submission errors. An error summary at the top with in-page links to each field is the pattern that actually gets forms completed; move focus to it on submit.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; padding: .9rem 1rem; border-radius: 12px; background: #2a1116; border: 1px solid #d1478c; }\n    .fx b { display: block; color: #ffc0d5; font-size: .88rem; margin-bottom: .4rem; }\n    .fx ul { margin: 0; padding-left: 1.1rem; color: #f6b7cc; font-size: .82rem; line-height: 1.7; }\n    .fx a { color: #ffd6e5; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"alert\" tabindex=\"-1\"><b>2 problems prevented saving</b>\n  <ul><li><a href=\"#f1\">Email address is not valid</a></li><li><a href=\"#f2\">Choose at least one theme</a></li></ul></div>\n</body>\n</html>\n"
+}

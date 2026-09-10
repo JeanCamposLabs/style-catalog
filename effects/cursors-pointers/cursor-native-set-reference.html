@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Native Cursor Set</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-native-set-reference",
+    "title": "Native Cursor Set",
+    "summary": "The standard cursor keywords, labelled.",
+    "description": "The standard cursor keywords, labelled.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "pointer"],
+    "tags": ["cursor", "pointer", "cursors", "native", "reference", "semantics"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--bg", "description": "Tile background", "default": "#151b2a" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Use the native cursor that matches the affordance before reaching for a custom one — pointer for links, text for editable areas, grab for draggables, not-allowed for disabled."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 290px; }
+    .fx div { padding: .7rem .5rem; border-radius: 10px; background: #151b2a; border: 1px solid #263149; color: #8b93a7;
+      font-size: .72rem; text-align: center; font-family: ui-monospace, monospace; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div style="cursor:pointer">pointer</div><div style="cursor:text">text</div><div style="cursor:grab">grab</div>
+  <div style="cursor:not-allowed">not-allowed</div><div style="cursor:col-resize">col-resize</div><div style="cursor:zoom-in">zoom-in</div>
+  <div style="cursor:crosshair">crosshair</div><div style="cursor:help">help</div><div style="cursor:progress">progress</div></div>
+</body>
+</html>

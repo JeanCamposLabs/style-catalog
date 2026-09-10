@@ -1,0 +1,44 @@
+{
+  "id": "water-drop-ripple",
+  "title": "Water Drop",
+  "summary": "A drop falls and sends out a ripple.",
+  "description": "A drop falls and sends out a ripple.",
+  "theme": "nature-organic",
+  "themeTitle": "Nature & Organic",
+  "categories": [
+    "nature",
+    "organic"
+  ],
+  "tags": [
+    "organic",
+    "nature",
+    "water",
+    "drop",
+    "ripple",
+    "splash"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Water colour",
+      "default": "#38bdf8"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Water and freshness themes. The ripple must start exactly when the drop lands — offset keyframes, not separate animations with guessed delays.",
+  "path": "effects/nature-organic/water-drop-ripple.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Water Drop</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"water-drop-ripple\",\n    \"title\": \"Water Drop\",\n    \"summary\": \"A drop falls and sends out a ripple.\",\n    \"description\": \"A drop falls and sends out a ripple.\",\n    \"theme\": \"nature-organic\",\n    \"categories\": [\"nature\", \"organic\"],\n    \"tags\": [\"organic\", \"nature\", \"water\", \"drop\", \"ripple\", \"splash\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Water colour\", \"default\": \"#38bdf8\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Water and freshness themes. The ripple must start exactly when the drop lands — offset keyframes, not separate animations with guessed delays.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 180px; height: 150px; }\n    .fx .drop { position: absolute; left: 50%; translate: -50% 0; width: 12px; height: 16px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;\n      background: #38bdf8; animation: fall 2.4s cubic-bezier(.5,0,.9,.6) infinite; }\n    .fx .ring { position: absolute; bottom: 26px; left: 50%; translate: -50% 0; width: 40px; height: 12px; border-radius: 50%;\n      border: 2px solid #38bdf8; opacity: 0; animation: spread 2.4s ease-out infinite; }\n    @keyframes fall { 0% { top: 0; opacity: 1; } 55% { top: 104px; opacity: 1; } 60%, 100% { opacity: 0; } }\n    @keyframes spread { 0%, 55% { transform: scale(.2); opacity: 0; } 60% { opacity: 1; } 100% { transform: scale(3); opacity: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"drop\"></span><span class=\"ring\"></span></div>\n</body>\n</html>\n"
+}

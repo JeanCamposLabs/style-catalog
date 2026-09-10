@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raw Form</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "brutal-form-raw",
+    "title": "Raw Form",
+    "summary": "Unstyled-looking inputs with thick focus outlines.",
+    "description": "Unstyled-looking inputs with thick focus outlines.",
+    "theme": "brutalism-y2k",
+    "categories": ["brutalism", "y2k"],
+    "tags": ["brutalism", "raw", "form", "raw", "focus", "input"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+    "customization": [
+      { "name": "--hl", "description": "Focus colour", "default": "#ffe600" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Brutalist forms. Exaggerated focus outlines fit the aesthetic and improve accessibility at the same time — a rare free win."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 260px; background: #fff; border: 4px solid #0b0d12; padding: 1rem; font-family: "Courier New", monospace; color: #0b0d12; }
+    .fx label { display: block; font-weight: 700; text-transform: uppercase; font-size: .75rem; margin-bottom: .3rem; }
+    .fx input { width: 100%; padding: .5rem; border: 2px solid #0b0d12; font: inherit; margin-bottom: .9rem; }
+    .fx input:focus { outline: 4px solid #ffe600; outline-offset: 0; }
+    .fx button { width: 100%; padding: .6rem; border: 3px solid #0b0d12; background: #ffe600; font: inherit; font-weight: 700; cursor: pointer; }
+    .fx button:active { transform: translate(3px, 3px); }
+  </style>
+</head>
+<body>
+  <form class="fx"><label for="e">Email</label><input id="e" type="email" /><button type="button">SUBMIT</button></form>
+</body>
+</html>

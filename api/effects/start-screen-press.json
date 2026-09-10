@@ -1,0 +1,44 @@
+{
+  "id": "start-screen-press",
+  "title": "Press Start Screen",
+  "summary": "A title screen with a blinking prompt.",
+  "description": "A title screen with a blinking prompt.",
+  "theme": "game-ui",
+  "themeTitle": "Game UI",
+  "categories": [
+    "game",
+    "ui"
+  ],
+  "tags": [
+    "game",
+    "hud",
+    "title-screen",
+    "blink",
+    "arcade",
+    "start"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Title colour",
+      "default": "#fde68a"
+    }
+  ],
+  "variations": [
+    "Retheme through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Arcade and game landing screens. Use steps(1) blinking, not a fade — the hard on/off is the era-correct behaviour.",
+  "path": "effects/game-ui/start-screen-press.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Press Start Screen</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"start-screen-press\",\n    \"title\": \"Press Start Screen\",\n    \"summary\": \"A title screen with a blinking prompt.\",\n    \"description\": \"A title screen with a blinking prompt.\",\n    \"theme\": \"game-ui\",\n    \"categories\": [\"game\", \"ui\"],\n    \"tags\": [\"game\", \"hud\", \"title-screen\", \"blink\", \"arcade\", \"start\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Title colour\", \"default\": \"#fde68a\" }\n    ],\n    \"variations\": [\"Retheme through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Arcade and game landing screens. Use steps(1) blinking, not a fade — the hard on/off is the era-correct behaviour.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; height: 170px; border-radius: 10px; display: grid; place-items: center; gap: .8rem;\n      background: radial-gradient(circle at 50% 30%, #1e1b4b, #05070d); font-family: ui-monospace, monospace; text-align: center; }\n    .fx h2 { margin: 0; font-size: 1.6rem; font-weight: 900; letter-spacing: .12em; color: #fde68a;\n      text-shadow: 0 0 12px rgba(251,191,36,.6), 3px 3px 0 #7c2d12; }\n    .fx p { margin: 0; font-size: .8rem; color: #a5b4fc; animation: blink 1.4s steps(1) infinite; }\n    @keyframes blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><h2>PIXEL QUEST</h2><p>PRESS START</p></div>\n</body>\n</html>\n"
+}

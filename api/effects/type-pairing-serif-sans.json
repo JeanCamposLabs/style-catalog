@@ -1,0 +1,49 @@
+{
+  "id": "type-pairing-serif-sans",
+  "title": "Font Pairing",
+  "summary": "A serif display paired with a sans body.",
+  "description": "A serif display paired with a sans body.",
+  "theme": "typography-systems",
+  "themeTitle": "Typography Systems",
+  "categories": [
+    "typography",
+    "reference"
+  ],
+  "tags": [
+    "typography",
+    "type",
+    "pairing",
+    "serif",
+    "sans",
+    "editorial"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+  "customization": [
+    {
+      "name": "--display",
+      "description": "Display family",
+      "default": "Georgia, serif"
+    },
+    {
+      "name": "--body",
+      "description": "Body family",
+      "default": "system-ui"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Editorial layouts. Pair fonts with contrasting structure but similar x-height; two faces from the same classification just look like a loading error.",
+  "path": "effects/typography-systems/type-pairing-serif-sans.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Font Pairing</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"type-pairing-serif-sans\",\n    \"title\": \"Font Pairing\",\n    \"summary\": \"A serif display paired with a sans body.\",\n    \"description\": \"A serif display paired with a sans body.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"reference\"],\n    \"tags\": [\"typography\", \"type\", \"pairing\", \"serif\", \"sans\", \"editorial\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.\",\n    \"customization\": [\n      { \"name\": \"--display\", \"description\": \"Display family\", \"default\": \"Georgia, serif\" },\n      { \"name\": \"--body\", \"description\": \"Body family\", \"default\": \"system-ui\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Editorial layouts. Pair fonts with contrasting structure but similar x-height; two faces from the same classification just look like a loading error.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; }\n    .fx h2 { margin: 0 0 .5rem; font-family: Georgia, \"Times New Roman\", serif; font-size: 1.7rem; line-height: 1.2; font-weight: 700; }\n    .fx p { margin: 0 0 .8rem; font-family: system-ui, sans-serif; font-size: .9rem; line-height: 1.65; color: #8b93a7; max-width: 60ch; }\n    .fx .meta { font-family: ui-monospace, monospace; font-size: .72rem; color: #64748b; letter-spacing: .04em; }\n  </style>\n</head>\n<body>\n  <article class=\"fx\"><h2>The catalogue as a machine-readable museum</h2>\n  <p>Serif display over sans body is the safest editorial pairing: high contrast in structure, similar rhythm in the line.</p>\n  <div class=\"meta\">4 MIN READ · SEPTEMBER 2026</div></article>\n</body>\n</html>\n"
+}

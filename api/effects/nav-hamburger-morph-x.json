@@ -1,0 +1,44 @@
+{
+  "id": "nav-hamburger-morph-x",
+  "title": "Morphing Hamburger",
+  "summary": "Three bars folding into a close icon.",
+  "description": "Three bars folding into a close icon.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "hamburger",
+    "morph",
+    "toggle",
+    "mobile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Morph duration",
+      "default": "0.3s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Mobile menu triggers. Translate then rotate the outer bars (order matters) and fade the middle one; keep aria-expanded in sync or the control is meaningless to screen readers.",
+  "path": "effects/navigation-menus/nav-hamburger-morph-x.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Morphing Hamburger</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-hamburger-morph-x\",\n    \"title\": \"Morphing Hamburger\",\n    \"summary\": \"Three bars folding into a close icon.\",\n    \"description\": \"Three bars folding into a close icon.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"hamburger\", \"morph\", \"toggle\", \"mobile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Morph duration\", \"default\": \"0.3s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Mobile menu triggers. Translate then rotate the outer bars (order matters) and fade the middle one; keep aria-expanded in sync or the control is meaningless to screen readers.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 48px; height: 48px; border: 1px solid #263149; border-radius: 12px; background: #151b2a; cursor: pointer;\n      display: grid; place-items: center; gap: 5px; padding: 12px; }\n    .fx i { display: block; width: 100%; height: 2px; border-radius: 2px; background: #e7ebf3;\n      transition: transform .3s cubic-bezier(.7,0,.2,1), opacity .2s; }\n    .fx[aria-expanded=\"true\"] i:nth-child(1) { transform: translateY(7px) rotate(45deg); }\n    .fx[aria-expanded=\"true\"] i:nth-child(2) { opacity: 0; }\n    .fx[aria-expanded=\"true\"] i:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-expanded=\"false\" aria-label=\"Menu\" id=\"hm\"><i></i><i></i><i></i></button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"hm\");\n      b.addEventListener(\"click\", function () {\n        b.setAttribute(\"aria-expanded\", b.getAttribute(\"aria-expanded\") === \"true\" ? \"false\" : \"true\");\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

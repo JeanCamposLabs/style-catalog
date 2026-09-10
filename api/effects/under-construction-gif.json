@@ -1,0 +1,44 @@
+{
+  "id": "under-construction-gif",
+  "title": "Under Construction",
+  "summary": "The classic roadworks banner, rebuilt in CSS.",
+  "description": "The classic roadworks banner, rebuilt in CSS.",
+  "theme": "retro-web",
+  "themeTitle": "Retro Web",
+  "categories": [
+    "retro",
+    "nostalgia"
+  ],
+  "tags": [
+    "retro",
+    "nostalgia",
+    "under-construction",
+    "90s",
+    "banner",
+    "geocities"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Sign colour",
+      "default": "#ffe600"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Deliberate 90s pastiche and placeholder pages. The hazard stripes plus Comic Sans are the two signals that place it precisely; either alone reads as generic warning.",
+  "path": "effects/retro-web/under-construction-gif.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Under Construction</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"under-construction-gif\",\n    \"title\": \"Under Construction\",\n    \"summary\": \"The classic roadworks banner, rebuilt in CSS.\",\n    \"description\": \"The classic roadworks banner, rebuilt in CSS.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"nostalgia\"],\n    \"tags\": [\"retro\", \"nostalgia\", \"under-construction\", \"90s\", \"banner\", \"geocities\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Sign colour\", \"default\": \"#ffe600\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Deliberate 90s pastiche and placeholder pages. The hazard stripes plus Comic Sans are the two signals that place it precisely; either alone reads as generic warning.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; align-items: center; gap: .8rem; padding: .7rem 1rem; background: #ffe600; color: #000;\n      border: 3px solid #000; font-family: \"Comic Sans MS\", \"Segoe Print\", cursive; font-weight: 700; }\n    .fx .sign { width: 34px; height: 30px; background: #000; clip-path: polygon(50% 0, 100% 100%, 0 100%);\n      position: relative; }\n    .fx .sign::after { content: \"\"; position: absolute; left: 50%; top: 40%; translate: -50% 0; width: 4px; height: 12px; background: #ffe600; }\n    .fx .bar { width: 100%; height: 8px; background: repeating-linear-gradient(45deg, #000 0 8px, #ffe600 8px 16px);\n      animation: march .8s linear infinite; }\n    @keyframes march { to { background-position: 22px 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div><div class=\"fx\"><span class=\"sign\"></span>UNDER CONSTRUCTION</div><div class=\"bar\"></div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "card-stat-tile",
+  "title": "Stat Tile",
+  "summary": "A metric card with a delta indicator.",
+  "description": "A metric card with a delta indicator. Self-contained card markup you can drop into a grid.",
+  "theme": "cards-surfaces",
+  "themeTitle": "Cards & Surfaces",
+  "categories": [
+    "card",
+    "surface"
+  ],
+  "tags": [
+    "card",
+    "surface",
+    "stat",
+    "metric",
+    "dashboard",
+    "kpi"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+  "customization": [
+    {
+      "name": "--up",
+      "description": "Positive colour",
+      "default": "#34d399"
+    }
+  ],
+  "variations": [
+    "Adapt for a light theme",
+    "Add a media area at the top"
+  ],
+  "related": [],
+  "ai_usage": "Dashboards. Pair the delta with an arrow glyph as well as colour so the direction survives a monochrome print or colour-blind viewing.",
+  "path": "effects/cards-surfaces/card-stat-tile.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Stat Tile</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-stat-tile\",\n    \"title\": \"Stat Tile\",\n    \"summary\": \"A metric card with a delta indicator.\",\n    \"description\": \"A metric card with a delta indicator. Self-contained card markup you can drop into a grid.\",\n    \"theme\": \"cards-surfaces\",\n    \"categories\": [\"card\", \"surface\"],\n    \"tags\": [\"card\", \"surface\", \"stat\", \"metric\", \"dashboard\", \"kpi\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A clickable card needs one real link or button inside it; never attach a click handler to a bare div.\",\n    \"customization\": [\n      { \"name\": \"--up\", \"description\": \"Positive colour\", \"default\": \"#34d399\" }\n    ],\n    \"variations\": [\"Adapt for a light theme\", \"Add a media area at the top\"],\n    \"ai_usage\": \"Dashboards. Pair the delta with an arrow glyph as well as colour so the direction survives a monochrome print or colour-blind viewing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }\n    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }\n    .card { background: #151b2a; border: 1px solid #263149; }\n    .card .n { font-size: 2.1rem; font-weight: 900; letter-spacing: -.02em; }\n    .card .lbl { color: #8b93a7; font-size: .82rem; }\n    .card .delta { display: inline-flex; gap: .25rem; align-items: center; margin-top: .6rem; padding: .2rem .5rem;\n      border-radius: 999px; background: rgba(52,211,153,.14); color: #34d399; font-size: .78rem; font-weight: 700; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <article class=\"card\"><div class=\"lbl\">Monthly revenue</div><div class=\"n\">$48,290</div><span class=\"delta\">▲ 12.4%</span></article>\n</body>\n</html>\n"
+}

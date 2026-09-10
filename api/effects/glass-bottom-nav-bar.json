@@ -1,0 +1,44 @@
+{
+  "id": "glass-bottom-nav-bar",
+  "title": "Glass Tab Bar",
+  "summary": "A translucent bottom navigation bar.",
+  "description": "A translucent bottom navigation bar.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass",
+    "surface"
+  ],
+  "tags": [
+    "glass",
+    "surface",
+    "glass",
+    "tab-bar",
+    "mobile",
+    "navigation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+  "customization": [
+    {
+      "name": "--blur",
+      "description": "Backdrop blur",
+      "default": "18px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Mobile app shells. Keep the bar above the safe-area inset and give the active item a weight change as well as a colour change, since translucency flattens colour differences.",
+  "path": "effects/glass-neumorphism/glass-bottom-nav-bar.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glass Tab Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-bottom-nav-bar\",\n    \"title\": \"Glass Tab Bar\",\n    \"summary\": \"A translucent bottom navigation bar.\",\n    \"description\": \"A translucent bottom navigation bar.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\", \"surface\"],\n    \"tags\": [\"glass\", \"surface\", \"glass\", \"tab-bar\", \"mobile\", \"navigation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.\",\n    \"customization\": [\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur\", \"default\": \"18px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Mobile app shells. Keep the bar above the safe-area inset and give the active item a weight change as well as a colour change, since translucency flattens colour differences.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: linear-gradient(180deg, #7c3aed, #0b0d12); }\n    .fx { display: flex; width: 290px; padding: .5rem; border-radius: 20px;\n      background: rgba(255,255,255,.15); backdrop-filter: blur(18px) saturate(1.6);\n      -webkit-backdrop-filter: blur(18px) saturate(1.6); border: 1px solid rgba(255,255,255,.3); }\n    .fx a { flex: 1; display: grid; justify-items: center; gap: 2px; padding: .4rem 0; color: rgba(255,255,255,.7);\n      text-decoration: none; font-size: .68rem; }\n    .fx a[aria-current] { color: #fff; font-weight: 700; }\n    .fx .ic { font-size: 1.1rem; }\n  </style>\n</head>\n<body>\n  <nav class=\"fx\" aria-label=\"Sections\"><a href=\"#\" aria-current=\"page\"><span class=\"ic\" aria-hidden=\"true\">⌂</span>Home</a>\n  <a href=\"#\"><span class=\"ic\" aria-hidden=\"true\">⌕</span>Search</a><a href=\"#\"><span class=\"ic\" aria-hidden=\"true\">♥</span>Saved</a>\n  <a href=\"#\"><span class=\"ic\" aria-hidden=\"true\">☺</span>You</a></nav>\n</body>\n</html>\n"
+}

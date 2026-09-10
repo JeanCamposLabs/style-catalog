@@ -1,0 +1,44 @@
+{
+  "id": "nav-pill-indicator-morph",
+  "title": "Morphing Pill Nav",
+  "summary": "A pill that resizes as it moves between links.",
+  "description": "A pill that resizes as it moves between links.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "pill",
+    "indicator",
+    "morph",
+    "tabs"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Indicator colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Compact navigation. Measure offsetLeft and offsetWidth of the active link and re-measure on resize; a fixed-width indicator drifts as soon as labels change.",
+  "path": "effects/navigation-menus/nav-pill-indicator-morph.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Morphing Pill Nav</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-pill-indicator-morph\",\n    \"title\": \"Morphing Pill Nav\",\n    \"summary\": \"A pill that resizes as it moves between links.\",\n    \"description\": \"A pill that resizes as it moves between links.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"pill\", \"indicator\", \"morph\", \"tabs\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Indicator colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Compact navigation. Measure offsetLeft and offsetWidth of the active link and re-measure on resize; a fixed-width indicator drifts as soon as labels change.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; display: inline-flex; gap: .2rem; padding: 4px; border-radius: 999px; background: #151b2a;\n      border: 1px solid #263149; }\n    .fx .pill { position: absolute; top: 4px; bottom: 4px; border-radius: 999px; background: #7c5cff;\n      transition: transform .3s cubic-bezier(.7,0,.2,1), width .3s cubic-bezier(.7,0,.2,1); }\n    .fx a { position: relative; z-index: 1; padding: .5rem 1rem; border-radius: 999px; color: #8b93a7; text-decoration: none;\n      font-size: .86rem; font-weight: 600; transition: color .25s; }\n    .fx a[aria-current] { color: #fff; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <nav class=\"fx\" id=\"pn\" aria-label=\"Views\"><span class=\"pill\" aria-hidden=\"true\"></span>\n  <a href=\"#\" aria-current=\"page\">Gallery</a><a href=\"#\">Themes</a><a href=\"#\">API</a></nav>\n  <script>\n    (function () {\n      var nav = document.getElementById(\"pn\"), pill = nav.querySelector(\".pill\");\n      var links = [].slice.call(nav.querySelectorAll(\"a\"));\n      function move(a) { pill.style.width = a.offsetWidth + \"px\"; pill.style.transform = \"translateX(\" + (a.offsetLeft - 4) + \"px)\"; }\n      links.forEach(function (a) {\n        a.addEventListener(\"click\", function (e) {\n          e.preventDefault();\n          links.forEach(function (o) { o.removeAttribute(\"aria-current\"); });\n          a.setAttribute(\"aria-current\", \"page\"); move(a);\n        });\n      });\n      move(links[0]);\n    })();\n  </script>\n</body>\n</html>\n"
+}

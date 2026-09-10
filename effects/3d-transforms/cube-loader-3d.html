@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Cube Loader</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cube-loader-3d",
+    "title": "3D Cube Loader",
+    "summary": "A cube tumbling end over end.",
+    "description": "A cube tumbling end over end.",
+    "theme": "3d-transforms",
+    "categories": ["3d", "transform"],
+    "tags": ["3d", "transform", "cube", "loader", "tumble", "3d"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Tumble period", "default": "3s" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "A loader with more presence than a spinner. Rotate in 90° steps with an ease that pauses between turns so the cube reads as tumbling rather than spinning."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .scene { perspective: 600px; width: 70px; height: 70px; }
+    .cb { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; animation: roll 3s cubic-bezier(.6,.05,.3,1) infinite; }
+    .cb .f { position: absolute; inset: 0; background: rgba(124,92,255,.85); border: 1px solid #b9a5ff; }
+    .f1 { transform: translateZ(35px); } .f2 { transform: rotateY(180deg) translateZ(35px); }
+    .f3 { transform: rotateY(90deg) translateZ(35px); } .f4 { transform: rotateY(-90deg) translateZ(35px); }
+    .f5 { transform: rotateX(90deg) translateZ(35px); } .f6 { transform: rotateX(-90deg) translateZ(35px); }
+    @keyframes roll {
+      0% { transform: rotateX(0) rotateY(0); } 50% { transform: rotateX(-90deg) rotateY(0); }
+      100% { transform: rotateX(-90deg) rotateY(-90deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene"><div class="cb"><span class="f f1"></span><span class="f f2"></span><span class="f f3"></span>
+  <span class="f f4"></span><span class="f f5"></span><span class="f f6"></span></div></div>
+</body>
+</html>

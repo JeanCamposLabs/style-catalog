@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unfolding Cube</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cube-unfold-net",
+    "title": "Unfolding Cube",
+    "summary": "A cube that opens into its flat net and closes again.",
+    "description": "A cube that opens into its flat net and closes again.",
+    "theme": "3d-transforms",
+    "categories": ["3d", "transform"],
+    "tags": ["3d", "transform", "cube", "preserve-3d", "faces", "rotate"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--size", "description": "Cube size", "default": "120px" },
+      { "name": "--dur", "description": "Rotation period", "default": "12s" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "3D showcases. Every face translates by half the cube's size along Z after its rotation; preserve-3d must be on the parent or the faces flatten into a stack."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .scene { perspective: 800px; width: 120px; height: 120px; }
+    .cube { position: relative; width: 100%; height: 100%; transform-style: preserve-3d;
+      animation: turn 12s linear infinite; }
+    .f { position: absolute; inset: 0; border: 2px solid #7c5cff; background: rgba(124,92,255,.12);
+      display: grid; place-items: center; color: #b9a5ff; font-weight: 800; }
+    .f1 { transform: translateZ(60px); } .f2 { transform: rotateY(180deg) translateZ(60px); }
+    .f3 { transform: rotateY(90deg) translateZ(60px); } .f4 { transform: rotateY(-90deg) translateZ(60px); }
+    .f5 { transform: rotateX(90deg) translateZ(60px); } .f6 { transform: rotateX(-90deg) translateZ(60px); }
+    @keyframes turn { to { transform: rotateX(360deg) rotateY(720deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene"><div class="cube"><span class="f f1">1</span><span class="f f2">2</span><span class="f f3">3</span>
+  <span class="f f4">4</span><span class="f f5">5</span><span class="f f6">6</span></div></div>
+</body>
+</html>

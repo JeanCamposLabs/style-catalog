@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Copy Confirmation</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "copy-to-clipboard-tick",
+    "title": "Copy Confirmation",
+    "summary": "A copy button that becomes a tick briefly.",
+    "description": "A copy button that becomes a tick briefly.",
+    "theme": "micro-interactions",
+    "categories": ["micro-interaction", "feedback"],
+    "tags": ["micro-interaction", "feedback", "copy", "clipboard", "confirm", "feedback"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+    "customization": [
+      { "name": "--ok", "description": "Success colour", "default": "#10a894" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Copy affordances. Only show success after the clipboard promise resolves, and revert after about 1.5 seconds so the button is ready for the next copy."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem 1rem; border-radius: 10px;
+      border: 1px solid #2b3450; background: #151b2a; color: #cbd5e1; font: inherit; font-size: .85rem; cursor: pointer;
+      transition: color .2s, border-color .2s; }
+    .fx.ok { color: #10a894; border-color: #10a894; }
+    .fx .ic { display: inline-block; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+    .fx.ok .ic { transform: scale(1.2); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button" id="cb"><span class="ic" aria-hidden="true">⧉</span><span id="cl">Copy</span></button>
+  <script>
+    (function () {
+      var b = document.getElementById("cb"), l = document.getElementById("cl");
+      b.addEventListener("click", function () {
+        b.classList.add("ok"); l.textContent = "Copied";
+        setTimeout(function () { b.classList.remove("ok"); l.textContent = "Copy"; }, 1500);
+      });
+    })();
+  </script>
+</body>
+</html>

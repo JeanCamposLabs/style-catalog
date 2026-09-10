@@ -1,0 +1,44 @@
+{
+  "id": "leaf-sway",
+  "title": "Swaying Leaves",
+  "summary": "Leaves rock gently on staggered, unequal periods.",
+  "description": "Leaves rock gently on staggered, unequal periods.",
+  "theme": "nature-organic",
+  "themeTitle": "Nature & Organic",
+  "categories": [
+    "nature",
+    "organic"
+  ],
+  "tags": [
+    "organic",
+    "nature",
+    "leaf",
+    "sway",
+    "wind",
+    "foliage"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Leaf colour",
+      "default": "#15803d"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Eco and wellness branding. Give every leaf a different duration — matched periods make the group look like one rigid object.",
+  "path": "effects/nature-organic/leaf-sway.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Swaying Leaves</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"leaf-sway\",\n    \"title\": \"Swaying Leaves\",\n    \"summary\": \"Leaves rock gently on staggered, unequal periods.\",\n    \"description\": \"Leaves rock gently on staggered, unequal periods.\",\n    \"theme\": \"nature-organic\",\n    \"categories\": [\"nature\", \"organic\"],\n    \"tags\": [\"organic\", \"nature\", \"leaf\", \"sway\", \"wind\", \"foliage\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Leaf colour\", \"default\": \"#15803d\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Eco and wellness branding. Give every leaf a different duration — matched periods make the group look like one rigid object.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 10px; }\n    .fx i { width: 26px; height: 44px; background: linear-gradient(160deg, #86efac, #15803d);\n      border-radius: 50% 0 50% 0; transform-origin: 50% 100%; animation: sway var(--d) ease-in-out infinite alternate; }\n    @keyframes sway { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--d:2.4s\"></i><i style=\"--d:3.1s\"></i><i style=\"--d:2.7s\"></i><i style=\"--d:3.6s\"></i></div>\n</body>\n</html>\n"
+}

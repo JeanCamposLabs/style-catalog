@@ -1,0 +1,54 @@
+{
+  "id": "conic-ring-spinner",
+  "title": "Conic Ring Spinner",
+  "summary": "A one-element ring spinner drawn with a conic gradient and a radial mask.",
+  "description": "A conic-gradient sweeps from transparent to the accent color; a radial-gradient mask punches out the middle, leaving a tapered arc that rotates.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "conic-gradient",
+    "mask",
+    "ring",
+    "spinner",
+    "one-element"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Arc color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--w",
+      "description": "Ring thickness",
+      "default": "8px"
+    },
+    {
+      "name": "--dur",
+      "description": "Rotation period",
+      "default": "1s"
+    }
+  ],
+  "variations": [
+    "Two stacked rings at different speeds",
+    "Rainbow conic sweep",
+    "Dashed ring via repeating-conic-gradient"
+  ],
+  "related": [],
+  "ai_usage": "Drop-in replacement for a border-based spinner when you want a tapered, gradient arc instead of a flat one. Apply .spin; --w is the stroke width and the mask must use the same value in calc(100% - var(--w)). Prefix the mask with -webkit-mask for Safari.",
+  "path": "effects/loaders-spinners/conic-ring-spinner.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Conic Ring Spinner</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"conic-ring-spinner\",\n    \"title\": \"Conic Ring Spinner\",\n    \"summary\": \"A one-element ring spinner drawn with a conic gradient and a radial mask.\",\n    \"description\": \"A conic-gradient sweeps from transparent to the accent color; a radial-gradient mask punches out the middle, leaving a tapered arc that rotates.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"conic-gradient\", \"mask\", \"ring\", \"spinner\", \"one-element\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Arc color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--w\", \"description\": \"Ring thickness\", \"default\": \"8px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"1s\" }\n    ],\n    \"variations\": [\"Two stacked rings at different speeds\", \"Rainbow conic sweep\", \"Dashed ring via repeating-conic-gradient\"],\n    \"ai_usage\": \"Drop-in replacement for a border-based spinner when you want a tapered, gradient arc instead of a flat one. Apply .spin; --w is the stroke width and the mask must use the same value in calc(100% - var(--w)). Prefix the mask with -webkit-mask for Safari.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .spin { width: 76px; aspect-ratio: 1; border-radius: 50%;\n      background: conic-gradient(from 0deg, transparent 0 25%, var(--c));\n      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--w)), #000 calc(100% - var(--w)));\n      mask: radial-gradient(farthest-side, transparent calc(100% - var(--w)), #000 calc(100% - var(--w)));\n      animation: spin var(--dur) linear infinite; }\n    :root { --c: #7c5cff; --w: 8px; --dur: 1s; }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"spin\" role=\"status\" aria-label=\"Loading\"></div>\n</body>\n</html>\n"
+}

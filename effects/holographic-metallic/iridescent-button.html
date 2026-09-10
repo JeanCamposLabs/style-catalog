@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iridescent Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "iridescent-button",
+    "title": "Iridescent Button",
+    "summary": "A button whose gradient shifts on hover.",
+    "description": "A button whose gradient shifts on hover.",
+    "theme": "holographic-metallic",
+    "categories": ["material", "holographic"],
+    "tags": ["holographic", "metallic", "button", "iridescent", "hover", "gradient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+    "customization": [
+      { "name": "--dur", "description": "Shift duration", "default": "0.6s" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Playful primary actions. Transition background-position rather than the colours themselves — browsers cannot interpolate multi-stop gradients smoothly."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { padding: .95rem 2.2rem; border: 0; border-radius: 999px; font-weight: 800; color: #10061c; cursor: pointer;
+      background: linear-gradient(100deg, #a855f7, #22d3ee, #fbbf24, #ff2d95, #a855f7); background-size: 300% 100%;
+      transition: background-position .6s ease; box-shadow: 0 10px 26px rgba(168,85,247,.4); }
+    .fx:hover { background-position: 100% 0; }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button">Shimmer</button>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caption Overlay</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "image-caption-overlay-hover",
+    "title": "Caption Overlay",
+    "summary": "A caption sliding over the image on hover.",
+    "description": "A caption sliding over the image on hover.",
+    "theme": "images-media",
+    "categories": ["image", "media"],
+    "tags": ["image", "media", "caption", "overlay", "hover", "figure"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+    "customization": [
+      { "name": "--dur", "description": "Slide duration", "default": "0.35s" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Photo grids. Keep the essential label visible at rest and reserve the overlay for secondary detail — hover-only captions are invisible on touch devices."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 270px; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; }
+    .fx .img { position: absolute; inset: 0; background: conic-gradient(from 140deg at 35% 30%, #d1478c, #c2891a, #7c5cff); }
+    .fx figcaption { position: absolute; inset: auto 0 0 0; padding: .9rem 1rem;
+      background: linear-gradient(transparent, rgba(6,8,14,.92)); color: #fff;
+      transform: translateY(30%); opacity: 0; transition: transform .35s, opacity .35s; }
+    .fx:hover figcaption, .fx:focus-within figcaption { transform: none; opacity: 1; }
+    .fx b { display: block; font-size: .92rem; }
+    .fx span { font-size: .78rem; opacity: .8; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <figure class="fx" tabindex="0" style="margin:0"><div class="img"></div>
+  <figcaption><b>Chromatic study</b><span>Gradient on canvas, 2026</span></figcaption></figure>
+</body>
+</html>

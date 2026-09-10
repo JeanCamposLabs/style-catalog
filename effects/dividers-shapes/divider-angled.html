@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Angled Divider</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "divider-angled",
+    "title": "Angled Divider",
+    "summary": "A straight diagonal cut between two sections.",
+    "description": "A straight diagonal cut between two sections. Purely decorative and self-contained, so it drops between any two sections.",
+    "theme": "dividers-shapes",
+    "categories": ["divider", "shape"],
+    "tags": ["divider", "separator", "angle", "diagonal", "cut"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+    "customization": [
+      { "name": "--h", "description": "Divider height", "default": "46px" }
+    ],
+    "variations": ["Flip vertically for the opposite section", "Recolour to match the next section"],
+    "ai_usage": "The cheapest section transition. Clip the lower section's colour, not the upper one, so the divider always matches what follows."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }
+    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }
+    .stage { width: min(92vw, 340px); }
+    .divider { height: 46px; background: #7c5cff; clip-path: polygon(0 100%, 100% 0, 100% 100%); }
+  </style>
+</head>
+<body>
+  <div class="stage"><div class="top">Section one</div><div class="divider" aria-hidden="true"></div><div class="bottom">Section two</div></div>
+</body>
+</html>

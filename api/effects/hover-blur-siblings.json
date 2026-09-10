@@ -1,0 +1,44 @@
+{
+  "id": "hover-blur-siblings",
+  "title": "Blur the Rest",
+  "summary": "Hovering one item softens its neighbours.",
+  "description": "Hovering one item softens its neighbours.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "interaction"
+  ],
+  "tags": [
+    "hover",
+    "pointer",
+    "focus",
+    "blur",
+    "siblings",
+    "emphasis"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every hover state here is mirrored on :focus-visible so keyboard users get the same information.",
+  "customization": [
+    {
+      "name": "--blur",
+      "description": "Sibling blur",
+      "default": "2px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Galleries and pricing tables. Dim the siblings rather than only enlarging the target — the contrast between states is what creates the focus.",
+  "path": "effects/hover-interactions/hover-blur-siblings.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Blur the Rest</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hover-blur-siblings\",\n    \"title\": \"Blur the Rest\",\n    \"summary\": \"Hovering one item softens its neighbours.\",\n    \"description\": \"Hovering one item softens its neighbours.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"interaction\"],\n    \"tags\": [\"hover\", \"pointer\", \"focus\", \"blur\", \"siblings\", \"emphasis\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every hover state here is mirrored on :focus-visible so keyboard users get the same information.\",\n    \"customization\": [\n      { \"name\": \"--blur\", \"description\": \"Sibling blur\", \"default\": \"2px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Galleries and pricing tables. Dim the siblings rather than only enlarging the target — the contrast between states is what creates the focus.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 10px; }\n    .fx div { width: 82px; height: 100px; border-radius: 12px; background: linear-gradient(150deg, #7c5cff, #2dd4bf);\n      transition: filter .3s, opacity .3s, transform .3s; }\n    .fx:hover div { filter: blur(2px); opacity: .5; transform: scale(.96); }\n    .fx div:hover { filter: none; opacity: 1; transform: scale(1.05); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div></div><div></div><div></div><div></div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "triangle-mosaic-bg",
+  "title": "Triangle Mosaic",
+  "summary": "Interlocking triangles in two tones tile the surface.",
+  "description": "Two 60°-rotated linear gradients meeting at 50% produce a triangular tessellation from one background-size.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "triangles",
+    "mosaic",
+    "tessellation",
+    "geometric",
+    "gradient"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Tone A",
+      "default": "#121826"
+    },
+    {
+      "name": "--b",
+      "description": "Tone B",
+      "default": "#0d111b"
+    },
+    {
+      "name": "--s",
+      "description": "Tile size",
+      "default": "60px"
+    }
+  ],
+  "variations": [
+    "Three tones for more depth",
+    "Animate the tile origin",
+    "Warm palette for a retro feel"
+  ],
+  "related": [],
+  "ai_usage": "Hero backdrops and section dividers. Both gradients need the same background-size or the triangles will not meet; adjust only the angles (60deg / -60deg) to change the mosaic direction.",
+  "path": "effects/backgrounds/triangle-mosaic-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Triangle Mosaic</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"triangle-mosaic-bg\",\n    \"title\": \"Triangle Mosaic\",\n    \"summary\": \"Interlocking triangles in two tones tile the surface.\",\n    \"description\": \"Two 60°-rotated linear gradients meeting at 50% produce a triangular tessellation from one background-size.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"triangles\", \"mosaic\", \"tessellation\", \"geometric\", \"gradient\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Tone A\", \"default\": \"#121826\" },\n      { \"name\": \"--b\", \"description\": \"Tone B\", \"default\": \"#0d111b\" },\n      { \"name\": \"--s\", \"description\": \"Tile size\", \"default\": \"60px\" }\n    ],\n    \"variations\": [\"Three tones for more depth\", \"Animate the tile origin\", \"Warm palette for a retro feel\"],\n    \"ai_usage\": \"Hero backdrops and section dividers. Both gradients need the same background-size or the triangles will not meet; adjust only the angles (60deg / -60deg) to change the mosaic direction.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #121826; --b: #0d111b; --s: 60px; }\n    .bg { background-color: var(--b);\n      background-image: linear-gradient(60deg, var(--a) 25%, transparent 25.5%, transparent 75%, var(--a) 75%),\n        linear-gradient(-60deg, var(--a) 25%, transparent 25.5%, transparent 75%, var(--a) 75%);\n      background-size: var(--s) calc(var(--s) * 1.732); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

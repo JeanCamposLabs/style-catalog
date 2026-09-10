@@ -1,0 +1,44 @@
+{
+  "id": "damage-number-float",
+  "title": "Floating Damage",
+  "summary": "Damage numbers rising and fading over a target.",
+  "description": "Damage numbers rising and fading over a target.",
+  "theme": "game-ui",
+  "themeTitle": "Game UI",
+  "categories": [
+    "game",
+    "ui"
+  ],
+  "tags": [
+    "game",
+    "hud",
+    "damage",
+    "numbers",
+    "float",
+    "combat"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Damage colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Retheme through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Combat feedback. Stagger the delays and offsets so simultaneous hits do not stack into an unreadable pile.",
+  "path": "effects/game-ui/damage-number-float.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Floating Damage</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"damage-number-float\",\n    \"title\": \"Floating Damage\",\n    \"summary\": \"Damage numbers rising and fading over a target.\",\n    \"description\": \"Damage numbers rising and fading over a target.\",\n    \"theme\": \"game-ui\",\n    \"categories\": [\"game\", \"ui\"],\n    \"tags\": [\"game\", \"hud\", \"damage\", \"numbers\", \"float\", \"combat\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Damage colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Retheme through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Combat feedback. Stagger the delays and offsets so simultaneous hits do not stack into an unreadable pile.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 160px; height: 150px; display: grid; place-items: center; }\n    .fx .t { width: 70px; height: 70px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #64748b, #1e293b); }\n    .fx i { position: absolute; font-weight: 900; font-family: ui-monospace, monospace; color: #fbbf24;\n      text-shadow: 0 2px 0 #7c2d12; animation: pop 2s ease-out infinite; animation-delay: var(--dl); opacity: 0; }\n    .fx .crit { color: #f87171; font-size: 1.4rem; }\n    @keyframes pop {\n      0% { transform: translate(var(--dx), 10px) scale(.6); opacity: 0; }\n      15% { transform: translate(var(--dx), 0) scale(1.15); opacity: 1; }\n      100% { transform: translate(var(--dx), -60px) scale(1); opacity: 0; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"t\"></span><i style=\"--dx:-26px;--dl:0s\">-12</i><i class=\"crit\" style=\"--dx:14px;--dl:.6s\">-48!</i>\n  <i style=\"--dx:32px;--dl:1.2s\">-9</i></div>\n</body>\n</html>\n"
+}

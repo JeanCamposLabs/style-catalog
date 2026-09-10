@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WordArt Headline</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "wordart-gradient-text",
+    "title": "WordArt Headline",
+    "summary": "The arched, outlined gradient headline.",
+    "description": "The arched, outlined gradient headline.",
+    "theme": "retro-web",
+    "categories": ["retro", "nostalgia"],
+    "tags": ["retro", "nostalgia", "wordart", "office", "gradient", "kitsch"],
+    "tech": ["css"],
+    "era": "1990s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+    "customization": [
+      { "name": "--a", "description": "Gradient top", "default": "#ffe600" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Deliberate retro kitsch. paint-order: stroke fill draws the outline behind the fill, which is what stops the stroke eating into the letterforms."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { font-family: "Impact", "Arial Black", sans-serif; font-size: 2.4rem; letter-spacing: .02em;
+      background: linear-gradient(180deg, #ffe600 0 45%, #ff8000 55%, #c00000);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      -webkit-text-stroke: 2px #000; paint-order: stroke fill;
+      filter: drop-shadow(3px 3px 0 rgba(0,0,0,.6)); transform: skewY(-4deg); }
+  </style>
+</head>
+<body>
+  <div class="fx">AWESOME</div>
+</body>
+</html>

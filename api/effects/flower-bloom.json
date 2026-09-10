@@ -1,0 +1,44 @@
+{
+  "id": "flower-bloom",
+  "title": "Blooming Flower",
+  "summary": "Petals unfold from a closed bud.",
+  "description": "Petals unfold from a closed bud.",
+  "theme": "nature-organic",
+  "themeTitle": "Nature & Organic",
+  "categories": [
+    "nature",
+    "organic"
+  ],
+  "tags": [
+    "organic",
+    "nature",
+    "flower",
+    "bloom",
+    "petals",
+    "unfold"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Petal colour",
+      "default": "#db2777"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Growth and wellness moments. Each petal shares one keyframe and differs only by its --a rotation, so petal count is a markup change.",
+  "path": "effects/nature-organic/flower-bloom.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Blooming Flower</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"flower-bloom\",\n    \"title\": \"Blooming Flower\",\n    \"summary\": \"Petals unfold from a closed bud.\",\n    \"description\": \"Petals unfold from a closed bud.\",\n    \"theme\": \"nature-organic\",\n    \"categories\": [\"nature\", \"organic\"],\n    \"tags\": [\"organic\", \"nature\", \"flower\", \"bloom\", \"petals\", \"unfold\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Petal colour\", \"default\": \"#db2777\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Growth and wellness moments. Each petal shares one keyframe and differs only by its --a rotation, so petal count is a markup change.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 130px; height: 130px; display: grid; place-items: center; }\n    .fx i { position: absolute; width: 30px; height: 60px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;\n      background: linear-gradient(180deg, #f9a8d4, #db2777); transform-origin: 50% 100%;\n      transform: rotate(var(--a)) translateY(-6px) scale(0); animation: bloom 4s ease-in-out infinite; }\n    .fx .core { width: 22px; height: 22px; border-radius: 50%; background: #fbbf24; z-index: 1; }\n    @keyframes bloom { 0%, 10% { transform: rotate(var(--a)) translateY(-6px) scale(0); } 55%, 90% { transform: rotate(var(--a)) translateY(-30px) scale(1); } 100% { transform: rotate(var(--a)) translateY(-6px) scale(0); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--a:0deg\"></i><i style=\"--a:60deg\"></i><i style=\"--a:120deg\"></i><i style=\"--a:180deg\"></i><i style=\"--a:240deg\"></i><i style=\"--a:300deg\"></i><span class=\"core\"></span></div>\n</body>\n</html>\n"
+}

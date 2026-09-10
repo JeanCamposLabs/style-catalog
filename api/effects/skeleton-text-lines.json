@@ -1,0 +1,54 @@
+{
+  "id": "skeleton-text-lines",
+  "title": "Skeleton Text Lines",
+  "summary": "Placeholder paragraph lines with a shimmer that crosses all of them together.",
+  "description": "A single shared background-position animation moves one highlight across every line, which reads as one surface rather than several blinking bars.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "skeleton"
+  ],
+  "tags": [
+    "skeleton",
+    "shimmer",
+    "placeholder",
+    "text",
+    "content-loading"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--base",
+      "description": "Placeholder color",
+      "default": "#1b2231"
+    },
+    {
+      "name": "--sheen",
+      "description": "Highlight color",
+      "default": "#2b3550"
+    },
+    {
+      "name": "--dur",
+      "description": "Shimmer period",
+      "default": "1.6s"
+    }
+  ],
+  "variations": [
+    "Circle placeholder for an avatar",
+    "Vary line widths for realism",
+    "Fade to the real content on load"
+  ],
+  "related": [],
+  "ai_usage": "Use instead of a spinner when you know the shape of the incoming content — perceived performance improves because the layout does not shift. Give every line the same background-size and animation so the sheen crosses the block as one; vary only widths.",
+  "path": "effects/loaders-spinners/skeleton-text-lines.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Skeleton Text Lines</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"skeleton-text-lines\",\n    \"title\": \"Skeleton Text Lines\",\n    \"summary\": \"Placeholder paragraph lines with a shimmer that crosses all of them together.\",\n    \"description\": \"A single shared background-position animation moves one highlight across every line, which reads as one surface rather than several blinking bars.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"skeleton\"],\n    \"tags\": [\"skeleton\", \"shimmer\", \"placeholder\", \"text\", \"content-loading\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--base\", \"description\": \"Placeholder color\", \"default\": \"#1b2231\" },\n      { \"name\": \"--sheen\", \"description\": \"Highlight color\", \"default\": \"#2b3550\" },\n      { \"name\": \"--dur\", \"description\": \"Shimmer period\", \"default\": \"1.6s\" }\n    ],\n    \"variations\": [\"Circle placeholder for an avatar\", \"Vary line widths for realism\", \"Fade to the real content on load\"],\n    \"ai_usage\": \"Use instead of a spinner when you know the shape of the incoming content — perceived performance improves because the layout does not shift. Give every line the same background-size and animation so the sheen crosses the block as one; vary only widths.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --base: #1b2231; --sheen: #2b3550; --dur: 1.6s; }\n    .sk { width: 300px; display: grid; gap: 12px; }\n    .sk i { height: 13px; border-radius: 7px; width: var(--w, 100%);\n      background: linear-gradient(90deg, var(--base) 25%, var(--sheen) 37%, var(--base) 63%);\n      background-size: 400% 100%; animation: sheen var(--dur) ease-in-out infinite; }\n    .sk .title { height: 20px; width: 55%; }\n    @keyframes sheen { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"sk\" role=\"status\" aria-label=\"Loading content\">\n    <i class=\"title\"></i>\n    <i></i><i style=\"--w:94%\"></i><i style=\"--w:88%\"></i><i style=\"--w:62%\"></i>\n  </div>\n</body>\n</html>\n"
+}

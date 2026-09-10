@@ -1,0 +1,44 @@
+{
+  "id": "push-notification-card",
+  "title": "Push Notification",
+  "summary": "An OS-style notification card with app identity.",
+  "description": "An OS-style notification card with app identity.",
+  "theme": "notifications-toasts",
+  "themeTitle": "Notifications & Toasts",
+  "categories": [
+    "notification",
+    "feedback"
+  ],
+  "tags": [
+    "notification",
+    "feedback",
+    "push",
+    "os",
+    "card",
+    "mobile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Card background",
+      "default": "rgba(26,33,48,.9)"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Push and system notifications. Lead with the app name and timestamp, then the actionable sentence; body text beyond two lines gets truncated by the OS anyway.",
+  "path": "effects/notifications-toasts/push-notification-card.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Push Notification</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"push-notification-card\",\n    \"title\": \"Push Notification\",\n    \"summary\": \"An OS-style notification card with app identity.\",\n    \"description\": \"An OS-style notification card with app identity.\",\n    \"theme\": \"notifications-toasts\",\n    \"categories\": [\"notification\", \"feedback\"],\n    \"tags\": [\"notification\", \"feedback\", \"push\", \"os\", \"card\", \"mobile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Card background\", \"default\": \"rgba(26,33,48,.9)\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Push and system notifications. Lead with the app name and timestamp, then the actionable sentence; body text beyond two lines gets truncated by the OS anyway.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: .8rem; width: 290px; padding: .8rem .9rem; border-radius: 16px;\n      background: rgba(26,33,48,.9); backdrop-filter: blur(12px); border: 1px solid #2b3450; }\n    .fx .ic { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(150deg, #7c5cff, #2dd4bf); flex: none; }\n    .fx .hd { display: flex; justify-content: space-between; font-size: .72rem; color: #8b93a7; }\n    .fx b { display: block; font-size: .86rem; margin: .1rem 0; }\n    .fx p { margin: 0; color: #8b93a7; font-size: .8rem; line-height: 1.4; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"status\"><span class=\"ic\" aria-hidden=\"true\"></span>\n  <div><div class=\"hd\"><span>Style Catalog</span><span>now</span></div><b>Build succeeded</b>\n  <p>1,181 specimens deployed to Pages.</p></div></div>\n</body>\n</html>\n"
+}

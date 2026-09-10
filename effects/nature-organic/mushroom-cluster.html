@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mushroom Cluster</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "mushroom-cluster",
+    "title": "Mushroom Cluster",
+    "summary": "Toadstools that pop up in sequence.",
+    "description": "Toadstools that pop up in sequence.",
+    "theme": "nature-organic",
+    "categories": ["nature", "organic"],
+    "tags": ["organic", "nature", "mushroom", "forest", "pop", "cluster"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Cap colour", "default": "#ef4444" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Playful nature illustration. Scale from the base (transform-origin: bottom) so they appear to grow out of the ground."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: flex-end; gap: 12px; }
+    .fx .m { display: grid; justify-items: center; transform-origin: bottom; animation: pop 3.6s ease-in-out infinite; animation-delay: var(--dl); }
+    .fx .cap { width: var(--w); height: calc(var(--w) * .58); border-radius: 99px 99px 8px 8px; background: #ef4444;
+      box-shadow: inset -4px -3px 0 rgba(0,0,0,.15); }
+    .fx .stem { width: calc(var(--w) * .34); height: calc(var(--w) * .6); background: #fef3c7; border-radius: 0 0 6px 6px; }
+    @keyframes pop { 0%, 8% { transform: scaleY(0); } 22%, 90% { transform: scaleY(1); } 100% { transform: scaleY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="m" style="--w:44px;--dl:0s"><span class="cap"></span><span class="stem"></span></span>
+  <span class="m" style="--w:60px;--dl:.3s"><span class="cap"></span><span class="stem"></span></span>
+  <span class="m" style="--w:34px;--dl:.6s"><span class="cap"></span><span class="stem"></span></span></div>
+</body>
+</html>

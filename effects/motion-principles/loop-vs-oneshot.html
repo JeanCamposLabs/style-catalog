@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loop vs One-Shot</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "loop-vs-oneshot",
+    "title": "Loop vs One-Shot",
+    "summary": "When motion should repeat and when it should not.",
+    "description": "When motion should repeat and when it should not.",
+    "theme": "motion-principles",
+    "categories": ["motion", "reference"],
+    "tags": ["motion", "easing", "loop", "one-shot", "repetition", "intent"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+    "customization": [
+      { "name": "--dur", "description": "Loop period", "default": "0.9s" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Loop only while something is genuinely ongoing. A looping success tick implies the operation has not finished; a one-shot spinner implies it has stalled."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 12px; }
+    .p { width: 130px; padding: .9rem; border-radius: 12px; background: #151b2a; border: 1px solid #263149; font-size: .76rem; color: #8b93a7; }
+    .p b { display: block; color: #e7ebf3; font-size: .82rem; margin-bottom: .5rem; }
+    .sp { width: 28px; height: 28px; border: 3px solid #22304a; border-top-color: #7c5cff; border-radius: 50%;
+      animation: spin .9s linear infinite; margin-bottom: .5rem; }
+    .ok { width: 28px; height: 28px; border-radius: 50%; background: #10a894; color: #04241f; display: grid; place-items: center;
+      margin-bottom: .5rem; animation: pop 3s cubic-bezier(.34,1.56,.64,1) infinite; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @keyframes pop { 0%, 70% { transform: scale(1); } 80% { transform: scale(1.25); } 90%, 100% { transform: scale(1); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="p"><b>Loop</b><div class="sp"></div>Ongoing work with unknown duration.</div>
+  <div class="p"><b>One-shot</b><div class="ok">✓</div>A completed, discrete event.</div></div>
+</body>
+</html>

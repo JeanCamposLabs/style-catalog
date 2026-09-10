@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quarter Roadmap</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "roadmap-quarters",
+    "title": "Quarter Roadmap",
+    "summary": "Initiatives laid out across quarters.",
+    "description": "Initiatives laid out across quarters.",
+    "theme": "timelines-steppers",
+    "categories": ["timeline", "stepper"],
+    "tags": ["timeline", "sequence", "roadmap", "quarters", "planning", "gantt"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+    "customization": [
+      { "name": "--c1", "description": "Track colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Public roadmaps. Label the bars directly and avoid precise dates — a quarter-level roadmap that implies day precision creates commitments you cannot keep."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; font-size: .78rem; }
+    .hd { display: grid; grid-template-columns: repeat(4, 1fr); color: #8b93a7; margin-bottom: .5rem; text-align: center; }
+    .row { position: relative; height: 26px; margin-bottom: 6px;
+      background: repeating-linear-gradient(90deg, rgba(139,147,167,.18) 0 1px, transparent 1px 25%); }
+    .row i { position: absolute; top: 3px; height: 20px; border-radius: 6px; left: calc(var(--s) * 1%);
+      width: calc(var(--w) * 1%); display: grid; place-items: center; color: #0b0d12; font-weight: 700; font-size: .7rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="hd"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span></div>
+  <div class="row"><i style="--s:0;--w:46;background:#7c5cff">Catalogue v1</i></div>
+  <div class="row"><i style="--s:26;--w:48;background:#10a894">MCP tooling</i></div>
+  <div class="row"><i style="--s:54;--w:44;background:#c2891a">Poster pipeline</i></div></div>
+</body>
+</html>

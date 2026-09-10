@@ -1,0 +1,44 @@
+{
+  "id": "button-fab-extended",
+  "title": "Extended FAB",
+  "summary": "A floating action button that collapses on scroll.",
+  "description": "A floating action button that collapses on scroll.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "action"
+  ],
+  "tags": [
+    "button",
+    "action",
+    "fab",
+    "extended",
+    "collapse",
+    "mobile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "FAB colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Mobile primary actions. Collapse the label on scroll but keep the accessible name intact, so the button never becomes an unlabelled circle to assistive tech.",
+  "path": "effects/buttons/button-fab-extended.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Extended FAB</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"button-fab-extended\",\n    \"title\": \"Extended FAB\",\n    \"summary\": \"A floating action button that collapses on scroll.\",\n    \"description\": \"A floating action button that collapses on scroll.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"action\"],\n    \"tags\": [\"button\", \"action\", \"fab\", \"extended\", \"collapse\", \"mobile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"FAB colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Mobile primary actions. Collapse the label on scroll but keep the accessible name intact, so the button never becomes an unlabelled circle to assistive tech.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: inline-flex; align-items: center; gap: .6rem; padding: .9rem 1.4rem; border: 0; border-radius: 999px;\n      background: #7c5cff; color: #fff; font: inherit; font-weight: 700; cursor: pointer;\n      box-shadow: 0 12px 26px rgba(124,92,255,.45); transition: padding .25s, gap .25s; }\n    .fx .lbl { max-width: 120px; overflow: hidden; white-space: nowrap; transition: max-width .25s, opacity .25s; }\n    .fx.small { padding: .9rem; gap: 0; }\n    .fx.small .lbl { max-width: 0; opacity: 0; }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" aria-label=\"New specimen\"><span aria-hidden=\"true\">＋</span><span class=\"lbl\">New specimen</span></button>\n</body>\n</html>\n"
+}

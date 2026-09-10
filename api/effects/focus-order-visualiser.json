@@ -1,0 +1,44 @@
+{
+  "id": "focus-order-visualiser",
+  "title": "Focus Order",
+  "summary": "Numbered badges showing the tab sequence.",
+  "description": "Numbered badges showing the tab sequence.",
+  "theme": "keyboard-input",
+  "themeTitle": "Keyboard & Input",
+  "categories": [
+    "keyboard",
+    "input"
+  ],
+  "tags": [
+    "keyboard",
+    "shortcut",
+    "focus-order",
+    "tabindex",
+    "debug",
+    "audit"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Badge colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Auditing keyboard flow. DOM order should match visual order; when grid or flex reordering breaks that, fix the DOM rather than reaching for positive tabindex values.",
+  "path": "effects/keyboard-input/focus-order-visualiser.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Focus Order</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"focus-order-visualiser\",\n    \"title\": \"Focus Order\",\n    \"summary\": \"Numbered badges showing the tab sequence.\",\n    \"description\": \"Numbered badges showing the tab sequence.\",\n    \"theme\": \"keyboard-input\",\n    \"categories\": [\"keyboard\", \"input\"],\n    \"tags\": [\"keyboard\", \"shortcut\", \"focus-order\", \"tabindex\", \"debug\", \"audit\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Badge colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Auditing keyboard flow. DOM order should match visual order; when grid or flex reordering breaks that, fix the DOM rather than reaching for positive tabindex values.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 290px; }\n    .fx .f { position: relative; padding: .8rem; border-radius: 10px; background: #151b2a; border: 1px solid #263149;\n      color: #8b93a7; font-size: .78rem; text-align: center; }\n    .fx .f::after { content: attr(data-n); position: absolute; top: -8px; left: -8px; width: 20px; height: 20px;\n      border-radius: 50%; background: #7c5cff; color: #fff; font-size: .68rem; font-weight: 800; display: grid; place-items: center; }\n    .fx button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 2px; }\n    .hint { margin-top: .8rem; color: #64748b; font-size: .76rem; }\n  </style>\n</head>\n<body>\n  <div><div class=\"fx\"><button class=\"f\" data-n=\"1\" type=\"button\">Search</button><button class=\"f\" data-n=\"2\" type=\"button\">Filters</button>\n  <button class=\"f\" data-n=\"3\" type=\"button\">Sort</button><button class=\"f\" data-n=\"4\" type=\"button\">Card A</button>\n  <button class=\"f\" data-n=\"5\" type=\"button\">Card B</button><button class=\"f\" data-n=\"6\" type=\"button\">Card C</button></div>\n  <p class=\"hint\">Tab through: focus follows the numbered DOM order.</p></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scrollable Tabs</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "nav-tabs-scrollable",
+    "title": "Scrollable Tabs",
+    "summary": "Overflowing tabs with edge fades.",
+    "description": "Overflowing tabs with edge fades.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "menu"],
+    "tags": ["navigation", "menu", "tabs", "scroll", "overflow", "mobile"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+    "customization": [
+      { "name": "--c", "description": "Active colour", "default": "#2dd4bf" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Category bars with many entries. Fade the edges so the overflow is discoverable, and scroll the selected tab into view when it changes programmatically."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 290px; }
+    .fx .rail { display: flex; gap: 1.2rem; overflow-x: auto; padding-bottom: .5rem; scrollbar-width: none;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 5%, #000 92%, transparent); }
+    .fx .rail::-webkit-scrollbar { display: none; }
+    .fx button { flex: none; border: 0; background: transparent; color: #8b93a7; font: inherit; font-weight: 600;
+      font-size: .88rem; padding: 0 0 .3rem; cursor: pointer; border-bottom: 2px solid transparent; }
+    .fx button[aria-selected="true"] { color: #e7ebf3; border-bottom-color: #2dd4bf; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="rail" role="tablist" aria-label="Themes">
+    <button role="tab" aria-selected="true" type="button">All</button><button role="tab" aria-selected="false" type="button">Buttons</button>
+    <button role="tab" aria-selected="false" type="button">Loaders</button><button role="tab" aria-selected="false" type="button">Patterns</button>
+    <button role="tab" aria-selected="false" type="button">Retro</button><button role="tab" aria-selected="false" type="button">Charts</button></div></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "id": "skew-on-move",
+  "title": "Velocity Skew",
+  "summary": "A card skews in proportion to how fast the pointer crosses it.",
+  "description": "Pointer velocity, not position, drives the skew, so slow movement barely bends the card while a flick throws it.",
+  "theme": "hover-interactions",
+  "themeTitle": "Hover Interactions",
+  "categories": [
+    "hover",
+    "motion"
+  ],
+  "tags": [
+    "velocity",
+    "skew",
+    "pointer",
+    "physics",
+    "kinetic"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--k",
+      "description": "Velocity multiplier",
+      "default": "0.6"
+    },
+    {
+      "name": "--max",
+      "description": "Maximum skew",
+      "default": "14deg"
+    }
+  ],
+  "variations": [
+    "Scale instead of skew",
+    "Apply to a list of items",
+    "Clamp harder for a subtler effect"
+  ],
+  "related": [],
+  "ai_usage": "Playful portfolios. Track deltaX between pointermove events, clamp it, and decay toward zero on a rAF loop — without decay the card stays skewed when the pointer stops.",
+  "path": "effects/hover-interactions/skew-on-move.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Velocity Skew</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"skew-on-move\",\n    \"title\": \"Velocity Skew\",\n    \"summary\": \"A card skews in proportion to how fast the pointer crosses it.\",\n    \"description\": \"Pointer velocity, not position, drives the skew, so slow movement barely bends the card while a flick throws it.\",\n    \"theme\": \"hover-interactions\",\n    \"categories\": [\"hover\", \"motion\"],\n    \"tags\": [\"velocity\", \"skew\", \"pointer\", \"physics\", \"kinetic\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--k\", \"description\": \"Velocity multiplier\", \"default\": \"0.6\" },\n      { \"name\": \"--max\", \"description\": \"Maximum skew\", \"default\": \"14deg\" }\n    ],\n    \"variations\": [\"Scale instead of skew\", \"Apply to a list of items\", \"Clamp harder for a subtler effect\"],\n    \"ai_usage\": \"Playful portfolios. Track deltaX between pointermove events, clamp it, and decay toward zero on a rAF loop — without decay the card stays skewed when the pointer stops.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .vs { width: 240px; height: 150px; border-radius: 16px; display: grid; place-items: center; font-weight: 800;\n      background: linear-gradient(135deg, #7c5cff, #2dd4bf); color: #0b0d12; will-change: transform; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"vs\" id=\"vs\">Flick me</div>\n  <script>\n    (function () {\n      var el = document.getElementById(\"vs\"), last = 0, sk = 0, target = 0;\n      el.addEventListener(\"pointermove\", function (e) {\n        if (last) target = Math.max(-14, Math.min(14, (e.clientX - last) * .6));\n        last = e.clientX;\n      });\n      el.addEventListener(\"pointerleave\", function () { last = 0; target = 0; });\n      (function loop() {\n        sk += (target - sk) * .12; target *= .9;\n        el.style.transform = \"skewX(\" + sk.toFixed(2) + \"deg)\";\n        requestAnimationFrame(loop);\n      })();\n    })();\n  </script>\n</body>\n</html>\n"
+}

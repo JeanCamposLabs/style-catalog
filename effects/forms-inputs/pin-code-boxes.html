@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PIN Entry Boxes</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "pin-code-boxes",
+    "title": "PIN Entry Boxes",
+    "summary": "Four separate boxes with focus advancing automatically as you type.",
+    "description": "Auto-advance and backspace-to-previous are what make separated code fields usable rather than annoying.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input"],
+    "tags": ["pin", "otp", "code", "auto-advance", "security"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Active border", "default": "#7c5cff" }
+    ],
+    "variations": ["Paste support that fills every box", "Error shake on a wrong code"],
+    "ai_usage": "Verification and 2FA screens. Handle paste on the first input by splitting the clipboard across boxes; without it users cannot paste a code from their password manager."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .pin { display: flex; gap: 10px; }
+    .pin input { width: 52px; height: 62px; text-align: center; font-size: 1.5rem; font-weight: 700; color: #e7ebf3;
+      background: #151b2a; border: 1px solid #2b3450; border-radius: 12px; }
+    .pin input:focus { outline: none; border-color: var(--c, #7c5cff); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c, #7c5cff) 30%, transparent); }
+  </style>
+</head>
+<body>
+  <div class="pin" id="pin" role="group" aria-label="Verification code">
+    <input type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1" />
+    <input type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2" />
+    <input type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3" />
+    <input type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4" />
+  </div>
+  <script>
+    (function () {
+      var ins = [].slice.call(document.querySelectorAll("#pin input"));
+      ins.forEach(function (i, n) {
+        i.addEventListener("input", function () { if (i.value && ins[n + 1]) ins[n + 1].focus(); });
+        i.addEventListener("keydown", function (e) { if (e.key === "Backspace" && !i.value && ins[n - 1]) ins[n - 1].focus(); });
+      });
+    })();
+  </script>
+</body>
+</html>

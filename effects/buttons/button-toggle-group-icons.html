@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Icon Toggle Group</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "button-toggle-group-icons",
+    "title": "Icon Toggle Group",
+    "summary": "Mutually exclusive icon options.",
+    "description": "Mutually exclusive icon options.",
+    "theme": "buttons",
+    "categories": ["button", "action"],
+    "tags": ["button", "action", "toggle", "radio", "icons", "alignment"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Selected colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "View and alignment switchers. Build on radio inputs so arrow-key navigation and form submission work without any JavaScript."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: inline-flex; padding: 3px; border-radius: 11px; background: #151b2a; border: 1px solid #263149; }
+    .fx label { width: 40px; height: 34px; display: grid; place-items: center; border-radius: 8px; color: #8b93a7; cursor: pointer; font-size: .95rem; }
+    .fx input { position: absolute; opacity: 0; }
+    .fx input:checked + label { background: #7c5cff; color: #fff; }
+    .fx input:focus-visible + label { outline: 2px solid #fff; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="group" aria-label="Alignment">
+    <input type="radio" name="al" id="a1" checked /><label for="a1" title="Left">⬅</label>
+    <input type="radio" name="al" id="a2" /><label for="a2" title="Centre">⬌</label>
+    <input type="radio" name="al" id="a3" /><label for="a3" title="Right">➡</label></div>
+</body>
+</html>

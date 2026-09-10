@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Filter Drop Shadow</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "drop-shadow-filter",
+    "title": "Filter Drop Shadow",
+    "summary": "A shadow that follows the element's actual alpha shape.",
+    "description": "A shadow that follows the element's actual alpha shape. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.",
+    "theme": "blend-filters",
+    "categories": ["filter", "color"],
+    "tags": ["filter", "css", "drop-shadow", "alpha", "clip-path", "shape"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Shadow colour", "default": "rgba(124,92,255,.55)" }
+    ],
+    "variations": ["Animate the filter value on hover", "Apply to a whole section with backdrop-filter"],
+    "ai_usage": "Shadows for clipped or transparent shapes. box-shadow follows the border box; filter: drop-shadow follows the alpha channel, which is what irregular shapes need."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; height: 170px; border-radius: 16px; overflow: hidden; position: relative;
+      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }
+    .label { margin-top: .8rem; text-align: center; color: #8b93a7; font-size: .82rem; }
+    .fx { border-radius: 0; background: none;
+      -webkit-mask: none; }
+    .shape { width: 160px; height: 160px; margin: 5px auto; background: conic-gradient(from 45deg, #7c5cff, #2dd4bf, #7c5cff);
+      clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%);
+      filter: drop-shadow(0 14px 22px rgba(124,92,255,.55)); }
+  </style>
+</head>
+<body>
+  <div><div class="demo"><div class="shape"></div></div><p class="label">Filter Drop Shadow</p></div>
+</body>
+</html>

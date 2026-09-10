@@ -1,0 +1,44 @@
+{
+  "id": "opacity-layer-scale",
+  "title": "Alpha Scale",
+  "summary": "A consistent set of transparency steps.",
+  "description": "A consistent set of transparency steps.",
+  "theme": "color-systems",
+  "themeTitle": "Color Systems",
+  "categories": [
+    "color",
+    "reference"
+  ],
+  "tags": [
+    "color",
+    "tokens",
+    "alpha",
+    "opacity",
+    "scale",
+    "overlays"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Alpha step",
+      "default": "0.08"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Overlays, borders, and hover tints. Standardise a handful of alpha values (4%, 8%, 14%, 25%, 45%) instead of inventing one per component — ad-hoc alphas are why dark UIs drift.",
+  "path": "effects/color-systems/opacity-layer-scale.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Alpha Scale</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"opacity-layer-scale\",\n    \"title\": \"Alpha Scale\",\n    \"summary\": \"A consistent set of transparency steps.\",\n    \"description\": \"A consistent set of transparency steps.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"color\", \"reference\"],\n    \"tags\": [\"color\", \"tokens\", \"alpha\", \"opacity\", \"scale\", \"overlays\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Alpha step\", \"default\": \"0.08\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Overlays, borders, and hover tints. Standardise a handful of alpha values (4%, 8%, 14%, 25%, 45%) instead of inventing one per component — ad-hoc alphas are why dark UIs drift.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; }\n    .fx .row { display: flex; gap: 6px; }\n    .fx .row i { flex: 1; height: 46px; border-radius: 8px; background: #7c5cff; }\n    .fx .lbl { display: flex; gap: 6px; margin-top: .4rem; font-size: .66rem; color: #64748b; font-family: ui-monospace, monospace; }\n    .fx .lbl span { flex: 1; text-align: center; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"row\"><i style=\"opacity:.04\"></i><i style=\"opacity:.08\"></i><i style=\"opacity:.14\"></i>\n  <i style=\"opacity:.25\"></i><i style=\"opacity:.45\"></i><i style=\"opacity:1\"></i></div>\n  <div class=\"lbl\"><span>4%</span><span>8%</span><span>14%</span><span>25%</span><span>45%</span><span>100%</span></div></div>\n</body>\n</html>\n"
+}

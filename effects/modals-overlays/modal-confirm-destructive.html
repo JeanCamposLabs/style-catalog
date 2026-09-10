@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Destructive Confirm</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "modal-confirm-destructive",
+    "title": "Destructive Confirm",
+    "summary": "A confirmation that requires typing the resource name.",
+    "description": "A confirmation that requires typing the resource name.",
+    "theme": "modals-overlays",
+    "categories": ["modal", "overlay"],
+    "tags": ["modal", "dialog", "confirm", "destructive", "type-to-confirm", "safety"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.",
+    "customization": [
+      { "name": "--danger", "description": "Danger colour", "default": "#ef4444" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Irreversible actions. Typed confirmation defeats muscle memory in a way a second click never does — reserve it for genuinely unrecoverable operations."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .stage { width: 300px; padding: 1.5rem; border-radius: 18px; background: #141a28; border: 1px solid #3a2530; }
+    .stage h3 { margin: 0 0 .5rem; color: #f87171; }
+    .stage p { margin: 0 0 1rem; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    .stage code { background: #22161c; padding: .1rem .35rem; border-radius: 4px; color: #f87171; }
+    .stage input { width: 100%; padding: .6rem .8rem; border-radius: 10px; border: 1px solid #3a2530; background: #10141f; color: #e7ebf3; font: inherit; margin-bottom: 1rem; }
+    .stage button { width: 100%; padding: .65rem; border-radius: 10px; border: 0; background: #7f1d1d; color: #fca5a5; font: inherit; font-weight: 700; cursor: not-allowed; }
+    .stage button.on { background: #ef4444; color: #fff; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="stage" role="dialog" aria-label="Delete project"><h3>Delete project</h3>
+  <p>This permanently removes <code>aurora-api</code> and all deployments. Type the name to confirm.</p>
+  <input id="cf" type="text" aria-label="Type aurora-api to confirm" placeholder="aurora-api" />
+  <button id="del" type="button" disabled>Delete forever</button></div>
+  <script>
+    (function () {
+      var i = document.getElementById("cf"), b = document.getElementById("del");
+      i.addEventListener("input", function () {
+        var ok = i.value === "aurora-api";
+        b.disabled = !ok; b.classList.toggle("on", ok);
+      });
+    })();
+  </script>
+</body>
+</html>

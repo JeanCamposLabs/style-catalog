@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animated Line Draw</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-line-chart-animated",
+    "title": "Animated Line Draw",
+    "summary": "A chart line drawing itself left to right.",
+    "description": "A chart line drawing itself left to right.",
+    "theme": "svg-effects",
+    "categories": ["svg", "vector"],
+    "tags": ["svg", "vector", "chart", "draw", "line", "reveal"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+    "customization": [
+      { "name": "--c", "description": "Line colour", "default": "#10a894" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Data reveals. Draw the line left to right so it reads as time passing; drawing from both ends or from the middle breaks the temporal metaphor."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 250px; }
+    .fx svg { width: 100%; display: block; }
+    .fx .ln { fill: none; stroke: #10a894; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 2.4s ease-out infinite; }
+    .fx .gr line { stroke: rgba(139,147,167,.2); }
+    @keyframes draw { 0% { stroke-dashoffset: 400; } 60%, 100% { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 250 110" role="img" aria-label="Line chart drawing itself">
+    <g class="gr"><line x1="0" y1="25" x2="250" y2="25"/><line x1="0" y1="60" x2="250" y2="60"/><line x1="0" y1="95" x2="250" y2="95"/></g>
+    <path class="ln" d="M8 92 L60 74 L112 80 L164 42 L216 34 L242 14"/></svg></div>
+</body>
+</html>

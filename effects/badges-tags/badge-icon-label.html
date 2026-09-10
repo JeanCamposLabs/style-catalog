@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Icon Badge</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "badge-icon-label",
+    "title": "Icon Badge",
+    "summary": "A badge combining a glyph and a short label.",
+    "description": "A badge combining a glyph and a short label. Small self-contained component ready to drop into a list or card.",
+    "theme": "badges-tags",
+    "categories": ["badge", "label"],
+    "tags": ["badge", "label", "icon", "label", "verified", "meta"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+    "customization": [
+      { "name": "--c", "description": "Accent", "default": "#38bdf8" }
+    ],
+    "variations": ["Add a size variant", "Map colours to semantic tokens"],
+    "ai_usage": "Verification marks and file types. Keep the glyph aria-hidden and let the text carry the meaning."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .row { display: flex; gap: .5rem; }
+    .b { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .7rem; border-radius: 8px;
+      background: #1c2437; color: #cbd5e1; font-size: .8rem; font-weight: 600; }
+    .b.v { background: rgba(56,189,248,.14); color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <div class="row"><span class="b v"><span aria-hidden="true">✔</span>Verified</span><span class="b"><span aria-hidden="true">◷</span>2 min read</span></div>
+</body>
+</html>

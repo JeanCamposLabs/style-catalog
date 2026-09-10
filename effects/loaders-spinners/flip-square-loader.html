@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flipping Square</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "flip-square-loader",
+    "title": "Flipping Square",
+    "summary": "A single square flips over X, then Y, in an endless two-beat loop.",
+    "description": "One element, one keyframe: rotateX to 180°, then rotateY to 180°, then both back to zero — the minimum-markup loader.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "3d"],
+    "tags": ["flip", "square", "rotate", "3d", "minimal"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Square color", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Full cycle", "default": "1.6s" }
+    ],
+    "variations": ["Rounded corners for a softer read", "Gradient fill that shifts per face", "Add a drop shadow that follows the flip"],
+    "ai_usage": "The smallest useful loader — one div. Add perspective on the parent if you want the flip to feel dimensional rather than a flat scale. Pair with a subtle box-shadow to imply the third dimension."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #7c5cff; --dur: 1.6s; }
+    .flipsq { width: 52px; height: 52px; border-radius: 8px; background: var(--c);
+      box-shadow: 0 10px 30px color-mix(in srgb, var(--c) 40%, transparent);
+      animation: flipsq var(--dur) ease-in-out infinite; }
+    @keyframes flipsq {
+      0% { transform: perspective(160px) rotateX(0) rotateY(0); }
+      50% { transform: perspective(160px) rotateX(180deg) rotateY(0); }
+      100% { transform: perspective(160px) rotateX(180deg) rotateY(180deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="flipsq" role="status" aria-label="Loading"></div>
+</body>
+</html>

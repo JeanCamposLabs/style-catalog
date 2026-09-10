@@ -1,0 +1,44 @@
+{
+  "id": "modal-native-dialog",
+  "title": "Native Dialog",
+  "summary": "A real <dialog> with backdrop styling and animation.",
+  "description": "A real <dialog> with backdrop styling and animation.",
+  "theme": "modals-overlays",
+  "themeTitle": "Modals & Overlays",
+  "categories": [
+    "modal",
+    "overlay"
+  ],
+  "tags": [
+    "modal",
+    "dialog",
+    "native",
+    "dialog",
+    "backdrop",
+    "focus-trap"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Dialog background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Always start from <dialog> + showModal(): you get focus trapping, Escape handling, inert background, and ::backdrop with no JS library.",
+  "path": "effects/modals-overlays/modal-native-dialog.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Native Dialog</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"modal-native-dialog\",\n    \"title\": \"Native Dialog\",\n    \"summary\": \"A real <dialog> with backdrop styling and animation.\",\n    \"description\": \"A real <dialog> with backdrop styling and animation.\",\n    \"theme\": \"modals-overlays\",\n    \"categories\": [\"modal\", \"overlay\"],\n    \"tags\": [\"modal\", \"dialog\", \"native\", \"dialog\", \"backdrop\", \"focus-trap\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Dialog background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Always start from <dialog> + showModal(): you get focus trapping, Escape handling, inert background, and ::backdrop with no JS library.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    dialog { border: 0; border-radius: 18px; padding: 1.6rem; background: #141a28; color: #e7ebf3; max-width: 300px;\n      box-shadow: 0 30px 70px rgba(0,0,0,.6); }\n    dialog::backdrop { background: rgba(4,7,14,.6); backdrop-filter: blur(4px); }\n    dialog[open] { animation: pop .28s cubic-bezier(.2,.8,.3,1); }\n    dialog h3 { margin: 0 0 .5rem; }\n    dialog p { margin: 0 0 1.2rem; color: #8b93a7; font-size: .9rem; line-height: 1.5; }\n    .row { display: flex; gap: .5rem; justify-content: flex-end; }\n    button { padding: .55rem 1.1rem; border-radius: 9px; border: 0; font: inherit; cursor: pointer; }\n    .primary { background: #7c5cff; color: #fff; }\n    .ghost { background: transparent; color: #8b93a7; }\n    @keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.96); } }\n  </style>\n</head>\n<body>\n  <button class=\"primary\" id=\"open\" type=\"button\">Open dialog</button>\n  <dialog id=\"dlg\"><h3>Discard changes?</h3><p>Your edits since the last save will be lost.</p>\n  <div class=\"row\"><button class=\"ghost\" type=\"button\" id=\"cancel\">Keep editing</button><button class=\"primary\" type=\"button\" id=\"ok\">Discard</button></div></dialog>\n  <script>\n    (function () {\n      var d = document.getElementById(\"dlg\");\n      document.getElementById(\"open\").addEventListener(\"click\", function () { d.showModal(); });\n      document.getElementById(\"cancel\").addEventListener(\"click\", function () { d.close(); });\n      document.getElementById(\"ok\").addEventListener(\"click\", function () { d.close(); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

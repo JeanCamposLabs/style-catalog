@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Duration Picker</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "duration-picker-dial",
+    "title": "Duration Picker",
+    "summary": "Preset durations plus a custom option.",
+    "description": "Preset durations plus a custom option.",
+    "theme": "calendar-time",
+    "categories": ["calendar", "time"],
+    "tags": ["calendar", "date", "duration", "presets", "picker", "meeting"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+    "customization": [
+      { "name": "--c", "description": "Selected colour", "default": "#2dd4bf" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Meeting and reminder scheduling. Offer the four or five durations people actually pick, with custom as a fallback — a free-form field first slows everyone down."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; flex-wrap: wrap; gap: .5rem; width: 270px; }
+    .fx button { padding: .5rem .9rem; border-radius: 999px; border: 1px solid #2b3450; background: #151b2a; color: #cbd5e1;
+      font: inherit; font-size: .85rem; cursor: pointer; }
+    .fx button[aria-pressed="true"] { background: #2dd4bf; border-color: #2dd4bf; color: #04241f; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="group" aria-label="Duration">
+    <button type="button" aria-pressed="false">15 min</button><button type="button" aria-pressed="true">30 min</button>
+    <button type="button" aria-pressed="false">45 min</button><button type="button" aria-pressed="false">1 hr</button>
+    <button type="button" aria-pressed="false">Custom…</button></div>
+</body>
+</html>

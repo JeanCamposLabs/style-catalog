@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arrow-Key List</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "keyboard-nav-list",
+    "title": "Arrow-Key List",
+    "summary": "A list navigated with arrow keys.",
+    "description": "A list navigated with arrow keys.",
+    "theme": "keyboard-input",
+    "categories": ["keyboard", "input"],
+    "tags": ["keyboard", "shortcut", "arrow-keys", "roving-tabindex", "list", "navigation"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+    "customization": [
+      { "name": "--c", "description": "Active row", "default": "#22304a" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Composite widgets. Use roving tabindex — one item tabbable, arrows moving focus — so the whole list is a single tab stop rather than a dozen."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 250px; padding: .35rem; border-radius: 12px; background: #151b2a; border: 1px solid #263149; }
+    .fx div { padding: .5rem .7rem; border-radius: 8px; color: #cbd5e1; font-size: .86rem; }
+    .fx div.on { background: #22304a; color: #fff; }
+    .hint { margin-top: .7rem; color: #64748b; font-size: .76rem; }
+  </style>
+</head>
+<body>
+  <div><div class="fx" id="al2" role="listbox" tabindex="0" aria-label="Themes" aria-activedescendant="o1">
+    <div id="o1" role="option" class="on" aria-selected="true">Backgrounds</div>
+    <div id="o2" role="option" aria-selected="false">Buttons</div>
+    <div id="o3" role="option" aria-selected="false">Loaders</div></div>
+  <p class="hint">Focus the list and press ↑ ↓</p></div>
+  <script>
+    (function () {
+      var l = document.getElementById("al2"), opts = [].slice.call(l.children), i = 0;
+      l.addEventListener("keydown", function (e) {
+        if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+        e.preventDefault();
+        opts[i].classList.remove("on"); opts[i].setAttribute("aria-selected", "false");
+        i = (i + (e.key === "ArrowDown" ? 1 : opts.length - 1)) % opts.length;
+        opts[i].classList.add("on"); opts[i].setAttribute("aria-selected", "true");
+        l.setAttribute("aria-activedescendant", opts[i].id);
+      });
+    })();
+  </script>
+</body>
+</html>

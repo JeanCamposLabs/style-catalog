@@ -1,0 +1,49 @@
+{
+  "id": "wavy-text",
+  "title": "Wavy Letters",
+  "summary": "Each character bobs on a sine-like loop offset by its index.",
+  "description": "Per-letter animation-delay derived from a --i custom property turns one keyframe into a travelling wave.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "animation"
+  ],
+  "tags": [
+    "wave",
+    "letters",
+    "stagger",
+    "bob",
+    "playful"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Wave period",
+      "default": "1.4s"
+    },
+    {
+      "name": "--amp",
+      "description": "Bob height",
+      "default": "10px"
+    }
+  ],
+  "variations": [
+    "Color-cycle along the wave",
+    "Larger amplitude for a bouncier feel",
+    "Trigger only on hover"
+  ],
+  "related": [],
+  "ai_usage": "Playful headings and empty states. Wrap each character in a span with --i set to its index; delay = i * (dur / letters). Add aria-label on the wrapper and aria-hidden on the spans so screen readers get the whole word.",
+  "path": "effects/text-effects/wavy-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Wavy Letters</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"wavy-text\",\n    \"title\": \"Wavy Letters\",\n    \"summary\": \"Each character bobs on a sine-like loop offset by its index.\",\n    \"description\": \"Per-letter animation-delay derived from a --i custom property turns one keyframe into a travelling wave.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"animation\"],\n    \"tags\": [\"wave\", \"letters\", \"stagger\", \"bob\", \"playful\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Wave period\", \"default\": \"1.4s\" },\n      { \"name\": \"--amp\", \"description\": \"Bob height\", \"default\": \"10px\" }\n    ],\n    \"variations\": [\"Color-cycle along the wave\", \"Larger amplitude for a bouncier feel\", \"Trigger only on hover\"],\n    \"ai_usage\": \"Playful headings and empty states. Wrap each character in a span with --i set to its index; delay = i * (dur / letters). Add aria-label on the wrapper and aria-hidden on the spans so screen readers get the whole word.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: 1.4s; --amp: 10px; }\n    .wavy { font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 800; display: flex; }\n    .wavy span { display: inline-block; animation: bob var(--dur) ease-in-out infinite;\n      animation-delay: calc(var(--i) * .08s); }\n    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(calc(var(--amp) * -1)); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"wavy\" aria-label=\"Wavy\">\n    <span aria-hidden=\"true\" style=\"--i:0\">W</span><span aria-hidden=\"true\" style=\"--i:1\">a</span><span aria-hidden=\"true\" style=\"--i:2\">v</span><span aria-hidden=\"true\" style=\"--i:3\">y</span><span aria-hidden=\"true\" style=\"--i:4\">&nbsp;</span><span aria-hidden=\"true\" style=\"--i:5\">T</span><span aria-hidden=\"true\" style=\"--i:6\">e</span><span aria-hidden=\"true\" style=\"--i:7\">x</span><span aria-hidden=\"true\" style=\"--i:8\">t</span>\n  </h1>\n</body>\n</html>\n"
+}

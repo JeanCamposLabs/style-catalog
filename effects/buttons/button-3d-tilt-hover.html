@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tilting Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "button-3d-tilt-hover",
+    "title": "Tilting Button",
+    "summary": "A button that leans toward the pointer.",
+    "description": "A button that leans toward the pointer.",
+    "theme": "buttons",
+    "categories": ["button", "action"],
+    "tags": ["button", "action", "tilt", "3d", "pointer", "hover"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+    "customization": [
+      { "name": "--max", "description": "Maximum tilt", "default": "9deg" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Hero calls to action. Keep the tilt under 10° — beyond that the label distorts and the button starts to feel unstable rather than responsive."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { padding: 1rem 2rem; border: 0; border-radius: 14px; background: linear-gradient(150deg, #7c5cff, #4c1d95);
+      color: #fff; font: inherit; font-weight: 800; cursor: pointer; transition: transform .15s ease-out;
+      box-shadow: 0 14px 28px rgba(76,29,149,.5); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button" id="tb">Get started</button>
+  <script>
+    (function () {
+      var b = document.getElementById("tb");
+      b.addEventListener("pointermove", function (e) {
+        var r = b.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        b.style.transform = "perspective(600px) rotateY(" + x * 18 + "deg) rotateX(" + -y * 18 + "deg)";
+      });
+      b.addEventListener("pointerleave", function () { b.style.transform = ""; });
+    })();
+  </script>
+</body>
+</html>

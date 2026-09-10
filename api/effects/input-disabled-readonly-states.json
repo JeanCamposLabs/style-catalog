@@ -1,0 +1,44 @@
+{
+  "id": "input-disabled-readonly-states",
+  "title": "Field States",
+  "summary": "Default, focus, disabled, read-only, and error.",
+  "description": "Default, focus, disabled, read-only, and error.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "form",
+    "input",
+    "states",
+    "disabled",
+    "readonly",
+    "error"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Focus colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Design-system reference. Disabled and read-only look similar but differ: read-only fields still submit their value and remain focusable, which matters for review screens.",
+  "path": "effects/forms-inputs/input-disabled-readonly-states.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Field States</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"input-disabled-readonly-states\",\n    \"title\": \"Field States\",\n    \"summary\": \"Default, focus, disabled, read-only, and error.\",\n    \"description\": \"Default, focus, disabled, read-only, and error.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"form\", \"input\", \"states\", \"disabled\", \"readonly\", \"error\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Focus colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Design-system reference. Disabled and read-only look similar but differ: read-only fields still submit their value and remain focusable, which matters for review screens.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; gap: .5rem; width: 280px; }\n    .fx input { width: 100%; padding: .7rem .9rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a;\n      color: #e7ebf3; font: inherit; font-size: .88rem; }\n    .fx .focused { border-color: #7c5cff; box-shadow: 0 0 0 3px rgba(124,92,255,.2); }\n    .fx input:disabled { background: #10141f; color: #4a5568; cursor: not-allowed; }\n    .fx input[readonly] { background: #10141f; color: #8b93a7; }\n    .fx .bad { border-color: #d1478c; }\n    .fx .msg { font-size: .76rem; color: #f0a3c6; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><input type=\"text\" value=\"Default\" aria-label=\"Default\" />\n  <input class=\"focused\" type=\"text\" value=\"Focused\" aria-label=\"Focused\" />\n  <input type=\"text\" value=\"Disabled\" disabled aria-label=\"Disabled\" />\n  <input type=\"text\" value=\"Read-only\" readonly aria-label=\"Read only\" />\n  <input class=\"bad\" type=\"text\" value=\"Error\" aria-invalid=\"true\" aria-describedby=\"em\" aria-label=\"Error\" />\n  <span class=\"msg\" id=\"em\">✕ This workspace name is taken</span></div>\n</body>\n</html>\n"
+}

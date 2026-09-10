@@ -1,0 +1,44 @@
+{
+  "id": "hit-counter-odometer",
+  "title": "Hit Counter",
+  "summary": "A mechanical visitor counter.",
+  "description": "A mechanical visitor counter.",
+  "theme": "retro-web",
+  "themeTitle": "Retro Web",
+  "categories": [
+    "retro",
+    "nostalgia"
+  ],
+  "tags": [
+    "retro",
+    "nostalgia",
+    "counter",
+    "visitors",
+    "odometer",
+    "90s"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Digit colour",
+      "default": "#0f0"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Nostalgia pages. Zero-pad to a fixed width so the counter never changes size, and keep the number in text so it can be read aloud.",
+  "path": "effects/retro-web/hit-counter-odometer.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hit Counter</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"hit-counter-odometer\",\n    \"title\": \"Hit Counter\",\n    \"summary\": \"A mechanical visitor counter.\",\n    \"description\": \"A mechanical visitor counter.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"nostalgia\"],\n    \"tags\": [\"retro\", \"nostalgia\", \"counter\", \"visitors\", \"odometer\", \"90s\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Digit colour\", \"default\": \"#0f0\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Nostalgia pages. Zero-pad to a fixed width so the counter never changes size, and keep the number in text so it can be read aloud.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: inline-flex; gap: 2px; padding: 4px; background: #000; border: 2px inset #808080; }\n    .fx span { width: 22px; height: 32px; background: linear-gradient(180deg, #333, #000); color: #0f0;\n      display: grid; place-items: center; font-family: ui-monospace, monospace; font-size: 1.1rem; font-weight: 700;\n      border: 1px solid #222; }\n    .lbl { display: block; margin-top: .5rem; font-family: \"MS Sans Serif\", Tahoma, sans-serif; font-size: .72rem; color: #8b93a7; }\n  </style>\n</head>\n<body>\n  <div><div class=\"fx\" role=\"img\" aria-label=\"Visitor number 0042189\"><span>0</span><span>0</span><span>4</span><span>2</span><span>1</span><span>8</span><span>9</span></div>\n  <span class=\"lbl\">You are visitor number 42,189</span></div>\n</body>\n</html>\n"
+}

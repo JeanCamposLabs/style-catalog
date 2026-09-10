@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Letterpress Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "letterpress-text",
+    "title": "Letterpress Text",
+    "summary": "Text pressed into the surface with a one-pixel highlight below.",
+    "description": "A dark shadow above and a light one below invert the usual emboss, so the glyphs read as debossed into the panel.",
+    "theme": "text-effects",
+    "categories": ["text", "surface"],
+    "tags": ["letterpress", "deboss", "emboss", "subtle", "texture"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--ink", "description": "Text color", "default": "#8d93a3" },
+      { "name": "--paper", "description": "Surface color", "default": "#20242e" }
+    ],
+    "variations": ["Emboss by flipping the shadow order", "Colored highlight for a tinted press", "Add a paper grain background"],
+    "ai_usage": "Works only on a mid-tone surface — letterpress is invisible on pure black or white because it needs room for both the highlight and the shade. Text color should be slightly darker than the panel."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: #20242e; }
+    .lp { font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 800; color: var(--ink, #8d93a3);
+      text-shadow: 0 -1px 1px rgba(0,0,0,.7), 0 1px 1px rgba(255,255,255,.12); letter-spacing: .02em; }
+  </style>
+</head>
+<body>
+  <h1 class="lp">Letterpress</h1>
+</body>
+</html>

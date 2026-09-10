@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ruled Notebook</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "notebook-lines-bg",
+    "title": "Ruled Notebook",
+    "summary": "Lined paper with a red margin rule.",
+    "description": "A repeating horizontal rule plus one absolute vertical line reproduces school-exercise paper at any zoom.",
+    "theme": "backgrounds",
+    "categories": ["background", "paper"],
+    "tags": ["notebook", "ruled", "paper", "margin", "stationery"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--rule", "description": "Rule color", "default": "#1e2a3d" },
+      { "name": "--margin", "description": "Margin color", "default": "#f87171" },
+      { "name": "--h", "description": "Line height", "default": "28px" }
+    ],
+    "variations": ["Graph paper squares", "Aged cream paper", "Punch holes down the left edge"],
+    "ai_usage": "Note-taking apps, journals, and handwritten-style sections. Set the rule spacing equal to your text line-height so type sits on the lines instead of floating between them."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --rule: #1e2a3d; --margin: #f87171; --h: 28px; }
+    .bg { background-color: #0c1119;
+      background-image: repeating-linear-gradient(180deg, transparent 0 calc(var(--h) - 1px), var(--rule) calc(var(--h) - 1px) var(--h)); }
+    .bg::before { content: ""; position: absolute; top: 0; bottom: 0; left: 64px; width: 2px; background: var(--margin); opacity: .55; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

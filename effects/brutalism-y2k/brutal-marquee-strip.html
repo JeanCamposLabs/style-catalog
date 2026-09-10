@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brutalist Ticker</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "brutal-marquee-strip",
+    "title": "Brutalist Ticker",
+    "summary": "A high-contrast scrolling strip.",
+    "description": "A high-contrast scrolling strip.",
+    "theme": "brutalism-y2k",
+    "categories": ["brutalism", "y2k"],
+    "tags": ["brutalism", "raw", "marquee", "ticker", "yellow", "strip"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+    "customization": [
+      { "name": "--bg", "description": "Strip colour", "default": "#ffe600" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Announcement bars in anti-design layouts. Pair maximum-contrast colours; the style depends on refusing subtlety."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; overflow: hidden; background: #ffe600; border-block: 4px solid #0b0d12; padding: .5rem 0; }
+    .fx b { display: inline-block; white-space: nowrap; color: #0b0d12; font-family: "Courier New", monospace;
+      font-weight: 700; letter-spacing: .1em; animation: slide 8s linear infinite; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><b>NEW DROP · NEW DROP · NEW DROP · NEW DROP · </b></div>
+</body>
+</html>

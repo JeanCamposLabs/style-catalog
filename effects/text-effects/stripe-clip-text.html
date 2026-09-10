@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Striped Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "stripe-clip-text",
+    "title": "Striped Text",
+    "summary": "Diagonal stripes run through the letterforms and drift sideways.",
+    "description": "A repeating-linear-gradient clipped to the text moves with background-position, so the stripes appear to slide behind the glyphs.",
+    "theme": "text-effects",
+    "categories": ["text", "pattern"],
+    "tags": ["stripes", "repeating-gradient", "background-clip", "pattern", "kinetic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Stripe color A", "default": "#e7ebf3" },
+      { "name": "--b", "description": "Stripe color B", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Drift", "default": "2s" }
+    ],
+    "variations": ["Vertical or horizontal stripes", "Freeze the stripes and animate on hover", "Two-tone caution stripes for warnings"],
+    "ai_usage": "Warning banners, sport, or construction themes. Because the stripes are a background, everything is one element — but set background-size explicitly or the drift distance will not match the stripe period and the loop will stutter."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --a: #e7ebf3; --b: #7c5cff; --dur: 2s; }
+    .stripe { font-size: clamp(2.2rem, 9vw, 4.2rem); font-weight: 900;
+      background: repeating-linear-gradient(45deg, var(--a) 0 10px, var(--b) 10px 20px);
+      background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: drift var(--dur) linear infinite; }
+    @keyframes drift { to { background-position: 28px 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="stripe">STRIPED</h1>
+</body>
+</html>

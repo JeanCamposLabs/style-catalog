@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glow Fade In</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glow-fade-in",
+    "title": "Glow Fade In",
+    "summary": "The element fades in with a brief glow that decays.",
+    "description": "The element fades in with a brief glow that decays. Applied once on load with animation-fill-mode: both so the element holds its final state.",
+    "theme": "transitions-animations",
+    "categories": ["animation", "entrance"],
+    "tags": ["entrance", "reveal", "glow", "shadow", "attention"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.",
+    "customization": [
+      { "name": "--dur", "description": "Animation duration", "default": "1.1s" },
+      { "name": "--ease", "description": "Timing function", "default": "ease-out" }
+    ],
+    "variations": ["Stagger across a list with animation-delay", "Play on scroll with IntersectionObserver"],
+    "ai_usage": "Draws the eye to newly inserted rows or notifications. Decay the glow to zero so the highlight does not become permanent chrome."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 1.1s; --ease: ease-out; }
+    .card { width: 230px; padding: 1.5rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149;
+      animation: glow-fade-in var(--dur) var(--ease) both infinite alternate; }
+    .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    @keyframes glow-fade-in {
+      0% { opacity: 0; box-shadow: 0 0 40px 10px rgba(124,92,255,.7); }
+      100% { opacity: 1; box-shadow: 0 0 0 0 rgba(124,92,255,0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card"><h3>Glow Fade In</h3><p>The element fades in with a brief glow that decays.</p></div>
+</body>
+</html>

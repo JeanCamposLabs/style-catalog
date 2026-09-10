@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Card Deck</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-stack-3d-deck",
+    "title": "3D Card Deck",
+    "summary": "Cards receding into depth with a fan on hover.",
+    "description": "Cards receding into depth with a fan on hover.",
+    "theme": "3d-transforms",
+    "categories": ["3d", "transform"],
+    "tags": ["3d", "transform", "deck", "stack", "depth", "fan"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--gap", "description": "Depth gap", "default": "30px" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Collection previews. Translate on Z rather than scaling so the perspective does the shrinking for you and the cards stay geometrically consistent."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .deck { position: relative; width: 170px; height: 220px; perspective: 900px; }
+    .c { position: absolute; inset: 0; border-radius: 16px; background: linear-gradient(160deg, #1b2338, #10141f);
+      border: 1px solid #2b3450; transition: transform .45s cubic-bezier(.2,.8,.3,1); transform-style: preserve-3d; }
+    .c:nth-child(1) { transform: translateZ(-60px) translateY(18px); }
+    .c:nth-child(2) { transform: translateZ(-30px) translateY(9px); }
+    .deck:hover .c:nth-child(1) { transform: translateZ(-60px) translateY(18px) rotate(-10deg) translateX(-40px); }
+    .deck:hover .c:nth-child(2) { transform: translateZ(-30px) translateY(9px) rotate(-4deg) translateX(-16px); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck"><div class="c"></div><div class="c"></div><div class="c"></div></div>
+</body>
+</html>

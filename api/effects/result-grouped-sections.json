@@ -1,0 +1,44 @@
+{
+  "id": "result-grouped-sections",
+  "title": "Grouped Results",
+  "summary": "Results grouped by type with counts.",
+  "description": "Results grouped by type with counts.",
+  "theme": "search-ui",
+  "themeTitle": "Search UI",
+  "categories": [
+    "search",
+    "filter"
+  ],
+  "tags": [
+    "search",
+    "find",
+    "grouped",
+    "sections",
+    "types",
+    "results"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Icon background",
+      "default": "#1e2740"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Universal search across entity types. Group by type with a count per group and cap each group — a flat list of mixed types is much harder to scan.",
+  "path": "effects/search-ui/result-grouped-sections.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Grouped Results</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"result-grouped-sections\",\n    \"title\": \"Grouped Results\",\n    \"summary\": \"Results grouped by type with counts.\",\n    \"description\": \"Results grouped by type with counts.\",\n    \"theme\": \"search-ui\",\n    \"categories\": [\"search\", \"filter\"],\n    \"tags\": [\"search\", \"find\", \"grouped\", \"sections\", \"types\", \"results\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Icon background\", \"default\": \"#1e2740\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Universal search across entity types. Group by type with a count per group and cap each group — a flat list of mixed types is much harder to scan.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; }\n    .fx .g { margin-bottom: .9rem; }\n    .fx .h { display: flex; justify-content: space-between; font-size: .7rem; text-transform: uppercase;\n      letter-spacing: .08em; color: #64748b; margin-bottom: .35rem; }\n    .fx .r { display: flex; align-items: center; gap: .6rem; padding: .45rem .6rem; border-radius: 8px; color: #cbd5e1; font-size: .85rem; }\n    .fx .r:hover { background: #151b2a; }\n    .fx .ic { width: 24px; height: 24px; border-radius: 7px; background: #1e2740; display: grid; place-items: center; font-size: .8rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"g\"><div class=\"h\"><span>Effects</span><span>12</span></div>\n  <div class=\"r\"><span class=\"ic\">◆</span>Gradient Border Card</div><div class=\"r\"><span class=\"ic\">◆</span>Gradient Shift Text</div></div>\n  <div class=\"g\"><div class=\"h\"><span>Themes</span><span>2</span></div>\n  <div class=\"r\"><span class=\"ic\">▣</span>Backgrounds</div><div class=\"r\"><span class=\"ic\">▣</span>Color Systems</div></div></div>\n</body>\n</html>\n"
+}

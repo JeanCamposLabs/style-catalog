@@ -1,0 +1,44 @@
+{
+  "id": "vine-grow",
+  "title": "Growing Vine",
+  "summary": "A vine draws itself upward and sprouts leaves.",
+  "description": "A vine draws itself upward and sprouts leaves.",
+  "theme": "nature-organic",
+  "themeTitle": "Nature & Organic",
+  "categories": [
+    "nature",
+    "organic"
+  ],
+  "tags": [
+    "organic",
+    "nature",
+    "vine",
+    "grow",
+    "draw",
+    "svg"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Vine colour",
+      "default": "#22c55e"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Onboarding and growth metaphors. Time the leaf pops to land after the stem passes their position, or they appear on empty space.",
+  "path": "effects/nature-organic/vine-grow.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Growing Vine</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"vine-grow\",\n    \"title\": \"Growing Vine\",\n    \"summary\": \"A vine draws itself upward and sprouts leaves.\",\n    \"description\": \"A vine draws itself upward and sprouts leaves.\",\n    \"theme\": \"nature-organic\",\n    \"categories\": [\"nature\", \"organic\"],\n    \"tags\": [\"organic\", \"nature\", \"vine\", \"grow\", \"draw\", \"svg\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Vine colour\", \"default\": \"#22c55e\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Onboarding and growth metaphors. Time the leaf pops to land after the stem passes their position, or they appear on empty space.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 150px; }\n    .fx svg { width: 100%; display: block; }\n    .fx path { fill: none; stroke: #22c55e; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 300; stroke-dashoffset: 300;\n      animation: grow 4s ease-in-out infinite; }\n    .fx circle { fill: #86efac; opacity: 0; animation: pop 4s ease-in-out infinite; }\n    .fx circle:nth-of-type(2) { animation-delay: .4s; }\n    @keyframes grow { 0% { stroke-dashoffset: 300; } 70%, 100% { stroke-dashoffset: 0; } }\n    @keyframes pop { 0%, 45% { opacity: 0; transform: scale(0); } 60%, 100% { opacity: 1; transform: scale(1); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><svg viewBox=\"0 0 100 150\"><path d=\"M50 150 C50 110 30 100 40 70 C50 42 70 40 60 10\"/>\n  <circle cx=\"34\" cy=\"92\" r=\"7\" style=\"transform-origin:34px 92px\"/><circle cx=\"66\" cy=\"46\" r=\"7\" style=\"transform-origin:66px 46px\"/></svg></div>\n</body>\n</html>\n"
+}

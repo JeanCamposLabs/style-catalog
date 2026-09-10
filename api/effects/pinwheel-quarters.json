@@ -1,0 +1,55 @@
+{
+  "id": "pinwheel-quarters",
+  "title": "Pinwheel",
+  "summary": "Four rotating colour quarters.",
+  "description": "Four rotating colour quarters. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "pinwheel",
+    "conic",
+    "quarters",
+    "toy"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Colour A",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--b",
+      "description": "Colour B",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--s",
+      "description": "Tile size",
+      "default": "90px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Playful, childlike surfaces. One conic-gradient tile; swapping in four colours instead of two makes it a colour wheel.",
+  "path": "effects/patterns-textures/pinwheel-quarters.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Pinwheel</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"pinwheel-quarters\",\n    \"title\": \"Pinwheel\",\n    \"summary\": \"Four rotating colour quarters.\",\n    \"description\": \"Four rotating colour quarters. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"pinwheel\", \"conic\", \"quarters\", \"toy\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Colour A\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--b\", \"description\": \"Colour B\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--s\", \"description\": \"Tile size\", \"default\": \"90px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Playful, childlike surfaces. One conic-gradient tile; swapping in four colours instead of two makes it a colour wheel.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #7c5cff; --b: #2dd4bf; --s: 90px; }\n    .bg { background-color: #0b0d12;\n      background-image: conic-gradient(var(--a) 0 25%, var(--b) 0 50%, var(--a) 0 75%, var(--b) 0);\n      background-size: var(--s) var(--s); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

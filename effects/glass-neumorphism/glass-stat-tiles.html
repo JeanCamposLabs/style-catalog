@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass Stat Tiles</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-stat-tiles",
+    "title": "Glass Stat Tiles",
+    "summary": "Translucent metric tiles in a row.",
+    "description": "Translucent metric tiles in a row.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "surface"],
+    "tags": ["glass", "surface", "glass", "stats", "tiles", "dashboard"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+    "customization": [
+      { "name": "--blur", "description": "Backdrop blur", "default": "14px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Dashboard overlays. Because backdrop-filter compounds across stacked panels, keep each tile's blur modest — three panels at 20px produce mud."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: linear-gradient(150deg, #1e1b4b, #7c3aed 60%, #0ea5e9); }
+    .fx { display: flex; gap: 10px; }
+    .t { width: 92px; padding: .9rem .8rem; border-radius: 14px; color: #fff;
+      background: rgba(255,255,255,.16); backdrop-filter: blur(14px) saturate(1.5);
+      -webkit-backdrop-filter: blur(14px) saturate(1.5); border: 1px solid rgba(255,255,255,.3); }
+    .t .n { font-size: 1.4rem; font-weight: 900; line-height: 1; }
+    .t .l { font-size: .7rem; opacity: .8; margin-top: .25rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="t"><div class="n">1,181</div><div class="l">Specimens</div></div>
+  <div class="t"><div class="n">57</div><div class="l">Themes</div></div>
+  <div class="t"><div class="n">0</div><div class="l">Dependencies</div></div></div>
+</body>
+</html>

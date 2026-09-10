@@ -1,0 +1,44 @@
+{
+  "id": "motion-hierarchy-layers",
+  "title": "Motion Hierarchy",
+  "summary": "Foreground moves further and faster than background.",
+  "description": "Foreground moves further and faster than background.",
+  "theme": "motion-principles",
+  "themeTitle": "Motion Principles",
+  "categories": [
+    "motion",
+    "reference"
+  ],
+  "tags": [
+    "motion",
+    "easing",
+    "hierarchy",
+    "layers",
+    "parallax",
+    "depth"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+  "customization": [
+    {
+      "name": "--rate",
+      "description": "Foreground rate",
+      "default": "1"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Layered scenes. Elements nearer the viewer should move further and finish sooner; identical motion across depths flattens the composition instantly.",
+  "path": "effects/motion-principles/motion-hierarchy-layers.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Motion Hierarchy</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"motion-hierarchy-layers\",\n    \"title\": \"Motion Hierarchy\",\n    \"summary\": \"Foreground moves further and faster than background.\",\n    \"description\": \"Foreground moves further and faster than background.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"reference\"],\n    \"tags\": [\"motion\", \"easing\", \"hierarchy\", \"layers\", \"parallax\", \"depth\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.\",\n    \"customization\": [\n      { \"name\": \"--rate\", \"description\": \"Foreground rate\", \"default\": \"1\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Layered scenes. Elements nearer the viewer should move further and finish sooner; identical motion across depths flattens the composition instantly.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 290px; height: 170px; border-radius: 14px; overflow: hidden; background: #0d1220; }\n    .fx i { position: absolute; border-radius: 12px; animation: slide var(--d) ease-in-out infinite alternate; }\n    .bg { inset: 20px; background: #1a2130; --d: 5s; }\n    .mid { inset: 45px; background: #26304a; --d: 4s; }\n    .fg { inset: 68px; background: linear-gradient(150deg, #7c5cff, #2dd4bf); --d: 3s; }\n    @keyframes slide { from { transform: translateX(-14px); } to { transform: translateX(14px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i class=\"bg\"></i><i class=\"mid\"></i><i class=\"fg\"></i></div>\n</body>\n</html>\n"
+}

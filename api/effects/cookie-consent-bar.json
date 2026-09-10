@@ -1,0 +1,44 @@
+{
+  "id": "cookie-consent-bar",
+  "title": "Consent Bar",
+  "summary": "A cookie notice with equal-weight accept and reject.",
+  "description": "A cookie notice with equal-weight accept and reject.",
+  "theme": "notifications-toasts",
+  "themeTitle": "Notifications & Toasts",
+  "categories": [
+    "notification",
+    "feedback"
+  ],
+  "tags": [
+    "notification",
+    "feedback",
+    "consent",
+    "cookies",
+    "privacy",
+    "gdpr"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accept colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Consent notices. Reject must be as easy to find and click as Accept — a de-emphasised reject button is a dark pattern and is explicitly non-compliant in the EU.",
+  "path": "effects/notifications-toasts/cookie-consent-bar.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Consent Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cookie-consent-bar\",\n    \"title\": \"Consent Bar\",\n    \"summary\": \"A cookie notice with equal-weight accept and reject.\",\n    \"description\": \"A cookie notice with equal-weight accept and reject.\",\n    \"theme\": \"notifications-toasts\",\n    \"categories\": [\"notification\", \"feedback\"],\n    \"tags\": [\"notification\", \"feedback\", \"consent\", \"cookies\", \"privacy\", \"gdpr\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accept colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Consent notices. Reject must be as easy to find and click as Accept — a de-emphasised reject button is a dark pattern and is explicitly non-compliant in the EU.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }\n    .fx p { margin: 0 0 .8rem; font-size: .82rem; color: #cbd5e1; line-height: 1.5; }\n    .fx a { color: #b9a5ff; }\n    .fx .row { display: flex; gap: .5rem; }\n    .fx button { flex: 1; padding: .5rem; border-radius: 9px; font: inherit; font-size: .82rem; cursor: pointer; border: 1px solid #2b3450; }\n    .fx .acc { background: #7c5cff; border-color: #7c5cff; color: #fff; font-weight: 700; }\n    .fx .rej { background: transparent; color: #cbd5e1; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"dialog\" aria-label=\"Cookie consent\"><p>We use analytics cookies to understand which specimens get used. <a href=\"#\">Details</a></p>\n  <div class=\"row\"><button class=\"rej\" type=\"button\">Reject all</button><button class=\"acc\" type=\"button\">Accept all</button></div></div>\n</body>\n</html>\n"
+}

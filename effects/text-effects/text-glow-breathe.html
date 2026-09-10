@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Breathing Glow</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "text-glow-breathe",
+    "title": "Breathing Glow",
+    "summary": "Text with a glow that swells and fades.",
+    "description": "Text with a glow that swells and fades.",
+    "theme": "text-effects",
+    "categories": ["text", "typography"],
+    "tags": ["text", "type", "glow", "breathe", "pulse", "ambient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative duplicates are aria-hidden.",
+    "customization": [
+      { "name": "--c", "description": "Glow colour", "default": "#38bdf8" },
+      { "name": "--dur", "description": "Breath period", "default": "3s" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Ambient headings in dark UIs. Animate only the shadow, never the text colour, so contrast never drops below the readable threshold."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { font-size: 2rem; font-weight: 800; color: #e0f2fe; animation: glow 3s ease-in-out infinite alternate; }
+    @keyframes glow {
+      from { text-shadow: 0 0 6px rgba(56,189,248,.5), 0 0 16px rgba(56,189,248,.3); }
+      to { text-shadow: 0 0 12px rgba(56,189,248,.9), 0 0 34px rgba(56,189,248,.6); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h2 class="fx">Ambient</h2>
+</body>
+</html>

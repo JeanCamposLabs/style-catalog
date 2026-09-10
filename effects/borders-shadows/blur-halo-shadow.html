@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Colour Halo</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "blur-halo-shadow",
+    "title": "Colour Halo",
+    "summary": "A soft coloured halo blooms behind the card.",
+    "description": "A blurred, saturated duplicate behind the surface tints the surrounding area instead of darkening it.",
+    "theme": "borders-shadows",
+    "categories": ["shadow", "glow"],
+    "tags": ["halo", "bloom", "color", "glow", "hero"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Halo color", "default": "#7c5cff" },
+      { "name": "--blur", "description": "Halo blur", "default": "44px" }
+    ],
+    "variations": ["Two-colour halo", "Pulse the halo slowly", "Halo only on hover"],
+    "ai_usage": "Dark hero sections. A coloured halo replaces a dark shadow on dark backgrounds where a black shadow is invisible — keep it wide and low-opacity or it reads as a glow bug."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }
+    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    :root { --c: #7c5cff; --blur: 44px; }
+    .halo { position: relative; }
+    .halo::before { content: ""; position: absolute; inset: 6px; border-radius: 24px; background: var(--c);
+      filter: blur(var(--blur)); opacity: .55; }
+    .demo { position: relative; background: #151b2a; border-radius: 18px; border: 1px solid #2b3450; }
+  </style>
+</head>
+<body>
+  <div class="halo"><div class="demo"><h3>Haloed</h3><p>Colour bloom behind the surface.</p></div></div>
+</body>
+</html>

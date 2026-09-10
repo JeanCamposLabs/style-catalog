@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Provider Buttons</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "button-social-provider",
+    "title": "Provider Buttons",
+    "summary": "Sign-in buttons with brand marks.",
+    "description": "Sign-in buttons with brand marks.",
+    "theme": "buttons",
+    "categories": ["button", "action"],
+    "tags": ["button", "action", "social", "sign-in", "providers", "auth"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+    "customization": [
+      { "name": "--bg", "description": "Button background", "default": "#151b2a" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Authentication screens. Keep every provider button the same size and order them by likely use; a visually dominant provider skews sign-in choice and fragments accounts."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; gap: 8px; width: 250px; }
+    .fx button { display: flex; align-items: center; gap: .7rem; padding: .7rem 1rem; border-radius: 11px;
+      border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; font-size: .88rem; cursor: pointer; }
+    .fx button:hover { background: #1c2437; }
+    .fx .m { width: 20px; height: 20px; border-radius: 5px; display: grid; place-items: center; font-size: .8rem; flex: none; }
+  </style>
+</head>
+<body>
+  <div class="fx"><button type="button"><span class="m" style="background:#fff;color:#0b0d12" aria-hidden="true">G</span>Continue with Google</button>
+  <button type="button"><span class="m" style="background:#24292f;color:#fff" aria-hidden="true">◉</span>Continue with GitHub</button>
+  <button type="button"><span class="m" style="background:#0a66c2;color:#fff" aria-hidden="true">in</span>Continue with LinkedIn</button></div>
+</body>
+</html>

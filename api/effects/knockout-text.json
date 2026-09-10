@@ -1,0 +1,50 @@
+{
+  "id": "knockout-text",
+  "title": "Knockout Gradient Text",
+  "summary": "The headline is genuinely cut out of a gradient panel, so the page shows through the letters.",
+  "description": "An SVG mask paints the panel white and the text black, and the panel is drawn through that mask — a real cutout, not text painted with a gradient.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "svg"
+  ],
+  "tags": [
+    "knockout",
+    "cutout",
+    "svg-mask",
+    "gradient",
+    "hero"
+  ],
+  "tech": [
+    "svg",
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Gradient start",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--b",
+      "description": "Gradient end",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Animate the gradient stops",
+    "Place a photo behind the panel",
+    "Invert the mask for solid text on a cut panel"
+  ],
+  "related": [],
+  "ai_usage": "Use when the background behind the panel must show through the letters — background-clip:text cannot do that, only an SVG mask (or mask-image) can. Keep the text inside the <mask> black and the covering rect white; anything gray becomes partially transparent.",
+  "path": "effects/text-effects/knockout-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Knockout Gradient Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"knockout-text\",\n    \"title\": \"Knockout Gradient Text\",\n    \"summary\": \"The headline is genuinely cut out of a gradient panel, so the page shows through the letters.\",\n    \"description\": \"An SVG mask paints the panel white and the text black, and the panel is drawn through that mask — a real cutout, not text painted with a gradient.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"svg\"],\n    \"tags\": [\"knockout\", \"cutout\", \"svg-mask\", \"gradient\", \"hero\"],\n    \"tech\": [\"svg\", \"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Gradient start\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--b\", \"description\": \"Gradient end\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Animate the gradient stops\", \"Place a photo behind the panel\", \"Invert the mask for solid text on a cut panel\"],\n    \"ai_usage\": \"Use when the background behind the panel must show through the letters — background-clip:text cannot do that, only an SVG mask (or mask-image) can. Keep the text inside the <mask> black and the covering rect white; anything gray becomes partially transparent.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .ko { width: min(90vw, 420px); }\n    .ko svg { width: 100%; display: block; }\n    .ko text { font-family: system-ui, sans-serif; font-weight: 900; font-size: 58px; }\n  </style>\n</head>\n<body>\n  <div class=\"ko\" role=\"img\" aria-label=\"Knockout\">\n    <svg viewBox=\"0 0 420 150\" aria-hidden=\"true\">\n      <defs>\n        <linearGradient id=\"kog\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n          <stop offset=\"0\" stop-color=\"#7c5cff\"/><stop offset=\"1\" stop-color=\"#2dd4bf\"/>\n        </linearGradient>\n        <mask id=\"kom\">\n          <rect width=\"420\" height=\"150\" rx=\"20\" fill=\"#fff\"/>\n          <text x=\"210\" y=\"93\" text-anchor=\"middle\" fill=\"#000\">KNOCK</text>\n        </mask>\n      </defs>\n      <rect width=\"420\" height=\"150\" rx=\"20\" fill=\"url(#kog)\" mask=\"url(#kom)\"/>\n    </svg>\n  </div>\n</body>\n</html>\n"
+}

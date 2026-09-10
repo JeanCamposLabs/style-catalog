@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Man Page</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "man-page-panel",
+    "title": "Man Page",
+    "summary": "A manual page with a header, synopsis, and options.",
+    "description": "A manual page with a header, synopsis, and options.",
+    "theme": "terminal-cli",
+    "categories": ["terminal", "code"],
+    "tags": ["terminal", "monospace", "man-page", "docs", "reference", "cli"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Terminal output should live in a real text element (not an image) so it can be selected, searched, and read aloud.",
+    "customization": [
+      { "name": "--paper", "description": "Page colour", "default": "#f5f5f4" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "CLI documentation. A definition list is the correct markup for option/description pairs — it gives assistive tech the pairing for free."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; padding: 1rem 1.1rem; border-radius: 8px; background: #f5f5f4; color: #1c1917;
+      font-family: ui-monospace, monospace; font-size: .74rem; line-height: 1.7; }
+    .fx h4 { margin: 0 0 .3rem; font-size: .74rem; letter-spacing: .08em; }
+    .fx .sec { margin-top: .7rem; }
+    .fx dl { margin: 0; display: grid; grid-template-columns: 5rem 1fr; gap: .1rem .6rem; }
+    .fx dt { color: #7c2d12; }
+    .fx dd { margin: 0; color: #44403c; }
+  </style>
+</head>
+<body>
+  <div class="fx"><h4>CATALOG(1)</h4><div class="sec"><h4>SYNOPSIS</h4>catalog build [--watch]</div>
+  <div class="sec"><h4>OPTIONS</h4><dl><dt>--watch</dt><dd>rebuild on change</dd><dt>--quiet</dt><dd>suppress output</dd></dl></div></div>
+</body>
+</html>

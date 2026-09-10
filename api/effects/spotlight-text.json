@@ -1,0 +1,49 @@
+{
+  "id": "spotlight-text",
+  "title": "Spotlight Text",
+  "summary": "A moving light reveals the headline out of near-darkness.",
+  "description": "A radial-gradient mask travels across the block, so only the lit portion of the type is fully visible.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "reveal"
+  ],
+  "tags": [
+    "spotlight",
+    "mask",
+    "radial-gradient",
+    "reveal",
+    "dramatic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Spotlight radius",
+      "default": "120px"
+    },
+    {
+      "name": "--dur",
+      "description": "Sweep time",
+      "default": "4s"
+    }
+  ],
+  "variations": [
+    "Follow the pointer with JS",
+    "Two spotlights crossing",
+    "Warm gel color on the light"
+  ],
+  "related": [],
+  "ai_usage": "Theatrical hero sections. The dim base copy sits underneath at low opacity while a masked copy on top gets the moving gradient — masking a single element to zero would hide the text entirely and break selection.",
+  "path": "effects/text-effects/spotlight-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Spotlight Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"spotlight-text\",\n    \"title\": \"Spotlight Text\",\n    \"summary\": \"A moving light reveals the headline out of near-darkness.\",\n    \"description\": \"A radial-gradient mask travels across the block, so only the lit portion of the type is fully visible.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"reveal\"],\n    \"tags\": [\"spotlight\", \"mask\", \"radial-gradient\", \"reveal\", \"dramatic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Spotlight radius\", \"default\": \"120px\" },\n      { \"name\": \"--dur\", \"description\": \"Sweep time\", \"default\": \"4s\" }\n    ],\n    \"variations\": [\"Follow the pointer with JS\", \"Two spotlights crossing\", \"Warm gel color on the light\"],\n    \"ai_usage\": \"Theatrical hero sections. The dim base copy sits underneath at low opacity while a masked copy on top gets the moving gradient — masking a single element to zero would hide the text entirely and break selection.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --r: 120px; --dur: 4s; }\n    .spot { position: relative; font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 900; color: #262c3d; }\n    .spot span { position: absolute; inset: 0; color: #fff;\n      -webkit-mask-image: radial-gradient(circle var(--r) at var(--x, 0%) 50%, #000 0 40%, transparent 70%);\n      mask-image: radial-gradient(circle var(--r) at var(--x, 0%) 50%, #000 0 40%, transparent 70%);\n      animation: sweep var(--dur) ease-in-out infinite alternate; }\n    @keyframes sweep { from { --x: 0%; } to { --x: 100%; } }\n    @property --x { syntax: \"<percentage>\"; inherits: false; initial-value: 0%; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"spot\">SPOTLIGHT<span aria-hidden=\"true\">SPOTLIGHT</span></h1>\n</body>\n</html>\n"
+}

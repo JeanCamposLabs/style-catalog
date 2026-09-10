@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom Context Menu</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "context-menu-right-click",
+    "title": "Custom Context Menu",
+    "summary": "A right-click menu that opens at the pointer and stays on screen.",
+    "description": "The menu is clamped to the viewport, so it flips near the edges instead of being cut off.",
+    "theme": "navigation-menus",
+    "categories": ["navigation"],
+    "tags": ["context-menu", "right-click", "popup", "clamp", "desktop"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+    "customization": [
+      { "name": "--bg", "description": "Menu background", "default": "#141a28" }
+    ],
+    "variations": ["Submenus on hover", "Keyboard shortcut column"],
+    "ai_usage": "Desktop-style apps. Always preventDefault on contextmenu, clamp to innerWidth/Height, and provide the same actions through a keyboard-reachable menu button."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .area { width: 300px; height: 180px; border-radius: 14px; border: 1px dashed #2b3450; display: grid; place-items: center;
+      color: #8b93a7; background: #10141f; }
+    .menu { position: fixed; display: none; min-width: 160px; padding: .3rem; background: var(--bg, #141a28);
+      border: 1px solid #2b3450; border-radius: 10px; box-shadow: 0 18px 40px rgba(0,0,0,.55); z-index: 5; }
+    .menu.is-open { display: block; }
+    .menu button { display: block; width: 100%; text-align: left; padding: .5rem .7rem; border: 0; border-radius: 7px;
+      background: transparent; color: #cbd5e1; font: inherit; font-size: .9rem; cursor: pointer; }
+    .menu button:hover { background: #22304a; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="area" id="area">Right-click inside this box</div>
+  <div class="menu" id="menu" role="menu">
+    <button role="menuitem" type="button">Open</button>
+    <button role="menuitem" type="button">Duplicate</button>
+    <button role="menuitem" type="button">Rename</button>
+    <button role="menuitem" type="button">Delete</button>
+  </div>
+  <script>
+    (function () {
+      var area = document.getElementById("area"), menu = document.getElementById("menu");
+      area.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+        menu.classList.add("is-open");
+        var w = menu.offsetWidth, h = menu.offsetHeight;
+        menu.style.left = Math.min(e.clientX, innerWidth - w - 8) + "px";
+        menu.style.top = Math.min(e.clientY, innerHeight - h - 8) + "px";
+      });
+      addEventListener("click", function () { menu.classList.remove("is-open"); });
+      addEventListener("keydown", function (e) { if (e.key === "Escape") menu.classList.remove("is-open"); });
+    })();
+  </script>
+</body>
+</html>

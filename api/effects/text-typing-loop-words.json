@@ -1,0 +1,44 @@
+{
+  "id": "text-typing-loop-words",
+  "title": "Typed Word Loop",
+  "summary": "One phrase whose final word retypes itself.",
+  "description": "One phrase whose final word retypes itself.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "typography"
+  ],
+  "tags": [
+    "text",
+    "type",
+    "typewriter",
+    "loop",
+    "words",
+    "marketing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative duplicates are aria-hidden.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Word colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Marketing headlines. Width in ch with steps() timing keeps the caret glued to the last character; using JS to swap text content makes screen readers re-announce the whole line.",
+  "path": "effects/text-effects/text-typing-loop-words.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Typed Word Loop</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"text-typing-loop-words\",\n    \"title\": \"Typed Word Loop\",\n    \"summary\": \"One phrase whose final word retypes itself.\",\n    \"description\": \"One phrase whose final word retypes itself.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"typography\"],\n    \"tags\": [\"text\", \"type\", \"typewriter\", \"loop\", \"words\", \"marketing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative duplicates are aria-hidden.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Word colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Marketing headlines. Width in ch with steps() timing keeps the caret glued to the last character; using JS to swap text content makes screen readers re-announce the whole line.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { font-size: 1.5rem; font-weight: 800; display: flex; gap: .4ch; align-items: baseline; }\n    .fx .word { color: #2dd4bf; border-right: 2px solid #2dd4bf; white-space: nowrap; overflow: hidden;\n      animation: type 8s steps(9) infinite, caret .7s step-end infinite; }\n    @keyframes type { 0%, 10% { width: 0; } 20%, 30% { width: 9ch; } 40%, 50% { width: 0; } 60%, 70% { width: 7ch; } 80%, 100% { width: 0; } }\n    @keyframes caret { 50% { border-color: transparent; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">Build <span class=\"word\">something</span></div>\n</body>\n</html>\n"
+}

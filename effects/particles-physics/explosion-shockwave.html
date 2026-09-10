@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shockwave</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "explosion-shockwave",
+    "title": "Shockwave",
+    "summary": "An expanding ring with debris.",
+    "description": "An expanding ring with debris.",
+    "theme": "particles-physics",
+    "categories": ["particles", "physics"],
+    "tags": ["particles", "motion", "explosion", "shockwave", "impact", "burst"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+    "customization": [
+      { "name": "--dur", "description": "Wave period", "default": "1.8s" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Impact and error moments. Thinning the ring's border as it expands is what conveys losing energy; constant stroke width reads as a growing circle."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 200px; height: 200px; display: grid; place-items: center; }
+    .fx .ring { position: absolute; width: 40px; height: 40px; border-radius: 50%; border: 3px solid #c2891a;
+      animation: wave 1.8s cubic-bezier(0,.4,.6,1) infinite; }
+    .fx i { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #d1478c;
+      animation: deb 1.8s ease-out infinite; }
+    @keyframes wave { 0% { transform: scale(.3); opacity: 1; border-width: 6px; } 100% { transform: scale(4); opacity: 0; border-width: 1px; } }
+    @keyframes deb { 0% { transform: translate(0,0); opacity: 1; } 100% { transform: translate(var(--x), var(--y)); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="ring"></span><i style="--x:-56px;--y:-40px"></i><i style="--x:48px;--y:-52px"></i>
+  <i style="--x:-44px;--y:48px"></i><i style="--x:60px;--y:36px"></i></div>
+</body>
+</html>

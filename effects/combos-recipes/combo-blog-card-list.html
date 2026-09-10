@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Article List</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "combo-blog-card-list",
+    "title": "Article List",
+    "summary": "Post cards with metadata and tags.",
+    "description": "Post cards with metadata and tags.",
+    "theme": "combos-recipes",
+    "categories": ["combo", "section"],
+    "tags": ["combo", "block", "blog", "list", "cards", "metadata"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+    "customization": [
+      { "name": "--th", "description": "Thumbnail size", "default": "66px" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Article indexes. Keep the whole card clickable via a link that wraps the title with a stretched pseudo-element, so the hit area is large without nesting interactive elements."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { display: grid; place-items: center; padding: 2rem 1rem; }
+    .wrap { width: min(92vw, 310px); display: grid; gap: 10px; }
+    .post { display: flex; gap: .9rem; padding: .8rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }
+    .post .th { width: 66px; height: 66px; border-radius: 10px; flex: none; }
+    .post h3 { margin: 0 0 .2rem; font-size: .92rem; line-height: 1.3; }
+    .post .meta { color: #64748b; font-size: .74rem; }
+    .post .tags { display: flex; gap: .3rem; margin-top: .4rem; }
+    .post .tags span { padding: .1rem .45rem; border-radius: 5px; background: #1e2740; color: #8b93a7; font-size: .68rem; }
+  </style>
+</head>
+<body>
+  <section class="wrap"><article class="post"><div class="th" style="background:linear-gradient(150deg,#7c5cff,#2dd4bf)"></div>
+  <div><h3>Why every effect ships as one file</h3><div class="meta">10 Sept · 6 min read</div>
+  <div class="tags"><span>architecture</span><span>tooling</span></div></div></article>
+  <article class="post"><div class="th" style="background:linear-gradient(150deg,#d1478c,#c2891a)"></div>
+  <div><h3>Validating a palette instead of eyeballing it</h3><div class="meta">2 Sept · 9 min read</div>
+  <div class="tags"><span>color</span><span>a11y</span></div></div></article></section>
+</body>
+</html>

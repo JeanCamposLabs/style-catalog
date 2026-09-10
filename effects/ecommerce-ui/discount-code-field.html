@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promo Code Field</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "discount-code-field",
+    "title": "Promo Code Field",
+    "summary": "A code input with an applied-state chip.",
+    "description": "A code input with an applied-state chip.",
+    "theme": "ecommerce-ui",
+    "categories": ["ecommerce", "commerce"],
+    "tags": ["ecommerce", "shop", "promo", "discount", "code", "checkout"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+    "customization": [
+      { "name": "--ok", "description": "Applied colour", "default": "#34d399" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Cart pages. Show the applied discount as a removable chip with the amount saved — a silently applied code creates support tickets."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .fx .row { display: flex; gap: .5rem; }
+    .fx input { flex: 1; padding: .65rem .8rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; }
+    .fx button { padding: .65rem 1rem; border: 0; border-radius: 10px; background: #22304a; color: #e7ebf3; font: inherit; cursor: pointer; }
+    .fx .chip { display: inline-flex; align-items: center; gap: .4rem; margin-top: .7rem; padding: .3rem .5rem .3rem .8rem;
+      border-radius: 99px; background: rgba(52,211,153,.14); color: #34d399; font-size: .82rem; font-weight: 700; }
+    .fx .chip button { width: 20px; height: 20px; border-radius: 50%; background: rgba(52,211,153,.25); color: #34d399; padding: 0; line-height: 1; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="row"><input type="text" aria-label="Promo code" placeholder="Promo code" /><button type="button">Apply</button></div>
+  <span class="chip">SPRING20 · −$23.60<button type="button" aria-label="Remove promo code">×</button></span></div>
+</body>
+</html>

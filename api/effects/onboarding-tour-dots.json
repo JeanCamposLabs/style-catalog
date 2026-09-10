@@ -1,0 +1,44 @@
+{
+  "id": "onboarding-tour-dots",
+  "title": "Tour Progress",
+  "summary": "Dot indicators for a multi-screen tour.",
+  "description": "Dot indicators for a multi-screen tour.",
+  "theme": "timelines-steppers",
+  "themeTitle": "Timelines & Steppers",
+  "categories": [
+    "timeline",
+    "stepper"
+  ],
+  "tags": [
+    "timeline",
+    "sequence",
+    "tour",
+    "dots",
+    "onboarding",
+    "carousel"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Onboarding carousels. The stretched active dot gives position without numbers; still expose 'Step 2 of 4' to assistive tech via an accessible label.",
+  "path": "effects/timelines-steppers/onboarding-tour-dots.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tour Progress</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"onboarding-tour-dots\",\n    \"title\": \"Tour Progress\",\n    \"summary\": \"Dot indicators for a multi-screen tour.\",\n    \"description\": \"Dot indicators for a multi-screen tour.\",\n    \"theme\": \"timelines-steppers\",\n    \"categories\": [\"timeline\", \"stepper\"],\n    \"tags\": [\"timeline\", \"sequence\", \"tour\", \"dots\", \"onboarding\", \"carousel\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Onboarding carousels. The stretched active dot gives position without numbers; still expose 'Step 2 of 4' to assistive tech via an accessible label.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; justify-items: center; gap: 1rem; width: 260px; padding: 1.4rem; border-radius: 16px;\n      background: #151b2a; border: 1px solid #263149; text-align: center; }\n    .fx b { font-size: .95rem; }\n    .fx p { margin: .3rem 0 0; color: #8b93a7; font-size: .84rem; line-height: 1.5; }\n    .dots { display: flex; gap: 6px; }\n    .dots i { width: 7px; height: 7px; border-radius: 99px; background: #2b3450; transition: width .25s; }\n    .dots i.on { width: 20px; background: #7c5cff; }\n    .fx button { padding: .5rem 1.2rem; border: 0; border-radius: 9px; background: #7c5cff; color: #fff; font: inherit; font-size: .84rem; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div><b>Tune any effect</b><p>Every specimen exposes its CSS variables in the Tune tab.</p></div>\n  <div class=\"dots\" role=\"img\" aria-label=\"Step 2 of 4\"><i></i><i class=\"on\"></i><i></i><i></i></div>\n  <button type=\"button\">Next</button></div>\n</body>\n</html>\n"
+}

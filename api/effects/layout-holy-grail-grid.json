@@ -1,0 +1,44 @@
+{
+  "id": "layout-holy-grail-grid",
+  "title": "Holy Grail",
+  "summary": "Header, three columns, and footer in one grid.",
+  "description": "Header, three columns, and footer in one grid.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "structure"
+  ],
+  "tags": [
+    "layout",
+    "grid",
+    "holy-grail",
+    "grid-template-areas",
+    "classic",
+    "layout"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+  "customization": [
+    {
+      "name": "--side",
+      "description": "Side column width",
+      "default": "60px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "The classic page skeleton. grid-template-areas makes the structure readable in the CSS itself, and reordering for mobile is a one-line change.",
+  "path": "effects/layout-archetypes/layout-holy-grail-grid.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Holy Grail</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"layout-holy-grail-grid\",\n    \"title\": \"Holy Grail\",\n    \"summary\": \"Header, three columns, and footer in one grid.\",\n    \"description\": \"Header, three columns, and footer in one grid.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"structure\"],\n    \"tags\": [\"layout\", \"grid\", \"holy-grail\", \"grid-template-areas\", \"classic\", \"layout\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.\",\n    \"customization\": [\n      { \"name\": \"--side\", \"description\": \"Side column width\", \"default\": \"60px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"The classic page skeleton. grid-template-areas makes the structure readable in the CSS itself, and reordering for mobile is a one-line change.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; width: 300px; height: 190px; gap: 6px; font-size: .74rem; color: #8b93a7;\n      grid-template: \"hd hd hd\" 32px \"l main r\" 1fr \"ft ft ft\" 28px / 60px 1fr 60px; }\n    .fx > * { background: #151b2a; border: 1px solid #263149; border-radius: 8px; display: grid; place-items: center; }\n    .hd { grid-area: hd; } .l { grid-area: l; } .main { grid-area: main; background: #10141f; } .r { grid-area: r; } .ft { grid-area: ft; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"hd\">header</div><div class=\"l\">nav</div><div class=\"main\">content</div>\n  <div class=\"r\">aside</div><div class=\"ft\">footer</div></div>\n</body>\n</html>\n"
+}

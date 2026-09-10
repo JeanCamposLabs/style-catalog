@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Input Mode Badge</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "input-mode-indicator",
+    "title": "Input Mode Badge",
+    "summary": "A badge showing the active editing mode.",
+    "description": "A badge showing the active editing mode.",
+    "theme": "keyboard-input",
+    "categories": ["keyboard", "input"],
+    "tags": ["keyboard", "shortcut", "mode", "vim", "editor", "indicator"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+    "customization": [
+      { "name": "--c", "description": "Mode colour", "default": "#10a894" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Modal editors. Put the mode badge where the eye already rests (near the caret or in a fixed status line) and announce mode changes through a live region."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: .6rem; align-items: center; }
+    .b { padding: .25rem .7rem; border-radius: 6px; font-family: ui-monospace, monospace; font-size: .76rem; font-weight: 800; }
+    .normal { background: rgba(16,168,148,.16); color: #7fd8cb; }
+    .insert { background: rgba(124,92,255,.2); color: #b9a5ff; }
+    .visual { background: rgba(194,137,26,.18); color: #ecc57c; }
+    .note { color: #64748b; font-size: .76rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="b normal">NORMAL</span><span class="b insert">INSERT</span><span class="b visual">VISUAL</span></div>
+  <p class="note">Modes announced via aria-live so changes are not silent.</p>
+</body>
+</html>

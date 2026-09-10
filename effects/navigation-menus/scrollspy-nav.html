@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scrollspy Table of Contents</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scrollspy-nav",
+    "title": "Scrollspy Table of Contents",
+    "summary": "A side list that highlights the section currently in view.",
+    "description": "IntersectionObserver drives the highlight, so it stays correct during fast scrolling and anchor jumps.",
+    "theme": "navigation-menus",
+    "categories": ["navigation", "scroll"],
+    "tags": ["scrollspy", "toc", "intersection-observer", "anchor", "docs"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+    "customization": [
+      { "name": "--c", "description": "Active colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Progress line along the list", "Nested sub-sections"],
+    "ai_usage": "Documentation and long articles. Use IntersectionObserver with a rootMargin like '-40% 0px -55%' so a heading activates when it reaches the upper third, not when it barely enters."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { display: grid; grid-template-columns: 150px 1fr; gap: 1.5rem; padding: 1.5rem; }
+    .toc { position: sticky; top: 1.5rem; align-self: start; list-style: none; margin: 0; padding: 0; font-size: .88rem; }
+    .toc a { display: block; padding: .35rem .6rem; border-left: 2px solid #1f2740; color: #8b93a7; text-decoration: none; }
+    .toc a.is-active { border-color: var(--c, #7c5cff); color: #e7ebf3; }
+    section { min-height: 60vh; padding-bottom: 1rem; }
+    h2 { margin: 0 0 .5rem; }
+    p { color: #8b93a7; max-width: 40ch; }
+  </style>
+</head>
+<body>
+  <ul class="toc" id="toc">
+    <li><a href="#s1" class="is-active">Install</a></li><li><a href="#s2">Configure</a></li><li><a href="#s3">Deploy</a></li>
+  </ul>
+  <main>
+    <section id="s1"><h2>Install</h2><p>Scroll to watch the table of contents follow along.</p></section>
+    <section id="s2"><h2>Configure</h2><p>Each heading activates as it reaches the upper third of the viewport.</p></section>
+    <section id="s3"><h2>Deploy</h2><p>The observer handles fast scrolling without drift.</p></section>
+  </main>
+  <script>
+    (function () {
+      var links = [].slice.call(document.querySelectorAll(".toc a"));
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          links.forEach(function (l) { l.classList.toggle("is-active", l.getAttribute("href") === "#" + en.target.id); });
+        });
+      }, { rootMargin: "-30% 0px -60%" });
+      document.querySelectorAll("section").forEach(function (s) { obs.observe(s); });
+    })();
+  </script>
+</body>
+</html>

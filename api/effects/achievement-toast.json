@@ -1,0 +1,44 @@
+{
+  "id": "achievement-toast",
+  "title": "Achievement Unlocked",
+  "summary": "A trophy popup that slides in and shines.",
+  "description": "A trophy popup that slides in and shines.",
+  "theme": "game-ui",
+  "themeTitle": "Game UI",
+  "categories": [
+    "game",
+    "ui"
+  ],
+  "tags": [
+    "game",
+    "hud",
+    "achievement",
+    "trophy",
+    "toast",
+    "reward"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Trophy colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Retheme through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Reward moments. Announce it with an aria-live region as well — an achievement that only appears visually is missed by screen-reader players.",
+  "path": "effects/game-ui/achievement-toast.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Achievement Unlocked</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"achievement-toast\",\n    \"title\": \"Achievement Unlocked\",\n    \"summary\": \"A trophy popup that slides in and shines.\",\n    \"description\": \"A trophy popup that slides in and shines.\",\n    \"theme\": \"game-ui\",\n    \"categories\": [\"game\", \"ui\"],\n    \"tags\": [\"game\", \"hud\", \"achievement\", \"trophy\", \"toast\", \"reward\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Trophy colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Retheme through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Reward moments. Announce it with an aria-live region as well — an achievement that only appears visually is missed by screen-reader players.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; display: flex; align-items: center; gap: .9rem; width: 280px; padding: .8rem 1rem;\n      border-radius: 12px; overflow: hidden; background: linear-gradient(120deg, #1c1917, #292524);\n      border: 1px solid #a16207; animation: slidein .6s cubic-bezier(.34,1.56,.64,1) both; }\n    .fx::after { content: \"\"; position: absolute; top: 0; bottom: 0; width: 50%; left: -60%;\n      background: linear-gradient(90deg, transparent, rgba(251,191,36,.35), transparent); transform: skewX(-20deg);\n      animation: shine 2.6s ease-in-out 1s infinite; }\n    .fx .tr { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; font-size: 1.4rem;\n      background: linear-gradient(160deg, #fde68a, #b45309); }\n    .fx b { display: block; font-size: .9rem; color: #fde68a; }\n    .fx span { font-size: .78rem; color: #a8a29e; }\n    @keyframes slidein { from { opacity: 0; transform: translateX(40px); } }\n    @keyframes shine { 0% { left: -60%; } 45%, 100% { left: 140%; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"status\"><span class=\"tr\" aria-hidden=\"true\">🏆</span><div><b>Achievement unlocked</b><span>Catalogued 1,000 specimens</span></div></div>\n</body>\n</html>\n"
+}

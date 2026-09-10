@@ -1,0 +1,44 @@
+{
+  "id": "glass-modal-overlay",
+  "title": "Glass Modal",
+  "summary": "A dialog on a blurred, dimmed page backdrop.",
+  "description": "The scrim blurs and darkens the page while the dialog itself stays lighter, keeping a clear depth order.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass",
+    "overlay"
+  ],
+  "tags": [
+    "modal",
+    "dialog",
+    "scrim",
+    "backdrop-filter",
+    "overlay"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A real dialog needs focus trapping, aria-modal, and an Escape handler — the visual treatment here is only half the pattern.",
+  "customization": [
+    {
+      "name": "--scrim",
+      "description": "Scrim blur",
+      "default": "8px"
+    }
+  ],
+  "variations": [
+    "Slide-up sheet on mobile",
+    "Tinted scrim",
+    "No blur for low-power devices"
+  ],
+  "related": [],
+  "ai_usage": "Overlays and dialogs. Blur the scrim, not the dialog; blurring both makes the dialog look out of focus. Pair with the native <dialog> element for free focus management.",
+  "path": "effects/glass-neumorphism/glass-modal-overlay.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glass Modal</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-modal-overlay\",\n    \"title\": \"Glass Modal\",\n    \"summary\": \"A dialog on a blurred, dimmed page backdrop.\",\n    \"description\": \"The scrim blurs and darkens the page while the dialog itself stays lighter, keeping a clear depth order.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\", \"overlay\"],\n    \"tags\": [\"modal\", \"dialog\", \"scrim\", \"backdrop-filter\", \"overlay\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A real dialog needs focus trapping, aria-modal, and an Escape handler — the visual treatment here is only half the pattern.\",\n    \"customization\": [\n      { \"name\": \"--scrim\", \"description\": \"Scrim blur\", \"default\": \"8px\" }\n    ],\n    \"variations\": [\"Slide-up sheet on mobile\", \"Tinted scrim\", \"No blur for low-power devices\"],\n    \"ai_usage\": \"Overlays and dialogs. Blur the scrim, not the dialog; blurring both makes the dialog look out of focus. Pair with the native <dialog> element for free focus management.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: conic-gradient(from 40deg at 60% 40%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }\n    :root { --scrim: 8px; }\n    .scrim { position: fixed; inset: 0; background: rgba(4,7,14,.5); backdrop-filter: blur(var(--scrim));\n      -webkit-backdrop-filter: blur(var(--scrim)); display: grid; place-items: center; }\n    .dlg { width: min(80vw, 300px); padding: 1.6rem; border-radius: 20px; color: #fff;\n      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.32);\n      backdrop-filter: blur(20px) saturate(1.6); -webkit-backdrop-filter: blur(20px) saturate(1.6);\n      box-shadow: 0 30px 70px rgba(0,0,0,.45); }\n    .dlg h3 { margin: 0 0 .5rem; }\n    .dlg p { margin: 0 0 1.1rem; opacity: .85; font-size: .9rem; }\n    .dlg button { padding: .6rem 1.2rem; border: 0; border-radius: 10px; background: #fff; color: #0b0d12; font-weight: 700; }\n  </style>\n</head>\n<body>\n  <div class=\"scrim\"><div class=\"dlg\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"dt\">\n    <h3 id=\"dt\">Delete workspace?</h3><p>This removes all projects and cannot be undone.</p>\n    <button type=\"button\">Cancel</button>\n  </div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Review Breakdown</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "review-stars-breakdown",
+    "title": "Review Breakdown",
+    "summary": "Star distribution bars beside an average score.",
+    "description": "Star distribution bars beside an average score.",
+    "theme": "ecommerce-ui",
+    "categories": ["ecommerce", "commerce"],
+    "tags": ["ecommerce", "shop", "reviews", "stars", "distribution", "ratings"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+    "customization": [
+      { "name": "--c", "description": "Star colour", "default": "#fbbf24" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Product reviews. The distribution matters more than the average — a 4.2 from a bimodal split means something different from a 4.2 clustered at 4."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 1.2rem; width: 300px; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }
+    .fx .avg { text-align: center; }
+    .fx .avg .n { font-size: 2.2rem; font-weight: 900; line-height: 1; }
+    .fx .avg .s { color: #fbbf24; font-size: .8rem; }
+    .fx .avg .c { color: #8b93a7; font-size: .72rem; }
+    .fx .rows { flex: 1; display: grid; gap: 5px; align-content: center; }
+    .fx .row { display: flex; align-items: center; gap: .5rem; font-size: .72rem; color: #8b93a7; }
+    .fx .t { flex: 1; height: 6px; border-radius: 99px; background: #22304a; overflow: hidden; }
+    .fx .t i { display: block; height: 100%; background: #fbbf24; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="avg"><div class="n">4.2</div><div class="s">★★★★☆</div><div class="c">214 reviews</div></div>
+  <div class="rows"><div class="row">5<span class="t"><i style="width:62%"></i></span></div>
+  <div class="row">4<span class="t"><i style="width:22%"></i></span></div>
+  <div class="row">3<span class="t"><i style="width:8%"></i></span></div>
+  <div class="row">2<span class="t"><i style="width:4%"></i></span></div>
+  <div class="row">1<span class="t"><i style="width:4%"></i></span></div></div></div>
+</body>
+</html>

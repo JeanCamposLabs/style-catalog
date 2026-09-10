@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layered Waves</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "divider-layered-waves",
+    "title": "Layered Waves",
+    "summary": "Three offset waves for a deeper transition.",
+    "description": "Three offset waves for a deeper transition. Purely decorative and self-contained, so it drops between any two sections.",
+    "theme": "dividers-shapes",
+    "categories": ["divider", "shape"],
+    "tags": ["divider", "separator", "waves", "layered", "depth", "svg"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+    "customization": [
+      { "name": "--h", "description": "Divider height", "default": "70px" }
+    ],
+    "variations": ["Flip vertically for the opposite section", "Recolour to match the next section"],
+    "ai_usage": "Hero-to-content transitions. Offset each wave horizontally and vary the opacity so the layers read as depth rather than a thick single edge."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }
+    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }
+    .stage { width: min(92vw, 340px); }
+    .divider { position: relative; height: 70px; }
+    .divider svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .divider .w1 { fill: rgba(124,92,255,.35); }
+    .divider .w2 { fill: rgba(124,92,255,.6); }
+    .divider .w3 { fill: #7c5cff; }
+  </style>
+</head>
+<body>
+  <div class="stage"><div class="top">Section one</div>
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 340 70" preserveAspectRatio="none"><path class="w1" d="M0 40 C70 10 120 60 190 34 C250 12 300 52 340 32 L340 70 L0 70 Z"/></svg>
+    <svg viewBox="0 0 340 70" preserveAspectRatio="none"><path class="w2" d="M0 48 C60 22 130 66 200 44 C260 26 310 58 340 44 L340 70 L0 70 Z"/></svg>
+    <svg viewBox="0 0 340 70" preserveAspectRatio="none"><path class="w3" d="M0 56 C80 36 140 70 210 54 C270 40 310 64 340 54 L340 70 L0 70 Z"/></svg>
+  </div><div class="bottom">Section two</div></div>
+</body>
+</html>

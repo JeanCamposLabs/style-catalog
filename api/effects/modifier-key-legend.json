@@ -1,0 +1,44 @@
+{
+  "id": "modifier-key-legend",
+  "title": "Modifier Legend",
+  "summary": "Platform-correct modifier symbols.",
+  "description": "Platform-correct modifier symbols.",
+  "theme": "keyboard-input",
+  "themeTitle": "Keyboard & Input",
+  "categories": [
+    "keyboard",
+    "input"
+  ],
+  "tags": [
+    "keyboard",
+    "shortcut",
+    "modifiers",
+    "symbols",
+    "legend",
+    "reference"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Key background",
+      "default": "#1c2437"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Help panels and shortcut sheets. A definition list pairs symbol and meaning semantically, which matters because the glyphs alone are announced inconsistently.",
+  "path": "effects/keyboard-input/modifier-key-legend.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Modifier Legend</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"modifier-key-legend\",\n    \"title\": \"Modifier Legend\",\n    \"summary\": \"Platform-correct modifier symbols.\",\n    \"description\": \"Platform-correct modifier symbols.\",\n    \"theme\": \"keyboard-input\",\n    \"categories\": [\"keyboard\", \"input\"],\n    \"tags\": [\"keyboard\", \"shortcut\", \"modifiers\", \"symbols\", \"legend\", \"reference\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Key background\", \"default\": \"#1c2437\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Help panels and shortcut sheets. A definition list pairs symbol and meaning semantically, which matters because the glyphs alone are announced inconsistently.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 260px; padding: 1rem; border-radius: 12px; background: #151b2a; border: 1px solid #263149; }\n    .fx dl { margin: 0; display: grid; grid-template-columns: 44px 1fr; gap: .4rem .8rem; align-items: center; }\n    .fx dt { text-align: center; padding: .2rem; border-radius: 6px; background: #1c2437; border: 1px solid #2b3450;\n      font-family: ui-monospace, monospace; font-size: .82rem; color: #e7ebf3; }\n    .fx dd { margin: 0; color: #8b93a7; font-size: .82rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><dl><dt>⌘</dt><dd>Command (Ctrl on Windows)</dd><dt>⌥</dt><dd>Option (Alt)</dd>\n  <dt>⇧</dt><dd>Shift</dd><dt>⌃</dt><dd>Control</dd><dt>⏎</dt><dd>Return</dd></dl></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radial Menu</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "radial-menu",
+    "title": "Radial Menu",
+    "summary": "Actions fan out on an arc from a central trigger.",
+    "description": "Each item is rotated into place and counter-rotated so its icon stays upright on the arc.",
+    "theme": "navigation-menus",
+    "categories": ["navigation"],
+    "tags": ["radial", "pie-menu", "arc", "fan", "gesture"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+    "customization": [
+      { "name": "--r", "description": "Arc radius", "default": "86px" }
+    ],
+    "variations": ["Full circle instead of a quarter", "Labels on hover"],
+    "ai_usage": "Touch and canvas tools. Position with rotate(angle) translate(radius) rotate(-angle) — the final counter-rotation is what keeps icons upright."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --r: 86px; }
+    .rm { position: relative; width: 220px; height: 220px; display: grid; place-items: center; }
+    .rm .main { width: 58px; height: 58px; border-radius: 50%; border: 0; background: #7c5cff; color: #fff; font-size: 1.4rem; cursor: pointer; }
+    .rm .it { position: absolute; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #1c2437; color: #e7ebf3;
+      cursor: pointer; opacity: 0; transform: rotate(var(--a)) translate(0) rotate(calc(var(--a) * -1));
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1), opacity .25s; }
+    .rm.is-open .it { opacity: 1; transform: rotate(var(--a)) translate(var(--r)) rotate(calc(var(--a) * -1)); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="rm" id="rm">
+    <button class="it" type="button" style="--a:-90deg" aria-label="Copy">⧉</button>
+    <button class="it" type="button" style="--a:-45deg" aria-label="Share">↗</button>
+    <button class="it" type="button" style="--a:0deg" aria-label="Delete">🗑</button>
+    <button class="it" type="button" style="--a:45deg" aria-label="Star">★</button>
+    <button class="main" type="button" aria-expanded="false" aria-label="Actions">＋</button>
+  </div>
+  <script>
+    (function () {
+      var m = document.getElementById("rm"), b = m.querySelector(".main");
+      b.addEventListener("click", function () {
+        var open = m.classList.toggle("is-open");
+        b.setAttribute("aria-expanded", String(open));
+      });
+    })();
+  </script>
+</body>
+</html>

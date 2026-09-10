@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Star Clip</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "clip-star",
+    "title": "Star Clip",
+    "summary": "A five-pointed star.",
+    "description": "A five-pointed star. Uses clip-path or mask-image, so the element's box and layout are unaffected by the shape.",
+    "theme": "masks-clipping",
+    "categories": ["mask", "shape"],
+    "tags": ["clip-path", "mask", "star", "rating", "polygon"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Clipping hides content visually but not from assistive tech — anything fully clipped away should also be removed or aria-hidden.",
+    "customization": [
+      { "name": "--size", "description": "Star size", "default": "210px" }
+    ],
+    "variations": ["Animate the shape on hover", "Combine with a gradient fill"],
+    "ai_usage": "Ratings, awards, and badges. Use the same polygon for a rating widget by clipping a filled bar underneath it."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .art { width: 210px; height: 210px; background: conic-gradient(from 210deg at 40% 35%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }
+    .label { margin-top: .9rem; text-align: center; color: #8b93a7; font-size: .82rem; }
+    .shape { clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+  </style>
+</head>
+<body>
+  <div><div class="art shape"></div><p class="label">Star Clip</p></div>
+</body>
+</html>

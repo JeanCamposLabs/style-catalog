@@ -1,0 +1,49 @@
+{
+  "id": "bullet-chart-target",
+  "title": "Bullet Chart",
+  "summary": "Actual versus target against qualitative bands.",
+  "description": "Actual versus target against qualitative bands.",
+  "theme": "charts-dataviz",
+  "themeTitle": "Charts & Data Viz",
+  "categories": [
+    "chart",
+    "dataviz"
+  ],
+  "tags": [
+    "chart",
+    "data",
+    "bullet",
+    "target",
+    "kpi",
+    "comparison"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+  "customization": [
+    {
+      "name": "--v",
+      "description": "Actual percent",
+      "default": "68"
+    },
+    {
+      "name": "--t",
+      "description": "Target percent",
+      "default": "80"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "A compact replacement for a gauge: actual as a bar, target as a tick, context as background bands. It fits in a table row, which a dial never does, and it keeps a single linear scale.",
+  "path": "effects/charts-dataviz/bullet-chart-target.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Bullet Chart</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bullet-chart-target\",\n    \"title\": \"Bullet Chart\",\n    \"summary\": \"Actual versus target against qualitative bands.\",\n    \"description\": \"Actual versus target against qualitative bands.\",\n    \"theme\": \"charts-dataviz\",\n    \"categories\": [\"chart\", \"dataviz\"],\n    \"tags\": [\"chart\", \"data\", \"bullet\", \"target\", \"kpi\", \"comparison\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.\",\n    \"customization\": [\n      { \"name\": \"--v\", \"description\": \"Actual percent\", \"default\": \"68\" },\n      { \"name\": \"--t\", \"description\": \"Target percent\", \"default\": \"80\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"A compact replacement for a gauge: actual as a bar, target as a tick, context as background bands. It fits in a table row, which a dial never does, and it keeps a single linear scale.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;\n      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; width: 300px; }\n    .fx h4 { margin: 0 0 .1rem; font-size: .95rem; color: var(--ink); }\n    .fx .sub { margin: 0 0 .9rem; font-size: .76rem; color: var(--ink-2); }\n    .fx .track { position: relative; height: 26px; border-radius: 5px;\n      background: linear-gradient(90deg, #1b2231 0 55%, #232c42 55% 80%, #2b3550 80%); }\n    .fx .bar { position: absolute; top: 8px; left: 0; height: 10px; width: calc(var(--v) * 1%); border-radius: 2px 4px 4px 2px; background: var(--c1); }\n    .fx .target { position: absolute; top: 3px; bottom: 3px; left: calc(var(--t) * 1%); width: 3px; border-radius: 2px; background: var(--ink); }\n    .fx .scale { display: flex; justify-content: space-between; margin-top: .35rem; font-size: .68rem; color: var(--ink-2); }\n  </style>\n</head>\n<body>\n  <figure class=\"fx\" style=\"margin:0\"><h4>Quarterly goal</h4><p class=\"sub\">Specimens published</p>\n  <div class=\"track\" style=\"--v:68;--t:80\" role=\"img\" aria-label=\"68 percent of target, target at 80 percent\">\n    <span class=\"bar\"></span><span class=\"target\"></span></div>\n  <div class=\"scale\"><span>0</span><span>500</span><span>1,000</span><span>1,500</span></div></figure>\n</body>\n</html>\n"
+}

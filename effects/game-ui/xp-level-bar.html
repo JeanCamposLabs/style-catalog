@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XP Bar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "xp-level-bar",
+    "title": "XP Bar",
+    "summary": "An experience bar with level badges at both ends.",
+    "description": "An experience bar with level badges at both ends.",
+    "theme": "game-ui",
+    "categories": ["game", "ui"],
+    "tags": ["game", "hud", "xp", "level", "progression", "rpg"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+    "customization": [
+      { "name": "--xp", "description": "Progress percent", "default": "64" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Progression systems. Show the next level as a dimmed target so players see what they are working toward, not just how far they have come."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: center; gap: .6rem; width: 290px; }
+    .fx .lv { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 900; font-size: .8rem;
+      background: linear-gradient(160deg, #fbbf24, #b45309); color: #2a1a02; flex: none; }
+    .fx .track { flex: 1; height: 10px; border-radius: 99px; background: #1f2937; overflow: hidden; }
+    .fx .track i { display: block; height: 100%; width: calc(var(--xp) * 1%);
+      background: linear-gradient(90deg, #38bdf8, #a855f7); box-shadow: 0 0 12px rgba(168,85,247,.6); }
+    .fx .next { opacity: .45; }
+  </style>
+</head>
+<body>
+  <div class="fx" style="--xp:64"><span class="lv">7</span>
+  <div class="track" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" aria-label="Experience to level 8"><i></i></div>
+  <span class="lv next">8</span></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sidebar and Content</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "layout-sidebar-content",
+    "title": "Sidebar and Content",
+    "summary": "A fixed sidebar beside a fluid main column.",
+    "description": "A fixed sidebar beside a fluid main column.",
+    "theme": "layout-archetypes",
+    "categories": ["layout", "structure"],
+    "tags": ["layout", "grid", "sidebar", "two-column", "grid", "app-shell"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+    "customization": [
+      { "name": "--w", "description": "Sidebar width", "default": "90px" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "App shells. grid-template-columns with a fixed and a fr track is the whole layout; collapse to one column at a breakpoint rather than shrinking the sidebar to unusable width."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template-columns: 90px 1fr; gap: 10px; width: 300px; height: 180px; }
+    .fx aside { background: #151b2a; border: 1px solid #263149; border-radius: 12px; padding: .7rem; color: #8b93a7; font-size: .76rem; }
+    .fx main { background: #10141f; border: 1px solid #263149; border-radius: 12px; padding: .9rem; color: #cbd5e1; font-size: .82rem; }
+    @media (max-width: 420px) { .fx { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="fx"><aside>Nav<br>Filters<br>Tags</aside><main>Main content column grows to fill the space.</main></div>
+</body>
+</html>

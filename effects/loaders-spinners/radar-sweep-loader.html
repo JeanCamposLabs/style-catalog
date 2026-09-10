@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radar Sweep</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "radar-sweep-loader",
+    "title": "Radar Sweep",
+    "summary": "A conic wedge sweeps a ringed radar screen and lights up a blip.",
+    "description": "A conic gradient wedge rotates over concentric rings and cross-hairs; a single blip fades in each time the beam passes it.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "ambient"],
+    "tags": ["radar", "sweep", "conic-gradient", "scan", "sci-fi"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Beam color", "default": "#34d399" },
+      { "name": "--dur", "description": "Sweep period", "default": "2.4s" }
+    ],
+    "variations": ["Multiple blips at different radii", "Slow the sweep for an ambient background", "Square radar for a HUD look"],
+    "ai_usage": "Scanning, searching, or 'finding nearby' states. The wedge is conic-gradient(var(--c) 0 18deg, transparent 18deg) inside a circular clip; the rings are repeating-radial-gradient so the whole thing stays one element plus a blip."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #34d399; --dur: 2.4s; }
+    .radar { position: relative; width: 130px; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+      background: repeating-radial-gradient(circle, transparent 0 20px, color-mix(in srgb, var(--c) 22%, transparent) 20px 21px), #08120e;
+      border: 1px solid color-mix(in srgb, var(--c) 40%, transparent); }
+    .radar::before { content: ""; position: absolute; inset: 0;
+      background: conic-gradient(color-mix(in srgb, var(--c) 55%, transparent) 0 22deg, transparent 22deg);
+      animation: spin var(--dur) linear infinite; }
+    .radar .blip { position: absolute; top: 32%; left: 66%; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--c); box-shadow: 0 0 12px var(--c); animation: blip var(--dur) linear infinite; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @keyframes blip { 0%, 18% { opacity: 1; } 60%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="radar" role="status" aria-label="Scanning"><span class="blip"></span></div>
+</body>
+</html>

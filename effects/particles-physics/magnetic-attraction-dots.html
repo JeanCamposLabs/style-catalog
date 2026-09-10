@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magnetic Dots</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "magnetic-attraction-dots",
+    "title": "Magnetic Dots",
+    "summary": "A grid of dots pulled toward the pointer.",
+    "description": "A grid of dots pulled toward the pointer.",
+    "theme": "particles-physics",
+    "categories": ["particles", "physics"],
+    "tags": ["particles", "motion", "magnetic", "attraction", "grid", "pointer"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+    "customization": [
+      { "name": "--r", "description": "Attraction radius", "default": "90px" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Interactive hero fields. Measure each dot's centre once and cache it — recomputing getBoundingClientRect per dot per pointermove is what makes this pattern stutter."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 280px; height: 170px; border-radius: 14px; background: #10141f; border: 1px solid #263149;
+      display: grid; grid-template-columns: repeat(10, 1fr); align-content: center; gap: 12px; padding: 1rem; }
+    .fx i { width: 6px; height: 6px; border-radius: 50%; background: #7c5cff; justify-self: center;
+      transition: transform .25s cubic-bezier(.2,.8,.3,1); }
+  </style>
+</head>
+<body>
+  <div class="fx" id="md"></div>
+  <script>
+    (function () {
+      var host = document.getElementById("md"), dots = [];
+      for (var i = 0; i < 50; i++) { var d = document.createElement("i"); host.appendChild(d); dots.push(d); }
+      var boxes = null;
+      host.addEventListener("pointerenter", function () {
+        boxes = dots.map(function (d) { var r = d.getBoundingClientRect(); return { d: d, x: r.left + 3, y: r.top + 3 }; });
+      });
+      host.addEventListener("pointermove", function (e) {
+        if (!boxes) return;
+        boxes.forEach(function (b) {
+          var dx = e.clientX - b.x, dy = e.clientY - b.y, dist = Math.hypot(dx, dy), f = Math.max(0, 1 - dist / 90);
+          b.d.style.transform = "translate(" + dx * f * .5 + "px," + dy * f * .5 + "px)";
+        });
+      });
+      host.addEventListener("pointerleave", function () {
+        dots.forEach(function (d) { d.style.transform = ""; });
+      });
+    })();
+  </script>
+</body>
+</html>

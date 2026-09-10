@@ -1,0 +1,54 @@
+{
+  "id": "atom-orbit-loader",
+  "title": "Atom Orbits",
+  "summary": "Three elliptical rings on different axes with electrons riding each one.",
+  "description": "Rotating each flattened ellipse to a different angle fakes 3D orbits; the electrons are dots animated along the same rotation as their ring.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "science"
+  ],
+  "tags": [
+    "atom",
+    "orbit",
+    "electron",
+    "ellipse",
+    "science"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Orbit color",
+      "default": "#22d3ee"
+    },
+    {
+      "name": "--n",
+      "description": "Nucleus color",
+      "default": "#f472b6"
+    },
+    {
+      "name": "--dur",
+      "description": "Orbit period",
+      "default": "1.5s"
+    }
+  ],
+  "variations": [
+    "Add a glow to the nucleus",
+    "Different speed per orbit",
+    "Real 3D with transform-style: preserve-3d"
+  ],
+  "related": [],
+  "ai_usage": "Science, research, or 'computing' contexts. Each .ring is the same ellipse rotated 60° apart; the electron is a child positioned at the ellipse edge so it inherits the ring's rotation for free.",
+  "path": "effects/loaders-spinners/atom-orbit-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Atom Orbits</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"atom-orbit-loader\",\n    \"title\": \"Atom Orbits\",\n    \"summary\": \"Three elliptical rings on different axes with electrons riding each one.\",\n    \"description\": \"Rotating each flattened ellipse to a different angle fakes 3D orbits; the electrons are dots animated along the same rotation as their ring.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"science\"],\n    \"tags\": [\"atom\", \"orbit\", \"electron\", \"ellipse\", \"science\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Orbit color\", \"default\": \"#22d3ee\" },\n      { \"name\": \"--n\", \"description\": \"Nucleus color\", \"default\": \"#f472b6\" },\n      { \"name\": \"--dur\", \"description\": \"Orbit period\", \"default\": \"1.5s\" }\n    ],\n    \"variations\": [\"Add a glow to the nucleus\", \"Different speed per orbit\", \"Real 3D with transform-style: preserve-3d\"],\n    \"ai_usage\": \"Science, research, or 'computing' contexts. Each .ring is the same ellipse rotated 60° apart; the electron is a child positioned at the ellipse edge so it inherits the ring's rotation for free.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #22d3ee; --n: #f472b6; --dur: 1.5s; }\n    .atom { position: relative; width: 96px; height: 96px; display: grid; place-items: center; }\n    .atom .ring { position: absolute; inset: 0; border: 2px solid color-mix(in srgb, var(--c) 55%, transparent);\n      border-radius: 50%; transform: rotate(var(--a)) scaleY(.38); animation: spin var(--dur) linear infinite; }\n    .atom .ring i { position: absolute; top: -5px; left: 50%; width: 10px; height: 10px; margin-left: -5px;\n      border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }\n    .atom .core { width: 16px; height: 16px; border-radius: 50%; background: var(--n); box-shadow: 0 0 16px var(--n); }\n    @keyframes spin { to { transform: rotate(calc(var(--a) + 360deg)) scaleY(.38); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"atom\" role=\"status\" aria-label=\"Loading\">\n    <div class=\"ring\" style=\"--a:0deg\"><i></i></div>\n    <div class=\"ring\" style=\"--a:60deg\"><i></i></div>\n    <div class=\"ring\" style=\"--a:120deg\"><i></i></div>\n    <div class=\"core\"></div>\n  </div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "layout-centered-stack",
+  "title": "Centred Stack",
+  "summary": "A readable measure centred with consistent rhythm.",
+  "description": "A readable measure centred with consistent rhythm.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "structure"
+  ],
+  "tags": [
+    "layout",
+    "grid",
+    "stack",
+    "measure",
+    "rhythm",
+    "prose"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+  "customization": [
+    {
+      "name": "--gap",
+      "description": "Stack gap",
+      "default": "1rem"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Article and form layouts. One gap value on a grid container replaces every margin rule underneath it, and max-width in ch keeps the measure readable at any font size.",
+  "path": "effects/layout-archetypes/layout-centered-stack.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Centred Stack</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"layout-centered-stack\",\n    \"title\": \"Centred Stack\",\n    \"summary\": \"A readable measure centred with consistent rhythm.\",\n    \"description\": \"A readable measure centred with consistent rhythm.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"structure\"],\n    \"tags\": [\"layout\", \"grid\", \"stack\", \"measure\", \"rhythm\", \"prose\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.\",\n    \"customization\": [\n      { \"name\": \"--gap\", \"description\": \"Stack gap\", \"default\": \"1rem\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Article and form layouts. One gap value on a grid container replaces every margin rule underneath it, and max-width in ch keeps the measure readable at any font size.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; margin-inline: auto; display: grid; gap: 1rem; padding: 1rem; border-radius: 14px;\n      background: #10141f; border: 1px solid #263149; }\n    .fx h3 { margin: 0; font-size: 1.05rem; }\n    .fx p { margin: 0; color: #8b93a7; font-size: .84rem; line-height: 1.65; max-width: 60ch; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><h3>The stack</h3><p>Spacing comes from one gap value, not from margins on individual children.</p>\n  <p>That makes vertical rhythm a single number to tune.</p></div>\n</body>\n</html>\n"
+}

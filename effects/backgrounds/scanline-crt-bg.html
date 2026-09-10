@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CRT Scanlines</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scanline-crt-bg",
+    "title": "CRT Scanlines",
+    "summary": "Fine scanlines plus a rolling refresh bar over a curved vignette.",
+    "description": "Three cues stack: hard scanlines, a slow rolling band, and a corner vignette — together they read as a CRT rather than a striped overlay.",
+    "theme": "backgrounds",
+    "categories": ["background", "retro"],
+    "tags": ["crt", "scanlines", "vignette", "retro", "monitor"],
+    "tech": ["css"],
+    "era": "1990s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Scanline color", "default": "rgba(0,0,0,.45)" },
+      { "name": "--dur", "description": "Roll period", "default": "6s" }
+    ],
+    "variations": ["Green phosphor tint", "Stronger curvature with a radial mask", "Occasional horizontal tear"],
+    "ai_usage": "Retro-terminal and arcade skins. Put this layer above your content with pointer-events:none; the rolling bar should be very subtle (opacity < .06) or it becomes a distraction rather than an artefact."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(0,0,0,.45); --dur: 6s; }
+    .bg { background: radial-gradient(ellipse at center, #0f2318 0%, #050a07 75%); }
+    .bg::before { content: ""; position: absolute; inset: 0;
+      background: repeating-linear-gradient(180deg, transparent 0 2px, var(--c) 2px 4px); }
+    .bg::after { content: ""; position: absolute; left: 0; right: 0; height: 120px;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,.05), transparent);
+      animation: roll var(--dur) linear infinite; }
+    @keyframes roll { from { top: -120px; } to { top: 100%; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

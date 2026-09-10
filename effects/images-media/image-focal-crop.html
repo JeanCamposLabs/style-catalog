@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Focal Point Crop</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "image-focal-crop",
+    "title": "Focal Point Crop",
+    "summary": "The same image cropped around different focal points.",
+    "description": "The same image cropped around different focal points.",
+    "theme": "images-media",
+    "categories": ["image", "media"],
+    "tags": ["image", "media", "focal-point", "crop", "object-position", "responsive"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+    "customization": [
+      { "name": "--pos", "description": "Object position", "default": "50% 50%" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Responsive imagery. Store a focal point per image and feed it to object-position so faces survive aggressive crops at narrow widths."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 10px; }
+    .c { width: 88px; height: 88px; border-radius: 10px; overflow: hidden; position: relative; }
+    .c .img { position: absolute; width: 200px; height: 140px;
+      background: conic-gradient(from 200deg at 30% 30%, #7c5cff, #2dd4bf, #c2891a, #d1478c); }
+    .tl .img { top: 0; left: 0; } .ctr .img { top: -26px; left: -56px; } .br .img { bottom: 0; right: 0; }
+    .lbl { text-align: center; font-size: .68rem; color: #64748b; margin-top: .35rem; }
+  </style>
+</head>
+<body>
+  <div><div class="fx"><div><div class="c tl"><div class="img"></div></div><div class="lbl">top left</div></div>
+  <div><div class="c ctr"><div class="img"></div></div><div class="lbl">centre</div></div>
+  <div><div class="c br"><div class="img"></div></div><div class="lbl">bottom right</div></div></div></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "id": "cursor-tooltip-follow-value",
+  "title": "Value Follower",
+  "summary": "A readout that follows the pointer across a chart.",
+  "description": "A readout that follows the pointer across a chart.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "pointer"
+  ],
+  "tags": [
+    "cursor",
+    "pointer",
+    "crosshair",
+    "chart",
+    "tooltip",
+    "follow"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Crosshair colour",
+      "default": "rgba(139,147,167,.5)"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Charts. Snap the crosshair to the nearest data point rather than the raw pointer x, so the readout always names a real value.",
+  "path": "effects/cursors-pointers/cursor-tooltip-follow-value.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Value Follower</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-tooltip-follow-value\",\n    \"title\": \"Value Follower\",\n    \"summary\": \"A readout that follows the pointer across a chart.\",\n    \"description\": \"A readout that follows the pointer across a chart.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\"],\n    \"tags\": [\"cursor\", \"pointer\", \"crosshair\", \"chart\", \"tooltip\", \"follow\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Crosshair colour\", \"default\": \"rgba(139,147,167,.5)\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Charts. Snap the crosshair to the nearest data point rather than the raw pointer x, so the readout always names a real value.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 290px; height: 150px; border-radius: 14px; background: #151b2a; border: 1px solid #263149;\n      overflow: hidden; cursor: crosshair; }\n    .fx .line { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(139,147,167,.5); opacity: 0; }\n    .fx:hover .line { opacity: 1; }\n    .fx .tip { position: absolute; top: 10px; padding: .2rem .5rem; border-radius: 6px; background: #7c5cff; color: #fff;\n      font-size: .72rem; font-weight: 700; opacity: 0; pointer-events: none; translate: -50% 0; }\n    .fx:hover .tip { opacity: 1; }\n    .fx svg { position: absolute; inset: 0; width: 100%; height: 100%; }\n    .fx path { fill: none; stroke: #2dd4bf; stroke-width: 2; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"cv\"><svg viewBox=\"0 0 290 150\" aria-hidden=\"true\">\n    <path d=\"M10 120 L70 96 L130 104 L190 58 L250 40 L280 26\"/></svg>\n    <span class=\"line\"></span><span class=\"tip\">—</span></div>\n  <script>\n    (function () {\n      var el = document.getElementById(\"cv\"), ln = el.querySelector(\".line\"), tip = el.querySelector(\".tip\");\n      el.addEventListener(\"pointermove\", function (e) {\n        var r = el.getBoundingClientRect(), x = e.clientX - r.left;\n        ln.style.left = x + \"px\"; tip.style.left = x + \"px\";\n        tip.textContent = Math.round(x / r.width * 100) + \"%\";\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

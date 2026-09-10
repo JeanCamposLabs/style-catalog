@@ -1,0 +1,44 @@
+{
+  "id": "layout-sticky-footer",
+  "title": "Sticky Footer",
+  "summary": "A footer pinned to the bottom on short pages.",
+  "description": "A footer pinned to the bottom on short pages.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "structure"
+  ],
+  "tags": [
+    "layout",
+    "grid",
+    "sticky-footer",
+    "grid-rows",
+    "layout",
+    "classic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+  "customization": [
+    {
+      "name": "--h",
+      "description": "Container height",
+      "default": "190px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Short pages. grid-template-rows: auto 1fr auto solves the sticky footer in one declaration — no min-height calc, no negative margins, no flexbox hacks.",
+  "path": "effects/layout-archetypes/layout-sticky-footer.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sticky Footer</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"layout-sticky-footer\",\n    \"title\": \"Sticky Footer\",\n    \"summary\": \"A footer pinned to the bottom on short pages.\",\n    \"description\": \"A footer pinned to the bottom on short pages.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"structure\"],\n    \"tags\": [\"layout\", \"grid\", \"sticky-footer\", \"grid-rows\", \"layout\", \"classic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.\",\n    \"customization\": [\n      { \"name\": \"--h\", \"description\": \"Container height\", \"default\": \"190px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Short pages. grid-template-rows: auto 1fr auto solves the sticky footer in one declaration — no min-height calc, no negative margins, no flexbox hacks.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-rows: auto 1fr auto; width: 290px; height: 190px; border-radius: 14px;\n      overflow: hidden; border: 1px solid #263149; font-size: .8rem; }\n    .fx header, .fx footer { background: #1c2437; color: #8b93a7; padding: .6rem .9rem; }\n    .fx main { background: #10141f; color: #cbd5e1; padding: .9rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><header>Header</header><main>Short content.</main><footer>Footer stays at the bottom</footer></div>\n</body>\n</html>\n"
+}

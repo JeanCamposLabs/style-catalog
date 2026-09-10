@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Speech Bubble</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shape-speech-tail",
+    "title": "Speech Bubble",
+    "summary": "A rounded bubble with a pointed tail.",
+    "description": "A rounded bubble with a pointed tail. Purely decorative and self-contained, so it drops between any two sections.",
+    "theme": "dividers-shapes",
+    "categories": ["divider", "shape"],
+    "tags": ["divider", "separator", "speech", "bubble", "chat", "tail"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+    "customization": [
+      { "name": "--bg", "description": "Bubble colour", "default": "#1c2437" }
+    ],
+    "variations": ["Flip vertically for the opposite section", "Recolour to match the next section"],
+    "ai_usage": "Chat and testimonial UIs. background:inherit on the tail keeps it matched to the bubble even when the bubble is a gradient."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }
+    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }
+    .stage { width: min(92vw, 340px); }
+    .stage { display: grid; place-items: center; padding: 1.4rem 0; }
+    .bub { position: relative; max-width: 230px; padding: .9rem 1.1rem; border-radius: 16px; background: #1c2437; color: #e7ebf3; font-size: .92rem; }
+    .bub::after { content: ""; position: absolute; left: 22px; top: 100%; width: 20px; height: 14px; background: inherit;
+      clip-path: polygon(0 0, 100% 0, 15% 100%); }
+  </style>
+</head>
+<body>
+  <div class="stage"><div class="bub">The tail inherits the bubble's background.</div></div>
+</body>
+</html>

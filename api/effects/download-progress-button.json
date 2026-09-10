@@ -1,0 +1,50 @@
+{
+  "id": "download-progress-button",
+  "title": "Download Progress Button",
+  "summary": "The button's own fill doubles as the download progress bar.",
+  "description": "A width-animated layer behind the label turns the control into its own progress indicator, so no extra UI appears mid-action.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "progress"
+  ],
+  "tags": [
+    "download",
+    "progress",
+    "inline",
+    "state",
+    "feedback"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Progress color",
+      "default": "#34d399"
+    },
+    {
+      "name": "--dur",
+      "description": "Simulated download",
+      "default": "2.4s"
+    }
+  ],
+  "variations": [
+    "Indeterminate stripes when the size is unknown",
+    "Cancel button while in flight",
+    "Success checkmark at the end"
+  ],
+  "related": [],
+  "ai_usage": "Downloads, exports, and uploads. Drive the fill from real progress events, not a timer; keep the label readable over the fill by using a mid-tone fill or a text-shadow.",
+  "path": "effects/buttons/download-progress-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Download Progress Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"download-progress-button\",\n    \"title\": \"Download Progress Button\",\n    \"summary\": \"The button's own fill doubles as the download progress bar.\",\n    \"description\": \"A width-animated layer behind the label turns the control into its own progress indicator, so no extra UI appears mid-action.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"progress\"],\n    \"tags\": [\"download\", \"progress\", \"inline\", \"state\", \"feedback\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Progress color\", \"default\": \"#34d399\" },\n      { \"name\": \"--dur\", \"description\": \"Simulated download\", \"default\": \"2.4s\" }\n    ],\n    \"variations\": [\"Indeterminate stripes when the size is unknown\", \"Cancel button while in flight\", \"Success checkmark at the end\"],\n    \"ai_usage\": \"Downloads, exports, and uploads. Drive the fill from real progress events, not a timer; keep the label readable over the fill by using a mid-tone fill or a text-shadow.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #34d399; --dur: 2.4s; }\n    .dl { position: relative; overflow: hidden; width: 210px; padding: .95rem 0; border-radius: 12px; background: #151b2a;\n      border: 1px solid #263149; color: #e7ebf3; font-weight: 700; }\n    .dl span { position: relative; z-index: 2; }\n    .dl::before { content: \"\"; position: absolute; inset: 0; width: 0; background: color-mix(in srgb, var(--c) 35%, transparent); }\n    .dl.is-run::before { animation: fill var(--dur) linear forwards; }\n    .dl.is-done { border-color: var(--c); color: var(--c); }\n    @keyframes fill { to { width: 100%; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"dl\" id=\"dlb\" type=\"button\"><span id=\"dll\">Download 42 MB</span></button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"dlb\"), l = document.getElementById(\"dll\");\n      function go() {\n        b.classList.remove(\"is-done\"); b.classList.add(\"is-run\"); l.textContent = \"Downloading…\";\n        setTimeout(function () { b.classList.remove(\"is-run\"); b.classList.add(\"is-done\"); l.textContent = \"Saved ✓\"; }, 2400);\n        setTimeout(function () { b.classList.remove(\"is-done\"); l.textContent = \"Download 42 MB\"; }, 4200);\n      }\n      b.addEventListener(\"click\", go); setInterval(go, 5200);\n    })();\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "gold-foil-text",
+  "title": "Gold Foil Text",
+  "summary": "A warm foil headline with a highlight that sweeps across on a loop.",
+  "description": "A wide gradient clipped to the text plus an animated background-position gives the moving specular band that sells foil stamping.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "material"
+  ],
+  "tags": [
+    "gold",
+    "foil",
+    "shine",
+    "gradient",
+    "luxury"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Sweep period",
+      "default": "3.2s"
+    }
+  ],
+  "variations": [
+    "Silver or rose-gold stops",
+    "Sweep only on hover",
+    "Add a subtle emboss shadow underneath"
+  ],
+  "related": [],
+  "ai_usage": "Luxury, awards, and premium tiers. Keep background-size at 200%+ so the sweep has travel; if the shine looks like a flat wash, your light stop is too wide — narrow it to 8–12%.",
+  "path": "effects/text-effects/gold-foil-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Gold Foil Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"gold-foil-text\",\n    \"title\": \"Gold Foil Text\",\n    \"summary\": \"A warm foil headline with a highlight that sweeps across on a loop.\",\n    \"description\": \"A wide gradient clipped to the text plus an animated background-position gives the moving specular band that sells foil stamping.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"material\"],\n    \"tags\": [\"gold\", \"foil\", \"shine\", \"gradient\", \"luxury\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Sweep period\", \"default\": \"3.2s\" }\n    ],\n    \"variations\": [\"Silver or rose-gold stops\", \"Sweep only on hover\", \"Add a subtle emboss shadow underneath\"],\n    \"ai_usage\": \"Luxury, awards, and premium tiers. Keep background-size at 200%+ so the sweep has travel; if the shine looks like a flat wash, your light stop is too wide — narrow it to 8–12%.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: 3.2s; }\n    .foil { font-size: clamp(2.2rem, 9vw, 4.4rem); font-weight: 900;\n      background: linear-gradient(100deg, #8a6216 0 32%, #ffe9a8 42%, #fff8dd 48%, #ffe08a 54%, #8a6216 66%);\n      background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;\n      animation: sweep var(--dur) linear infinite; }\n    @keyframes sweep { to { background-position: -300% 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"foil\">PREMIUM</h1>\n</body>\n</html>\n"
+}

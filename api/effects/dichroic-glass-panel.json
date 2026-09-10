@@ -1,0 +1,44 @@
+{
+  "id": "dichroic-glass-panel",
+  "title": "Dichroic Glass",
+  "summary": "Glass that shows different colours by angle.",
+  "description": "Glass that shows different colours by angle.",
+  "theme": "holographic-metallic",
+  "themeTitle": "Holographic & Metallic",
+  "categories": [
+    "material",
+    "holographic"
+  ],
+  "tags": [
+    "holographic",
+    "metallic",
+    "dichroic",
+    "glass",
+    "angle",
+    "colour-shift"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Primary tint",
+      "default": "rgba(255,45,149,.5)"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Architectural and product visuals. Two crossing gradients at different angles create the angle-dependent colour shift dichroic film actually has.",
+  "path": "effects/holographic-metallic/dichroic-glass-panel.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Dichroic Glass</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"dichroic-glass-panel\",\n    \"title\": \"Dichroic Glass\",\n    \"summary\": \"Glass that shows different colours by angle.\",\n    \"description\": \"Glass that shows different colours by angle.\",\n    \"theme\": \"holographic-metallic\",\n    \"categories\": [\"material\", \"holographic\"],\n    \"tags\": [\"holographic\", \"metallic\", \"dichroic\", \"glass\", \"angle\", \"colour-shift\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Iridescent surfaces have unpredictable local contrast — never place body text directly on one.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Primary tint\", \"default\": \"rgba(255,45,149,.5)\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Architectural and product visuals. Two crossing gradients at different angles create the angle-dependent colour shift dichroic film actually has.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 220px; height: 150px; border-radius: 14px; overflow: hidden;\n      background: linear-gradient(120deg, rgba(255,45,149,.5), rgba(34,211,238,.5) 50%, rgba(251,191,36,.5));\n      backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.35); }\n    .fx::after { content: \"\"; position: absolute; inset: 0; mix-blend-mode: overlay; opacity: .6;\n      background: linear-gradient(300deg, rgba(168,85,247,.7), transparent 60%); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

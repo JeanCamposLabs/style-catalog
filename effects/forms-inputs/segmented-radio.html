@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Segmented Radio Group</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "segmented-radio",
+    "title": "Segmented Radio Group",
+    "summary": "Radio buttons styled as a joined segmented control.",
+    "description": "Real radios underneath mean arrow-key navigation and form submission work with no JS at all.",
+    "theme": "forms-inputs",
+    "categories": ["form", "radio"],
+    "tags": ["radio", "segmented", "group", "control", "native"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Selected colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Icons above labels", "Full-width on mobile"],
+    "ai_usage": "Mutually exclusive options with three or fewer choices. Style :checked + label; never rebuild radio semantics with buttons unless you also implement roving tabindex."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .sg { display: inline-flex; background: #151b2a; border: 1px solid #2b3450; border-radius: 12px; padding: 4px; }
+    .sg input { position: absolute; opacity: 0; }
+    .sg label { padding: .55rem 1.1rem; border-radius: 9px; color: #8b93a7; font-size: .9rem; cursor: pointer; transition: background .2s, color .2s; }
+    .sg input:checked + label { background: var(--c, #7c5cff); color: #fff; }
+    .sg input:focus-visible + label { outline: 2px solid #fff; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <div class="sg">
+    <input type="radio" name="v" id="v1" checked /><label for="v1">Grid</label>
+    <input type="radio" name="v" id="v2" /><label for="v2">List</label>
+    <input type="radio" name="v" id="v3" /><label for="v3">Table</label>
+  </div>
+</body>
+</html>

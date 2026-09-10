@@ -1,0 +1,44 @@
+{
+  "id": "card-comparison-split",
+  "title": "Split Comparison Card",
+  "summary": "One card divided into two contrasting halves.",
+  "description": "One card divided into two contrasting halves. Self-contained card markup you can drop into a grid.",
+  "theme": "cards-surfaces",
+  "themeTitle": "Cards & Surfaces",
+  "categories": [
+    "card",
+    "surface"
+  ],
+  "tags": [
+    "card",
+    "surface",
+    "comparison",
+    "split",
+    "before-after",
+    "data"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+  "customization": [
+    {
+      "name": "--b",
+      "description": "Right half tint",
+      "default": "#1c1430"
+    }
+  ],
+  "variations": [
+    "Adapt for a light theme",
+    "Add a media area at the top"
+  ],
+  "related": [],
+  "ai_usage": "Before/after and plan comparisons. Keep both halves on the same baseline grid so the numbers line up for scanning.",
+  "path": "effects/cards-surfaces/card-comparison-split.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Split Comparison Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"card-comparison-split\",\n    \"title\": \"Split Comparison Card\",\n    \"summary\": \"One card divided into two contrasting halves.\",\n    \"description\": \"One card divided into two contrasting halves. Self-contained card markup you can drop into a grid.\",\n    \"theme\": \"cards-surfaces\",\n    \"categories\": [\"card\", \"surface\"],\n    \"tags\": [\"card\", \"surface\", \"comparison\", \"split\", \"before-after\", \"data\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A clickable card needs one real link or button inside it; never attach a click handler to a bare div.\",\n    \"customization\": [\n      { \"name\": \"--b\", \"description\": \"Right half tint\", \"default\": \"#1c1430\" }\n    ],\n    \"variations\": [\"Adapt for a light theme\", \"Add a media area at the top\"],\n    \"ai_usage\": \"Before/after and plan comparisons. Keep both halves on the same baseline grid so the numbers line up for scanning.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }\n    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }\n    .card { display: grid; grid-template-columns: 1fr 1fr; padding: 0; overflow: hidden; border: 1px solid #263149; }\n    .card > div { padding: 1.2rem; }\n    .card .a { background: #151b2a; }\n    .card .b { background: #1c1430; border-left: 1px solid #2b3450; }\n    .card h3 { font-size: .95rem; }\n    .card .v { font-size: 1.6rem; font-weight: 900; margin-top: .3rem; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <article class=\"card\"><div class=\"a\"><h3>Before</h3><div class=\"v\">2.4s</div></div><div class=\"b\"><h3>After</h3><div class=\"v\">0.6s</div></div></article>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "banner-inline-warning",
+  "title": "Inline Banner",
+  "summary": "A page-level warning with an action.",
+  "description": "A page-level warning with an action.",
+  "theme": "notifications-toasts",
+  "themeTitle": "Notifications & Toasts",
+  "categories": [
+    "notification",
+    "feedback"
+  ],
+  "tags": [
+    "notification",
+    "feedback",
+    "banner",
+    "warning",
+    "inline",
+    "action"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+  "customization": [
+    {
+      "name": "--warn",
+      "description": "Warning colour",
+      "default": "#c2891a"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Account and configuration warnings. Persistent banners must be dismissible or resolvable — a permanent warning teaches users to ignore the pattern.",
+  "path": "effects/notifications-toasts/banner-inline-warning.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Inline Banner</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"banner-inline-warning\",\n    \"title\": \"Inline Banner\",\n    \"summary\": \"A page-level warning with an action.\",\n    \"description\": \"A page-level warning with an action.\",\n    \"theme\": \"notifications-toasts\",\n    \"categories\": [\"notification\", \"feedback\"],\n    \"tags\": [\"notification\", \"feedback\", \"banner\", \"warning\", \"inline\", \"action\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.\",\n    \"customization\": [\n      { \"name\": \"--warn\", \"description\": \"Warning colour\", \"default\": \"#c2891a\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Account and configuration warnings. Persistent banners must be dismissible or resolvable — a permanent warning teaches users to ignore the pattern.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: .8rem; width: 300px; padding: .9rem 1rem; border-radius: 12px;\n      background: #211a08; border: 1px solid #c2891a; color: #f3e3c0; }\n    .fx .ic { flex: none; color: #c2891a; font-size: 1.1rem; }\n    .fx b { display: block; font-size: .88rem; margin-bottom: .15rem; color: #fff; }\n    .fx p { margin: 0 0 .6rem; font-size: .82rem; line-height: 1.5; }\n    .fx button { padding: .35rem .8rem; border: 0; border-radius: 8px; background: #c2891a; color: #211a08;\n      font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"alert\"><span class=\"ic\" aria-hidden=\"true\">▲</span>\n  <div><b>Payment method expiring</b><p>Your card ends 09/26. Update it to avoid interruption.</p>\n  <button type=\"button\">Update card</button></div></div>\n</body>\n</html>\n"
+}

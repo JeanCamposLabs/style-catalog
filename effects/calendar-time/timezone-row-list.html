@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Timezone Rows</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "timezone-row-list",
+    "title": "Timezone Rows",
+    "summary": "Cities with local times and a day/night marker.",
+    "description": "Cities with local times and a day/night marker.",
+    "theme": "calendar-time",
+    "categories": ["calendar", "time"],
+    "tags": ["calendar", "date", "timezone", "clock", "cities", "remote"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+    "customization": [
+      { "name": "--bg", "description": "Row background", "default": "#151b2a" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Distributed-team tools. Show the UTC offset as well as the local time; the offset is what people need to schedule across DST changes."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .r { display: flex; align-items: center; justify-content: space-between; padding: .6rem .8rem; border-radius: 10px;
+      background: #151b2a; border: 1px solid #263149; margin-bottom: 6px; font-size: .88rem; }
+    .r .c { display: flex; align-items: center; gap: .5rem; }
+    .r .t { font-variant-numeric: tabular-nums; font-weight: 700; }
+    .r small { display: block; color: #8b93a7; font-size: .72rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="r"><span class="c">🌞 <span>Lisbon<small>UTC+1</small></span></span><span class="t">14:32</span></div>
+  <div class="r"><span class="c">🌞 <span>New York<small>UTC-4</small></span></span><span class="t">09:32</span></div>
+  <div class="r"><span class="c">🌙 <span>Tokyo<small>UTC+9</small></span></span><span class="t">22:32</span></div></div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Board</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "template-job-board",
+    "title": "Job Board",
+    "summary": "Open roles with filters and locations.",
+    "description": "Open roles with filters and locations.",
+    "theme": "website-templates",
+    "categories": ["template", "page"],
+    "tags": ["template", "page", "jobs", "board", "filters", "careers"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+    "customization": [
+      { "name": "--c", "description": "Filter colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Careers pages. State location and salary band on the card; roles that hide compensation get significantly fewer qualified applicants."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { padding: 1.4rem; max-width: 34rem; margin: 0 auto; }
+    h1 { margin: 0 0 .3rem; font-size: 1.5rem; }
+    .sub { margin: 0 0 1.1rem; color: #8b93a7; font-size: .88rem; }
+    .filters { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .filters button { padding: .3rem .8rem; border-radius: 99px; border: 1px solid #2b3450; background: transparent;
+      color: #8b93a7; font: inherit; font-size: .78rem; cursor: pointer; }
+    .filters button[aria-pressed="true"] { background: #1e1740; border-color: #7c5cff; color: #b9a5ff; }
+    .job { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .9rem 1rem;
+      border-radius: 12px; background: #151b2a; border: 1px solid #263149; margin-bottom: 8px; }
+    .job b { display: block; font-size: .92rem; }
+    .job span { color: #64748b; font-size: .78rem; }
+    .job a { color: #b9a5ff; text-decoration: none; font-size: .82rem; font-weight: 700; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <h1>Open roles</h1><p class="sub">Four positions across engineering and design.</p>
+  <div class="filters" role="group" aria-label="Filter roles"><button type="button" aria-pressed="true">All</button>
+  <button type="button" aria-pressed="false">Engineering</button><button type="button" aria-pressed="false">Design</button>
+  <button type="button" aria-pressed="false">Remote</button></div>
+  <main><article class="job"><div><b>Design engineer</b><span>Remote · €70–95k</span></div><a href="#">Apply →</a></article>
+  <article class="job"><div><b>Accessibility specialist</b><span>Lisbon · €60–80k</span></div><a href="#">Apply →</a></article>
+  <article class="job"><div><b>Developer advocate</b><span>Remote · €65–85k</span></div><a href="#">Apply →</a></article></main>
+</body>
+</html>

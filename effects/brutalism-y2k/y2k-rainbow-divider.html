@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rainbow Rule</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "y2k-rainbow-divider",
+    "title": "Rainbow Rule",
+    "summary": "A chunky rainbow divider bar.",
+    "description": "A chunky rainbow divider bar.",
+    "theme": "brutalism-y2k",
+    "categories": ["brutalism", "y2k"],
+    "tags": ["brutalism", "raw", "rainbow", "divider", "rule", "retro"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+    "customization": [
+      { "name": "--h", "description": "Rule height", "default": "14px" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Personal-site nostalgia. Hard colour stops (0 %) give the flat bands of a 90s GIF rule rather than a modern smooth gradient."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; height: 14px; border: 2px solid #0b0d12;
+      background: linear-gradient(90deg, #ef4444 0 16.6%, #f59e0b 0 33.3%, #eab308 0 50%, #22c55e 0 66.6%, #3b82f6 0 83.3%, #a855f7 0); }
+  </style>
+</head>
+<body>
+  <div class="fx"></div>
+</body>
+</html>

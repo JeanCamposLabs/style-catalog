@@ -1,0 +1,43 @@
+{
+  "id": "bg-spotlight-follow-pointer",
+  "title": "Pointer Spotlight",
+  "summary": "A light pool that follows the pointer.",
+  "description": "A light pool that follows the pointer.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "surface"
+  ],
+  "tags": [
+    "background",
+    "spotlight",
+    "pointer",
+    "radial",
+    "interactive"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Spotlight radius",
+      "default": "420px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Dark landing pages. Write pointer coordinates into custom properties and let a single radial gradient do the work — no per-frame DOM writes beyond two variables.",
+  "path": "effects/backgrounds/bg-spotlight-follow-pointer.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Pointer Spotlight</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bg-spotlight-follow-pointer\",\n    \"title\": \"Pointer Spotlight\",\n    \"summary\": \"A light pool that follows the pointer.\",\n    \"description\": \"A light pool that follows the pointer.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"surface\"],\n    \"tags\": [\"background\", \"spotlight\", \"pointer\", \"radial\", \"interactive\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Spotlight radius\", \"default\": \"420px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Dark landing pages. Write pointer coordinates into custom properties and let a single radial gradient do the work — no per-frame DOM writes beyond two variables.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    .bg { background: #0b0d12; }\n    .bg::after { content: \"\"; position: absolute; inset: 0;\n      background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgba(124,92,255,.28), transparent 65%); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\" id=\"sp\"></div>\n  <script>\n    (function () {\n      var el = document.getElementById(\"sp\");\n      addEventListener(\"pointermove\", function (e) {\n        el.style.setProperty(\"--x\", e.clientX + \"px\");\n        el.style.setProperty(\"--y\", e.clientY + \"px\");\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

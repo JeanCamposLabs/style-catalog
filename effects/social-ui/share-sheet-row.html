@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Share Sheet</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "share-sheet-row",
+    "title": "Share Sheet",
+    "summary": "A row of share destinations with a copy-link option.",
+    "description": "A row of share destinations with a copy-link option.",
+    "theme": "social-ui",
+    "categories": ["social", "feed"],
+    "tags": ["social", "community", "share", "sheet", "copy-link", "distribution"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+    "customization": [
+      { "name": "--c", "description": "Action colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Share menus. Prefer the Web Share API on mobile and fall back to this sheet; always include copy-link, which is the most-used option."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; padding: 1rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }
+    .fx h4 { margin: 0 0 .9rem; font-size: .95rem; }
+    .fx .row { display: flex; gap: .8rem; }
+    .fx .d { display: grid; justify-items: center; gap: .35rem; font-size: .7rem; color: #8b93a7; }
+    .fx .ic { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; font-size: 1.2rem; }
+    .fx .link { display: flex; gap: .5rem; margin-top: 1rem; }
+    .fx input { flex: 1; padding: .5rem .7rem; border-radius: 9px; border: 1px solid #2b3450; background: #10141f;
+      color: #8b93a7; font: inherit; font-size: .78rem; }
+    .fx button { padding: .5rem .9rem; border: 0; border-radius: 9px; background: #7c5cff; color: #fff; font: inherit; font-size: .8rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="fx"><h4>Share this post</h4><div class="row">
+    <div class="d"><span class="ic" style="background:#1c2437">✉</span>Email</div>
+    <div class="d"><span class="ic" style="background:#1c2437">💬</span>Message</div>
+    <div class="d"><span class="ic" style="background:#1c2437">🔖</span>Save</div></div>
+  <div class="link"><input type="text" value="catalog.dev/p/8f2a" readonly aria-label="Share link" /><button type="button">Copy</button></div></div>
+</body>
+</html>

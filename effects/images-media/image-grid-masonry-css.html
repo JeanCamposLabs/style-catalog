@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Masonry Grid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "image-grid-masonry-css",
+    "title": "Masonry Grid",
+    "summary": "A ragged-height image grid with CSS columns.",
+    "description": "A ragged-height image grid with CSS columns.",
+    "theme": "images-media",
+    "categories": ["image", "media"],
+    "tags": ["image", "media", "masonry", "columns", "grid", "gallery"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+    "customization": [
+      { "name": "--cols", "description": "Column count", "default": "3" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Photo walls. CSS columns fill top-to-bottom then left-to-right, so reading order differs from visual order — use grid with explicit spans when order matters."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; column-count: 3; column-gap: 8px; }
+    .fx div { break-inside: avoid; margin-bottom: 8px; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div style="height:70px;background:#7c5cff"></div><div style="height:110px;background:#10a894"></div>
+  <div style="height:90px;background:#c2891a"></div><div style="height:120px;background:#d1478c"></div>
+  <div style="height:80px;background:#2f7cc9"></div><div style="height:60px;background:#a855f7"></div></div>
+</body>
+</html>

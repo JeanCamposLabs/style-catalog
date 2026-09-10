@@ -18,7 +18,13 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = join(fileURLToPath(import.meta.url), "..", "..");
 const OUT = join(ROOT, "assets", "posters");
-const W = 640, H = 400, SETTLE_MS = 1300, CONCURRENCY = 4;
+const W = 640, H = 400, SETTLE_MS = 1300;
+// Concurrency is tunable because the catalogue is now large enough that a full
+// regeneration is a multi-minute job: POSTER_CONCURRENCY=8 npm run posters.
+const CONCURRENCY = Number(process.env.POSTER_CONCURRENCY) || 4;
+// `--missing` renders only the specimens that have no poster yet — the usual
+// case after adding effects, and it keeps untouched posters out of the diff.
+const ONLY_MISSING = process.argv.includes("--missing");
 
 const MIME = {
   ".html": "text/html", ".js": "text/javascript", ".css": "text/css",
@@ -43,14 +49,25 @@ function staticServer(root) {
 }
 
 const catalog = JSON.parse(readFileSync(join(ROOT, "catalog.json"), "utf8"));
-const effects = catalog.effects;
 mkdirSync(OUT, { recursive: true });
+const effects = ONLY_MISSING
+  ? catalog.effects.filter((e) => !existsSync(join(OUT, `${e.id}.jpg`)))
+  : catalog.effects;
+if (!effects.length) {
+  console.log("✓ Every effect already has a poster — nothing to render.");
+  process.exit(0);
+}
 
 const srv = await staticServer(ROOT);
 const port = srv.address().port;
 let browser;
 try {
-  browser = await chromium.launch({ args: ["--no-sandbox"] });
+  // CHROMIUM_PATH lets a sandbox with a pre-installed browser skip the download
+  // (and sidestep a Playwright/browser-build mismatch): CHROMIUM_PATH=/path/to/chrome.
+  browser = await chromium.launch({
+    args: ["--no-sandbox"],
+    ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
+  });
 } catch (err) {
   srv.close();
   console.error(

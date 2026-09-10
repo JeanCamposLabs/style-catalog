@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Broken Image Fallback</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "image-broken-fallback",
+    "title": "Broken Image Fallback",
+    "summary": "A graceful placeholder when an image fails.",
+    "description": "A graceful placeholder when an image fails.",
+    "theme": "images-media",
+    "categories": ["image", "media"],
+    "tags": ["image", "media", "fallback", "broken", "placeholder", "error"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+    "customization": [
+      { "name": "--bg", "description": "Placeholder background", "default": "#10141f" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Any user-supplied imagery. Handle the error event and swap in a labelled placeholder; the browser's default broken-image icon leaks file names and looks like a bug."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 12px; align-items: flex-start; }
+    .ph { width: 120px; aspect-ratio: 4 / 3; border-radius: 12px; border: 1px dashed #2b3450; background: #10141f;
+      display: grid; place-items: center; gap: .3rem; color: #64748b; font-size: .72rem; text-align: center; padding: .5rem; }
+    .ph .ic { font-size: 1.3rem; opacity: .6; }
+    .note { max-width: 150px; color: #8b93a7; font-size: .78rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="ph"><span class="ic" aria-hidden="true">🖼</span>Image unavailable</div>
+  <p class="note">Listen for the img error event and replace the element rather than letting the browser render its default.</p></div>
+</body>
+</html>

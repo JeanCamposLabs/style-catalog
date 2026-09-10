@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Server Error Page</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "template-error-500-page",
+    "title": "Server Error Page",
+    "summary": "A 500 page with recovery options.",
+    "description": "A 500 page with recovery options.",
+    "theme": "website-templates",
+    "categories": ["template", "page"],
+    "tags": ["template", "page", "error", "500", "recovery", "page"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+    "customization": [
+      { "name": "--c", "description": "Action colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Server-error pages. Give a reference ID users can quote to support and at least one working escape route; a bare error code generates support load rather than resolving it."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { display: grid; place-items: center; min-height: 100vh; padding: 1.4rem; text-align: center; }
+    .wrap { max-width: 24rem; }
+    .code { font-size: 4rem; font-weight: 900; line-height: 1; background: linear-gradient(135deg, #d1478c, #c2891a);
+      -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1 { margin: .6rem 0 .4rem; font-size: 1.3rem; }
+    p { margin: 0 0 1.2rem; color: #8b93a7; font-size: .9rem; line-height: 1.6; }
+    .row { display: flex; gap: .5rem; justify-content: center; }
+    button, a.btn { padding: .6rem 1.2rem; border-radius: 10px; border: 1px solid #2b3450; background: transparent;
+      color: #cbd5e1; font: inherit; font-size: .86rem; cursor: pointer; text-decoration: none; }
+    .primary { background: #7c5cff; border-color: #7c5cff; color: #fff; font-weight: 700; }
+    .ref { margin-top: 1rem; font-family: ui-monospace, monospace; font-size: .72rem; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div class="wrap"><div class="code">500</div><h1>Something broke on our side</h1>
+  <p>The catalogue index failed to load. The team has been notified automatically.</p>
+  <div class="row"><button class="primary" type="button">Try again</button><a class="btn" href="#">Status page</a></div>
+  <div class="ref">Reference: 8f2a-4c19-b703</div></div>
+</body>
+</html>

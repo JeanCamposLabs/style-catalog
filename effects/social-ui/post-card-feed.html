@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feed Post</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "post-card-feed",
+    "title": "Feed Post",
+    "summary": "A post with author, body, and action row.",
+    "description": "A post with author, body, and action row.",
+    "theme": "social-ui",
+    "categories": ["social", "feed"],
+    "tags": ["social", "community", "post", "feed", "author", "actions"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+    "customization": [
+      { "name": "--c", "description": "Accent", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Social feeds. Use a real <article> per post with the author in a heading so screen-reader users can jump between posts."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; padding: 1rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }
+    .fx .hd { display: flex; align-items: center; gap: .7rem; margin-bottom: .7rem; }
+    .fx .av { width: 38px; height: 38px; border-radius: 50%; background: conic-gradient(from 30deg, #7c5cff, #2dd4bf);
+      display: grid; place-items: center; font-weight: 800; color: #0b0d12; font-size: .8rem; }
+    .fx b { font-size: .9rem; display: block; }
+    .fx .hd span { font-size: .75rem; color: #8b93a7; }
+    .fx p { margin: 0 0 .9rem; font-size: .9rem; line-height: 1.55; color: #cbd5e1; }
+    .fx .acts { display: flex; gap: 1.2rem; color: #8b93a7; font-size: .82rem; }
+    .fx .acts button { border: 0; background: none; color: inherit; font: inherit; cursor: pointer; display: flex; gap: .3rem; }
+    .fx .acts button:hover { color: #e7ebf3; }
+  </style>
+</head>
+<body>
+  <article class="fx"><div class="hd"><div class="av">JC</div><div><b>Jean Campos</b><span>@jean · 2h</span></div></div>
+  <p>Shipped 1,000 new specimens to the catalogue today. All zero-dependency, all self-contained.</p>
+  <div class="acts"><button type="button">♥ 128</button><button type="button">💬 24</button><button type="button">↻ 12</button></div></article>
+</body>
+</html>

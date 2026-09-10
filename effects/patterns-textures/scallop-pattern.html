@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scallops</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scallop-pattern",
+    "title": "Scallops",
+    "summary": "Overlapping arcs like fish scales or roof tiles.",
+    "description": "Overlapping arcs like fish scales or roof tiles. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "scallop", "scales", "arcs", "tiles"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Arc colour", "default": "#1c2333" },
+      { "name": "--s", "description": "Tile width", "default": "44px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Packaging, roofing, and decorative headers. Tile height must be half the width or the arcs will not nest."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: #1c2333; --bg: #0b0d12; --s: 44px; }
+    .bg { background-color: var(--bg);
+      background-image: radial-gradient(circle at 50% 0, transparent 0 20px, var(--c) 20px 22px, transparent 22px);
+      background-size: var(--s) calc(var(--s) / 2); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

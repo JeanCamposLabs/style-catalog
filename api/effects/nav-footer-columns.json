@@ -1,0 +1,44 @@
+{
+  "id": "nav-footer-columns",
+  "title": "Footer Navigation",
+  "summary": "A multi-column footer with grouped links.",
+  "description": "A multi-column footer with grouped links.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "footer",
+    "columns",
+    "grouped",
+    "sitemap"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--cols",
+      "description": "Column count",
+      "default": "3"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Site footers. Wrap each column in its own <nav> with an aria-label, so screen-reader users can jump straight to the group they want.",
+  "path": "effects/navigation-menus/nav-footer-columns.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Footer Navigation</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-footer-columns\",\n    \"title\": \"Footer Navigation\",\n    \"summary\": \"A multi-column footer with grouped links.\",\n    \"description\": \"A multi-column footer with grouped links.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"footer\", \"columns\", \"grouped\", \"sitemap\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--cols\", \"description\": \"Column count\", \"default\": \"3\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Site footers. Wrap each column in its own <nav> with an aria-label, so screen-reader users can jump straight to the group they want.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; width: 300px; padding: 1.2rem;\n      border-radius: 14px; background: #10141f; border: 1px solid #263149; }\n    .fx h4 { margin: 0 0 .5rem; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }\n    .fx a { display: block; padding: .18rem 0; color: #cbd5e1; text-decoration: none; font-size: .82rem; }\n    .fx a:hover { color: #b9a5ff; }\n  </style>\n</head>\n<body>\n  <footer class=\"fx\"><nav aria-label=\"Product\"><h4>Product</h4><a href=\"#\">Gallery</a><a href=\"#\">API</a><a href=\"#\">MCP</a></nav>\n  <nav aria-label=\"Resources\"><h4>Resources</h4><a href=\"#\">Docs</a><a href=\"#\">Guides</a><a href=\"#\">Changelog</a></nav>\n  <nav aria-label=\"Company\"><h4>Company</h4><a href=\"#\">About</a><a href=\"#\">Licence</a></nav></footer>\n</body>\n</html>\n"
+}

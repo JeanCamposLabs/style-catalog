@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Field Add-ons</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "input-prefix-suffix-addons",
+    "title": "Field Add-ons",
+    "summary": "A field with attached prefix and suffix.",
+    "description": "A field with attached prefix and suffix.",
+    "theme": "forms-inputs",
+    "categories": ["form", "input"],
+    "tags": ["form", "input", "prefix", "suffix", "addon", "units"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+    "customization": [
+      { "name": "--c", "description": "Focus colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "URLs, currencies, and units. Add-ons must not be the only place the unit appears — repeat it in the label or hint so it is announced with the field."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; width: 280px; border-radius: 12px; overflow: hidden; border: 1px solid #2b3450; background: #151b2a; }
+    .fx span { display: grid; place-items: center; padding: 0 .8rem; background: #1c2437; color: #8b93a7; font-size: .85rem; }
+    .fx input { flex: 1; min-width: 0; padding: .8rem .7rem; border: 0; background: transparent; color: #e7ebf3; font: inherit; }
+    .fx input:focus { outline: none; }
+    .fx:focus-within { border-color: #7c5cff; }
+  </style>
+</head>
+<body>
+  <div class="fx"><span>https://</span><label class="sr" for="dm" style="position:absolute;left:-9999px">Domain</label>
+  <input id="dm" type="text" value="catalog" /><span>.dev</span></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lightning Flash</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "lightning-flash",
+    "title": "Lightning Flash",
+    "summary": "An infrequent bright flash over a storm sky.",
+    "description": "An infrequent bright flash over a storm sky.",
+    "theme": "weather-ambient",
+    "categories": ["weather", "ambient"],
+    "tags": ["weather", "ambient", "lightning", "storm", "flash", "weather"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+    "customization": [
+      { "name": "--dur", "description": "Flash interval", "default": "7s" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Storm scenes. Keep flashes rare and brief, cap opacity around 0.5, and disable under reduced motion — rapid full-screen flashes are a genuine accessibility hazard."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 250px; height: 170px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(180deg, #111827, #1f2937); }
+    .fx::after { content: ""; position: absolute; inset: 0; background: #dbeafe; opacity: 0;
+      animation: flash 7s steps(1) infinite; }
+    .fx .bolt { position: absolute; top: 20%; left: 46%; width: 4px; height: 70px; background: #fde68a; opacity: 0;
+      clip-path: polygon(40% 0, 100% 42%, 55% 44%, 100% 100%, 0 52%, 45% 50%);
+      animation: flash 7s steps(1) infinite; }
+    @keyframes flash { 0%, 88%, 100% { opacity: 0; } 89% { opacity: .55; } 90% { opacity: 0; } 91% { opacity: .35; } 92% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="bolt"></span></div>
+</body>
+</html>

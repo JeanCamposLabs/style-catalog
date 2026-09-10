@@ -1,0 +1,44 @@
+{
+  "id": "book-page-flip",
+  "title": "Book Page Flip",
+  "summary": "A page turning around the spine.",
+  "description": "A page turning around the spine.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "transform"
+  ],
+  "tags": [
+    "3d",
+    "transform",
+    "book",
+    "page",
+    "flip",
+    "spine"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Flip period",
+      "default": "4s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Reading and portfolio UIs. transform-origin at the spine plus a slight gradient across the page sells the curl; without the gradient it looks like a flat card flip.",
+  "path": "effects/3d-transforms/book-page-flip.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Book Page Flip</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"book-page-flip\",\n    \"title\": \"Book Page Flip\",\n    \"summary\": \"A page turning around the spine.\",\n    \"description\": \"A page turning around the spine.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"transform\"],\n    \"tags\": [\"3d\", \"transform\", \"book\", \"page\", \"flip\", \"spine\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Flip period\", \"default\": \"4s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Reading and portfolio UIs. transform-origin at the spine plus a slight gradient across the page sells the curl; without the gradient it looks like a flat card flip.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .book { position: relative; width: 220px; height: 150px; perspective: 900px; display: flex; }\n    .pg { flex: 1; background: #f8f5ee; border: 1px solid #d6cfc0; }\n    .pg.right { transform-origin: left center; animation: flip 4s ease-in-out infinite; transform-style: preserve-3d;\n      background: linear-gradient(90deg, #efe9dc, #f8f5ee); }\n    @keyframes flip { 0%, 20% { transform: rotateY(0); } 60%, 100% { transform: rotateY(-165deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"book\"><div class=\"pg\"></div><div class=\"pg right\"></div></div>\n</body>\n</html>\n"
+}

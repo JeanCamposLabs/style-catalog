@@ -1,0 +1,44 @@
+{
+  "id": "color-mix-blending",
+  "title": "color-mix() Recipes",
+  "summary": "Deriving tints and states from one token.",
+  "description": "Deriving tints and states from one token.",
+  "theme": "color-systems",
+  "themeTitle": "Color Systems",
+  "categories": [
+    "color",
+    "reference"
+  ],
+  "tags": [
+    "color",
+    "tokens",
+    "color-mix",
+    "derived",
+    "states",
+    "tokens"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+  "customization": [
+    {
+      "name": "--brand",
+      "description": "Brand colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "State colours from one brand token. color-mix() derives hover, active, and disabled variants at build or runtime, so a rebrand means changing exactly one value.",
+  "path": "effects/color-systems/color-mix-blending.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>color-mix() Recipes</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"color-mix-blending\",\n    \"title\": \"color-mix() Recipes\",\n    \"summary\": \"Deriving tints and states from one token.\",\n    \"description\": \"Deriving tints and states from one token.\",\n    \"theme\": \"color-systems\",\n    \"categories\": [\"color\", \"reference\"],\n    \"tags\": [\"color\", \"tokens\", \"color-mix\", \"derived\", \"states\", \"tokens\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.\",\n    \"customization\": [\n      { \"name\": \"--brand\", \"description\": \"Brand colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"State colours from one brand token. color-mix() derives hover, active, and disabled variants at build or runtime, so a rebrand means changing exactly one value.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; --brand: #7c5cff; }\n    .fx .row { display: flex; align-items: center; gap: .6rem; padding: .45rem .6rem; border-radius: 9px; margin-bottom: 6px;\n      background: #151b2a; font-size: .78rem; color: #cbd5e1; }\n    .fx .sw { width: 34px; height: 26px; border-radius: 6px; flex: none; }\n    .fx code { margin-left: auto; font-family: ui-monospace, monospace; font-size: .68rem; color: #64748b; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"row\"><span class=\"sw\" style=\"background:var(--brand)\"></span>base<code>--brand</code></div>\n  <div class=\"row\"><span class=\"sw\" style=\"background:color-mix(in srgb, #7c5cff 85%, white)\"></span>hover<code>85% + white</code></div>\n  <div class=\"row\"><span class=\"sw\" style=\"background:color-mix(in srgb, #7c5cff 80%, black)\"></span>active<code>80% + black</code></div>\n  <div class=\"row\"><span class=\"sw\" style=\"background:color-mix(in srgb, #7c5cff 25%, transparent)\"></span>subtle<code>25% alpha</code></div></div>\n</body>\n</html>\n"
+}

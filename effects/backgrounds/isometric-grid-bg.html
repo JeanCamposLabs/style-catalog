@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Isometric Grid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "isometric-grid-bg",
+    "title": "Isometric Grid",
+    "summary": "A three-axis isometric lattice drawn with three gradient layers.",
+    "description": "Two 30°-offset line sets plus a vertical set create the isometric illusion without a single image.",
+    "theme": "backgrounds",
+    "categories": ["background", "grid"],
+    "tags": ["isometric", "grid", "30-degrees", "lines", "technical"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Line color", "default": "rgba(124,92,255,.22)" },
+      { "name": "--s", "description": "Cell size", "default": "48px" }
+    ],
+    "variations": ["Fade the grid with a radial mask", "Animate the grid position for a scrolling floor", "Thicker lines for a blueprint"],
+    "ai_usage": "Technical, 3D, and game backgrounds. Use 30deg and 150deg for the two diagonal sets — 45° angles read as a plain diamond grid rather than isometric."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(124,92,255,.22); --s: 48px; }
+    .bg { background-color: #0b0d12;
+      background-image: repeating-linear-gradient(30deg, var(--c) 0 1px, transparent 1px var(--s)),
+        repeating-linear-gradient(150deg, var(--c) 0 1px, transparent 1px var(--s)),
+        repeating-linear-gradient(90deg, var(--c) 0 1px, transparent 1px var(--s)); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

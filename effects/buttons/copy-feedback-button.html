@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Copy with Feedback</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "copy-feedback-button",
+    "title": "Copy with Feedback",
+    "summary": "A copy button that swaps to a checkmark and back after a moment.",
+    "description": "The label crossfades to a success state on a timer, giving the confirmation users need without a toast.",
+    "theme": "buttons",
+    "categories": ["button", "state"],
+    "tags": ["copy", "clipboard", "feedback", "success", "utility"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--ok", "description": "Success color", "default": "#34d399" },
+      { "name": "--hold", "description": "How long the check stays", "default": "1.6s" }
+    ],
+    "variations": ["Tooltip confirmation instead", "Shake on failure", "Icon-only compact variant"],
+    "ai_usage": "Code blocks, tokens, share links. Use navigator.clipboard.writeText and only show success in the .then — showing it optimistically lies when the API is blocked. Announce with aria-live so the swap is not silent."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --ok: #34d399; --hold: 1.6s; }
+    .copy { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.1rem; border-radius: 10px;
+      background: #151b2a; border: 1px solid #263149; color: #cbd5e1; font-weight: 600; transition: color .2s, border-color .2s; }
+    .copy.is-ok { color: var(--ok); border-color: var(--ok); }
+    .copy .ic { font-family: ui-monospace, monospace; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="copy" id="cp" type="button"><span class="ic" aria-hidden="true">⧉</span><span id="cl">Copy token</span></button>
+  <script>
+    (function () {
+      var b = document.getElementById("cp"), l = document.getElementById("cl");
+      b.addEventListener("click", function () {
+        b.classList.add("is-ok"); l.textContent = "Copied";
+        setTimeout(function () { b.classList.remove("is-ok"); l.textContent = "Copy token"; }, 1600);
+      });
+    })();
+  </script>
+</body>
+</html>

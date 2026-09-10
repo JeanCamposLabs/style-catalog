@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fullscreen Overlay Menu</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "fullscreen-overlay-menu",
+    "title": "Fullscreen Overlay Menu",
+    "summary": "A menu that covers the screen with staggered link entrances.",
+    "description": "Links slide in one after another, so the panel feels composed rather than pasted over the page.",
+    "theme": "navigation-menus",
+    "categories": ["navigation"],
+    "tags": ["overlay", "fullscreen", "stagger", "mobile", "menu"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+    "customization": [
+      { "name": "--dur", "description": "Item stagger", "default": "0.06s" }
+    ],
+    "variations": ["Circular clip-path reveal", "Background image behind the links"],
+    "ai_usage": "Mobile and portfolio navigation. Trap focus inside the overlay while open, restore it to the trigger on close, and set inert or aria-hidden on the page behind."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .trigger { padding: .7rem 1.2rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; cursor: pointer; }
+    .ov { position: fixed; inset: 0; background: #0b0d12; display: grid; place-items: center; opacity: 0; visibility: hidden;
+      transition: opacity .3s, visibility .3s; }
+    .ov.is-open { opacity: 1; visibility: visible; }
+    .ov ul { list-style: none; margin: 0; padding: 0; text-align: center; }
+    .ov a { display: block; padding: .5rem; font-size: 2rem; font-weight: 800; color: #e7ebf3; text-decoration: none;
+      opacity: 0; transform: translateY(20px); transition: opacity .4s, transform .4s; transition-delay: calc(var(--i) * .06s); }
+    .ov.is-open a { opacity: 1; transform: none; }
+    .ov .close { position: absolute; top: 1.2rem; right: 1.2rem; border: 0; background: transparent; color: #e7ebf3; font-size: 1.6rem; cursor: pointer; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="trigger" type="button" id="open" aria-expanded="false">Menu</button>
+  <div class="ov" id="ov" role="dialog" aria-modal="true" aria-label="Site menu">
+    <button class="close" type="button" id="close" aria-label="Close menu">×</button>
+    <ul>
+      <li><a href="#" style="--i:0">Work</a></li><li><a href="#" style="--i:1">Studio</a></li>
+      <li><a href="#" style="--i:2">Journal</a></li><li><a href="#" style="--i:3">Contact</a></li>
+    </ul>
+  </div>
+  <script>
+    (function () {
+      var ov = document.getElementById("ov"), o = document.getElementById("open"), c = document.getElementById("close");
+      o.addEventListener("click", function () { ov.classList.add("is-open"); o.setAttribute("aria-expanded", "true"); c.focus(); });
+      c.addEventListener("click", function () { ov.classList.remove("is-open"); o.setAttribute("aria-expanded", "false"); o.focus(); });
+      addEventListener("keydown", function (e) { if (e.key === "Escape") c.click(); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Noise Dissolve</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "text-noise-dissolve",
+    "title": "Noise Dissolve",
+    "summary": "The headline dissolves into static and rebuilds itself.",
+    "description": "An SVG turbulence filter's displacement scale animates from zero, tearing the glyphs apart into grain and back.",
+    "theme": "text-effects",
+    "categories": ["text", "filter"],
+    "tags": ["dissolve", "turbulence", "svg-filter", "noise", "disintegrate"],
+    "tech": ["css", "svg"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Dissolve cycle", "default": "4s" }
+    ],
+    "variations": ["Dissolve on scroll rather than a loop", "Stronger displacement for full disintegration", "Apply to an image instead"],
+    "ai_usage": "Dramatic reveals and 'deleting' states. feTurbulence + feDisplacementMap is expensive — apply it to one short headline only, and animate the scale attribute (via CSS on the filter primitive is not portable, so use SMIL or JS if you need finer control)."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: 4s; }
+    .dis { font-size: clamp(2rem, 8vw, 3.8rem); font-weight: 900; filter: url(#grainy);
+      animation: fade var(--dur) ease-in-out infinite; }
+    svg.defs { position: absolute; width: 0; height: 0; }
+    @keyframes fade { 0%, 100% { opacity: 1; } 45%, 55% { opacity: .35; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true">
+    <filter id="grainy">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.6" numOctaves="2" result="n">
+        <animate attributeName="baseFrequency" dur="4s" values="0.02 0.6;0.06 0.9;0.02 0.6" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+  <h1 class="dis">DISSOLVE</h1>
+</body>
+</html>

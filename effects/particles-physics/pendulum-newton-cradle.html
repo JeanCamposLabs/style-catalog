@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Newton's Cradle</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "pendulum-newton-cradle",
+    "title": "Newton's Cradle",
+    "summary": "Swinging spheres transferring momentum.",
+    "description": "Swinging spheres transferring momentum.",
+    "theme": "particles-physics",
+    "categories": ["particles", "physics"],
+    "tags": ["particles", "motion", "pendulum", "cradle", "momentum", "physics"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+    "customization": [
+      { "name": "--dur", "description": "Swing period", "default": "1.4s" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Idle and waiting states. Only the end spheres move and they must alternate — animating the middle ones destroys the illusion of momentum transfer."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 2px; height: 150px; align-items: flex-start; }
+    .b { width: 30px; }
+    .b .str { width: 1px; height: 74px; background: #3b465e; margin: 0 auto; transform-origin: top; }
+    .b .ball { width: 28px; height: 28px; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #e2e8f0, #64748b);
+      margin-top: -2px; }
+    .b.l { animation: swl 1.4s ease-in-out infinite; transform-origin: 50% 0; }
+    .b.r { animation: swr 1.4s ease-in-out infinite; transform-origin: 50% 0; }
+    @keyframes swl { 0%, 50%, 100% { transform: rotate(0); } 25% { transform: rotate(-32deg); } }
+    @keyframes swr { 0%, 50%, 100% { transform: rotate(0); } 75% { transform: rotate(32deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="b l"><div class="str"></div><div class="ball"></div></div>
+  <div class="b"><div class="str"></div><div class="ball"></div></div>
+  <div class="b"><div class="str"></div><div class="ball"></div></div>
+  <div class="b r"><div class="str"></div><div class="ball"></div></div></div>
+</body>
+</html>

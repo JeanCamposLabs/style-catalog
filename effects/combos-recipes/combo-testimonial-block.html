@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testimonial Block</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "combo-testimonial-block",
+    "title": "Testimonial Block",
+    "summary": "A quote with avatar, name, and rating.",
+    "description": "A quote with avatar, name, and rating.",
+    "theme": "combos-recipes",
+    "categories": ["combo", "section"],
+    "tags": ["combo", "block", "testimonial", "quote", "social-proof", "rating"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+    "customization": [
+      { "name": "--star", "description": "Star colour", "default": "#c2891a" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Social proof sections. Put the rating in text as well as stars, and use blockquote with cite so the attribution is programmatically linked to the quote."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { display: grid; place-items: center; padding: 2rem 1rem; }
+    .fx { width: min(92vw, 300px); padding: 1.4rem; border-radius: 18px; background: #151b2a; border: 1px solid #263149; }
+    .fx .stars { color: #c2891a; font-size: .85rem; letter-spacing: .1em; }
+    .fx blockquote { margin: .6rem 0 1rem; font-size: 1rem; line-height: 1.6; color: #e7ebf3; }
+    .fx .who { display: flex; align-items: center; gap: .7rem; }
+    .fx .av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(150deg, #7c5cff, #2dd4bf);
+      display: grid; place-items: center; font-weight: 800; color: #0b0d12; font-size: .8rem; }
+    .fx b { display: block; font-size: .88rem; }
+    .fx span { color: #8b93a7; font-size: .78rem; }
+  </style>
+</head>
+<body>
+  <figure class="fx" style="margin:0"><div class="stars" role="img" aria-label="5 out of 5">★★★★★</div>
+  <blockquote>We replaced a folder of half-finished CSS experiments with this. It paid for itself in a week.</blockquote>
+  <figcaption class="who"><span class="av">AL</span><span><b>Ada Lovelace</b><span>Design lead, Analytical</span></span></figcaption></figure>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Version History</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "version-history-list",
+    "title": "Version History",
+    "summary": "Releases with version tags and change counts.",
+    "description": "Releases with version tags and change counts.",
+    "theme": "timelines-steppers",
+    "categories": ["timeline", "stepper"],
+    "tags": ["timeline", "sequence", "versions", "releases", "changelog", "history"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+    "customization": [
+      { "name": "--c", "description": "Tag colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Release histories. Mark the latest version distinctly and keep semantic version strings in a monospace face so the digits align down the column."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; font-size: .84rem; }
+    .v { display: flex; gap: .8rem; padding: .6rem 0; border-bottom: 1px solid #1e2740; }
+    .v:last-child { border-bottom: 0; }
+    .v .tag { flex: none; padding: .12rem .5rem; border-radius: 6px; background: #1e1740; color: #b9a5ff;
+      font-family: ui-monospace, monospace; font-size: .74rem; height: fit-content; }
+    .v b { display: block; color: #e7ebf3; }
+    .v span { color: #8b93a7; font-size: .76rem; }
+    .v .latest { background: #7c5cff; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="v"><span class="tag latest">0.24.0</span><div><b>Catalogue expansion</b><span>552 new specimens · today</span></div></div>
+  <div class="v"><span class="tag">0.23.0</span><div><b>Poster pipeline</b><span>12 changes · 3 weeks ago</span></div></div>
+  <div class="v"><span class="tag">0.22.0</span><div><b>MCP server</b><span>8 changes · 2 months ago</span></div></div></div>
+</body>
+</html>

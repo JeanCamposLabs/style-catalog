@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pointer-Following Border Glow</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "border-glow-follow",
+    "title": "Pointer-Following Border Glow",
+    "summary": "A soft glow tracks the pointer along the card's border.",
+    "description": "Pointer coordinates feed a radial gradient on a masked border layer, so the light appears to live in the edge itself.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "border"],
+    "tags": ["glow", "pointer", "border", "mask", "card"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Glow color", "default": "#7c5cff" },
+      { "name": "--r", "description": "Glow radius", "default": "140px" }
+    ],
+    "variations": ["Multiple cards sharing one pointer listener", "Colour by card category", "Fade the glow out on leave"],
+    "ai_usage": "Dark card grids. Track the pointer on the container, not each card, and write --x/--y as pixel values; the border-only look comes from a mask that keeps just the padding ring visible."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .gcard { position: relative; width: 300px; padding: 1px; border-radius: 16px; background: #263149; }
+    .gcard::before { content: ""; position: absolute; inset: 0; border-radius: inherit; opacity: 0; transition: opacity .3s;
+      background: radial-gradient(var(--r, 140px) circle at var(--x) var(--y), var(--c, #7c5cff), transparent 60%); }
+    .gcard:hover::before { opacity: 1; }
+    .gcard .inner { position: relative; border-radius: 15px; background: #10141f; padding: 1.6rem; }
+    .gcard h3 { margin: 0 0 .4rem; }
+    .gcard p { margin: 0; color: #8b93a7; font-size: .92rem; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="gcard" id="gc"><div class="inner"><h3>Edge lighting</h3><p>Move the pointer around the card border.</p></div></div>
+  <script>
+    (function () {
+      var c = document.getElementById("gc");
+      c.addEventListener("pointermove", function (e) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty("--x", (e.clientX - r.left) + "px");
+        c.style.setProperty("--y", (e.clientY - r.top) + "px");
+      });
+    })();
+  </script>
+</body>
+</html>

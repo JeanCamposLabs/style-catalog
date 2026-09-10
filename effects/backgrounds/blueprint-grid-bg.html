@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blueprint Grid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "blueprint-grid-bg",
+    "title": "Blueprint Grid",
+    "summary": "Cyan draughting paper with fine and heavy rules.",
+    "description": "Two grid layers at different scales — a fine 20px cell and a heavy 100px major line — read exactly like technical paper.",
+    "theme": "backgrounds",
+    "categories": ["background", "grid"],
+    "tags": ["blueprint", "grid", "technical", "draughting", "cyan"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--ink", "description": "Line color", "default": "rgba(125,211,252,.28)" },
+      { "name": "--paper", "description": "Paper color", "default": "#0a1626" },
+      { "name": "--s", "description": "Minor cell", "default": "20px" }
+    ],
+    "variations": ["White-on-blue classic blueprint", "Add a title block in the corner", "Animate a drawing reveal over it"],
+    "ai_usage": "Engineering, planning, and 'work in progress' pages. Layer a 1px fine grid under a 2px major grid at 5× the size — a single grid always reads as graph paper rather than a blueprint."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --ink: rgba(125,211,252,.28); --paper: #0a1626; --s: 20px; }
+    .bg { background-color: var(--paper);
+      background-image: linear-gradient(var(--ink) 1px, transparent 1px), linear-gradient(90deg, var(--ink) 1px, transparent 1px),
+        linear-gradient(rgba(125,211,252,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(125,211,252,.5) 1px, transparent 1px);
+      background-size: var(--s) var(--s), var(--s) var(--s), calc(var(--s) * 5) calc(var(--s) * 5), calc(var(--s) * 5) calc(var(--s) * 5); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

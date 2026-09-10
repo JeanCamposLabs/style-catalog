@@ -1,0 +1,44 @@
+{
+  "id": "text-corruption-cycle",
+  "title": "Corrupting Text",
+  "summary": "Characters randomly replaced with symbols.",
+  "description": "Characters randomly replaced with symbols.",
+  "theme": "glitch-distortion",
+  "themeTitle": "Glitch & Distortion",
+  "categories": [
+    "glitch",
+    "distortion"
+  ],
+  "tags": [
+    "glitch",
+    "distortion",
+    "corruption",
+    "scramble",
+    "text",
+    "cycle"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Text colour",
+      "default": "#22d3ee"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Loading and hacking sequences. Replace only a couple of characters per frame; scrambling everything makes the word unreadable rather than corrupted.",
+  "path": "effects/glitch-distortion/text-corruption-cycle.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Corrupting Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"text-corruption-cycle\",\n    \"title\": \"Corrupting Text\",\n    \"summary\": \"Characters randomly replaced with symbols.\",\n    \"description\": \"Characters randomly replaced with symbols.\",\n    \"theme\": \"glitch-distortion\",\n    \"categories\": [\"glitch\", \"distortion\"],\n    \"tags\": [\"glitch\", \"distortion\", \"corruption\", \"scramble\", \"text\", \"cycle\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Text colour\", \"default\": \"#22d3ee\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Loading and hacking sequences. Replace only a couple of characters per frame; scrambling everything makes the word unreadable rather than corrupted.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { font-family: ui-monospace, Menlo, monospace; font-size: 1.5rem; font-weight: 700; color: #22d3ee;\n      letter-spacing: .05em; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"cx\">SYSTEM ONLINE</div>\n  <script>\n    (function () {\n      var el = document.getElementById(\"cx\"), base = el.textContent, junk = \"!@#$%^&*<>?/\\\\|\";\n      setInterval(function () {\n        var out = base.split(\"\");\n        for (var i = 0; i < 2; i++) {\n          var k = Math.floor(Math.random() * out.length);\n          if (out[k] !== \" \") out[k] = junk[Math.floor(Math.random() * junk.length)];\n        }\n        el.textContent = out.join(\"\");\n        setTimeout(function () { el.textContent = base; }, 90);\n      }, 900);\n    })();\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Risograph Overlay</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "risograph-print",
+    "title": "Risograph Overlay",
+    "summary": "Two misregistered spot colours with grain.",
+    "description": "Two misregistered spot colours with grain.",
+    "theme": "paper-print",
+    "categories": ["paper", "print"],
+    "tags": ["paper", "print", "risograph", "spot-color", "misregistration", "print"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+    "customization": [
+      { "name": "--a", "description": "Ink one", "default": "#ef4444" },
+      { "name": "--b", "description": "Ink two", "default": "#2563eb" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Zine and indie-print aesthetics. Deliberate misregistration of a few pixels between the two ink layers is the entire effect."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 230px; height: 160px; border-radius: 6px; overflow: hidden; background: #f5f2e8; }
+    .fx i { position: absolute; inset: 0; mix-blend-mode: multiply; opacity: .8; }
+    .fx .a { background: radial-gradient(circle at 35% 40%, #ef4444 0 38%, transparent 40%); }
+    .fx .b { background: radial-gradient(circle at 42% 46%, #2563eb 0 38%, transparent 40%); }
+    .fx::after { content: ""; position: absolute; inset: 0; opacity: .3; mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  </style>
+</head>
+<body>
+  <div class="fx"><i class="a"></i><i class="b"></i></div>
+</body>
+</html>

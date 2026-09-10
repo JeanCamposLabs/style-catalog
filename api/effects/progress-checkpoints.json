@@ -1,0 +1,44 @@
+{
+  "id": "progress-checkpoints",
+  "title": "Checkpoint Path",
+  "summary": "A winding path with completed checkpoints.",
+  "description": "A winding path with completed checkpoints.",
+  "theme": "timelines-steppers",
+  "themeTitle": "Timelines & Steppers",
+  "categories": [
+    "timeline",
+    "stepper"
+  ],
+  "tags": [
+    "timeline",
+    "sequence",
+    "checkpoints",
+    "path",
+    "gamified",
+    "progress"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+  "customization": [
+    {
+      "name": "--done",
+      "description": "Completed colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Gamified learning paths. The travelled portion is a second stroke with a dashoffset — that keeps one shared path geometry instead of two divergent shapes.",
+  "path": "effects/timelines-steppers/progress-checkpoints.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Checkpoint Path</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"progress-checkpoints\",\n    \"title\": \"Checkpoint Path\",\n    \"summary\": \"A winding path with completed checkpoints.\",\n    \"description\": \"A winding path with completed checkpoints.\",\n    \"theme\": \"timelines-steppers\",\n    \"categories\": [\"timeline\", \"stepper\"],\n    \"tags\": [\"timeline\", \"sequence\", \"checkpoints\", \"path\", \"gamified\", \"progress\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.\",\n    \"customization\": [\n      { \"name\": \"--done\", \"description\": \"Completed colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Gamified learning paths. The travelled portion is a second stroke with a dashoffset — that keeps one shared path geometry instead of two divergent shapes.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; }\n    .fx svg { width: 100%; display: block; }\n    .fx .path { fill: none; stroke: #2b3450; stroke-width: 4; stroke-linecap: round; }\n    .fx .done { stroke: #10a894; stroke-dasharray: 300; stroke-dashoffset: 130; }\n    .fx circle { stroke: #0b0d12; stroke-width: 3; }\n    .fx .lbl { display: flex; justify-content: space-between; margin-top: .4rem; font-size: .72rem; color: #8b93a7; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><svg viewBox=\"0 0 280 90\" role=\"img\" aria-label=\"3 of 5 checkpoints complete\">\n    <path class=\"path\" d=\"M15 70 C60 70 60 20 110 20 C160 20 160 70 210 70 C240 70 250 50 265 40\"/>\n    <path class=\"path done\" d=\"M15 70 C60 70 60 20 110 20 C160 20 160 70 210 70 C240 70 250 50 265 40\"/>\n    <circle cx=\"15\" cy=\"70\" r=\"8\" fill=\"#10a894\"/><circle cx=\"110\" cy=\"20\" r=\"8\" fill=\"#10a894\"/>\n    <circle cx=\"163\" cy=\"42\" r=\"8\" fill=\"#10a894\"/><circle cx=\"210\" cy=\"70\" r=\"8\" fill=\"#2b3450\"/>\n    <circle cx=\"265\" cy=\"40\" r=\"8\" fill=\"#2b3450\"/></svg>\n  <div class=\"lbl\"><span>Start</span><span>3 of 5</span><span>Finish</span></div></div>\n</body>\n</html>\n"
+}

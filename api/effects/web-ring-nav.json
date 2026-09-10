@@ -1,0 +1,44 @@
+{
+  "id": "web-ring-nav",
+  "title": "Web Ring",
+  "summary": "The classic previous/random/next ring navigation.",
+  "description": "The classic previous/random/next ring navigation.",
+  "theme": "retro-web",
+  "themeTitle": "Retro Web",
+  "categories": [
+    "retro",
+    "nostalgia"
+  ],
+  "tags": [
+    "retro",
+    "nostalgia",
+    "webring",
+    "navigation",
+    "90s",
+    "community"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Bar colour",
+      "default": "#000080"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Personal-site revivals. A webring is real navigation — keep the links as anchors with visible text rather than arrow images.",
+  "path": "effects/retro-web/web-ring-nav.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Web Ring</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"web-ring-nav\",\n    \"title\": \"Web Ring\",\n    \"summary\": \"The classic previous/random/next ring navigation.\",\n    \"description\": \"The classic previous/random/next ring navigation.\",\n    \"theme\": \"retro-web\",\n    \"categories\": [\"retro\", \"nostalgia\"],\n    \"tags\": [\"retro\", \"nostalgia\", \"webring\", \"navigation\", \"90s\", \"community\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"These recreate deprecated tags accessibly: motion respects prefers-reduced-motion and nothing depends on blinking to be readable.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Bar colour\", \"default\": \"#000080\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Personal-site revivals. A webring is real navigation — keep the links as anchors with visible text rather than arrow images.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .8rem; background: #000080; color: #fff;\n      border: 2px ridge #c0c0c0; font-family: \"MS Sans Serif\", Tahoma, sans-serif; font-size: .78rem; }\n    .fx a { color: #ffff00; text-decoration: underline; }\n    .fx .name { font-weight: 700; }\n  </style>\n</head>\n<body>\n  <nav class=\"fx\" aria-label=\"Web ring\"><span class=\"name\">CSS Ring</span>\n  <a href=\"#\">‹ Prev</a><a href=\"#\">Random</a><a href=\"#\">Next ›</a></nav>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "glass-search-overlay",
+  "title": "Glass Search Bar",
+  "summary": "A frosted search field over imagery.",
+  "description": "A frosted search field over imagery.",
+  "theme": "glass-neumorphism",
+  "themeTitle": "Glass & Neumorphism",
+  "categories": [
+    "glass",
+    "surface"
+  ],
+  "tags": [
+    "glass",
+    "surface",
+    "glass",
+    "search",
+    "frosted",
+    "overlay"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+  "customization": [
+    {
+      "name": "--blur",
+      "description": "Backdrop blur",
+      "default": "16px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Search over hero imagery. Placeholder text on glass needs at least 70% white; anything dimmer disappears over light regions of the backdrop.",
+  "path": "effects/glass-neumorphism/glass-search-overlay.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Glass Search Bar</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"glass-search-overlay\",\n    \"title\": \"Glass Search Bar\",\n    \"summary\": \"A frosted search field over imagery.\",\n    \"description\": \"A frosted search field over imagery.\",\n    \"theme\": \"glass-neumorphism\",\n    \"categories\": [\"glass\", \"surface\"],\n    \"tags\": [\"glass\", \"surface\", \"glass\", \"search\", \"frosted\", \"overlay\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.\",\n    \"customization\": [\n      { \"name\": \"--blur\", \"description\": \"Backdrop blur\", \"default\": \"16px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Search over hero imagery. Placeholder text on glass needs at least 70% white; anything dimmer disappears over light regions of the backdrop.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { background: conic-gradient(from 200deg at 30% 40%, #1e1b4b, #7c5cff, #2dd4bf); }\n    .fx { display: flex; align-items: center; gap: .6rem; width: 290px; padding: .75rem 1rem; border-radius: 999px;\n      background: rgba(255,255,255,.18); backdrop-filter: blur(16px) saturate(1.6);\n      -webkit-backdrop-filter: blur(16px) saturate(1.6); border: 1px solid rgba(255,255,255,.35); }\n    .fx input { flex: 1; min-width: 0; border: 0; background: transparent; color: #fff; font: inherit; }\n    .fx input::placeholder { color: rgba(255,255,255,.7); }\n    .fx input:focus { outline: none; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span aria-hidden=\"true\" style=\"color:#fff\">⌕</span>\n  <label class=\"sr\" for=\"gq\" style=\"position:absolute;left:-9999px\">Search</label>\n  <input id=\"gq\" type=\"search\" placeholder=\"Search specimens\" /></div>\n</body>\n</html>\n"
+}

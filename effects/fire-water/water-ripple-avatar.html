@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rippling Avatar</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "water-ripple-avatar",
+    "title": "Rippling Avatar",
+    "summary": "Concentric water rings around a circular avatar.",
+    "description": "Concentric water rings around a circular avatar.",
+    "theme": "fire-water",
+    "categories": ["elemental", "animation"],
+    "tags": ["elemental", "animated", "ripple", "avatar", "presence", "rings"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Ring colour", "default": "rgba(56,189,248,.6)" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Live presence and voice-activity indicators. Offset the rings by a third of the cycle so a new ring starts as the last fades."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 150px; height: 150px; display: grid; place-items: center; }
+    .fx .av { width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(160deg, #38bdf8, #0369a1);
+      display: grid; place-items: center; color: #fff; font-weight: 800; z-index: 1; }
+    .fx i { position: absolute; width: 76px; height: 76px; border-radius: 50%; border: 2px solid rgba(56,189,248,.6);
+      animation: out 2.6s cubic-bezier(0,.2,.8,1) infinite; animation-delay: var(--dl); }
+    @keyframes out { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.9); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="--dl:0s"></i><i style="--dl:.85s"></i><i style="--dl:1.7s"></i><span class="av">JC</span></div>
+</body>
+</html>

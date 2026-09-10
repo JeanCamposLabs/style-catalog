@@ -1,0 +1,49 @@
+{
+  "id": "topographic-lines-bg",
+  "title": "Topographic Contours",
+  "summary": "Contour rings ripple across the surface like a survey map.",
+  "description": "Concentric repeating-radial-gradients at two offsets overlap into irregular contour bands.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "topographic",
+    "contour",
+    "map",
+    "rings",
+    "outdoors"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Contour color",
+      "default": "rgba(45,212,191,.18)"
+    },
+    {
+      "name": "--s",
+      "description": "Contour spacing",
+      "default": "26px"
+    }
+  ],
+  "variations": [
+    "Animate one layer for slow morphing",
+    "Warmer earth tones",
+    "Mask to a shape for a badge"
+  ],
+  "related": [],
+  "ai_usage": "Outdoor, mapping, and data products. Overlap at least two radial layers with different centres — one layer alone is obviously a bullseye.",
+  "path": "effects/backgrounds/topographic-lines-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Topographic Contours</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"topographic-lines-bg\",\n    \"title\": \"Topographic Contours\",\n    \"summary\": \"Contour rings ripple across the surface like a survey map.\",\n    \"description\": \"Concentric repeating-radial-gradients at two offsets overlap into irregular contour bands.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"topographic\", \"contour\", \"map\", \"rings\", \"outdoors\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Contour color\", \"default\": \"rgba(45,212,191,.18)\" },\n      { \"name\": \"--s\", \"description\": \"Contour spacing\", \"default\": \"26px\" }\n    ],\n    \"variations\": [\"Animate one layer for slow morphing\", \"Warmer earth tones\", \"Mask to a shape for a badge\"],\n    \"ai_usage\": \"Outdoor, mapping, and data products. Overlap at least two radial layers with different centres — one layer alone is obviously a bullseye.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: rgba(45,212,191,.18); --s: 26px; }\n    .bg { background-color: #0b0d12;\n      background-image: repeating-radial-gradient(circle at 20% 30%, transparent 0 calc(var(--s) - 1px), var(--c) calc(var(--s) - 1px) var(--s)),\n        repeating-radial-gradient(circle at 78% 72%, transparent 0 calc(var(--s) - 1px), var(--c) calc(var(--s) - 1px) var(--s)); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

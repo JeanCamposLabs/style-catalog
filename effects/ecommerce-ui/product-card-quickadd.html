@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "product-card-quickadd",
+    "title": "Product Card",
+    "summary": "A product tile with price, rating, and quick-add.",
+    "description": "A product tile with price, rating, and quick-add.",
+    "theme": "ecommerce-ui",
+    "categories": ["ecommerce", "commerce"],
+    "tags": ["ecommerce", "shop", "product", "card", "rating", "quick-add"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+    "customization": [
+      { "name": "--c", "description": "Accent", "default": "#e7ebf3" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Product grids. Keep quick-add reachable by keyboard (focus-within), and put the star rating in text as well so it is not a colour-only signal."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 210px; border-radius: 16px; overflow: hidden; background: #151b2a; border: 1px solid #263149; }
+    .fx .img { aspect-ratio: 1; background: conic-gradient(from 40deg at 40% 35%, #7c5cff, #2dd4bf, #f472b6); position: relative; }
+    .fx .add { position: absolute; right: 8px; bottom: 8px; width: 36px; height: 36px; border-radius: 50%; border: 0;
+      background: #e7ebf3; color: #0b0d12; font-size: 1.2rem; cursor: pointer; opacity: 0; transform: translateY(8px);
+      transition: opacity .25s, transform .25s; }
+    .fx:hover .add, .fx:focus-within .add { opacity: 1; transform: none; }
+    .fx .b { padding: .8rem .9rem 1rem; }
+    .fx b { display: block; font-size: .92rem; }
+    .fx .r { color: #fbbf24; font-size: .78rem; margin: .2rem 0 .4rem; }
+    .fx .p { font-weight: 800; }
+    .fx .p s { color: #8b93a7; font-weight: 400; margin-left: .4rem; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <article class="fx"><div class="img"><button class="add" type="button" aria-label="Add Aurora Lamp to cart">＋</button></div>
+  <div class="b"><b>Aurora Lamp</b><div class="r">★★★★☆ <span style="color:#8b93a7">(214)</span></div>
+  <div class="p">$79 <s>$99</s></div></div></article>
+</body>
+</html>

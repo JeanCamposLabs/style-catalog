@@ -1,0 +1,45 @@
+{
+  "id": "text-noise-dissolve",
+  "title": "Noise Dissolve",
+  "summary": "The headline dissolves into static and rebuilds itself.",
+  "description": "An SVG turbulence filter's displacement scale animates from zero, tearing the glyphs apart into grain and back.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "filter"
+  ],
+  "tags": [
+    "dissolve",
+    "turbulence",
+    "svg-filter",
+    "noise",
+    "disintegrate"
+  ],
+  "tech": [
+    "css",
+    "svg"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Dissolve cycle",
+      "default": "4s"
+    }
+  ],
+  "variations": [
+    "Dissolve on scroll rather than a loop",
+    "Stronger displacement for full disintegration",
+    "Apply to an image instead"
+  ],
+  "related": [],
+  "ai_usage": "Dramatic reveals and 'deleting' states. feTurbulence + feDisplacementMap is expensive — apply it to one short headline only, and animate the scale attribute (via CSS on the filter primitive is not portable, so use SMIL or JS if you need finer control).",
+  "path": "effects/text-effects/text-noise-dissolve.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Noise Dissolve</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"text-noise-dissolve\",\n    \"title\": \"Noise Dissolve\",\n    \"summary\": \"The headline dissolves into static and rebuilds itself.\",\n    \"description\": \"An SVG turbulence filter's displacement scale animates from zero, tearing the glyphs apart into grain and back.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"filter\"],\n    \"tags\": [\"dissolve\", \"turbulence\", \"svg-filter\", \"noise\", \"disintegrate\"],\n    \"tech\": [\"css\", \"svg\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Dissolve cycle\", \"default\": \"4s\" }\n    ],\n    \"variations\": [\"Dissolve on scroll rather than a loop\", \"Stronger displacement for full disintegration\", \"Apply to an image instead\"],\n    \"ai_usage\": \"Dramatic reveals and 'deleting' states. feTurbulence + feDisplacementMap is expensive — apply it to one short headline only, and animate the scale attribute (via CSS on the filter primitive is not portable, so use SMIL or JS if you need finer control).\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --dur: 4s; }\n    .dis { font-size: clamp(2rem, 8vw, 3.8rem); font-weight: 900; filter: url(#grainy);\n      animation: fade var(--dur) ease-in-out infinite; }\n    svg.defs { position: absolute; width: 0; height: 0; }\n    @keyframes fade { 0%, 100% { opacity: 1; } 45%, 55% { opacity: .35; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <svg class=\"defs\" aria-hidden=\"true\">\n    <filter id=\"grainy\">\n      <feTurbulence type=\"fractalNoise\" baseFrequency=\"0.02 0.6\" numOctaves=\"2\" result=\"n\">\n        <animate attributeName=\"baseFrequency\" dur=\"4s\" values=\"0.02 0.6;0.06 0.9;0.02 0.6\" repeatCount=\"indefinite\"/>\n      </feTurbulence>\n      <feDisplacementMap in=\"SourceGraphic\" in2=\"n\" scale=\"14\" xChannelSelector=\"R\" yChannelSelector=\"G\"/>\n    </filter>\n  </svg>\n  <h1 class=\"dis\">DISSOLVE</h1>\n</body>\n</html>\n"
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pool Caustics</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "caustics-water-bg",
+    "title": "Pool Caustics",
+    "summary": "Rippling light patterns like sunlight through water.",
+    "description": "Two blurred, differently scaled repeating-radial layers drift over each other, producing the wandering bright veins of caustics.",
+    "theme": "backgrounds",
+    "categories": ["background", "water"],
+    "tags": ["caustics", "water", "pool", "light", "organic"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Light color", "default": "rgba(125,211,252,.3)" },
+      { "name": "--dur", "description": "Drift period", "default": "12s" }
+    ],
+    "variations": ["Warmer light for sunset", "Sharper veins with less blur", "Overlay on a photo with screen blending"],
+    "ai_usage": "Pool, spa, aquarium, and summer themes. Two layers at different scales moving in different directions is the minimum for a convincing caustic; one layer looks like a moving pattern."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(125,211,252,.3); --dur: 12s; }
+    .bg { background: linear-gradient(#062b3d, #04161f); overflow: hidden; }
+    .bg i { position: absolute; inset: -20%; filter: blur(14px); mix-blend-mode: screen;
+      background-image: repeating-radial-gradient(circle at 30% 40%, transparent 0 18px, var(--c) 18px 22px, transparent 22px 46px);
+      animation: swim var(--d) ease-in-out infinite alternate; }
+    .bg i:nth-child(2) { background-image: repeating-radial-gradient(circle at 70% 60%, transparent 0 26px, var(--c) 26px 30px, transparent 30px 64px); }
+    @keyframes swim {
+      from { transform: translate(-4%, -3%) scale(1); }
+      to { transform: translate(5%, 4%) scale(1.12); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"><i style="--d:12s"></i><i style="--d:17s"></i></div>
+</body>
+</html>

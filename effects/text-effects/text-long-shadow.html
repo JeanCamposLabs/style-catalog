@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Long Shadow Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "text-long-shadow",
+    "title": "Long Shadow Text",
+    "summary": "A flat 45° shadow trails off every glyph into the distance.",
+    "description": "Dozens of one-pixel-stepped shadows in one color produce the hard-edged flat-design shadow that a blur can never make.",
+    "theme": "text-effects",
+    "categories": ["text", "flat"],
+    "tags": ["long-shadow", "flat-design", "2010s", "text-shadow", "poster"],
+    "tech": ["css"],
+    "era": "2010s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Text color", "default": "#f8fafc" },
+      { "name": "--sh", "description": "Shadow color", "default": "#1f2937" }
+    ],
+    "variations": ["Fade the shadow with a gradient clip", "Shorten it for a subtle offset", "Match the shadow to the background hue"],
+    "ai_usage": "Flat-design posters and 2010s revivals. Generate the shadow list programmatically (Sass loop or JS) — each step must be exactly 1px in x and y for a clean edge. The shadow color should be darker than the background, never black on dark."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .ls { font-size: clamp(2.4rem, 10vw, 5rem); font-weight: 900; color: var(--c, #f8fafc);
+      text-shadow: 1px 1px var(--sh), 2px 2px var(--sh), 3px 3px var(--sh), 4px 4px var(--sh), 5px 5px var(--sh),
+        6px 6px var(--sh), 7px 7px var(--sh), 8px 8px var(--sh), 9px 9px var(--sh), 10px 10px var(--sh),
+        11px 11px var(--sh), 12px 12px var(--sh), 13px 13px var(--sh), 14px 14px var(--sh), 15px 15px var(--sh),
+        16px 16px var(--sh), 17px 17px var(--sh), 18px 18px var(--sh), 19px 19px var(--sh), 20px 20px var(--sh); }
+    :root { --sh: #1f2937; }
+  </style>
+</head>
+<body>
+  <h1 class="ls">FLAT</h1>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Starburst Badge</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shape-burst-star",
+    "title": "Starburst Badge",
+    "summary": "A many-pointed burst for callouts.",
+    "description": "A many-pointed burst for callouts. Purely decorative and self-contained, so it drops between any two sections.",
+    "theme": "dividers-shapes",
+    "categories": ["divider", "shape"],
+    "tags": ["divider", "separator", "starburst", "badge", "sale", "callout"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+    "customization": [
+      { "name": "--c", "description": "Burst colour", "default": "#fbbf24" }
+    ],
+    "variations": ["Flip vertically for the opposite section", "Recolour to match the next section"],
+    "ai_usage": "Sale flashes and 90s-style callouts. Twenty alternating radius points give a convincing burst; fewer points read as a gear."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }
+    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }
+    .stage { width: min(92vw, 340px); }
+    .stage { display: grid; place-items: center; padding: 1.4rem 0; }
+    .burst { width: 140px; height: 140px; display: grid; place-items: center; background: #fbbf24; color: #2a1a02;
+      font-weight: 900; text-align: center; font-size: .95rem; line-height: 1.1;
+      clip-path: polygon(50% 0, 61% 17%, 79% 9%, 79% 29%, 98% 32%, 85% 47%, 100% 61%, 81% 66%, 84% 86%, 65% 80%, 55% 98%, 44% 81%, 25% 88%, 26% 68%, 7% 62%, 20% 47%, 6% 33%, 25% 28%, 23% 8%, 42% 16%); }
+  </style>
+</head>
+<body>
+  <div class="stage"><div class="burst">50%<br>OFF</div></div>
+</body>
+</html>

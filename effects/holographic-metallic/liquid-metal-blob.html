@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liquid Metal</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "liquid-metal-blob",
+    "title": "Liquid Metal",
+    "summary": "A mercury blob that morphs and reflects.",
+    "description": "A mercury blob that morphs and reflects.",
+    "theme": "holographic-metallic",
+    "categories": ["material", "holographic"],
+    "tags": ["holographic", "metallic", "liquid-metal", "mercury", "morph", "blob"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+    "customization": [
+      { "name": "--dur", "description": "Morph cycle", "default": "7s" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Futuristic and AI branding. A tight specular highlight near one edge is what makes the blob read as metal rather than as a grey shape."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 170px; height: 170px; border-radius: 44% 56% 62% 38% / 48% 42% 58% 52%;
+      background: radial-gradient(circle at 32% 28%, #fff 0 8%, #cbd5e1 22%, #64748b 48%, #1e293b 78%, #94a3b8);
+      animation: morph 7s ease-in-out infinite; box-shadow: 0 20px 40px rgba(0,0,0,.5); }
+    @keyframes morph {
+      0%, 100% { border-radius: 44% 56% 62% 38% / 48% 42% 58% 52%; }
+      33% { border-radius: 62% 38% 44% 56% / 58% 52% 48% 42%; }
+      66% { border-radius: 38% 62% 56% 44% / 42% 58% 52% 48%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"></div>
+</body>
+</html>

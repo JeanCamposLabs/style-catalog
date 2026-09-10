@@ -1,0 +1,44 @@
+{
+  "id": "input-search-suggest-inline",
+  "title": "Inline Suggestion",
+  "summary": "A field that completes the rest of the word.",
+  "description": "A field that completes the rest of the word.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "form",
+    "input",
+    "autocomplete",
+    "inline",
+    "ghost",
+    "suggestion"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+  "customization": [
+    {
+      "name": "--ghost",
+      "description": "Ghost colour",
+      "default": "#3f4a63"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Command bars and search fields. Render the completion as ghost text behind the input, and only accept it on Tab or Right arrow — never silently on blur.",
+  "path": "effects/forms-inputs/input-search-suggest-inline.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Inline Suggestion</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"input-search-suggest-inline\",\n    \"title\": \"Inline Suggestion\",\n    \"summary\": \"A field that completes the rest of the word.\",\n    \"description\": \"A field that completes the rest of the word.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"form\", \"input\", \"autocomplete\", \"inline\", \"ghost\", \"suggestion\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.\",\n    \"customization\": [\n      { \"name\": \"--ghost\", \"description\": \"Ghost colour\", \"default\": \"#3f4a63\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Command bars and search fields. Render the completion as ghost text behind the input, and only accept it on Tab or Right arrow — never silently on blur.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; font-family: ui-monospace, monospace; }\n    .fx .ghost { position: absolute; inset: 0; padding: .8rem .9rem; color: #3f4a63; pointer-events: none; font: inherit; }\n    .fx input { width: 100%; padding: .8rem .9rem; border-radius: 12px; border: 1px solid #2b3450; background: #151b2a;\n      color: #e7ebf3; font: inherit; position: relative; background-clip: padding-box; }\n    .fx input:focus { outline: none; border-color: #7c5cff; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"ghost\" aria-hidden=\"true\">grad<span style=\"color:transparent\">ient-border</span></span>\n  <label class=\"sr\" for=\"ig\" style=\"position:absolute;left:-9999px\">Search</label><input id=\"ig\" type=\"text\" value=\"grad\" /></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "planet-with-rings",
+  "title": "Ringed Planet",
+  "summary": "A planet with a tilted ring system.",
+  "description": "A planet with a tilted ring system.",
+  "theme": "space-cosmic",
+  "themeTitle": "Space & Cosmic",
+  "categories": [
+    "space",
+    "cosmic"
+  ],
+  "tags": [
+    "space",
+    "cosmic",
+    "planet",
+    "rings",
+    "saturn",
+    "orbit"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Planet colour",
+      "default": "#f97316"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Space themes and 404 pages. Two rings at different radii and opacities read as a ring system; one ring reads as a hoop.",
+  "path": "effects/space-cosmic/planet-with-rings.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Ringed Planet</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"planet-with-rings\",\n    \"title\": \"Ringed Planet\",\n    \"summary\": \"A planet with a tilted ring system.\",\n    \"description\": \"A planet with a tilted ring system.\",\n    \"theme\": \"space-cosmic\",\n    \"categories\": [\"space\", \"cosmic\"],\n    \"tags\": [\"space\", \"cosmic\", \"planet\", \"rings\", \"saturn\", \"orbit\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Planet colour\", \"default\": \"#f97316\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Space themes and 404 pages. Two rings at different radii and opacities read as a ring system; one ring reads as a hoop.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 180px; height: 180px; display: grid; place-items: center; }\n    .fx .p { width: 110px; height: 110px; border-radius: 50%;\n      background: radial-gradient(circle at 34% 30%, #fde68a, #f97316 45%, #7c2d12); box-shadow: inset -14px -8px 26px rgba(0,0,0,.6); }\n    .fx .r { position: absolute; width: 180px; height: 180px; border-radius: 50%; border: 6px solid rgba(251,191,36,.55);\n      transform: rotateX(74deg) rotate(-16deg); }\n    .fx .r2 { width: 152px; height: 152px; border-width: 3px; border-color: rgba(251,191,36,.3); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"r\"></span><span class=\"r r2\"></span><span class=\"p\"></span></div>\n</body>\n</html>\n"
+}

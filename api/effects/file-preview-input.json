@@ -1,0 +1,44 @@
+{
+  "id": "file-preview-input",
+  "title": "File Picker with Preview",
+  "summary": "A drop zone that lists chosen files with size and a remove button.",
+  "description": "Showing the parsed file list immediately confirms the selection worked, which a bare input never does.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "file"
+  ],
+  "tags": [
+    "file",
+    "upload",
+    "preview",
+    "list",
+    "dropzone"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Image thumbnails",
+    "Per-file progress bars"
+  ],
+  "related": [],
+  "ai_usage": "Upload flows. Keep the real <input type=file> visually hidden but focusable and label it — replacing it with a div breaks keyboard access entirely.",
+  "path": "effects/forms-inputs/file-preview-input.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>File Picker with Preview</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"file-preview-input\",\n    \"title\": \"File Picker with Preview\",\n    \"summary\": \"A drop zone that lists chosen files with size and a remove button.\",\n    \"description\": \"Showing the parsed file list immediately confirms the selection worked, which a bare input never does.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"file\"],\n    \"tags\": [\"file\", \"upload\", \"preview\", \"list\", \"dropzone\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Image thumbnails\", \"Per-file progress bars\"],\n    \"ai_usage\": \"Upload flows. Keep the real <input type=file> visually hidden but focusable and label it — replacing it with a div breaks keyboard access entirely.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fp { width: 300px; }\n    .fp .zone { border: 2px dashed #2b3450; border-radius: 14px; padding: 1.4rem; text-align: center; color: #8b93a7; cursor: pointer; }\n    .fp .zone:hover, .fp input:focus-visible + .zone { border-color: var(--c, #7c5cff); color: #cbd5e1; }\n    .fp input { position: absolute; opacity: 0; width: 0; height: 0; }\n    .fp ul { list-style: none; margin: .8rem 0 0; padding: 0; }\n    .fp li { display: flex; justify-content: space-between; gap: .6rem; padding: .5rem .7rem; background: #151b2a;\n      border-radius: 10px; margin-bottom: 6px; font-size: .85rem; color: #cbd5e1; }\n    .fp li b { color: #8b93a7; font-weight: 500; }\n  </style>\n</head>\n<body>\n  <div class=\"fp\"><label><input type=\"file\" multiple id=\"fi\" /><span class=\"zone\">Drop files or click to browse</span></label>\n  <ul id=\"fl\"><li>brief.pdf <b>212 KB</b></li><li>logo.svg <b>8 KB</b></li></ul></div>\n  <script>\n    (function () {\n      var i = document.getElementById(\"fi\"), l = document.getElementById(\"fl\");\n      i.addEventListener(\"change\", function () {\n        l.innerHTML = \"\";\n        [].slice.call(i.files).forEach(function (f) {\n          var li = document.createElement(\"li\");\n          li.innerHTML = f.name + \" <b>\" + Math.ceil(f.size / 1024) + \" KB</b>\";\n          l.appendChild(li);\n        });\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

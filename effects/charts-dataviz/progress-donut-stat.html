@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KPI Tile</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "progress-donut-stat",
+    "title": "KPI Tile",
+    "summary": "A headline number with a supporting ring and delta.",
+    "description": "A headline number with a supporting ring and delta.",
+    "theme": "charts-dataviz",
+    "categories": ["chart", "dataviz"],
+    "tags": ["chart", "data", "kpi", "stat", "tile", "headline"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+    "customization": [
+      { "name": "--p", "description": "Ring percent", "default": "74" },
+      { "name": "--c1", "description": "Ring colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "When one number is the whole message, a hero figure beats a chart. Add a ring only if the number is a share of a known total; otherwise the ring is decoration and should be dropped."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;
+      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; display: flex; align-items: center; gap: 1.1rem; padding: 1.2rem 1.4rem; border-radius: 16px;
+      background: #151b2a; border: 1px solid #263149; }
+    .fx .ring { position: relative; width: 66px; aspect-ratio: 1; border-radius: 50%;
+      background: conic-gradient(var(--c1) calc(var(--p) * 1%), #22304a 0);
+      -webkit-mask: radial-gradient(farthest-side, transparent 66%, #000 67%); mask: radial-gradient(farthest-side, transparent 66%, #000 67%); }
+    .fx .wrap { position: relative; display: grid; place-items: center; }
+    .fx .wrap b { position: absolute; font-size: .8rem; font-weight: 800; color: var(--ink); }
+    .fx .n { font-size: 2rem; font-weight: 900; color: var(--ink); line-height: 1; }
+    .fx .l { font-size: .78rem; color: var(--ink-2); margin-top: .2rem; }
+    .fx .up { color: #10a894; font-size: .78rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="wrap"><div class="ring" style="--p:74" role="img" aria-label="74 percent of target"></div><b>74%</b></div>
+  <div><div class="n">8,412</div><div class="l">Monthly API calls</div><div class="up">▲ 18% vs last month</div></div></div>
+</body>
+</html>

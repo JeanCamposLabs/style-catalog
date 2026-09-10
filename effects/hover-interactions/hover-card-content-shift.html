@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Content Shift Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "hover-card-content-shift",
+    "title": "Content Shift Card",
+    "summary": "Body copy sliding up to make room for actions.",
+    "description": "Body copy sliding up to make room for actions.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "interaction"],
+    "tags": ["hover", "pointer", "shift", "actions", "reveal", "card"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every hover state here is mirrored on :focus-visible so keyboard users get the same information.",
+    "customization": [
+      { "name": "--dur", "description": "Shift duration", "default": "0.35s" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Card grids with secondary actions. Move existing content up rather than growing the card so the grid never reflows on hover."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { position: relative; width: 240px; height: 150px; border-radius: 16px; overflow: hidden; padding: 1.2rem;
+      background: #151b2a; border: 1px solid #263149; }
+    .card .body { transition: transform .35s cubic-bezier(.7,0,.2,1); }
+    .card h3 { margin: 0 0 .3rem; font-size: 1rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .85rem; }
+    .card .acts { position: absolute; inset: auto 1.2rem 1.2rem; display: flex; gap: .5rem; opacity: 0;
+      transform: translateY(12px); transition: opacity .3s, transform .3s; }
+    .card button { padding: .4rem .9rem; border: 0; border-radius: 8px; background: #7c5cff; color: #fff; font: inherit; font-size: .8rem; cursor: pointer; }
+    .card:hover .body, .card:focus-within .body { transform: translateY(-16px); }
+    .card:hover .acts, .card:focus-within .acts { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card" tabindex="0"><div class="body"><h3>Aurora</h3><p>Animated gradient backdrop.</p></div>
+  <div class="acts"><button type="button">Open</button><button type="button">Copy</button></div></article>
+</body>
+</html>

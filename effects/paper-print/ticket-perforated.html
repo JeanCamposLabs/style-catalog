@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Event Ticket</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "ticket-perforated",
+    "title": "Event Ticket",
+    "summary": "A ticket with a perforated stub and a barcode.",
+    "description": "A ticket with a perforated stub and a barcode.",
+    "theme": "paper-print",
+    "categories": ["paper", "print"],
+    "tags": ["paper", "print", "ticket", "perforation", "stub", "event"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+    "customization": [
+      { "name": "--paper", "description": "Ticket colour", "default": "#fef9c3" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Events and boarding passes. Combine a dashed rule with notches punched by masks for a fully convincing perforation."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; width: 280px; background: #fef9c3; color: #1c1917; border-radius: 10px; overflow: hidden;
+      font-family: ui-monospace, Menlo, monospace; }
+    .fx .main { flex: 1; padding: .9rem 1rem; }
+    .fx .stub { width: 74px; padding: .9rem .5rem; border-left: 2px dashed #a16207; display: grid; place-items: center; text-align: center; }
+    .fx .bars { width: 40px; height: 46px; background: repeating-linear-gradient(90deg, #1c1917 0 2px, transparent 2px 5px); }
+    .fx h3 { margin: 0 0 .3rem; font-size: .9rem; }
+    .fx small { color: #78716c; font-size: .7rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="main"><h3>NIGHT MARKET</h3><small>Sat 12 Sept · 20:00 · Gate B</small></div>
+  <div class="stub"><div class="bars"></div></div></div>
+</body>
+</html>

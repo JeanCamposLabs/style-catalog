@@ -1,0 +1,50 @@
+{
+  "id": "cursor-ripple-click",
+  "title": "Click Ripple Anywhere",
+  "summary": "Every click sends a ripple out from the exact contact point.",
+  "description": "A short-lived absolutely positioned ring is spawned per click and removed when its animation ends.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "feedback"
+  ],
+  "tags": [
+    "ripple",
+    "click",
+    "feedback",
+    "spawn",
+    "pointer"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Ripple color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Ripple duration",
+      "default": "0.6s"
+    }
+  ],
+  "variations": [
+    "Different colour for right-click",
+    "Ripple on keyboard activation too",
+    "Concentric double ripple"
+  ],
+  "related": [],
+  "ai_usage": "Kiosk, demo, and screen-recording contexts where clicks must be visible. Spawn on pointerdown (not click) so the feedback appears at press time, and always remove the node on animationend.",
+  "path": "effects/cursors-pointers/cursor-ripple-click.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Click Ripple Anywhere</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-ripple-click\",\n    \"title\": \"Click Ripple Anywhere\",\n    \"summary\": \"Every click sends a ripple out from the exact contact point.\",\n    \"description\": \"A short-lived absolutely positioned ring is spawned per click and removed when its animation ends.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"feedback\"],\n    \"tags\": [\"ripple\", \"click\", \"feedback\", \"spawn\", \"pointer\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Ripple color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Ripple duration\", \"default\": \"0.6s\" }\n    ],\n    \"variations\": [\"Different colour for right-click\", \"Ripple on keyboard activation too\", \"Concentric double ripple\"],\n    \"ai_usage\": \"Kiosk, demo, and screen-recording contexts where clicks must be visible. Spawn on pointerdown (not click) so the feedback appears at press time, and always remove the node on animationend.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #7c5cff; --dur: .6s; }\n    .hint { color: #8b93a7; }\n    .rp { position: fixed; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%;\n      border: 2px solid var(--c); pointer-events: none; animation: out var(--dur) ease-out forwards; }\n    @keyframes out { to { transform: scale(6); opacity: 0; } }\n  </style>\n</head>\n<body>\n  <p class=\"hint\">Click anywhere</p>\n  <script>\n    (function () {\n      addEventListener(\"pointerdown\", function (e) {\n        var r = document.createElement(\"div\");\n        r.className = \"rp\"; r.style.left = e.clientX + \"px\"; r.style.top = e.clientY + \"px\";\n        document.body.appendChild(r);\n        r.addEventListener(\"animationend\", function () { r.remove(); });\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

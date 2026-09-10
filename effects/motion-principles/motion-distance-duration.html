@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Distance and Duration</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "motion-distance-duration",
+    "title": "Distance and Duration",
+    "summary": "Travel distance scaled to duration.",
+    "description": "Travel distance scaled to duration.",
+    "theme": "motion-principles",
+    "categories": ["motion", "reference"],
+    "tags": ["motion", "easing", "distance", "duration", "proportional", "physics"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+    "customization": [
+      { "name": "--rate", "description": "Pixels per ms", "default": "1.6" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Consistent motion. Duration should scale roughly with the square root of distance — a short slide at the same duration as a long one looks sluggish, and vice versa."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; display: grid; gap: .7rem; }
+    .r { font-size: .68rem; color: #64748b; font-family: ui-monospace, monospace; }
+    .t { height: 20px; border-radius: 99px; background: #151b2a; position: relative; margin-top: .25rem; }
+    .t i { position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%; background: #2dd4bf;
+      animation: go var(--d) cubic-bezier(.7,0,.2,1) infinite alternate; }
+    .short .t { width: 40%; }
+    @keyframes go { to { left: calc(100% - 17px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="short"><div class="r">short travel · 180ms</div><div class="t"><i style="--d:180ms"></i></div></div>
+  <div><div class="r">long travel · 380ms</div><div class="t"><i style="--d:380ms"></i></div></div></div>
+</body>
+</html>

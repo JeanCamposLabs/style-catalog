@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Split Comparison Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-comparison-split",
+    "title": "Split Comparison Card",
+    "summary": "One card divided into two contrasting halves.",
+    "description": "One card divided into two contrasting halves. Self-contained card markup you can drop into a grid.",
+    "theme": "cards-surfaces",
+    "categories": ["card", "surface"],
+    "tags": ["card", "surface", "comparison", "split", "before-after", "data"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+    "customization": [
+      { "name": "--b", "description": "Right half tint", "default": "#1c1430" }
+    ],
+    "variations": ["Adapt for a light theme", "Add a media area at the top"],
+    "ai_usage": "Before/after and plan comparisons. Keep both halves on the same baseline grid so the numbers line up for scanning."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    .card { display: grid; grid-template-columns: 1fr 1fr; padding: 0; overflow: hidden; border: 1px solid #263149; }
+    .card > div { padding: 1.2rem; }
+    .card .a { background: #151b2a; }
+    .card .b { background: #1c1430; border-left: 1px solid #2b3450; }
+    .card h3 { font-size: .95rem; }
+    .card .v { font-size: 1.6rem; font-weight: 900; margin-top: .3rem; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card"><div class="a"><h3>Before</h3><div class="v">2.4s</div></div><div class="b"><h3>After</h3><div class="v">0.6s</div></div></article>
+</body>
+</html>

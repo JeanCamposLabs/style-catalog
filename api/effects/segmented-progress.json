@@ -1,0 +1,54 @@
+{
+  "id": "segmented-progress",
+  "title": "Segmented Progress",
+  "summary": "Discrete blocks fill one after another instead of a continuous bar.",
+  "description": "Segments read as countable steps, which makes slow progress feel like it is moving even when each block takes a while.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "progress"
+  ],
+  "tags": [
+    "segments",
+    "blocks",
+    "progress",
+    "stepped",
+    "discrete"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Filled color",
+      "default": "#38bdf8"
+    },
+    {
+      "name": "--off",
+      "description": "Empty color",
+      "default": "#1c2333"
+    },
+    {
+      "name": "--dur",
+      "description": "Fill cycle",
+      "default": "2.4s"
+    }
+  ],
+  "variations": [
+    "More, thinner segments for finer resolution",
+    "Color the last segment differently",
+    "Fill from the center outward"
+  ],
+  "related": [],
+  "ai_usage": "Use when progress is genuinely chunked (files processed, steps done). Each block animates background-color with a delay of index * cycle/count; for real progress just toggle an .is-on class per completed block.",
+  "path": "effects/loaders-spinners/segmented-progress.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Segmented Progress</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"segmented-progress\",\n    \"title\": \"Segmented Progress\",\n    \"summary\": \"Discrete blocks fill one after another instead of a continuous bar.\",\n    \"description\": \"Segments read as countable steps, which makes slow progress feel like it is moving even when each block takes a while.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"progress\"],\n    \"tags\": [\"segments\", \"blocks\", \"progress\", \"stepped\", \"discrete\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Filled color\", \"default\": \"#38bdf8\" },\n      { \"name\": \"--off\", \"description\": \"Empty color\", \"default\": \"#1c2333\" },\n      { \"name\": \"--dur\", \"description\": \"Fill cycle\", \"default\": \"2.4s\" }\n    ],\n    \"variations\": [\"More, thinner segments for finer resolution\", \"Color the last segment differently\", \"Fill from the center outward\"],\n    \"ai_usage\": \"Use when progress is genuinely chunked (files processed, steps done). Each block animates background-color with a delay of index * cycle/count; for real progress just toggle an .is-on class per completed block.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #38bdf8; --off: #1c2333; --dur: 2.4s; }\n    .seg { display: flex; gap: 5px; }\n    .seg i { width: 26px; height: 26px; border-radius: 5px; background: var(--off);\n      animation: fill var(--dur) linear infinite; animation-delay: calc(var(--i) * (var(--dur) / 8)); }\n    @keyframes fill { 0%, 4% { background: var(--off); } 10%, 96% { background: var(--c); } 100% { background: var(--off); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"seg\" role=\"status\" aria-label=\"Loading\">\n    <i style=\"--i:0\"></i><i style=\"--i:1\"></i><i style=\"--i:2\"></i><i style=\"--i:3\"></i>\n    <i style=\"--i:4\"></i><i style=\"--i:5\"></i><i style=\"--i:6\"></i><i style=\"--i:7\"></i>\n  </div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wave Distortion</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "wave-distort-image",
+    "title": "Wave Distortion",
+    "summary": "A surface rippling as if seen through water.",
+    "description": "A surface rippling as if seen through water.",
+    "theme": "glitch-distortion",
+    "categories": ["glitch", "distortion"],
+    "tags": ["glitch", "distortion", "turbulence", "distort", "svg-filter", "water"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+    "customization": [
+      { "name": "--scale", "description": "Displacement", "default": "18" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Underwater and dream sequences. Animate feTurbulence's baseFrequency with SMIL — CSS cannot animate filter primitive attributes directly."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 240px; height: 160px; border-radius: 12px; filter: url(#wavy);
+      background: conic-gradient(from 140deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #7c5cff); }
+    svg.defs { position: absolute; width: 0; height: 0; }
+  </style>
+</head>
+<body>
+  <svg class="defs" aria-hidden="true"><filter id="wavy">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="2" result="n">
+      <animate attributeName="baseFrequency" dur="8s" values="0.012 0.03;0.02 0.05;0.012 0.03" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+  </filter></svg>
+  <div class="fx"></div>
+</body>
+</html>

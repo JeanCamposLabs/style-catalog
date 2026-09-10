@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Availability Heatmap</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "availability-heatmap",
+    "title": "Availability Heatmap",
+    "summary": "A week grid shaded by availability density.",
+    "description": "A week grid shaded by availability density.",
+    "theme": "calendar-time",
+    "categories": ["calendar", "time"],
+    "tags": ["calendar", "date", "heatmap", "availability", "calendar", "density"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dates need machine-readable markup (<time datetime>) and selected days must be announced, not just highlighted.",
+    "customization": [
+      { "name": "--c", "description": "Density colour", "default": "#34d399" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Scheduling tools and contribution graphs. Include a legend — an unlabelled colour ramp cannot be read quantitatively."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template-columns: auto repeat(7, 22px); gap: 3px; align-items: center; font-size: .68rem; color: #64748b; }
+    .fx i { width: 22px; height: 22px; border-radius: 5px; background: rgba(52,211,153,calc(var(--v) / 4)); }
+    .fx .lbl { text-align: right; padding-right: .4rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="lbl">AM</span><i style="--v:1"></i><i style="--v:3"></i><i style="--v:4"></i><i style="--v:2"></i>
+  <i style="--v:4"></i><i style="--v:0"></i><i style="--v:0"></i>
+  <span class="lbl">PM</span><i style="--v:2"></i><i style="--v:4"></i><i style="--v:1"></i><i style="--v:3"></i>
+  <i style="--v:2"></i><i style="--v:1"></i><i style="--v:0"></i></div>
+</body>
+</html>

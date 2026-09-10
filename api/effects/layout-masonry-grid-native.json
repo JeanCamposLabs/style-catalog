@@ -1,0 +1,44 @@
+{
+  "id": "layout-masonry-grid-native",
+  "title": "Masonry Columns",
+  "summary": "Ragged-height tiles in balanced columns.",
+  "description": "Ragged-height tiles in balanced columns.",
+  "theme": "layout-archetypes",
+  "themeTitle": "Layout Archetypes",
+  "categories": [
+    "layout",
+    "structure"
+  ],
+  "tags": [
+    "layout",
+    "grid",
+    "masonry",
+    "columns",
+    "ragged",
+    "gallery"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.",
+  "customization": [
+    {
+      "name": "--cols",
+      "description": "Column count",
+      "default": "3"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Pinterest-style walls. CSS columns order items top-to-bottom per column, so tab order will not match the visual layout — use it only where order is not meaningful.",
+  "path": "effects/layout-archetypes/layout-masonry-grid-native.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Masonry Columns</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"layout-masonry-grid-native\",\n    \"title\": \"Masonry Columns\",\n    \"summary\": \"Ragged-height tiles in balanced columns.\",\n    \"description\": \"Ragged-height tiles in balanced columns.\",\n    \"theme\": \"layout-archetypes\",\n    \"categories\": [\"layout\", \"structure\"],\n    \"tags\": [\"layout\", \"grid\", \"masonry\", \"columns\", \"ragged\", \"gallery\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Layouts must reflow rather than scroll horizontally, and the DOM order must match the visual reading order.\",\n    \"customization\": [\n      { \"name\": \"--cols\", \"description\": \"Column count\", \"default\": \"3\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Pinterest-style walls. CSS columns order items top-to-bottom per column, so tab order will not match the visual layout — use it only where order is not meaningful.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { columns: 3; column-gap: 8px; width: 300px; }\n    .fx div { break-inside: avoid; margin-bottom: 8px; border-radius: 10px; background: #151b2a; border: 1px solid #263149;\n      display: grid; place-items: center; color: #8b93a7; font-size: .74rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div style=\"height:60px\">1</div><div style=\"height:96px\">2</div><div style=\"height:74px\">3</div>\n  <div style=\"height:110px\">4</div><div style=\"height:66px\">5</div><div style=\"height:88px\">6</div></div>\n</body>\n</html>\n"
+}

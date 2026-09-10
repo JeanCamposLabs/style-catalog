@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Black Hole</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "black-hole-lensing",
+    "title": "Black Hole",
+    "summary": "An accretion disc bending light around a dark core.",
+    "description": "An accretion disc bending light around a dark core.",
+    "theme": "space-cosmic",
+    "categories": ["space", "cosmic"],
+    "tags": ["space", "cosmic", "black-hole", "accretion", "disc", "gravity"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+    "customization": [
+      { "name": "--c", "description": "Disc colour", "default": "#f97316" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Sci-fi and data-gravity metaphors. A masked conic gradient plus a pure-black core is enough — the blur does the lensing work."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 200px; height: 200px; display: grid; place-items: center; }
+    .fx .disc { position: absolute; width: 200px; height: 200px; border-radius: 50%;
+      background: conic-gradient(#fff, #fbbf24, #f97316, #7c2d12, #fbbf24, #fff); filter: blur(6px);
+      -webkit-mask: radial-gradient(farthest-side, transparent 42%, #000 44%); mask: radial-gradient(farthest-side, transparent 42%, #000 44%);
+      animation: spin 8s linear infinite; }
+    .fx .core { width: 84px; height: 84px; border-radius: 50%; background: #000; box-shadow: 0 0 40px 8px rgba(0,0,0,.9); z-index: 1; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="disc"></span><span class="core"></span></div>
+</body>
+</html>

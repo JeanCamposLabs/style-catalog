@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scramble Reveal</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "text-scramble-reveal",
+    "title": "Scramble Reveal",
+    "summary": "Letters resolving from random characters.",
+    "description": "Letters resolving from random characters.",
+    "theme": "text-effects",
+    "categories": ["text", "typography"],
+    "tags": ["text", "type", "scramble", "reveal", "decode", "cypher"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative duplicates are aria-hidden.",
+    "customization": [
+      { "name": "--dur", "description": "Resolve duration", "default": "2s" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Decode and unlock moments. Resolve left to right at a steady rate and keep the string length fixed, so the layout never shifts while it settles."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { font-family: ui-monospace, Menlo, monospace; font-size: 1.4rem; font-weight: 700; color: #b9a5ff; letter-spacing: .05em; }
+  </style>
+</head>
+<body>
+  <div class="fx" id="sc" aria-label="STYLE CATALOG">STYLE CATALOG</div>
+  <script>
+    (function () {
+      var el = document.getElementById("sc"), target = el.textContent, junk = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#%&";
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      function run() {
+        var i = 0;
+        var t = setInterval(function () {
+          el.textContent = target.split("").map(function (ch, k) {
+            if (k < i || ch === " ") return ch;
+            return junk[Math.floor(Math.random() * junk.length)];
+          }).join("");
+          if (i++ > target.length) clearInterval(t);
+        }, 70);
+      }
+      run(); setInterval(run, 5000);
+    })();
+  </script>
+</body>
+</html>

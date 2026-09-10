@@ -1,0 +1,44 @@
+{
+  "id": "magnetic-attraction-dots",
+  "title": "Magnetic Dots",
+  "summary": "A grid of dots pulled toward the pointer.",
+  "description": "A grid of dots pulled toward the pointer.",
+  "theme": "particles-physics",
+  "themeTitle": "Particles & Physics",
+  "categories": [
+    "particles",
+    "physics"
+  ],
+  "tags": [
+    "particles",
+    "motion",
+    "magnetic",
+    "attraction",
+    "grid",
+    "pointer"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+  "customization": [
+    {
+      "name": "--r",
+      "description": "Attraction radius",
+      "default": "90px"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Interactive hero fields. Measure each dot's centre once and cache it — recomputing getBoundingClientRect per dot per pointermove is what makes this pattern stutter.",
+  "path": "effects/particles-physics/magnetic-attraction-dots.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Magnetic Dots</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"magnetic-attraction-dots\",\n    \"title\": \"Magnetic Dots\",\n    \"summary\": \"A grid of dots pulled toward the pointer.\",\n    \"description\": \"A grid of dots pulled toward the pointer.\",\n    \"theme\": \"particles-physics\",\n    \"categories\": [\"particles\", \"physics\"],\n    \"tags\": [\"particles\", \"motion\", \"magnetic\", \"attraction\", \"grid\", \"pointer\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--r\", \"description\": \"Attraction radius\", \"default\": \"90px\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Interactive hero fields. Measure each dot's centre once and cache it — recomputing getBoundingClientRect per dot per pointermove is what makes this pattern stutter.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 170px; border-radius: 14px; background: #10141f; border: 1px solid #263149;\n      display: grid; grid-template-columns: repeat(10, 1fr); align-content: center; gap: 12px; padding: 1rem; }\n    .fx i { width: 6px; height: 6px; border-radius: 50%; background: #7c5cff; justify-self: center;\n      transition: transform .25s cubic-bezier(.2,.8,.3,1); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"md\"></div>\n  <script>\n    (function () {\n      var host = document.getElementById(\"md\"), dots = [];\n      for (var i = 0; i < 50; i++) { var d = document.createElement(\"i\"); host.appendChild(d); dots.push(d); }\n      var boxes = null;\n      host.addEventListener(\"pointerenter\", function () {\n        boxes = dots.map(function (d) { var r = d.getBoundingClientRect(); return { d: d, x: r.left + 3, y: r.top + 3 }; });\n      });\n      host.addEventListener(\"pointermove\", function (e) {\n        if (!boxes) return;\n        boxes.forEach(function (b) {\n          var dx = e.clientX - b.x, dy = e.clientY - b.y, dist = Math.hypot(dx, dy), f = Math.max(0, 1 - dist / 90);\n          b.d.style.transform = \"translate(\" + dx * f * .5 + \"px,\" + dy * f * .5 + \"px)\";\n        });\n      });\n      host.addEventListener(\"pointerleave\", function () {\n        dots.forEach(function (d) { d.style.transform = \"\"; });\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perspective Tunnel</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "perspective-grid-tunnel",
+    "title": "Perspective Tunnel",
+    "summary": "Rings receding into a vanishing point.",
+    "description": "Rings receding into a vanishing point.",
+    "theme": "3d-transforms",
+    "categories": ["3d", "transform"],
+    "tags": ["3d", "transform", "tunnel", "perspective", "depth", "rings"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Ring period", "default": "3s" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Transitions and sci-fi loaders. Stagger identical rings on one keyframe by delay; the perspective value alone controls how aggressive the tunnel feels."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 240px; height: 200px; perspective: 400px; overflow: hidden; border-radius: 14px; background: #05070d; }
+    .fx i { position: absolute; inset: 50% auto auto 50%; width: 200px; height: 200px; margin: -100px 0 0 -100px;
+      border: 2px solid #7c5cff; border-radius: 12px; animation: fly 3s linear infinite; animation-delay: var(--dl); opacity: 0; }
+    @keyframes fly {
+      0% { transform: translateZ(-900px); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateZ(300px); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="--dl:0s"></i><i style="--dl:-.6s"></i><i style="--dl:-1.2s"></i><i style="--dl:-1.8s"></i><i style="--dl:-2.4s"></i></div>
+</body>
+</html>

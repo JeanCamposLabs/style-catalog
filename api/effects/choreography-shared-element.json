@@ -1,0 +1,44 @@
+{
+  "id": "choreography-shared-element",
+  "title": "Shared Element",
+  "summary": "One element morphing between two states.",
+  "description": "One element morphing between two states.",
+  "theme": "motion-principles",
+  "themeTitle": "Motion Principles",
+  "categories": [
+    "motion",
+    "reference"
+  ],
+  "tags": [
+    "motion",
+    "easing",
+    "shared-element",
+    "morph",
+    "continuity",
+    "transition"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Transition duration",
+      "default": "0.5s"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Navigating between a list and a detail view. Morphing one element preserves the user's sense of place far better than cross-fading two screens.",
+  "path": "effects/motion-principles/choreography-shared-element.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Shared Element</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"choreography-shared-element\",\n    \"title\": \"Shared Element\",\n    \"summary\": \"One element morphing between two states.\",\n    \"description\": \"One element morphing between two states.\",\n    \"theme\": \"motion-principles\",\n    \"categories\": [\"motion\", \"reference\"],\n    \"tags\": [\"motion\", \"easing\", \"shared-element\", \"morph\", \"continuity\", \"transition\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Transition duration\", \"default\": \"0.5s\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Navigating between a list and a detail view. Morphing one element preserves the user's sense of place far better than cross-fading two screens.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 290px; height: 170px; border-radius: 14px; background: #10141f; border: 1px solid #263149; overflow: hidden; }\n    .fx .el { position: absolute; border-radius: 12px; background: linear-gradient(150deg, #7c5cff, #2dd4bf);\n      animation: morph 4s cubic-bezier(.7,0,.2,1) infinite; }\n    @keyframes morph {\n      0%, 15% { top: 16px; left: 16px; width: 90px; height: 60px; border-radius: 12px; }\n      50%, 85% { top: 0; left: 0; width: 100%; height: 100%; border-radius: 0; }\n      100% { top: 16px; left: 16px; width: 90px; height: 60px; border-radius: 12px; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"el\"></div></div>\n</body>\n</html>\n"
+}

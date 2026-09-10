@@ -1,0 +1,44 @@
+{
+  "id": "pill-tabs-underline",
+  "title": "Underlined Tabs",
+  "summary": "Horizontal tabs with a sliding underline indicator.",
+  "description": "The underline is one element that translates and resizes to the active tab, so it never leaves gaps.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "tabs"
+  ],
+  "tags": [
+    "tabs",
+    "underline",
+    "indicator",
+    "slide",
+    "panel"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Indicator colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Scrollable tabs on mobile",
+    "Icons above labels"
+  ],
+  "related": [],
+  "ai_usage": "Content switchers. Measure the active tab's offsetLeft/offsetWidth to size the indicator, and re-measure on resize or the underline drifts after a layout change.",
+  "path": "effects/navigation-menus/pill-tabs-underline.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Underlined Tabs</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"pill-tabs-underline\",\n    \"title\": \"Underlined Tabs\",\n    \"summary\": \"Horizontal tabs with a sliding underline indicator.\",\n    \"description\": \"The underline is one element that translates and resizes to the active tab, so it never leaves gaps.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"tabs\"],\n    \"tags\": [\"tabs\", \"underline\", \"indicator\", \"slide\", \"panel\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Indicator colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Scrollable tabs on mobile\", \"Icons above labels\"],\n    \"ai_usage\": \"Content switchers. Measure the active tab's offsetLeft/offsetWidth to size the indicator, and re-measure on resize or the underline drifts after a layout change.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .tabs { position: relative; display: flex; gap: 1.4rem; border-bottom: 1px solid #1f2740; padding-bottom: .6rem; }\n    .tabs button { border: 0; background: transparent; color: #8b93a7; font: inherit; font-weight: 600; cursor: pointer; padding: 0; }\n    .tabs button[aria-selected=\"true\"] { color: #e7ebf3; }\n    .tabs .ind { position: absolute; bottom: -1px; height: 2px; background: var(--c, #2dd4bf); transition: transform .3s, width .3s; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"tabs\" id=\"tabs\" role=\"tablist\" aria-label=\"Views\">\n    <button role=\"tab\" aria-selected=\"true\" type=\"button\">Overview</button>\n    <button role=\"tab\" aria-selected=\"false\" type=\"button\">Activity</button>\n    <button role=\"tab\" aria-selected=\"false\" type=\"button\">Members</button>\n    <span class=\"ind\" aria-hidden=\"true\"></span>\n  </div>\n  <script>\n    (function () {\n      var host = document.getElementById(\"tabs\"), ind = host.querySelector(\".ind\");\n      var tabs = [].slice.call(host.querySelectorAll(\"button\"));\n      function move(t) {\n        ind.style.width = t.offsetWidth + \"px\";\n        ind.style.transform = \"translateX(\" + t.offsetLeft + \"px)\";\n      }\n      tabs.forEach(function (t) {\n        t.addEventListener(\"click\", function () {\n          tabs.forEach(function (o) { o.setAttribute(\"aria-selected\", \"false\"); });\n          t.setAttribute(\"aria-selected\", \"true\"); move(t);\n        });\n      });\n      move(tabs[0]);\n    })();\n  </script>\n</body>\n</html>\n"
+}

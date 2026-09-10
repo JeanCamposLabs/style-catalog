@@ -1,0 +1,44 @@
+{
+  "id": "combo-testimonial-block",
+  "title": "Testimonial Block",
+  "summary": "A quote with avatar, name, and rating.",
+  "description": "A quote with avatar, name, and rating.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "combo",
+    "section"
+  ],
+  "tags": [
+    "combo",
+    "block",
+    "testimonial",
+    "quote",
+    "social-proof",
+    "rating"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+  "customization": [
+    {
+      "name": "--star",
+      "description": "Star colour",
+      "default": "#c2891a"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Social proof sections. Put the rating in text as well as stars, and use blockquote with cite so the attribution is programmatically linked to the quote.",
+  "path": "effects/combos-recipes/combo-testimonial-block.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Testimonial Block</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"combo-testimonial-block\",\n    \"title\": \"Testimonial Block\",\n    \"summary\": \"A quote with avatar, name, and rating.\",\n    \"description\": \"A quote with avatar, name, and rating.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"combo\", \"section\"],\n    \"tags\": [\"combo\", \"block\", \"testimonial\", \"quote\", \"social-proof\", \"rating\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.\",\n    \"customization\": [\n      { \"name\": \"--star\", \"description\": \"Star colour\", \"default\": \"#c2891a\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Social proof sections. Put the rating in text as well as stars, and use blockquote with cite so the attribution is programmatically linked to the quote.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; place-items: center; padding: 2rem 1rem; }\n    .fx { width: min(92vw, 300px); padding: 1.4rem; border-radius: 18px; background: #151b2a; border: 1px solid #263149; }\n    .fx .stars { color: #c2891a; font-size: .85rem; letter-spacing: .1em; }\n    .fx blockquote { margin: .6rem 0 1rem; font-size: 1rem; line-height: 1.6; color: #e7ebf3; }\n    .fx .who { display: flex; align-items: center; gap: .7rem; }\n    .fx .av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(150deg, #7c5cff, #2dd4bf);\n      display: grid; place-items: center; font-weight: 800; color: #0b0d12; font-size: .8rem; }\n    .fx b { display: block; font-size: .88rem; }\n    .fx span { color: #8b93a7; font-size: .78rem; }\n  </style>\n</head>\n<body>\n  <figure class=\"fx\" style=\"margin:0\"><div class=\"stars\" role=\"img\" aria-label=\"5 out of 5\">★★★★★</div>\n  <blockquote>We replaced a folder of half-finished CSS experiments with this. It paid for itself in a week.</blockquote>\n  <figcaption class=\"who\"><span class=\"av\">AL</span><span><b>Ada Lovelace</b><span>Design lead, Analytical</span></span></figcaption></figure>\n</body>\n</html>\n"
+}

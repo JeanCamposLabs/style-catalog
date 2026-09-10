@@ -1,0 +1,44 @@
+{
+  "id": "autocomplete-list",
+  "title": "Autocomplete Suggestions",
+  "summary": "A field that filters a list and highlights the matched substring.",
+  "description": "Highlighting the matched characters shows why each suggestion appeared, which plain filtering does not.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "search"
+  ],
+  "tags": [
+    "autocomplete",
+    "typeahead",
+    "filter",
+    "highlight",
+    "combobox"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A production combobox needs role=combobox, aria-expanded, aria-activedescendant, and arrow-key navigation — this specimen shows the visual layer.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Highlight colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Group results by category",
+    "Recent searches when empty"
+  ],
+  "related": [],
+  "ai_usage": "Search-as-you-type UIs. Escape user input before injecting the highlight markup, and debounce remote queries by ~150ms.",
+  "path": "effects/forms-inputs/autocomplete-list.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Autocomplete Suggestions</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"autocomplete-list\",\n    \"title\": \"Autocomplete Suggestions\",\n    \"summary\": \"A field that filters a list and highlights the matched substring.\",\n    \"description\": \"Highlighting the matched characters shows why each suggestion appeared, which plain filtering does not.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"search\"],\n    \"tags\": [\"autocomplete\", \"typeahead\", \"filter\", \"highlight\", \"combobox\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A production combobox needs role=combobox, aria-expanded, aria-activedescendant, and arrow-key navigation — this specimen shows the visual layer.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Highlight colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Group results by category\", \"Recent searches when empty\"],\n    \"ai_usage\": \"Search-as-you-type UIs. Escape user input before injecting the highlight markup, and debounce remote queries by ~150ms.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .ac { width: 300px; position: relative; }\n    .ac input { width: 100%; padding: .8rem 1rem; border-radius: 12px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; }\n    .ac ul { list-style: none; margin: .4rem 0 0; padding: .3rem; background: #151b2a; border: 1px solid #2b3450;\n      border-radius: 12px; max-height: 160px; overflow: auto; }\n    .ac li { padding: .5rem .7rem; border-radius: 8px; color: #cbd5e1; font-size: .9rem; cursor: pointer; }\n    .ac li:hover { background: #22304a; }\n    .ac mark { background: transparent; color: var(--c, #7c5cff); font-weight: 700; }\n  </style>\n</head>\n<body>\n  <div class=\"ac\"><input id=\"ai\" type=\"text\" aria-label=\"Find a framework\" placeholder=\"Type 're'…\" /><ul id=\"al\"></ul></div>\n  <script>\n    (function () {\n      var data = [\"React\", \"Preact\", \"Svelte\", \"Solid\", \"Remix\", \"Astro\", \"Qwik\", \"Ember\"];\n      var i = document.getElementById(\"ai\"), l = document.getElementById(\"al\");\n      function esc(s) { return s.replace(/[&<>]/g, function (c) { return { \"&\": \"&amp;\", \"<\": \"&lt;\", \">\": \"&gt;\" }[c]; }); }\n      function render() {\n        var q = i.value.trim().toLowerCase();\n        l.innerHTML = \"\";\n        data.filter(function (d) { return !q || d.toLowerCase().indexOf(q) > -1; }).forEach(function (d) {\n          var li = document.createElement(\"li\"), k = d.toLowerCase().indexOf(q);\n          li.innerHTML = q && k > -1\n            ? esc(d.slice(0, k)) + \"<mark>\" + esc(d.slice(k, k + q.length)) + \"</mark>\" + esc(d.slice(k + q.length))\n            : esc(d);\n          l.appendChild(li);\n        });\n      }\n      i.addEventListener(\"input\", render); render();\n    })();\n  </script>\n</body>\n</html>\n"
+}

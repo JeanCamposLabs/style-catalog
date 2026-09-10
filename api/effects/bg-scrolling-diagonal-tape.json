@@ -1,0 +1,43 @@
+{
+  "id": "bg-scrolling-diagonal-tape",
+  "title": "Scrolling Tape",
+  "summary": "Diagonal warning tape drifting continuously.",
+  "description": "Diagonal warning tape drifting continuously.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "surface"
+  ],
+  "tags": [
+    "background",
+    "tape",
+    "hazard",
+    "diagonal",
+    "scroll"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Drift period",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Maintenance and staging environments. Animate background-position by one full stripe period so the tape appears to travel without ever restarting visibly.",
+  "path": "effects/backgrounds/bg-scrolling-diagonal-tape.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scrolling Tape</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bg-scrolling-diagonal-tape\",\n    \"title\": \"Scrolling Tape\",\n    \"summary\": \"Diagonal warning tape drifting continuously.\",\n    \"description\": \"Diagonal warning tape drifting continuously.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"surface\"],\n    \"tags\": [\"background\", \"tape\", \"hazard\", \"diagonal\", \"scroll\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Drift period\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Maintenance and staging environments. Animate background-position by one full stripe period so the tape appears to travel without ever restarting visibly.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    .bg { background: #0b0d12; overflow: hidden; }\n    .bg i { position: absolute; left: -20%; right: -20%; height: 60px; transform: rotate(-8deg);\n      background: repeating-linear-gradient(45deg, #c2891a 0 20px, #0b0d12 20px 40px); opacity: .5;\n      animation: slide 3s linear infinite; }\n    @keyframes slide { to { background-position: 56px 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"><i style=\"top:22%\"></i><i style=\"top:62%\"></i></div>\n</body>\n</html>\n"
+}

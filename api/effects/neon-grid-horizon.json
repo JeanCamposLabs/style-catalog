@@ -1,0 +1,45 @@
+{
+  "id": "neon-grid-horizon",
+  "title": "Neon Horizon",
+  "summary": "A glowing grid receding to a neon sunset.",
+  "description": "A glowing grid receding to a neon sunset.",
+  "theme": "neon-cyberpunk",
+  "themeTitle": "Neon & Cyberpunk",
+  "categories": [
+    "neon",
+    "cyberpunk"
+  ],
+  "tags": [
+    "neon",
+    "glow",
+    "dark",
+    "grid",
+    "horizon",
+    "sunset",
+    "synthwave"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Grid colour",
+      "default": "rgba(34,211,238,.6)"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Synthwave scenes. Perspective on an oversized grid layer plus a gradient sun is the whole composition — no 3D engine required.",
+  "path": "effects/neon-cyberpunk/neon-grid-horizon.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Neon Horizon</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"neon-grid-horizon\",\n    \"title\": \"Neon Horizon\",\n    \"summary\": \"A glowing grid receding to a neon sunset.\",\n    \"description\": \"A glowing grid receding to a neon sunset.\",\n    \"theme\": \"neon-cyberpunk\",\n    \"categories\": [\"neon\", \"cyberpunk\"],\n    \"tags\": [\"neon\", \"glow\", \"dark\", \"grid\", \"horizon\", \"sunset\", \"synthwave\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Saturated glow on black is hard to read: keep body copy near-white and unglowing, and reserve neon for accents.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Grid colour\", \"default\": \"rgba(34,211,238,.6)\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Synthwave scenes. Perspective on an oversized grid layer plus a gradient sun is the whole composition — no 3D engine required.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 300px; height: 200px; overflow: hidden; border-radius: 14px;\n      background: linear-gradient(180deg, #1a0733 0 55%, #06010f 55%); }\n    .fx .sun { position: absolute; top: 18%; left: 50%; translate: -50% 0; width: 110px; height: 110px; border-radius: 50%;\n      background: linear-gradient(180deg, #fbbf24, #ff2d95); box-shadow: 0 0 60px rgba(255,45,149,.6); }\n    .fx .grid { position: absolute; left: -50%; right: -50%; bottom: -10%; height: 60%;\n      background-image: repeating-linear-gradient(90deg, rgba(34,211,238,.6) 0 2px, transparent 2px 46px),\n        repeating-linear-gradient(0deg, rgba(34,211,238,.6) 0 2px, transparent 2px 46px);\n      transform: perspective(160px) rotateX(66deg); transform-origin: bottom; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"sun\"></span><span class=\"grid\"></span></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wave Fill Meter</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "progress-wave-fill",
+    "title": "Wave Fill Meter",
+    "summary": "A container that fills with animated liquid.",
+    "description": "A container that fills with animated liquid.",
+    "theme": "progress-meters",
+    "categories": ["progress", "meter"],
+    "tags": ["progress", "indicator", "liquid", "wave", "fill", "tank"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+    "customization": [
+      { "name": "--p", "description": "Percent filled", "default": "62" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Storage and hydration trackers. Two counter-rotating oversized ellipses make the surface look liquid; a straight edge reads as a plain bar."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .wf { position: relative; width: 130px; height: 130px; border-radius: 50%; overflow: hidden; border: 3px solid #22304a; }
+    .wf .liq { position: absolute; left: -50%; right: -50%; bottom: 0; height: calc(var(--p) * 1%); background: #38bdf8; }
+    .wf .liq::before, .wf .liq::after { content: ""; position: absolute; top: -12px; left: 0; right: 0; height: 24px;
+      background: #38bdf8; border-radius: 45%; animation: spin 5s linear infinite; }
+    .wf .liq::after { animation-duration: 7s; animation-direction: reverse; opacity: .6; }
+    .wf b { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; color: #06202e; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wf" style="--p:62" role="img" aria-label="62 percent full"><div class="liq"></div><b>62%</b></div>
+</body>
+</html>

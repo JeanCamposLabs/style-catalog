@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Text Clip</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-clip-text-image",
+    "title": "SVG Text Clip",
+    "summary": "An image visible only inside SVG letterforms.",
+    "description": "An image visible only inside SVG letterforms.",
+    "theme": "svg-effects",
+    "categories": ["svg", "vector"],
+    "tags": ["svg", "vector", "clip-path", "text", "image", "knockout"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+    "customization": [
+      { "name": "--size", "description": "Font size", "default": "62" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Headline treatments that must clip a photo or gradient. clipPath with SVG text works where background-clip cannot — for instance clipping a video element."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 280px; }
+    .fx svg { width: 100%; display: block; }
+    .fx text { font-family: system-ui, sans-serif; font-weight: 900; font-size: 62px; }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 280 90" role="img" aria-label="VECTOR">
+    <defs><clipPath id="tc"><text x="140" y="68" text-anchor="middle">VECTOR</text></clipPath>
+    <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/>
+    <stop offset="0.5" stop-color="#2dd4bf"/><stop offset="1" stop-color="#c2891a"/></linearGradient></defs>
+    <rect width="280" height="90" fill="url(#tg)" clip-path="url(#tc)"/></svg></div>
+</body>
+</html>

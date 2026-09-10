@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cursor Spotlight</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-spotlight-mask-reveal",
+    "title": "Cursor Spotlight",
+    "summary": "Content revealed only under the pointer.",
+    "description": "Content revealed only under the pointer.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "pointer"],
+    "tags": ["cursor", "pointer", "spotlight", "mask", "reveal", "pointer"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--r", "description": "Spotlight radius", "default": "90px" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Playful reveals. Keep the dim base copy readable — hiding content entirely behind a pointer-only reveal makes it inaccessible on touch and to keyboard users."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 290px; height: 170px; border-radius: 14px; overflow: hidden; background: #0b0d12;
+      display: grid; place-items: center; cursor: none; }
+    .fx .txt { font-size: 1.4rem; font-weight: 900; color: #2b3450; }
+    .fx .lit { position: absolute; inset: 0; display: grid; place-items: center; font-size: 1.4rem; font-weight: 900; color: #2dd4bf;
+      -webkit-mask-image: radial-gradient(90px circle at var(--x, -100px) var(--y, -100px), #000 40%, transparent 70%);
+      mask-image: radial-gradient(90px circle at var(--x, -100px) var(--y, -100px), #000 40%, transparent 70%); }
+  </style>
+</head>
+<body>
+  <div class="fx" id="cs"><span class="txt">FIND ME</span><span class="lit">FIND ME</span></div>
+  <script>
+    (function () {
+      var el = document.getElementById("cs"), lit = el.querySelector(".lit");
+      el.addEventListener("pointermove", function (e) {
+        var r = el.getBoundingClientRect();
+        lit.style.setProperty("--x", (e.clientX - r.left) + "px");
+        lit.style.setProperty("--y", (e.clientY - r.top) + "px");
+      });
+    })();
+  </script>
+</body>
+</html>

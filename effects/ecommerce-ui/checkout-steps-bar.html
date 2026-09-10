@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout Steps</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "checkout-steps-bar",
+    "title": "Checkout Steps",
+    "summary": "A three-step checkout indicator with a completed state.",
+    "description": "A three-step checkout indicator with a completed state.",
+    "theme": "ecommerce-ui",
+    "categories": ["ecommerce", "commerce"],
+    "tags": ["ecommerce", "shop", "checkout", "steps", "progress", "flow"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+    "customization": [
+      { "name": "--c", "description": "Active colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Multi-step checkout. Mark the active step with aria-current=step and never let users lose entered data by navigating back."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; align-items: center; width: 300px; }
+    .st { display: grid; justify-items: center; gap: .35rem; font-size: .74rem; color: #8b93a7; }
+    .st .d { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 800;
+      background: #1c2437; border: 2px solid #2b3450; }
+    .st.done .d { background: #34d399; border-color: #34d399; color: #052e2b; }
+    .st.now .d { border-color: #7c5cff; color: #b9a5ff; }
+    .st.now { color: #e7ebf3; }
+    .ln { flex: 1; height: 2px; background: #2b3450; margin: 0 .3rem 1.1rem; }
+    .ln.done { background: #34d399; }
+  </style>
+</head>
+<body>
+  <ol class="fx" style="list-style:none;margin:0;padding:0"><li class="st done"><span class="d">✓</span>Cart</li>
+  <li class="ln done" aria-hidden="true"></li><li class="st now" aria-current="step"><span class="d">2</span>Delivery</li>
+  <li class="ln" aria-hidden="true"></li><li class="st"><span class="d">3</span>Payment</li></ol>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Progress Badge</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "badge-progress-ring-mini",
+    "title": "Mini Progress Badge",
+    "summary": "A tiny ring showing completion next to a label.",
+    "description": "A tiny ring showing completion next to a label. Small self-contained component ready to drop into a list or card.",
+    "theme": "badges-tags",
+    "categories": ["badge", "label"],
+    "tags": ["badge", "label", "progress", "ring", "conic", "compact"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+    "customization": [
+      { "name": "--p", "description": "Percent complete", "default": "70" }
+    ],
+    "variations": ["Add a size variant", "Map colours to semantic tokens"],
+    "ai_usage": "Compact completion indicators in lists. One conic-gradient plus an inner disc is the smallest possible progress ring — no SVG needed."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .b { display: inline-flex; align-items: center; gap: .5rem; padding: .3rem .8rem .3rem .35rem; border-radius: 999px;
+      background: #1c2437; color: #cbd5e1; font-size: .8rem; font-weight: 600; }
+    .b .ring { width: 22px; height: 22px; border-radius: 50%;
+      background: conic-gradient(#34d399 calc(var(--p) * 1%), #2b3450 0); display: grid; place-items: center; }
+    .b .ring::after { content: ""; width: 14px; height: 14px; border-radius: 50%; background: #1c2437; }
+  </style>
+</head>
+<body>
+  <span class="b"><span class="ring" style="--p:70" aria-hidden="true"></span>70% complete</span>
+</body>
+</html>

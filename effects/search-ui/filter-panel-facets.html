@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Facet Filters</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "filter-panel-facets",
+    "title": "Facet Filters",
+    "summary": "Checkbox facets with result counts.",
+    "description": "Checkbox facets with result counts.",
+    "theme": "search-ui",
+    "categories": ["search", "filter"],
+    "tags": ["search", "find", "facets", "checkbox", "counts", "filter"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+    "customization": [
+      { "name": "--c", "description": "Accent", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Faceted search. Show the count per facet and grey out zero-result options rather than hiding them — disappearing filters make the result set feel unpredictable."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 250px; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }
+    .fx fieldset { border: 0; padding: 0; margin: 0 0 1rem; }
+    .fx legend { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; margin-bottom: .5rem; }
+    .fx label { display: flex; align-items: center; gap: .5rem; padding: .25rem 0; color: #cbd5e1; font-size: .85rem; }
+    .fx label span { margin-left: auto; color: #64748b; font-size: .76rem; font-variant-numeric: tabular-nums; }
+    .fx input { accent-color: #7c5cff; }
+  </style>
+</head>
+<body>
+  <div class="fx"><fieldset><legend>Tech</legend>
+  <label><input type="checkbox" checked /> CSS <span>842</span></label>
+  <label><input type="checkbox" /> SVG <span>196</span></label>
+  <label><input type="checkbox" /> Canvas <span>24</span></label></fieldset>
+  <fieldset><legend>Difficulty</legend>
+  <label><input type="checkbox" /> Beginner <span>412</span></label>
+  <label><input type="checkbox" checked /> Intermediate <span>598</span></label></fieldset></div>
+</body>
+</html>

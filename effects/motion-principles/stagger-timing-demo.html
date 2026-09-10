@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stagger Timing</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "stagger-timing-demo",
+    "title": "Stagger Timing",
+    "summary": "Three stagger intervals compared.",
+    "description": "Three stagger intervals compared.",
+    "theme": "motion-principles",
+    "categories": ["motion", "reference"],
+    "tags": ["motion", "easing", "stagger", "sequence", "delay", "rhythm"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+    "customization": [
+      { "name": "--step", "description": "Stagger step", "default": "60ms" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "List entrances. 40–80ms per item reads as one connected motion; above ~120ms the list feels like it is loading slowly rather than arriving."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; display: grid; gap: .8rem; }
+    .g { display: flex; gap: 5px; }
+    .g i { width: 22px; height: 22px; border-radius: 6px; background: #7c5cff; animation: hop 1.8s ease-in-out infinite;
+      animation-delay: calc(var(--i) * var(--step)); }
+    .lbl { font-size: .68rem; color: #64748b; font-family: ui-monospace, monospace; margin-bottom: .25rem; }
+    @keyframes hop { 0%, 60%, 100% { transform: translateY(0); } 25% { transform: translateY(-12px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div><div class="lbl">30ms — nearly simultaneous</div><div class="g" style="--step:30ms">
+  <i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i></div></div>
+  <div><div class="lbl">60ms — connected</div><div class="g" style="--step:60ms">
+  <i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i></div></div>
+  <div><div class="lbl">160ms — disjointed</div><div class="g" style="--step:160ms">
+  <i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i></div></div></div>
+</body>
+</html>

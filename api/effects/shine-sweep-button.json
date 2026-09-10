@@ -1,0 +1,49 @@
+{
+  "id": "shine-sweep-button",
+  "title": "Shine Sweep Button",
+  "summary": "A diagonal highlight sweeps across the face on hover.",
+  "description": "A skewed white gradient slides through the button on a single transform, the classic glossy hover in one pseudo-element.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "hover"
+  ],
+  "tags": [
+    "shine",
+    "sweep",
+    "gloss",
+    "hover",
+    "cta"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Button color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Sweep duration",
+      "default": "0.6s"
+    }
+  ],
+  "variations": [
+    "Auto-sweep on a timer for a hero CTA",
+    "Rainbow sheen",
+    "Sweep in the opposite direction"
+  ],
+  "related": [],
+  "ai_usage": "Any solid primary button that needs a little life. The sheen is a skewX(-20deg) gradient translated from -150% to 150%; keep overflow hidden and never animate left/right (use transform for compositing).",
+  "path": "effects/buttons/shine-sweep-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Shine Sweep Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"shine-sweep-button\",\n    \"title\": \"Shine Sweep Button\",\n    \"summary\": \"A diagonal highlight sweeps across the face on hover.\",\n    \"description\": \"A skewed white gradient slides through the button on a single transform, the classic glossy hover in one pseudo-element.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"hover\"],\n    \"tags\": [\"shine\", \"sweep\", \"gloss\", \"hover\", \"cta\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Button color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Sweep duration\", \"default\": \"0.6s\" }\n    ],\n    \"variations\": [\"Auto-sweep on a timer for a hero CTA\", \"Rainbow sheen\", \"Sweep in the opposite direction\"],\n    \"ai_usage\": \"Any solid primary button that needs a little life. The sheen is a skewX(-20deg) gradient translated from -150% to 150%; keep overflow hidden and never animate left/right (use transform for compositing).\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #7c5cff; --dur: .6s; }\n    .shine { position: relative; overflow: hidden; padding: .95rem 2.2rem; border-radius: 12px;\n      background: var(--c); color: #fff; font-weight: 700; }\n    .shine::after { content: \"\"; position: absolute; top: 0; bottom: 0; width: 60%; left: -80%;\n      background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-20deg);\n      transition: left var(--dur) ease; }\n    .shine:hover::after { left: 120%; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"shine\" type=\"button\">Upgrade</button>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "image-caption-overlay-hover",
+  "title": "Caption Overlay",
+  "summary": "A caption sliding over the image on hover.",
+  "description": "A caption sliding over the image on hover.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "media"
+  ],
+  "tags": [
+    "image",
+    "media",
+    "caption",
+    "overlay",
+    "hover",
+    "figure"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Slide duration",
+      "default": "0.35s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Photo grids. Keep the essential label visible at rest and reserve the overlay for secondary detail — hover-only captions are invisible on touch devices.",
+  "path": "effects/images-media/image-caption-overlay-hover.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Caption Overlay</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"image-caption-overlay-hover\",\n    \"title\": \"Caption Overlay\",\n    \"summary\": \"A caption sliding over the image on hover.\",\n    \"description\": \"A caption sliding over the image on hover.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"media\"],\n    \"tags\": [\"image\", \"media\", \"caption\", \"overlay\", \"hover\", \"figure\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Slide duration\", \"default\": \"0.35s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Photo grids. Keep the essential label visible at rest and reserve the overlay for secondary detail — hover-only captions are invisible on touch devices.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 270px; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; }\n    .fx .img { position: absolute; inset: 0; background: conic-gradient(from 140deg at 35% 30%, #d1478c, #c2891a, #7c5cff); }\n    .fx figcaption { position: absolute; inset: auto 0 0 0; padding: .9rem 1rem;\n      background: linear-gradient(transparent, rgba(6,8,14,.92)); color: #fff;\n      transform: translateY(30%); opacity: 0; transition: transform .35s, opacity .35s; }\n    .fx:hover figcaption, .fx:focus-within figcaption { transform: none; opacity: 1; }\n    .fx b { display: block; font-size: .92rem; }\n    .fx span { font-size: .78rem; opacity: .8; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <figure class=\"fx\" tabindex=\"0\" style=\"margin:0\"><div class=\"img\"></div>\n  <figcaption><b>Chromatic study</b><span>Gradient on canvas, 2026</span></figcaption></figure>\n</body>\n</html>\n"
+}

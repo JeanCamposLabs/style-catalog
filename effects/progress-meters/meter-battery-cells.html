@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cell Meter</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "meter-battery-cells",
+    "title": "Cell Meter",
+    "summary": "Discrete cells fill to show a level.",
+    "description": "Discrete cells fill to show a level.",
+    "theme": "progress-meters",
+    "categories": ["progress", "meter"],
+    "tags": ["progress", "indicator", "cells", "discrete", "level", "battery"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+    "customization": [
+      { "name": "--on", "description": "Filled colour", "default": "#34d399" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Signal, battery, and strength meters where an exact number is meaningless. Colour early cells differently to encode danger zones."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .m { display: flex; gap: 4px; }
+    .m i { width: 20px; height: 40px; border-radius: 4px; background: #22304a; }
+    .m i.on { background: #34d399; }
+    .m i.on:nth-child(-n+2) { background: #fbbf24; }
+    .lbl { margin-top: .6rem; color: #8b93a7; font-size: .82rem; text-align: center; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div><div class="m" role="meter" aria-valuenow="4" aria-valuemin="0" aria-valuemax="6" aria-label="Signal strength">
+    <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i>
+  </div><p class="lbl">4 of 6</p></div>
+</body>
+</html>

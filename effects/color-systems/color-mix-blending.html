@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>color-mix() Recipes</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "color-mix-blending",
+    "title": "color-mix() Recipes",
+    "summary": "Deriving tints and states from one token.",
+    "description": "Deriving tints and states from one token.",
+    "theme": "color-systems",
+    "categories": ["color", "reference"],
+    "tags": ["color", "tokens", "color-mix", "derived", "states", "tokens"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+    "customization": [
+      { "name": "--brand", "description": "Brand colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "State colours from one brand token. color-mix() derives hover, active, and disabled variants at build or runtime, so a rebrand means changing exactly one value."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; --brand: #7c5cff; }
+    .fx .row { display: flex; align-items: center; gap: .6rem; padding: .45rem .6rem; border-radius: 9px; margin-bottom: 6px;
+      background: #151b2a; font-size: .78rem; color: #cbd5e1; }
+    .fx .sw { width: 34px; height: 26px; border-radius: 6px; flex: none; }
+    .fx code { margin-left: auto; font-family: ui-monospace, monospace; font-size: .68rem; color: #64748b; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="row"><span class="sw" style="background:var(--brand)"></span>base<code>--brand</code></div>
+  <div class="row"><span class="sw" style="background:color-mix(in srgb, #7c5cff 85%, white)"></span>hover<code>85% + white</code></div>
+  <div class="row"><span class="sw" style="background:color-mix(in srgb, #7c5cff 80%, black)"></span>active<code>80% + black</code></div>
+  <div class="row"><span class="sw" style="background:color-mix(in srgb, #7c5cff 25%, transparent)"></span>subtle<code>25% alpha</code></div></div>
+</body>
+</html>

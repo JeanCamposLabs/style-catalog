@@ -1,0 +1,44 @@
+{
+  "id": "combo-pricing-toggle-cards",
+  "title": "Pricing with Toggle",
+  "summary": "Monthly/annual toggle above plan cards.",
+  "description": "Monthly/annual toggle above plan cards.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "combo",
+    "section"
+  ],
+  "tags": [
+    "combo",
+    "block",
+    "pricing",
+    "toggle",
+    "plans",
+    "billing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Highlight",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Pricing pages. Show the annual saving explicitly next to the toggle; a discount users have to compute themselves converts far worse than one stated in words.",
+  "path": "effects/combos-recipes/combo-pricing-toggle-cards.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Pricing with Toggle</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"combo-pricing-toggle-cards\",\n    \"title\": \"Pricing with Toggle\",\n    \"summary\": \"Monthly/annual toggle above plan cards.\",\n    \"description\": \"Monthly/annual toggle above plan cards.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"combo\", \"section\"],\n    \"tags\": [\"combo\", \"block\", \"pricing\", \"toggle\", \"plans\", \"billing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Highlight\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Pricing pages. Show the annual saving explicitly next to the toggle; a discount users have to compute themselves converts far worse than one stated in words.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; place-items: center; padding: 2rem 1rem; }\n    .wrap { width: min(92vw, 300px); text-align: center; }\n    .tg { display: inline-flex; padding: 3px; border-radius: 999px; background: #151b2a; border: 1px solid #263149; margin-bottom: 1rem; }\n    .tg button { padding: .4rem 1rem; border: 0; border-radius: 999px; background: transparent; color: #8b93a7;\n      font: inherit; font-size: .8rem; cursor: pointer; }\n    .tg button[aria-pressed=\"true\"] { background: #7c5cff; color: #fff; font-weight: 700; }\n    .cards { display: grid; gap: 10px; }\n    .p { padding: 1.1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; text-align: left; }\n    .p.on { border-color: #7c5cff; }\n    .p b { font-size: .95rem; }\n    .p .price { font-size: 1.6rem; font-weight: 900; margin: .3rem 0; }\n    .p .price span { font-size: .8rem; color: #8b93a7; font-weight: 400; }\n    .p ul { margin: .5rem 0 0; padding-left: 1.1rem; color: #8b93a7; font-size: .8rem; line-height: 1.7; }\n  </style>\n</head>\n<body>\n  <section class=\"wrap\"><div class=\"tg\" role=\"group\" aria-label=\"Billing period\">\n    <button type=\"button\" aria-pressed=\"true\">Monthly</button><button type=\"button\" aria-pressed=\"false\">Annual · save 20%</button></div>\n  <div class=\"cards\"><div class=\"p\"><b>Starter</b><div class=\"price\">$12<span>/mo</span></div>\n  <ul><li>3 seats</li><li>Community support</li></ul></div>\n  <div class=\"p on\"><b>Studio</b><div class=\"price\">$24<span>/mo</span></div>\n  <ul><li>10 seats</li><li>Priority support</li><li>Custom domains</li></ul></div></div></section>\n</body>\n</html>\n"
+}

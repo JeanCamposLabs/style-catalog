@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spring Chain</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "spring-follow-chain",
+    "title": "Spring Chain",
+    "summary": "Dots trailing the leader with spring lag.",
+    "description": "Dots trailing the leader with spring lag.",
+    "theme": "particles-physics",
+    "categories": ["particles", "physics"],
+    "tags": ["particles", "motion", "spring", "trail", "lag", "chain"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+    "customization": [
+      { "name": "--dur", "description": "Sweep period", "default": "3s" }
+    ],
+    "variations": ["Retune the palette", "Scale for a compact variant"],
+    "ai_usage": "Cursor trails and follow effects. Negative animation-delay on a shared keyframe fakes spring lag with no physics loop at all."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 280px; height: 160px; border-radius: 14px; background: #10141f; border: 1px solid #263149; overflow: hidden; }
+    .fx i { position: absolute; top: 50%; width: 16px; height: 16px; border-radius: 50%; background: #7c5cff;
+      animation: sweep 3s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -.09s); opacity: calc(1 - var(--i) * .13); }
+    @keyframes sweep { from { left: 12%; } to { left: 82%; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="--i:5"></i><i style="--i:4"></i><i style="--i:3"></i><i style="--i:2"></i><i style="--i:1"></i><i style="--i:0"></i></div>
+</body>
+</html>

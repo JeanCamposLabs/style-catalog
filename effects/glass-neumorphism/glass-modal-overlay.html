@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass Modal</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-modal-overlay",
+    "title": "Glass Modal",
+    "summary": "A dialog on a blurred, dimmed page backdrop.",
+    "description": "The scrim blurs and darkens the page while the dialog itself stays lighter, keeping a clear depth order.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "overlay"],
+    "tags": ["modal", "dialog", "scrim", "backdrop-filter", "overlay"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A real dialog needs focus trapping, aria-modal, and an Escape handler — the visual treatment here is only half the pattern.",
+    "customization": [
+      { "name": "--scrim", "description": "Scrim blur", "default": "8px" }
+    ],
+    "variations": ["Slide-up sheet on mobile", "Tinted scrim", "No blur for low-power devices"],
+    "ai_usage": "Overlays and dialogs. Blur the scrim, not the dialog; blurring both makes the dialog look out of focus. Pair with the native <dialog> element for free focus management."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: conic-gradient(from 40deg at 60% 40%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }
+    :root { --scrim: 8px; }
+    .scrim { position: fixed; inset: 0; background: rgba(4,7,14,.5); backdrop-filter: blur(var(--scrim));
+      -webkit-backdrop-filter: blur(var(--scrim)); display: grid; place-items: center; }
+    .dlg { width: min(80vw, 300px); padding: 1.6rem; border-radius: 20px; color: #fff;
+      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.32);
+      backdrop-filter: blur(20px) saturate(1.6); -webkit-backdrop-filter: blur(20px) saturate(1.6);
+      box-shadow: 0 30px 70px rgba(0,0,0,.45); }
+    .dlg h3 { margin: 0 0 .5rem; }
+    .dlg p { margin: 0 0 1.1rem; opacity: .85; font-size: .9rem; }
+    .dlg button { padding: .6rem 1.2rem; border: 0; border-radius: 10px; background: #fff; color: #0b0d12; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="scrim"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dt">
+    <h3 id="dt">Delete workspace?</h3><p>This removes all projects and cannot be undone.</p>
+    <button type="button">Cancel</button>
+  </div></div>
+</body>
+</html>

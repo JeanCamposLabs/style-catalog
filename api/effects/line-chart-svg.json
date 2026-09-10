@@ -1,0 +1,49 @@
+{
+  "id": "line-chart-svg",
+  "title": "Line Chart",
+  "summary": "A two-series line chart with markers and a recessive grid.",
+  "description": "A two-series line chart with markers and a recessive grid.",
+  "theme": "charts-dataviz",
+  "themeTitle": "Charts & Data Viz",
+  "categories": [
+    "chart",
+    "dataviz"
+  ],
+  "tags": [
+    "chart",
+    "data",
+    "line",
+    "trend",
+    "time-series",
+    "two-series"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+  "customization": [
+    {
+      "name": "--c1",
+      "description": "Series one",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--c2",
+      "description": "Series two",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "Change over time. Use 2px strokes, markers of at least 8px diameter with a 2px surface ring where lines overlap, and direct-label the series ends when there is room. In production add a crosshair tooltip — an HTML chart should be interactive by default.",
+  "path": "effects/charts-dataviz/line-chart-svg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Line Chart</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"line-chart-svg\",\n    \"title\": \"Line Chart\",\n    \"summary\": \"A two-series line chart with markers and a recessive grid.\",\n    \"description\": \"A two-series line chart with markers and a recessive grid.\",\n    \"theme\": \"charts-dataviz\",\n    \"categories\": [\"chart\", \"dataviz\"],\n    \"tags\": [\"chart\", \"data\", \"line\", \"trend\", \"time-series\", \"two-series\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.\",\n    \"customization\": [\n      { \"name\": \"--c1\", \"description\": \"Series one\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--c2\", \"description\": \"Series two\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"Change over time. Use 2px strokes, markers of at least 8px diameter with a 2px surface ring where lines overlap, and direct-label the series ends when there is room. In production add a crosshair tooltip — an HTML chart should be interactive by default.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;\n      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; width: 310px; }\n    .fx h4 { margin: 0 0 .8rem; font-size: .95rem; color: var(--ink); }\n    .fx .legend { display: flex; gap: 1rem; margin-bottom: .6rem; font-size: .76rem; color: var(--ink-2); }\n    .fx .legend span { display: inline-flex; align-items: center; gap: .35rem; }\n    .fx .legend i { width: 14px; height: 2px; border-radius: 2px; }\n    .fx svg { width: 100%; display: block; }\n    .fx .grid line { stroke: var(--grid); stroke-width: 1; }\n    .fx path { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }\n    .fx circle { r: 4; stroke: var(--surface); stroke-width: 2; }\n    .fx .axis { display: flex; justify-content: space-between; margin-top: .3rem; font-size: .7rem; color: var(--ink-2); }\n  </style>\n</head>\n<body>\n  <figure class=\"fx\" style=\"margin:0\"><h4>Weekly page views</h4>\n  <div class=\"legend\"><span><i style=\"background:var(--c1)\"></i>Gallery</span><span><i style=\"background:var(--c2)\"></i>API</span></div>\n  <svg viewBox=\"0 0 300 130\" role=\"img\" aria-label=\"Line chart: gallery views rise from 40 to 105; API views rise from 20 to 62\">\n    <g class=\"grid\"><line x1=\"0\" y1=\"20\" x2=\"300\" y2=\"20\"/><line x1=\"0\" y1=\"55\" x2=\"300\" y2=\"55\"/><line x1=\"0\" y1=\"90\" x2=\"300\" y2=\"90\"/><line x1=\"0\" y1=\"125\" x2=\"300\" y2=\"125\"/></g>\n    <path d=\"M10 100 L82 78 L154 62 L226 40 L290 22\" stroke=\"#7c5cff\"/>\n    <path d=\"M10 118 L82 108 L154 96 L226 88 L290 70\" stroke=\"#10a894\"/>\n    <circle cx=\"10\" cy=\"100\" fill=\"#7c5cff\"/><circle cx=\"82\" cy=\"78\" fill=\"#7c5cff\"/><circle cx=\"154\" cy=\"62\" fill=\"#7c5cff\"/><circle cx=\"226\" cy=\"40\" fill=\"#7c5cff\"/><circle cx=\"290\" cy=\"22\" fill=\"#7c5cff\"/>\n    <circle cx=\"10\" cy=\"118\" fill=\"#10a894\"/><circle cx=\"82\" cy=\"108\" fill=\"#10a894\"/><circle cx=\"154\" cy=\"96\" fill=\"#10a894\"/><circle cx=\"226\" cy=\"88\" fill=\"#10a894\"/><circle cx=\"290\" cy=\"70\" fill=\"#10a894\"/>\n  </svg>\n  <div class=\"axis\"><span>Aug 8</span><span>Aug 29</span><span>Sep 10</span></div></figure>\n</body>\n</html>\n"
+}

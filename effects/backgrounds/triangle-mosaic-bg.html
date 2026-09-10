@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Triangle Mosaic</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "triangle-mosaic-bg",
+    "title": "Triangle Mosaic",
+    "summary": "Interlocking triangles in two tones tile the surface.",
+    "description": "Two 60°-rotated linear gradients meeting at 50% produce a triangular tessellation from one background-size.",
+    "theme": "backgrounds",
+    "categories": ["background", "pattern"],
+    "tags": ["triangles", "mosaic", "tessellation", "geometric", "gradient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Tone A", "default": "#121826" },
+      { "name": "--b", "description": "Tone B", "default": "#0d111b" },
+      { "name": "--s", "description": "Tile size", "default": "60px" }
+    ],
+    "variations": ["Three tones for more depth", "Animate the tile origin", "Warm palette for a retro feel"],
+    "ai_usage": "Hero backdrops and section dividers. Both gradients need the same background-size or the triangles will not meet; adjust only the angles (60deg / -60deg) to change the mosaic direction."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: #121826; --b: #0d111b; --s: 60px; }
+    .bg { background-color: var(--b);
+      background-image: linear-gradient(60deg, var(--a) 25%, transparent 25.5%, transparent 75%, var(--a) 75%),
+        linear-gradient(-60deg, var(--a) 25%, transparent 25.5%, transparent 75%, var(--a) 75%);
+      background-size: var(--s) calc(var(--s) * 1.732); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

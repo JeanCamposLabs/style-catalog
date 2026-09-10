@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glitch Title</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "vapor-glitch-title",
+    "title": "Glitch Title",
+    "summary": "A title with cyan and magenta ghosts.",
+    "description": "A title with cyan and magenta ghosts.",
+    "theme": "vaporwave-synthwave",
+    "categories": ["retro", "vaporwave"],
+    "tags": ["vaporwave", "retro", "80s", "glitch", "chroma", "title", "split"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+    "customization": [
+      { "name": "--dur", "description": "Glitch cycle", "default": "3s" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Retro title cards. Offset the two ghost layers on different keyframe percentages so they never move together."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; font-size: 2.4rem; font-weight: 900; color: #fff; letter-spacing: .06em; }
+    .fx::before, .fx::after { content: attr(data-t); position: absolute; inset: 0; }
+    .fx::before { color: #22d3ee; animation: g1 3s steps(2) infinite; }
+    .fx::after { color: #ff2d95; animation: g2 3s steps(2) infinite; }
+    @keyframes g1 { 0%, 90%, 100% { transform: none; } 92% { transform: translate(-4px, 2px); } 96% { transform: translate(3px, -2px); } }
+    @keyframes g2 { 0%, 90%, 100% { transform: none; } 93% { transform: translate(4px, -2px); } 97% { transform: translate(-3px, 2px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx" data-t="AESTHETIC">AESTHETIC</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Triangle Stripes</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "triangle-stripes",
+    "title": "Triangle Stripes",
+    "summary": "Alternating triangles along a band.",
+    "description": "Alternating triangles along a band. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "triangles", "sawtooth", "geometric", "bands"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--a", "description": "Triangle colour", "default": "#7c5cff" },
+      { "name": "--b", "description": "Ground", "default": "#0b0d12" },
+      { "name": "--s", "description": "Tile size", "default": "34px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Bold graphic headers. Two opposing 45° gradients at the same tile size give a clean sawtooth edge."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --a: #7c5cff; --b: #0b0d12; --s: 34px; }
+    .bg { background-color: var(--b);
+      background-image: linear-gradient(45deg, var(--a) 25%, transparent 25%), linear-gradient(-45deg, var(--a) 25%, transparent 25%);
+      background-size: var(--s) var(--s); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

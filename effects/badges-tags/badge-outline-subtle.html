@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Outline Badge</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "badge-outline-subtle",
+    "title": "Outline Badge",
+    "summary": "A quiet bordered label for metadata.",
+    "description": "A quiet bordered label for metadata. Small self-contained component ready to drop into a list or card.",
+    "theme": "badges-tags",
+    "categories": ["badge", "label"],
+    "tags": ["badge", "label", "outline", "metadata", "quiet", "subtle"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+    "customization": [
+      { "name": "--c", "description": "Border colour", "default": "#2b3450" }
+    ],
+    "variations": ["Add a size variant", "Map colours to semantic tokens"],
+    "ai_usage": "Dense metadata rows (versions, languages, licences) where filled badges would fight with the content."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .row { display: flex; gap: .5rem; }
+    .b { padding: .25rem .6rem; border-radius: 7px; border: 1px solid #2b3450; color: #8b93a7; font-size: .76rem;
+      font-weight: 600; letter-spacing: .02em; }
+  </style>
+</head>
+<body>
+  <div class="row"><span class="b">MIT</span><span class="b">v0.24</span><span class="b">TypeScript</span></div>
+</body>
+</html>

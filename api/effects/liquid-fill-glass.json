@@ -1,0 +1,44 @@
+{
+  "id": "liquid-fill-glass",
+  "title": "Filling Glass",
+  "summary": "A glass filling with liquid and a wavy surface.",
+  "description": "A glass filling with liquid and a wavy surface.",
+  "theme": "fire-water",
+  "themeTitle": "Fire & Water",
+  "categories": [
+    "elemental",
+    "animation"
+  ],
+  "tags": [
+    "elemental",
+    "animated",
+    "liquid",
+    "fill",
+    "glass",
+    "water"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Liquid colour",
+      "default": "#38bdf8"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Hydration, capacity, and pour animations. The rotating oversized ellipse is what makes the surface look like liquid rather than a moving bar.",
+  "path": "effects/fire-water/liquid-fill-glass.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Filling Glass</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"liquid-fill-glass\",\n    \"title\": \"Filling Glass\",\n    \"summary\": \"A glass filling with liquid and a wavy surface.\",\n    \"description\": \"A glass filling with liquid and a wavy surface.\",\n    \"theme\": \"fire-water\",\n    \"categories\": [\"elemental\", \"animation\"],\n    \"tags\": [\"elemental\", \"animated\", \"liquid\", \"fill\", \"glass\", \"water\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Elemental loops are decorative and must stop entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Liquid colour\", \"default\": \"#38bdf8\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Hydration, capacity, and pour animations. The rotating oversized ellipse is what makes the surface look like liquid rather than a moving bar.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 110px; height: 160px; border: 3px solid rgba(226,232,240,.45); border-top: 0;\n      border-radius: 6px 6px 22px 22px; overflow: hidden; }\n    .fx .liq { position: absolute; inset: auto 0 0 0; height: 0; background: #38bdf8; animation: fill 5s ease-in-out infinite; }\n    .fx .liq::before { content: \"\"; position: absolute; top: -10px; left: -20%; right: -20%; height: 20px; border-radius: 45%;\n      background: #38bdf8; animation: spin 3s linear infinite; }\n    @keyframes fill { 0%, 10% { height: 0; } 55%, 85% { height: 78%; } 100% { height: 0; } }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"liq\"></span></div>\n</body>\n</html>\n"
+}

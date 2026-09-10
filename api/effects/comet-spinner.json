@@ -1,0 +1,54 @@
+{
+  "id": "comet-spinner",
+  "title": "Comet Spinner",
+  "summary": "A bright head chases its own fading tail around a circular track.",
+  "description": "A conic gradient supplies the fading tail while an absolutely positioned dot rides the leading edge, so the arc reads as a comet rather than a plain arc.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "comet",
+    "tail",
+    "conic-gradient",
+    "glow",
+    "spinner"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Comet color",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--size",
+      "description": "Track diameter",
+      "default": "84px"
+    },
+    {
+      "name": "--dur",
+      "description": "Orbit period",
+      "default": "1.1s"
+    }
+  ],
+  "variations": [
+    "Slow the tail with a longer conic stop",
+    "Two comets 180° apart",
+    "Add a blur filter on the head for a softer glow"
+  ],
+  "related": [],
+  "ai_usage": "Use as a premium-feeling spinner on dark surfaces. The rotation lives on the wrapper so head and tail stay locked together; the head dot is positioned at top center with transform-origin at the wrapper center.",
+  "path": "effects/loaders-spinners/comet-spinner.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Comet Spinner</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"comet-spinner\",\n    \"title\": \"Comet Spinner\",\n    \"summary\": \"A bright head chases its own fading tail around a circular track.\",\n    \"description\": \"A conic gradient supplies the fading tail while an absolutely positioned dot rides the leading edge, so the arc reads as a comet rather than a plain arc.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"comet\", \"tail\", \"conic-gradient\", \"glow\", \"spinner\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Comet color\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--size\", \"description\": \"Track diameter\", \"default\": \"84px\" },\n      { \"name\": \"--dur\", \"description\": \"Orbit period\", \"default\": \"1.1s\" }\n    ],\n    \"variations\": [\"Slow the tail with a longer conic stop\", \"Two comets 180° apart\", \"Add a blur filter on the head for a softer glow\"],\n    \"ai_usage\": \"Use as a premium-feeling spinner on dark surfaces. The rotation lives on the wrapper so head and tail stay locked together; the head dot is positioned at top center with transform-origin at the wrapper center.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #2dd4bf; --size: 84px; --dur: 1.1s; }\n    .comet { width: var(--size); aspect-ratio: 1; position: relative; animation: orbit var(--dur) linear infinite; }\n    .comet::before { content: \"\"; position: absolute; inset: 0; border-radius: 50%;\n      background: conic-gradient(transparent 0 40%, color-mix(in srgb, var(--c) 60%, transparent) 85%, var(--c));\n      -webkit-mask: radial-gradient(farthest-side, transparent 72%, #000 73%);\n      mask: radial-gradient(farthest-side, transparent 72%, #000 73%); }\n    .comet i { position: absolute; top: -3px; left: 50%; width: 12px; height: 12px; margin-left: -6px;\n      border-radius: 50%; background: var(--c); box-shadow: 0 0 14px var(--c); }\n    @keyframes orbit { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"comet\" role=\"status\" aria-label=\"Loading\"><i></i></div>\n</body>\n</html>\n"
+}

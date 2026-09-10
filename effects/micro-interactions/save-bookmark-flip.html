@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bookmark Flip</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "save-bookmark-flip",
+    "title": "Bookmark Flip",
+    "summary": "A bookmark that flips and fills when saved.",
+    "description": "A bookmark that flips and fills when saved.",
+    "theme": "micro-interactions",
+    "categories": ["micro-interaction", "feedback"],
+    "tags": ["micro-interaction", "feedback", "bookmark", "save", "flip", "toggle"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+    "customization": [
+      { "name": "--c", "description": "Saved colour", "default": "#c2891a" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Save-for-later. A full rotation is enough motion for a binary state; combine it with a colour change so the state survives with animation disabled."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 56px; height: 56px; border: 0; border-radius: 14px; background: #151b2a; border: 1px solid #263149;
+      color: #8b93a7; font-size: 1.3rem; cursor: pointer; transition: color .2s, border-color .2s; }
+    .fx span { display: inline-block; transition: transform .4s cubic-bezier(.7,0,.2,1); }
+    .fx[aria-pressed="true"] { color: #c2891a; border-color: #c2891a; }
+    .fx[aria-pressed="true"] span { transform: rotateY(360deg); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button" aria-pressed="false" aria-label="Bookmark" id="bm"><span>🔖</span></button>
+  <script>
+    (function () {
+      var b = document.getElementById("bm");
+      b.addEventListener("click", function () {
+        b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+      });
+    })();
+  </script>
+</body>
+</html>

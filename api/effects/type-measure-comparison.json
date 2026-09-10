@@ -1,0 +1,44 @@
+{
+  "id": "type-measure-comparison",
+  "title": "Line Length",
+  "summary": "The same copy at three measures.",
+  "description": "The same copy at three measures.",
+  "theme": "typography-systems",
+  "themeTitle": "Typography Systems",
+  "categories": [
+    "typography",
+    "reference"
+  ],
+  "tags": [
+    "typography",
+    "type",
+    "measure",
+    "line-length",
+    "readability",
+    "ch"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+  "customization": [
+    {
+      "name": "--measure",
+      "description": "Target measure",
+      "default": "60ch"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Body copy. Aim for 45–75 characters per line; below 40 the eye jumps too often, above 80 it loses the start of the next line. Set it in ch so it tracks the font.",
+  "path": "effects/typography-systems/type-measure-comparison.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Line Length</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"type-measure-comparison\",\n    \"title\": \"Line Length\",\n    \"summary\": \"The same copy at three measures.\",\n    \"description\": \"The same copy at three measures.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"reference\"],\n    \"tags\": [\"typography\", \"type\", \"measure\", \"line-length\", \"readability\", \"ch\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.\",\n    \"customization\": [\n      { \"name\": \"--measure\", \"description\": \"Target measure\", \"default\": \"60ch\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Body copy. Aim for 45–75 characters per line; below 40 the eye jumps too often, above 80 it loses the start of the next line. Set it in ch so it tracks the font.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; gap: .9rem; width: 300px; font-size: .8rem; line-height: 1.6; }\n    .fx p { margin: 0; color: #cbd5e1; }\n    .fx .lbl { font-size: .68rem; color: #64748b; font-family: ui-monospace, monospace; }\n    .narrow { max-width: 24ch; } .good { max-width: 46ch; } .wide { max-width: 100%; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div><div class=\"lbl\">24ch — too narrow</div><p class=\"narrow\">Every specimen in this catalogue runs offline with no dependencies at all.</p></div>\n  <div><div class=\"lbl\">46ch — comfortable</div><p class=\"good\">Every specimen in this catalogue runs offline with no dependencies at all.</p></div>\n  <div><div class=\"lbl\">full width — too wide</div><p class=\"wide\">Every specimen in this catalogue runs offline with no dependencies at all.</p></div></div>\n</body>\n</html>\n"
+}

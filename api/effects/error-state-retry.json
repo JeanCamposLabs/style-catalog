@@ -1,0 +1,44 @@
+{
+  "id": "error-state-retry",
+  "title": "Error State",
+  "summary": "A failure screen with a retry and a details link.",
+  "description": "A failure screen with a retry and a details link.",
+  "theme": "empty-skeleton-states",
+  "themeTitle": "Empty & Loading States",
+  "categories": [
+    "state",
+    "empty"
+  ],
+  "tags": [
+    "state",
+    "placeholder",
+    "error",
+    "retry",
+    "failure",
+    "recovery"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.",
+  "customization": [
+    {
+      "name": "--bad",
+      "description": "Error colour",
+      "default": "#d1478c"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Failed loads. Say what failed in plain language, offer retry, and link to detail for those who want it — an error code with no action is a support ticket waiting to happen.",
+  "path": "effects/empty-skeleton-states/error-state-retry.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Error State</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"error-state-retry\",\n    \"title\": \"Error State\",\n    \"summary\": \"A failure screen with a retry and a details link.\",\n    \"description\": \"A failure screen with a retry and a details link.\",\n    \"theme\": \"empty-skeleton-states\",\n    \"categories\": [\"state\", \"empty\"],\n    \"tags\": [\"state\", \"placeholder\", \"error\", \"retry\", \"failure\", \"recovery\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.\",\n    \"customization\": [\n      { \"name\": \"--bad\", \"description\": \"Error colour\", \"default\": \"#d1478c\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Failed loads. Say what failed in plain language, offer retry, and link to detail for those who want it — an error code with no action is a support ticket waiting to happen.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 285px; padding: 1.8rem 1.3rem; border-radius: 16px; background: #1a1114; border: 1px solid #4a2430; text-align: center; }\n    .fx .ic { font-size: 2rem; }\n    .fx h3 { margin: .7rem 0 .3rem; font-size: 1rem; color: #ffd6e0; }\n    .fx p { margin: 0 0 1.1rem; color: #d5a3b3; font-size: .84rem; line-height: 1.5; }\n    .fx .row { display: flex; gap: .5rem; justify-content: center; }\n    .fx button { padding: .5rem 1.1rem; border-radius: 9px; border: 1px solid #7f3049; background: transparent;\n      color: #ffd6e0; font: inherit; font-size: .82rem; cursor: pointer; }\n    .fx .primary { background: #d1478c; border-color: #d1478c; color: #2a0d1c; font-weight: 700; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"alert\"><div class=\"ic\" aria-hidden=\"true\">⚠</div><h3>Could not load specimens</h3>\n  <p>The catalogue API did not respond. Your connection looks fine.</p>\n  <div class=\"row\"><button class=\"primary\" type=\"button\">Retry</button><button type=\"button\">Details</button></div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pressable Depth Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "press-depth-hover",
+    "title": "Pressable Depth Card",
+    "summary": "A card lifts on hover and sinks under the press.",
+    "description": "Shadow spread and translateY move together in both directions, which is what makes the surface feel physical rather than animated.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "press"],
+    "tags": ["lift", "press", "shadow", "depth", "tactile"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--lift", "description": "Hover lift", "default": "6px" },
+      { "name": "--dur", "description": "Transition", "default": "0.2s" }
+    ],
+    "variations": ["Colour shift on lift", "Deeper press for primary actions", "Tilt slightly toward the pointer"],
+    "ai_usage": "Any clickable surface. Scale the shadow with the lift (larger blur and offset when raised, tighter when pressed) — a static shadow makes the movement look like sliding."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --lift: 6px; --dur: .2s; }
+    .pd { width: 250px; padding: 1.4rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149;
+      cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,.35);
+      transition: transform var(--dur) ease, box-shadow var(--dur) ease; }
+    .pd:hover, .pd:focus-visible { transform: translateY(calc(var(--lift) * -1)); box-shadow: 0 18px 34px rgba(0,0,0,.5); }
+    .pd:active { transform: translateY(2px); box-shadow: 0 2px 8px rgba(0,0,0,.4); }
+    .pd h3 { margin: 0 0 .3rem; }
+    .pd p { margin: 0; color: #8b93a7; font-size: .9rem; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="pd" tabindex="0"><h3>Press me</h3><p>Lift on hover, sink on press.</p></div>
+</body>
+</html>

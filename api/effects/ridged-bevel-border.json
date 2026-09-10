@@ -1,0 +1,49 @@
+{
+  "id": "ridged-bevel-border",
+  "title": "Ridged Bevel",
+  "summary": "A raised bevel built from paired light and dark edges.",
+  "description": "Light on the top-left and shadow on the bottom-right reproduces the classic hard bevel from early GUIs.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border",
+    "skeuomorphic"
+  ],
+  "tags": [
+    "bevel",
+    "ridge",
+    "skeuomorphic",
+    "retro",
+    "3d"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "1990s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--light",
+      "description": "Highlight",
+      "default": "#4b5878"
+    },
+    {
+      "name": "--dark",
+      "description": "Shade",
+      "default": "#0a0d14"
+    }
+  ],
+  "variations": [
+    "Inset (sunken) variant",
+    "Double bevel for a groove",
+    "Windows-98 grey palette"
+  ],
+  "related": [],
+  "ai_usage": "Retro OS skins and skeuomorphic revivals. Light must come from the top-left in every element or the interface reads as inconsistent lighting; invert the pair for a sunken well.",
+  "path": "effects/borders-shadows/ridged-bevel-border.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Ridged Bevel</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"ridged-bevel-border\",\n    \"title\": \"Ridged Bevel\",\n    \"summary\": \"A raised bevel built from paired light and dark edges.\",\n    \"description\": \"Light on the top-left and shadow on the bottom-right reproduces the classic hard bevel from early GUIs.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\", \"skeuomorphic\"],\n    \"tags\": [\"bevel\", \"ridge\", \"skeuomorphic\", \"retro\", \"3d\"],\n    \"tech\": [\"css\"],\n    \"era\": \"1990s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--light\", \"description\": \"Highlight\", \"default\": \"#4b5878\" },\n      { \"name\": \"--dark\", \"description\": \"Shade\", \"default\": \"#0a0d14\" }\n    ],\n    \"variations\": [\"Inset (sunken) variant\", \"Double bevel for a groove\", \"Windows-98 grey palette\"],\n    \"ai_usage\": \"Retro OS skins and skeuomorphic revivals. Light must come from the top-left in every element or the interface reads as inconsistent lighting; invert the pair for a sunken well.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --light: #4b5878; --dark: #0a0d14; }\n    .demo { background: #1c2333; border-top: 2px solid var(--light); border-left: 2px solid var(--light);\n      border-bottom: 2px solid var(--dark); border-right: 2px solid var(--dark); }\n  </style>\n</head>\n<body>\n  <div class=\"demo\"><h3>Raised panel</h3><p>Light from the top left.</p></div>\n</body>\n</html>\n"
+}

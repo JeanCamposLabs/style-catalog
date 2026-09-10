@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avatar Hover Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "avatar-tooltip-card",
+    "title": "Avatar Hover Card",
+    "summary": "A profile card that opens from an avatar.",
+    "description": "A profile card that opens from an avatar.",
+    "theme": "avatars-identity",
+    "categories": ["avatar", "identity"],
+    "tags": ["avatar", "identity", "hover-card", "profile", "preview", "popover"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "An avatar is decorative when the name is beside it (use empty alt); when it stands alone it must carry the person's name as its accessible label.",
+    "customization": [
+      { "name": "--bg", "description": "Card background", "default": "#141a28" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Mentions and author bylines. Hover cards with interactive content must also open on focus and stay open while the pointer travels to them."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; display: inline-block; }
+    .fx .a { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(150deg, #7c5cff, #2dd4bf);
+      display: grid; place-items: center; font-weight: 800; color: #0b0d12; cursor: pointer; }
+    .fx .card { position: absolute; bottom: calc(100% + 10px); left: 50%; translate: -50% 0; width: 210px; padding: .9rem;
+      border-radius: 14px; background: #141a28; border: 1px solid #2b3450; box-shadow: 0 18px 44px rgba(0,0,0,.55);
+      opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s; }
+    .fx:hover .card, .fx:focus-within .card { opacity: 1; visibility: visible; }
+    .fx b { display: block; font-size: .9rem; }
+    .fx p { margin: .2rem 0 .6rem; color: #8b93a7; font-size: .8rem; line-height: 1.45; }
+    .fx button { padding: .35rem .8rem; border: 0; border-radius: 8px; background: #7c5cff; color: #fff; font: inherit; font-size: .78rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <span class="fx"><button class="a" type="button" aria-describedby="pc">JC</button>
+  <span class="card" id="pc" role="tooltip"><b>Jean Campos</b><p>Design engineer · Lisbon · 1,181 specimens published</p>
+  <button type="button">Follow</button></span></span>
+</body>
+</html>

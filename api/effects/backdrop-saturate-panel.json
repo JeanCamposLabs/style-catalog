@@ -1,0 +1,44 @@
+{
+  "id": "backdrop-saturate-panel",
+  "title": "Backdrop Saturate",
+  "summary": "A panel that boosts the colour of whatever is behind it.",
+  "description": "A panel that boosts the colour of whatever is behind it. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.",
+  "theme": "blend-filters",
+  "themeTitle": "Blends & Filters",
+  "categories": [
+    "filter",
+    "color"
+  ],
+  "tags": [
+    "filter",
+    "css",
+    "backdrop-filter",
+    "saturate",
+    "panel",
+    "glass"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.",
+  "customization": [
+    {
+      "name": "--sat",
+      "description": "Saturation",
+      "default": "2.4"
+    }
+  ],
+  "variations": [
+    "Animate the filter value on hover",
+    "Apply to a whole section with backdrop-filter"
+  ],
+  "related": [],
+  "ai_usage": "Making frosted panels feel alive. Saturation is the single most impactful backdrop-filter after blur — most glass effects look grey because they omit it.",
+  "path": "effects/blend-filters/backdrop-saturate-panel.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Backdrop Saturate</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"backdrop-saturate-panel\",\n    \"title\": \"Backdrop Saturate\",\n    \"summary\": \"A panel that boosts the colour of whatever is behind it.\",\n    \"description\": \"A panel that boosts the colour of whatever is behind it. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.\",\n    \"theme\": \"blend-filters\",\n    \"categories\": [\"filter\", \"color\"],\n    \"tags\": [\"filter\", \"css\", \"backdrop-filter\", \"saturate\", \"panel\", \"glass\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.\",\n    \"customization\": [\n      { \"name\": \"--sat\", \"description\": \"Saturation\", \"default\": \"2.4\" }\n    ],\n    \"variations\": [\"Animate the filter value on hover\", \"Apply to a whole section with backdrop-filter\"],\n    \"ai_usage\": \"Making frosted panels feel alive. Saturation is the single most impactful backdrop-filter after blur — most glass effects look grey because they omit it.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; height: 170px; border-radius: 16px; overflow: hidden; position: relative;\n      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }\n    .label { margin-top: .8rem; text-align: center; color: #8b93a7; font-size: .82rem; }\n    .panel { position: absolute; inset: 30px; border-radius: 14px; backdrop-filter: saturate(2.4) contrast(1.1);\n      -webkit-backdrop-filter: saturate(2.4) contrast(1.1); border: 1px solid rgba(255,255,255,.3); }\n  </style>\n</head>\n<body>\n  <div><div class=\"demo\"><div class=\"panel\"></div></div><p class=\"label\">Backdrop Saturate</p></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tinted Glass</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "glass-tinted-gradient",
+    "title": "Tinted Glass",
+    "summary": "Frosted glass carrying a colour wash across its face.",
+    "description": "A translucent gradient over the blur tints the panel without hiding what is behind it.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass"],
+    "tags": ["glass", "tint", "gradient", "overlay", "panel"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Soft surfaces easily fall below 3:1 contrast — check the border and text against the backdrop before shipping.",
+    "customization": [
+      { "name": "--tint", "description": "Tint colour", "default": "rgba(124,92,255,.28)" }
+    ],
+    "variations": ["Tint by state (success, danger)", "Vertical rather than diagonal wash", "Stronger tint for a coloured card"],
+    "ai_usage": "Status-coloured overlays that must stay translucent. Keep tint alpha under .35 or the panel loses the glass read and becomes a solid card."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: linear-gradient(135deg, #0ea5e9, #7c3aed 60%, #ec4899); }
+    :root { --tint: rgba(124,92,255,.28); }
+    .glass { width: 260px; padding: 1.6rem; border-radius: 20px; color: #fff;
+      background: linear-gradient(135deg, var(--tint), rgba(255,255,255,.08));
+      backdrop-filter: blur(14px) saturate(1.5); -webkit-backdrop-filter: blur(14px) saturate(1.5);
+      border: 1px solid rgba(255,255,255,.3); }
+    .glass h3 { margin: 0 0 .4rem; }
+    .glass p { margin: 0; opacity: .82; font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <div class="glass"><h3>Tinted</h3><p>Colour wash over the blur.</p></div>
+</body>
+</html>

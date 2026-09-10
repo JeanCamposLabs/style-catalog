@@ -1,0 +1,49 @@
+{
+  "id": "jelly-dots-loader",
+  "title": "Jelly Dots",
+  "summary": "Three dots stretch and rebound on a springy cubic-bezier.",
+  "description": "An overshooting easing curve on scale plus a small vertical hop gives the dots elasticity without any physics library.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "spinner"
+  ],
+  "tags": [
+    "dots",
+    "jelly",
+    "spring",
+    "elastic",
+    "bounce"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Dot color",
+      "default": "#a78bfa"
+    },
+    {
+      "name": "--dur",
+      "description": "Cycle",
+      "default": "1s"
+    }
+  ],
+  "variations": [
+    "Different hue per dot",
+    "Longer overshoot for more wobble",
+    "Horizontal squash instead of vertical"
+  ],
+  "related": [],
+  "ai_usage": "Use when a plain three-dot loader feels too flat. The elasticity is entirely in cubic-bezier(.34,1.56,.64,1) — reuse that curve anywhere you want a spring without JS.",
+  "path": "effects/loaders-spinners/jelly-dots-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Jelly Dots</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"jelly-dots-loader\",\n    \"title\": \"Jelly Dots\",\n    \"summary\": \"Three dots stretch and rebound on a springy cubic-bezier.\",\n    \"description\": \"An overshooting easing curve on scale plus a small vertical hop gives the dots elasticity without any physics library.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"spinner\"],\n    \"tags\": [\"dots\", \"jelly\", \"spring\", \"elastic\", \"bounce\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Dot color\", \"default\": \"#a78bfa\" },\n      { \"name\": \"--dur\", \"description\": \"Cycle\", \"default\": \"1s\" }\n    ],\n    \"variations\": [\"Different hue per dot\", \"Longer overshoot for more wobble\", \"Horizontal squash instead of vertical\"],\n    \"ai_usage\": \"Use when a plain three-dot loader feels too flat. The elasticity is entirely in cubic-bezier(.34,1.56,.64,1) — reuse that curve anywhere you want a spring without JS.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #a78bfa; --dur: 1s; }\n    .jelly { display: flex; gap: 12px; }\n    .jelly i { width: 16px; height: 16px; border-radius: 50%; background: var(--c);\n      animation: jel var(--dur) cubic-bezier(.34,1.56,.64,1) infinite; animation-delay: calc(var(--i) * .14s); }\n    @keyframes jel {\n      0%, 100% { transform: translateY(0) scale(1); }\n      35% { transform: translateY(-14px) scale(1.25, .8); }\n      60% { transform: translateY(0) scale(.8, 1.2); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"jelly\" role=\"status\" aria-label=\"Loading\">\n    <i style=\"--i:0\"></i><i style=\"--i:1\"></i><i style=\"--i:2\"></i>\n  </div>\n</body>\n</html>\n"
+}

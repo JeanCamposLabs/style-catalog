@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Growing Vine</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "vine-grow",
+    "title": "Growing Vine",
+    "summary": "A vine draws itself upward and sprouts leaves.",
+    "description": "A vine draws itself upward and sprouts leaves.",
+    "theme": "nature-organic",
+    "categories": ["nature", "organic"],
+    "tags": ["organic", "nature", "vine", "grow", "draw", "svg"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Vine colour", "default": "#22c55e" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Onboarding and growth metaphors. Time the leaf pops to land after the stem passes their position, or they appear on empty space."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 150px; }
+    .fx svg { width: 100%; display: block; }
+    .fx path { fill: none; stroke: #22c55e; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 300; stroke-dashoffset: 300;
+      animation: grow 4s ease-in-out infinite; }
+    .fx circle { fill: #86efac; opacity: 0; animation: pop 4s ease-in-out infinite; }
+    .fx circle:nth-of-type(2) { animation-delay: .4s; }
+    @keyframes grow { 0% { stroke-dashoffset: 300; } 70%, 100% { stroke-dashoffset: 0; } }
+    @keyframes pop { 0%, 45% { opacity: 0; transform: scale(0); } 60%, 100% { opacity: 1; transform: scale(1); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 100 150"><path d="M50 150 C50 110 30 100 40 70 C50 42 70 40 60 10"/>
+  <circle cx="34" cy="92" r="7" style="transform-origin:34px 92px"/><circle cx="66" cy="46" r="7" style="transform-origin:66px 46px"/></svg></div>
+</body>
+</html>

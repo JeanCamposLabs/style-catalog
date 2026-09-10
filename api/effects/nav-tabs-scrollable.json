@@ -1,0 +1,44 @@
+{
+  "id": "nav-tabs-scrollable",
+  "title": "Scrollable Tabs",
+  "summary": "Overflowing tabs with edge fades.",
+  "description": "Overflowing tabs with edge fades.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "tabs",
+    "scroll",
+    "overflow",
+    "mobile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#2dd4bf"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Category bars with many entries. Fade the edges so the overflow is discoverable, and scroll the selected tab into view when it changes programmatically.",
+  "path": "effects/navigation-menus/nav-tabs-scrollable.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Scrollable Tabs</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-tabs-scrollable\",\n    \"title\": \"Scrollable Tabs\",\n    \"summary\": \"Overflowing tabs with edge fades.\",\n    \"description\": \"Overflowing tabs with edge fades.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"tabs\", \"scroll\", \"overflow\", \"mobile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#2dd4bf\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Category bars with many entries. Fade the edges so the overflow is discoverable, and scroll the selected tab into view when it changes programmatically.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 290px; }\n    .fx .rail { display: flex; gap: 1.2rem; overflow-x: auto; padding-bottom: .5rem; scrollbar-width: none;\n      -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 92%, transparent);\n      mask-image: linear-gradient(90deg, transparent, #000 5%, #000 92%, transparent); }\n    .fx .rail::-webkit-scrollbar { display: none; }\n    .fx button { flex: none; border: 0; background: transparent; color: #8b93a7; font: inherit; font-weight: 600;\n      font-size: .88rem; padding: 0 0 .3rem; cursor: pointer; border-bottom: 2px solid transparent; }\n    .fx button[aria-selected=\"true\"] { color: #e7ebf3; border-bottom-color: #2dd4bf; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"rail\" role=\"tablist\" aria-label=\"Themes\">\n    <button role=\"tab\" aria-selected=\"true\" type=\"button\">All</button><button role=\"tab\" aria-selected=\"false\" type=\"button\">Buttons</button>\n    <button role=\"tab\" aria-selected=\"false\" type=\"button\">Loaders</button><button role=\"tab\" aria-selected=\"false\" type=\"button\">Patterns</button>\n    <button role=\"tab\" aria-selected=\"false\" type=\"button\">Retro</button><button role=\"tab\" aria-selected=\"false\" type=\"button\">Charts</button></div></div>\n</body>\n</html>\n"
+}

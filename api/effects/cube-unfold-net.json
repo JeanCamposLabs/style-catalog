@@ -1,0 +1,49 @@
+{
+  "id": "cube-unfold-net",
+  "title": "Unfolding Cube",
+  "summary": "A cube that opens into its flat net and closes again.",
+  "description": "A cube that opens into its flat net and closes again.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "transform"
+  ],
+  "tags": [
+    "3d",
+    "transform",
+    "cube",
+    "preserve-3d",
+    "faces",
+    "rotate"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--size",
+      "description": "Cube size",
+      "default": "120px"
+    },
+    {
+      "name": "--dur",
+      "description": "Rotation period",
+      "default": "12s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "3D showcases. Every face translates by half the cube's size along Z after its rotation; preserve-3d must be on the parent or the faces flatten into a stack.",
+  "path": "effects/3d-transforms/cube-unfold-net.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Unfolding Cube</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cube-unfold-net\",\n    \"title\": \"Unfolding Cube\",\n    \"summary\": \"A cube that opens into its flat net and closes again.\",\n    \"description\": \"A cube that opens into its flat net and closes again.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"transform\"],\n    \"tags\": [\"3d\", \"transform\", \"cube\", \"preserve-3d\", \"faces\", \"rotate\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--size\", \"description\": \"Cube size\", \"default\": \"120px\" },\n      { \"name\": \"--dur\", \"description\": \"Rotation period\", \"default\": \"12s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"3D showcases. Every face translates by half the cube's size along Z after its rotation; preserve-3d must be on the parent or the faces flatten into a stack.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .scene { perspective: 800px; width: 120px; height: 120px; }\n    .cube { position: relative; width: 100%; height: 100%; transform-style: preserve-3d;\n      animation: turn 12s linear infinite; }\n    .f { position: absolute; inset: 0; border: 2px solid #7c5cff; background: rgba(124,92,255,.12);\n      display: grid; place-items: center; color: #b9a5ff; font-weight: 800; }\n    .f1 { transform: translateZ(60px); } .f2 { transform: rotateY(180deg) translateZ(60px); }\n    .f3 { transform: rotateY(90deg) translateZ(60px); } .f4 { transform: rotateY(-90deg) translateZ(60px); }\n    .f5 { transform: rotateX(90deg) translateZ(60px); } .f6 { transform: rotateX(-90deg) translateZ(60px); }\n    @keyframes turn { to { transform: rotateX(360deg) rotateY(720deg); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"scene\"><div class=\"cube\"><span class=\"f f1\">1</span><span class=\"f f2\">2</span><span class=\"f f3\">3</span>\n  <span class=\"f f4\">4</span><span class=\"f f5\">5</span><span class=\"f f6\">6</span></div></div>\n</body>\n</html>\n"
+}

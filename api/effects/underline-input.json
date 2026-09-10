@@ -1,0 +1,43 @@
+{
+  "id": "underline-input",
+  "title": "Underline Input",
+  "summary": "A minimal field with only a baseline rule that grows on focus.",
+  "description": "The rule scales from the centre on focus, so the field feels like it opens rather than switching colour.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "underline",
+    "minimal",
+    "focus",
+    "material",
+    "field"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Focus colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Label that floats on focus",
+    "Error state in red"
+  ],
+  "related": [],
+  "ai_usage": "Dense forms where boxes feel heavy. Keep the resting rule visible at 3:1 contrast — an invisible resting state makes the field undiscoverable.",
+  "path": "effects/forms-inputs/underline-input.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Underline Input</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"underline-input\",\n    \"title\": \"Underline Input\",\n    \"summary\": \"A minimal field with only a baseline rule that grows on focus.\",\n    \"description\": \"The rule scales from the centre on focus, so the field feels like it opens rather than switching colour.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"underline\", \"minimal\", \"focus\", \"material\", \"field\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Focus colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Label that floats on focus\", \"Error state in red\"],\n    \"ai_usage\": \"Dense forms where boxes feel heavy. Keep the resting rule visible at 3:1 contrast — an invisible resting state makes the field undiscoverable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .f { position: relative; width: 280px; }\n    .f input { width: 100%; padding: .7rem .2rem; background: transparent; border: 0; border-bottom: 1px solid #3b465e;\n      color: #e7ebf3; font: inherit; }\n    .f input:focus { outline: none; }\n    .f .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--c, #7c5cff);\n      transform: scaleX(0); transition: transform .3s cubic-bezier(.2,.8,.3,1); }\n    .f input:focus ~ .bar { transform: scaleX(1); }\n    .f label { display: block; margin-bottom: .3rem; font-size: .8rem; color: #8b93a7; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"f\"><label for=\"e1\">Work email</label><input id=\"e1\" type=\"email\" placeholder=\"you@company.com\" /><span class=\"bar\"></span></div>\n</body>\n</html>\n"
+}

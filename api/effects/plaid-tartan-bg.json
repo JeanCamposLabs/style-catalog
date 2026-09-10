@@ -1,0 +1,54 @@
+{
+  "id": "plaid-tartan-bg",
+  "title": "Tartan Plaid",
+  "summary": "Crossed bands of colour in a repeating tartan sett.",
+  "description": "Two identical stripe sets, one rotated 90°, blended with transparency give the woven overlap of real tartan.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "pattern"
+  ],
+  "tags": [
+    "plaid",
+    "tartan",
+    "woven",
+    "fabric",
+    "textile"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Band A",
+      "default": "#7f1d1d"
+    },
+    {
+      "name": "--b",
+      "description": "Band B",
+      "default": "#14532d"
+    },
+    {
+      "name": "--line",
+      "description": "Overcheck",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Muted heather palette",
+    "Larger sett for upholstery",
+    "Diagonal tartan by rotating the whole layer"
+  ],
+  "related": [],
+  "ai_usage": "Fashion, seasonal, and heritage designs. Both stripe layers must use partial alpha so the crossings darken — opaque stripes lose the woven look entirely.",
+  "path": "effects/backgrounds/plaid-tartan-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tartan Plaid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"plaid-tartan-bg\",\n    \"title\": \"Tartan Plaid\",\n    \"summary\": \"Crossed bands of colour in a repeating tartan sett.\",\n    \"description\": \"Two identical stripe sets, one rotated 90°, blended with transparency give the woven overlap of real tartan.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"pattern\"],\n    \"tags\": [\"plaid\", \"tartan\", \"woven\", \"fabric\", \"textile\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Band A\", \"default\": \"#7f1d1d\" },\n      { \"name\": \"--b\", \"description\": \"Band B\", \"default\": \"#14532d\" },\n      { \"name\": \"--line\", \"description\": \"Overcheck\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Muted heather palette\", \"Larger sett for upholstery\", \"Diagonal tartan by rotating the whole layer\"],\n    \"ai_usage\": \"Fashion, seasonal, and heritage designs. Both stripe layers must use partial alpha so the crossings darken — opaque stripes lose the woven look entirely.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #7f1d1d; --b: #14532d; --line: #fbbf24; }\n    .bg { background-color: #0b0d12;\n      background-image:\n        repeating-linear-gradient(90deg, rgba(127,29,29,.55) 0 40px, transparent 40px 90px, rgba(20,83,45,.5) 90px 130px, transparent 130px 180px, rgba(251,191,36,.5) 180px 184px, transparent 184px 220px),\n        repeating-linear-gradient(0deg, rgba(127,29,29,.55) 0 40px, transparent 40px 90px, rgba(20,83,45,.5) 90px 130px, transparent 130px 180px, rgba(251,191,36,.5) 180px 184px, transparent 184px 220px); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

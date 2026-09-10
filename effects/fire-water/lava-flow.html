@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lava Flow</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "lava-flow",
+    "title": "Lava Flow",
+    "summary": "Glowing molten flow with a crusted surface.",
+    "description": "Glowing molten flow with a crusted surface.",
+    "theme": "fire-water",
+    "categories": ["elemental", "animation"],
+    "tags": ["elemental", "animated", "lava", "molten", "volcano", "heat"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Lava colour", "default": "#f97316" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Volcanic and heat themes. A dark crust multiplied over a moving hot gradient produces the cracked-surface read cheaply."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 260px; height: 120px; border-radius: 14px; overflow: hidden; background: #1c0a05; }
+    .fx .flow { position: absolute; inset: 0; background: linear-gradient(100deg, #dc2626, #f97316, #fbbf24, #dc2626);
+      background-size: 300% 100%; animation: shift 6s linear infinite; }
+    .fx .crust { position: absolute; inset: 0; mix-blend-mode: multiply; opacity: .8;
+      background-image: radial-gradient(circle at 20% 30%, #0b0d12 0 12%, transparent 13%),
+        radial-gradient(circle at 62% 70%, #0b0d12 0 16%, transparent 17%),
+        radial-gradient(circle at 84% 24%, #0b0d12 0 10%, transparent 11%); background-size: 120px 120px; }
+    @keyframes shift { to { background-position: 300% 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"></div>
+</body>
+</html>

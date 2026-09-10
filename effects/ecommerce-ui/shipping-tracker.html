@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shipping Tracker</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shipping-tracker",
+    "title": "Shipping Tracker",
+    "summary": "A delivery timeline with the current stage marked.",
+    "description": "A delivery timeline with the current stage marked.",
+    "theme": "ecommerce-ui",
+    "categories": ["ecommerce", "commerce"],
+    "tags": ["ecommerce", "shop", "shipping", "tracking", "timeline", "order"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+    "customization": [
+      { "name": "--c", "description": "Current colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Order tracking. Include timestamps for completed steps and an estimate for the next one; a stage list without dates answers nothing."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 270px; }
+    .fx .row { display: flex; gap: .8rem; }
+    .fx .rail { display: grid; }
+    .fx .dot { width: 14px; height: 14px; border-radius: 50%; background: #2b3450; }
+    .fx .row.done .dot { background: #34d399; }
+    .fx .row.now .dot { background: #7c5cff; box-shadow: 0 0 0 4px rgba(124,92,255,.25); }
+    .fx .bar { width: 2px; height: 28px; margin: 2px auto; background: #2b3450; }
+    .fx .row.done .bar { background: #34d399; }
+    .fx .t { padding-bottom: .3rem; }
+    .fx b { font-size: .88rem; }
+    .fx span { display: block; font-size: .76rem; color: #8b93a7; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="row done"><div class="rail"><span class="dot"></span><span class="bar"></span></div>
+  <div class="t"><b>Ordered</b><span>12 Sept, 09:14</span></div></div>
+  <div class="row done"><div class="rail"><span class="dot"></span><span class="bar"></span></div>
+  <div class="t"><b>Shipped</b><span>13 Sept, 18:02</span></div></div>
+  <div class="row now"><div class="rail"><span class="dot"></span></div>
+  <div class="t"><b>Out for delivery</b><span>Expected today by 18:00</span></div></div></div>
+</body>
+</html>

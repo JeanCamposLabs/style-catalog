@@ -1,0 +1,43 @@
+{
+  "id": "scroll-shrinking-header",
+  "title": "Shrinking Header",
+  "summary": "A header that condenses after the first scroll.",
+  "description": "A header that condenses after the first scroll.",
+  "theme": "scroll-effects",
+  "themeTitle": "Scroll Effects",
+  "categories": [
+    "scroll",
+    "motion"
+  ],
+  "tags": [
+    "scroll",
+    "header",
+    "shrink",
+    "sticky",
+    "scroll"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Transition",
+      "default": "0.25s"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "App and marketing headers. Trigger the class with an IntersectionObserver on a sentinel element rather than a scroll listener — it avoids a layout read on every frame.",
+  "path": "effects/scroll-effects/scroll-shrinking-header.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Shrinking Header</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"scroll-shrinking-header\",\n    \"title\": \"Shrinking Header\",\n    \"summary\": \"A header that condenses after the first scroll.\",\n    \"description\": \"A header that condenses after the first scroll.\",\n    \"theme\": \"scroll-effects\",\n    \"categories\": [\"scroll\", \"motion\"],\n    \"tags\": [\"scroll\", \"header\", \"shrink\", \"sticky\", \"scroll\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Transition\", \"default\": \"0.25s\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"App and marketing headers. Trigger the class with an IntersectionObserver on a sentinel element rather than a scroll listener — it avoids a layout read on every frame.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { min-height: 220vh; margin: 0; }\n    .hd { position: fixed; top: 0; left: 0; right: 0; padding: 1.4rem 1.2rem; background: rgba(11,13,18,.85);\n      backdrop-filter: blur(10px); color: #e7ebf3; display: flex; justify-content: space-between; align-items: center;\n      transition: padding .25s, background .25s; border-bottom: 1px solid transparent; }\n    .hd.small { padding: .6rem 1.2rem; border-bottom-color: #263149; }\n    .hd b { font-size: 1.2rem; transition: font-size .25s; }\n    .hd.small b { font-size: .95rem; }\n    .body { padding: 8rem 1.2rem; color: #8b93a7; max-width: 34ch; line-height: 1.6; }\n  </style>\n</head>\n<body>\n  <header class=\"hd\" id=\"hd\"><b>Style Catalog</b><span>Docs</span></header>\n  <div class=\"body\">Scroll down. The header condenses once the page leaves the top, then stays compact.</div>\n  <script>\n    (function () {\n      var hd = document.getElementById(\"hd\"), s = document.createElement(\"div\");\n      s.style.position = \"absolute\"; s.style.top = \"0\"; s.style.height = \"1px\"; s.style.width = \"1px\";\n      document.body.appendChild(s);\n      new IntersectionObserver(function (es) {\n        hd.classList.toggle(\"small\", !es[0].isIntersecting);\n      }).observe(s);\n    })();\n  </script>\n</body>\n</html>\n"
+}

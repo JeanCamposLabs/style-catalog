@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slow Orbs</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "bg-blurred-orbs-slow",
+    "title": "Slow Orbs",
+    "summary": "Large blurred colour orbs drifting apart.",
+    "description": "Large blurred colour orbs drifting apart.",
+    "theme": "backgrounds",
+    "categories": ["background", "surface"],
+    "tags": ["background", "orbs", "blur", "drift", "ambient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep text contrast above 4.5:1 and stop drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Drift period", "default": "24s" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Calm marketing backdrops. Use blur radii above 60px and durations above 20s; smaller, faster orbs read as a screensaver rather than atmosphere."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background: #06070d; overflow: hidden; }
+    .bg i { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .5;
+      animation: drift var(--d) ease-in-out infinite alternate; }
+    @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(18vw, -12vh) scale(1.3); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"><i style="width:46vmax;height:46vmax;left:-10%;top:-15%;background:#7c5cff;--d:24s"></i>
+  <i style="width:38vmax;height:38vmax;right:-12%;top:20%;background:#10a894;--d:31s"></i>
+  <i style="width:42vmax;height:42vmax;left:25%;bottom:-20%;background:#d1478c;--d:27s"></i></div>
+</body>
+</html>

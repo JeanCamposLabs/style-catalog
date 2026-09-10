@@ -1,0 +1,44 @@
+{
+  "id": "badge-ribbon-corner",
+  "title": "Corner Ribbon",
+  "summary": "A diagonal ribbon across a card corner.",
+  "description": "A diagonal ribbon across a card corner. Small self-contained component ready to drop into a list or card.",
+  "theme": "badges-tags",
+  "themeTitle": "Badges & Tags",
+  "categories": [
+    "badge",
+    "label"
+  ],
+  "tags": [
+    "badge",
+    "label",
+    "ribbon",
+    "corner",
+    "sale",
+    "flag"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Ribbon colour",
+      "default": "#f472b6"
+    }
+  ],
+  "variations": [
+    "Add a size variant",
+    "Map colours to semantic tokens"
+  ],
+  "related": [],
+  "ai_usage": "Sale and 'new' flags. Rotate 45° and over-extend the width past the card so the ends are clipped cleanly by overflow:hidden.",
+  "path": "effects/badges-tags/badge-ribbon-corner.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Corner Ribbon</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"badge-ribbon-corner\",\n    \"title\": \"Corner Ribbon\",\n    \"summary\": \"A diagonal ribbon across a card corner.\",\n    \"description\": \"A diagonal ribbon across a card corner. Small self-contained component ready to drop into a list or card.\",\n    \"theme\": \"badges-tags\",\n    \"categories\": [\"badge\", \"label\"],\n    \"tags\": [\"badge\", \"label\", \"ribbon\", \"corner\", \"sale\", \"flag\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Status must never be colour-only: pair every badge colour with a label, icon, or shape.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Ribbon colour\", \"default\": \"#f472b6\" }\n    ],\n    \"variations\": [\"Add a size variant\", \"Map colours to semantic tokens\"],\n    \"ai_usage\": \"Sale and 'new' flags. Rotate 45° and over-extend the width past the card so the ends are clipped cleanly by overflow:hidden.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .card { position: relative; width: 220px; height: 130px; border-radius: 14px; background: #151b2a;\n      border: 1px solid #263149; overflow: hidden; }\n    .rib { position: absolute; top: 14px; right: -34px; width: 130px; padding: .3rem 0; text-align: center;\n      background: #f472b6; color: #2a0d1c; font-size: .72rem; font-weight: 800; transform: rotate(45deg); }\n  </style>\n</head>\n<body>\n  <div class=\"card\"><span class=\"rib\">SALE</span></div>\n</body>\n</html>\n"
+}

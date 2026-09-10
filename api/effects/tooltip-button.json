@@ -1,0 +1,49 @@
+{
+  "id": "tooltip-button",
+  "title": "Button with Tooltip",
+  "summary": "A tooltip fades in above the button after a short delay.",
+  "description": "The delay on show and its absence on hide is what stops tooltips from flickering as the pointer crosses a toolbar.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "tooltip"
+  ],
+  "tags": [
+    "tooltip",
+    "hint",
+    "delay",
+    "hover",
+    "toolbar"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "The tooltip text is linked with aria-describedby so it is announced; it also appears on :focus-visible, not hover alone.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Tooltip background",
+      "default": "#1f2637"
+    },
+    {
+      "name": "--delay",
+      "description": "Show delay",
+      "default": "0.35s"
+    }
+  ],
+  "variations": [
+    "Position below or beside",
+    "Arrow via a rotated square",
+    "Rich tooltip with a shortcut key"
+  ],
+  "related": [],
+  "ai_usage": "Icon toolbars where labels are hidden. Always show on focus as well as hover, link with aria-describedby, and never put interactive content inside a hover tooltip — use a popover for that.",
+  "path": "effects/buttons/tooltip-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Button with Tooltip</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"tooltip-button\",\n    \"title\": \"Button with Tooltip\",\n    \"summary\": \"A tooltip fades in above the button after a short delay.\",\n    \"description\": \"The delay on show and its absence on hide is what stops tooltips from flickering as the pointer crosses a toolbar.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"tooltip\"],\n    \"tags\": [\"tooltip\", \"hint\", \"delay\", \"hover\", \"toolbar\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"The tooltip text is linked with aria-describedby so it is announced; it also appears on :focus-visible, not hover alone.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Tooltip background\", \"default\": \"#1f2637\" },\n      { \"name\": \"--delay\", \"description\": \"Show delay\", \"default\": \"0.35s\" }\n    ],\n    \"variations\": [\"Position below or beside\", \"Arrow via a rotated square\", \"Rich tooltip with a shortcut key\"],\n    \"ai_usage\": \"Icon toolbars where labels are hidden. Always show on focus as well as hover, link with aria-describedby, and never put interactive content inside a hover tooltip — use a popover for that.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --bg: #1f2637; --delay: .35s; }\n    .tip { position: relative; display: inline-block; }\n    .tip button { padding: .7rem 1.2rem; border-radius: 10px; background: #151b2a; border: 1px solid #263149; color: #e7ebf3; }\n    .tip .bub { position: absolute; bottom: calc(100% + 10px); left: 50%; translate: -50% 0; white-space: nowrap;\n      background: var(--bg); color: #e7ebf3; padding: .45rem .7rem; border-radius: 8px; font-size: .85rem;\n      opacity: 0; visibility: hidden; transform: translateY(4px); transition: opacity .18s, transform .18s, visibility .18s; }\n    .tip .bub::after { content: \"\"; position: absolute; top: 100%; left: 50%; translate: -50% 0; border: 6px solid transparent; border-top-color: var(--bg); }\n    .tip:hover .bub, .tip button:focus-visible + .bub { opacity: 1; visibility: visible; transform: translateY(0); transition-delay: var(--delay); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <span class=\"tip\">\n    <button type=\"button\" aria-describedby=\"t1\">⌘K</button>\n    <span class=\"bub\" id=\"t1\" role=\"tooltip\">Open the command palette</span>\n  </span>\n</body>\n</html>\n"
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Native Dialog</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "modal-native-dialog",
+    "title": "Native Dialog",
+    "summary": "A real <dialog> with backdrop styling and animation.",
+    "description": "A real <dialog> with backdrop styling and animation.",
+    "theme": "modals-overlays",
+    "categories": ["modal", "overlay"],
+    "tags": ["modal", "dialog", "native", "dialog", "backdrop", "focus-trap"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.",
+    "customization": [
+      { "name": "--bg", "description": "Dialog background", "default": "#141a28" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Always start from <dialog> + showModal(): you get focus trapping, Escape handling, inert background, and ::backdrop with no JS library."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    dialog { border: 0; border-radius: 18px; padding: 1.6rem; background: #141a28; color: #e7ebf3; max-width: 300px;
+      box-shadow: 0 30px 70px rgba(0,0,0,.6); }
+    dialog::backdrop { background: rgba(4,7,14,.6); backdrop-filter: blur(4px); }
+    dialog[open] { animation: pop .28s cubic-bezier(.2,.8,.3,1); }
+    dialog h3 { margin: 0 0 .5rem; }
+    dialog p { margin: 0 0 1.2rem; color: #8b93a7; font-size: .9rem; line-height: 1.5; }
+    .row { display: flex; gap: .5rem; justify-content: flex-end; }
+    button { padding: .55rem 1.1rem; border-radius: 9px; border: 0; font: inherit; cursor: pointer; }
+    .primary { background: #7c5cff; color: #fff; }
+    .ghost { background: transparent; color: #8b93a7; }
+    @keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.96); } }
+  </style>
+</head>
+<body>
+  <button class="primary" id="open" type="button">Open dialog</button>
+  <dialog id="dlg"><h3>Discard changes?</h3><p>Your edits since the last save will be lost.</p>
+  <div class="row"><button class="ghost" type="button" id="cancel">Keep editing</button><button class="primary" type="button" id="ok">Discard</button></div></dialog>
+  <script>
+    (function () {
+      var d = document.getElementById("dlg");
+      document.getElementById("open").addEventListener("click", function () { d.showModal(); });
+      document.getElementById("cancel").addEventListener("click", function () { d.close(); });
+      document.getElementById("ok").addEventListener("click", function () { d.close(); });
+    })();
+  </script>
+</body>
+</html>

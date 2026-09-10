@@ -1,0 +1,44 @@
+{
+  "id": "image-compare-slider",
+  "title": "Before / After",
+  "summary": "A draggable divider comparing two images.",
+  "description": "A draggable divider comparing two images.",
+  "theme": "images-media",
+  "themeTitle": "Images & Media",
+  "categories": [
+    "image",
+    "media"
+  ],
+  "tags": [
+    "image",
+    "media",
+    "before-after",
+    "compare",
+    "slider",
+    "drag"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+  "customization": [
+    {
+      "name": "--p",
+      "description": "Divider position",
+      "default": "50%"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Editing and restoration showcases. Back the divider with a real range input so it is keyboard-operable — a pointer-only handle excludes keyboard users entirely.",
+  "path": "effects/images-media/image-compare-slider.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Before / After</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"image-compare-slider\",\n    \"title\": \"Before / After\",\n    \"summary\": \"A draggable divider comparing two images.\",\n    \"description\": \"A draggable divider comparing two images.\",\n    \"theme\": \"images-media\",\n    \"categories\": [\"image\", \"media\"],\n    \"tags\": [\"image\", \"media\", \"before-after\", \"compare\", \"slider\", \"drag\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.\",\n    \"customization\": [\n      { \"name\": \"--p\", \"description\": \"Divider position\", \"default\": \"50%\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Editing and restoration showcases. Back the divider with a real range input so it is keyboard-operable — a pointer-only handle excludes keyboard users entirely.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 290px; aspect-ratio: 3 / 2; border-radius: 14px; overflow: hidden; }\n    .fx .a, .fx .b { position: absolute; inset: 0; }\n    .fx .a { background: conic-gradient(from 160deg at 40% 35%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); }\n    .fx .b { background: conic-gradient(from 160deg at 40% 35%, #7c5cff, #2dd4bf, #f472b6, #7c5cff); filter: grayscale(1) contrast(1.2);\n      clip-path: inset(0 0 0 var(--p, 50%)); }\n    .fx input { position: absolute; inset: auto 0 0 0; width: 100%; margin: 0; opacity: 0; height: 100%; cursor: ew-resize; }\n    .fx .handle { position: absolute; top: 0; bottom: 0; left: var(--p, 50%); width: 2px; background: #fff; pointer-events: none; }\n    .fx .handle::after { content: \"⇔\"; position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 32px; height: 32px;\n      border-radius: 50%; background: #fff; color: #0b0d12; display: grid; place-items: center; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"cmp\" style=\"--p:50%\"><div class=\"a\"></div><div class=\"b\"></div>\n  <div class=\"handle\"></div><input type=\"range\" min=\"0\" max=\"100\" value=\"50\" aria-label=\"Comparison position\" /></div>\n  <script>\n    (function () {\n      var w = document.getElementById(\"cmp\"), r = w.querySelector(\"input\");\n      r.addEventListener(\"input\", function () { w.style.setProperty(\"--p\", r.value + \"%\"); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

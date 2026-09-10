@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Editable Cell</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "table-editable-cell",
+    "title": "Editable Cell",
+    "summary": "A cell that becomes an input on double click.",
+    "description": "A cell that becomes an input on double click.",
+    "theme": "tables-data",
+    "categories": ["table", "data"],
+    "tags": ["table", "data", "editable", "inline-edit", "spreadsheet", "cell"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+    "customization": [
+      { "name": "--c", "description": "Focus colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Spreadsheet-style grids. Match the input's padding and font to the static cell exactly, or every edit shifts the row height by a pixel or two."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; border-radius: 12px; overflow: hidden; border: 1px solid #263149; }
+    .fx table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    .fx th { background: #1c2437; color: #8b93a7; text-align: left; padding: .5rem .8rem; font-size: .68rem; text-transform: uppercase; }
+    .fx td { padding: 0; border-top: 1px solid #1e2740; }
+    .fx td .v { display: block; padding: .5rem .8rem; color: #cbd5e1; cursor: text; }
+    .fx td .v:hover { background: #171d33; }
+    .fx td input { width: 100%; padding: .5rem .8rem; border: 0; background: #10141f; color: #e7ebf3; font: inherit;
+      outline: 2px solid #7c5cff; outline-offset: -2px; }
+  </style>
+</head>
+<body>
+  <div class="fx"><table><caption class="sr" style="position:absolute;left:-9999px">Editable values</caption>
+  <thead><tr><th scope="col">Token</th><th scope="col">Value</th></tr></thead>
+  <tbody><tr><td><span class="v">--accent</span></td><td><input type="text" value="#7c5cff" aria-label="Accent value" /></td></tr>
+  <tr><td><span class="v">--radius</span></td><td><span class="v">14px</span></td></tr></tbody></table></div>
+</body>
+</html>

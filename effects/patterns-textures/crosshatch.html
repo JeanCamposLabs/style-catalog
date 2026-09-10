@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crosshatch</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "crosshatch",
+    "title": "Crosshatch",
+    "summary": "Fine crossing diagonals like pen shading.",
+    "description": "Fine crossing diagonals like pen shading. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "crosshatch", "hatching", "illustration", "texture"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Hatch colour", "default": "rgba(231,235,243,.1)" },
+      { "name": "--s", "description": "Hatch spacing", "default": "8px" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Illustration and editorial textures. Vary the two layers' spacing slightly for a hand-drawn feel instead of a mechanical mesh."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(231,235,243,.1); --s: 8px; }
+    .bg { background-color: #0b0d12;
+      background-image: repeating-linear-gradient(45deg, var(--c) 0 1px, transparent 1px var(--s)),
+        repeating-linear-gradient(-45deg, var(--c) 0 1px, transparent 1px var(--s)); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

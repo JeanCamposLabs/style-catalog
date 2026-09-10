@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arrow Notch</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "divider-arrow-notch",
+    "title": "Arrow Notch",
+    "summary": "A triangular notch pointing into the next section.",
+    "description": "A triangular notch pointing into the next section. Purely decorative and self-contained, so it drops between any two sections.",
+    "theme": "dividers-shapes",
+    "categories": ["divider", "shape"],
+    "tags": ["divider", "separator", "arrow", "notch", "pointer", "transition"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+    "customization": [
+      { "name": "--size", "description": "Notch size", "default": "20px" }
+    ],
+    "variations": ["Flip vertically for the opposite section", "Recolour to match the next section"],
+    "ai_usage": "Directing attention downward between sections. Border triangles cannot take a gradient — use clip-path if the sections are not flat colours."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }
+    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }
+    .stage { width: min(92vw, 340px); }
+    .divider { height: 30px; background: #151b2a; position: relative; }
+    .divider::after { content: ""; position: absolute; left: 50%; top: 0; translate: -50% 0; border: 20px solid transparent; border-top-color: #151b2a; }
+  </style>
+</head>
+<body>
+  <div class="stage"><div class="top">Section one</div><div class="divider" aria-hidden="true"></div><div class="bottom">Section two</div></div>
+</body>
+</html>

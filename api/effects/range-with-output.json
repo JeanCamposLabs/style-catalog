@@ -1,0 +1,44 @@
+{
+  "id": "range-with-output",
+  "title": "Range with Live Output",
+  "summary": "A slider that prints its value in a bubble above the thumb.",
+  "description": "The bubble is positioned from the value as a percentage, so it tracks the thumb exactly at any width.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "range",
+    "slider",
+    "output",
+    "value",
+    "tooltip"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Track fill",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Stepped ticks under the track",
+    "Dual-thumb range"
+  ],
+  "related": [],
+  "ai_usage": "Settings and price filters. Offset the bubble by (value% ) minus half the thumb width or it drifts at the extremes; keep the native input for keyboard support.",
+  "path": "effects/forms-inputs/range-with-output.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Range with Live Output</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"range-with-output\",\n    \"title\": \"Range with Live Output\",\n    \"summary\": \"A slider that prints its value in a bubble above the thumb.\",\n    \"description\": \"The bubble is positioned from the value as a percentage, so it tracks the thumb exactly at any width.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"range\", \"slider\", \"output\", \"value\", \"tooltip\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real <label>, a visible focus ring, and state that is never signalled by colour alone.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Track fill\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Stepped ticks under the track\", \"Dual-thumb range\"],\n    \"ai_usage\": \"Settings and price filters. Offset the bubble by (value% ) minus half the thumb width or it drifts at the extremes; keep the native input for keyboard support.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .rg { width: 300px; position: relative; padding-top: 2.4rem; }\n    .rg input { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 99px; background: #2b3450; }\n    .rg input::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;\n      background: var(--c, #7c5cff); border: 3px solid #0b0d12; cursor: pointer; }\n    .rg input::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--c, #7c5cff); border: 3px solid #0b0d12; }\n    .rg output { position: absolute; top: 0; transform: translateX(-50%); background: var(--c, #7c5cff); color: #fff;\n      padding: .2rem .5rem; border-radius: 6px; font-size: .8rem; font-weight: 700; }\n  </style>\n</head>\n<body>\n  <div class=\"rg\"><output id=\"o\" for=\"r\">40</output><input id=\"r\" type=\"range\" min=\"0\" max=\"100\" value=\"40\" aria-label=\"Volume\" /></div>\n  <script>\n    (function () {\n      var r = document.getElementById(\"r\"), o = document.getElementById(\"o\");\n      function sync() { o.textContent = r.value; o.style.left = \"calc(\" + r.value + \"% + \" + (10 - r.value * .2) + \"px)\"; }\n      r.addEventListener(\"input\", sync); sync();\n    })();\n  </script>\n</body>\n</html>\n"
+}

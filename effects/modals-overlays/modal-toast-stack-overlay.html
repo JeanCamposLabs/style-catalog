@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stacked Dialog</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "modal-toast-stack-overlay",
+    "title": "Stacked Dialog",
+    "summary": "A second dialog opening over the first, offset behind it.",
+    "description": "A second dialog opening over the first, offset behind it.",
+    "theme": "modals-overlays",
+    "categories": ["modal", "overlay"],
+    "tags": ["modal", "dialog", "stack", "nested", "layered", "z-index"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.",
+    "customization": [
+      { "name": "--offset", "description": "Stack offset", "default": "14px" }
+    ],
+    "variations": ["Recolour through the custom properties", "Scale it for a compact variant"],
+    "ai_usage": "Nested flows (a picker over a form). Push the previous dialog back and dim it so the active layer is unambiguous, and keep focus in the topmost dialog only."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .stack { position: relative; width: 300px; height: 220px; }
+    .d { position: absolute; left: 0; right: 0; padding: 1.3rem; border-radius: 16px; background: #141a28; border: 1px solid #2b3450;
+      box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+    .d.back { top: 0; transform: scale(.93) translateY(-14px); opacity: .6; }
+    .d.front { top: 34px; }
+    .d h3 { margin: 0 0 .4rem; font-size: 1rem; }
+    .d p { margin: 0; color: #8b93a7; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <div class="stack"><div class="d back" aria-hidden="true"><h3>Project settings</h3><p>Background layer.</p></div>
+  <div class="d front" role="dialog" aria-label="Select region"><h3>Select region</h3><p>The active dialog sits in front; the one behind is inert.</p></div></div>
+</body>
+</html>

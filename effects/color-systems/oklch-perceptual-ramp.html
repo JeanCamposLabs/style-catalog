@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OKLCH Ramp</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "oklch-perceptual-ramp",
+    "title": "OKLCH Ramp",
+    "summary": "Even perceptual steps using OKLCH.",
+    "description": "Even perceptual steps using OKLCH.",
+    "theme": "color-systems",
+    "categories": ["color", "reference"],
+    "tags": ["color", "tokens", "oklch", "perceptual", "lightness", "color-space"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+    "customization": [
+      { "name": "--l", "description": "Lightness step", "default": "0.08" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Generating ramps programmatically. OKLCH keeps lightness perceptually even across hues, so a step that looks right in blue also looks right in yellow — sRGB interpolation cannot promise that."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; }
+    .fx .ramp { display: flex; border-radius: 10px; overflow: hidden; }
+    .fx .ramp i { flex: 1; height: 50px; }
+    .fx p { margin: .5rem 0 0; font-size: .76rem; color: #8b93a7; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="ramp" role="img" aria-label="OKLCH ramp with even lightness steps">
+    <i style="background:oklch(0.95 0.03 280)"></i><i style="background:oklch(0.87 0.07 280)"></i>
+    <i style="background:oklch(0.79 0.11 280)"></i><i style="background:oklch(0.71 0.15 280)"></i>
+    <i style="background:oklch(0.63 0.19 280)"></i><i style="background:oklch(0.55 0.20 280)"></i>
+    <i style="background:oklch(0.47 0.17 280)"></i><i style="background:oklch(0.39 0.14 280)"></i>
+    <i style="background:oklch(0.31 0.11 280)"></i></div>
+  <p>Each step drops lightness by 0.08 in OKLCH — visually even, unlike equal steps in hex.</p></div>
+</body>
+</html>

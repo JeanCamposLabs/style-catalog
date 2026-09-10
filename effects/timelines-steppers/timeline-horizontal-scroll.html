@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Horizontal Timeline</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "timeline-horizontal-scroll",
+    "title": "Horizontal Timeline",
+    "summary": "A scrolling year timeline with milestone cards.",
+    "description": "A scrolling year timeline with milestone cards.",
+    "theme": "timelines-steppers",
+    "categories": ["timeline", "stepper"],
+    "tags": ["timeline", "sequence", "horizontal", "scroll", "milestones", "history"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+    "customization": [
+      { "name": "--c", "description": "Marker colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Company and product histories. Horizontal timelines must scroll rather than compress; make the container keyboard-scrollable and add edge fades so the overflow is discoverable."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; overflow-x: auto; padding-bottom: .5rem; }
+    .rail { position: relative; display: flex; gap: 1.4rem; min-width: 460px; padding-top: 1.6rem; }
+    .rail::before { content: ""; position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: #2b3450; }
+    .m { position: relative; width: 130px; flex: none; }
+    .m::before { content: ""; position: absolute; top: -18px; left: 0; width: 12px; height: 12px; border-radius: 50%;
+      background: #7c5cff; border: 2px solid #0b0d12; }
+    .m time { display: block; color: #8b93a7; font-size: .72rem; margin-bottom: .2rem; }
+    .m b { font-size: .84rem; }
+    .m p { margin: .2rem 0 0; color: #8b93a7; font-size: .76rem; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="rail">
+    <div class="m"><time>2024</time><b>Prototype</b><p>Nine effects in one file.</p></div>
+    <div class="m"><time>2025</time><b>Public gallery</b><p>Static site on Pages.</p></div>
+    <div class="m"><time>2026</time><b>1,181 specimens</b><p>Forty-plus themes.</p></div></div></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Typing Prompt</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "terminal-typing-prompt",
+    "title": "Typing Prompt",
+    "summary": "A command typed out character by character.",
+    "description": "A command typed out character by character.",
+    "theme": "terminal-cli",
+    "categories": ["terminal", "code"],
+    "tags": ["terminal", "monospace", "typing", "steps", "prompt", "caret"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Terminal output should live in a real text element (not an image) so it can be selected, searched, and read aloud.",
+    "customization": [
+      { "name": "--c", "description": "Text colour", "default": "#4ade80" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Hero demos. The steps() count must equal the character count and the width must be that many ch, or the caret drifts away from the text."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; padding: 1rem; border-radius: 8px; background: #05070d; border: 1px solid #1f2937;
+      font-family: ui-monospace, monospace; font-size: .85rem; color: #4ade80; }
+    .fx .line { overflow: hidden; white-space: nowrap; border-right: 2px solid #4ade80; width: 0;
+      animation: type 3s steps(28) infinite, caret .7s step-end infinite; }
+    @keyframes type { 0% { width: 0; } 60%, 100% { width: 28ch; } }
+    @keyframes caret { 50% { border-color: transparent; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="line">$ npx create-catalog my-app</div></div>
+</body>
+</html>

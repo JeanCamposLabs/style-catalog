@@ -1,0 +1,44 @@
+{
+  "id": "cursor-inertia-follower",
+  "title": "Inertial Follower",
+  "summary": "A shape that eases toward the pointer with drag.",
+  "description": "A shape that eases toward the pointer with drag.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "pointer"
+  ],
+  "tags": [
+    "cursor",
+    "pointer",
+    "inertia",
+    "lerp",
+    "follow",
+    "easing"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--k",
+      "description": "Follow factor",
+      "default": "0.12"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Portfolio cursors. Interpolate toward the target each frame (pos += (target - pos) * k) rather than using a CSS transition, which restarts on every pointermove and stutters.",
+  "path": "effects/cursors-pointers/cursor-inertia-follower.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Inertial Follower</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-inertia-follower\",\n    \"title\": \"Inertial Follower\",\n    \"summary\": \"A shape that eases toward the pointer with drag.\",\n    \"description\": \"A shape that eases toward the pointer with drag.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\"],\n    \"tags\": [\"cursor\", \"pointer\", \"inertia\", \"lerp\", \"follow\", \"easing\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--k\", \"description\": \"Follow factor\", \"default\": \"0.12\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Portfolio cursors. Interpolate toward the target each frame (pos += (target - pos) * k) rather than using a CSS transition, which restarts on every pointermove and stutters.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { cursor: none; }\n    .hint { color: #8b93a7; font-size: .88rem; }\n    .dot { position: fixed; top: 0; left: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%;\n      background: rgba(45,212,191,.3); border: 2px solid #2dd4bf; pointer-events: none; z-index: 9; }\n  </style>\n</head>\n<body>\n  <p class=\"hint\">Move the pointer — the ring trails behind</p><div class=\"dot\" aria-hidden=\"true\"></div>\n  <script>\n    (function () {\n      var d = document.querySelector(\".dot\"), tx = 0, ty = 0, px = 0, py = 0;\n      addEventListener(\"pointermove\", function (e) { tx = e.clientX; ty = e.clientY; });\n      (function loop() {\n        px += (tx - px) * .12; py += (ty - py) * .12;\n        d.style.transform = \"translate(\" + px + \"px,\" + py + \"px)\";\n        requestAnimationFrame(loop);\n      })();\n    })();\n  </script>\n</body>\n</html>\n"
+}

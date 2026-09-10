@@ -1,0 +1,44 @@
+{
+  "id": "badge-gradient-pill",
+  "title": "Gradient Pill",
+  "summary": "A saturated gradient label for premium tiers.",
+  "description": "A saturated gradient label for premium tiers. Small self-contained component ready to drop into a list or card.",
+  "theme": "badges-tags",
+  "themeTitle": "Badges & Tags",
+  "categories": [
+    "badge",
+    "label"
+  ],
+  "tags": [
+    "badge",
+    "label",
+    "gradient",
+    "premium",
+    "pro",
+    "upsell"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+  "customization": [
+    {
+      "name": "--g",
+      "description": "Gradient",
+      "default": "linear-gradient(120deg,#fbbf24,#f472b6,#7c5cff)"
+    }
+  ],
+  "variations": [
+    "Add a size variant",
+    "Map colours to semantic tokens"
+  ],
+  "related": [],
+  "ai_usage": "Plan and tier markers. Check the label's contrast against the mid-point of the gradient, not just its ends.",
+  "path": "effects/badges-tags/badge-gradient-pill.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Gradient Pill</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"badge-gradient-pill\",\n    \"title\": \"Gradient Pill\",\n    \"summary\": \"A saturated gradient label for premium tiers.\",\n    \"description\": \"A saturated gradient label for premium tiers. Small self-contained component ready to drop into a list or card.\",\n    \"theme\": \"badges-tags\",\n    \"categories\": [\"badge\", \"label\"],\n    \"tags\": [\"badge\", \"label\", \"gradient\", \"premium\", \"pro\", \"upsell\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Status must never be colour-only: pair every badge colour with a label, icon, or shape.\",\n    \"customization\": [\n      { \"name\": \"--g\", \"description\": \"Gradient\", \"default\": \"linear-gradient(120deg,#fbbf24,#f472b6,#7c5cff)\" }\n    ],\n    \"variations\": [\"Add a size variant\", \"Map colours to semantic tokens\"],\n    \"ai_usage\": \"Plan and tier markers. Check the label's contrast against the mid-point of the gradient, not just its ends.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .b { display: inline-block; padding: .35rem .9rem; border-radius: 999px; font-size: .78rem; font-weight: 800;\n      letter-spacing: .04em; text-transform: uppercase; color: #1a1030;\n      background: linear-gradient(120deg, #fbbf24, #f472b6, #7c5cff); }\n  </style>\n</head>\n<body>\n  <span class=\"b\">Pro</span>\n</body>\n</html>\n"
+}

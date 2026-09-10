@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "card-profile",
+    "title": "Profile Card",
+    "summary": "An avatar, name, role, and action in one block.",
+    "description": "An avatar, name, role, and action in one block. Self-contained card markup you can drop into a grid.",
+    "theme": "cards-surfaces",
+    "categories": ["card", "surface"],
+    "tags": ["card", "surface", "profile", "avatar", "team", "person"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A clickable card needs one real link or button inside it; never attach a click handler to a bare div.",
+    "customization": [
+      { "name": "--c", "description": "Accent", "default": "#7c5cff" }
+    ],
+    "variations": ["Adapt for a light theme", "Add a media area at the top"],
+    "ai_usage": "Team and directory pages. Put the person's name in a heading element so the page has a usable outline."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .card { width: 260px; border-radius: 18px; padding: 1.4rem; }
+    .card h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; line-height: 1.5; }
+    .card { background: #151b2a; border: 1px solid #263149; text-align: center; }
+    .card .av { width: 68px; height: 68px; border-radius: 50%; margin: 0 auto .8rem;
+      background: conic-gradient(from 30deg, #7c5cff, #2dd4bf, #7c5cff); display: grid; place-items: center;
+      font-weight: 800; color: #0b0d12; font-size: 1.3rem; }
+    .card .role { color: #8b93a7; font-size: .85rem; margin: .2rem 0 1rem; }
+    .card button { padding: .55rem 1.3rem; border: 0; border-radius: 999px; background: #7c5cff; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <article class="card"><div class="av">JC</div><h3>Jean Campos</h3><p class="role">Design Engineer</p><button type="button">Message</button></article>
+</body>
+</html>

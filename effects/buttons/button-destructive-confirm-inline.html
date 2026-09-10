@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inline Confirm</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "button-destructive-confirm-inline",
+    "title": "Inline Confirm",
+    "summary": "A delete button that asks for confirmation in place.",
+    "description": "A delete button that asks for confirmation in place.",
+    "theme": "buttons",
+    "categories": ["button", "action"],
+    "tags": ["button", "action", "confirm", "destructive", "inline", "two-step"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+    "customization": [
+      { "name": "--bad", "description": "Danger colour", "default": "#d1478c" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Row-level deletes. Inline confirmation is lighter than a modal and keeps context; move focus to the confirm button so keyboard users are not left behind."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: inline-flex; gap: .4rem; align-items: center; }
+    .fx button { padding: .55rem 1rem; border-radius: 9px; border: 1px solid #2b3450; background: transparent;
+      color: #cbd5e1; font: inherit; font-size: .84rem; cursor: pointer; }
+    .fx .danger { border-color: #d1478c; color: #f0a3c6; }
+    .fx .danger:hover { background: rgba(209,71,140,.15); }
+    .fx .q { color: #8b93a7; font-size: .82rem; }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="q">Delete this specimen?</span><button type="button">Cancel</button>
+  <button class="danger" type="button">Delete</button></div>
+</body>
+</html>

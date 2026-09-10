@@ -1,0 +1,49 @@
+{
+  "id": "corner-cut-border",
+  "title": "Cut Corner Frame",
+  "summary": "A panel with clipped corners and a matching outline.",
+  "description": "Two stacked clip-path shapes — one for the border colour, one inset for the fill — produce a chamfered frame.",
+  "theme": "borders-shadows",
+  "themeTitle": "Borders & Shadows",
+  "categories": [
+    "border",
+    "shape"
+  ],
+  "tags": [
+    "clip-path",
+    "chamfer",
+    "cut-corner",
+    "tech",
+    "frame"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Border color",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--cut",
+      "description": "Corner cut",
+      "default": "18px"
+    }
+  ],
+  "variations": [
+    "Cut only two corners",
+    "Animate the cut size",
+    "Notch instead of a chamfer"
+  ],
+  "related": [],
+  "ai_usage": "Sci-fi, gaming, and technical UIs. Use a wrapper with the border colour and clip-path, and an inner element with the same clip and a slightly smaller box — CSS borders cannot follow a clip-path.",
+  "path": "effects/borders-shadows/corner-cut-border.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Cut Corner Frame</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"corner-cut-border\",\n    \"title\": \"Cut Corner Frame\",\n    \"summary\": \"A panel with clipped corners and a matching outline.\",\n    \"description\": \"Two stacked clip-path shapes — one for the border colour, one inset for the fill — produce a chamfered frame.\",\n    \"theme\": \"borders-shadows\",\n    \"categories\": [\"border\", \"shape\"],\n    \"tags\": [\"clip-path\", \"chamfer\", \"cut-corner\", \"tech\", \"frame\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Border color\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--cut\", \"description\": \"Corner cut\", \"default\": \"18px\" }\n    ],\n    \"variations\": [\"Cut only two corners\", \"Animate the cut size\", \"Notch instead of a chamfer\"],\n    \"ai_usage\": \"Sci-fi, gaming, and technical UIs. Use a wrapper with the border colour and clip-path, and an inner element with the same clip and a slightly smaller box — CSS borders cannot follow a clip-path.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }\n    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }\n    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }\n    :root { --c: #2dd4bf; --cut: 18px; }\n    .frame { background: var(--c); padding: 2px;\n      clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)); }\n    .demo { background: #10141f;\n      clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)); }\n  </style>\n</head>\n<body>\n  <div class=\"frame\"><div class=\"demo\"><h3>Chamfered</h3><p>Clip-path frame with a matching fill.</p></div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isometric-stack-blocks",
+  "title": "Isometric Blocks",
+  "summary": "Stacked blocks in an isometric projection.",
+  "description": "Stacked blocks in an isometric projection.",
+  "theme": "3d-transforms",
+  "themeTitle": "3D Transforms",
+  "categories": [
+    "3d",
+    "transform"
+  ],
+  "tags": [
+    "3d",
+    "transform",
+    "isometric",
+    "blocks",
+    "projection",
+    "3d"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Block colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Add a reduced-motion static variant"
+  ],
+  "related": [],
+  "ai_usage": "Technical illustration. rotateX(58deg) rotateZ(45deg) is the standard isometric camera; build each block from a top face plus two side faces rather than shading a square.",
+  "path": "effects/3d-transforms/isometric-stack-blocks.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Isometric Blocks</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"isometric-stack-blocks\",\n    \"title\": \"Isometric Blocks\",\n    \"summary\": \"Stacked blocks in an isometric projection.\",\n    \"description\": \"Stacked blocks in an isometric projection.\",\n    \"theme\": \"3d-transforms\",\n    \"categories\": [\"3d\", \"transform\"],\n    \"tags\": [\"3d\", \"transform\", \"isometric\", \"blocks\", \"projection\", \"3d\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"3D motion is a common trigger for vestibular discomfort — keep rotations small and stop them under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Block colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Add a reduced-motion static variant\"],\n    \"ai_usage\": \"Technical illustration. rotateX(58deg) rotateZ(45deg) is the standard isometric camera; build each block from a top face plus two side faces rather than shading a square.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 200px; height: 180px; display: grid; place-items: center; }\n    .iso { transform: rotateX(58deg) rotateZ(45deg); transform-style: preserve-3d; }\n    .b { position: relative; width: 90px; height: 90px; background: #7c5cff; transform-style: preserve-3d;\n      animation: lift 3s ease-in-out infinite alternate; }\n    .b::before, .b::after { content: \"\"; position: absolute; }\n    .b::before { width: 90px; height: 24px; background: #4c1d95; bottom: -24px; transform-origin: top; transform: rotateX(-90deg); }\n    .b::after { width: 24px; height: 90px; background: #6d3fd6; right: -24px; transform-origin: left; transform: rotateY(90deg); }\n    @keyframes lift { to { transform: translateZ(26px); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"iso\"><div class=\"b\"></div></div></div>\n</body>\n</html>\n"
+}

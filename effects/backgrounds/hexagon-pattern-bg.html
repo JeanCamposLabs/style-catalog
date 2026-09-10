@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hexagon Mesh</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "hexagon-pattern-bg",
+    "title": "Hexagon Mesh",
+    "summary": "A honeycomb lattice from two staggered gradient layers.",
+    "description": "Sixty-degree gradient stripes offset by half a tile interlock into hexagons — no SVG and no per-cell markup.",
+    "theme": "backgrounds",
+    "categories": ["background", "pattern"],
+    "tags": ["hexagon", "honeycomb", "tile", "geometric", "pattern"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Cell color", "default": "#161d2c" },
+      { "name": "--bg", "description": "Gap color", "default": "#0b0d12" },
+      { "name": "--s", "description": "Cell size", "default": "56px" }
+    ],
+    "variations": ["Filled hexes instead of outlines", "Animate a hue shift per row", "Mask to a circle for a badge"],
+    "ai_usage": "Tech, gaming, and science backgrounds. The stagger is the whole trick: give the second layer a background-position offset of half the tile in both axes."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: #161d2c; --bg: #0b0d12; --s: 56px; }
+    .bg { background-color: var(--bg);
+      background-image: radial-gradient(circle farthest-side at 0 50%, var(--c) 24%, transparent 25%),
+        radial-gradient(circle farthest-side at 100% 50%, var(--c) 24%, transparent 25%);
+      background-size: var(--s) calc(var(--s) * 1.732);
+      background-position: 0 0, 0 0; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

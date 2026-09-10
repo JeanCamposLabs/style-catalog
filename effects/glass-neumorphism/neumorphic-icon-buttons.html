@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soft Icon Buttons</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neumorphic-icon-buttons",
+    "title": "Soft Icon Buttons",
+    "summary": "Extruded round buttons with a pressed state.",
+    "description": "Extruded round buttons with a pressed state.",
+    "theme": "glass-neumorphism",
+    "categories": ["glass", "surface"],
+    "tags": ["glass", "surface", "neumorphism", "buttons", "press", "soft-ui"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Translucent surfaces easily fall below contrast minimums — check text and borders against the busiest part of the backdrop.",
+    "customization": [
+      { "name": "--bg", "description": "Surface colour", "default": "#232a3a" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Soft-UI toolbars. Swap outset shadows for inset ones on press, and add a colour change too — shadow inversion alone is imperceptible to many users."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: #232a3a; }
+    .fx { display: flex; gap: 12px; }
+    .fx button { width: 52px; height: 52px; border: 0; border-radius: 50%; background: #232a3a; color: #cbd5e1;
+      font-size: 1.1rem; cursor: pointer; transition: box-shadow .15s, color .15s;
+      box-shadow: 5px 5px 10px rgba(0,0,0,.5), -5px -5px 10px rgba(255,255,255,.05); }
+    .fx button:active { color: #b9a5ff;
+      box-shadow: inset 5px 5px 10px rgba(0,0,0,.5), inset -5px -5px 10px rgba(255,255,255,.05); }
+    .fx button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 4px; }
+  </style>
+</head>
+<body>
+  <div class="fx"><button type="button" aria-label="Previous">⏮</button><button type="button" aria-label="Play">▶</button>
+  <button type="button" aria-label="Next">⏭</button></div>
+</body>
+</html>

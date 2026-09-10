@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Split Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "button-split-dropdown",
+    "title": "Split Button",
+    "summary": "A primary action with an attached menu trigger.",
+    "description": "A primary action with an attached menu trigger.",
+    "theme": "buttons",
+    "categories": ["button", "action"],
+    "tags": ["button", "action", "split", "dropdown", "primary", "menu"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Button colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Actions with variants (Save / Save as). Both halves must be separate buttons with their own labels; a single button with a click-position check is unusable by keyboard."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: inline-flex; border-radius: 11px; overflow: hidden; }
+    .fx button { border: 0; background: #7c5cff; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+    .fx .main { padding: .7rem 1.2rem; }
+    .fx .arrow { padding: .7rem .8rem; border-left: 1px solid rgba(255,255,255,.25); }
+    .fx button:hover { background: #6544e0; }
+  </style>
+</head>
+<body>
+  <div class="fx"><button class="main" type="button">Publish</button>
+  <button class="arrow" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="More publish options">▾</button></div>
+</body>
+</html>

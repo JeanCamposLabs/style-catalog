@@ -1,0 +1,49 @@
+{
+  "id": "grid-fade-mask-bg",
+  "title": "Fading Grid",
+  "summary": "A technical grid that dissolves toward the edges.",
+  "description": "A radial mask over the grid keeps the centre crisp and the periphery clean, so foreground text stays readable.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "grid"
+  ],
+  "tags": [
+    "grid",
+    "mask",
+    "fade",
+    "technical",
+    "saas"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Grid color",
+      "default": "rgba(148,163,184,.14)"
+    },
+    {
+      "name": "--s",
+      "description": "Cell size",
+      "default": "44px"
+    }
+  ],
+  "variations": [
+    "Fade from the top only",
+    "Animate the grid drifting upward",
+    "Dot grid instead of lines"
+  ],
+  "related": [],
+  "ai_usage": "The default SaaS hero backdrop. The mask is what makes it usable: radial-gradient(ellipse at center, #000 40%, transparent 75%) prevents the grid from fighting with content at the edges.",
+  "path": "effects/backgrounds/grid-fade-mask-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Fading Grid</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"grid-fade-mask-bg\",\n    \"title\": \"Fading Grid\",\n    \"summary\": \"A technical grid that dissolves toward the edges.\",\n    \"description\": \"A radial mask over the grid keeps the centre crisp and the periphery clean, so foreground text stays readable.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"grid\"],\n    \"tags\": [\"grid\", \"mask\", \"fade\", \"technical\", \"saas\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Grid color\", \"default\": \"rgba(148,163,184,.14)\" },\n      { \"name\": \"--s\", \"description\": \"Cell size\", \"default\": \"44px\" }\n    ],\n    \"variations\": [\"Fade from the top only\", \"Animate the grid drifting upward\", \"Dot grid instead of lines\"],\n    \"ai_usage\": \"The default SaaS hero backdrop. The mask is what makes it usable: radial-gradient(ellipse at center, #000 40%, transparent 75%) prevents the grid from fighting with content at the edges.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: rgba(148,163,184,.14); --s: 44px; }\n    .bg { background-color: #0b0d12;\n      background-image: linear-gradient(var(--c) 1px, transparent 1px), linear-gradient(90deg, var(--c) 1px, transparent 1px);\n      background-size: var(--s) var(--s);\n      -webkit-mask-image: radial-gradient(ellipse at center, #000 35%, transparent 72%);\n      mask-image: radial-gradient(ellipse at center, #000 35%, transparent 72%); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

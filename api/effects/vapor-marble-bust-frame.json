@@ -1,0 +1,45 @@
+{
+  "id": "vapor-marble-bust-frame",
+  "title": "Statue Frame",
+  "summary": "A classical bust motif framed in gradient and grid.",
+  "description": "A classical bust motif framed in gradient and grid.",
+  "theme": "vaporwave-synthwave",
+  "themeTitle": "Vaporwave & Synthwave",
+  "categories": [
+    "retro",
+    "vaporwave"
+  ],
+  "tags": [
+    "vaporwave",
+    "retro",
+    "80s",
+    "statue",
+    "classical",
+    "grid",
+    "aesthetic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Ground start",
+      "default": "#6d28d9"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Vaporwave collage compositions. Desaturating the focal motif against a saturated ground is the core visual grammar of the style.",
+  "path": "effects/vaporwave-synthwave/vapor-marble-bust-frame.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Statue Frame</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"vapor-marble-bust-frame\",\n    \"title\": \"Statue Frame\",\n    \"summary\": \"A classical bust motif framed in gradient and grid.\",\n    \"description\": \"A classical bust motif framed in gradient and grid.\",\n    \"theme\": \"vaporwave-synthwave\",\n    \"categories\": [\"retro\", \"vaporwave\"],\n    \"tags\": [\"vaporwave\", \"retro\", \"80s\", \"statue\", \"classical\", \"grid\", \"aesthetic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"High-saturation magenta on cyan is a contrast trap — keep body copy on a neutral surface.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Ground start\", \"default\": \"#6d28d9\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Vaporwave collage compositions. Desaturating the focal motif against a saturated ground is the core visual grammar of the style.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 250px; height: 190px; border-radius: 12px; overflow: hidden;\n      background: linear-gradient(160deg, #6d28d9, #db2777); display: grid; place-items: center; }\n    .fx::before { content: \"\"; position: absolute; inset: 0;\n      background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.14) 0 1px, transparent 1px 26px),\n        repeating-linear-gradient(0deg, rgba(255,255,255,.14) 0 1px, transparent 1px 26px); }\n    .bust { position: relative; font-size: 5rem; filter: grayscale(1) contrast(1.2) drop-shadow(0 6px 14px rgba(0,0,0,.5)); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><span class=\"bust\" aria-hidden=\"true\">🗿</span></div>\n</body>\n</html>\n"
+}

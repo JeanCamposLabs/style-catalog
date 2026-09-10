@@ -1,0 +1,54 @@
+{
+  "id": "underline-draw-text",
+  "title": "Drawn Underline",
+  "summary": "An underline draws itself under the phrase, then erases from the far side.",
+  "description": "transform-origin flips between left and right across the loop, so the stroke draws in one direction and wipes out in the other.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "underline"
+  ],
+  "tags": [
+    "underline",
+    "draw",
+    "scaleX",
+    "emphasis",
+    "link"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Underline color",
+      "default": "#2dd4bf"
+    },
+    {
+      "name": "--dur",
+      "description": "Draw duration",
+      "default": "1.1s"
+    },
+    {
+      "name": "--w",
+      "description": "Stroke weight",
+      "default": "3px"
+    }
+  ],
+  "variations": [
+    "Keep it drawn after the first pass",
+    "Thicker stroke as a highlighter",
+    "Trigger on hover for links"
+  ],
+  "related": [],
+  "ai_usage": "Emphasis and animated links. The draw-then-erase illusion needs the transform-origin switched at the midpoint of the keyframes — animating scaleX alone just shrinks the line back the way it came.",
+  "path": "effects/text-effects/underline-draw-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Drawn Underline</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"underline-draw-text\",\n    \"title\": \"Drawn Underline\",\n    \"summary\": \"An underline draws itself under the phrase, then erases from the far side.\",\n    \"description\": \"transform-origin flips between left and right across the loop, so the stroke draws in one direction and wipes out in the other.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"underline\"],\n    \"tags\": [\"underline\", \"draw\", \"scaleX\", \"emphasis\", \"link\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Underline color\", \"default\": \"#2dd4bf\" },\n      { \"name\": \"--dur\", \"description\": \"Draw duration\", \"default\": \"1.1s\" },\n      { \"name\": \"--w\", \"description\": \"Stroke weight\", \"default\": \"3px\" }\n    ],\n    \"variations\": [\"Keep it drawn after the first pass\", \"Thicker stroke as a highlighter\", \"Trigger on hover for links\"],\n    \"ai_usage\": \"Emphasis and animated links. The draw-then-erase illusion needs the transform-origin switched at the midpoint of the keyframes — animating scaleX alone just shrinks the line back the way it came.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #2dd4bf; --dur: 1.1s; --w: 3px; }\n    .ud { font-size: clamp(1.4rem, 5vw, 2.2rem); font-weight: 700; position: relative; display: inline-block; }\n    .ud::after { content: \"\"; position: absolute; left: 0; right: 0; bottom: -6px; height: var(--w); background: var(--c);\n      transform: scaleX(0); transform-origin: left; animation: draw calc(var(--dur) * 2) ease-in-out infinite; }\n    @keyframes draw {\n      0% { transform: scaleX(0); transform-origin: left; }\n      45%, 55% { transform: scaleX(1); transform-origin: left; }\n      56% { transform: scaleX(1); transform-origin: right; }\n      100% { transform: scaleX(0); transform-origin: right; }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <span class=\"ud\">Draw the line</span>\n</body>\n</html>\n"
+}

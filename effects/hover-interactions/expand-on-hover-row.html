@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expanding Panel Row</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "expand-on-hover-row",
+    "title": "Expanding Panel Row",
+    "summary": "A row of panels where the hovered one takes most of the width.",
+    "description": "Flex-grow transitions on one axis push the siblings aside, so no absolute positioning or JS is needed.",
+    "theme": "hover-interactions",
+    "categories": ["hover", "layout"],
+    "tags": ["accordion", "flex", "expand", "gallery", "row"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every hover affordance here also responds to :focus-visible so keyboard users get the same information. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--dur", "description": "Expand duration", "default": "0.45s" }
+    ],
+    "variations": ["Vertical stack version", "Reveal captions in the expanded panel", "Keyboard focus expands too"],
+    "ai_usage": "Image galleries and feature rows. Transition flex-grow (not width) so the total stays exactly 100%, and give every panel min-width:0 or the collapse will stop short."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: .45s; }
+    .exp { display: flex; gap: 8px; width: min(90vw, 460px); height: 220px; }
+    .exp div { flex: 1; min-width: 0; border-radius: 14px; display: grid; place-items: end start; padding: .9rem;
+      font-weight: 700; color: #fff; transition: flex var(--dur) cubic-bezier(.7,0,.2,1); cursor: pointer; overflow: hidden; }
+    .exp div:hover, .exp div:focus-visible { flex: 4; }
+    .exp div:nth-child(1) { background: linear-gradient(160deg, #7c5cff, #4c1d95); }
+    .exp div:nth-child(2) { background: linear-gradient(160deg, #2dd4bf, #0f766e); }
+    .exp div:nth-child(3) { background: linear-gradient(160deg, #f472b6, #9d174d); }
+    .exp div:nth-child(4) { background: linear-gradient(160deg, #fbbf24, #b45309); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="exp">
+    <div tabindex="0">Aurora</div><div tabindex="0">Reef</div><div tabindex="0">Bloom</div><div tabindex="0">Ember</div>
+  </div>
+</body>
+</html>

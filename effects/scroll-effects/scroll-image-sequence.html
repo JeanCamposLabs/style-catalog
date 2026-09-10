@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scroll Scrub</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scroll-image-sequence",
+    "title": "Scroll Scrub",
+    "summary": "An element scrubbed frame by frame with scroll.",
+    "description": "An element scrubbed frame by frame with scroll.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "motion"],
+    "tags": ["scroll", "scrub", "scroll", "sequence", "sticky"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+    "customization": [
+      { "name": "--frames", "description": "Frame count", "default": "36" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Product explainers. Map scroll progress to a discrete frame index and clamp it; feeding an unclamped value straight into a transform is what makes scrubbed sequences jitter at the edges."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { min-height: 260vh; margin: 0; }
+    .stage { position: sticky; top: 0; height: 100vh; display: grid; place-items: center; background: #0b0d12; }
+    .dial { width: 180px; height: 180px; border-radius: 50%; border: 12px solid #22304a; border-top-color: #7c5cff; }
+    .hint { position: absolute; bottom: 12vh; color: #8b93a7; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <div class="stage"><div class="dial" id="dl"></div><p class="hint">Scroll to rotate</p></div>
+  <script>
+    (function () {
+      var d = document.getElementById("dl");
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      addEventListener("scroll", function () {
+        var p = Math.min(scrollY / (document.body.scrollHeight - innerHeight), 1);
+        d.style.transform = "rotate(" + Math.round(p * 36) * 10 + "deg)";
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

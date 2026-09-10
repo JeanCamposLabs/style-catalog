@@ -1,0 +1,44 @@
+{
+  "id": "timeline-vertical-rail",
+  "title": "Vertical Timeline",
+  "summary": "Events on a rail with dated entries.",
+  "description": "Events on a rail with dated entries.",
+  "theme": "timelines-steppers",
+  "themeTitle": "Timelines & Steppers",
+  "categories": [
+    "timeline",
+    "stepper"
+  ],
+  "tags": [
+    "timeline",
+    "sequence",
+    "vertical",
+    "rail",
+    "events",
+    "history"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Dot colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Changelogs and histories. Use an <ol> with <time datetime> per entry; the rail is decoration and belongs in pseudo-elements, not extra list items.",
+  "path": "effects/timelines-steppers/timeline-vertical-rail.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Vertical Timeline</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"timeline-vertical-rail\",\n    \"title\": \"Vertical Timeline\",\n    \"summary\": \"Events on a rail with dated entries.\",\n    \"description\": \"Events on a rail with dated entries.\",\n    \"theme\": \"timelines-steppers\",\n    \"categories\": [\"timeline\", \"stepper\"],\n    \"tags\": [\"timeline\", \"sequence\", \"vertical\", \"rail\", \"events\", \"history\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Sequences need list markup and an explicit current marker (aria-current) — position and colour alone are not enough.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Dot colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Changelogs and histories. Use an <ol> with <time datetime> per entry; the rail is decoration and belongs in pseudo-elements, not extra list items.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; }\n    .fx .ev { display: grid; grid-template-columns: 16px 1fr; gap: .8rem; }\n    .fx .rail { display: grid; justify-items: center; }\n    .fx .dot { width: 12px; height: 12px; border-radius: 50%; background: #7c5cff; margin-top: 4px; }\n    .fx .line { width: 2px; flex: 1; background: #2b3450; height: 100%; }\n    .fx .body { padding-bottom: 1.1rem; }\n    .fx b { font-size: .9rem; }\n    .fx time { display: block; color: #8b93a7; font-size: .74rem; margin-bottom: .2rem; }\n    .fx p { margin: 0; color: #8b93a7; font-size: .82rem; line-height: 1.5; }\n  </style>\n</head>\n<body>\n  <ol class=\"fx\" style=\"list-style:none;margin:0;padding:0\">\n    <li class=\"ev\"><span class=\"rail\"><span class=\"dot\"></span><span class=\"line\"></span></span>\n    <div class=\"body\"><time datetime=\"2026-09-10\">10 Sept</time><b>1,000 specimens</b><p>Catalogue passes four figures.</p></div></li>\n    <li class=\"ev\"><span class=\"rail\"><span class=\"dot\" style=\"background:#2dd4bf\"></span><span class=\"line\"></span></span>\n    <div class=\"body\"><time datetime=\"2026-08-22\">22 Aug</time><b>MCP server</b><p>Zero-dependency stdio server ships.</p></div></li>\n    <li class=\"ev\"><span class=\"rail\"><span class=\"dot\" style=\"background:#8b93a7\"></span></span>\n    <div class=\"body\"><time datetime=\"2026-07-04\">4 July</time><b>First commit</b><p>Nine effects, one theme.</p></div></li></ol>\n</body>\n</html>\n"
+}

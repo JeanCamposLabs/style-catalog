@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animated Gradient Stroke</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-gradient-animated-stroke",
+    "title": "Animated Gradient Stroke",
+    "summary": "A stroke whose gradient travels along it.",
+    "description": "A stroke whose gradient travels along it.",
+    "theme": "svg-effects",
+    "categories": ["svg", "vector"],
+    "tags": ["svg", "vector", "gradient", "stroke", "animated", "svg-defs"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+    "customization": [
+      { "name": "--dur", "description": "Shift period", "default": "4s" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Decorative connectors and highlights. Animate the gradient stops with SMIL or by rotating a gradientTransform; CSS cannot animate SVG gradient stops directly."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 200px; }
+    .fx svg { width: 100%; display: block; }
+    .fx path { fill: none; stroke: url(#g); stroke-width: 8; stroke-linecap: round; }
+    .fx stop { animation: shift 4s linear infinite; }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 200 90" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c5cff"><animate attributeName="offset" values="0;1;0" dur="4s" repeatCount="indefinite"/></stop>
+      <stop offset="0.5" stop-color="#2dd4bf"><animate attributeName="offset" values="0.5;1.5;0.5" dur="4s" repeatCount="indefinite"/></stop>
+    </linearGradient></defs>
+    <path d="M10 70 C50 10 90 90 130 40 C155 10 175 30 190 20"/></svg></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "id": "progress-wave-fill",
+  "title": "Wave Fill Meter",
+  "summary": "A container that fills with animated liquid.",
+  "description": "A container that fills with animated liquid.",
+  "theme": "progress-meters",
+  "themeTitle": "Progress & Meters",
+  "categories": [
+    "progress",
+    "meter"
+  ],
+  "tags": [
+    "progress",
+    "indicator",
+    "liquid",
+    "wave",
+    "fill",
+    "tank"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.",
+  "customization": [
+    {
+      "name": "--p",
+      "description": "Percent filled",
+      "default": "62"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Storage and hydration trackers. Two counter-rotating oversized ellipses make the surface look liquid; a straight edge reads as a plain bar.",
+  "path": "effects/progress-meters/progress-wave-fill.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Wave Fill Meter</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"progress-wave-fill\",\n    \"title\": \"Wave Fill Meter\",\n    \"summary\": \"A container that fills with animated liquid.\",\n    \"description\": \"A container that fills with animated liquid.\",\n    \"theme\": \"progress-meters\",\n    \"categories\": [\"progress\", \"meter\"],\n    \"tags\": [\"progress\", \"indicator\", \"liquid\", \"wave\", \"fill\", \"tank\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Give every indicator role=progressbar (or <progress>/<meter>) with aria-valuenow, and never rely on colour alone to signal a threshold.\",\n    \"customization\": [\n      { \"name\": \"--p\", \"description\": \"Percent filled\", \"default\": \"62\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Storage and hydration trackers. Two counter-rotating oversized ellipses make the surface look liquid; a straight edge reads as a plain bar.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .wf { position: relative; width: 130px; height: 130px; border-radius: 50%; overflow: hidden; border: 3px solid #22304a; }\n    .wf .liq { position: absolute; left: -50%; right: -50%; bottom: 0; height: calc(var(--p) * 1%); background: #38bdf8; }\n    .wf .liq::before, .wf .liq::after { content: \"\"; position: absolute; top: -12px; left: 0; right: 0; height: 24px;\n      background: #38bdf8; border-radius: 45%; animation: spin 5s linear infinite; }\n    .wf .liq::after { animation-duration: 7s; animation-direction: reverse; opacity: .6; }\n    .wf b { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; color: #06202e; }\n    @keyframes spin { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"wf\" style=\"--p:62\" role=\"img\" aria-label=\"62 percent full\"><div class=\"liq\"></div><b>62%</b></div>\n</body>\n</html>\n"
+}

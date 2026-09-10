@@ -1,0 +1,44 @@
+{
+  "id": "index-card-lines",
+  "title": "Index Card",
+  "summary": "A ruled index card with a red header line.",
+  "description": "A ruled index card with a red header line.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "index-card",
+    "ruled",
+    "notes",
+    "stationery"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--paper",
+      "description": "Card colour",
+      "default": "#fffdf7"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Note-taking and kanban cards. Layer the red header rule over the blue rule pattern with separate background-position values.",
+  "path": "effects/paper-print/index-card-lines.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Index Card</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"index-card-lines\",\n    \"title\": \"Index Card\",\n    \"summary\": \"A ruled index card with a red header line.\",\n    \"description\": \"A ruled index card with a red header line.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"index-card\", \"ruled\", \"notes\", \"stationery\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--paper\", \"description\": \"Card colour\", \"default\": \"#fffdf7\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Note-taking and kanban cards. Layer the red header rule over the blue rule pattern with separate background-position values.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 230px; height: 150px; padding: 1.6rem 1rem 1rem; background: #fffdf7; color: #1c1917;\n      border-radius: 3px; box-shadow: 0 8px 20px rgba(0,0,0,.35);\n      background-image: linear-gradient(#ef4444 0 2px, transparent 2px), repeating-linear-gradient(#fffdf7 0 21px, #bfdbfe 21px 22px);\n      background-size: 100% 100%, 100% 22px; background-position: 0 26px, 0 28px; background-repeat: no-repeat, repeat;\n      font-family: \"Comic Sans MS\", \"Segoe Script\", cursive; font-size: .9rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">Ship the catalogue<br>Regenerate posters</div>\n</body>\n</html>\n"
+}

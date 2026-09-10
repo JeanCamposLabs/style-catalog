@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dense Zebra Table</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "table-zebra-dense",
+    "title": "Dense Zebra Table",
+    "summary": "Compact rows with alternating background.",
+    "description": "Compact rows with alternating background.",
+    "theme": "tables-data",
+    "categories": ["table", "data"],
+    "tags": ["table", "data", "zebra", "dense", "compact", "striping"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+    "customization": [
+      { "name": "--zebra", "description": "Stripe alpha", "default": "0.025" }
+    ],
+    "variations": ["Swap in your own brand ramp and re-run the palette validator", "Add a table view of the same data"],
+    "ai_usage": "Dense financial or log tables. Keep the zebra tint very low (2–4% alpha) and right-align numerics with tabular-nums so columns of digits line up."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 300px; border-radius: 12px; overflow: hidden; border: 1px solid #263149; }
+    .fx table { width: 100%; border-collapse: collapse; font-size: .78rem; }
+    .fx th { background: #1c2437; color: #8b93a7; text-align: left; padding: .45rem .7rem; font-size: .68rem; text-transform: uppercase; }
+    .fx td { padding: .35rem .7rem; color: #cbd5e1; font-variant-numeric: tabular-nums; }
+    .fx tbody tr:nth-child(even) { background: rgba(255,255,255,.025); }
+    .fx td:last-child, .fx th:last-child { text-align: right; }
+  </style>
+</head>
+<body>
+  <div class="fx"><table><caption class="sr" style="position:absolute;left:-9999px">Usage by endpoint</caption>
+  <thead><tr><th scope="col">Endpoint</th><th scope="col">Calls</th></tr></thead>
+  <tbody><tr><td>/api/index.json</td><td>48,210</td></tr><tr><td>/api/themes.json</td><td>12,884</td></tr>
+  <tr><td>/api/effects/*.json</td><td>96,402</td></tr><tr><td>/catalog.json</td><td>3,118</td></tr>
+  <tr><td>/assets/catalog.js</td><td>21,006</td></tr></tbody></table></div>
+</body>
+</html>

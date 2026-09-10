@@ -1,0 +1,44 @@
+{
+  "id": "nav-progress-steps-link",
+  "title": "Wizard Navigation",
+  "summary": "Steps that are also links to completed stages.",
+  "description": "Steps that are also links to completed stages.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "wizard",
+    "steps",
+    "links",
+    "navigation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--done",
+      "description": "Completed colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Multi-step flows. Make completed steps real links so users can go back without losing data, and leave future steps as plain text until they are reachable.",
+  "path": "effects/navigation-menus/nav-progress-steps-link.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Wizard Navigation</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-progress-steps-link\",\n    \"title\": \"Wizard Navigation\",\n    \"summary\": \"Steps that are also links to completed stages.\",\n    \"description\": \"Steps that are also links to completed stages.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"wizard\", \"steps\", \"links\", \"navigation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--done\", \"description\": \"Completed colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Multi-step flows. Make completed steps real links so users can go back without losing data, and leave future steps as plain text until they are reachable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; align-items: center; width: 300px; font-size: .74rem; }\n    .fx a, .fx span.st { display: grid; justify-items: center; gap: .3rem; color: #8b93a7; text-decoration: none; }\n    .fx .d { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 800;\n      background: #1c2437; border: 2px solid #2b3450; }\n    .fx a .d { background: #10a894; border-color: #10a894; color: #04241f; }\n    .fx .now .d { border-color: #7c5cff; color: #b9a5ff; }\n    .fx .now { color: #e7ebf3; }\n    .fx .ln { flex: 1; height: 2px; background: #2b3450; margin: 0 .3rem 1rem; }\n    .fx .ln.done { background: #10a894; }\n  </style>\n</head>\n<body>\n  <nav class=\"fx\" aria-label=\"Progress\"><a href=\"#\"><span class=\"d\">✓</span>Account</a>\n  <span class=\"ln done\" aria-hidden=\"true\"></span><span class=\"st now\" aria-current=\"step\"><span class=\"d\">2</span>Profile</span>\n  <span class=\"ln\" aria-hidden=\"true\"></span><span class=\"st\"><span class=\"d\">3</span>Billing</span></nav>\n</body>\n</html>\n"
+}

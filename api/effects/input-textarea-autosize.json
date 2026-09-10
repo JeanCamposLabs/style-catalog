@@ -1,0 +1,44 @@
+{
+  "id": "input-textarea-autosize",
+  "title": "Auto-Sizing Textarea",
+  "summary": "A textarea that grows with its content.",
+  "description": "A textarea that grows with its content.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "form",
+    "input",
+    "textarea",
+    "autosize",
+    "grow",
+    "input"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+  "customization": [
+    {
+      "name": "--min",
+      "description": "Minimum height",
+      "default": "60px"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Comment and message composers. Reset height to auto before reading scrollHeight, or the field can only ever grow and never shrink back.",
+  "path": "effects/forms-inputs/input-textarea-autosize.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Auto-Sizing Textarea</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"input-textarea-autosize\",\n    \"title\": \"Auto-Sizing Textarea\",\n    \"summary\": \"A textarea that grows with its content.\",\n    \"description\": \"A textarea that grows with its content.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"form\", \"input\", \"textarea\", \"autosize\", \"grow\", \"input\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.\",\n    \"customization\": [\n      { \"name\": \"--min\", \"description\": \"Minimum height\", \"default\": \"60px\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Comment and message composers. Reset height to auto before reading scrollHeight, or the field can only ever grow and never shrink back.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; }\n    .fx label { display: block; font-size: .8rem; color: #8b93a7; margin-bottom: .35rem; }\n    .fx textarea { width: 100%; min-height: 60px; padding: .75rem .9rem; border-radius: 12px; border: 1px solid #2b3450;\n      background: #151b2a; color: #e7ebf3; font: inherit; font-size: .88rem; resize: none; overflow: hidden; line-height: 1.5; }\n    .fx textarea:focus { outline: none; border-color: #7c5cff; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><label for=\"ta\">Release notes</label>\n  <textarea id=\"ta\" rows=\"2\">Type here — the field grows as you add lines.</textarea></div>\n  <script>\n    (function () {\n      var t = document.getElementById(\"ta\");\n      function fit() { t.style.height = \"auto\"; t.style.height = t.scrollHeight + \"px\"; }\n      t.addEventListener(\"input\", fit); fit();\n    })();\n  </script>\n</body>\n</html>\n"
+}

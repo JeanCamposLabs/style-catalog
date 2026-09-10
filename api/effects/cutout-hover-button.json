@@ -1,0 +1,49 @@
+{
+  "id": "cutout-hover-button",
+  "title": "Inverted Cutout Button",
+  "summary": "On hover the fill and the label swap places instantly along a diagonal.",
+  "description": "A skewed pseudo-element wipes across, and mix-blend-mode: difference flips the label color exactly where it passes.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "hover"
+  ],
+  "tags": [
+    "blend-mode",
+    "invert",
+    "wipe",
+    "brutalist",
+    "hover"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Fill color",
+      "default": "#e7ebf3"
+    },
+    {
+      "name": "--dur",
+      "description": "Wipe duration",
+      "default": "0.35s"
+    }
+  ],
+  "variations": [
+    "Vertical wipe",
+    "Two-color difference blend",
+    "Instant swap with no easing for a brutalist feel"
+  ],
+  "related": [],
+  "ai_usage": "Editorial and brutalist designs. mix-blend-mode: difference on the label means you never have to manage two color states — but it requires isolation on the button so the blend does not reach the page.",
+  "path": "effects/buttons/cutout-hover-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Inverted Cutout Button</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cutout-hover-button\",\n    \"title\": \"Inverted Cutout Button\",\n    \"summary\": \"On hover the fill and the label swap places instantly along a diagonal.\",\n    \"description\": \"A skewed pseudo-element wipes across, and mix-blend-mode: difference flips the label color exactly where it passes.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"hover\"],\n    \"tags\": [\"blend-mode\", \"invert\", \"wipe\", \"brutalist\", \"hover\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Fill color\", \"default\": \"#e7ebf3\" },\n      { \"name\": \"--dur\", \"description\": \"Wipe duration\", \"default\": \"0.35s\" }\n    ],\n    \"variations\": [\"Vertical wipe\", \"Two-color difference blend\", \"Instant swap with no easing for a brutalist feel\"],\n    \"ai_usage\": \"Editorial and brutalist designs. mix-blend-mode: difference on the label means you never have to manage two color states — but it requires isolation on the button so the blend does not reach the page.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #e7ebf3; --dur: .35s; }\n    .cut { position: relative; isolation: isolate; overflow: hidden; padding: 1rem 2.4rem; background: transparent;\n      border: 2px solid var(--c); color: var(--c); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }\n    .cut span { position: relative; mix-blend-mode: difference; }\n    .cut::before { content: \"\"; position: absolute; inset: -2px; background: var(--c); transform: translateX(-101%) skewX(-12deg);\n      transition: transform var(--dur) cubic-bezier(.7,0,.2,1); }\n    .cut:hover::before { transform: translateX(0) skewX(-12deg); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"cut\" type=\"button\"><span>Invert</span></button>\n</body>\n</html>\n"
+}

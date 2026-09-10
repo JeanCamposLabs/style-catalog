@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Legal Document</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "template-privacy-legal",
+    "title": "Legal Document",
+    "summary": "A readable privacy policy layout.",
+    "description": "A readable privacy policy layout.",
+    "theme": "website-templates",
+    "categories": ["template", "page"],
+    "tags": ["template", "page", "legal", "privacy", "policy", "document"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+    "customization": [
+      { "name": "--measure", "description": "Text measure", "default": "66ch" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Policy pages. A table of contents, short sections, and a stated last-updated date do more for comprehension than any amount of simplified language."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { padding: 1.4rem; max-width: 34rem; margin: 0 auto; }
+    h1 { margin: 0 0 .3rem; font-size: 1.4rem; }
+    .updated { margin: 0 0 1.4rem; color: #64748b; font-size: .78rem; }
+    .toc { padding: .9rem 1rem; border-radius: 12px; background: #151b2a; border: 1px solid #263149; margin-bottom: 1.4rem; }
+    .toc h2 { margin: 0 0 .4rem; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }
+    .toc a { display: block; padding: .15rem 0; color: #b9a5ff; text-decoration: none; font-size: .82rem; }
+    section h2 { margin: 1.3rem 0 .4rem; font-size: 1rem; }
+    section p { margin: 0 0 .7rem; color: #8b93a7; font-size: .86rem; line-height: 1.7; max-width: 66ch; }
+  </style>
+</head>
+<body>
+  <h1>Privacy notice</h1><p class="updated">Last updated 10 September 2026</p>
+  <nav class="toc" aria-label="Contents"><h2>Contents</h2><a href="#s1">What we collect</a><a href="#s2">How we use it</a><a href="#s3">Your rights</a></nav>
+  <main><section id="s1"><h2>What we collect</h2><p>The gallery is static and stores no personal data. Analytics are aggregate page counts with no identifiers.</p></section>
+  <section id="s2"><h2>How we use it</h2><p>Aggregate counts tell us which specimens are used, so we know what to expand. Nothing is shared with third parties.</p></section>
+  <section id="s3"><h2>Your rights</h2><p>Because we hold no personal data there is nothing to export or erase. Contact us with any question about this notice.</p></section></main>
+</body>
+</html>

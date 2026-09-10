@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swing In</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "swing-in",
+    "title": "Swing In",
+    "summary": "The element swings down from a hinge at the top.",
+    "description": "The element swings down from a hinge at the top. Applied once on load with animation-fill-mode: both so the element holds its final state.",
+    "theme": "transitions-animations",
+    "categories": ["animation", "entrance"],
+    "tags": ["entrance", "reveal", "swing", "hinge", "3d"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Entrance animations must not hide content if they never run — the resting state under prefers-reduced-motion is the finished state.",
+    "customization": [
+      { "name": "--dur", "description": "Animation duration", "default": ".8s" },
+      { "name": "--ease", "description": "Timing function", "default": "cubic-bezier(.2,.8,.3,1)" }
+    ],
+    "variations": ["Stagger across a list with animation-delay", "Play on scroll with IntersectionObserver"],
+    "ai_usage": "Set transform-origin: top center so the hinge is at the top edge; without it the element rotates about its middle and the swing is lost."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --dur: .8s; --ease: cubic-bezier(.2,.8,.3,1); }
+    .card { width: 230px; padding: 1.5rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149;
+      animation: swing-in var(--dur) var(--ease) both infinite alternate; }
+    .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+    .card p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    @keyframes swing-in {
+      0% { opacity: 0; transform: rotateX(-90deg); }
+      60% { opacity: 1; transform: rotateX(18deg); }
+      100% { transform: rotateX(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card"><h3>Swing In</h3><p>The element swings down from a hinge at the top.</p></div>
+</body>
+</html>

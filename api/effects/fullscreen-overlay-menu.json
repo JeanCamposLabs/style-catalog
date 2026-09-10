@@ -1,0 +1,43 @@
+{
+  "id": "fullscreen-overlay-menu",
+  "title": "Fullscreen Overlay Menu",
+  "summary": "A menu that covers the screen with staggered link entrances.",
+  "description": "Links slide in one after another, so the panel feels composed rather than pasted over the page.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation"
+  ],
+  "tags": [
+    "overlay",
+    "fullscreen",
+    "stagger",
+    "mobile",
+    "menu"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Item stagger",
+      "default": "0.06s"
+    }
+  ],
+  "variations": [
+    "Circular clip-path reveal",
+    "Background image behind the links"
+  ],
+  "related": [],
+  "ai_usage": "Mobile and portfolio navigation. Trap focus inside the overlay while open, restore it to the trigger on close, and set inert or aria-hidden on the page behind.",
+  "path": "effects/navigation-menus/fullscreen-overlay-menu.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Fullscreen Overlay Menu</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"fullscreen-overlay-menu\",\n    \"title\": \"Fullscreen Overlay Menu\",\n    \"summary\": \"A menu that covers the screen with staggered link entrances.\",\n    \"description\": \"Links slide in one after another, so the panel feels composed rather than pasted over the page.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\"],\n    \"tags\": [\"overlay\", \"fullscreen\", \"stagger\", \"mobile\", \"menu\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Item stagger\", \"default\": \"0.06s\" }\n    ],\n    \"variations\": [\"Circular clip-path reveal\", \"Background image behind the links\"],\n    \"ai_usage\": \"Mobile and portfolio navigation. Trap focus inside the overlay while open, restore it to the trigger on close, and set inert or aria-hidden on the page behind.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .trigger { padding: .7rem 1.2rem; border-radius: 10px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; cursor: pointer; }\n    .ov { position: fixed; inset: 0; background: #0b0d12; display: grid; place-items: center; opacity: 0; visibility: hidden;\n      transition: opacity .3s, visibility .3s; }\n    .ov.is-open { opacity: 1; visibility: visible; }\n    .ov ul { list-style: none; margin: 0; padding: 0; text-align: center; }\n    .ov a { display: block; padding: .5rem; font-size: 2rem; font-weight: 800; color: #e7ebf3; text-decoration: none;\n      opacity: 0; transform: translateY(20px); transition: opacity .4s, transform .4s; transition-delay: calc(var(--i) * .06s); }\n    .ov.is-open a { opacity: 1; transform: none; }\n    .ov .close { position: absolute; top: 1.2rem; right: 1.2rem; border: 0; background: transparent; color: #e7ebf3; font-size: 1.6rem; cursor: pointer; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"trigger\" type=\"button\" id=\"open\" aria-expanded=\"false\">Menu</button>\n  <div class=\"ov\" id=\"ov\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Site menu\">\n    <button class=\"close\" type=\"button\" id=\"close\" aria-label=\"Close menu\">×</button>\n    <ul>\n      <li><a href=\"#\" style=\"--i:0\">Work</a></li><li><a href=\"#\" style=\"--i:1\">Studio</a></li>\n      <li><a href=\"#\" style=\"--i:2\">Journal</a></li><li><a href=\"#\" style=\"--i:3\">Contact</a></li>\n    </ul>\n  </div>\n  <script>\n    (function () {\n      var ov = document.getElementById(\"ov\"), o = document.getElementById(\"open\"), c = document.getElementById(\"close\");\n      o.addEventListener(\"click\", function () { ov.classList.add(\"is-open\"); o.setAttribute(\"aria-expanded\", \"true\"); c.focus(); });\n      c.addEventListener(\"click\", function () { ov.classList.remove(\"is-open\"); o.setAttribute(\"aria-expanded\", \"false\"); o.focus(); });\n      addEventListener(\"keydown\", function (e) { if (e.key === \"Escape\") c.click(); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

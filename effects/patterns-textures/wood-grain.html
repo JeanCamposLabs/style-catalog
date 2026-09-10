@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wood Grain</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "wood-grain",
+    "title": "Wood Grain",
+    "summary": "Long grain lines with occasional knots.",
+    "description": "Long grain lines with occasional knots. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "wood", "grain", "timber", "material"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--tint", "description": "Wood tone", "default": "#3a2a1c" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Skeuomorphic and craft interfaces. Irregular line spacing plus a couple of elliptical knots is what separates wood from stripes."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    .bg { background-color: #3a2a1c;
+      background-image: repeating-linear-gradient(90deg, rgba(0,0,0,.18) 0 2px, transparent 2px 9px, rgba(255,255,255,.04) 9px 10px, transparent 10px 26px),
+        radial-gradient(ellipse at 30% 40%, rgba(0,0,0,.3) 0 3%, transparent 4%),
+        radial-gradient(ellipse at 75% 70%, rgba(0,0,0,.25) 0 2%, transparent 3%); }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

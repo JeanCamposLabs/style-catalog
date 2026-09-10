@@ -1,0 +1,50 @@
+{
+  "id": "cursor-ring-lag",
+  "title": "Lagging Ring Cursor",
+  "summary": "A dot tracks the pointer exactly while a ring eases in behind it.",
+  "description": "The dot is pinned to the pointer and the ring interpolates toward it each frame, giving the classic two-speed custom cursor.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "pointer"
+  ],
+  "tags": [
+    "cursor",
+    "ring",
+    "lerp",
+    "easing",
+    "custom-cursor"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Cursor color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--ease",
+      "description": "Follow factor",
+      "default": "0.16"
+    }
+  ],
+  "variations": [
+    "Scale the ring over interactive elements",
+    "Invert with mix-blend-mode",
+    "Hide the ring while scrolling"
+  ],
+  "related": [],
+  "ai_usage": "Portfolio and agency sites. Interpolate with pos += (target - pos) * k inside rAF, never with a CSS transition on left/top; gate the whole thing behind (pointer: fine) and reduced-motion.",
+  "path": "effects/cursors-pointers/cursor-ring-lag.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Lagging Ring Cursor</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-ring-lag\",\n    \"title\": \"Lagging Ring Cursor\",\n    \"summary\": \"A dot tracks the pointer exactly while a ring eases in behind it.\",\n    \"description\": \"The dot is pinned to the pointer and the ring interpolates toward it each frame, giving the classic two-speed custom cursor.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\"],\n    \"tags\": [\"cursor\", \"ring\", \"lerp\", \"easing\", \"custom-cursor\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Cursor color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--ease\", \"description\": \"Follow factor\", \"default\": \"0.16\" }\n    ],\n    \"variations\": [\"Scale the ring over interactive elements\", \"Invert with mix-blend-mode\", \"Hide the ring while scrolling\"],\n    \"ai_usage\": \"Portfolio and agency sites. Interpolate with pos += (target - pos) * k inside rAF, never with a CSS transition on left/top; gate the whole thing behind (pointer: fine) and reduced-motion.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    body { cursor: none; }\n    :root { --c: #7c5cff; }\n    .dot, .ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9; }\n    .dot { width: 7px; height: 7px; background: var(--c); margin: -3.5px 0 0 -3.5px; }\n    .ring { width: 36px; height: 36px; border: 2px solid var(--c); margin: -18px 0 0 -18px; opacity: .7; }\n    .hint { color: #8b93a7; }\n  </style>\n</head>\n<body>\n  <p class=\"hint\">Move the pointer</p>\n  <div class=\"dot\" aria-hidden=\"true\"></div><div class=\"ring\" aria-hidden=\"true\"></div>\n  <script>\n    (function () {\n      var dot = document.querySelector(\".dot\"), ring = document.querySelector(\".ring\");\n      var tx = 0, ty = 0, rx = 0, ry = 0;\n      addEventListener(\"pointermove\", function (e) {\n        tx = e.clientX; ty = e.clientY;\n        dot.style.transform = \"translate(\" + tx + \"px,\" + ty + \"px)\";\n      });\n      (function loop() {\n        rx += (tx - rx) * .16; ry += (ty - ry) * .16;\n        ring.style.transform = \"translate(\" + rx + \"px,\" + ry + \"px)\";\n        requestAnimationFrame(loop);\n      })();\n    })();\n  </script>\n</body>\n</html>\n"
+}

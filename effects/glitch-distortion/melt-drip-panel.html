@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Melting Panel</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "melt-drip-panel",
+    "title": "Melting Panel",
+    "summary": "A surface dripping down at its bottom edge.",
+    "description": "A surface dripping down at its bottom edge.",
+    "theme": "glitch-distortion",
+    "categories": ["glitch", "distortion"],
+    "tags": ["glitch", "distortion", "melt", "drip", "liquid", "surreal"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Panel colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Surreal and psychedelic layouts. Irregular drip radii and positions are essential — evenly spaced drips read as a scalloped border."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 240px; height: 130px; border-radius: 12px 12px 0 0;
+      background: linear-gradient(160deg, #7c5cff, #4c1d95); }
+    .fx::after { content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 40px; background: inherit;
+      -webkit-mask-image: radial-gradient(circle 16px at 14% 0, #000 15px, transparent 16px),
+        radial-gradient(circle 22px at 42% 0, #000 21px, transparent 22px),
+        radial-gradient(circle 12px at 70% 0, #000 11px, transparent 12px),
+        radial-gradient(circle 18px at 88% 0, #000 17px, transparent 18px);
+      mask-image: radial-gradient(circle 16px at 14% 0, #000 15px, transparent 16px),
+        radial-gradient(circle 22px at 42% 0, #000 21px, transparent 22px),
+        radial-gradient(circle 12px at 70% 0, #000 11px, transparent 12px),
+        radial-gradient(circle 18px at 88% 0, #000 17px, transparent 18px); }
+  </style>
+</head>
+<body>
+  <div class="fx"></div>
+</body>
+</html>

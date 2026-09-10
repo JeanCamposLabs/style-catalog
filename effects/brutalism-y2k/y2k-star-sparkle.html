@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Y2K Sparkles</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "y2k-star-sparkle",
+    "title": "Y2K Sparkles",
+    "summary": "Four-pointed sparkles twinkling over a gradient.",
+    "description": "Four-pointed sparkles twinkling over a gradient.",
+    "theme": "brutalism-y2k",
+    "categories": ["brutalism", "y2k"],
+    "tags": ["brutalism", "raw", "sparkle", "star", "twinkle", "glam"],
+    "tech": ["css"],
+    "era": "2000s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+    "customization": [
+      { "name": "--dur", "description": "Twinkle period", "default": "1.8s" }
+    ],
+    "variations": ["Retune the palette via the custom properties", "Slow the motion for an ambient version"],
+    "ai_usage": "Y2K and glam branding. The four-point star clip-path with concave sides is the era-correct sparkle — a five-point star reads as a rating."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 260px; height: 150px; border-radius: 16px; overflow: hidden;
+      background: linear-gradient(135deg, #f0abfc, #818cf8); }
+    .fx i { position: absolute; width: 18px; height: 18px; background: #fff;
+      clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+      animation: tw 1.8s ease-in-out infinite; animation-delay: var(--dl); }
+    @keyframes tw { 0%, 100% { transform: scale(.4); opacity: .3; } 50% { transform: scale(1); opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="left:14%;top:22%;--dl:0s"></i><i style="left:64%;top:16%;--dl:.5s"></i>
+  <i style="left:38%;top:62%;--dl:.9s"></i><i style="left:82%;top:66%;--dl:1.3s"></i></div>
+</body>
+</html>

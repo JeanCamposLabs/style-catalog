@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paint Trail</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-brush-paint-trail",
+    "title": "Paint Trail",
+    "summary": "A stroke painted along the pointer path.",
+    "description": "A stroke painted along the pointer path.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "pointer"],
+    "tags": ["cursor", "pointer", "paint", "brush", "canvas", "trail"],
+    "tech": ["css", "js", "canvas"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--w", "description": "Stroke width", "default": "6" }
+    ],
+    "variations": ["Retune through the custom properties", "Adapt for a light theme"],
+    "ai_usage": "Drawing and signature surfaces. Track pointer events (not mouse) so pens and touch work, and use setPointerCapture so a stroke continues when the pointer leaves the canvas."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 290px; height: 170px; border-radius: 14px; background: #151b2a; border: 1px solid #263149; cursor: crosshair; }
+    canvas { display: block; width: 100%; height: 100%; border-radius: 14px; }
+  </style>
+</head>
+<body>
+  <div class="fx"><canvas id="pt2"></canvas></div>
+  <script>
+    (function () {
+      var c = document.getElementById("pt2"), x = c.getContext("2d"), down = false;
+      c.width = 290; c.height = 170;
+      x.strokeStyle = "#7c5cff"; x.lineWidth = 6; x.lineCap = "round"; x.lineJoin = "round";
+      function pos(e) { var r = c.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
+      c.addEventListener("pointerdown", function (e) { down = true; c.setPointerCapture(e.pointerId); var p = pos(e); x.beginPath(); x.moveTo(p[0], p[1]); });
+      c.addEventListener("pointermove", function (e) { if (!down) return; var p = pos(e); x.lineTo(p[0], p[1]); x.stroke(); });
+      ["pointerup", "pointercancel"].forEach(function (ev) { c.addEventListener(ev, function () { down = false; }); });
+    })();
+  </script>
+</body>
+</html>

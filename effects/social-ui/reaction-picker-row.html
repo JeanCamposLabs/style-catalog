@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reaction Picker</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "reaction-picker-row",
+    "title": "Reaction Picker",
+    "summary": "Emoji reactions that scale on hover.",
+    "description": "Emoji reactions that scale on hover.",
+    "theme": "social-ui",
+    "categories": ["social", "feed"],
+    "tags": ["social", "community", "reactions", "emoji", "picker", "hover"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Reaction counts and follow state need accessible names that change with state, and threads need real heading or list structure.",
+    "customization": [
+      { "name": "--bg", "description": "Bar background", "default": "#151b2a" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Reaction bars. Each emoji button needs a text label ('Like', 'Celebrate') — an emoji alone is announced inconsistently across screen readers."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: .4rem; padding: .4rem; border-radius: 999px; background: #151b2a; border: 1px solid #263149; }
+    .fx button { width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; font-size: 1.25rem;
+      cursor: pointer; transition: transform .18s cubic-bezier(.34,1.56,.64,1), background .18s; }
+    .fx button:hover, .fx button:focus-visible { transform: scale(1.35) translateY(-4px); background: #22304a; }
+  </style>
+</head>
+<body>
+  <div class="fx" role="group" aria-label="React">
+    <button type="button" aria-label="Like">👍</button><button type="button" aria-label="Love">❤️</button>
+    <button type="button" aria-label="Celebrate">🎉</button><button type="button" aria-label="Insightful">💡</button></div>
+</body>
+</html>

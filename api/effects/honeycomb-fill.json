@@ -1,0 +1,44 @@
+{
+  "id": "honeycomb-fill",
+  "title": "Honeycomb Fill",
+  "summary": "Hex cells filling with honey in sequence.",
+  "description": "Hex cells filling with honey in sequence.",
+  "theme": "nature-organic",
+  "themeTitle": "Nature & Organic",
+  "categories": [
+    "nature",
+    "organic"
+  ],
+  "tags": [
+    "organic",
+    "nature",
+    "honeycomb",
+    "hex",
+    "fill",
+    "bees"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Honey colour",
+      "default": "#fbbf24"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Progress and collection metaphors. Fill from the bottom with a height animation inside a clipped hex so the liquid respects the cell shape.",
+  "path": "effects/nature-organic/honeycomb-fill.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Honeycomb Fill</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"honeycomb-fill\",\n    \"title\": \"Honeycomb Fill\",\n    \"summary\": \"Hex cells filling with honey in sequence.\",\n    \"description\": \"Hex cells filling with honey in sequence.\",\n    \"theme\": \"nature-organic\",\n    \"categories\": [\"nature\", \"organic\"],\n    \"tags\": [\"organic\", \"nature\", \"honeycomb\", \"hex\", \"fill\", \"bees\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Honey colour\", \"default\": \"#fbbf24\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Progress and collection metaphors. Fill from the bottom with a height animation inside a clipped hex so the liquid respects the cell shape.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; grid-template-columns: repeat(3, 52px); gap: 4px; }\n    .fx i { width: 52px; height: 58px; background: #3b2f14; clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);\n      position: relative; overflow: hidden; }\n    .fx i::after { content: \"\"; position: absolute; inset: auto 0 0 0; height: 0; background: #fbbf24;\n      animation: fill 3.2s ease-in-out infinite; animation-delay: calc(var(--i) * .2s); }\n    @keyframes fill { 0%, 10% { height: 0; } 55%, 90% { height: 100%; } 100% { height: 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--i:0\"></i><i style=\"--i:1\"></i><i style=\"--i:2\"></i><i style=\"--i:3\"></i><i style=\"--i:4\"></i><i style=\"--i:5\"></i></div>\n</body>\n</html>\n"
+}

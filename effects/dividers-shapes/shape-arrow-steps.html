@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arrow Step Chain</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "shape-arrow-steps",
+    "title": "Arrow Step Chain",
+    "summary": "Chained arrow blocks for a process bar.",
+    "description": "Chained arrow blocks for a process bar. Purely decorative and self-contained, so it drops between any two sections.",
+    "theme": "dividers-shapes",
+    "categories": ["divider", "shape"],
+    "tags": ["divider", "separator", "arrow", "steps", "process", "chain"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+    "customization": [
+      { "name": "--c", "description": "Active colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Flip vertically for the opposite section", "Recolour to match the next section"],
+    "ai_usage": "Checkout and workflow bars. The negative margin equal to the arrow depth is what makes the steps interlock without gaps."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }
+    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }
+    .stage { width: min(92vw, 340px); }
+    .stage { display: flex; padding: 1.4rem 0; }
+    .stp { padding: .7rem 1.4rem .7rem 2rem; background: #1c2437; color: #cbd5e1; font-size: .85rem; margin-left: -14px;
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%); }
+    .stp:first-child { margin-left: 0; padding-left: 1.2rem; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%); }
+    .stp.on { background: #7c5cff; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="stage"><span class="stp on">Cart</span><span class="stp on">Ship</span><span class="stp">Pay</span></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blueprint Sheet</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "blueprint-sheet",
+    "title": "Blueprint Sheet",
+    "summary": "A technical drawing sheet with a title block.",
+    "description": "A technical drawing sheet with a title block.",
+    "theme": "paper-print",
+    "categories": ["paper", "print"],
+    "tags": ["paper", "print", "blueprint", "technical", "drawing", "title-block"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+    "customization": [
+      { "name": "--ink", "description": "Line colour", "default": "#bfdbfe" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Engineering and planning aesthetics. The title block in the lower-right corner is the detail that makes it read as a real drawing sheet."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 270px; height: 180px; position: relative; background: #0a2540; color: #bfdbfe; font-family: ui-monospace, monospace;
+      background-image: linear-gradient(rgba(191,219,254,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(191,219,254,.16) 1px, transparent 1px);
+      background-size: 18px 18px; border: 2px solid #bfdbfe; }
+    .fx .block { position: absolute; right: 0; bottom: 0; padding: .4rem .6rem; border-top: 2px solid #bfdbfe;
+      border-left: 2px solid #bfdbfe; font-size: .65rem; line-height: 1.5; }
+    .fx .shape { position: absolute; top: 30px; left: 34px; width: 90px; height: 60px; border: 2px solid #bfdbfe; }
+    .fx .shape::after { content: ""; position: absolute; inset: 12px; border: 1px dashed rgba(191,219,254,.6); }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="shape"></div><div class="block">DWG-0042<br>SCALE 1:20<br>REV C</div></div>
+</body>
+</html>

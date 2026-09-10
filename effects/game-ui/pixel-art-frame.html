@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pixel Frame</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "pixel-art-frame",
+    "title": "Pixel Frame",
+    "summary": "A chunky pixel-art window frame.",
+    "description": "A chunky pixel-art window frame.",
+    "theme": "game-ui",
+    "categories": ["game", "ui"],
+    "tags": ["game", "hud", "pixel", "frame", "border-image", "retro-game"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+    "customization": [
+      { "name": "--c", "description": "Frame colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retheme through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Retro-game UI. border-image with a tiny SVG and 'round' repetition gives a true pixel frame at any size — no nine-slice PNG needed."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 250px; padding: 14px; color: #e7ebf3; font-family: ui-monospace, monospace; font-size: .82rem;
+      background: #1a1d2e; image-rendering: pixelated;
+      border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9' shape-rendering='crispEdges'%3E%3Crect width='9' height='9' fill='%237c5cff'/%3E%3Crect x='3' y='3' width='3' height='3' fill='%231a1d2e'/%3E%3C/svg%3E") 3 / 9px round; }
+  </style>
+</head>
+<body>
+  <div class="fx">PRESS START</div>
+</body>
+</html>

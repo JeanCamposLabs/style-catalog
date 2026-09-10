@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Newsletter Block</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "combo-newsletter-inline",
+    "title": "Newsletter Block",
+    "summary": "An inline sign-up with consent text.",
+    "description": "An inline sign-up with consent text.",
+    "theme": "combos-recipes",
+    "categories": ["combo", "section"],
+    "tags": ["combo", "block", "newsletter", "signup", "email", "consent"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+    "customization": [
+      { "name": "--c", "description": "Action colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Content sites. State the sending frequency and link the privacy policy next to the field; both measurably raise completion and are legally required in several jurisdictions."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { display: grid; place-items: center; padding: 2rem 1rem; }
+    .fx { width: min(92vw, 300px); padding: 1.3rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; }
+    .fx h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+    .fx p { margin: 0 0 .9rem; color: #8b93a7; font-size: .84rem; line-height: 1.5; }
+    .fx .row { display: flex; gap: .5rem; }
+    .fx input { flex: 1; min-width: 0; padding: .65rem .8rem; border-radius: 10px; border: 1px solid #2b3450;
+      background: #10141f; color: #e7ebf3; font: inherit; font-size: .85rem; }
+    .fx button { padding: .65rem 1.1rem; border: 0; border-radius: 10px; background: #7c5cff; color: #fff; font: inherit;
+      font-weight: 700; font-size: .85rem; cursor: pointer; }
+    .fx small { display: block; margin-top: .6rem; color: #64748b; font-size: .74rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <section class="fx"><h3>New specimens, monthly</h3><p>One email a month with what shipped and why.</p>
+  <form class="row"><label class="sr" for="nl" style="position:absolute;left:-9999px">Email address</label>
+  <input id="nl" type="email" placeholder="you@studio.com" /><button type="button">Subscribe</button></form>
+  <small>One email a month. Unsubscribe any time. See our privacy notice.</small></section>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neumorphic Input</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "neumorphic-input",
+    "title": "Neumorphic Input",
+    "summary": "A text field carved into the surface.",
+    "description": "Inset shadows make the field look pressed in, and the focus state deepens them rather than adding an outline.",
+    "theme": "glass-neumorphism",
+    "categories": ["neumorphism", "form"],
+    "tags": ["neumorphism", "input", "inset", "soft-ui", "form"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Placeholder text must still hit 4.5:1 against the surface; the focus state adds a coloured ring because shadow depth alone is not perceivable for many users.",
+    "customization": [
+      { "name": "--bg", "description": "Surface", "default": "#232a3a" },
+      { "name": "--accent", "description": "Focus colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Icon inside the well", "Light-mode palette", "Error state with a red inset glow"],
+    "ai_usage": "Soft-UI forms. Combine the inset well with a real focus ring — neumorphic focus states are the single most common accessibility failure in this style."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    body { background: #232a3a; }
+    :root { --bg: #232a3a; --accent: #7c5cff; }
+    .ni { width: 260px; padding: .95rem 1.1rem; border: 0; border-radius: 14px; background: var(--bg); color: #e7ebf3;
+      font: inherit; box-shadow: inset 4px 4px 9px rgba(0,0,0,.5), inset -4px -4px 9px rgba(255,255,255,.05); }
+    .ni::placeholder { color: #8b93a7; }
+    .ni:focus { outline: 2px solid var(--accent); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <input class="ni" type="text" placeholder="Search projects" aria-label="Search projects" />
+</body>
+</html>

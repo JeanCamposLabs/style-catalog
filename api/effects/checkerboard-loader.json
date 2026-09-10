@@ -1,0 +1,49 @@
+{
+  "id": "checkerboard-loader",
+  "title": "Checkerboard Loader",
+  "summary": "A 3×3 grid whose cells light up on a diagonal wave.",
+  "description": "Delays computed from each cell's row + column index make the highlight travel diagonally instead of row by row.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "grid"
+  ],
+  "tags": [
+    "grid",
+    "checker",
+    "wave",
+    "stagger",
+    "cells"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active cell color",
+      "default": "#34d399"
+    },
+    {
+      "name": "--dur",
+      "description": "Wave period",
+      "default": "1.5s"
+    }
+  ],
+  "variations": [
+    "5×5 grid for a denser wave",
+    "Scale cells as well as fade them",
+    "Reverse the diagonal direction"
+  ],
+  "related": [],
+  "ai_usage": "Good for dashboard or data-heavy UIs where a round spinner looks out of place. The diagonal comes from animation-delay: calc((var(--r) + var(--c-i)) * .12s) — the same trick scales to any grid size.",
+  "path": "effects/loaders-spinners/checkerboard-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Checkerboard Loader</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"checkerboard-loader\",\n    \"title\": \"Checkerboard Loader\",\n    \"summary\": \"A 3×3 grid whose cells light up on a diagonal wave.\",\n    \"description\": \"Delays computed from each cell's row + column index make the highlight travel diagonally instead of row by row.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"grid\"],\n    \"tags\": [\"grid\", \"checker\", \"wave\", \"stagger\", \"cells\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active cell color\", \"default\": \"#34d399\" },\n      { \"name\": \"--dur\", \"description\": \"Wave period\", \"default\": \"1.5s\" }\n    ],\n    \"variations\": [\"5×5 grid for a denser wave\", \"Scale cells as well as fade them\", \"Reverse the diagonal direction\"],\n    \"ai_usage\": \"Good for dashboard or data-heavy UIs where a round spinner looks out of place. The diagonal comes from animation-delay: calc((var(--r) + var(--c-i)) * .12s) — the same trick scales to any grid size.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #34d399; --dur: 1.5s; }\n    .check { display: grid; grid-template-columns: repeat(3, 20px); gap: 6px; }\n    .check i { width: 20px; height: 20px; border-radius: 5px; background: #1c2333;\n      animation: cell var(--dur) ease-in-out infinite; animation-delay: calc((var(--r) + var(--k)) * .12s); }\n    @keyframes cell {\n      0%, 70%, 100% { background: #1c2333; transform: scale(.9); }\n      35% { background: var(--c); transform: scale(1); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"check\" role=\"status\" aria-label=\"Loading\">\n    <i style=\"--r:0;--k:0\"></i><i style=\"--r:0;--k:1\"></i><i style=\"--r:0;--k:2\"></i>\n    <i style=\"--r:1;--k:0\"></i><i style=\"--r:1;--k:1\"></i><i style=\"--r:1;--k:2\"></i>\n    <i style=\"--r:2;--k:0\"></i><i style=\"--r:2;--k:1\"></i><i style=\"--r:2;--k:2\"></i>\n  </div>\n</body>\n</html>\n"
+}

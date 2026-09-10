@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Handwritten Signature</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "handwriting-text",
+    "title": "Handwritten Signature",
+    "summary": "A signature draws itself stroke by stroke.",
+    "description": "stroke-dasharray equal to the path length with an animated offset renders the pen travelling along the letterform.",
+    "theme": "text-effects",
+    "categories": ["text", "svg"],
+    "tags": ["handwriting", "signature", "stroke-dashoffset", "svg", "draw"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Ink color", "default": "#e7ebf3" },
+      { "name": "--dur", "description": "Writing duration", "default": "2.6s" }
+    ],
+    "variations": ["Hold the finished signature", "Thicker nib for a marker", "Replay on hover"],
+    "ai_usage": "Sign-off blocks, testimonials, and checkout confirmations. Measure the path with getTotalLength() and set both dasharray and dashoffset to it; guessing the length leaves a visible gap or a premature finish."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --c: #e7ebf3; --dur: 2.6s; }
+    .sig { width: 260px; }
+    .sig svg { width: 100%; display: block; }
+    .sig path { fill: none; stroke: var(--c); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 620; stroke-dashoffset: 620; animation: write var(--dur) ease-in-out infinite; }
+    @keyframes write { 0% { stroke-dashoffset: 620; } 70%, 100% { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sig" role="img" aria-label="Signature">
+    <svg viewBox="0 0 260 90" aria-hidden="true">
+      <path d="M14 62c14-30 22-44 30-44s6 28-2 44c-6 12-14 16-16 8s10-26 26-30 22 8 16 20-16 14-14 4 14-20 30-20c10 0 12 8 8 16-3 6-9 10-9 4s8-14 20-14c14 0 18 10 34 4 14-5 22-14 26-22"/>
+    </svg>
+  </div>
+</body>
+</html>

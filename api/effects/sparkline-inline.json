@@ -1,0 +1,44 @@
+{
+  "id": "sparkline-inline",
+  "title": "Sparkline",
+  "summary": "A tiny trend line beside a headline number.",
+  "description": "A tiny trend line beside a headline number.",
+  "theme": "charts-dataviz",
+  "themeTitle": "Charts & Data Viz",
+  "categories": [
+    "chart",
+    "dataviz"
+  ],
+  "tags": [
+    "chart",
+    "data",
+    "sparkline",
+    "trend",
+    "stat",
+    "inline"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.",
+  "customization": [
+    {
+      "name": "--c2",
+      "description": "Line colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "A stat tile that also needs direction. Sparklines carry no axes, so never label individual points — mark only the last value, and state the change in text since the shape alone is not readable to everyone.",
+  "path": "effects/charts-dataviz/sparkline-inline.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sparkline</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"sparkline-inline\",\n    \"title\": \"Sparkline\",\n    \"summary\": \"A tiny trend line beside a headline number.\",\n    \"description\": \"A tiny trend line beside a headline number.\",\n    \"theme\": \"charts-dataviz\",\n    \"categories\": [\"chart\", \"dataviz\"],\n    \"tags\": [\"chart\", \"data\", \"sparkline\", \"trend\", \"stat\", \"inline\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Identity is never colour-alone: every multi-series chart ships a legend, direct labels where they fit, and an equivalent table or accessible summary. Grid lines and axes stay recessive; values wear text colours, not series colours.\",\n    \"customization\": [\n      { \"name\": \"--c2\", \"description\": \"Line colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"A stat tile that also needs direction. Sparklines carry no axes, so never label individual points — mark only the last value, and state the change in text since the shape alone is not readable to everyone.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { --c1: #7c5cff; --c2: #10a894; --c3: #c2891a; --c4: #d1478c; --c5: #2f7cc9;\n      --ink: #e7ebf3; --ink-2: #8b93a7; --grid: rgba(139,147,167,.22); --surface: #0b0d12; display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; border-radius: 14px;\n      background: #151b2a; border: 1px solid #263149; }\n    .fx .n { font-size: 1.7rem; font-weight: 900; color: var(--ink); line-height: 1; }\n    .fx .l { font-size: .74rem; color: var(--ink-2); }\n    .fx .delta { font-size: .74rem; color: var(--ink-2); }\n    .fx svg { width: 90px; height: 34px; }\n    .fx path { fill: none; stroke: var(--c2); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }\n    .fx circle { fill: var(--c2); stroke: #151b2a; stroke-width: 2; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div><div class=\"n\">1,181</div><div class=\"l\">Specimens</div><div class=\"delta\">▲ 552 this month</div></div>\n  <svg viewBox=\"0 0 90 34\" role=\"img\" aria-label=\"Sparkline trending up over the last six weeks\">\n    <path d=\"M2 28 L20 24 L36 26 L54 16 L72 12 L88 4\"/><circle cx=\"88\" cy=\"4\" r=\"3.5\"/></svg></div>\n</body>\n</html>\n"
+}

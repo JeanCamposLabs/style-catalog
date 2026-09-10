@@ -1,0 +1,44 @@
+{
+  "id": "type-vertical-rhythm",
+  "title": "Vertical Rhythm",
+  "summary": "Baseline-consistent spacing from one unit.",
+  "description": "Baseline-consistent spacing from one unit.",
+  "theme": "typography-systems",
+  "themeTitle": "Typography Systems",
+  "categories": [
+    "typography",
+    "reference"
+  ],
+  "tags": [
+    "typography",
+    "type",
+    "rhythm",
+    "baseline",
+    "spacing",
+    "system"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.",
+  "customization": [
+    {
+      "name": "--u",
+      "description": "Rhythm unit",
+      "default": "1.5rem"
+    }
+  ],
+  "variations": [
+    "Swap in your own scale",
+    "Export as design tokens"
+  ],
+  "related": [],
+  "ai_usage": "Long-form layouts. Derive every vertical space from one unit equal to the body line-height; ad-hoc margins are what make a page feel subtly wrong without an obvious cause.",
+  "path": "effects/typography-systems/type-vertical-rhythm.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Vertical Rhythm</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"type-vertical-rhythm\",\n    \"title\": \"Vertical Rhythm\",\n    \"summary\": \"Baseline-consistent spacing from one unit.\",\n    \"description\": \"Baseline-consistent spacing from one unit.\",\n    \"theme\": \"typography-systems\",\n    \"categories\": [\"typography\", \"reference\"],\n    \"tags\": [\"typography\", \"type\", \"rhythm\", \"baseline\", \"spacing\", \"system\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Type systems must survive user font-size settings: size in rem, never lock line-height in px, and keep the measure under 75 characters.\",\n    \"customization\": [\n      { \"name\": \"--u\", \"description\": \"Rhythm unit\", \"default\": \"1.5rem\" }\n    ],\n    \"variations\": [\"Swap in your own scale\", \"Export as design tokens\"],\n    \"ai_usage\": \"Long-form layouts. Derive every vertical space from one unit equal to the body line-height; ad-hoc margins are what make a page feel subtly wrong without an obvious cause.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; --u: 1.5rem; }\n    .fx * { margin: 0; }\n    .fx h3 { font-size: 1.3rem; line-height: var(--u); margin-bottom: calc(var(--u) / 2); }\n    .fx p { font-size: .88rem; line-height: var(--u); margin-bottom: var(--u); color: #8b93a7; }\n    .fx .rule { height: 1px; background: #263149; margin-bottom: var(--u); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><h3>Vertical rhythm</h3><p>Every margin here is the rhythm unit or half of it.</p>\n  <div class=\"rule\"></div><p>Blocks land on a shared baseline, so the column reads as one system.</p></div>\n</body>\n</html>\n"
+}

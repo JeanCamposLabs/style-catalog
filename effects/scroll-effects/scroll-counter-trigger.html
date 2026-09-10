@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Counter on Scroll</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "scroll-counter-trigger",
+    "title": "Counter on Scroll",
+    "summary": "Numbers that count up when scrolled into view.",
+    "description": "Numbers that count up when scrolled into view.",
+    "theme": "scroll-effects",
+    "categories": ["scroll", "motion"],
+    "tags": ["scroll", "counter", "scroll", "trigger", "stats"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Scroll-linked motion must be disabled under prefers-reduced-motion, and content must never depend on scrolling to become readable.",
+    "customization": [
+      { "name": "--dur", "description": "Count duration", "default": "1.2s" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Stat sections. Trigger once with IntersectionObserver and unobserve; counters that restart every time the section re-enters view read as broken."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { min-height: 210vh; }
+    .wrap { padding: 45vh 1.5rem; display: flex; gap: 2rem; }
+    .st { text-align: center; }
+    .st .n { font-size: 2.2rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+    .st .l { color: #8b93a7; font-size: .8rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap"><div class="st"><div class="n" data-to="1181">0</div><div class="l">Specimens</div></div>
+  <div class="st"><div class="n" data-to="57">0</div><div class="l">Themes</div></div></div>
+  <script>
+    (function () {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          io.unobserve(e.target);
+          var el = e.target, to = Number(el.dataset.to), t0 = null;
+          if (matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = to.toLocaleString(); return; }
+          requestAnimationFrame(function step(ts) {
+            if (!t0) t0 = ts;
+            var p = Math.min((ts - t0) / 1200, 1);
+            el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))).toLocaleString();
+            if (p < 1) requestAnimationFrame(step);
+          });
+        });
+      });
+      document.querySelectorAll("[data-to]").forEach(function (n) { io.observe(n); });
+    })();
+  </script>
+</body>
+</html>

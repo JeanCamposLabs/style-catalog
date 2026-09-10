@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Split Flip Button</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "split-flip-button",
+    "title": "Split Flip Button",
+    "summary": "The face splits horizontally and flips to reveal a second label.",
+    "description": "Two halves rotate about the button's centre line in opposite directions, exposing the back face like a flap sign.",
+    "theme": "buttons",
+    "categories": ["button", "3d"],
+    "tags": ["flip", "split", "3d", "reveal", "hover"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--front", "description": "Front color", "default": "#151b2a" },
+      { "name": "--back", "description": "Back color", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Flip duration", "default": "0.5s" }
+    ],
+    "variations": ["Vertical split", "Flip on focus for keyboard parity", "Different icon on the back"],
+    "ai_usage": "Secondary actions where a label swap adds clarity ('Download' → 'ZIP, 4 MB'). Use two stacked halves with backface-visibility hidden and perspective on the wrapper; keep an accessible label on the button element itself."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    button { font: inherit; cursor: pointer; border: 0; }
+    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    :root { --front: #151b2a; --back: #7c5cff; --dur: .5s; }
+    .sfb { perspective: 500px; }
+    .sfb button { position: relative; width: 190px; height: 54px; background: transparent; transform-style: preserve-3d; }
+    .sfb .half { position: absolute; left: 0; right: 0; height: 50%; overflow: hidden; display: grid; place-items: center;
+      color: #e7ebf3; font-weight: 700; background: var(--front); transition: transform var(--dur) cubic-bezier(.7,0,.2,1), background var(--dur); }
+    .sfb .top { top: 0; border-radius: 12px 12px 0 0; transform-origin: bottom; }
+    .sfb .bot { bottom: 0; border-radius: 0 0 12px 12px; transform-origin: top; }
+    .sfb .half span { position: absolute; }
+    .sfb .top span { top: 0; }
+    .sfb .bot span { bottom: 0; }
+    .sfb button:hover .top { transform: rotateX(-180deg); background: var(--back); }
+    .sfb button:hover .bot { transform: rotateX(180deg); background: var(--back); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sfb"><button type="button" aria-label="Download ZIP, 4 megabytes">
+    <span class="half top"><span>Download</span></span>
+    <span class="half bot"><span>Download</span></span>
+  </button></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "id": "reflection-text",
+  "title": "Reflected Text",
+  "summary": "A mirrored copy of the headline fades away below it, like type on wet glass.",
+  "description": "A duplicate is flipped with scaleY(-1) and masked by a linear-gradient so the reflection dissolves instead of ending abruptly.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "surface"
+  ],
+  "tags": [
+    "reflection",
+    "mirror",
+    "mask",
+    "glossy",
+    "web20"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--gap",
+      "description": "Distance to reflection",
+      "default": "2px"
+    },
+    {
+      "name": "--fade",
+      "description": "Reflection strength",
+      "default": "0.35"
+    }
+  ],
+  "variations": [
+    "Blur the reflection for a rougher surface",
+    "Skew it for an angled floor",
+    "Animate a ripple across the mirror"
+  ],
+  "related": [],
+  "ai_usage": "The Web 2.0 gloss cue, still useful for product hero shots. Mirror with transform: scaleY(-1) and mask-image: linear-gradient(transparent 40%, #000) — set aria-hidden on the copy so the text is not announced twice.",
+  "path": "effects/text-effects/reflection-text.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Reflected Text</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"reflection-text\",\n    \"title\": \"Reflected Text\",\n    \"summary\": \"A mirrored copy of the headline fades away below it, like type on wet glass.\",\n    \"description\": \"A duplicate is flipped with scaleY(-1) and masked by a linear-gradient so the reflection dissolves instead of ending abruptly.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"surface\"],\n    \"tags\": [\"reflection\", \"mirror\", \"mask\", \"glossy\", \"web20\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--gap\", \"description\": \"Distance to reflection\", \"default\": \"2px\" },\n      { \"name\": \"--fade\", \"description\": \"Reflection strength\", \"default\": \"0.35\" }\n    ],\n    \"variations\": [\"Blur the reflection for a rougher surface\", \"Skew it for an angled floor\", \"Animate a ripple across the mirror\"],\n    \"ai_usage\": \"The Web 2.0 gloss cue, still useful for product hero shots. Mirror with transform: scaleY(-1) and mask-image: linear-gradient(transparent 40%, #000) — set aria-hidden on the copy so the text is not announced twice.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .wrap { text-align: center; }\n    .refl, .mirror { font-size: clamp(2rem, 8vw, 3.8rem); font-weight: 800; margin: 0;\n      background: linear-gradient(180deg, #fff, #9aa4bb); -webkit-background-clip: text; background-clip: text; color: transparent; }\n    .mirror { transform: scaleY(-1); margin-top: var(--gap, 2px); opacity: var(--fade, .35);\n      -webkit-mask-image: linear-gradient(transparent 30%, #000); mask-image: linear-gradient(transparent 30%, #000); }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\"><h1 class=\"refl\">Reflection</h1><div class=\"mirror\" aria-hidden=\"true\">Reflection</div></div>\n</body>\n</html>\n"
+}

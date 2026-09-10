@@ -1,0 +1,42 @@
+{
+  "id": "breadcrumb-trail",
+  "title": "Breadcrumb Trail",
+  "summary": "A path trail with chevron separators and a current-page marker.",
+  "description": "The last crumb is not a link and carries aria-current, which is what makes a breadcrumb accessible rather than decorative.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation"
+  ],
+  "tags": [
+    "breadcrumb",
+    "path",
+    "hierarchy",
+    "trail",
+    "wayfinding"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Link colour",
+      "default": "#8b93a7"
+    }
+  ],
+  "variations": [
+    "Collapse the middle on small screens",
+    "Dropdown on each crumb"
+  ],
+  "related": [],
+  "ai_usage": "Deep hierarchies. Wrap in <nav aria-label=Breadcrumb> with an <ol>, and mark the final item aria-current=page without a link.",
+  "path": "effects/navigation-menus/breadcrumb-trail.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Breadcrumb Trail</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"breadcrumb-trail\",\n    \"title\": \"Breadcrumb Trail\",\n    \"summary\": \"A path trail with chevron separators and a current-page marker.\",\n    \"description\": \"The last crumb is not a link and carries aria-current, which is what makes a breadcrumb accessible rather than decorative.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\"],\n    \"tags\": [\"breadcrumb\", \"path\", \"hierarchy\", \"trail\", \"wayfinding\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation is keyboard-operable: focus states mirror hover, and disclosure widgets manage aria-expanded.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Link colour\", \"default\": \"#8b93a7\" }\n    ],\n    \"variations\": [\"Collapse the middle on small screens\", \"Dropdown on each crumb\"],\n    \"ai_usage\": \"Deep hierarchies. Wrap in <nav aria-label=Breadcrumb> with an <ol>, and mark the final item aria-current=page without a link.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bc ol { display: flex; gap: .5rem; list-style: none; margin: 0; padding: 0; align-items: center; font-size: .9rem; }\n    .bc a { color: var(--c, #8b93a7); text-decoration: none; }\n    .bc a:hover { color: #e7ebf3; text-decoration: underline; }\n    .bc li + li::before { content: \"›\"; margin-right: .5rem; color: #3b465e; }\n    .bc [aria-current] { color: #e7ebf3; font-weight: 600; }\n  </style>\n</head>\n<body>\n  <nav class=\"bc\" aria-label=\"Breadcrumb\"><ol>\n    <li><a href=\"#\">Catalog</a></li><li><a href=\"#\">Themes</a></li><li><a href=\"#\">Buttons</a></li>\n    <li><span aria-current=\"page\">Ripple</span></li>\n  </ol></nav>\n</body>\n</html>\n"
+}

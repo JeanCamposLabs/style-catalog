@@ -1,0 +1,44 @@
+{
+  "id": "disabled-state-button",
+  "title": "Disabled State Set",
+  "summary": "Four button states — default, hover, loading, disabled — shown side by side.",
+  "description": "A reference specimen: the disabled treatment keeps 4.5:1 contrast and pairs a cursor change with reduced opacity rather than relying on color alone.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "reference"
+  ],
+  "tags": [
+    "states",
+    "disabled",
+    "loading",
+    "reference",
+    "accessibility"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Disabled controls must remain readable; never signal disabled with color alone, and prefer aria-disabled plus a real explanation over removing the button from the tab order.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Primary color",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Add an error/destructive state",
+    "Tooltip explaining why an action is disabled",
+    "Skeleton state for async labels"
+  ],
+  "related": [],
+  "ai_usage": "Copy this as the baseline state matrix for a design system. Note the pattern: disabled uses aria-disabled plus pointer-events:none on the label only, so the button stays focusable and can explain itself in a tooltip.",
+  "path": "effects/buttons/disabled-state-button.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Disabled State Set</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"disabled-state-button\",\n    \"title\": \"Disabled State Set\",\n    \"summary\": \"Four button states — default, hover, loading, disabled — shown side by side.\",\n    \"description\": \"A reference specimen: the disabled treatment keeps 4.5:1 contrast and pairs a cursor change with reduced opacity rather than relying on color alone.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"reference\"],\n    \"tags\": [\"states\", \"disabled\", \"loading\", \"reference\", \"accessibility\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Disabled controls must remain readable; never signal disabled with color alone, and prefer aria-disabled plus a real explanation over removing the button from the tab order.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Primary color\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Add an error/destructive state\", \"Tooltip explaining why an action is disabled\", \"Skeleton state for async labels\"],\n    \"ai_usage\": \"Copy this as the baseline state matrix for a design system. Note the pattern: disabled uses aria-disabled plus pointer-events:none on the label only, so the button stays focusable and can explain itself in a tooltip.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #7c5cff; }\n    .row { display: flex; gap: .8rem; flex-wrap: wrap; justify-content: center; max-width: 460px; }\n    .btn { padding: .8rem 1.5rem; border-radius: 10px; background: var(--c); color: #fff; font-weight: 700;\n      display: inline-flex; align-items: center; gap: .5rem; }\n    .btn.hover { background: color-mix(in srgb, var(--c) 82%, #fff); }\n    .btn[aria-disabled=\"true\"] { background: #2b3350; color: #8b93a7; cursor: not-allowed; }\n    .btn .sp { width: 15px; height: 15px; border: 2px solid rgba(255,255,255,.4); border-top-color: #fff;\n      border-radius: 50%; animation: sp .8s linear infinite; }\n    @keyframes sp { to { transform: rotate(1turn); } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"row\">\n    <button class=\"btn\" type=\"button\">Default</button>\n    <button class=\"btn hover\" type=\"button\">Hover</button>\n    <button class=\"btn\" type=\"button\"><span class=\"sp\" aria-hidden=\"true\"></span>Saving</button>\n    <button class=\"btn\" type=\"button\" aria-disabled=\"true\">Disabled</button>\n  </div>\n</body>\n</html>\n"
+}

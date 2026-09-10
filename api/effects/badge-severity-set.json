@@ -1,0 +1,44 @@
+{
+  "id": "badge-severity-set",
+  "title": "Severity Set",
+  "summary": "Four severity levels with distinct shapes and colours.",
+  "description": "Four severity levels with distinct shapes and colours. Small self-contained component ready to drop into a list or card.",
+  "theme": "badges-tags",
+  "themeTitle": "Badges & Tags",
+  "categories": [
+    "badge",
+    "label"
+  ],
+  "tags": [
+    "badge",
+    "label",
+    "severity",
+    "priority",
+    "semantic",
+    "system"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+  "customization": [
+    {
+      "name": "--scale",
+      "description": "Severity scale",
+      "default": "4 levels"
+    }
+  ],
+  "variations": [
+    "Add a size variant",
+    "Map colours to semantic tokens"
+  ],
+  "related": [],
+  "ai_usage": "Issue trackers and logs. Give each level a distinct glyph as well as a hue so severity survives greyscale and colour-vision differences.",
+  "path": "effects/badges-tags/badge-severity-set.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Severity Set</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"badge-severity-set\",\n    \"title\": \"Severity Set\",\n    \"summary\": \"Four severity levels with distinct shapes and colours.\",\n    \"description\": \"Four severity levels with distinct shapes and colours. Small self-contained component ready to drop into a list or card.\",\n    \"theme\": \"badges-tags\",\n    \"categories\": [\"badge\", \"label\"],\n    \"tags\": [\"badge\", \"label\", \"severity\", \"priority\", \"semantic\", \"system\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Status must never be colour-only: pair every badge colour with a label, icon, or shape.\",\n    \"customization\": [\n      { \"name\": \"--scale\", \"description\": \"Severity scale\", \"default\": \"4 levels\" }\n    ],\n    \"variations\": [\"Add a size variant\", \"Map colours to semantic tokens\"],\n    \"ai_usage\": \"Issue trackers and logs. Give each level a distinct glyph as well as a hue so severity survives greyscale and colour-vision differences.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .row { display: flex; gap: .5rem; flex-wrap: wrap; }\n    .b { display: inline-flex; align-items: center; gap: .35rem; padding: .28rem .65rem; border-radius: 7px;\n      font-size: .78rem; font-weight: 700; }\n    .info { background: rgba(56,189,248,.14); color: #38bdf8; }\n    .low { background: rgba(52,211,153,.14); color: #34d399; }\n    .med { background: rgba(251,191,36,.14); color: #fbbf24; }\n    .high { background: rgba(248,113,113,.14); color: #f87171; }\n  </style>\n</head>\n<body>\n  <div class=\"row\"><span class=\"b info\"><span aria-hidden=\"true\">ⓘ</span>Info</span><span class=\"b low\"><span aria-hidden=\"true\">▽</span>Low</span>\n  <span class=\"b med\"><span aria-hidden=\"true\">△</span>Medium</span><span class=\"b high\"><span aria-hidden=\"true\">■</span>High</span></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "cooldown-ability",
+  "title": "Ability Cooldown",
+  "summary": "A skill icon sweeping through its cooldown.",
+  "description": "A skill icon sweeping through its cooldown.",
+  "theme": "game-ui",
+  "themeTitle": "Game UI",
+  "categories": [
+    "game",
+    "ui"
+  ],
+  "tags": [
+    "game",
+    "hud",
+    "cooldown",
+    "ability",
+    "conic",
+    "hotbar"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Cooldown angle",
+      "default": "210deg"
+    }
+  ],
+  "variations": [
+    "Retheme through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Action-bar hotkeys. A conic mask sweeps the darkened overlay exactly like every MOBA cooldown; drive --a from the remaining time.",
+  "path": "effects/game-ui/cooldown-ability.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Ability Cooldown</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cooldown-ability\",\n    \"title\": \"Ability Cooldown\",\n    \"summary\": \"A skill icon sweeping through its cooldown.\",\n    \"description\": \"A skill icon sweeping through its cooldown.\",\n    \"theme\": \"game-ui\",\n    \"categories\": [\"game\", \"ui\"],\n    \"tags\": [\"game\", \"hud\", \"cooldown\", \"ability\", \"conic\", \"hotbar\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Cooldown angle\", \"default\": \"210deg\" }\n    ],\n    \"variations\": [\"Retheme through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Action-bar hotkeys. A conic mask sweeps the darkened overlay exactly like every MOBA cooldown; drive --a from the remaining time.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .row { display: flex; gap: 10px; }\n    .ab { position: relative; width: 58px; height: 58px; border-radius: 10px; border: 2px solid #2b3450; overflow: hidden;\n      background: linear-gradient(160deg, #1e293b, #0f172a); display: grid; place-items: center; font-size: 1.4rem; }\n    .ab .cd { position: absolute; inset: 0; background: rgba(4,7,14,.72);\n      -webkit-mask-image: conic-gradient(#000 var(--a), transparent 0); mask-image: conic-gradient(#000 var(--a), transparent 0); }\n    .ab .n { position: absolute; inset: 0; display: grid; place-items: center; font-size: 1rem; font-weight: 900; color: #fff; }\n    .ab kbd { position: absolute; right: 3px; bottom: 2px; font-size: .6rem; color: #94a3b8; }\n  </style>\n</head>\n<body>\n  <div class=\"row\">\n    <div class=\"ab\">⚡<kbd>1</kbd></div>\n    <div class=\"ab\">❄<span class=\"cd\" style=\"--a:210deg\"></span><span class=\"n\">3</span><kbd>2</kbd></div>\n    <div class=\"ab\">🔥<kbd>3</kbd></div>\n  </div>\n</body>\n</html>\n"
+}

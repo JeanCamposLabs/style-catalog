@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Progressive Load</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "image-loading-progressive",
+    "title": "Progressive Load",
+    "summary": "A low-quality preview sharpening into the full image.",
+    "description": "A low-quality preview sharpening into the full image.",
+    "theme": "images-media",
+    "categories": ["image", "media"],
+    "tags": ["image", "media", "progressive", "blur-up", "loading", "lqip"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative images need empty alt; meaningful ones need real descriptions. Never convey information through a hover-only image treatment.",
+    "customization": [
+      { "name": "--blur", "description": "Preview blur", "default": "20px" }
+    ],
+    "variations": ["Retune through the custom properties", "Add a reduced-motion static variant"],
+    "ai_usage": "Image-heavy pages. Inline a tiny base64 preview so the blurred placeholder needs no extra request, and reserve the aspect ratio to prevent layout shift."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 270px; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; }
+    .fx .lo { position: absolute; inset: 0; filter: blur(20px); transform: scale(1.15);
+      background: linear-gradient(135deg, #7c5cff, #c2891a); }
+    .fx .hi { position: absolute; inset: 0; opacity: 0; animation: load 3.4s ease-in-out infinite;
+      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #c2891a, #d1478c, #7c5cff); }
+    @keyframes load { 0%, 25% { opacity: 0; } 55%, 100% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="lo"></div><div class="hi"></div></div>
+</body>
+</html>

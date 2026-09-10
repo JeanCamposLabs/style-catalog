@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matrix Rain</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "matrix-rain-bg",
+    "title": "Matrix Rain",
+    "summary": "Columns of falling glyphs rendered on a canvas.",
+    "description": "A translucent black fill each frame leaves the trailing streak, which is what makes the rain read as light rather than characters.",
+    "theme": "backgrounds",
+    "categories": ["background", "retro"],
+    "tags": ["matrix", "canvas", "rain", "glyphs", "cyberpunk"],
+    "tech": ["js", "canvas"],
+    "era": "1990s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "One canvas, one rAF loop, ~40 columns — cheap, but pause it when off-screen.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Glyph color", "default": "#34d399" }
+    ],
+    "variations": ["Katakana glyph set", "Slower fall for an ambient version", "Fade the top for a vignette"],
+    "ai_usage": "Hacker and cyberpunk pages. Do not clear the canvas each frame — paint rgba(0,0,0,.06) over it so old glyphs decay into the trail. Respect reduced motion by rendering one static frame."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    canvas { display: block; width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <div class="bg"><canvas id="c"></canvas></div>
+  <script>
+    (function () {
+      var c = document.getElementById("c"), x = c.getContext("2d");
+      var chars = "01アイウエオカキクケコサシスセソ", size = 16, cols, drops;
+      function fit() {
+        c.width = c.offsetWidth; c.height = c.offsetHeight;
+        cols = Math.floor(c.width / size); drops = [];
+        for (var i = 0; i < cols; i++) drops[i] = Math.random() * -50;
+      }
+      fit(); addEventListener("resize", fit);
+      var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      function frame() {
+        x.fillStyle = "rgba(6,10,8,.08)"; x.fillRect(0, 0, c.width, c.height);
+        x.fillStyle = "#34d399"; x.font = size + "px monospace";
+        for (var i = 0; i < cols; i++) {
+          x.fillText(chars[Math.floor(Math.random() * chars.length)], i * size, drops[i] * size);
+          if (drops[i] * size > c.height && Math.random() > 0.975) drops[i] = 0;
+          drops[i]++;
+        }
+        if (!reduce) requestAnimationFrame(frame);
+      }
+      frame();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spectrum Analyzer</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "spectrum-bars-loader",
+    "title": "Spectrum Analyzer",
+    "summary": "A gradient-filled audio spectrum whose bars bob on staggered, unequal durations.",
+    "description": "Each bar gets its own duration and delay so the pattern never repeats visibly — the difference between 'audio meter' and 'CSS loop'.",
+    "theme": "loaders-spinners",
+    "categories": ["loader", "audio"],
+    "tags": ["equalizer", "spectrum", "audio", "bars", "gradient"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--a", "description": "Low frequency color", "default": "#7c5cff" },
+      { "name": "--b", "description": "High frequency color", "default": "#2dd4bf" }
+    ],
+    "variations": ["Mirror the bars for a symmetric meter", "Add a peak-hold cap per bar", "Drive heights from the Web Audio API"],
+    "ai_usage": "Fake audio activity for a music or podcast UI. The key is coprime durations per bar (.7s/.9s/1.1s…) — equal durations make the whole meter pulse as one. To make it real, replace the height animation with AnalyserNode data."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --a: #7c5cff; --b: #2dd4bf; }
+    .eq { display: flex; align-items: flex-end; gap: 5px; height: 76px; }
+    .eq i { width: 8px; border-radius: 3px 3px 2px 2px; background: linear-gradient(180deg, var(--b), var(--a));
+      animation: bob var(--d) ease-in-out infinite alternate; height: 22%; transform-origin: bottom; }
+    @keyframes bob { from { height: 16%; } to { height: 100%; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="eq" role="status" aria-label="Loading">
+    <i style="--d:.62s"></i><i style="--d:.94s"></i><i style="--d:.74s"></i><i style="--d:1.12s"></i>
+    <i style="--d:.86s"></i><i style="--d:.68s"></i><i style="--d:1.02s"></i><i style="--d:.78s"></i>
+    <i style="--d:.9s"></i><i style="--d:.66s"></i>
+  </div>
+</body>
+</html>

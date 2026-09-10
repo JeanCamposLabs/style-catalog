@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings Page</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "template-settings-page",
+    "title": "Settings Page",
+    "summary": "Grouped preferences with controls.",
+    "description": "Grouped preferences with controls.",
+    "theme": "website-templates",
+    "categories": ["template", "page"],
+    "tags": ["template", "page", "settings", "preferences", "toggles", "account"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Full pages keep landmark elements (header, nav, main, footer), a single h1, and a visible focus order that matches the layout.",
+    "customization": [
+      { "name": "--on", "description": "On colour", "default": "#10a894" }
+    ],
+    "variations": ["Reskin through the custom properties", "Swap the copy for your own"],
+    "ai_usage": "Account settings. Group related preferences under headings, save immediately with a confirmation rather than a Save button, and describe what each toggle changes."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { padding: 1.4rem; max-width: 32rem; margin: 0 auto; }
+    h1 { margin: 0 0 1.1rem; font-size: 1.4rem; }
+    section { margin-bottom: 1.4rem; }
+    h2 { margin: 0 0 .6rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }
+    .row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .8rem 1rem;
+      border-radius: 12px; background: #151b2a; border: 1px solid #263149; margin-bottom: 6px; }
+    .row b { display: block; font-size: .9rem; }
+    .row span { color: #8b93a7; font-size: .78rem; }
+    .sw { position: relative; width: 44px; height: 26px; border-radius: 99px; background: #2b3450; border: 0; cursor: pointer; flex: none; }
+    .sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%;
+      background: #fff; transition: transform .25s; }
+    .sw[aria-pressed="true"] { background: #10a894; }
+    .sw[aria-pressed="true"]::after { transform: translateX(18px); }
+    select { padding: .4rem .6rem; border-radius: 8px; border: 1px solid #2b3450; background: #10141f; color: #cbd5e1; font: inherit; font-size: .82rem; }
+  </style>
+</head>
+<body>
+  <h1>Settings</h1>
+  <section><h2>Appearance</h2>
+  <div class="row"><div><b>Theme</b><span>Follows your system by default</span></div>
+  <select aria-label="Theme"><option>System</option><option>Dark</option><option>Light</option></select></div>
+  <div class="row"><div><b>Reduce motion</b><span>Disables non-essential animation</span></div>
+  <button class="sw" type="button" aria-pressed="true" aria-label="Reduce motion"></button></div></section>
+  <section><h2>Notifications</h2>
+  <div class="row"><div><b>New specimens</b><span>Monthly digest by email</span></div>
+  <button class="sw" type="button" aria-pressed="true" aria-label="New specimen emails"></button></div>
+  <div class="row"><div><b>Build failures</b><span>Immediate alert</span></div>
+  <button class="sw" type="button" aria-pressed="false" aria-label="Build failure alerts"></button></div></section>
+</body>
+</html>

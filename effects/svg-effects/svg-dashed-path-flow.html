@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flowing Connector</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "svg-dashed-path-flow",
+    "title": "Flowing Connector",
+    "summary": "A dashed connector with travelling dashes.",
+    "description": "A dashed connector with travelling dashes.",
+    "theme": "svg-effects",
+    "categories": ["svg", "vector"],
+    "tags": ["svg", "vector", "connector", "dashes", "flow", "diagram"],
+    "tech": ["svg", "css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Inline SVG needs role=img and a title or aria-label when it carries meaning, and aria-hidden when it is decoration.",
+    "customization": [
+      { "name": "--dur", "description": "Flow period", "default": "1.2s" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "Pipeline and architecture diagrams. Animate stroke-dashoffset by exactly one dash period so the flow loops without a visible jump."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { width: 250px; }
+    .fx svg { width: 100%; display: block; }
+    .fx .bg { fill: none; stroke: #22304a; stroke-width: 3; }
+    .fx .fl { fill: none; stroke: #2dd4bf; stroke-width: 3; stroke-dasharray: 10 14; animation: flow 1.2s linear infinite; }
+    .fx circle { fill: #151b2a; stroke: #2dd4bf; stroke-width: 2; }
+    @keyframes flow { to { stroke-dashoffset: -24; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><svg viewBox="0 0 250 90" aria-hidden="true">
+    <path class="bg" d="M30 45 C90 45 90 20 125 20 C160 20 160 70 220 70"/>
+    <path class="fl" d="M30 45 C90 45 90 20 125 20 C160 20 160 70 220 70"/>
+    <circle cx="30" cy="45" r="10"/><circle cx="220" cy="70" r="10"/></svg></div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rising Embers</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "ember-rise",
+    "title": "Rising Embers",
+    "summary": "Sparks lifting from a fire and fading out.",
+    "description": "Sparks lifting from a fire and fading out.",
+    "theme": "fire-water",
+    "categories": ["elemental", "animation"],
+    "tags": ["elemental", "animated", "embers", "sparks", "rise", "fire"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Elemental loops are decorative and must stop entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Ember colour", "default": "#fbbf24" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Campfire and forge scenes. Give each ember a different horizontal drift so the column disperses instead of rising as a straight line."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 200px; height: 170px; border-radius: 14px; overflow: hidden;
+      background: radial-gradient(circle at 50% 110%, #7c2d12, #0b0d12 65%); }
+    .fx i { position: absolute; bottom: -6px; width: 4px; height: 4px; border-radius: 50%; background: #fbbf24;
+      box-shadow: 0 0 8px #f97316; animation: up var(--d) linear infinite; animation-delay: var(--dl); }
+    @keyframes up {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--dx), -160px) scale(.3); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="left:30%;--d:2.6s;--dl:0s;--dx:18px"></i><i style="left:46%;--d:3.4s;--dl:-1s;--dx:-14px"></i>
+  <i style="left:58%;--d:2.2s;--dl:-1.6s;--dx:24px"></i><i style="left:70%;--d:3s;--dl:-.6s;--dx:-20px"></i></div>
+</body>
+</html>

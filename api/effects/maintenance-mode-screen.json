@@ -1,0 +1,44 @@
+{
+  "id": "maintenance-mode-screen",
+  "title": "Maintenance Screen",
+  "summary": "A planned-downtime page with an ETA.",
+  "description": "A planned-downtime page with an ETA.",
+  "theme": "empty-skeleton-states",
+  "themeTitle": "Empty & Loading States",
+  "categories": [
+    "state",
+    "empty"
+  ],
+  "tags": [
+    "state",
+    "placeholder",
+    "maintenance",
+    "downtime",
+    "eta",
+    "status"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Status colour",
+      "default": "#c2891a"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Planned downtime. Always give a concrete return time and a status-page link; 'back soon' with no ETA drives users to support channels.",
+  "path": "effects/empty-skeleton-states/maintenance-mode-screen.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Maintenance Screen</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"maintenance-mode-screen\",\n    \"title\": \"Maintenance Screen\",\n    \"summary\": \"A planned-downtime page with an ETA.\",\n    \"description\": \"A planned-downtime page with an ETA.\",\n    \"theme\": \"empty-skeleton-states\",\n    \"categories\": [\"state\", \"empty\"],\n    \"tags\": [\"state\", \"placeholder\", \"maintenance\", \"downtime\", \"eta\", \"status\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Loading placeholders must be hidden from assistive tech (aria-hidden) with a single aria-live status instead; empty states need real headings and a focusable action.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Status colour\", \"default\": \"#c2891a\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Planned downtime. Always give a concrete return time and a status-page link; 'back soon' with no ETA drives users to support channels.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; padding: 1.8rem 1.4rem; border-radius: 16px; background: #151b2a; border: 1px solid #263149; text-align: center; }\n    .fx .ic { font-size: 2rem; }\n    .fx h3 { margin: .7rem 0 .3rem; font-size: 1rem; }\n    .fx p { margin: 0 0 1rem; color: #8b93a7; font-size: .84rem; line-height: 1.5; }\n    .fx .eta { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .8rem; border-radius: 99px;\n      background: #1e2740; color: #cbd5e1; font-size: .8rem; }\n    .fx .dot { width: 7px; height: 7px; border-radius: 50%; background: #c2891a; animation: pulse 1.6s ease-in-out infinite; }\n    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"status\"><div class=\"ic\" aria-hidden=\"true\">🔧</div><h3>Scheduled maintenance</h3>\n  <p>We are migrating the catalogue index. Read-only access continues.</p>\n  <span class=\"eta\"><span class=\"dot\"></span>Back by 14:00 UTC</span></div>\n</body>\n</html>\n"
+}

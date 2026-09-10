@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snowfall</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "snowfall-bg",
+    "title": "Snowfall",
+    "summary": "Layered snow at three depths falls at three speeds.",
+    "description": "Three tiled radial-gradient layers scroll at different rates, which produces parallax depth with zero particles.",
+    "theme": "backgrounds",
+    "categories": ["background", "seasonal"],
+    "tags": ["snow", "parallax", "winter", "particles", "seasonal"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Snow color", "default": "#fff" },
+      { "name": "--dur", "description": "Near layer speed", "default": "9s" }
+    ],
+    "variations": ["Add wind with a horizontal drift", "Warm gold for falling leaves", "Denser near layer for a blizzard"],
+    "ai_usage": "Seasonal themes without a particle library. Each layer is a background-image of dots with its own size and animation duration; the speed ratio (1 : 1.6 : 2.4) is what creates the depth."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: #fff; --dur: 9s; }
+    .bg { background: linear-gradient(#0b1220, #131c2e); }
+    .bg i { position: absolute; inset: -100% 0 0 0; height: 200%;
+      background-image: radial-gradient(var(--c) var(--r), transparent var(--r));
+      background-size: var(--s) var(--s); opacity: var(--o); animation: fall var(--d) linear infinite; }
+    @keyframes fall { to { transform: translateY(50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <i style="--r:1.6px;--s:70px;--o:.9;--d:9s"></i>
+    <i style="--r:1.1px;--s:110px;--o:.6;--d:14s"></i>
+    <i style="--r:.8px;--s:160px;--o:.4;--d:21s"></i>
+  </div>
+</body>
+</html>

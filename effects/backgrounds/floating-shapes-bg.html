@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Floating Geometry</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "floating-shapes-bg",
+    "title": "Floating Geometry",
+    "summary": "Outlined squares, circles, and triangles drift upward at different rates.",
+    "description": "Each shape has its own duration, delay, and rotation, so the field never resolves into a visible loop.",
+    "theme": "backgrounds",
+    "categories": ["background", "ambient"],
+    "tags": ["shapes", "float", "geometry", "ambient", "drift"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Shape color", "default": "rgba(124,92,255,.3)" },
+      { "name": "--dur", "description": "Base float period", "default": "16s" }
+    ],
+    "variations": ["Filled shapes for a bolder look", "Brand icons instead of geometry", "Drift sideways for a marquee feel"],
+    "ai_usage": "Landing-page sections that need life without distraction. Keep stroke-only shapes at low opacity, and give every shape a unique duration — matched durations make the whole field pulse as one."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(124,92,255,.3); --dur: 16s; }
+    .bg { background: linear-gradient(160deg, #10131f, #0b0d12); overflow: hidden; }
+    .bg i { position: absolute; border: 2px solid var(--c); animation: rise var(--d) linear infinite; animation-delay: var(--dl); }
+    .bg .sq { width: 46px; height: 46px; border-radius: 6px; }
+    .bg .ci { width: 34px; height: 34px; border-radius: 50%; }
+    .bg .tr { width: 0; height: 0; border: 0; border-left: 22px solid transparent; border-right: 22px solid transparent; border-bottom: 38px solid var(--c); }
+    @keyframes rise {
+      0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      10%, 90% { opacity: 1; }
+      100% { transform: translateY(-20vh) rotate(320deg); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <i class="sq" style="left:8%;--d:18s;--dl:0s"></i>
+    <i class="ci" style="left:26%;--d:24s;--dl:-6s"></i>
+    <i class="tr" style="left:44%;--d:15s;--dl:-11s"></i>
+    <i class="sq" style="left:62%;--d:21s;--dl:-3s"></i>
+    <i class="ci" style="left:80%;--d:27s;--dl:-16s"></i>
+    <i class="tr" style="left:92%;--d:19s;--dl:-9s"></i>
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "id": "chrome-metal-panel",
+  "title": "Chrome Panel",
+  "summary": "A polished metal surface with a horizon reflection.",
+  "description": "A polished metal surface with a horizon reflection.",
+  "theme": "holographic-metallic",
+  "themeTitle": "Holographic & Metallic",
+  "categories": [
+    "material",
+    "holographic"
+  ],
+  "tags": [
+    "holographic",
+    "metallic",
+    "chrome",
+    "metal",
+    "reflection",
+    "polished"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+  "customization": [
+    {
+      "name": "--tone",
+      "description": "Metal tone",
+      "default": "#94a3b8"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Automotive and hardware skins. The abrupt light–dark–light banding is the reflection of a horizon; a smooth two-stop gradient reads as plastic.",
+  "path": "effects/holographic-metallic/chrome-metal-panel.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Chrome Panel</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"chrome-metal-panel\",\n    \"title\": \"Chrome Panel\",\n    \"summary\": \"A polished metal surface with a horizon reflection.\",\n    \"description\": \"A polished metal surface with a horizon reflection.\",\n    \"theme\": \"holographic-metallic\",\n    \"categories\": [\"material\", \"holographic\"],\n    \"tags\": [\"holographic\", \"metallic\", \"chrome\", \"metal\", \"reflection\", \"polished\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Iridescent surfaces have unpredictable local contrast — never place body text directly on one.\",\n    \"customization\": [\n      { \"name\": \"--tone\", \"description\": \"Metal tone\", \"default\": \"#94a3b8\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Automotive and hardware skins. The abrupt light–dark–light banding is the reflection of a horizon; a smooth two-stop gradient reads as plastic.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; height: 150px; border-radius: 14px;\n      background: linear-gradient(180deg, #f8fafc 0 18%, #94a3b8 34%, #475569 50%, #cbd5e1 62%, #64748b 80%, #e2e8f0 100%);\n      box-shadow: inset 0 1px 0 #fff, 0 16px 34px rgba(0,0,0,.5); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Springy Toggle</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "toggle-switch-spring",
+    "title": "Springy Toggle",
+    "summary": "A switch whose knob stretches as it travels.",
+    "description": "A switch whose knob stretches as it travels.",
+    "theme": "micro-interactions",
+    "categories": ["micro-interaction", "feedback"],
+    "tags": ["micro-interaction", "feedback", "toggle", "switch", "spring", "press"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+    "customization": [
+      { "name": "--on", "description": "On colour", "default": "#10a894" }
+    ],
+    "variations": ["Adapt to a light theme", "Add a compact variant"],
+    "ai_usage": "Settings toggles. The knob widening on press is the detail that makes a switch feel physical; keep the travel spring under 350ms so it never feels sluggish."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 62px; height: 34px; border-radius: 99px; border: 0; background: #2b3450; cursor: pointer;
+      transition: background .25s; }
+    .fx::after { content: ""; position: absolute; top: 4px; left: 4px; width: 26px; height: 26px; border-radius: 99px;
+      background: #fff; transition: transform .32s cubic-bezier(.34,1.56,.64,1), width .2s; }
+    .fx[aria-pressed="true"] { background: #10a894; }
+    .fx[aria-pressed="true"]::after { transform: translateX(28px); }
+    .fx:active::after { width: 32px; }
+    .fx:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="fx" type="button" aria-pressed="false" aria-label="Enable notifications" id="tg"></button>
+  <script>
+    (function () {
+      var b = document.getElementById("tg");
+      b.addEventListener("click", function () {
+        b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") === "true" ? "false" : "true");
+      });
+    })();
+  </script>
+</body>
+</html>

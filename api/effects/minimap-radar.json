@@ -1,0 +1,44 @@
+{
+  "id": "minimap-radar",
+  "title": "Minimap",
+  "summary": "A circular minimap with blips and a view cone.",
+  "description": "A circular minimap with blips and a view cone.",
+  "theme": "game-ui",
+  "themeTitle": "Game UI",
+  "categories": [
+    "game",
+    "ui"
+  ],
+  "tags": [
+    "game",
+    "hud",
+    "minimap",
+    "radar",
+    "hud",
+    "navigation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Player colour",
+      "default": "#34d399"
+    }
+  ],
+  "variations": [
+    "Retheme through the custom properties",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Open-world HUDs. The view cone is what turns a dot map into a minimap — without it players cannot tell which way they are facing.",
+  "path": "effects/game-ui/minimap-radar.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Minimap</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"minimap-radar\",\n    \"title\": \"Minimap\",\n    \"summary\": \"A circular minimap with blips and a view cone.\",\n    \"description\": \"A circular minimap with blips and a view cone.\",\n    \"theme\": \"game-ui\",\n    \"categories\": [\"game\", \"ui\"],\n    \"tags\": [\"game\", \"hud\", \"minimap\", \"radar\", \"hud\", \"navigation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Game HUDs still need real semantics: use progressbar roles for meters and buttons for slots so the interface is operable without sight.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Player colour\", \"default\": \"#34d399\" }\n    ],\n    \"variations\": [\"Retheme through the custom properties\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Open-world HUDs. The view cone is what turns a dot map into a minimap — without it players cannot tell which way they are facing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 150px; height: 150px; border-radius: 50%; border: 3px solid #2b3450;\n      background: radial-gradient(circle, #0d1a14, #050b08); overflow: hidden; }\n    .fx .cone { position: absolute; left: 50%; top: 50%; width: 0; height: 0; translate: -50% -100%;\n      border-left: 32px solid transparent; border-right: 32px solid transparent; border-bottom: 60px solid rgba(52,211,153,.2);\n      transform-origin: 50% 100%; animation: look 6s ease-in-out infinite alternate; }\n    .fx .me { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 9px; height: 9px; border-radius: 50%; background: #34d399; }\n    .fx i { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #f87171; }\n    @keyframes look { from { rotate: -40deg; } to { rotate: 40deg; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"img\" aria-label=\"Minimap, two enemies nearby\">\n    <span class=\"cone\"></span><span class=\"me\"></span><i style=\"left:30%;top:34%\"></i><i style=\"left:68%;top:60%\"></i></div>\n</body>\n</html>\n"
+}

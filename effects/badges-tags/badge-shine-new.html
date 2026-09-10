@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shining New Badge</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "badge-shine-new",
+    "title": "Shining New Badge",
+    "summary": "A badge with a highlight that sweeps across it.",
+    "description": "A badge with a highlight that sweeps across it. Small self-contained component ready to drop into a list or card.",
+    "theme": "badges-tags",
+    "categories": ["badge", "label"],
+    "tags": ["badge", "label", "shine", "new", "attention", "sweep"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+    "customization": [
+      { "name": "--dur", "description": "Sweep period", "default": "2.6s" }
+    ],
+    "variations": ["Add a size variant", "Map colours to semantic tokens"],
+    "ai_usage": "Drawing the eye to a genuinely new feature. Remove the animation once the feature is no longer new — permanent motion becomes noise."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .b { position: relative; overflow: hidden; display: inline-block; padding: .35rem .9rem; border-radius: 8px;
+      background: #7c5cff; color: #fff; font-size: .76rem; font-weight: 800; letter-spacing: .05em; }
+    .b::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent); transform: skewX(-20deg);
+      animation: sweep 2.6s ease-in-out infinite; }
+    @keyframes sweep { 0%, 60% { left: -60%; } 100% { left: 140%; } }
+  </style>
+</head>
+<body>
+  <span class="b">NEW</span>
+</body>
+</html>

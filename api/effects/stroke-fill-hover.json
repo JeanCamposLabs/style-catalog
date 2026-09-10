@@ -1,0 +1,49 @@
+{
+  "id": "stroke-fill-hover",
+  "title": "Outline to Fill",
+  "summary": "Hollow type fills with color from the bottom up on hover.",
+  "description": "A clipped duplicate whose height animates from zero fills the outline, so the stroke stays crisp throughout.",
+  "theme": "text-effects",
+  "themeTitle": "Text Effects",
+  "categories": [
+    "text",
+    "hover"
+  ],
+  "tags": [
+    "outline",
+    "fill",
+    "hover",
+    "text-stroke",
+    "clip"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Fill color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Fill duration",
+      "default": "0.45s"
+    }
+  ],
+  "variations": [
+    "Fill from the left instead",
+    "Gradient fill",
+    "Fill on scroll-into-view"
+  ],
+  "related": [],
+  "ai_usage": "Big navigational headings and menu links. The overlay copy must sit exactly on top (position:absolute; inset:0) and use the same font metrics; animate clip-path inset rather than height for sub-pixel accuracy.",
+  "path": "effects/text-effects/stroke-fill-hover.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Outline to Fill</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"stroke-fill-hover\",\n    \"title\": \"Outline to Fill\",\n    \"summary\": \"Hollow type fills with color from the bottom up on hover.\",\n    \"description\": \"A clipped duplicate whose height animates from zero fills the outline, so the stroke stays crisp throughout.\",\n    \"theme\": \"text-effects\",\n    \"categories\": [\"text\", \"hover\"],\n    \"tags\": [\"outline\", \"fill\", \"hover\", \"text-stroke\", \"clip\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Fill color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Fill duration\", \"default\": \"0.45s\" }\n    ],\n    \"variations\": [\"Fill from the left instead\", \"Gradient fill\", \"Fill on scroll-into-view\"],\n    \"ai_usage\": \"Big navigational headings and menu links. The overlay copy must sit exactly on top (position:absolute; inset:0) and use the same font metrics; animate clip-path inset rather than height for sub-pixel accuracy.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #7c5cff; --dur: .45s; }\n    .sf { position: relative; font-size: clamp(2.2rem, 9vw, 4.2rem); font-weight: 900; color: transparent;\n      -webkit-text-stroke: 2px #e7ebf3; cursor: pointer; }\n    .sf span { position: absolute; inset: 0; color: var(--c); -webkit-text-stroke: 0;\n      clip-path: inset(100% 0 0 0); transition: clip-path var(--dur) cubic-bezier(.2,.8,.3,1); }\n    .sf:hover span { clip-path: inset(0 0 0 0); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <h1 class=\"sf\">HOVER<span aria-hidden=\"true\">HOVER</span></h1>\n</body>\n</html>\n"
+}

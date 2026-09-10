@@ -1,0 +1,44 @@
+{
+  "id": "modal-bottom-sheet",
+  "title": "Bottom Sheet",
+  "summary": "A panel that slides up from the bottom edge with a drag handle.",
+  "description": "A panel that slides up from the bottom edge with a drag handle.",
+  "theme": "modals-overlays",
+  "themeTitle": "Modals & Overlays",
+  "categories": [
+    "modal",
+    "overlay"
+  ],
+  "tags": [
+    "modal",
+    "dialog",
+    "sheet",
+    "mobile",
+    "drawer",
+    "slide-up"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Slide duration",
+      "default": "0.35s"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Mobile actions and filters. The grip is a visual affordance only — the sheet must also close via a real button and Escape for keyboard users.",
+  "path": "effects/modals-overlays/modal-bottom-sheet.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Bottom Sheet</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"modal-bottom-sheet\",\n    \"title\": \"Bottom Sheet\",\n    \"summary\": \"A panel that slides up from the bottom edge with a drag handle.\",\n    \"description\": \"A panel that slides up from the bottom edge with a drag handle.\",\n    \"theme\": \"modals-overlays\",\n    \"categories\": [\"modal\", \"overlay\"],\n    \"tags\": [\"modal\", \"dialog\", \"sheet\", \"mobile\", \"drawer\", \"slide-up\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"A modal must trap focus, close on Escape, return focus to its trigger, and mark the page behind it inert. The <dialog> element gives most of this for free.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Slide duration\", \"default\": \"0.35s\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Mobile actions and filters. The grip is a visual affordance only — the sheet must also close via a real button and Escape for keyboard users.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .stage { position: relative; width: 300px; height: 320px; border-radius: 22px; overflow: hidden; background: #10141f; border: 1px solid #263149; }\n    .stage .content { padding: 1.2rem; color: #8b93a7; font-size: .9rem; }\n    .scrim { position: absolute; inset: 0; background: rgba(4,7,14,.6); opacity: 0; transition: opacity .3s; pointer-events: none; }\n    .sheet { position: absolute; left: 0; right: 0; bottom: 0; padding: .8rem 1.2rem 1.4rem; border-radius: 20px 20px 0 0;\n      background: #1a2130; transform: translateY(100%); transition: transform .35s cubic-bezier(.7,0,.2,1); }\n    .stage.is-open .sheet { transform: none; }\n    .stage.is-open .scrim { opacity: 1; }\n    .grip { width: 40px; height: 4px; border-radius: 99px; background: #3b465e; margin: 0 auto .9rem; }\n    .sheet h3 { margin: 0 0 .4rem; font-size: 1rem; }\n    .sheet p { margin: 0 0 1rem; color: #8b93a7; font-size: .85rem; }\n    button { padding: .55rem 1.1rem; border-radius: 9px; border: 0; background: #7c5cff; color: #fff; font: inherit; cursor: pointer; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"stage is-open\" id=\"st\"><div class=\"content\">Tap the button to toggle the sheet.<br><br><button type=\"button\" id=\"tg\">Toggle</button></div>\n  <div class=\"scrim\"></div><div class=\"sheet\" role=\"dialog\" aria-label=\"Options\"><div class=\"grip\" aria-hidden=\"true\"></div>\n  <h3>Sort by</h3><p>Choose how results are ordered.</p><button type=\"button\">Apply</button></div></div>\n  <script>\n    (function () {\n      var st = document.getElementById(\"st\");\n      document.getElementById(\"tg\").addEventListener(\"click\", function () { st.classList.toggle(\"is-open\"); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

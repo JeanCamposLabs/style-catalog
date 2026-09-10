@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magnifier Cursor</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cursor-magnify-lens",
+    "title": "Magnifier Cursor",
+    "summary": "A circular lens under the pointer enlarges what is beneath it.",
+    "description": "A second, scaled copy of the content is offset so the magnified point stays exactly under the pointer.",
+    "theme": "cursors-pointers",
+    "categories": ["cursor", "image"],
+    "tags": ["magnifier", "lens", "zoom", "pointer", "image"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+    "customization": [
+      { "name": "--r", "description": "Lens radius", "default": "70px" },
+      { "name": "--zoom", "description": "Magnification", "default": "2" }
+    ],
+    "variations": ["Square loupe", "Zoom level on scroll", "Show pixel coordinates in the lens"],
+    "ai_usage": "Product images, maps, and design tools. Offset the scaled copy by -(x * (zoom - 1)) in both axes; skipping that term makes the lens show the wrong part of the image."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .zone { position: relative; width: 320px; height: 210px; border-radius: 14px; overflow: hidden; cursor: none;
+      background: repeating-linear-gradient(45deg, #7c5cff 0 18px, #2dd4bf 18px 36px); }
+    .zone .lens { position: absolute; width: calc(var(--r, 70px) * 2); height: calc(var(--r, 70px) * 2); border-radius: 50%;
+      border: 2px solid #fff; overflow: hidden; pointer-events: none; opacity: 0; transition: opacity .2s;
+      box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+    .zone:hover .lens { opacity: 1; }
+    .zone .lens .inner { position: absolute; width: 320px; height: 210px; transform-origin: 0 0;
+      background: repeating-linear-gradient(45deg, #7c5cff 0 18px, #2dd4bf 18px 36px); }
+  </style>
+</head>
+<body>
+  <div class="zone" id="zn"><div class="lens" aria-hidden="true"><div class="inner"></div></div></div>
+  <script>
+    (function () {
+      var z = document.getElementById("zn"), lens = z.querySelector(".lens"), inner = lens.querySelector(".inner"), Z = 2, R = 70;
+      z.addEventListener("pointermove", function (e) {
+        var r = z.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+        lens.style.left = (x - R) + "px"; lens.style.top = (y - R) + "px";
+        inner.style.transform = "scale(" + Z + ") translate(" + (-x + R / Z) + "px," + (-y + R / Z) + "px)";
+      });
+    })();
+  </script>
+</body>
+</html>

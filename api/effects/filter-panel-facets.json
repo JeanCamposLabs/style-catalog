@@ -1,0 +1,44 @@
+{
+  "id": "filter-panel-facets",
+  "title": "Facet Filters",
+  "summary": "Checkbox facets with result counts.",
+  "description": "Checkbox facets with result counts.",
+  "theme": "search-ui",
+  "themeTitle": "Search UI",
+  "categories": [
+    "search",
+    "filter"
+  ],
+  "tags": [
+    "search",
+    "find",
+    "facets",
+    "checkbox",
+    "counts",
+    "filter"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Faceted search. Show the count per facet and grey out zero-result options rather than hiding them — disappearing filters make the result set feel unpredictable.",
+  "path": "effects/search-ui/filter-panel-facets.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Facet Filters</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"filter-panel-facets\",\n    \"title\": \"Facet Filters\",\n    \"summary\": \"Checkbox facets with result counts.\",\n    \"description\": \"Checkbox facets with result counts.\",\n    \"theme\": \"search-ui\",\n    \"categories\": [\"search\", \"filter\"],\n    \"tags\": [\"search\", \"find\", \"facets\", \"checkbox\", \"counts\", \"filter\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Result counts belong in an aria-live region; filter groups need fieldset/legend so their scope is announced.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Faceted search. Show the count per facet and grey out zero-result options rather than hiding them — disappearing filters make the result set feel unpredictable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; padding: 1rem; border-radius: 14px; background: #151b2a; border: 1px solid #263149; }\n    .fx fieldset { border: 0; padding: 0; margin: 0 0 1rem; }\n    .fx legend { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; margin-bottom: .5rem; }\n    .fx label { display: flex; align-items: center; gap: .5rem; padding: .25rem 0; color: #cbd5e1; font-size: .85rem; }\n    .fx label span { margin-left: auto; color: #64748b; font-size: .76rem; font-variant-numeric: tabular-nums; }\n    .fx input { accent-color: #7c5cff; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><fieldset><legend>Tech</legend>\n  <label><input type=\"checkbox\" checked /> CSS <span>842</span></label>\n  <label><input type=\"checkbox\" /> SVG <span>196</span></label>\n  <label><input type=\"checkbox\" /> Canvas <span>24</span></label></fieldset>\n  <fieldset><legend>Difficulty</legend>\n  <label><input type=\"checkbox\" /> Beginner <span>412</span></label>\n  <label><input type=\"checkbox\" checked /> Intermediate <span>598</span></label></fieldset></div>\n</body>\n</html>\n"
+}

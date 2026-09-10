@@ -1,0 +1,49 @@
+{
+  "id": "risograph-print",
+  "title": "Risograph Overlay",
+  "summary": "Two misregistered spot colours with grain.",
+  "description": "Two misregistered spot colours with grain.",
+  "theme": "paper-print",
+  "themeTitle": "Paper & Print",
+  "categories": [
+    "paper",
+    "print"
+  ],
+  "tags": [
+    "paper",
+    "print",
+    "risograph",
+    "spot-color",
+    "misregistration",
+    "print"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Ink one",
+      "default": "#ef4444"
+    },
+    {
+      "name": "--b",
+      "description": "Ink two",
+      "default": "#2563eb"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Adjust the loop duration"
+  ],
+  "related": [],
+  "ai_usage": "Zine and indie-print aesthetics. Deliberate misregistration of a few pixels between the two ink layers is the entire effect.",
+  "path": "effects/paper-print/risograph-print.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Risograph Overlay</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"risograph-print\",\n    \"title\": \"Risograph Overlay\",\n    \"summary\": \"Two misregistered spot colours with grain.\",\n    \"description\": \"Two misregistered spot colours with grain.\",\n    \"theme\": \"paper-print\",\n    \"categories\": [\"paper\", \"print\"],\n    \"tags\": [\"paper\", \"print\", \"risograph\", \"spot-color\", \"misregistration\", \"print\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Paper textures often lower contrast — verify text against the darkest part of the texture, not its average.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Ink one\", \"default\": \"#ef4444\" },\n      { \"name\": \"--b\", \"description\": \"Ink two\", \"default\": \"#2563eb\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Adjust the loop duration\"],\n    \"ai_usage\": \"Zine and indie-print aesthetics. Deliberate misregistration of a few pixels between the two ink layers is the entire effect.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 230px; height: 160px; border-radius: 6px; overflow: hidden; background: #f5f2e8; }\n    .fx i { position: absolute; inset: 0; mix-blend-mode: multiply; opacity: .8; }\n    .fx .a { background: radial-gradient(circle at 35% 40%, #ef4444 0 38%, transparent 40%); }\n    .fx .b { background: radial-gradient(circle at 42% 46%, #2563eb 0 38%, transparent 40%); }\n    .fx::after { content: \"\"; position: absolute; inset: 0; opacity: .3; mix-blend-mode: multiply;\n      background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\"); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i class=\"a\"></i><i class=\"b\"></i></div>\n</body>\n</html>\n"
+}

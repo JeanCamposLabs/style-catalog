@@ -1,0 +1,44 @@
+{
+  "id": "count-up-number",
+  "title": "Counting Number",
+  "summary": "A figure that counts up when it appears.",
+  "description": "A figure that counts up when it appears.",
+  "theme": "micro-interactions",
+  "themeTitle": "Micro-interactions",
+  "categories": [
+    "micro-interaction",
+    "feedback"
+  ],
+  "tags": [
+    "micro-interaction",
+    "feedback",
+    "count-up",
+    "number",
+    "stat",
+    "reveal"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Count duration",
+      "default": "1.2s"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Stat reveals. Ease the count so it decelerates into the final value, and keep the duration under a second — long counters delay the information they exist to show.",
+  "path": "effects/micro-interactions/count-up-number.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Counting Number</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"count-up-number\",\n    \"title\": \"Counting Number\",\n    \"summary\": \"A figure that counts up when it appears.\",\n    \"description\": \"A figure that counts up when it appears.\",\n    \"theme\": \"micro-interactions\",\n    \"categories\": [\"micro-interaction\", \"feedback\"],\n    \"tags\": [\"micro-interaction\", \"feedback\", \"count-up\", \"number\", \"stat\", \"reveal\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Count duration\", \"default\": \"1.2s\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Stat reveals. Ease the count so it decelerates into the final value, and keep the duration under a second — long counters delay the information they exist to show.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { text-align: center; }\n    .fx .n { font-size: 2.6rem; font-weight: 900; font-variant-numeric: tabular-nums; }\n    .fx .l { color: #8b93a7; font-size: .82rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"n\" id=\"cu\">0</div><div class=\"l\">specimens catalogued</div></div>\n  <script>\n    (function () {\n      var el = document.getElementById(\"cu\"), target = 1181, t0 = null;\n      if (matchMedia(\"(prefers-reduced-motion: reduce)\").matches) { el.textContent = target.toLocaleString(); return; }\n      function step(ts) {\n        if (!t0) t0 = ts;\n        var p = Math.min((ts - t0) / 1200, 1), e = 1 - Math.pow(1 - p, 3);\n        el.textContent = Math.round(target * e).toLocaleString();\n        if (p < 1) requestAnimationFrame(step);\n      }\n      requestAnimationFrame(step);\n    })();\n  </script>\n</body>\n</html>\n"
+}

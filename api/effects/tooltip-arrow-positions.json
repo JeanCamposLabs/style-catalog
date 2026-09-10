@@ -1,0 +1,44 @@
+{
+  "id": "tooltip-arrow-positions",
+  "title": "Four-Side Tooltip",
+  "summary": "The same tooltip anchored on all four sides.",
+  "description": "The same tooltip anchored on all four sides.",
+  "theme": "tooltips-popovers",
+  "themeTitle": "Tooltips & Popovers",
+  "categories": [
+    "tooltip",
+    "overlay"
+  ],
+  "tags": [
+    "tooltip",
+    "popover",
+    "positions",
+    "arrow",
+    "sides",
+    "reference"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Tooltip background",
+      "default": "#1f2637"
+    }
+  ],
+  "variations": [
+    "Recolour through the custom properties",
+    "Scale it for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Reference set for a tooltip component. Ship all four placements and flip automatically near viewport edges — a fixed placement will be clipped somewhere.",
+  "path": "effects/tooltips-popovers/tooltip-arrow-positions.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Four-Side Tooltip</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"tooltip-arrow-positions\",\n    \"title\": \"Four-Side Tooltip\",\n    \"summary\": \"The same tooltip anchored on all four sides.\",\n    \"description\": \"The same tooltip anchored on all four sides.\",\n    \"theme\": \"tooltips-popovers\",\n    \"categories\": [\"tooltip\", \"overlay\"],\n    \"tags\": [\"tooltip\", \"popover\", \"positions\", \"arrow\", \"sides\", \"reference\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Hover-only content is unreachable by keyboard and touch: show on focus too, link with aria-describedby, and never put interactive content in a hover tooltip.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Tooltip background\", \"default\": \"#1f2637\" }\n    ],\n    \"variations\": [\"Recolour through the custom properties\", \"Scale it for a compact variant\"],\n    \"ai_usage\": \"Reference set for a tooltip component. Ship all four placements and flip automatically near viewport edges — a fixed placement will be clipped somewhere.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .grid { display: grid; grid-template-columns: repeat(2, 130px); gap: 2.6rem; }\n    .t { position: relative; display: grid; place-items: center; }\n    .t button { padding: .5rem .9rem; border-radius: 9px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; }\n    .bub { position: absolute; white-space: nowrap; padding: .35rem .6rem; border-radius: 7px; background: #1f2637; color: #e7ebf3;\n      font-size: .78rem; opacity: 0; transition: opacity .18s; pointer-events: none; }\n    .t:hover .bub, .t button:focus-visible + .bub { opacity: 1; }\n    .bub::after { content: \"\"; position: absolute; border: 5px solid transparent; }\n    .top .bub { bottom: calc(100% + 8px); } .top .bub::after { top: 100%; left: 50%; translate: -50% 0; border-top-color: #1f2637; }\n    .bottom .bub { top: calc(100% + 8px); } .bottom .bub::after { bottom: 100%; left: 50%; translate: -50% 0; border-bottom-color: #1f2637; }\n    .left .bub { right: calc(100% + 8px); } .left .bub::after { left: 100%; top: 50%; translate: 0 -50%; border-left-color: #1f2637; }\n    .right .bub { left: calc(100% + 8px); } .right .bub::after { right: 100%; top: 50%; translate: 0 -50%; border-right-color: #1f2637; }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"grid\">\n    <span class=\"t top\"><button type=\"button\" aria-describedby=\"a\">Top</button><span class=\"bub\" id=\"a\" role=\"tooltip\">Above</span></span>\n    <span class=\"t bottom\"><button type=\"button\" aria-describedby=\"b\">Bottom</button><span class=\"bub\" id=\"b\" role=\"tooltip\">Below</span></span>\n    <span class=\"t left\"><button type=\"button\" aria-describedby=\"c\">Left</button><span class=\"bub\" id=\"c\" role=\"tooltip\">Before</span></span>\n    <span class=\"t right\"><button type=\"button\" aria-describedby=\"d\">Right</button><span class=\"bub\" id=\"d\" role=\"tooltip\">After</span></span>\n  </div>\n</body>\n</html>\n"
+}

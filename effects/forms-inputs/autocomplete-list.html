@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Autocomplete Suggestions</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "autocomplete-list",
+    "title": "Autocomplete Suggestions",
+    "summary": "A field that filters a list and highlights the matched substring.",
+    "description": "Highlighting the matched characters shows why each suggestion appeared, which plain filtering does not.",
+    "theme": "forms-inputs",
+    "categories": ["form", "search"],
+    "tags": ["autocomplete", "typeahead", "filter", "highlight", "combobox"],
+    "tech": ["css", "js"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "A production combobox needs role=combobox, aria-expanded, aria-activedescendant, and arrow-key navigation — this specimen shows the visual layer.",
+    "customization": [
+      { "name": "--c", "description": "Highlight colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Group results by category", "Recent searches when empty"],
+    "ai_usage": "Search-as-you-type UIs. Escape user input before injecting the highlight markup, and debounce remote queries by ~150ms."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .ac { width: 300px; position: relative; }
+    .ac input { width: 100%; padding: .8rem 1rem; border-radius: 12px; border: 1px solid #2b3450; background: #151b2a; color: #e7ebf3; font: inherit; }
+    .ac ul { list-style: none; margin: .4rem 0 0; padding: .3rem; background: #151b2a; border: 1px solid #2b3450;
+      border-radius: 12px; max-height: 160px; overflow: auto; }
+    .ac li { padding: .5rem .7rem; border-radius: 8px; color: #cbd5e1; font-size: .9rem; cursor: pointer; }
+    .ac li:hover { background: #22304a; }
+    .ac mark { background: transparent; color: var(--c, #7c5cff); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="ac"><input id="ai" type="text" aria-label="Find a framework" placeholder="Type 're'…" /><ul id="al"></ul></div>
+  <script>
+    (function () {
+      var data = ["React", "Preact", "Svelte", "Solid", "Remix", "Astro", "Qwik", "Ember"];
+      var i = document.getElementById("ai"), l = document.getElementById("al");
+      function esc(s) { return s.replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); }
+      function render() {
+        var q = i.value.trim().toLowerCase();
+        l.innerHTML = "";
+        data.filter(function (d) { return !q || d.toLowerCase().indexOf(q) > -1; }).forEach(function (d) {
+          var li = document.createElement("li"), k = d.toLowerCase().indexOf(q);
+          li.innerHTML = q && k > -1
+            ? esc(d.slice(0, k)) + "<mark>" + esc(d.slice(k, k + q.length)) + "</mark>" + esc(d.slice(k + q.length))
+            : esc(d);
+          l.appendChild(li);
+        });
+      }
+      i.addEventListener("input", render); render();
+    })();
+  </script>
+</body>
+</html>

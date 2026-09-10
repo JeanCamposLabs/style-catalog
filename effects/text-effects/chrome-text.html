@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chrome Text</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "chrome-text",
+    "title": "Chrome Text",
+    "summary": "A polished metal headline made from a multi-stop gradient clipped to the glyphs.",
+    "description": "The illusion is in the stop placement: light, dark, light, dark in quick succession reads as a reflective curve rather than a flat ramp.",
+    "theme": "text-effects",
+    "categories": ["text", "material"],
+    "tags": ["chrome", "metal", "gradient", "background-clip", "reflective"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--tilt", "description": "Gradient angle", "default": "178deg" }
+    ],
+    "variations": ["Animate background-position for a moving reflection", "Warmer stops for gold", "Add a thin dark outline via text-stroke"],
+    "ai_usage": "Y2K, automotive, or heavy-metal aesthetics. Use background-clip:text with color:transparent; the metal read depends on abrupt light/dark stops, so avoid smooth two-color ramps."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --tilt: 178deg; }
+    .chrome { font-size: clamp(2.4rem, 10vw, 5rem); font-weight: 900; letter-spacing: -.01em;
+      background: linear-gradient(var(--tilt), #ffffff 0 10%, #98a2b8 24%, #ffffff 40%, #5b6478 54%, #eef2f9 70%, #7b8698 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,.55)); }
+  </style>
+</head>
+<body>
+  <h1 class="chrome">CHROME</h1>
+</body>
+</html>

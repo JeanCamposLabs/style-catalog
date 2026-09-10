@@ -1,0 +1,44 @@
+{
+  "id": "toast-stack-multiple",
+  "title": "Toast Stack",
+  "summary": "Several toasts stacked with depth.",
+  "description": "Several toasts stacked with depth.",
+  "theme": "notifications-toasts",
+  "themeTitle": "Notifications & Toasts",
+  "categories": [
+    "notification",
+    "feedback"
+  ],
+  "tags": [
+    "notification",
+    "feedback",
+    "stack",
+    "multiple",
+    "depth",
+    "queue"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Toast background",
+      "default": "#1a2130"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Bursty notifications. Cap the visible stack at three and collapse the rest into a count — an unbounded stack covers the interface it is reporting on.",
+  "path": "effects/notifications-toasts/toast-stack-multiple.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Toast Stack</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"toast-stack-multiple\",\n    \"title\": \"Toast Stack\",\n    \"summary\": \"Several toasts stacked with depth.\",\n    \"description\": \"Several toasts stacked with depth.\",\n    \"theme\": \"notifications-toasts\",\n    \"categories\": [\"notification\", \"feedback\"],\n    \"tags\": [\"notification\", \"feedback\", \"stack\", \"multiple\", \"depth\", \"queue\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Announce transient messages through an aria-live region; never convey severity by colour alone, and never auto-dismiss anything the user must act on.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Toast background\", \"default\": \"#1a2130\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Bursty notifications. Cap the visible stack at three and collapse the rest into a count — an unbounded stack covers the interface it is reporting on.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 290px; height: 130px; }\n    .t { position: absolute; left: 0; right: 0; padding: .75rem .9rem; border-radius: 12px; background: #1a2130;\n      border: 1px solid #2b3450; color: #cbd5e1; font-size: .84rem; box-shadow: 0 12px 26px rgba(0,0,0,.45); }\n    .t:nth-child(1) { top: 0; z-index: 3; }\n    .t:nth-child(2) { top: 10px; z-index: 2; transform: scale(.96); opacity: .8; }\n    .t:nth-child(3) { top: 20px; z-index: 1; transform: scale(.92); opacity: .6; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"t\" role=\"status\">Deploy finished in 42s</div><div class=\"t\">Posters regenerated</div>\n  <div class=\"t\">Catalogue rebuilt</div></div>\n</body>\n</html>\n"
+}

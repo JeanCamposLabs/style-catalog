@@ -1,0 +1,49 @@
+{
+  "id": "halftone-dots-bg",
+  "title": "Halftone Gradient",
+  "summary": "Print-style halftone dots that grow toward one corner.",
+  "description": "A dot grid masked by a linear gradient makes the dot density fall off, imitating a printed halftone ramp.",
+  "theme": "backgrounds",
+  "themeTitle": "Backgrounds",
+  "categories": [
+    "background",
+    "print"
+  ],
+  "tags": [
+    "halftone",
+    "print",
+    "dots",
+    "mask",
+    "comic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Dot color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--s",
+      "description": "Dot pitch",
+      "default": "14px"
+    }
+  ],
+  "variations": [
+    "Two-color CMYK halftone",
+    "Radial falloff instead of linear",
+    "Animate the mask for a wipe"
+  ],
+  "related": [],
+  "ai_usage": "Comic, pop-art, and print-inspired designs. The ramp comes from a mask-image gradient over the dot layer — scaling the dots themselves requires per-dot markup and is not worth it.",
+  "path": "effects/backgrounds/halftone-dots-bg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Halftone Gradient</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"halftone-dots-bg\",\n    \"title\": \"Halftone Gradient\",\n    \"summary\": \"Print-style halftone dots that grow toward one corner.\",\n    \"description\": \"A dot grid masked by a linear gradient makes the dot density fall off, imitating a printed halftone ramp.\",\n    \"theme\": \"backgrounds\",\n    \"categories\": [\"background\", \"print\"],\n    \"tags\": [\"halftone\", \"print\", \"dots\", \"mask\", \"comic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative surface — keep contrast with foreground text above 4.5:1 and disable drift under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Dot color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--s\", \"description\": \"Dot pitch\", \"default\": \"14px\" }\n    ],\n    \"variations\": [\"Two-color CMYK halftone\", \"Radial falloff instead of linear\", \"Animate the mask for a wipe\"],\n    \"ai_usage\": \"Comic, pop-art, and print-inspired designs. The ramp comes from a mask-image gradient over the dot layer — scaling the dots themselves requires per-dot markup and is not worth it.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: #7c5cff; --s: 14px; }\n    .bg { background: #0b0d12; }\n    .bg::after { content: \"\"; position: absolute; inset: 0;\n      background-image: radial-gradient(var(--c) 30%, transparent 31%); background-size: var(--s) var(--s);\n      -webkit-mask-image: linear-gradient(135deg, #000, transparent 70%); mask-image: linear-gradient(135deg, #000, transparent 70%); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

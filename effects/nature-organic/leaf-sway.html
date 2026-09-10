@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swaying Leaves</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "leaf-sway",
+    "title": "Swaying Leaves",
+    "summary": "Leaves rock gently on staggered, unequal periods.",
+    "description": "Leaves rock gently on staggered, unequal periods.",
+    "theme": "nature-organic",
+    "categories": ["nature", "organic"],
+    "tags": ["organic", "nature", "leaf", "sway", "wind", "foliage"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Leaf colour", "default": "#15803d" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Eco and wellness branding. Give every leaf a different duration — matched periods make the group look like one rigid object."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 10px; }
+    .fx i { width: 26px; height: 44px; background: linear-gradient(160deg, #86efac, #15803d);
+      border-radius: 50% 0 50% 0; transform-origin: 50% 100%; animation: sway var(--d) ease-in-out infinite alternate; }
+    @keyframes sway { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="--d:2.4s"></i><i style="--d:3.1s"></i><i style="--d:2.7s"></i><i style="--d:3.6s"></i></div>
+</body>
+</html>

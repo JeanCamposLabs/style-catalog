@@ -1,0 +1,44 @@
+{
+  "id": "brutal-grid-collage",
+  "title": "Brutalist Collage",
+  "summary": "Overlapping blocks with visible offsets.",
+  "description": "Overlapping blocks with visible offsets.",
+  "theme": "brutalism-y2k",
+  "themeTitle": "Brutalism & Y2K",
+  "categories": [
+    "brutalism",
+    "y2k"
+  ],
+  "tags": [
+    "brutalism",
+    "raw",
+    "collage",
+    "overlap",
+    "blocks",
+    "layout"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+  "customization": [
+    {
+      "name": "--border",
+      "description": "Border width",
+      "default": "3px"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Editorial anti-design. Deliberate overlap and misalignment is the composition; snapping the blocks to a grid removes the entire effect.",
+  "path": "effects/brutalism-y2k/brutal-grid-collage.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Brutalist Collage</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"brutal-grid-collage\",\n    \"title\": \"Brutalist Collage\",\n    \"summary\": \"Overlapping blocks with visible offsets.\",\n    \"description\": \"Overlapping blocks with visible offsets.\",\n    \"theme\": \"brutalism-y2k\",\n    \"categories\": [\"brutalism\", \"y2k\"],\n    \"tags\": [\"brutalism\", \"raw\", \"collage\", \"overlap\", \"blocks\", \"layout\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.\",\n    \"customization\": [\n      { \"name\": \"--border\", \"description\": \"Border width\", \"default\": \"3px\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Editorial anti-design. Deliberate overlap and misalignment is the composition; snapping the blocks to a grid removes the entire effect.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 190px; }\n    .fx div { position: absolute; border: 3px solid #0b0d12; font-family: \"Courier New\", monospace; font-weight: 700;\n      padding: .4rem .6rem; font-size: .8rem; }\n    .a { top: 0; left: 0; width: 160px; height: 90px; background: #ffe600; color: #0b0d12; }\n    .bx { top: 40px; left: 90px; width: 170px; height: 100px; background: #ff5f6d; color: #fff; }\n    .c { top: 110px; left: 20px; width: 120px; height: 70px; background: #06b6d4; color: #04222b; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"a\">HEADLINE</div><div class=\"bx\">SUBHEAD</div><div class=\"c\">2026</div></div>\n</body>\n</html>\n"
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Static Card</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "static-noise-card",
+    "title": "Static Card",
+    "summary": "A card overlaid with animated television static.",
+    "description": "A card overlaid with animated television static.",
+    "theme": "glitch-distortion",
+    "categories": ["glitch", "distortion"],
+    "tags": ["glitch", "distortion", "static", "noise", "tv", "overlay"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "advanced",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Rapid flicker and high-contrast tearing can trigger discomfort — keep glitches brief and honour prefers-reduced-motion.",
+    "customization": [
+      { "name": "--o", "description": "Static opacity", "default": "0.35" }
+    ],
+    "variations": ["Retune the palette", "Adjust the loop duration"],
+    "ai_usage": "Offline and error panels. Step the transform rather than easing it — smooth motion turns static into a moving texture."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 230px; height: 150px; border-radius: 12px; overflow: hidden;
+      background: linear-gradient(135deg, #1e293b, #0f172a); }
+    .fx::after { content: ""; position: absolute; inset: -50%; opacity: .35; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      animation: jitter .6s steps(6) infinite; }
+    @keyframes jitter { 0% { transform: translate(0,0); } 50% { transform: translate(-3%, 2%); } 100% { transform: translate(2%, -3%); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "id": "subtle-noise-tile",
+  "title": "Subtle Noise",
+  "summary": "A quiet grain texture over a flat colour.",
+  "description": "A quiet grain texture over a flat colour. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "noise",
+    "grain",
+    "texture",
+    "subtle"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--o",
+      "description": "Grain opacity",
+      "default": "0.3"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Add to any flat fill to remove the plastic look and hide gradient banding. Keep opacity under 0.35 or it reads as dirt.",
+  "path": "effects/patterns-textures/subtle-noise-tile.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Subtle Noise</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"subtle-noise-tile\",\n    \"title\": \"Subtle Noise\",\n    \"summary\": \"A quiet grain texture over a flat colour.\",\n    \"description\": \"A quiet grain texture over a flat colour. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"noise\", \"grain\", \"texture\", \"subtle\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--o\", \"description\": \"Grain opacity\", \"default\": \"0.3\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Add to any flat fill to remove the plastic look and hide gradient banding. Keep opacity under 0.35 or it reads as dirt.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --o: .3; }\n    .bg { background-color: #12161f; }\n    .bg::after { content: \"\"; position: absolute; inset: 0; opacity: var(--o); mix-blend-mode: overlay;\n      background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\"); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

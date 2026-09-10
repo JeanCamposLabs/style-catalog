@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Origin-Aware Motion</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "origin-aware-motion",
+    "title": "Origin-Aware Motion",
+    "summary": "Panels entering from where they were triggered.",
+    "description": "Panels entering from where they were triggered.",
+    "theme": "motion-principles",
+    "categories": ["motion", "reference"],
+    "tags": ["motion", "easing", "origin", "transform-origin", "context", "menu"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every motion token here has a reduced-motion equivalent: durations collapse to zero rather than the animation being left half-played.",
+    "customization": [
+      { "name": "--origin", "description": "Transform origin", "default": "bottom right" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Menus and popovers. Set transform-origin to the trigger's corner so the panel appears to grow out of the control that opened it — a centred scale loses that connection."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 290px; height: 170px; border-radius: 14px; background: #10141f; border: 1px solid #263149; overflow: hidden; }
+    .fx .btn { position: absolute; bottom: 12px; right: 12px; width: 40px; height: 40px; border-radius: 50%;
+      background: #7c5cff; color: #fff; display: grid; place-items: center; }
+    .fx .panel { position: absolute; bottom: 12px; right: 12px; width: 150px; height: 100px; border-radius: 14px;
+      background: #1c2437; border: 1px solid #2b3450; transform-origin: bottom right;
+      animation: open 3s cubic-bezier(.7,0,.2,1) infinite; }
+    @keyframes open { 0%, 10% { transform: scale(.15); opacity: 0; } 35%, 80% { transform: scale(1); opacity: 1; } 100% { transform: scale(.15); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="panel"></div><div class="btn" aria-hidden="true">＋</div></div>
+</body>
+</html>

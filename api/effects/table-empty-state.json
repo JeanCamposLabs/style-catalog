@@ -1,0 +1,44 @@
+{
+  "id": "table-empty-state",
+  "title": "Empty Table",
+  "summary": "A table with no rows and a clear next action.",
+  "description": "A table with no rows and a clear next action.",
+  "theme": "tables-data",
+  "themeTitle": "Tables & Data",
+  "categories": [
+    "table",
+    "data"
+  ],
+  "tags": [
+    "table",
+    "data",
+    "empty",
+    "zero-state",
+    "onboarding",
+    "table"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Action colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Swap in your own brand ramp and re-run the palette validator",
+    "Add a table view of the same data"
+  ],
+  "related": [],
+  "ai_usage": "Zero-row tables. Keep the header visible so the shape of the data is clear, and give one specific action — an empty table with no next step is a dead end.",
+  "path": "effects/tables-data/table-empty-state.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Empty Table</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"table-empty-state\",\n    \"title\": \"Empty Table\",\n    \"summary\": \"A table with no rows and a clear next action.\",\n    \"description\": \"A table with no rows and a clear next action.\",\n    \"theme\": \"tables-data\",\n    \"categories\": [\"table\", \"data\"],\n    \"tags\": [\"table\", \"data\", \"empty\", \"zero-state\", \"onboarding\", \"table\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use real table markup with <th scope> and a <caption>; sortable headers need aria-sort, and row selection needs real checkboxes.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Action colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Swap in your own brand ramp and re-run the palette validator\", \"Add a table view of the same data\"],\n    \"ai_usage\": \"Zero-row tables. Keep the header visible so the shape of the data is clear, and give one specific action — an empty table with no next step is a dead end.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 300px; border-radius: 12px; border: 1px solid #263149; overflow: hidden; }\n    .fx .hd { display: flex; gap: 1rem; padding: .5rem .8rem; background: #1c2437; color: #8b93a7;\n      font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; }\n    .fx .body { padding: 2rem 1.2rem; text-align: center; }\n    .fx .ic { font-size: 1.8rem; opacity: .5; }\n    .fx b { display: block; margin: .6rem 0 .3rem; color: #e7ebf3; font-size: .92rem; }\n    .fx p { margin: 0 0 1rem; color: #8b93a7; font-size: .82rem; }\n    .fx button { padding: .5rem 1.1rem; border: 0; border-radius: 9px; background: #7c5cff; color: #fff; font: inherit; font-size: .82rem; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"hd\"><span>Name</span><span>Theme</span><span>Updated</span></div>\n  <div class=\"body\"><div class=\"ic\" aria-hidden=\"true\">🗂</div><b>No effects yet</b><p>Scaffold your first specimen to see it here.</p>\n  <button type=\"button\">New effect</button></div></div>\n</body>\n</html>\n"
+}

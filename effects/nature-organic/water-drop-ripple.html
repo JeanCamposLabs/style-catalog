@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Water Drop</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "water-drop-ripple",
+    "title": "Water Drop",
+    "summary": "A drop falls and sends out a ripple.",
+    "description": "A drop falls and sends out a ripple.",
+    "theme": "nature-organic",
+    "categories": ["nature", "organic"],
+    "tags": ["organic", "nature", "water", "drop", "ripple", "splash"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Water colour", "default": "#38bdf8" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Water and freshness themes. The ripple must start exactly when the drop lands — offset keyframes, not separate animations with guessed delays."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 180px; height: 150px; }
+    .fx .drop { position: absolute; left: 50%; translate: -50% 0; width: 12px; height: 16px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: #38bdf8; animation: fall 2.4s cubic-bezier(.5,0,.9,.6) infinite; }
+    .fx .ring { position: absolute; bottom: 26px; left: 50%; translate: -50% 0; width: 40px; height: 12px; border-radius: 50%;
+      border: 2px solid #38bdf8; opacity: 0; animation: spread 2.4s ease-out infinite; }
+    @keyframes fall { 0% { top: 0; opacity: 1; } 55% { top: 104px; opacity: 1; } 60%, 100% { opacity: 0; } }
+    @keyframes spread { 0%, 55% { transform: scale(.2); opacity: 0; } 60% { opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="drop"></span><span class="ring"></span></div>
+</body>
+</html>

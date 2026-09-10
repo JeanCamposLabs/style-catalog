@@ -1,0 +1,44 @@
+{
+  "id": "shortcut-conflict-warning",
+  "title": "Shortcut Editor",
+  "summary": "A rebinding row that flags conflicts.",
+  "description": "A rebinding row that flags conflicts.",
+  "theme": "keyboard-input",
+  "themeTitle": "Keyboard & Input",
+  "categories": [
+    "keyboard",
+    "input"
+  ],
+  "tags": [
+    "keyboard",
+    "shortcut",
+    "rebinding",
+    "conflict",
+    "shortcuts",
+    "settings"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+  "customization": [
+    {
+      "name": "--bad",
+      "description": "Conflict colour",
+      "default": "#d1478c"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Customisable shortcuts. Detect conflicts at bind time and name the command already using the combination; discovering the clash later is far more expensive to debug.",
+  "path": "effects/keyboard-input/shortcut-conflict-warning.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Shortcut Editor</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"shortcut-conflict-warning\",\n    \"title\": \"Shortcut Editor\",\n    \"summary\": \"A rebinding row that flags conflicts.\",\n    \"description\": \"A rebinding row that flags conflicts.\",\n    \"theme\": \"keyboard-input\",\n    \"categories\": [\"keyboard\", \"input\"],\n    \"tags\": [\"keyboard\", \"shortcut\", \"rebinding\", \"conflict\", \"shortcuts\", \"settings\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.\",\n    \"customization\": [\n      { \"name\": \"--bad\", \"description\": \"Conflict colour\", \"default\": \"#d1478c\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Customisable shortcuts. Detect conflicts at bind time and name the command already using the combination; discovering the clash later is far more expensive to debug.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 280px; display: grid; gap: 8px; }\n    .r { display: flex; justify-content: space-between; align-items: center; padding: .6rem .8rem; border-radius: 10px;\n      background: #151b2a; border: 1px solid #263149; font-size: .85rem; color: #cbd5e1; }\n    .r.bad { border-color: #d1478c; }\n    .r kbd { padding: .1rem .4rem; border-radius: 5px; background: #1c2437; border: 1px solid #2b3450;\n      font-family: ui-monospace, monospace; font-size: .74rem; }\n    .msg { font-size: .76rem; color: #f0a3c6; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><div class=\"r\"><span>Open palette</span><kbd>⌘K</kbd></div>\n  <div class=\"r bad\"><span>Quick search</span><kbd>⌘K</kbd></div>\n  <span class=\"msg\" role=\"alert\">✕ ⌘K is already bound to “Open palette”</span></div>\n</body>\n</html>\n"
+}

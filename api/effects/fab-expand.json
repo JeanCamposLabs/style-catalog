@@ -1,0 +1,50 @@
+{
+  "id": "fab-expand",
+  "title": "Expanding FAB",
+  "summary": "A floating action button that fans out into labelled sub-actions.",
+  "description": "Children translate out on staggered delays and the trigger rotates 45° into a close icon, so one control covers both states.",
+  "theme": "buttons",
+  "themeTitle": "Buttons",
+  "categories": [
+    "button",
+    "navigation"
+  ],
+  "tags": [
+    "fab",
+    "speed-dial",
+    "expand",
+    "mobile",
+    "stagger"
+  ],
+  "tech": [
+    "css",
+    "js"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "FAB color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--dur",
+      "description": "Fan duration",
+      "default": "0.3s"
+    }
+  ],
+  "variations": [
+    "Fan horizontally",
+    "Labels that slide in beside each action",
+    "Backdrop dim while open"
+  ],
+  "related": [],
+  "ai_usage": "Mobile primary actions. Manage aria-expanded on the trigger, move focus into the first action when opened, and close on Escape; the stagger should be short (40–60ms) or the menu feels sluggish.",
+  "path": "effects/buttons/fab-expand.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Expanding FAB</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"fab-expand\",\n    \"title\": \"Expanding FAB\",\n    \"summary\": \"A floating action button that fans out into labelled sub-actions.\",\n    \"description\": \"Children translate out on staggered delays and the trigger rotates 45° into a close icon, so one control covers both states.\",\n    \"theme\": \"buttons\",\n    \"categories\": [\"button\", \"navigation\"],\n    \"tags\": [\"fab\", \"speed-dial\", \"expand\", \"mobile\", \"stagger\"],\n    \"tech\": [\"css\", \"js\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Use a real <button>; keep a visible :focus-visible ring and never rely on hover alone to convey state. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"FAB color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--dur\", \"description\": \"Fan duration\", \"default\": \"0.3s\" }\n    ],\n    \"variations\": [\"Fan horizontally\", \"Labels that slide in beside each action\", \"Backdrop dim while open\"],\n    \"ai_usage\": \"Mobile primary actions. Manage aria-expanded on the trigger, move focus into the first action when opened, and close on Escape; the stagger should be short (40–60ms) or the menu feels sluggish.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    button { font: inherit; cursor: pointer; border: 0; }\n    button:focus-visible { outline: 2px solid #7c5cff; outline-offset: 3px; }\n    :root { --c: #7c5cff; --dur: .3s; }\n    .fab { position: relative; height: 230px; width: 200px; display: flex; align-items: flex-end; justify-content: center; }\n    .fab .main { width: 58px; height: 58px; border-radius: 50%; background: var(--c); color: #fff; font-size: 1.5rem;\n      display: grid; place-items: center; transition: transform var(--dur); z-index: 2; }\n    .fab.is-open .main { transform: rotate(45deg); }\n    .fab .act { position: absolute; bottom: 6px; width: 44px; height: 44px; border-radius: 50%; background: #1f2637;\n      color: #e7ebf3; display: grid; place-items: center; opacity: 0; transform: translateY(0) scale(.6);\n      transition: transform var(--dur) cubic-bezier(.34,1.56,.64,1), opacity var(--dur); }\n    .fab.is-open .act { opacity: 1; transform: translateY(calc(var(--i) * -58px - 66px)) scale(1);\n      transition-delay: calc(var(--i) * .05s); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fab\" id=\"fb\">\n    <button class=\"act\" type=\"button\" style=\"--i:0\" aria-label=\"New note\">✎</button>\n    <button class=\"act\" type=\"button\" style=\"--i:1\" aria-label=\"Upload\">↑</button>\n    <button class=\"act\" type=\"button\" style=\"--i:2\" aria-label=\"Invite\">＋</button>\n    <button class=\"main\" type=\"button\" aria-expanded=\"false\" aria-label=\"Actions\">✕</button>\n  </div>\n  <script>\n    (function () {\n      var f = document.getElementById(\"fb\"), m = f.querySelector(\".main\");\n      m.addEventListener(\"click\", function () {\n        var open = f.classList.toggle(\"is-open\");\n        m.setAttribute(\"aria-expanded\", String(open));\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

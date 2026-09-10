@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Button Variants</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "button-elevated-tonal-set",
+    "title": "Button Variants",
+    "summary": "Filled, tonal, outlined, and text buttons.",
+    "description": "Filled, tonal, outlined, and text buttons.",
+    "theme": "buttons",
+    "categories": ["button", "action"],
+    "tags": ["button", "action", "variants", "hierarchy", "tonal", "system"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "beginner",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Use a real <button>, keep a visible :focus-visible ring, and never signal state with colour alone.",
+    "customization": [
+      { "name": "--c", "description": "Primary colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune through the custom properties", "Scale for a compact variant"],
+    "ai_usage": "The button hierarchy for a design system. One filled button per view; tonal for secondary, outlined for tertiary, text for low-stakes actions like Cancel."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: .5rem; flex-wrap: wrap; width: 300px; }
+    .fx button { padding: .6rem 1.1rem; border-radius: 10px; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+    .filled { background: #7c5cff; color: #fff; }
+    .tonal { background: rgba(124,92,255,.18); color: #b9a5ff; }
+    .outlined { background: transparent; border-color: #2b3450; color: #cbd5e1; }
+    .text { background: transparent; color: #b9a5ff; }
+  </style>
+</head>
+<body>
+  <div class="fx"><button class="filled" type="button">Publish</button><button class="tonal" type="button">Preview</button>
+  <button class="outlined" type="button">Duplicate</button><button class="text" type="button">Cancel</button></div>
+</body>
+</html>

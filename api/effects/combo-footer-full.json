@@ -1,0 +1,44 @@
+{
+  "id": "combo-footer-full",
+  "title": "Full Footer",
+  "summary": "Brand, link columns, and a legal row.",
+  "description": "Brand, link columns, and a legal row.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "combo",
+    "section"
+  ],
+  "tags": [
+    "combo",
+    "block",
+    "footer",
+    "columns",
+    "legal",
+    "sitemap"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Footer background",
+      "default": "#10141f"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Site footers. Wrap each column in its own labelled nav, and keep the legal row a real list — footers are a primary navigation surface for returning visitors.",
+  "path": "effects/combos-recipes/combo-footer-full.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Full Footer</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"combo-footer-full\",\n    \"title\": \"Full Footer\",\n    \"summary\": \"Brand, link columns, and a legal row.\",\n    \"description\": \"Brand, link columns, and a legal row.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"combo\", \"section\"],\n    \"tags\": [\"combo\", \"block\", \"footer\", \"columns\", \"legal\", \"sitemap\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Footer background\", \"default\": \"#10141f\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Site footers. Wrap each column in its own labelled nav, and keep the legal row a real list — footers are a primary navigation surface for returning visitors.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; place-items: center; padding: 2rem 1rem; }\n    .fx { width: min(92vw, 310px); padding: 1.2rem; border-radius: 16px; background: #10141f; border: 1px solid #263149; }\n    .fx .top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }\n    .fx .brand b { font-size: .95rem; }\n    .fx .brand p { margin: .3rem 0 0; color: #64748b; font-size: .74rem; line-height: 1.5; }\n    .fx h4 { margin: 0 0 .4rem; font-size: .66rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }\n    .fx a { display: block; padding: .15rem 0; color: #cbd5e1; text-decoration: none; font-size: .78rem; }\n    .fx .legal { display: flex; justify-content: space-between; margin-top: 1.1rem; padding-top: .8rem;\n      border-top: 1px solid #1e2740; color: #64748b; font-size: .72rem; }\n  </style>\n</head>\n<body>\n  <footer class=\"fx\"><div class=\"top\"><div class=\"brand\"><b>Style Catalog</b><p>A museum of web effects.</p></div>\n  <nav aria-label=\"Product\"><h4>Product</h4><a href=\"#\">Gallery</a><a href=\"#\">API</a></nav>\n  <nav aria-label=\"Resources\"><h4>Resources</h4><a href=\"#\">Docs</a><a href=\"#\">Changelog</a></nav></div>\n  <div class=\"legal\"><span>© 2026 Style Catalog</span><span>MIT licence</span></div></footer>\n</body>\n</html>\n"
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Size Guide</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "size-guide-table",
+    "title": "Size Guide",
+    "summary": "A measurement table with the selected row highlighted.",
+    "description": "A measurement table with the selected row highlighted.",
+    "theme": "ecommerce-ui",
+    "categories": ["ecommerce", "commerce"],
+    "tags": ["ecommerce", "shop", "size-guide", "table", "measurements", "fit"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Price, stock, and discount information must be in text, never only a colour or a badge shape.",
+    "customization": [
+      { "name": "--c", "description": "Selected row", "default": "#1e1740" }
+    ],
+    "variations": ["Adapt to a light theme", "Compact variant for dense lists"],
+    "ai_usage": "Apparel product pages. Give both metric and imperial columns; forcing conversion is a common reason for returns."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { border-collapse: collapse; font-size: .82rem; background: #151b2a; border-radius: 12px; overflow: hidden; }
+    .fx th, .fx td { padding: .5rem .9rem; text-align: left; border-bottom: 1px solid #22304a; }
+    .fx th { background: #1c2437; color: #8b93a7; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; }
+    .fx tr.on td { background: #1e1740; color: #fff; }
+    .fx td { color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <table class="fx"><caption class="sr" style="position:absolute;left:-9999px">Size guide</caption>
+  <thead><tr><th scope="col">Size</th><th scope="col">Chest</th><th scope="col">Length</th></tr></thead>
+  <tbody><tr><td>S</td><td>96 cm</td><td>68 cm</td></tr><tr class="on"><td>M</td><td>104 cm</td><td>71 cm</td></tr>
+  <tr><td>L</td><td>112 cm</td><td>74 cm</td></tr></tbody></table>
+</body>
+</html>

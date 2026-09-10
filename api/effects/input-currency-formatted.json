@@ -1,0 +1,44 @@
+{
+  "id": "input-currency-formatted",
+  "title": "Formatted Number",
+  "summary": "A currency field with grouped digits.",
+  "description": "A currency field with grouped digits.",
+  "theme": "forms-inputs",
+  "themeTitle": "Forms & Inputs",
+  "categories": [
+    "form",
+    "input"
+  ],
+  "tags": [
+    "form",
+    "input",
+    "currency",
+    "number",
+    "format",
+    "tabular"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Focus colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Money and quantity fields. Format on blur, not on every keystroke — reformatting mid-typing moves the caret and is one of the most frustrating input bugs.",
+  "path": "effects/forms-inputs/input-currency-formatted.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Formatted Number</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"input-currency-formatted\",\n    \"title\": \"Formatted Number\",\n    \"summary\": \"A currency field with grouped digits.\",\n    \"description\": \"A currency field with grouped digits.\",\n    \"theme\": \"forms-inputs\",\n    \"categories\": [\"form\", \"input\"],\n    \"tags\": [\"form\", \"input\", \"currency\", \"number\", \"format\", \"tabular\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every control keeps a real label, a visible focus ring, and error state conveyed by text as well as colour.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Focus colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Money and quantity fields. Format on blur, not on every keystroke — reformatting mid-typing moves the caret and is one of the most frustrating input bugs.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 260px; }\n    .fx label { display: block; font-size: .8rem; color: #8b93a7; margin-bottom: .35rem; }\n    .fx .row { display: flex; align-items: center; border-radius: 12px; border: 1px solid #2b3450; background: #151b2a; padding: 0 .9rem; }\n    .fx .row:focus-within { border-color: #7c5cff; }\n    .fx .cur { color: #8b93a7; font-size: 1rem; }\n    .fx input { flex: 1; min-width: 0; padding: .8rem .4rem; border: 0; background: transparent; color: #e7ebf3;\n      font: inherit; font-size: 1.1rem; font-variant-numeric: tabular-nums; text-align: right; }\n    .fx input:focus { outline: none; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><label for=\"cu\">Monthly budget</label><div class=\"row\"><span class=\"cur\">$</span>\n  <input id=\"cu\" type=\"text\" inputmode=\"decimal\" value=\"4,280.00\" /></div></div>\n</body>\n</html>\n"
+}

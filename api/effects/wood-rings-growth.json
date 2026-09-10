@@ -1,0 +1,44 @@
+{
+  "id": "wood-rings-growth",
+  "title": "Tree Rings",
+  "summary": "Concentric growth rings with irregular spacing.",
+  "description": "Concentric growth rings with irregular spacing.",
+  "theme": "nature-organic",
+  "themeTitle": "Nature & Organic",
+  "categories": [
+    "nature",
+    "organic"
+  ],
+  "tags": [
+    "organic",
+    "nature",
+    "tree",
+    "rings",
+    "wood",
+    "texture"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Wood tone",
+      "default": "#6b4423"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Slow it down for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Nature and heritage textures. Offsetting the gradient centre from 50% keeps the rings from looking like a machined target.",
+  "path": "effects/nature-organic/wood-rings-growth.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Tree Rings</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"wood-rings-growth\",\n    \"title\": \"Tree Rings\",\n    \"summary\": \"Concentric growth rings with irregular spacing.\",\n    \"description\": \"Concentric growth rings with irregular spacing.\",\n    \"theme\": \"nature-organic\",\n    \"categories\": [\"nature\", \"organic\"],\n    \"tags\": [\"organic\", \"nature\", \"tree\", \"rings\", \"wood\", \"texture\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Wood tone\", \"default\": \"#6b4423\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Slow it down for an ambient version\"],\n    \"ai_usage\": \"Nature and heritage textures. Offsetting the gradient centre from 50% keeps the rings from looking like a machined target.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 170px; aspect-ratio: 1; border-radius: 50%;\n      background: repeating-radial-gradient(circle at 46% 52%, #6b4423 0 4px, #8b5a2b 4px 7px, #5a3717 7px 11px, #7a4f26 11px 15px); }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"></div>\n</body>\n</html>\n"
+}

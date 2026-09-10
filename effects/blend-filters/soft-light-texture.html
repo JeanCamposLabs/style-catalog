@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soft Light Texture</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "soft-light-texture",
+    "title": "Soft Light Texture",
+    "summary": "A texture applied without flattening the base.",
+    "description": "A texture applied without flattening the base. Applied with CSS filters or blend modes, so the underlying content stays live and selectable.",
+    "theme": "blend-filters",
+    "categories": ["filter", "color"],
+    "tags": ["filter", "css", "soft-light", "texture", "noise", "blend"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Filters change colour relationships — re-check text contrast after applying one, and never encode meaning in a filtered colour alone.",
+    "customization": [
+      { "name": "--o", "description": "Texture opacity", "default": "0.8" }
+    ],
+    "variations": ["Animate the filter value on hover", "Apply to a whole section with backdrop-filter"],
+    "ai_usage": "Adding grain or paper texture over artwork. Soft-light preserves the base's tonality far better than overlay at high texture opacity."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; height: 170px; border-radius: 16px; overflow: hidden; position: relative;
+      background: conic-gradient(from 200deg at 35% 30%, #7c5cff, #2dd4bf, #fbbf24, #f472b6, #7c5cff); }
+    .label { margin-top: .8rem; text-align: center; color: #8b93a7; font-size: .82rem; }
+    .fx::after { content: ""; position: absolute; inset: 0; mix-blend-mode: soft-light; opacity: .8;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  </style>
+</head>
+<body>
+  <div><div class="demo fx"></div><p class="label">Soft Light Texture</p></div>
+</body>
+</html>

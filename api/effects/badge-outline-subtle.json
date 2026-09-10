@@ -1,0 +1,44 @@
+{
+  "id": "badge-outline-subtle",
+  "title": "Outline Badge",
+  "summary": "A quiet bordered label for metadata.",
+  "description": "A quiet bordered label for metadata. Small self-contained component ready to drop into a list or card.",
+  "theme": "badges-tags",
+  "themeTitle": "Badges & Tags",
+  "categories": [
+    "badge",
+    "label"
+  ],
+  "tags": [
+    "badge",
+    "label",
+    "outline",
+    "metadata",
+    "quiet",
+    "subtle"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Border colour",
+      "default": "#2b3450"
+    }
+  ],
+  "variations": [
+    "Add a size variant",
+    "Map colours to semantic tokens"
+  ],
+  "related": [],
+  "ai_usage": "Dense metadata rows (versions, languages, licences) where filled badges would fight with the content.",
+  "path": "effects/badges-tags/badge-outline-subtle.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Outline Badge</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"badge-outline-subtle\",\n    \"title\": \"Outline Badge\",\n    \"summary\": \"A quiet bordered label for metadata.\",\n    \"description\": \"A quiet bordered label for metadata. Small self-contained component ready to drop into a list or card.\",\n    \"theme\": \"badges-tags\",\n    \"categories\": [\"badge\", \"label\"],\n    \"tags\": [\"badge\", \"label\", \"outline\", \"metadata\", \"quiet\", \"subtle\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Status must never be colour-only: pair every badge colour with a label, icon, or shape.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Border colour\", \"default\": \"#2b3450\" }\n    ],\n    \"variations\": [\"Add a size variant\", \"Map colours to semantic tokens\"],\n    \"ai_usage\": \"Dense metadata rows (versions, languages, licences) where filled badges would fight with the content.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .row { display: flex; gap: .5rem; }\n    .b { padding: .25rem .6rem; border-radius: 7px; border: 1px solid #2b3450; color: #8b93a7; font-size: .76rem;\n      font-weight: 600; letter-spacing: .02em; }\n  </style>\n</head>\n<body>\n  <div class=\"row\"><span class=\"b\">MIT</span><span class=\"b\">v0.24</span><span class=\"b\">TypeScript</span></div>\n</body>\n</html>\n"
+}

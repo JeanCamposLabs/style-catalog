@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perspective Floor Grid</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "grid-perspective-floor",
+    "title": "Perspective Floor Grid",
+    "summary": "A grid receding toward a horizon.",
+    "description": "A grid receding toward a horizon. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+    "theme": "patterns-textures",
+    "categories": ["pattern", "background"],
+    "tags": ["pattern", "css-only", "tileable", "synthwave", "perspective", "grid", "retro"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+    "customization": [
+      { "name": "--c", "description": "Grid colour", "default": "rgba(255,45,149,.5)" }
+    ],
+    "variations": ["Recolour via the custom properties", "Scale the tile with --s"],
+    "ai_usage": "Synthwave and retro-futurist scenes. Apply perspective+rotateX to an oversized grid layer so the vanishing point sits above the element."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .bg { position: fixed; inset: 0; }
+    :root { --c: rgba(255,45,149,.5); }
+    .bg { background: linear-gradient(#0b0d12 0 46%, #1a0a20 46%); overflow: hidden; perspective: 240px; }
+    .bg::after { content: ""; position: absolute; left: -80%; right: -80%; bottom: 0; height: 54%;
+      background-image: repeating-linear-gradient(90deg, var(--c) 0 2px, transparent 2px 60px),
+        repeating-linear-gradient(0deg, var(--c) 0 2px, transparent 2px 60px);
+      transform: rotateX(72deg); transform-origin: 50% 100%; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+</body>
+</html>

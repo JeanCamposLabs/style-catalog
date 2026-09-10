@@ -1,0 +1,44 @@
+{
+  "id": "keycap-mechanical-row",
+  "title": "Mechanical Keycaps",
+  "summary": "A row of keys with a physical press.",
+  "description": "A row of keys with a physical press.",
+  "theme": "keyboard-input",
+  "themeTitle": "Keyboard & Input",
+  "categories": [
+    "keyboard",
+    "input"
+  ],
+  "tags": [
+    "keyboard",
+    "shortcut",
+    "keycap",
+    "mechanical",
+    "press",
+    "keyboard"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+  "customization": [
+    {
+      "name": "--h",
+      "description": "Cap height",
+      "default": "5px"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Keyboard demos and shortcut teaching. The press must travel exactly the shadow height so the cap meets its own base; anything else looks like it floats.",
+  "path": "effects/keyboard-input/keycap-mechanical-row.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Mechanical Keycaps</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"keycap-mechanical-row\",\n    \"title\": \"Mechanical Keycaps\",\n    \"summary\": \"A row of keys with a physical press.\",\n    \"description\": \"A row of keys with a physical press.\",\n    \"theme\": \"keyboard-input\",\n    \"categories\": [\"keyboard\", \"input\"],\n    \"tags\": [\"keyboard\", \"shortcut\", \"keycap\", \"mechanical\", \"press\", \"keyboard\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.\",\n    \"customization\": [\n      { \"name\": \"--h\", \"description\": \"Cap height\", \"default\": \"5px\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Keyboard demos and shortcut teaching. The press must travel exactly the shadow height so the cap meets its own base; anything else looks like it floats.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: flex; gap: 6px; }\n    .fx button { min-width: 46px; height: 46px; border: 0; border-radius: 8px; background: #e2e8f0; color: #0b0d12;\n      font-family: ui-monospace, monospace; font-weight: 700; cursor: pointer;\n      box-shadow: 0 5px 0 #94a3b8, 0 8px 12px rgba(0,0,0,.45), inset 0 2px 0 #fff;\n      transition: transform .06s, box-shadow .06s; }\n    .fx button:active { transform: translateY(5px); box-shadow: 0 0 0 #94a3b8, 0 3px 8px rgba(0,0,0,.4), inset 0 2px 0 #fff; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><button type=\"button\">⌘</button><button type=\"button\">⇧</button><button type=\"button\">K</button></div>\n</body>\n</html>\n"
+}

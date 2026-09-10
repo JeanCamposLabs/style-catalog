@@ -1,0 +1,54 @@
+{
+  "id": "stripes-vertical",
+  "title": "Vertical Stripes",
+  "summary": "Even vertical bands in two tones.",
+  "description": "Even vertical bands in two tones. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "stripes",
+    "vertical",
+    "bands"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--a",
+      "description": "Stripe A",
+      "default": "#131a28"
+    },
+    {
+      "name": "--b",
+      "description": "Stripe B",
+      "default": "#0b0d12"
+    },
+    {
+      "name": "--s",
+      "description": "Stripe width",
+      "default": "24px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Ticket stubs, awnings, and sport branding. One repeating-linear-gradient — change the angle alone to get horizontal or diagonal variants.",
+  "path": "effects/patterns-textures/stripes-vertical.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Vertical Stripes</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"stripes-vertical\",\n    \"title\": \"Vertical Stripes\",\n    \"summary\": \"Even vertical bands in two tones.\",\n    \"description\": \"Even vertical bands in two tones. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"stripes\", \"vertical\", \"bands\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--a\", \"description\": \"Stripe A\", \"default\": \"#131a28\" },\n      { \"name\": \"--b\", \"description\": \"Stripe B\", \"default\": \"#0b0d12\" },\n      { \"name\": \"--s\", \"description\": \"Stripe width\", \"default\": \"24px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Ticket stubs, awnings, and sport branding. One repeating-linear-gradient — change the angle alone to get horizontal or diagonal variants.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --a: #131a28; --b: #0b0d12; --s: 24px; }\n    .bg { background: repeating-linear-gradient(90deg, var(--a) 0 var(--s), var(--b) var(--s) calc(var(--s) * 2)); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

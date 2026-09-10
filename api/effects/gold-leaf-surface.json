@@ -1,0 +1,44 @@
+{
+  "id": "gold-leaf-surface",
+  "title": "Gold Leaf",
+  "summary": "A warm metallic gold with a moving highlight.",
+  "description": "A warm metallic gold with a moving highlight.",
+  "theme": "holographic-metallic",
+  "themeTitle": "Holographic & Metallic",
+  "categories": [
+    "material",
+    "holographic"
+  ],
+  "tags": [
+    "holographic",
+    "metallic",
+    "gold",
+    "luxury",
+    "sweep",
+    "premium"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Iridescent surfaces have unpredictable local contrast — never place body text directly on one.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Sweep period",
+      "default": "5s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Awards, premium plans, and luxury branding. Keep the specular band narrow (8–12% of the gradient) or the gold flattens into a yellow wash.",
+  "path": "effects/holographic-metallic/gold-leaf-surface.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Gold Leaf</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"gold-leaf-surface\",\n    \"title\": \"Gold Leaf\",\n    \"summary\": \"A warm metallic gold with a moving highlight.\",\n    \"description\": \"A warm metallic gold with a moving highlight.\",\n    \"theme\": \"holographic-metallic\",\n    \"categories\": [\"material\", \"holographic\"],\n    \"tags\": [\"holographic\", \"metallic\", \"gold\", \"luxury\", \"sweep\", \"premium\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Iridescent surfaces have unpredictable local contrast — never place body text directly on one.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Sweep period\", \"default\": \"5s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Awards, premium plans, and luxury branding. Keep the specular band narrow (8–12% of the gradient) or the gold flattens into a yellow wash.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; height: 140px; border-radius: 14px; display: grid; place-items: center; font-weight: 900;\n      font-size: 1.3rem; color: #3a2606;\n      background: linear-gradient(100deg, #8a6216 0 28%, #ffe9a8 40%, #fff8dd 48%, #ffe08a 56%, #8a6216 72%);\n      background-size: 250% 100%; animation: sweep 5s linear infinite;\n      box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 14px 30px rgba(138,98,22,.4); }\n    @keyframes sweep { to { background-position: -250% 0; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">PREMIUM</div>\n</body>\n</html>\n"
+}

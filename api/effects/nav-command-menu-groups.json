@@ -1,0 +1,44 @@
+{
+  "id": "nav-command-menu-groups",
+  "title": "Command Menu",
+  "summary": "A keyboard-driven menu with grouped commands.",
+  "description": "A keyboard-driven menu with grouped commands.",
+  "theme": "navigation-menus",
+  "themeTitle": "Navigation & Menus",
+  "categories": [
+    "navigation",
+    "menu"
+  ],
+  "tags": [
+    "navigation",
+    "menu",
+    "command",
+    "palette",
+    "keyboard",
+    "groups"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.",
+  "customization": [
+    {
+      "name": "--bg",
+      "description": "Panel background",
+      "default": "#141a28"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Keyboard-first apps. Keep DOM focus in the input and track the highlighted row with aria-activedescendant, so typing and arrow navigation both keep working.",
+  "path": "effects/navigation-menus/nav-command-menu-groups.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Command Menu</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"nav-command-menu-groups\",\n    \"title\": \"Command Menu\",\n    \"summary\": \"A keyboard-driven menu with grouped commands.\",\n    \"description\": \"A keyboard-driven menu with grouped commands.\",\n    \"theme\": \"navigation-menus\",\n    \"categories\": [\"navigation\", \"menu\"],\n    \"tags\": [\"navigation\", \"menu\", \"command\", \"palette\", \"keyboard\", \"groups\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Navigation must be keyboard-operable: disclosure widgets manage aria-expanded, and the current page carries aria-current.\",\n    \"customization\": [\n      { \"name\": \"--bg\", \"description\": \"Panel background\", \"default\": \"#141a28\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Keyboard-first apps. Keep DOM focus in the input and track the highlighted row with aria-activedescendant, so typing and arrow navigation both keep working.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; border-radius: 14px; background: #141a28; border: 1px solid #2b3450; overflow: hidden; }\n    .fx input { width: 100%; padding: .8rem 1rem; border: 0; border-bottom: 1px solid #22304a; background: transparent;\n      color: #e7ebf3; font: inherit; }\n    .fx input:focus { outline: none; }\n    .fx .g { padding: .4rem .35rem; }\n    .fx .lbl { padding: .2rem .65rem; font-size: .66rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; }\n    .fx .it { display: flex; justify-content: space-between; padding: .45rem .65rem; border-radius: 8px; color: #cbd5e1; font-size: .86rem; }\n    .fx .it.on { background: #22304a; color: #fff; }\n    .fx kbd { color: #64748b; font-size: .74rem; font-family: ui-monospace, monospace; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" role=\"dialog\" aria-label=\"Command menu\"><input type=\"text\" placeholder=\"Type a command…\" aria-label=\"Command\" />\n  <div class=\"g\"><div class=\"lbl\">Navigate</div><div class=\"it on\">Go to specimens <kbd>G S</kbd></div>\n  <div class=\"it\">Go to themes <kbd>G T</kbd></div></div>\n  <div class=\"g\"><div class=\"lbl\">Actions</div><div class=\"it\">Copy for AI <kbd>⌘C</kbd></div></div></div>\n</body>\n</html>\n"
+}

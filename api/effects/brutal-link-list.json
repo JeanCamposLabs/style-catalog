@@ -1,0 +1,44 @@
+{
+  "id": "brutal-link-list",
+  "title": "Raw Link List",
+  "summary": "Underlined system links with visible hover boxes.",
+  "description": "Underlined system links with visible hover boxes.",
+  "theme": "brutalism-y2k",
+  "themeTitle": "Brutalism & Y2K",
+  "categories": [
+    "brutalism",
+    "y2k"
+  ],
+  "tags": [
+    "brutalism",
+    "raw",
+    "links",
+    "raw",
+    "default-styles",
+    "html"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2000s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.",
+  "customization": [
+    {
+      "name": "--hl",
+      "description": "Hover colour",
+      "default": "#ffe600"
+    }
+  ],
+  "variations": [
+    "Retune the palette via the custom properties",
+    "Slow the motion for an ambient version"
+  ],
+  "related": [],
+  "ai_usage": "Deliberately unstyled aesthetics. Keeping the browser's default link blue and visited purple is the point — do not normalise them away.",
+  "path": "effects/brutalism-y2k/brutal-link-list.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Raw Link List</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"brutal-link-list\",\n    \"title\": \"Raw Link List\",\n    \"summary\": \"Underlined system links with visible hover boxes.\",\n    \"description\": \"Underlined system links with visible hover boxes.\",\n    \"theme\": \"brutalism-y2k\",\n    \"categories\": [\"brutalism\", \"y2k\"],\n    \"tags\": [\"brutalism\", \"raw\", \"links\", \"raw\", \"default-styles\", \"html\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2000s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Deliberately raw does not mean inaccessible: keep contrast, focus states, and hit areas intact.\",\n    \"customization\": [\n      { \"name\": \"--hl\", \"description\": \"Hover colour\", \"default\": \"#ffe600\" }\n    ],\n    \"variations\": [\"Retune the palette via the custom properties\", \"Slow the motion for an ambient version\"],\n    \"ai_usage\": \"Deliberately unstyled aesthetics. Keeping the browser's default link blue and visited purple is the point — do not normalise them away.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 240px; background: #fff; border: 4px solid #0b0d12; padding: .6rem; font-family: \"Times New Roman\", serif; }\n    .fx a { display: block; padding: .4rem .5rem; color: #0000ee; font-size: 1.05rem; text-decoration: underline; }\n    .fx a:hover { background: #ffe600; color: #0b0d12; }\n    .fx a:visited { color: #551a8b; }\n  </style>\n</head>\n<body>\n  <nav class=\"fx\"><a href=\"#\">index</a><a href=\"#\">about.txt</a><a href=\"#\">works/</a><a href=\"#\">contact</a></nav>\n</body>\n</html>\n"
+}

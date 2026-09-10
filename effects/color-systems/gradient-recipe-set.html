@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gradient Recipes</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "gradient-recipe-set",
+    "title": "Gradient Recipes",
+    "summary": "Six reusable gradient formulas.",
+    "description": "Six reusable gradient formulas.",
+    "theme": "color-systems",
+    "categories": ["color", "reference"],
+    "tags": ["color", "tokens", "gradients", "recipes", "library", "reference"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+    "customization": [
+      { "name": "--a", "description": "Start colour", "default": "#7c5cff" },
+      { "name": "--b", "description": "End colour", "default": "#2dd4bf" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "A copy-ready gradient set. Two-stop gradients between hues far apart on the wheel pass through grey — add a third stop at the midpoint to keep the transition saturated."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 300px; }
+    .g { height: 74px; border-radius: 10px; position: relative; }
+    .g span { position: absolute; inset: auto 0 0 0; padding: .25rem .4rem; font-size: .62rem;
+      background: rgba(6,8,14,.6); color: #e7ebf3; border-radius: 0 0 10px 10px; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="g" style="background:linear-gradient(135deg,#7c5cff,#2dd4bf)"><span>duotone</span></div>
+  <div class="g" style="background:linear-gradient(135deg,#7c5cff,#d1478c,#c2891a)"><span>tri-stop</span></div>
+  <div class="g" style="background:radial-gradient(circle at 30% 25%,#7c5cff,#0b0d12 75%)"><span>spotlight</span></div>
+  <div class="g" style="background:conic-gradient(from 200deg,#7c5cff,#2dd4bf,#c2891a,#7c5cff)"><span>conic</span></div>
+  <div class="g" style="background:linear-gradient(180deg,#0b0d12,#7c5cff)"><span>fade up</span></div>
+  <div class="g" style="background:linear-gradient(135deg,#10a894,#0b0d12 60%,#d1478c)"><span>split</span></div></div>
+</body>
+</html>

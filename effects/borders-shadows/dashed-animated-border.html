@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotating Dashed Border</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "dashed-animated-border",
+    "title": "Rotating Dashed Border",
+    "summary": "A dashed outline that rotates around the box.",
+    "description": "An SVG rect with a dash pattern animates stroke-dashoffset, which CSS dashed borders cannot do.",
+    "theme": "borders-shadows",
+    "categories": ["border"],
+    "tags": ["dashed", "svg", "dashoffset", "animated", "selection"],
+    "tech": ["css", "svg"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Decorative edge treatment — never encode meaning in the border colour alone. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Dash color", "default": "#7c5cff" },
+      { "name": "--dur", "description": "Lap time", "default": "12s" }
+    ],
+    "variations": ["Faster for an active drop target", "Solid stroke that draws once", "Rounded corners via rx"],
+    "ai_usage": "Drop zones and selection states. The border must be SVG (or a mask) because border-style:dashed cannot animate its offset; keep the rect inset by half the stroke width so the line is not clipped."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .demo { width: 260px; padding: 1.6rem; color: #e7ebf3; }
+    .demo h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+    .demo p { margin: 0; color: #8b93a7; font-size: .88rem; }
+    :root { --c: #7c5cff; --dur: 12s; }
+    .dash { position: relative; }
+    .dash svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .dash rect { fill: none; stroke: var(--c); stroke-width: 2; stroke-dasharray: 12 8; rx: 14;
+      animation: march var(--dur) linear infinite; }
+    @keyframes march { to { stroke-dashoffset: -400; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="dash">
+    <svg aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 260 110"><rect x="1" y="1" width="258" height="108"/></svg>
+    <div class="demo"><h3>Drop files here</h3><p>Animated dashed outline.</p></div>
+  </div>
+</body>
+</html>

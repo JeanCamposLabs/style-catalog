@@ -1,0 +1,44 @@
+{
+  "id": "copy-to-clipboard-tick",
+  "title": "Copy Confirmation",
+  "summary": "A copy button that becomes a tick briefly.",
+  "description": "A copy button that becomes a tick briefly.",
+  "theme": "micro-interactions",
+  "themeTitle": "Micro-interactions",
+  "categories": [
+    "micro-interaction",
+    "feedback"
+  ],
+  "tags": [
+    "micro-interaction",
+    "feedback",
+    "copy",
+    "clipboard",
+    "confirm",
+    "feedback"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.",
+  "customization": [
+    {
+      "name": "--ok",
+      "description": "Success colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Adapt to a light theme",
+    "Add a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Copy affordances. Only show success after the clipboard promise resolves, and revert after about 1.5 seconds so the button is ready for the next copy.",
+  "path": "effects/micro-interactions/copy-to-clipboard-tick.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Copy Confirmation</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"copy-to-clipboard-tick\",\n    \"title\": \"Copy Confirmation\",\n    \"summary\": \"A copy button that becomes a tick briefly.\",\n    \"description\": \"A copy button that becomes a tick briefly.\",\n    \"theme\": \"micro-interactions\",\n    \"categories\": [\"micro-interaction\", \"feedback\"],\n    \"tags\": [\"micro-interaction\", \"feedback\", \"copy\", \"clipboard\", \"confirm\", \"feedback\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Every micro-interaction must have a non-animated equivalent: state changes are announced through ARIA, not through motion.\",\n    \"customization\": [\n      { \"name\": \"--ok\", \"description\": \"Success colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Adapt to a light theme\", \"Add a compact variant\"],\n    \"ai_usage\": \"Copy affordances. Only show success after the clipboard promise resolves, and revert after about 1.5 seconds so the button is ready for the next copy.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem 1rem; border-radius: 10px;\n      border: 1px solid #2b3450; background: #151b2a; color: #cbd5e1; font: inherit; font-size: .85rem; cursor: pointer;\n      transition: color .2s, border-color .2s; }\n    .fx.ok { color: #10a894; border-color: #10a894; }\n    .fx .ic { display: inline-block; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }\n    .fx.ok .ic { transform: scale(1.2); }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <button class=\"fx\" type=\"button\" id=\"cb\"><span class=\"ic\" aria-hidden=\"true\">⧉</span><span id=\"cl\">Copy</span></button>\n  <script>\n    (function () {\n      var b = document.getElementById(\"cb\"), l = document.getElementById(\"cl\");\n      b.addEventListener(\"click\", function () {\n        b.classList.add(\"ok\"); l.textContent = \"Copied\";\n        setTimeout(function () { b.classList.remove(\"ok\"); l.textContent = \"Copy\"; }, 1500);\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "bar-slide-loader",
+  "title": "Sliding Bar Loader",
+  "summary": "An indeterminate track where a short bar accelerates across and stretches mid-flight.",
+  "description": "One bar animates left position and scaleX together so it appears to stretch as it accelerates — the Material-style indeterminate bar in nine lines.",
+  "theme": "loaders-spinners",
+  "themeTitle": "Loaders & Spinners",
+  "categories": [
+    "loader",
+    "progress"
+  ],
+  "tags": [
+    "indeterminate",
+    "bar",
+    "progress",
+    "slide",
+    "track"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Bar color",
+      "default": "#7c5cff"
+    },
+    {
+      "name": "--h",
+      "description": "Track height",
+      "default": "5px"
+    },
+    {
+      "name": "--dur",
+      "description": "Sweep period",
+      "default": "1.4s"
+    }
+  ],
+  "variations": [
+    "Two offset bars for a busier feel",
+    "Gradient bar instead of a flat fill",
+    "Rounded caps with border-radius"
+  ],
+  "related": [],
+  "ai_usage": "Use above content that is loading with unknown duration. Keep the track's overflow hidden; the bar animates both left and transform:scaleX so the easing reads as acceleration. Swap --dur to match perceived latency (shorter feels faster but busier).",
+  "path": "effects/loaders-spinners/bar-slide-loader.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Sliding Bar Loader</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"bar-slide-loader\",\n    \"title\": \"Sliding Bar Loader\",\n    \"summary\": \"An indeterminate track where a short bar accelerates across and stretches mid-flight.\",\n    \"description\": \"One bar animates left position and scaleX together so it appears to stretch as it accelerates — the Material-style indeterminate bar in nine lines.\",\n    \"theme\": \"loaders-spinners\",\n    \"categories\": [\"loader\", \"progress\"],\n    \"tags\": [\"indeterminate\", \"bar\", \"progress\", \"slide\", \"track\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Decorative status indicator — pair it with a visually-hidden aria-live message so screen readers announce the wait. Motion stops under prefers-reduced-motion.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Bar color\", \"default\": \"#7c5cff\" },\n      { \"name\": \"--h\", \"description\": \"Track height\", \"default\": \"5px\" },\n      { \"name\": \"--dur\", \"description\": \"Sweep period\", \"default\": \"1.4s\" }\n    ],\n    \"variations\": [\"Two offset bars for a busier feel\", \"Gradient bar instead of a flat fill\", \"Rounded caps with border-radius\"],\n    \"ai_usage\": \"Use above content that is loading with unknown duration. Keep the track's overflow hidden; the bar animates both left and transform:scaleX so the easing reads as acceleration. Swap --dur to match perceived latency (shorter feels faster but busier).\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    :root { --c: #7c5cff; --h: 5px; --dur: 1.4s; }\n    .track { width: 260px; height: var(--h); border-radius: 99px; background: #1b2030; overflow: hidden; position: relative; }\n    .track b { position: absolute; inset: 0 auto 0 0; width: 40%; border-radius: 99px; background: var(--c);\n      animation: slide var(--dur) cubic-bezier(.65,.05,.36,1) infinite; }\n    @keyframes slide {\n      0% { left: -40%; transform: scaleX(.6); }\n      50% { transform: scaleX(1.2); }\n      100% { left: 100%; transform: scaleX(.6); }\n    }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"track\" role=\"status\" aria-label=\"Loading\"><b></b></div>\n</body>\n</html>\n"
+}

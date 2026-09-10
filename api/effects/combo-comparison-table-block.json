@@ -1,0 +1,44 @@
+{
+  "id": "combo-comparison-table-block",
+  "title": "Comparison Block",
+  "summary": "Plans compared feature by feature.",
+  "description": "Plans compared feature by feature.",
+  "theme": "combos-recipes",
+  "themeTitle": "Combination Recipes",
+  "categories": [
+    "combo",
+    "section"
+  ],
+  "tags": [
+    "combo",
+    "block",
+    "comparison",
+    "table",
+    "plans",
+    "features"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.",
+  "customization": [
+    {
+      "name": "--ok",
+      "description": "Included colour",
+      "default": "#10a894"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Plan comparison. Use a tick with a visually-hidden 'included' label rather than colour alone, and keep feature names in the row header so the table remains navigable.",
+  "path": "effects/combos-recipes/combo-comparison-table-block.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Comparison Block</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"combo-comparison-table-block\",\n    \"title\": \"Comparison Block\",\n    \"summary\": \"Plans compared feature by feature.\",\n    \"description\": \"Plans compared feature by feature.\",\n    \"theme\": \"combos-recipes\",\n    \"categories\": [\"combo\", \"section\"],\n    \"tags\": [\"combo\", \"block\", \"comparison\", \"table\", \"plans\", \"features\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Composed blocks keep real landmarks and heading levels so the section still makes sense in a document outline.\",\n    \"customization\": [\n      { \"name\": \"--ok\", \"description\": \"Included colour\", \"default\": \"#10a894\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Plan comparison. Use a tick with a visually-hidden 'included' label rather than colour alone, and keep feature names in the row header so the table remains navigable.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; }\n    body { display: grid; place-items: center; padding: 2rem 1rem; }\n    .fx { width: min(92vw, 300px); border-radius: 14px; overflow: hidden; border: 1px solid #263149; }\n    .fx table { width: 100%; border-collapse: collapse; font-size: .82rem; }\n    .fx th { background: #1c2437; color: #8b93a7; padding: .55rem .7rem; font-size: .7rem; text-transform: uppercase; text-align: left; }\n    .fx th.on { color: #b9a5ff; }\n    .fx td { padding: .55rem .7rem; border-top: 1px solid #1e2740; color: #cbd5e1; }\n    .fx td.c { text-align: center; }\n    .fx .y { color: #10a894; } .fx .n { color: #64748b; }\n  </style>\n</head>\n<body>\n  <section class=\"fx\"><table><caption class=\"sr\" style=\"position:absolute;left:-9999px\">Plan comparison</caption>\n  <thead><tr><th scope=\"col\">Feature</th><th scope=\"col\">Starter</th><th scope=\"col\" class=\"on\">Studio</th></tr></thead>\n  <tbody><tr><td>Specimens</td><td class=\"c\">All</td><td class=\"c\">All</td></tr>\n  <tr><td>Bundles</td><td class=\"c\"><span class=\"n\">—</span></td><td class=\"c\"><span class=\"y\">✓</span></td></tr>\n  <tr><td>MCP access</td><td class=\"c\"><span class=\"n\">—</span></td><td class=\"c\"><span class=\"y\">✓</span></td></tr></tbody></table></section>\n</body>\n</html>\n"
+}

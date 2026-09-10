@@ -1,0 +1,44 @@
+{
+  "id": "spring-follow-chain",
+  "title": "Spring Chain",
+  "summary": "Dots trailing the leader with spring lag.",
+  "description": "Dots trailing the leader with spring lag.",
+  "theme": "particles-physics",
+  "themeTitle": "Particles & Physics",
+  "categories": [
+    "particles",
+    "physics"
+  ],
+  "tags": [
+    "particles",
+    "motion",
+    "spring",
+    "trail",
+    "lag",
+    "chain"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "advanced",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.",
+  "customization": [
+    {
+      "name": "--dur",
+      "description": "Sweep period",
+      "default": "3s"
+    }
+  ],
+  "variations": [
+    "Retune the palette",
+    "Scale for a compact variant"
+  ],
+  "related": [],
+  "ai_usage": "Cursor trails and follow effects. Negative animation-delay on a shared keyframe fakes spring lag with no physics loop at all.",
+  "path": "effects/particles-physics/spring-follow-chain.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Spring Chain</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"spring-follow-chain\",\n    \"title\": \"Spring Chain\",\n    \"summary\": \"Dots trailing the leader with spring lag.\",\n    \"description\": \"Dots trailing the leader with spring lag.\",\n    \"theme\": \"particles-physics\",\n    \"categories\": [\"particles\", \"physics\"],\n    \"tags\": [\"particles\", \"motion\", \"spring\", \"trail\", \"lag\", \"chain\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"advanced\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Particle fields are decorative and expensive — cap counts, pause when off-screen, and stop entirely under reduced motion.\",\n    \"customization\": [\n      { \"name\": \"--dur\", \"description\": \"Sweep period\", \"default\": \"3s\" }\n    ],\n    \"variations\": [\"Retune the palette\", \"Scale for a compact variant\"],\n    \"ai_usage\": \"Cursor trails and follow effects. Negative animation-delay on a shared keyframe fakes spring lag with no physics loop at all.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { position: relative; width: 280px; height: 160px; border-radius: 14px; background: #10141f; border: 1px solid #263149; overflow: hidden; }\n    .fx i { position: absolute; top: 50%; width: 16px; height: 16px; border-radius: 50%; background: #7c5cff;\n      animation: sweep 3s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -.09s); opacity: calc(1 - var(--i) * .13); }\n    @keyframes sweep { from { left: 12%; } to { left: 82%; } }\n    @media (prefers-reduced-motion: reduce) {\n      * { animation: none !important; transition: none !important; }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"fx\"><i style=\"--i:5\"></i><i style=\"--i:4\"></i><i style=\"--i:3\"></i><i style=\"--i:2\"></i><i style=\"--i:1\"></i><i style=\"--i:0\"></i></div>\n</body>\n</html>\n"
+}

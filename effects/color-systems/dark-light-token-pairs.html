@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Theme Token Pairs</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "dark-light-token-pairs",
+    "title": "Theme Token Pairs",
+    "summary": "The same tokens resolved in both themes.",
+    "description": "The same tokens resolved in both themes.",
+    "theme": "color-systems",
+    "categories": ["color", "reference"],
+    "tags": ["color", "tokens", "theming", "dark-mode", "tokens", "pairs"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Every colour pairing here is checked for contrast; semantic colours always ship with an icon or label so meaning is never colour-only.",
+    "customization": [
+      { "name": "--surface-l", "description": "Light surface", "default": "#ffffff" },
+      { "name": "--surface-d", "description": "Dark surface", "default": "#0f1420" }
+    ],
+    "variations": ["Swap in your own scale", "Export as design tokens"],
+    "ai_usage": "Theming. Dark mode is a designed set of values, not an inversion: surfaces lighten as they rise, and accent colours usually need more lightness and less chroma on dark."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 10px; width: 300px; }
+    .pane { flex: 1; border-radius: 12px; padding: .8rem; font-size: .78rem; }
+    .light { background: #ffffff; color: #0f172a; border: 1px solid #e2e8f0; }
+    .dark { background: #0f1420; color: #e7ebf3; border: 1px solid #263149; }
+    .row { display: flex; justify-content: space-between; padding: .2rem 0; }
+    .light .muted { color: #64748b; } .dark .muted { color: #8b93a7; }
+    .sw { width: 14px; height: 14px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="pane light"><div class="row"><span>surface</span><span class="sw" style="background:#ffffff;border:1px solid #cbd5e1"></span></div>
+  <div class="row"><span>text</span><span class="sw" style="background:#0f172a"></span></div>
+  <div class="row muted"><span>muted</span><span class="sw" style="background:#64748b"></span></div>
+  <div class="row"><span>accent</span><span class="sw" style="background:#6544e0"></span></div></div>
+  <div class="pane dark"><div class="row"><span>surface</span><span class="sw" style="background:#0f1420;border:1px solid #263149"></span></div>
+  <div class="row"><span>text</span><span class="sw" style="background:#e7ebf3"></span></div>
+  <div class="row muted"><span>muted</span><span class="sw" style="background:#8b93a7"></span></div>
+  <div class="row"><span>accent</span><span class="sw" style="background:#8f74f4"></span></div></div></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "id": "keyboard-nav-list",
+  "title": "Arrow-Key List",
+  "summary": "A list navigated with arrow keys.",
+  "description": "A list navigated with arrow keys.",
+  "theme": "keyboard-input",
+  "themeTitle": "Keyboard & Input",
+  "categories": [
+    "keyboard",
+    "input"
+  ],
+  "tags": [
+    "keyboard",
+    "shortcut",
+    "arrow-keys",
+    "roving-tabindex",
+    "list",
+    "navigation"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active row",
+      "default": "#22304a"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Composite widgets. Use roving tabindex — one item tabbable, arrows moving focus — so the whole list is a single tab stop rather than a dozen.",
+  "path": "effects/keyboard-input/keyboard-nav-list.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Arrow-Key List</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"keyboard-nav-list\",\n    \"title\": \"Arrow-Key List\",\n    \"summary\": \"A list navigated with arrow keys.\",\n    \"description\": \"A list navigated with arrow keys.\",\n    \"theme\": \"keyboard-input\",\n    \"categories\": [\"keyboard\", \"input\"],\n    \"tags\": [\"keyboard\", \"shortcut\", \"arrow-keys\", \"roving-tabindex\", \"list\", \"navigation\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active row\", \"default\": \"#22304a\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Composite widgets. Use roving tabindex — one item tabbable, arrows moving focus — so the whole list is a single tab stop rather than a dozen.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 250px; padding: .35rem; border-radius: 12px; background: #151b2a; border: 1px solid #263149; }\n    .fx div { padding: .5rem .7rem; border-radius: 8px; color: #cbd5e1; font-size: .86rem; }\n    .fx div.on { background: #22304a; color: #fff; }\n    .hint { margin-top: .7rem; color: #64748b; font-size: .76rem; }\n  </style>\n</head>\n<body>\n  <div><div class=\"fx\" id=\"al2\" role=\"listbox\" tabindex=\"0\" aria-label=\"Themes\" aria-activedescendant=\"o1\">\n    <div id=\"o1\" role=\"option\" class=\"on\" aria-selected=\"true\">Backgrounds</div>\n    <div id=\"o2\" role=\"option\" aria-selected=\"false\">Buttons</div>\n    <div id=\"o3\" role=\"option\" aria-selected=\"false\">Loaders</div></div>\n  <p class=\"hint\">Focus the list and press ↑ ↓</p></div>\n  <script>\n    (function () {\n      var l = document.getElementById(\"al2\"), opts = [].slice.call(l.children), i = 0;\n      l.addEventListener(\"keydown\", function (e) {\n        if (e.key !== \"ArrowDown\" && e.key !== \"ArrowUp\") return;\n        e.preventDefault();\n        opts[i].classList.remove(\"on\"); opts[i].setAttribute(\"aria-selected\", \"false\");\n        i = (i + (e.key === \"ArrowDown\" ? 1 : opts.length - 1)) % opts.length;\n        opts[i].classList.add(\"on\"); opts[i].setAttribute(\"aria-selected\", \"true\");\n        l.setAttribute(\"aria-activedescendant\", opts[i].id);\n      });\n    })();\n  </script>\n</body>\n</html>\n"
+}

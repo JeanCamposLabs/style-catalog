@@ -1,0 +1,43 @@
+{
+  "id": "divider-wave-svg",
+  "title": "Wave Divider",
+  "summary": "A repeating wave edge drawn in SVG.",
+  "description": "A repeating wave edge drawn in SVG. Purely decorative and self-contained, so it drops between any two sections.",
+  "theme": "dividers-shapes",
+  "themeTitle": "Dividers & Shapes",
+  "categories": [
+    "divider",
+    "shape"
+  ],
+  "tags": [
+    "divider",
+    "separator",
+    "wave",
+    "svg",
+    "organic"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Dividers are decorative: mark them aria-hidden so they are not announced as content.",
+  "customization": [
+    {
+      "name": "--h",
+      "description": "Wave height",
+      "default": "54px"
+    }
+  ],
+  "variations": [
+    "Flip vertically for the opposite section",
+    "Recolour to match the next section"
+  ],
+  "related": [],
+  "ai_usage": "Marketing pages. Use preserveAspectRatio='none' so the wave stretches to any width instead of letterboxing.",
+  "path": "effects/dividers-shapes/divider-wave-svg.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Wave Divider</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"divider-wave-svg\",\n    \"title\": \"Wave Divider\",\n    \"summary\": \"A repeating wave edge drawn in SVG.\",\n    \"description\": \"A repeating wave edge drawn in SVG. Purely decorative and self-contained, so it drops between any two sections.\",\n    \"theme\": \"dividers-shapes\",\n    \"categories\": [\"divider\", \"shape\"],\n    \"tags\": [\"divider\", \"separator\", \"wave\", \"svg\", \"organic\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Dividers are decorative: mark them aria-hidden so they are not announced as content.\",\n    \"customization\": [\n      { \"name\": \"--h\", \"description\": \"Wave height\", \"default\": \"54px\" }\n    ],\n    \"variations\": [\"Flip vertically for the opposite section\", \"Recolour to match the next section\"],\n    \"ai_usage\": \"Marketing pages. Use preserveAspectRatio='none' so the wave stretches to any width instead of letterboxing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .top { background: #151b2a; padding: 1.6rem; text-align: center; color: #8b93a7; font-size: .85rem; }\n    .bottom { background: #7c5cff; padding: 1.6rem; text-align: center; color: #1a1030; font-size: .85rem; font-weight: 700; }\n    .stage { width: min(92vw, 340px); }\n    .divider { line-height: 0; }\n    .divider svg { display: block; width: 100%; height: 54px; }\n    .divider path { fill: #7c5cff; }\n  </style>\n</head>\n<body>\n  <div class=\"stage\"><div class=\"top\">Section one</div>\n  <div class=\"divider\" aria-hidden=\"true\"><svg viewBox=\"0 0 340 54\" preserveAspectRatio=\"none\"><path d=\"M0 30 C 60 0 110 54 170 30 C 230 6 280 54 340 24 L340 54 L0 54 Z\"/></svg></div>\n  <div class=\"bottom\">Section two</div></div>\n</body>\n</html>\n"
+}

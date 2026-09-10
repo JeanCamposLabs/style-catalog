@@ -1,0 +1,44 @@
+{
+  "id": "cursor-svg-custom-image",
+  "title": "Custom SVG Cursor",
+  "summary": "A cursor replaced by an inline SVG.",
+  "description": "A cursor replaced by an inline SVG.",
+  "theme": "cursors-pointers",
+  "themeTitle": "Cursors & Pointers",
+  "categories": [
+    "cursor",
+    "pointer"
+  ],
+  "tags": [
+    "cursor",
+    "pointer",
+    "custom",
+    "svg",
+    "data-uri",
+    "hotspot"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.",
+  "customization": [
+    {
+      "name": "--hot",
+      "description": "Hotspot",
+      "default": "14 14"
+    }
+  ],
+  "variations": [
+    "Retune through the custom properties",
+    "Adapt for a light theme"
+  ],
+  "related": [],
+  "ai_usage": "Design tools and canvases. Always declare the hotspot coordinates and a native fallback after the URL, or the cursor's click point will be wrong and unsupported browsers get nothing.",
+  "path": "effects/cursors-pointers/cursor-svg-custom-image.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Custom SVG Cursor</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"cursor-svg-custom-image\",\n    \"title\": \"Custom SVG Cursor\",\n    \"summary\": \"A cursor replaced by an inline SVG.\",\n    \"description\": \"A cursor replaced by an inline SVG.\",\n    \"theme\": \"cursors-pointers\",\n    \"categories\": [\"cursor\", \"pointer\"],\n    \"tags\": [\"cursor\", \"pointer\", \"custom\", \"svg\", \"data-uri\", \"hotspot\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Custom cursors are gated to fine pointers; touch and reduced-motion users keep the native cursor and full functionality.\",\n    \"customization\": [\n      { \"name\": \"--hot\", \"description\": \"Hotspot\", \"default\": \"14 14\" }\n    ],\n    \"variations\": [\"Retune through the custom properties\", \"Adapt for a light theme\"],\n    \"ai_usage\": \"Design tools and canvases. Always declare the hotspot coordinates and a native fallback after the URL, or the cursor's click point will be wrong and unsupported browsers get nothing.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { width: 290px; height: 160px; border-radius: 14px; background: #151b2a; border: 1px solid #263149;\n      display: grid; place-items: center; color: #8b93a7; font-size: .88rem;\n      cursor: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='14' cy='14' r='9' fill='none' stroke='%237c5cff' stroke-width='2'/%3E%3Ccircle cx='14' cy='14' r='2' fill='%237c5cff'/%3E%3C/svg%3E\") 14 14, crosshair; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\">Move the pointer inside this area</div>\n</body>\n</html>\n"
+}

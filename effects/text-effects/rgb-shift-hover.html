@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RGB Shift on Hover</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "rgb-shift-hover",
+    "title": "RGB Shift on Hover",
+    "summary": "Red and cyan ghosts split away from the text under the pointer.",
+    "description": "Two aria-hidden duplicates in red and cyan sit behind the text and separate on hover, mimicking chromatic aberration.",
+    "theme": "text-effects",
+    "categories": ["text", "hover"],
+    "tags": ["chromatic-aberration", "rgb-split", "hover", "glitch", "3d-glasses"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Keep the real text in the DOM so it stays selectable and readable by assistive tech; decorative layers use aria-hidden. Motion stops under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--r", "description": "Left ghost color", "default": "#ff4d4d" },
+      { "name": "--b", "description": "Right ghost color", "default": "#4dd2ff" },
+      { "name": "--d", "description": "Split distance", "default": "4px" }
+    ],
+    "variations": ["Constant jitter instead of hover", "Vertical split", "Animate the split on page load"],
+    "ai_usage": "Hover treatment for links or titles in a technical or retro-futurist design. Duplicates go in data-text attributes rendered by ::before/::after so the DOM keeps a single text node."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    :root { --r: #ff4d4d; --b: #4dd2ff; --d: 4px; }
+    .rgb { position: relative; font-size: clamp(2rem, 8vw, 3.6rem); font-weight: 900; cursor: default; }
+    .rgb::before, .rgb::after { content: attr(data-text); position: absolute; inset: 0; transition: transform .25s ease; }
+    .rgb::before { color: var(--r); z-index: -1; }
+    .rgb::after { color: var(--b); z-index: -2; }
+    .rgb:hover::before { transform: translate(calc(var(--d) * -1), calc(var(--d) * -.5)); }
+    .rgb:hover::after { transform: translate(var(--d), calc(var(--d) * .5)); }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="rgb" data-text="ABERRATION">ABERRATION</h1>
+</body>
+</html>

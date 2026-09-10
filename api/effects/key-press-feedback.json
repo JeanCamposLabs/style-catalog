@@ -1,0 +1,44 @@
+{
+  "id": "key-press-feedback",
+  "title": "Key Press Feedback",
+  "summary": "On-screen keys lighting as you type.",
+  "description": "On-screen keys lighting as you type.",
+  "theme": "keyboard-input",
+  "themeTitle": "Keyboard & Input",
+  "categories": [
+    "keyboard",
+    "input"
+  ],
+  "tags": [
+    "keyboard",
+    "shortcut",
+    "typing",
+    "feedback",
+    "highlight",
+    "tutor"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Active colour",
+      "default": "#7c5cff"
+    }
+  ],
+  "variations": [
+    "Reskin through the custom properties",
+    "Swap the copy for your own"
+  ],
+  "related": [],
+  "ai_usage": "Typing tutors and shortcut trainers. Listen on keydown/keyup with event.code, not event.key, so the highlight is correct on non-QWERTY layouts.",
+  "path": "effects/keyboard-input/key-press-feedback.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Key Press Feedback</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"key-press-feedback\",\n    \"title\": \"Key Press Feedback\",\n    \"summary\": \"On-screen keys lighting as you type.\",\n    \"description\": \"On-screen keys lighting as you type.\",\n    \"theme\": \"keyboard-input\",\n    \"categories\": [\"keyboard\", \"input\"],\n    \"tags\": [\"keyboard\", \"shortcut\", \"typing\", \"feedback\", \"highlight\", \"tutor\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Shortcut hints must reflect the user's platform, and no action should be reachable only by a shortcut.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Active colour\", \"default\": \"#7c5cff\" }\n    ],\n    \"variations\": [\"Reskin through the custom properties\", \"Swap the copy for your own\"],\n    \"ai_usage\": \"Typing tutors and shortcut trainers. Listen on keydown/keyup with event.code, not event.key, so the highlight is correct on non-QWERTY layouts.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .fx { display: grid; gap: 5px; }\n    .row { display: flex; gap: 5px; justify-content: center; }\n    .fx kbd { min-width: 34px; height: 34px; display: grid; place-items: center; border-radius: 7px; background: #1c2437;\n      border: 1px solid #2b3450; color: #8b93a7; font-family: ui-monospace, monospace; font-size: .78rem;\n      transition: background .1s, color .1s, transform .1s; }\n    .fx kbd.on { background: #7c5cff; color: #fff; transform: translateY(2px); }\n    .hint { margin-top: .7rem; text-align: center; color: #64748b; font-size: .76rem; }\n  </style>\n</head>\n<body>\n  <div class=\"fx\" id=\"kb2\"><div class=\"row\"><kbd data-k=\"KeyQ\">Q</kbd><kbd data-k=\"KeyW\">W</kbd><kbd data-k=\"KeyE\">E</kbd><kbd data-k=\"KeyR\">R</kbd></div>\n  <div class=\"row\"><kbd data-k=\"KeyA\">A</kbd><kbd data-k=\"KeyS\">S</kbd><kbd data-k=\"KeyD\">D</kbd><kbd data-k=\"KeyF\">F</kbd></div></div>\n  <p class=\"hint\">Click here, then type Q W E R A S D F</p>\n  <script>\n    (function () {\n      function set(code, on) {\n        var el = document.querySelector('[data-k=\"' + code + '\"]');\n        if (el) el.classList.toggle(\"on\", on);\n      }\n      addEventListener(\"keydown\", function (e) { set(e.code, true); });\n      addEventListener(\"keyup\", function (e) { set(e.code, false); });\n    })();\n  </script>\n</body>\n</html>\n"
+}

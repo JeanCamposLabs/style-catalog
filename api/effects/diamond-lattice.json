@@ -1,0 +1,50 @@
+{
+  "id": "diamond-lattice",
+  "title": "Diamond Lattice",
+  "summary": "An open diamond trellis.",
+  "description": "An open diamond trellis. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.",
+  "theme": "patterns-textures",
+  "themeTitle": "Patterns & Textures",
+  "categories": [
+    "pattern",
+    "background"
+  ],
+  "tags": [
+    "pattern",
+    "css-only",
+    "tileable",
+    "diamond",
+    "lattice",
+    "trellis",
+    "geometric"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "intermediate",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Lattice colour",
+      "default": "rgba(251,191,36,.35)"
+    },
+    {
+      "name": "--s",
+      "description": "Lattice pitch",
+      "default": "46px"
+    }
+  ],
+  "variations": [
+    "Recolour via the custom properties",
+    "Scale the tile with --s"
+  ],
+  "related": [],
+  "ai_usage": "Art-deco and luxury framing. Increase the line weight and tighten the spacing for a metallic grille look.",
+  "path": "effects/patterns-textures/diamond-lattice.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Diamond Lattice</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"diamond-lattice\",\n    \"title\": \"Diamond Lattice\",\n    \"summary\": \"An open diamond trellis.\",\n    \"description\": \"An open diamond trellis. Built from tiled CSS gradients on a single element, so it scales to any size without an image request.\",\n    \"theme\": \"patterns-textures\",\n    \"categories\": [\"pattern\", \"background\"],\n    \"tags\": [\"pattern\", \"css-only\", \"tileable\", \"diamond\", \"lattice\", \"trellis\", \"geometric\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"intermediate\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Purely decorative. Keep pattern contrast low behind text, and avoid high-frequency stripes that can trigger visual discomfort.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Lattice colour\", \"default\": \"rgba(251,191,36,.35)\" },\n      { \"name\": \"--s\", \"description\": \"Lattice pitch\", \"default\": \"46px\" }\n    ],\n    \"variations\": [\"Recolour via the custom properties\", \"Scale the tile with --s\"],\n    \"ai_usage\": \"Art-deco and luxury framing. Increase the line weight and tighten the spacing for a metallic grille look.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .bg { position: fixed; inset: 0; }\n    :root { --c: rgba(251,191,36,.35); --s: 46px; }\n    .bg { background-color: #0b0d12;\n      background-image: repeating-linear-gradient(45deg, var(--c) 0 1.5px, transparent 1.5px var(--s)),\n        repeating-linear-gradient(-45deg, var(--c) 0 1.5px, transparent 1.5px var(--s)); }\n  </style>\n</head>\n<body>\n  <div class=\"bg\"></div>\n</body>\n</html>\n"
+}

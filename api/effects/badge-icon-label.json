@@ -1,0 +1,44 @@
+{
+  "id": "badge-icon-label",
+  "title": "Icon Badge",
+  "summary": "A badge combining a glyph and a short label.",
+  "description": "A badge combining a glyph and a short label. Small self-contained component ready to drop into a list or card.",
+  "theme": "badges-tags",
+  "themeTitle": "Badges & Tags",
+  "categories": [
+    "badge",
+    "label"
+  ],
+  "tags": [
+    "badge",
+    "label",
+    "icon",
+    "label",
+    "verified",
+    "meta"
+  ],
+  "tech": [
+    "css"
+  ],
+  "era": "2020s",
+  "difficulty": "beginner",
+  "dependencies": [],
+  "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+  "performance_notes": "Lightweight — composited transform/opacity work only.",
+  "accessibility_notes": "Status must never be colour-only: pair every badge colour with a label, icon, or shape.",
+  "customization": [
+    {
+      "name": "--c",
+      "description": "Accent",
+      "default": "#38bdf8"
+    }
+  ],
+  "variations": [
+    "Add a size variant",
+    "Map colours to semantic tokens"
+  ],
+  "related": [],
+  "ai_usage": "Verification marks and file types. Keep the glyph aria-hidden and let the text carry the meaning.",
+  "path": "effects/badges-tags/badge-icon-label.html",
+  "source": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Icon Badge</title>\n  <script type=\"application/json\" id=\"effect-meta\">\n  {\n    \"id\": \"badge-icon-label\",\n    \"title\": \"Icon Badge\",\n    \"summary\": \"A badge combining a glyph and a short label.\",\n    \"description\": \"A badge combining a glyph and a short label. Small self-contained component ready to drop into a list or card.\",\n    \"theme\": \"badges-tags\",\n    \"categories\": [\"badge\", \"label\"],\n    \"tags\": [\"badge\", \"label\", \"icon\", \"label\", \"verified\", \"meta\"],\n    \"tech\": [\"css\"],\n    \"era\": \"2020s\",\n    \"difficulty\": \"beginner\",\n    \"dependencies\": [],\n    \"browser_support\": \"All modern browsers (Chromium, Firefox, Safari).\",\n    \"performance_notes\": \"Lightweight — composited transform/opacity work only.\",\n    \"accessibility_notes\": \"Status must never be colour-only: pair every badge colour with a label, icon, or shape.\",\n    \"customization\": [\n      { \"name\": \"--c\", \"description\": \"Accent\", \"default\": \"#38bdf8\" }\n    ],\n    \"variations\": [\"Add a size variant\", \"Map colours to semantic tokens\"],\n    \"ai_usage\": \"Verification marks and file types. Keep the glyph aria-hidden and let the text carry the meaning.\"\n  }\n  </script>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; }\n    html, body { height: 100%; margin: 0; }\n    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;\n      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif; overflow: hidden; }\n    .row { display: flex; gap: .5rem; }\n    .b { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .7rem; border-radius: 8px;\n      background: #1c2437; color: #cbd5e1; font-size: .8rem; font-weight: 600; }\n    .b.v { background: rgba(56,189,248,.14); color: #38bdf8; }\n  </style>\n</head>\n<body>\n  <div class=\"row\"><span class=\"b v\"><span aria-hidden=\"true\">✔</span>Verified</span><span class=\"b\"><span aria-hidden=\"true\">◷</span>2 min read</span></div>\n</body>\n</html>\n"
+}
