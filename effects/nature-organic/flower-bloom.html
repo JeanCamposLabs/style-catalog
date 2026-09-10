@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blooming Flower</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "flower-bloom",
+    "title": "Blooming Flower",
+    "summary": "Petals unfold from a closed bud.",
+    "description": "Petals unfold from a closed bud.",
+    "theme": "nature-organic",
+    "categories": ["nature", "organic"],
+    "tags": ["organic", "nature", "flower", "bloom", "petals", "unfold"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Petal colour", "default": "#db2777" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Growth and wellness moments. Each petal shares one keyframe and differs only by its --a rotation, so petal count is a markup change."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 130px; height: 130px; display: grid; place-items: center; }
+    .fx i { position: absolute; width: 30px; height: 60px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: linear-gradient(180deg, #f9a8d4, #db2777); transform-origin: 50% 100%;
+      transform: rotate(var(--a)) translateY(-6px) scale(0); animation: bloom 4s ease-in-out infinite; }
+    .fx .core { width: 22px; height: 22px; border-radius: 50%; background: #fbbf24; z-index: 1; }
+    @keyframes bloom { 0%, 10% { transform: rotate(var(--a)) translateY(-6px) scale(0); } 55%, 90% { transform: rotate(var(--a)) translateY(-30px) scale(1); } 100% { transform: rotate(var(--a)) translateY(-6px) scale(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="--a:0deg"></i><i style="--a:60deg"></i><i style="--a:120deg"></i><i style="--a:180deg"></i><i style="--a:240deg"></i><i style="--a:300deg"></i><span class="core"></span></div>
+</body>
+</html>

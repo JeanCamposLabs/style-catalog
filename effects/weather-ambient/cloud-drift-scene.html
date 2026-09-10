@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drifting Clouds</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "cloud-drift-scene",
+    "title": "Drifting Clouds",
+    "summary": "Puffy clouds crossing a daylight sky.",
+    "description": "Puffy clouds crossing a daylight sky.",
+    "theme": "weather-ambient",
+    "categories": ["weather", "ambient"],
+    "tags": ["weather", "ambient", "clouds", "sky", "drift", "daylight"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+    "customization": [
+      { "name": "--dur", "description": "Crossing period", "default": "18s" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Daylight scenes and empty states. Build each cloud from a rounded bar plus two circles; a single ellipse never reads as a cloud."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 270px; height: 160px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(180deg, #38bdf8, #bae6fd); }
+    .fx .cl { position: absolute; height: 26px; border-radius: 99px; background: #fff;
+      animation: cross var(--d) linear infinite; animation-delay: var(--dl); }
+    .fx .cl::before, .fx .cl::after { content: ""; position: absolute; bottom: 0; border-radius: 50%; background: #fff; }
+    .fx .cl::before { left: 12px; width: 30px; height: 30px; }
+    .fx .cl::after { right: 14px; width: 22px; height: 22px; }
+    @keyframes cross { from { transform: translateX(-120px); } to { transform: translateX(300px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="cl" style="top:22%;width:74px;--d:18s;--dl:0s"></span>
+  <span class="cl" style="top:52%;width:56px;--d:26s;--dl:-8s"></span></div>
+</body>
+</html>

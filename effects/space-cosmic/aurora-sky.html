@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aurora Sky</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "aurora-sky",
+    "title": "Aurora Sky",
+    "summary": "Green and violet curtains over a starfield.",
+    "description": "Green and violet curtains over a starfield.",
+    "theme": "space-cosmic",
+    "categories": ["space", "cosmic"],
+    "tags": ["space", "cosmic", "aurora", "curtains", "night", "sky"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+    "customization": [
+      { "name": "--a", "description": "Curtain colour", "default": "#34d399" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Arctic and night scenes. Vertical blurred columns with independent sway periods; horizontal gradients read as sunset instead."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 280px; height: 180px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(180deg, #050b16, #0b1a2a); }
+    .fx .st { position: absolute; inset: 0; background-image: radial-gradient(#fff 1px, transparent 1.3px); background-size: 46px 46px; opacity: .7; }
+    .fx i { position: absolute; top: -10%; height: 120%; width: 60px; filter: blur(22px); opacity: .5;
+      animation: sway var(--d) ease-in-out infinite alternate; }
+    @keyframes sway { from { transform: translateX(-14px) skewX(-8deg); } to { transform: translateX(18px) skewX(10deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="st"></span>
+  <i style="left:12%;background:linear-gradient(180deg,transparent,#34d399,transparent);--d:9s"></i>
+  <i style="left:44%;background:linear-gradient(180deg,transparent,#22d3ee,transparent);--d:13s"></i>
+  <i style="left:72%;background:linear-gradient(180deg,transparent,#a78bfa,transparent);--d:11s"></i></div>
+</body>
+</html>

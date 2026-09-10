@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snow Globe</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "snow-globe",
+    "title": "Snow Globe",
+    "summary": "A glass dome with snow settling inside.",
+    "description": "A glass dome with snow settling inside.",
+    "theme": "weather-ambient",
+    "categories": ["weather", "ambient"],
+    "tags": ["weather", "ambient", "snow", "globe", "winter", "glass"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+    "customization": [
+      { "name": "--c", "description": "Glass tint", "default": "rgba(219,234,254,.25)" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Seasonal decorations. The inset highlight and shadow pair is what makes the dome read as glass rather than a flat circle."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 170px; height: 190px; display: grid; place-items: end center; }
+    .fx .dome { position: absolute; top: 0; width: 160px; height: 160px; border-radius: 50%; overflow: hidden;
+      background: linear-gradient(160deg, rgba(219,234,254,.25), rgba(30,58,138,.35));
+      box-shadow: inset -12px -10px 30px rgba(0,0,0,.35), inset 12px 10px 24px rgba(255,255,255,.25); }
+    .fx .dome i { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #fff;
+      animation: fall var(--d) linear infinite; animation-delay: var(--dl); }
+    .fx .base { width: 150px; height: 34px; border-radius: 10px 10px 14px 14px; background: linear-gradient(180deg, #7c2d12, #431407); }
+    @keyframes fall { from { transform: translateY(-10px); } to { transform: translateY(170px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><div class="dome"><i style="left:20%;--d:4s;--dl:0s"></i><i style="left:44%;--d:5.4s;--dl:-2s"></i>
+  <i style="left:66%;--d:4.6s;--dl:-3s"></i><i style="left:82%;--d:6s;--dl:-1s"></i></div><div class="base"></div></div>
+</body>
+</html>

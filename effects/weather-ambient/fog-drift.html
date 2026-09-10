@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drifting Fog</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "fog-drift",
+    "title": "Drifting Fog",
+    "summary": "Soft fog banks sliding across a scene.",
+    "description": "Soft fog banks sliding across a scene.",
+    "theme": "weather-ambient",
+    "categories": ["weather", "ambient"],
+    "tags": ["weather", "ambient", "fog", "mist", "drift", "atmosphere"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+    "customization": [
+      { "name": "--c", "description": "Fog colour", "default": "rgba(226,232,240,.16)" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Atmospheric depth. Use several wide blurred bands at different speeds and vertical positions; one band reads as a smudge."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 260px; height: 170px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(180deg, #334155, #0f172a); }
+    .fx i { position: absolute; height: 60px; width: 200%; left: -50%; border-radius: 50%; filter: blur(22px);
+      background: rgba(226,232,240,.16); animation: drift var(--d) linear infinite; }
+    @keyframes drift { from { transform: translateX(-25%); } to { transform: translateX(25%); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="top:30%;--d:14s"></i><i style="top:52%;--d:20s"></i><i style="top:70%;--d:17s"></i></div>
+</body>
+</html>

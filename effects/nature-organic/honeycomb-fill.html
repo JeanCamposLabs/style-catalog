@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Honeycomb Fill</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "honeycomb-fill",
+    "title": "Honeycomb Fill",
+    "summary": "Hex cells filling with honey in sequence.",
+    "description": "Hex cells filling with honey in sequence.",
+    "theme": "nature-organic",
+    "categories": ["nature", "organic"],
+    "tags": ["organic", "nature", "honeycomb", "hex", "fill", "bees"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Ambient nature motion should be slow and optional — disable it entirely under prefers-reduced-motion.",
+    "customization": [
+      { "name": "--c", "description": "Honey colour", "default": "#fbbf24" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Progress and collection metaphors. Fill from the bottom with a height animation inside a clipped hex so the liquid respects the cell shape."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: grid; grid-template-columns: repeat(3, 52px); gap: 4px; }
+    .fx i { width: 52px; height: 58px; background: #3b2f14; clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+      position: relative; overflow: hidden; }
+    .fx i::after { content: ""; position: absolute; inset: auto 0 0 0; height: 0; background: #fbbf24;
+      animation: fill 3.2s ease-in-out infinite; animation-delay: calc(var(--i) * .2s); }
+    @keyframes fill { 0%, 10% { height: 0; } 55%, 90% { height: 100%; } 100% { height: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i></div>
+</body>
+</html>

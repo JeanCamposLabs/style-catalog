@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orbiting System</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "orbit-system",
+    "title": "Orbiting System",
+    "summary": "Planets circling a star at different periods.",
+    "description": "Planets circling a star at different periods.",
+    "theme": "space-cosmic",
+    "categories": ["space", "cosmic"],
+    "tags": ["space", "cosmic", "orbit", "planets", "solar-system", "rotate"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+    "customization": [
+      { "name": "--c", "description": "Planet colour", "default": "#7c5cff" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Ecosystem and integration diagrams. Give outer orbits longer periods (as real ones have) or the system looks like a rigid pinwheel."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 220px; height: 220px; display: grid; place-items: center; }
+    .fx .o { position: absolute; border: 1px dashed rgba(148,163,184,.25); border-radius: 50%; animation: spin var(--d) linear infinite; }
+    .fx .o i { position: absolute; top: -6px; left: 50%; margin-left: -6px; width: 12px; height: 12px; border-radius: 50%; background: var(--c); }
+    .fx .star { width: 34px; height: 34px; border-radius: 50%; background: radial-gradient(circle, #fff, #fbbf24);
+      box-shadow: 0 0 30px #fbbf24; }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="o" style="inset:30px;--d:6s"><i style="--c:#38bdf8"></i></span>
+  <span class="o" style="inset:0;--d:11s"><i style="--c:#f472b6"></i></span><span class="star"></span></div>
+</body>
+</html>

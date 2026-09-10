@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day / Night Scene</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "day-night-toggle-scene",
+    "title": "Day / Night Scene",
+    "summary": "A scene that crossfades between day and night.",
+    "description": "A scene that crossfades between day and night.",
+    "theme": "weather-ambient",
+    "categories": ["weather", "ambient"],
+    "tags": ["weather", "ambient", "day-night", "cycle", "crossfade", "theme"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Flashing weather effects (lightning) can be a seizure risk — keep flashes infrequent, low-contrast, and disabled under reduced motion.",
+    "customization": [
+      { "name": "--dur", "description": "Cycle length", "default": "10s" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Theme switchers and time-of-day states. Crossfade two stacked skies rather than animating one gradient's stops, which browsers cannot interpolate smoothly."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 260px; height: 150px; border-radius: 14px; overflow: hidden; }
+    .fx .sky { position: absolute; inset: 0; animation: cycle 10s ease-in-out infinite alternate; }
+    .fx .day { background: linear-gradient(180deg, #38bdf8, #bae6fd); }
+    .fx .night { background: linear-gradient(180deg, #0f172a, #1e293b); opacity: 0; animation-name: cyclen; }
+    .fx .orb { position: absolute; top: 22%; left: 50%; translate: -50% 0; width: 46px; height: 46px; border-radius: 50%;
+      background: #fde68a; box-shadow: 0 0 34px #fbbf24; animation: arc 10s ease-in-out infinite alternate; }
+    @keyframes cycle { to { opacity: 1; } }
+    @keyframes cyclen { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes arc { from { transform: translate(-90px, 30px); } to { transform: translate(90px, 30px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="sky day"></span><span class="sky night"></span><span class="orb"></span></div>
+</body>
+</html>

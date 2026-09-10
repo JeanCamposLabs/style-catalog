@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moon Phases</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "moon-phases",
+    "title": "Moon Phases",
+    "summary": "Eight phases rendered with masked circles.",
+    "description": "Eight phases rendered with masked circles.",
+    "theme": "space-cosmic",
+    "categories": ["space", "cosmic"],
+    "tags": ["space", "cosmic", "moon", "phases", "astronomy", "calendar"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+    "customization": [
+      { "name": "--c", "description": "Moon colour", "default": "#e2e8f0" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Calendars and astronomy widgets. A shadow disc translated and scaled horizontally reproduces every phase from one element."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { display: flex; gap: 10px; flex-wrap: wrap; width: 280px; justify-content: center; }
+    .fx i { width: 44px; height: 44px; border-radius: 50%; background: #e2e8f0; position: relative; overflow: hidden; }
+    .fx i::after { content: ""; position: absolute; inset: 0; background: #0b0d12; border-radius: 50%;
+      transform: translateX(var(--x)) scaleX(var(--sx)); }
+  </style>
+</head>
+<body>
+  <div class="fx"><i style="--x:0%;--sx:1"></i><i style="--x:-70%;--sx:1"></i><i style="--x:-100%;--sx:1"></i>
+  <i style="--x:-100%;--sx:.4"></i><i style="--x:100%;--sx:.4"></i><i style="--x:100%;--sx:1"></i><i style="--x:70%;--sx:1"></i></div>
+</body>
+</html>

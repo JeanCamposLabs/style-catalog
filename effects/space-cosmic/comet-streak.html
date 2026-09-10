@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comet Streak</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "comet-streak",
+    "title": "Comet Streak",
+    "summary": "A comet crossing the frame with a tapering tail.",
+    "description": "A comet crossing the frame with a tapering tail.",
+    "theme": "space-cosmic",
+    "categories": ["space", "cosmic"],
+    "tags": ["space", "cosmic", "comet", "streak", "tail", "motion"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+    "customization": [
+      { "name": "--c", "description": "Comet colour", "default": "#a5f3fc" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Space scenes and loading flourishes. The tail must trail behind the head — build it as a gradient that fades away from the bright end."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 280px; height: 170px; border-radius: 14px; overflow: hidden; background: #05070d; }
+    .fx .c { position: absolute; top: 20%; left: -20%; width: 90px; height: 3px; border-radius: 99px;
+      background: linear-gradient(90deg, transparent, #a5f3fc, #fff); animation: fly 4s linear infinite; }
+    .fx .c::after { content: ""; position: absolute; right: -3px; top: -3px; width: 9px; height: 9px; border-radius: 50%;
+      background: #fff; box-shadow: 0 0 14px #a5f3fc; }
+    @keyframes fly { to { transform: translate(320px, 90px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="c"></span></div>
+</body>
+</html>

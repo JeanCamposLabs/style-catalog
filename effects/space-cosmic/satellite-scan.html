@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Satellite Scan</title>
+  <script type="application/json" id="effect-meta">
+  {
+    "id": "satellite-scan",
+    "title": "Satellite Scan",
+    "summary": "A satellite sweeping a beam over a planet's edge.",
+    "description": "A satellite sweeping a beam over a planet's edge.",
+    "theme": "space-cosmic",
+    "categories": ["space", "cosmic"],
+    "tags": ["space", "cosmic", "satellite", "scan", "beam", "planet"],
+    "tech": ["css"],
+    "era": "2020s",
+    "difficulty": "intermediate",
+    "dependencies": [],
+    "browser_support": "All modern browsers (Chromium, Firefox, Safari).",
+    "performance_notes": "Lightweight — composited transform/opacity work only.",
+    "accessibility_notes": "Deep-space palettes are very low contrast — keep any text on a solid panel above the scene.",
+    "customization": [
+      { "name": "--c", "description": "Beam colour", "default": "rgba(56,189,248,.2)" }
+    ],
+    "variations": ["Retune the palette", "Slow it down for an ambient version"],
+    "ai_usage": "Monitoring and coverage visuals. Animate satellite and beam with the same keyframe so they can never drift apart."
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #0b0d12; color: #e7ebf3;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    .fx { position: relative; width: 260px; height: 170px; border-radius: 14px; overflow: hidden; background: #05070d; }
+    .fx .planet { position: absolute; bottom: -120px; left: 50%; translate: -50% 0; width: 260px; height: 200px;
+      border-radius: 50%; background: radial-gradient(circle at 40% 20%, #38bdf8, #0c4a6e 60%, #082f49); }
+    .fx .sat { position: absolute; top: 26px; left: 30px; width: 14px; height: 10px; border-radius: 3px; background: #cbd5e1;
+      animation: cross 6s linear infinite; }
+    .fx .beam { position: absolute; top: 36px; left: 30px; width: 0; height: 0;
+      border-left: 26px solid transparent; border-right: 26px solid transparent; border-top: 90px solid rgba(56,189,248,.2);
+      animation: cross 6s linear infinite; }
+    @keyframes cross { to { transform: translateX(200px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fx"><span class="planet"></span><span class="beam"></span><span class="sat"></span></div>
+</body>
+</html>
